@@ -1,0 +1,10 @@
+{
+  "name": "home",
+  "version": "0.0.0",
+  "author": "Adrian Sampson <asampson@cs.washington.edu>",
+  "private": true,
+  "dependencies": {
+    "bower": "~1.2.8",
+    "less": "~1.6.2"
+  }
+}
