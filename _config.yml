@@ -1,0 +1,11 @@
+name: A Test
+
+markdown: redcarpet
+redcarpet:
+    extensions: [smart]
+
+exclude:
+    - bower_components
+    - node_modules
+    - package.json
+    - bower.json
