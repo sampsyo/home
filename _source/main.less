@@ -6,9 +6,26 @@
 @container-lg: @container-sm;
 
 // My trademarked green.
-@highlight-color: #51a012;
+@brand-primary: #51a012;
+
+@title-font: 'PT Sans', sans-serif;
+
+body {
+    font-family: Lora, serif;
+}
 
 h1 {
+    font-family: @title-font;
     font-weight: bold;
-    color: @highlight-color;
+    color: @brand-primary;
+    margin-bottom: 0;
+}
+
+address {
+    font-family: @title-font;
+    font-size: 1.2em;
+    margin-top: 0;
+    a {
+        display: block;
+    }
 }
