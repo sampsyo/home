@@ -8,18 +8,32 @@
         <link rel="stylesheet" href="/media/main.css">
     </head>
     <body>
-
         <div class="container">
-            <h1>{{ site.name }}</h1>
-            <address>
-                <a href="http://www.cs.washington.edu">Computer Science &amp;
-                    Engineering</a>
-                <a href="http://www.washington.edu">University of
-                    Washington</a>
-            </address>
+
+            <header>
+                <div id="leader">
+                    <h1>{{ site.name }}</h1>
+                    <address>
+                        <a href="http://www.cs.washington.edu">Computer
+                            Science &amp; Engineering</a>
+                        <a href="http://www.washington.edu">University of
+                            Washington</a>
+                    </address>
+                </div>
+                <nav>
+                    {% assign shorturl = page.url | replace:'index.html','' %}
+                    {% for item in site.navigation %}
+                    <a
+                        {% if item.link == shorturl %}class="active"{% endif %}
+                        href="{{ item.link }}">
+                        {{ item.title }}
+                    </a>
+                    {% endfor %}
+                </nav>
+            </header>
 
             {{ content }}
-        </div>
 
+        </div>
     </body>
 </html>

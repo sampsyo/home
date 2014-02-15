@@ -9,3 +9,13 @@ exclude:
     - node_modules
     - package.json
     - bower.json
+
+navigation:
+    - title: home
+      link: /
+    - title: blog
+      link: /blog/
+    - title: research
+      link: /research.html
+    - title: '&amp;c.'
+      link: /etc.html

@@ -14,8 +14,40 @@ body {
     font-family: Lora, serif;
 }
 
-h1 {
+// Page header.
+header {
     font-family: @title-font;
+    .make-row();
+    a:hover {
+        text-decoration: none;
+    }
+}
+#leader {
+    .make-md-column(6);
+    .make-sm-column(6);
+}
+nav {
+    .make-md-column(6);
+    .make-sm-column(6);
+    margin: 0 0 1.5em;
+    a {
+        display: inline-block;
+        margin: 0 0.25em;
+        font-size: 1.2em;
+        padding: 2px 6px;
+        border-radius: 3px;
+    }
+    a.active {
+        background: @brand-primary;
+        color: white;
+    }
+    @media (min-width: @screen-sm-min) {
+        margin-top: 2em;
+        text-align: right;
+    }
+}
+
+h1 {
     font-weight: bold;
     color: @brand-primary;
     margin-bottom: 0;
