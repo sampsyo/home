@@ -7,6 +7,5 @@ setup:
 	npm install
 	./node_modules/bower/bin/bower install
 
-media/main.css: bower_components/bootstrap/less/*.less
-	./node_modules/less/bin/lessc $(LESSARGS) \
-		bower_components/bootstrap/less/bootstrap.less $@
+media/main.css: _source/main.less bower_components/bootstrap/less/*.less
+	./node_modules/less/bin/lessc $(LESSARGS) $< $@
