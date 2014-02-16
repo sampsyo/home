@@ -16,10 +16,22 @@ body {
 
 // Page header.
 header {
-    font-family: @title-font;
     .make-row();
+    color: @brand-primary;
+    font-family: @title-font;
     a:hover {
         text-decoration: none;
+    }
+    h1 {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    address {
+        font-size: 1.2em;
+        margin: 0;
+        a {
+            display: block;
+        }
     }
 }
 #leader {
@@ -51,32 +63,19 @@ nav {
 }
 
 // Headings.
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-family: @title-font;
-    font-weight: bold;
-    color: @brand-primary;
-    margin-bottom: 0;
-}
-h2 {
-    font-family: @title-font;
-    margin: 0;
-}
-h3 {
-    font-family: @title-font;
-}
-
-address {
-    font-family: @title-font;
-    font-size: 1.2em;
-    margin-top: 0;
-    a {
-        display: block;
-    }
 }
 
 // Lists.
 ul {
     list-style: square;
+}
+ul, ol {
+    padding-left: 0;
+    ul, ol {
+        padding-left: 1em;
+    }
 }
 ul li, ol li {
     margin: 0.8em 0;
@@ -89,6 +88,7 @@ ul li, ol li {
 // Front-page bio block.
 .blurb {
     font-size: 1.2em;
+    margin: 1em 0;
 }
 
 // Adornments on blog posts and such.
