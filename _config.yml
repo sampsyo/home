@@ -10,6 +10,8 @@ exclude:
     - package.json
     - bower.json
 
+permalink: /blog/:title.html
+
 navigation:
     - title: home
       link: /
