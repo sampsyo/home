@@ -1,0 +1,2058 @@
+{
+  "coffees": [
+    {
+      "date": "2013-08-23", 
+      "datetime": "2013-08-23 08:51:43", 
+      "desc": "Herkimer Honduras, nearing the end", 
+      "kind": "work", 
+      "mins": 531, 
+      "tod": "2001-01-01T08:51:43"
+    }, 
+    {
+      "date": "2013-08-25", 
+      "datetime": "2013-08-25 15:31:26", 
+      "desc": "Mostly Distant Lands dark roast from Judi, a little Seven decaf residue, pour over at home", 
+      "kind": "home", 
+      "mins": 931, 
+      "tod": "2001-01-01T15:31:26"
+    }, 
+    {
+      "date": "2013-08-26", 
+      "datetime": "2013-08-26 09:14:05", 
+      "desc": "Herkimer Honduras", 
+      "kind": "work", 
+      "mins": 554, 
+      "tod": "2001-01-01T09:14:05"
+    }, 
+    {
+      "date": "2013-08-26", 
+      "datetime": "2013-08-26 15:26:59", 
+      "desc": "Herkimer Honduras", 
+      "kind": "work", 
+      "mins": 926, 
+      "tod": "2001-01-01T15:26:59"
+    }, 
+    {
+      "date": "2013-08-27", 
+      "datetime": "2013-08-27 09:00:00", 
+      "desc": "tall Americano at greenwood Herkimer", 
+      "kind": "Herkimer", 
+      "mins": 540, 
+      "tod": "2001-01-01T09:00:00"
+    }, 
+    {
+      "date": "2013-08-28", 
+      "datetime": "2013-08-28 08:58:08", 
+      "desc": "Herkimer Honduras, last cup", 
+      "kind": "work", 
+      "mins": 538, 
+      "tod": "2001-01-01T08:58:08"
+    }, 
+    {
+      "date": "2013-08-28", 
+      "datetime": "2013-08-28 13:43:00", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 823, 
+      "tod": "2001-01-01T13:43:00"
+    }, 
+    {
+      "date": "2013-08-29", 
+      "datetime": "2013-08-29 09:23:50", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 563, 
+      "tod": "2001-01-01T09:23:50"
+    }, 
+    {
+      "date": "2013-08-30", 
+      "datetime": "2013-08-30 09:26:17", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 566, 
+      "tod": "2001-01-01T09:26:17"
+    }, 
+    {
+      "date": "2013-08-30", 
+      "datetime": "2013-08-30 14:46:31", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 886, 
+      "tod": "2001-01-01T14:46:31"
+    }, 
+    {
+      "date": "2013-08-31", 
+      "datetime": "2013-08-31 10:02:52", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 602, 
+      "tod": "2001-01-01T10:02:52"
+    }, 
+    {
+      "date": "2013-08-31", 
+      "datetime": "2013-08-31 14:34:55", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 874, 
+      "tod": "2001-01-01T14:34:55"
+    }, 
+    {
+      "date": "2013-09-01", 
+      "datetime": "2013-09-01 14:12:31", 
+      "desc": "Medium breve at Makeda", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 852, 
+      "tod": "2001-01-01T14:12:31"
+    }, 
+    {
+      "date": "2013-09-01", 
+      "datetime": "2013-09-01 15:47:32", 
+      "desc": "Tall drop coffee at Herkimer\u2014bad idea; drip coffee sux", 
+      "kind": "Herkimer", 
+      "mins": 947, 
+      "tod": "2001-01-01T15:47:32"
+    }, 
+    {
+      "date": "2013-09-02", 
+      "datetime": "2013-09-02 13:55:27", 
+      "desc": "El Salvador pour over at Neptune", 
+      "kind": "Neptune", 
+      "mins": 835, 
+      "tod": "2001-01-01T13:55:27"
+    }, 
+    {
+      "date": "2013-09-03", 
+      "datetime": "2013-09-03 09:49:24", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 589, 
+      "tod": "2001-01-01T09:49:24"
+    }, 
+    {
+      "date": "2013-09-03", 
+      "datetime": "2013-09-03 14:46:16", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 886, 
+      "tod": "2001-01-01T14:46:16"
+    }, 
+    {
+      "date": "2013-09-04", 
+      "datetime": "2013-09-04 09:03:45", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 543, 
+      "tod": "2001-01-01T09:03:45"
+    }, 
+    {
+      "date": "2013-09-04", 
+      "datetime": "2013-09-04 14:21:50", 
+      "desc": "12oz Breve at MS Commons", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 861, 
+      "tod": "2001-01-01T14:21:50"
+    }, 
+    {
+      "date": "2013-09-05", 
+      "datetime": "2013-09-05 10:13:45", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 613, 
+      "tod": "2001-01-01T10:13:45"
+    }, 
+    {
+      "date": "2013-09-06", 
+      "datetime": "2013-09-06 11:07:06", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 667, 
+      "tod": "2001-01-01T11:07:06"
+    }, 
+    {
+      "date": "2013-09-07", 
+      "datetime": "2013-09-07 11:31:16", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 691, 
+      "tod": "2001-01-01T11:31:16"
+    }, 
+    {
+      "date": "2013-09-07", 
+      "datetime": "2013-09-07 16:06:39", 
+      "desc": "Cold brew at Trabant", 
+      "kind": "Trabant", 
+      "mins": 966, 
+      "tod": "2001-01-01T16:06:39"
+    }, 
+    {
+      "date": "2013-09-08", 
+      "datetime": "2013-09-08 15:33:13", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 933, 
+      "tod": "2001-01-01T15:33:13"
+    }, 
+    {
+      "date": "2013-09-09", 
+      "datetime": "2013-09-09 09:55:06", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 595, 
+      "tod": "2001-01-01T09:55:06"
+    }, 
+    {
+      "date": "2013-09-10", 
+      "datetime": "2013-09-10 09:19:42", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 559, 
+      "tod": "2001-01-01T09:19:42"
+    }, 
+    {
+      "date": "2013-09-10", 
+      "datetime": "2013-09-10 13:10:37", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 790, 
+      "tod": "2001-01-01T13:10:37"
+    }, 
+    {
+      "date": "2013-09-11", 
+      "datetime": "2013-09-11 07:59:16", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 479, 
+      "tod": "2001-01-01T07:59:16"
+    }, 
+    {
+      "date": "2013-09-11", 
+      "datetime": "2013-09-11 16:22:01", 
+      "desc": "Cold brew of Seven coffee\u2014so good!", 
+      "kind": "work", 
+      "mins": 982, 
+      "tod": "2001-01-01T16:22:01"
+    }, 
+    {
+      "date": "2013-09-12", 
+      "datetime": "2013-09-12 09:20:02", 
+      "desc": "Seven Brazil, nearing the end of the bag", 
+      "kind": "work", 
+      "mins": 560, 
+      "tod": "2001-01-01T09:20:02"
+    }, 
+    {
+      "date": "2013-09-12", 
+      "datetime": "2013-09-12 14:46:59", 
+      "desc": "Seven Brazil", 
+      "kind": "work", 
+      "mins": 886, 
+      "tod": "2001-01-01T14:46:59"
+    }, 
+    {
+      "date": "2013-09-13", 
+      "datetime": "2013-09-13 10:04:48", 
+      "desc": "Tall Breve from the commons", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 604, 
+      "tod": "2001-01-01T10:04:48"
+    }, 
+    {
+      "date": "2013-09-14", 
+      "datetime": "2013-09-14 10:13:32", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 613, 
+      "tod": "2001-01-01T10:13:32"
+    }, 
+    {
+      "date": "2013-09-15", 
+      "datetime": "2013-09-15 09:31:45", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 571, 
+      "tod": "2001-01-01T09:31:45"
+    }, 
+    {
+      "date": "2013-09-15", 
+      "datetime": "2013-09-15 11:02:11", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 662, 
+      "tod": "2001-01-01T11:02:11"
+    }, 
+    {
+      "date": "2013-09-16", 
+      "datetime": "2013-09-16 10:00:52", 
+      "desc": "QED (guest roaster) at Trabant", 
+      "kind": "Trabant", 
+      "mins": 600, 
+      "tod": "2001-01-01T10:00:52"
+    }, 
+    {
+      "date": "2013-09-16", 
+      "datetime": "2013-09-16 15:39:50", 
+      "desc": "Mocha at U District Herkimer", 
+      "kind": "Herkimer", 
+      "mins": 939, 
+      "tod": "2001-01-01T15:39:50"
+    }, 
+    {
+      "date": "2013-08-17", 
+      "datetime": "2013-08-17 09:30:00", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 570, 
+      "tod": "2001-01-01T09:30:00"
+    }, 
+    {
+      "date": "2013-09-18", 
+      "datetime": "2013-09-18 09:43:29", 
+      "desc": "Distant Lands dark roast, first time measuring ingredients, made a too-small, very strong cup", 
+      "kind": "home", 
+      "mins": 583, 
+      "tod": "2001-01-01T09:43:29"
+    }, 
+    {
+      "date": "2013-09-19", 
+      "datetime": "2013-09-19 10:34:21", 
+      "desc": "Distant Lands dark roast, again measuring, this time went better but again was a little short\u2014use more water than the cup can hold next time", 
+      "kind": "home", 
+      "mins": 634, 
+      "tod": "2001-01-01T10:34:21"
+    }, 
+    {
+      "date": "2013-09-19", 
+      "datetime": "2013-09-19 12:40:00", 
+      "desc": "Cold brew, Distant Lands, sorta gritty", 
+      "kind": "home", 
+      "mins": 760, 
+      "tod": "2001-01-01T12:40:00"
+    }, 
+    {
+      "date": "2013-09-20", 
+      "datetime": "2013-09-20 09:49:32", 
+      "desc": "Mixture of the end of Seven Brazil, beginning of Seven Ethiopia; 18.8g coffee with about 404.8g water (with lots of spillage); somewhat too strong (predictable since it was about 1.5 cups on the grinder markings)", 
+      "kind": "work", 
+      "mins": 589, 
+      "tod": "2001-01-01T09:49:32"
+    }, 
+    {
+      "date": "2013-09-21", 
+      "datetime": "2013-09-21 10:15:55", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 615, 
+      "tod": "2001-01-01T10:15:55"
+    }, 
+    {
+      "date": "2013-09-23", 
+      "datetime": "2013-09-23 08:19:31", 
+      "desc": "Distant Lands dark roast", 
+      "kind": "home", 
+      "mins": 499, 
+      "tod": "2001-01-01T08:19:31"
+    }, 
+    {
+      "date": "2013-09-23", 
+      "datetime": "2013-09-23 11:44:49", 
+      "desc": "Seven Ethiopia, 15.1g coffee, 383.5g water; on the right track, if a little weak; slightly too much volume (for the timing and thermos)", 
+      "kind": "work", 
+      "mins": 704, 
+      "tod": "2001-01-01T11:44:49"
+    }, 
+    {
+      "date": "2013-09-24", 
+      "datetime": "2013-09-24 09:42:36", 
+      "desc": "Kenya pour-over at Swork, Eagle Rock, LA", 
+      "kind": "travel", 
+      "mins": 582, 
+      "tod": "2001-01-01T09:42:36"
+    }, 
+    {
+      "date": "2013-09-24", 
+      "datetime": "2013-09-24 17:10:00", 
+      "desc": "Mocha at Demitasse, Little Tokyo, LA", 
+      "kind": "travel", 
+      "mins": 1030, 
+      "tod": "2001-01-01T17:10:00"
+    }, 
+    {
+      "date": "2013-09-26", 
+      "datetime": "2013-09-26 08:16:55", 
+      "desc": "Horrible hotel coffee, San Diego", 
+      "kind": "travel", 
+      "mins": 496, 
+      "tod": "2001-01-01T08:16:55"
+    }, 
+    {
+      "date": "2013-09-26", 
+      "datetime": "2013-09-26 10:15:00", 
+      "desc": "Shitty Peet's mocha in SAN", 
+      "kind": "travel", 
+      "mins": 615, 
+      "tod": "2001-01-01T10:15:00"
+    }, 
+    {
+      "date": "2013-09-27", 
+      "datetime": "2013-09-27 10:52:03", 
+      "desc": "Seven Ethiopia, 16.4g coffee, 351.0g water; not quite enough water for the bicycle cup; excellent clarity but maybe a little too strong", 
+      "kind": "work", 
+      "mins": 652, 
+      "tod": "2001-01-01T10:52:03"
+    }, 
+    {
+      "date": "2013-09-28", 
+      "datetime": "2013-09-28 11:24:26", 
+      "desc": "Tonx, probably, at Katie's house", 
+      "kind": "friend", 
+      "mins": 684, 
+      "tod": "2001-01-01T11:24:26"
+    }, 
+    {
+      "date": "2013-09-28", 
+      "datetime": "2013-09-28 13:30:43", 
+      "desc": "Tall mocha, Solstice", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 810, 
+      "tod": "2001-01-01T13:30:43"
+    }, 
+    {
+      "date": "2013-09-29", 
+      "datetime": "2013-09-29 12:02:10", 
+      "desc": "Distant Lands dark roast, almost done", 
+      "kind": "home", 
+      "mins": 722, 
+      "tod": "2001-01-01T12:02:10"
+    }, 
+    {
+      "date": "2013-09-30", 
+      "datetime": "2013-09-30 10:22:16", 
+      "desc": "Seven Ethiopia; 15.9g coffee, 365.2g water; almost perfect flavor, strong but clear; maybe slightly over into the bitter side; still a little shy of bicycle cup's capacity", 
+      "kind": "work", 
+      "mins": 622, 
+      "tod": "2001-01-01T10:22:16"
+    }, 
+    {
+      "date": "2013-10-01", 
+      "datetime": "2013-10-01 13:59:06", 
+      "desc": "Seven Ethiopia; 16.4g coffee, 377.3g water, 338.4g yield; on the strong side\u2014use less coffee next time", 
+      "kind": "work", 
+      "mins": 839, 
+      "tod": "2001-01-01T13:59:06"
+    }, 
+    {
+      "date": "2013-10-03", 
+      "datetime": "2013-10-03 07:41:54", 
+      "desc": "Half cup mediocre hotel coffee; \"rainforest alliance 30% certified content\"", 
+      "kind": "travel", 
+      "mins": 461, 
+      "tod": "2001-01-01T07:41:54"
+    }, 
+    {
+      "date": "2013-10-03", 
+      "datetime": "2013-10-03 10:37:04", 
+      "desc": "Mediocre conference coffee", 
+      "kind": "travel", 
+      "mins": 637, 
+      "tod": "2001-01-01T10:37:04"
+    }, 
+    {
+      "date": "2013-10-03", 
+      "datetime": "2013-10-03 13:22:56", 
+      "desc": "One more cup of that increasingly reasonable conference stuff, feeling a little bit shaky", 
+      "kind": "travel", 
+      "mins": 802, 
+      "tod": "2001-01-01T13:22:56"
+    }, 
+    {
+      "date": "2013-10-04", 
+      "datetime": "2013-10-04 08:47:36", 
+      "desc": "Conference coffee, much worse today", 
+      "kind": "travel", 
+      "mins": 527, 
+      "tod": "2001-01-01T08:47:36"
+    }, 
+    {
+      "date": "2013-10-04", 
+      "datetime": "2013-10-04 10:19:08", 
+      "desc": "And another conference cup", 
+      "kind": "travel", 
+      "mins": 619, 
+      "tod": "2001-01-01T10:19:08"
+    }, 
+    {
+      "date": "2013-10-04", 
+      "datetime": "2013-10-04 12:17:10", 
+      "desc": "Pretty good Honduras pour-over at Comet Coffee, Ann Arbor, MI", 
+      "kind": "travel", 
+      "mins": 737, 
+      "tod": "2001-01-01T12:17:10"
+    }, 
+    {
+      "date": "2013-10-05", 
+      "datetime": "2013-10-05 09:14:37", 
+      "desc": "Distant Lands dark roast; 17.2g coffee pour-over; last cup", 
+      "kind": "home", 
+      "mins": 554, 
+      "tod": "2001-01-01T09:14:37"
+    }, 
+    {
+      "date": "2013-10-06", 
+      "datetime": "2013-10-06 09:24:48", 
+      "desc": "Seven Mexico; 14.5g coffee pour-over; brewed by Ariana; delicate and clear flavor, probably on the bottom edge of the right grounds amount\u2014or maybe it's just perfect", 
+      "kind": "home", 
+      "mins": 564, 
+      "tod": "2001-01-01T09:24:48"
+    }, 
+    {
+      "date": "2013-10-06", 
+      "datetime": "2013-10-06 13:37:15", 
+      "desc": "Mocha at Neptune", 
+      "kind": "Neptune", 
+      "mins": 817, 
+      "tod": "2001-01-01T13:37:15"
+    }, 
+    {
+      "date": "2013-10-07", 
+      "datetime": "2013-10-07 10:21:04", 
+      "desc": "Seven Ethiopia; clever; coffee to top edge of 1 cup", 
+      "kind": "work", 
+      "mins": 621, 
+      "tod": "2001-01-01T10:21:04"
+    }, 
+    {
+      "date": "2013-10-08", 
+      "datetime": "2013-10-08 09:51:04", 
+      "desc": "Seven Ethiopia; clever; coffee to top edge of 1 cup", 
+      "kind": "work", 
+      "mins": 591, 
+      "tod": "2001-01-01T09:51:04"
+    }, 
+    {
+      "date": "2013-10-08", 
+      "datetime": "2013-10-08 14:44:48", 
+      "desc": "CSE latte", 
+      "kind": "espresso room", 
+      "mins": 884, 
+      "tod": "2001-01-01T14:44:48"
+    }, 
+    {
+      "date": "2013-10-09", 
+      "datetime": "2013-10-09 13:50:13", 
+      "desc": "Seven Ethiopia; clever; coffee to top edge of 1 cup; fucked up the brewing because I forgot to stir and let it go a bit too long; lo and behold it's kind of dark and strong", 
+      "kind": "work", 
+      "mins": 830, 
+      "tod": "2001-01-01T13:50:13"
+    }, 
+    {
+      "date": "2013-10-10", 
+      "datetime": "2013-10-10 08:31:55", 
+      "desc": "Seven Mexico; pour over;18.5g coffee, 363.6g water", 
+      "kind": "home", 
+      "mins": 511, 
+      "tod": "2001-01-01T08:31:55"
+    }, 
+    {
+      "date": "2013-10-10", 
+      "datetime": "2013-10-10 15:15:36", 
+      "desc": "Seven Ethiopia; clever; coffee to the bottom of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 915, 
+      "tod": "2001-01-01T15:15:36"
+    }, 
+    {
+      "date": "2013-10-11", 
+      "datetime": "2013-10-11 09:24:26", 
+      "desc": "Seven Ethiopia; clever; coffee to the top of the 1 cup mark; just about perfect", 
+      "kind": "work", 
+      "mins": 564, 
+      "tod": "2001-01-01T09:24:26"
+    }, 
+    {
+      "date": "2013-10-12", 
+      "datetime": "2013-10-12 11:21:01", 
+      "desc": "Seven Mexico; pour over; 15.7g coffee, 345.0g water", 
+      "kind": "home", 
+      "mins": 681, 
+      "tod": "2001-01-01T11:21:01"
+    }, 
+    {
+      "date": "2013-10-13", 
+      "datetime": "2013-10-13 15:12:50", 
+      "desc": "Tall latte at Neptune", 
+      "kind": "Neptune", 
+      "mins": 912, 
+      "tod": "2001-01-01T15:12:50"
+    }, 
+    {
+      "date": "2013-10-14", 
+      "datetime": "2013-10-14 09:25:00", 
+      "desc": "Seven Ethiopia; clever; coffee to the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 565, 
+      "tod": "2001-01-01T09:25:00"
+    }, 
+    {
+      "date": "2013-10-14", 
+      "datetime": "2013-10-14 13:56:37", 
+      "desc": "Seven Ethiopia; clever; coffee to the bottom of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 836, 
+      "tod": "2001-01-01T13:56:37"
+    }, 
+    {
+      "date": "2013-10-15", 
+      "datetime": "2013-10-15 09:48:47", 
+      "desc": "Seven Ethiopia; clever; coffee to the bottom of the 1 cup mark; too much water!", 
+      "kind": "work", 
+      "mins": 588, 
+      "tod": "2001-01-01T09:48:47"
+    }, 
+    {
+      "date": "2013-10-16", 
+      "datetime": "2013-10-16 08:11:22", 
+      "desc": "Seven Mexico; pour over; 13.5g coffee, 352.2g water; a little too much for the mug", 
+      "kind": "home", 
+      "mins": 491, 
+      "tod": "2001-01-01T08:11:22"
+    }, 
+    {
+      "date": "2013-10-16", 
+      "datetime": "2013-10-16 13:25:16", 
+      "desc": "Seven Ethiopia; clever; coffee to the top of the 1 cup mark; flavor is perfect! Like caramel!", 
+      "kind": "work", 
+      "mins": 805, 
+      "tod": "2001-01-01T13:25:16"
+    }, 
+    {
+      "date": "2013-10-17", 
+      "datetime": "2013-10-17 10:47:57", 
+      "desc": "CSE latte", 
+      "kind": "espresso room", 
+      "mins": 647, 
+      "tod": "2001-01-01T10:47:57"
+    }, 
+    {
+      "date": "2013-10-18", 
+      "datetime": "2013-10-18 10:32:11", 
+      "desc": "Seven Ethiopia; clever; coffee slightly above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 632, 
+      "tod": "2001-01-01T10:32:11"
+    }, 
+    {
+      "date": "2013-10-18", 
+      "datetime": "2013-10-18 14:49:39", 
+      "desc": "end of Seven Ethiopia, beginning of Herkimer Guatemala; clever; coffee slightly below the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 889, 
+      "tod": "2001-01-01T14:49:39"
+    }, 
+    {
+      "date": "2013-10-19", 
+      "datetime": "2013-10-19 10:55:16", 
+      "desc": "Seven Mexico; pour over; 15.1g coffee", 
+      "kind": "home", 
+      "mins": 655, 
+      "tod": "2001-01-01T10:55:16"
+    }, 
+    {
+      "date": "2013-10-19", 
+      "datetime": "2013-10-19 15:24:10", 
+      "desc": "Seven Mexico; pour over; 14.3g coffee; 345.7g water", 
+      "kind": "home", 
+      "mins": 924, 
+      "tod": "2001-01-01T15:24:10"
+    }, 
+    {
+      "date": "2013-10-20", 
+      "datetime": "2013-10-20 14:24:40", 
+      "desc": "Tall mocha at Diva Espresso", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 864, 
+      "tod": "2001-01-01T14:24:40"
+    }, 
+    {
+      "date": "2013-10-21", 
+      "datetime": "2013-10-21 10:14:14", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark; grind seems to me much finer on the same setting, took much too long to drain; adjust grind much coarser next time", 
+      "kind": "work", 
+      "mins": 614, 
+      "tod": "2001-01-01T10:14:14"
+    }, 
+    {
+      "date": "2013-10-22", 
+      "datetime": "2013-10-22 10:39:14", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark; partially adjusted the grind; flavor is getting better (and smell is awesome)", 
+      "kind": "work", 
+      "mins": 639, 
+      "tod": "2001-01-01T10:39:14"
+    }, 
+    {
+      "date": "2013-10-22", 
+      "datetime": "2013-10-22 15:30:00", 
+      "desc": "12oz Clover at Trabant", 
+      "kind": "Trabant", 
+      "mins": 930, 
+      "tod": "2001-01-01T15:30:00"
+    }, 
+    {
+      "date": "2013-10-23", 
+      "datetime": "2013-10-23 07:58:37", 
+      "desc": "Seven Mexico; pour over; 14.8g coffee, 352.9g water", 
+      "kind": "home", 
+      "mins": 478, 
+      "tod": "2001-01-01T07:58:37"
+    }, 
+    {
+      "date": "2013-10-23", 
+      "datetime": "2013-10-23 13:20:46", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark; ground at 12 clicks, which may still be too fine", 
+      "kind": "work", 
+      "mins": 800, 
+      "tod": "2001-01-01T13:20:46"
+    }, 
+    {
+      "date": "2013-10-24", 
+      "datetime": "2013-10-24 08:57:02", 
+      "desc": "Guatemala pour-over at Neptune", 
+      "kind": "Neptune", 
+      "mins": 537, 
+      "tod": "2001-01-01T08:57:02"
+    }, 
+    {
+      "date": "2013-10-25", 
+      "datetime": "2013-10-25 10:48:31", 
+      "desc": "CSE latte with half and half", 
+      "kind": "espresso room", 
+      "mins": 648, 
+      "tod": "2001-01-01T10:48:31"
+    }, 
+    {
+      "date": "2013-10-25", 
+      "datetime": "2013-10-25 15:29:26", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark; ground at 15 clicks; still drains a little slowly (more water?)", 
+      "kind": "work", 
+      "mins": 929, 
+      "tod": "2001-01-01T15:29:26"
+    }, 
+    {
+      "date": "2013-10-27", 
+      "datetime": "2013-10-27 08:57:20", 
+      "desc": "Seven Mexico; pour over", 
+      "kind": "home", 
+      "mins": 537, 
+      "tod": "2001-01-01T08:57:20"
+    }, 
+    {
+      "date": "2013-10-28", 
+      "datetime": "2013-10-28 10:30:10", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark; ground at 17 clicks; this setting is getting the draining time about right but is a little on the weak side", 
+      "kind": "work", 
+      "mins": 630, 
+      "tod": "2001-01-01T10:30:10"
+    }, 
+    {
+      "date": "2013-10-28", 
+      "datetime": "2013-10-28 13:39:26", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark; ground at 17 clicks; trying a slightly longer contact time2013-10-29-09-43-03  Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 819, 
+      "tod": "2001-01-01T13:39:26"
+    }, 
+    {
+      "date": "2013-10-29", 
+      "datetime": "2013-10-29 13:00:00", 
+      "desc": "Mocha at Trabant", 
+      "kind": "Trabant", 
+      "mins": 780, 
+      "tod": "2001-01-01T13:00:00"
+    }, 
+    {
+      "date": "2013-10-30", 
+      "datetime": "2013-10-30 13:28:09", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 808, 
+      "tod": "2001-01-01T13:28:09"
+    }, 
+    {
+      "date": "2013-10-31", 
+      "datetime": "2013-10-31 08:46:25", 
+      "desc": "Seven Mexico; pour over; 14.3g coffee; 361.1g water, which barely fit in the cup!", 
+      "kind": "home", 
+      "mins": 526, 
+      "tod": "2001-01-01T08:46:25"
+    }, 
+    {
+      "date": "2013-10-31", 
+      "datetime": "2013-10-31 14:30:00", 
+      "desc": "12oz Panama on Clover at Trabant", 
+      "kind": "Trabant", 
+      "mins": 870, 
+      "tod": "2001-01-01T14:30:00"
+    }, 
+    {
+      "date": "2013-11-01", 
+      "datetime": "2013-11-01 09:37:23", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 577, 
+      "tod": "2001-01-01T09:37:23"
+    }, 
+    {
+      "date": "2013-11-01", 
+      "datetime": "2013-11-01 15:19:28", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 919, 
+      "tod": "2001-01-01T15:19:28"
+    }, 
+    {
+      "date": "2013-11-02", 
+      "datetime": "2013-11-02 12:23:34", 
+      "desc": "Slate small at Plum in Armory", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 743, 
+      "tod": "2001-01-01T12:23:34"
+    }, 
+    {
+      "date": "2013-11-02", 
+      "datetime": "2013-11-02 13:34:19", 
+      "desc": "Short Americano from Ceres in Armory", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 814, 
+      "tod": "2001-01-01T13:34:19"
+    }, 
+    {
+      "date": "2013-11-02", 
+      "datetime": "2013-11-02 17:47:13", 
+      "desc": "Latte at Uptown", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 1067, 
+      "tod": "2001-01-01T17:47:13"
+    }, 
+    {
+      "date": "2013-11-03", 
+      "datetime": "2013-11-03 14:04:02", 
+      "desc": "Tall Americano at Herkimer", 
+      "kind": "Herkimer", 
+      "mins": 844, 
+      "tod": "2001-01-01T14:04:02"
+    }, 
+    {
+      "date": "2013-11-04", 
+      "datetime": "2013-11-04 10:12:09", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 612, 
+      "tod": "2001-01-01T10:12:09"
+    }, 
+    {
+      "date": "2013-11-04", 
+      "datetime": "2013-11-04 15:33:47", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 933, 
+      "tod": "2001-01-01T15:33:47"
+    }, 
+    {
+      "date": "2013-11-05", 
+      "datetime": "2013-11-05 09:27:26", 
+      "desc": "Tall mocha at Herkimer on the Ave", 
+      "kind": "Herkimer", 
+      "mins": 567, 
+      "tod": "2001-01-01T09:27:26"
+    }, 
+    {
+      "date": "2013-11-05", 
+      "datetime": "2013-11-05 13:00:00", 
+      "desc": "Clover Guatemala at Trabant", 
+      "kind": "Trabant", 
+      "mins": 780, 
+      "tod": "2001-01-01T13:00:00"
+    }, 
+    {
+      "date": "2013-11-06", 
+      "datetime": "2013-11-06 08:28:28", 
+      "desc": "Seven Mexico; pour over; almost the end of the bag", 
+      "kind": "home", 
+      "mins": 508, 
+      "tod": "2001-01-01T08:28:28"
+    }, 
+    {
+      "date": "2013-11-06", 
+      "datetime": "2013-11-06 13:08:09", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 788, 
+      "tod": "2001-01-01T13:08:09"
+    }, 
+    {
+      "date": "2013-11-07", 
+      "datetime": "2013-11-07 09:30:00", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 570, 
+      "tod": "2001-01-01T09:30:00"
+    }, 
+    {
+      "date": "2013-11-07", 
+      "datetime": "2013-11-07 14:20:19", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 860, 
+      "tod": "2001-01-01T14:20:19"
+    }, 
+    {
+      "date": "2013-11-08", 
+      "datetime": "2013-11-08 10:33:37", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 633, 
+      "tod": "2001-01-01T10:33:37"
+    }, 
+    {
+      "date": "2013-11-08", 
+      "datetime": "2013-11-08 13:45:00", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 825, 
+      "tod": "2001-01-01T13:45:00"
+    }, 
+    {
+      "date": "2013-11-09", 
+      "datetime": "2013-11-09 12:02:06", 
+      "desc": "Tall latte at Neptune", 
+      "kind": "Neptune", 
+      "mins": 722, 
+      "tod": "2001-01-01T12:02:06"
+    }, 
+    {
+      "date": "2013-11-09", 
+      "datetime": "2013-11-09 14:57:48", 
+      "desc": "Tall mocha at Herkimer", 
+      "kind": "Herkimer", 
+      "mins": 897, 
+      "tod": "2001-01-01T14:57:48"
+    }, 
+    {
+      "date": "2013-11-10", 
+      "datetime": "2013-11-10 10:14:19", 
+      "desc": "Tony's Chiapas; pour over; also a tiny bit of the end if the Seven coffee", 
+      "kind": "work", 
+      "mins": 614, 
+      "tod": "2001-01-01T10:14:19"
+    }, 
+    {
+      "date": "2013-11-10", 
+      "datetime": "2013-11-10 12:42:28", 
+      "desc": "Kenya at Milstead", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 762, 
+      "tod": "2001-01-01T12:42:28"
+    }, 
+    {
+      "date": "2013-11-10", 
+      "datetime": "2013-11-10 16:08:26", 
+      "desc": "Tall mocha at Green Bean", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 968, 
+      "tod": "2001-01-01T16:08:26"
+    }, 
+    {
+      "date": "2013-11-11", 
+      "datetime": "2013-11-11 09:05:28", 
+      "desc": "Tony's Chiapas; pour over", 
+      "kind": "home", 
+      "mins": 545, 
+      "tod": "2001-01-01T09:05:28"
+    }, 
+    {
+      "date": "2013-11-11", 
+      "datetime": "2013-11-11 14:10:54", 
+      "desc": "El Salvador pour-over at Neptune; really terrible!", 
+      "kind": "Neptune", 
+      "mins": 850, 
+      "tod": "2001-01-01T14:10:54"
+    }, 
+    {
+      "date": "2013-11-12", 
+      "datetime": "2013-11-12 11:47:14", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 707, 
+      "tod": "2001-01-01T11:47:14"
+    }, 
+    {
+      "date": "2013-11-12", 
+      "datetime": "2013-11-12 15:00:36", 
+      "desc": "Herkimer Guatemala; clever; coffee a bit above the top of the 1 cup mark", 
+      "kind": "work", 
+      "mins": 900, 
+      "tod": "2001-01-01T15:00:36"
+    }, 
+    {
+      "date": "2013-11-13", 
+      "datetime": "2013-11-13 09:30:54", 
+      "desc": "Herkimer Guatemala; clever; coffee to the 1 cup mark (end of the bag)", 
+      "kind": "work", 
+      "mins": 570, 
+      "tod": "2001-01-01T09:30:54"
+    }, 
+    {
+      "date": "2013-11-13", 
+      "datetime": "2013-11-13 14:27:14", 
+      "desc": "CSE latte", 
+      "kind": "espresso room", 
+      "mins": 867, 
+      "tod": "2001-01-01T14:27:14"
+    }, 
+    {
+      "date": "2013-11-14", 
+      "datetime": "2013-11-14 10:03:00", 
+      "desc": "Clover Guatemala at Trabant", 
+      "kind": "Trabant", 
+      "mins": 603, 
+      "tod": "2001-01-01T10:03:00"
+    }, 
+    {
+      "date": "2013-11-15", 
+      "datetime": "2013-11-15 10:52:14", 
+      "desc": "Wedding coffee", 
+      "kind": "travel", 
+      "mins": 652, 
+      "tod": "2001-01-01T10:52:14"
+    }, 
+    {
+      "date": "2013-11-15", 
+      "datetime": "2013-11-15 14:18:16", 
+      "desc": "Huge mocha in Cupertino", 
+      "kind": "travel", 
+      "mins": 858, 
+      "tod": "2001-01-01T14:18:16"
+    }, 
+    {
+      "date": "2013-11-16", 
+      "datetime": "2013-11-16 15:56:20", 
+      "desc": "Mocha in Bean Scene, Sunnyvale", 
+      "kind": "travel", 
+      "mins": 956, 
+      "tod": "2001-01-01T15:56:20"
+    }, 
+    {
+      "date": "2013-11-18", 
+      "datetime": "2013-11-18 11:24:04", 
+      "desc": "Herkimer El Salvador, clever, new bag, 12 clicks is a bit too fine", 
+      "kind": "work", 
+      "mins": 684, 
+      "tod": "2001-01-01T11:24:04"
+    }, 
+    {
+      "date": "2013-11-19", 
+      "datetime": "2013-11-19 10:12:23", 
+      "desc": "Herkimer El Salvador, clever, 15 clicks", 
+      "kind": "work", 
+      "mins": 612, 
+      "tod": "2001-01-01T10:12:23"
+    }, 
+    {
+      "date": "2013-11-20", 
+      "datetime": "2013-11-20 09:22:46", 
+      "desc": "Herkimer El Salvador, clever, 15 clicks, still too fine (or not, flavor was basically ideal with a little extra draining time)", 
+      "kind": "work", 
+      "mins": 562, 
+      "tod": "2001-01-01T09:22:46"
+    }, 
+    {
+      "date": "2013-11-20", 
+      "datetime": "2013-11-20 16:55:20", 
+      "desc": "Solstice mocha", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 1015, 
+      "tod": "2001-01-01T16:55:20"
+    }, 
+    {
+      "date": "2013-11-21", 
+      "datetime": "2013-11-21 10:22:01", 
+      "desc": "Herkimer El Salvador, clever, 16 clicks", 
+      "kind": "work", 
+      "mins": 622, 
+      "tod": "2001-01-01T10:22:01"
+    }, 
+    {
+      "date": "2013-11-22", 
+      "datetime": "2013-11-22 09:09:09", 
+      "desc": "Herkimer El Salvador, clever, 16 clicks", 
+      "kind": "work", 
+      "mins": 549, 
+      "tod": "2001-01-01T09:09:09"
+    }, 
+    {
+      "date": "2013-11-23", 
+      "datetime": "2013-11-23 11:04:35", 
+      "desc": "Tony's Chiapas; pour over; 16.8g coffee, way too much water", 
+      "kind": "home", 
+      "mins": 664, 
+      "tod": "2001-01-01T11:04:35"
+    }, 
+    {
+      "date": "2013-11-25", 
+      "datetime": "2013-11-25 09:45:44", 
+      "desc": "Herkimer El Salvador, clever, 16 clicks", 
+      "kind": "work", 
+      "mins": 585, 
+      "tod": "2001-01-01T09:45:44"
+    }, 
+    {
+      "date": "2013-11-25", 
+      "datetime": "2013-11-25 14:32:38", 
+      "desc": "Solstice mocha", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 872, 
+      "tod": "2001-01-01T14:32:38"
+    }, 
+    {
+      "date": "2013-11-26", 
+      "datetime": "2013-11-26 11:27:28", 
+      "desc": "12oz Ethiopia (guest toaster: Verve?), Clover, Trabant", 
+      "kind": "Trabant", 
+      "mins": 687, 
+      "tod": "2001-01-01T11:27:28"
+    }, 
+    {
+      "date": "2013-11-26", 
+      "datetime": "2013-11-26 15:30:00", 
+      "desc": "CSE latte", 
+      "kind": "espresso room", 
+      "mins": 930, 
+      "tod": "2001-01-01T15:30:00"
+    }, 
+    {
+      "date": "2013-11-27", 
+      "datetime": "2013-11-27 10:12:12", 
+      "desc": "Herkimer El Salvador, clever, 16 clicks", 
+      "kind": "work", 
+      "mins": 612, 
+      "tod": "2001-01-01T10:12:12"
+    }, 
+    {
+      "date": "2013-11-28", 
+      "datetime": "2013-11-28 10:45:00", 
+      "desc": "Cindy's", 
+      "kind": "friend", 
+      "mins": 645, 
+      "tod": "2001-01-01T10:45:00"
+    }, 
+    {
+      "date": "2013-11-30", 
+      "datetime": "2013-11-30 09:08:25", 
+      "desc": "Tony's Chiapas; pour over", 
+      "kind": "home", 
+      "mins": 548, 
+      "tod": "2001-01-01T09:08:25"
+    }, 
+    {
+      "date": "2013-12-02", 
+      "datetime": "2013-12-02 17:17:08", 
+      "desc": "Mocha at Foxcroft & Ginger, London", 
+      "kind": "travel", 
+      "mins": 1037, 
+      "tod": "2001-01-01T17:17:08"
+    }, 
+    {
+      "date": "2013-12-04", 
+      "datetime": "2013-12-04 09:47:16", 
+      "desc": "Small latte at CB1, Cambridge; pretty bad", 
+      "kind": "travel", 
+      "mins": 587, 
+      "tod": "2001-01-01T09:47:16"
+    }, 
+    {
+      "date": "2013-12-04", 
+      "datetime": "2013-12-04 10:30:00", 
+      "desc": "Espresso at MSR Cambridge", 
+      "kind": "travel", 
+      "mins": 630, 
+      "tod": "2001-01-01T10:30:00"
+    }, 
+    {
+      "date": "2013-12-07", 
+      "datetime": "2013-12-07 18:10:00", 
+      "desc": "Flat White at Rough Trade record shop cafe, London", 
+      "kind": "travel", 
+      "mins": 1090, 
+      "tod": "2001-01-01T18:10:00"
+    }, 
+    {
+      "date": "2013-12-08", 
+      "datetime": "2013-12-08 09:47:39", 
+      "desc": "Herkimer El Salvador, clever, 16 clicks", 
+      "kind": "work", 
+      "mins": 587, 
+      "tod": "2001-01-01T09:47:39"
+    }, 
+    {
+      "date": "2013-12-08", 
+      "datetime": "2013-12-08 12:25:31", 
+      "desc": "Ephemere Mocha from Dilettante in Sea-Tac", 
+      "kind": "travel", 
+      "mins": 745, 
+      "tod": "2001-01-01T12:25:31"
+    }, 
+    {
+      "date": "2013-12-08", 
+      "datetime": "2013-12-08 18:00:00", 
+      "desc": "latte, Mishka's, Davis, CA", 
+      "kind": "travel", 
+      "mins": 1080, 
+      "tod": "2001-01-01T18:00:00"
+    }, 
+    {
+      "date": "2013-12-09", 
+      "datetime": "2013-12-09 07:46:37", 
+      "desc": "Hotel Keurig, Davis CA", 
+      "kind": "travel", 
+      "mins": 466, 
+      "tod": "2001-01-01T07:46:37"
+    }, 
+    {
+      "date": "2013-12-09", 
+      "datetime": "2013-12-09 10:01:32", 
+      "desc": "conference bullshit", 
+      "kind": "travel", 
+      "mins": 601, 
+      "tod": "2001-01-01T10:01:32"
+    }, 
+    {
+      "date": "2013-12-09", 
+      "datetime": "2013-12-09 12:45:58", 
+      "desc": "conference bullshit", 
+      "kind": "travel", 
+      "mins": 765, 
+      "tod": "2001-01-01T12:45:58"
+    }, 
+    {
+      "date": "2013-12-09", 
+      "datetime": "2013-12-09 18:07:42", 
+      "desc": "conference bullshit", 
+      "kind": "travel", 
+      "mins": 1087, 
+      "tod": "2001-01-01T18:07:42"
+    }, 
+    {
+      "date": "2013-12-10", 
+      "datetime": "2013-12-10 09:39:10", 
+      "desc": "Americano, Delta of Venus, Davis, CA", 
+      "kind": "travel", 
+      "mins": 579, 
+      "tod": "2001-01-01T09:39:10"
+    }, 
+    {
+      "date": "2013-12-10", 
+      "datetime": "2013-12-10 10:48:55", 
+      "desc": "conference bullshit", 
+      "kind": "travel", 
+      "mins": 648, 
+      "tod": "2001-01-01T10:48:55"
+    }, 
+    {
+      "date": "2013-12-10", 
+      "datetime": "2013-12-10 16:33:09", 
+      "desc": "Pachama coffee farmers, Davis, CA; huatusco, Mexico; pour over", 
+      "kind": "travel", 
+      "mins": 993, 
+      "tod": "2001-01-01T16:33:09"
+    }, 
+    {
+      "date": "2013-12-11", 
+      "datetime": "2013-12-11 08:15:00", 
+      "desc": "Americano, Mishka's, Davis, CA; not great", 
+      "kind": "travel", 
+      "mins": 495, 
+      "tod": "2001-01-01T08:15:00"
+    }, 
+    {
+      "date": "2013-12-11", 
+      "datetime": "2013-12-11 10:59:54", 
+      "desc": "conference bullshit", 
+      "kind": "travel", 
+      "mins": 659, 
+      "tod": "2001-01-01T10:59:54"
+    }, 
+    {
+      "date": "2013-12-11", 
+      "datetime": "2013-12-11 14:01:47", 
+      "desc": "Pacahamama; Nicaragua; pour-over", 
+      "kind": "travel", 
+      "mins": 841, 
+      "tod": "2001-01-01T14:01:47"
+    }, 
+    {
+      "date": "2013-12-17", 
+      "datetime": "2013-12-17 13:17:12", 
+      "desc": "Herkimer El Salvador, clever, 16 clicks", 
+      "kind": "work", 
+      "mins": 797, 
+      "tod": "2001-01-01T13:17:12"
+    }, 
+    {
+      "date": "2013-12-21", 
+      "datetime": "2013-12-21 14:20:20", 
+      "desc": "Jeff's (home-roasted!)", 
+      "kind": "friend", 
+      "mins": 860, 
+      "tod": "2001-01-01T14:20:20"
+    }, 
+    {
+      "date": "2013-12-23", 
+      "datetime": "2013-12-23 12:33:13", 
+      "desc": "Tony's Mexico, pour over", 
+      "kind": "home", 
+      "mins": 753, 
+      "tod": "2001-01-01T12:33:13"
+    }, 
+    {
+      "date": "2013-12-23", 
+      "datetime": "2013-12-23 14:21:00", 
+      "desc": "Dark mocha, Milstead", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 861, 
+      "tod": "2001-01-01T14:21:00"
+    }, 
+    {
+      "date": "2013-12-24", 
+      "datetime": "2013-12-24 13:35:27", 
+      "desc": "Verve Kenya, Clover, Trabant", 
+      "kind": "Trabant", 
+      "mins": 815, 
+      "tod": "2001-01-01T13:35:27"
+    }, 
+    {
+      "date": "2013-12-26", 
+      "datetime": "2013-12-26 15:06:45", 
+      "desc": "Tony's Mexico, pour over", 
+      "kind": "home", 
+      "mins": 906, 
+      "tod": "2001-01-01T15:06:45"
+    }, 
+    {
+      "date": "2013-12-27", 
+      "datetime": "2013-12-27 10:04:13", 
+      "desc": "Tall latte, Caffe Fiore", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 604, 
+      "tod": "2001-01-01T10:04:13"
+    }, 
+    {
+      "date": "2013-12-28", 
+      "datetime": "2013-12-28 10:37:07", 
+      "desc": "Tony's Mexico, pour over", 
+      "kind": "home", 
+      "mins": 637, 
+      "tod": "2001-01-01T10:37:07"
+    }, 
+    {
+      "date": "2013-12-30", 
+      "datetime": "2013-12-30 08:53:55", 
+      "desc": "Tony's Mexico, pour over by Anna", 
+      "kind": "home", 
+      "mins": 533, 
+      "tod": "2001-01-01T08:53:55"
+    }, 
+    {
+      "date": "2014-01-03", 
+      "datetime": "2014-01-03 11:43:14", 
+      "desc": "Honduras pour-over at Neptune", 
+      "kind": "Neptune", 
+      "mins": 703, 
+      "tod": "2001-01-01T11:43:14"
+    }, 
+    {
+      "date": "2014-01-03", 
+      "datetime": "2014-01-03 12:00:58", 
+      "desc": "Honduras pour-over at Neptune, extra bonus for complaining!", 
+      "kind": "Neptune", 
+      "mins": 720, 
+      "tod": "2001-01-01T12:00:58"
+    }, 
+    {
+      "date": "2014-01-05", 
+      "datetime": "2014-01-05 15:27:31", 
+      "desc": "El Salvador drip, Caffe Ladro, lower Queen Anne", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 927, 
+      "tod": "2001-01-01T15:27:31"
+    }, 
+    {
+      "date": "2014-01-06", 
+      "datetime": "2014-01-06 10:21:38", 
+      "desc": "Herkimer El Salvador, clever, 16 clicks, bag is a little old due to vacation", 
+      "kind": "work", 
+      "mins": 621, 
+      "tod": "2001-01-01T10:21:38"
+    }, 
+    {
+      "date": "2014-01-07", 
+      "datetime": "2014-01-07 09:38:48", 
+      "desc": "Herkimer El Salvador, clever, 19 clicks", 
+      "kind": "work", 
+      "mins": 578, 
+      "tod": "2001-01-01T09:38:48"
+    }, 
+    {
+      "date": "2014-01-08", 
+      "datetime": "2014-01-08 10:25:35", 
+      "desc": "Herkimer El Salvador, clever, 19 clicks", 
+      "kind": "work", 
+      "mins": 625, 
+      "tod": "2001-01-01T10:25:35"
+    }, 
+    {
+      "date": "2014-01-08", 
+      "datetime": "2014-01-08 15:00:00", 
+      "desc": "Herkimer El Salvador, clever, 19 clicks", 
+      "kind": "work", 
+      "mins": 900, 
+      "tod": "2001-01-01T15:00:00"
+    }, 
+    {
+      "date": "2014-01-09", 
+      "datetime": "2014-01-09 10:30:00", 
+      "desc": "Herkimer El Salvador, clever, 19 clicks", 
+      "kind": "work", 
+      "mins": 630, 
+      "tod": "2001-01-01T10:30:00"
+    }, 
+    {
+      "date": "2014-01-10", 
+      "datetime": "2014-01-10 10:31:38", 
+      "desc": "Herkimer El Salvador, clever, 19 clicks", 
+      "kind": "work", 
+      "mins": 631, 
+      "tod": "2001-01-01T10:31:38"
+    }, 
+    {
+      "date": "2014-01-10", 
+      "datetime": "2014-01-10 13:35:10", 
+      "desc": "Herkimer El Salvador, clever, 19 clicks", 
+      "kind": "work", 
+      "mins": 815, 
+      "tod": "2001-01-01T13:35:10"
+    }, 
+    {
+      "date": "2014-01-11", 
+      "datetime": "2014-01-11 13:00:00", 
+      "desc": "Tony's Mexico, pour over", 
+      "kind": "home", 
+      "mins": 780, 
+      "tod": "2001-01-01T13:00:00"
+    }, 
+    {
+      "date": "2014-01-12", 
+      "datetime": "2014-01-12 13:47:00", 
+      "desc": "Tall latte at Sip and Ship, Greenwood", 
+      "kind": "other Seattle caf\u00e9", 
+      "mins": 827, 
+      "tod": "2001-01-01T13:47:00"
+    }
+  ], 
+  "days": [
+    {
+      "count": 1, 
+      "date": "2013-08-17"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-08-18"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-08-19"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-08-20"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-08-21"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-08-22"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-08-23"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-08-24"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-08-25"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-08-26"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-08-27"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-08-28"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-08-29"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-08-30"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-08-31"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-01"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-02"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-03"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-04"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-05"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-06"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-07"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-08"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-09"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-10"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-11"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-12"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-13"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-14"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-15"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-16"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-09-17"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-18"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-19"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-20"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-21"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-09-22"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-23"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-24"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-09-25"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-26"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-27"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-09-28"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-29"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-09-30"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-01"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-10-02"
+    }, 
+    {
+      "count": 3, 
+      "date": "2013-10-03"
+    }, 
+    {
+      "count": 3, 
+      "date": "2013-10-04"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-05"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-06"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-07"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-08"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-09"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-10"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-11"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-12"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-13"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-14"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-15"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-16"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-17"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-18"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-19"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-20"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-21"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-22"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-23"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-24"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-25"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-10-26"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-27"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-28"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-29"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-10-30"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-10-31"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-01"
+    }, 
+    {
+      "count": 3, 
+      "date": "2013-11-02"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-03"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-04"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-05"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-06"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-07"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-08"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-09"
+    }, 
+    {
+      "count": 3, 
+      "date": "2013-11-10"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-11"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-12"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-13"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-14"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-15"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-16"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-11-17"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-18"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-19"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-20"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-21"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-22"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-23"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-11-24"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-25"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-11-26"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-27"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-28"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-11-29"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-11-30"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-01"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-02"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-03"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-12-04"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-05"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-06"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-07"
+    }, 
+    {
+      "count": 3, 
+      "date": "2013-12-08"
+    }, 
+    {
+      "count": 4, 
+      "date": "2013-12-09"
+    }, 
+    {
+      "count": 3, 
+      "date": "2013-12-10"
+    }, 
+    {
+      "count": 3, 
+      "date": "2013-12-11"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-12"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-13"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-14"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-15"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-16"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-17"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-18"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-19"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-20"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-21"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-22"
+    }, 
+    {
+      "count": 2, 
+      "date": "2013-12-23"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-24"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-25"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-26"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-27"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-28"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-29"
+    }, 
+    {
+      "count": 1, 
+      "date": "2013-12-30"
+    }, 
+    {
+      "count": 0, 
+      "date": "2013-12-31"
+    }, 
+    {
+      "count": 0, 
+      "date": "2014-01-01"
+    }, 
+    {
+      "count": 0, 
+      "date": "2014-01-02"
+    }, 
+    {
+      "count": 2, 
+      "date": "2014-01-03"
+    }, 
+    {
+      "count": 0, 
+      "date": "2014-01-04"
+    }, 
+    {
+      "count": 1, 
+      "date": "2014-01-05"
+    }, 
+    {
+      "count": 1, 
+      "date": "2014-01-06"
+    }, 
+    {
+      "count": 1, 
+      "date": "2014-01-07"
+    }, 
+    {
+      "count": 2, 
+      "date": "2014-01-08"
+    }, 
+    {
+      "count": 1, 
+      "date": "2014-01-09"
+    }, 
+    {
+      "count": 2, 
+      "date": "2014-01-10"
+    }, 
+    {
+      "count": 1, 
+      "date": "2014-01-11"
+    }, 
+    {
+      "count": 1, 
+      "date": "2014-01-12"
+    }
+  ]
+}

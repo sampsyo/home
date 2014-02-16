@@ -1,0 +1,201 @@
+{
+  "width": 300,
+  "height": 150,
+  "data": [
+    {
+      "name": "performance",
+      "values": [
+        {
+          "component": "compile", 
+          "prog": "foo", 
+          "treatment": "A", 
+          "amount": 31
+        }, 
+        {
+          "component": "execute", 
+          "prog": "foo", 
+          "treatment": "A", 
+          "amount": 30
+        }, 
+        {
+          "component": "compile", 
+          "prog": "foo", 
+          "treatment": "B", 
+          "amount": 21
+        }, 
+        {
+          "component": "execute", 
+          "prog": "foo", 
+          "treatment": "B", 
+          "amount": 19
+        }, 
+        {
+          "component": "compile", 
+          "prog": "bar", 
+          "treatment": "A", 
+          "amount": 30
+        }, 
+        {
+          "component": "execute", 
+          "prog": "bar", 
+          "treatment": "A", 
+          "amount": 16
+        }, 
+        {
+          "component": "compile", 
+          "prog": "bar", 
+          "treatment": "B", 
+          "amount": 40
+        }, 
+        {
+          "component": "execute", 
+          "prog": "bar", 
+          "treatment": "B", 
+          "amount": 11
+        }, 
+        {
+          "component": "compile", 
+          "prog": "baz", 
+          "treatment": "A", 
+          "amount": 8
+        }, 
+        {
+          "component": "execute", 
+          "prog": "baz", 
+          "treatment": "A", 
+          "amount": 4
+        }, 
+        {
+          "component": "compile", 
+          "prog": "baz", 
+          "treatment": "B", 
+          "amount": 35
+        }, 
+        {
+          "component": "execute", 
+          "prog": "baz", 
+          "treatment": "B", 
+          "amount": 23
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "program",
+      "type": "ordinal",
+      "range": "width",
+      "padding": 0.10,
+      "domain": {"data": "performance", "field": "data.prog"}
+    },
+    {
+      "name": "amount",
+      "type": "linear",
+      "range": "height",
+      "nice": true,
+      "domain": {"data": "performance", "field": "data.amount"}
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "range": [
+        "#000000",
+        "#999999",
+        "#cccccc"
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "program",
+      "tickSize": 0,
+      "tickPadding": 18
+    },
+    {
+      "type": "y",
+      "scale": "amount"
+    }
+  ],
+  "marks": [
+    {
+      "type": "group",
+      "from": {
+        "data": "performance",
+        "transform": [
+          {"type": "facet", "keys": ["data.prog"]}
+        ]
+      },
+      "properties": {
+        "enter": {
+          "x": {"scale": "program", "field": "key"},
+          "width": {"scale": "program", "band": true},
+          "height": {"group": "height"}
+        }
+      },
+      "scales": [
+        {
+          "name": "pos",
+          "type": "ordinal",
+          "range": "width",
+          "domain": {"field": "data.treatment"}
+        }
+      ],
+      "axes": [
+        {
+          "type": "x",
+          "scale": "pos",
+          "tickSize": 0,
+          "tickPadding": 7,
+          "orient": "bottom",
+          "properties": {
+            "labels": {
+              "fontSize": {"value": 9}
+            }
+          }
+        }
+      ],
+      "marks": [
+        {
+          "type": "group",
+          "from": {
+            "transform": [
+              {"type": "facet", "keys": ["data.component"]},
+              {
+                "type": "stack",
+                "point": "data.treatment",
+                "height": "data.amount"
+              }
+            ]
+          },
+          "marks": [
+            {
+              "type": "rect",
+              "properties": {
+                "enter": {
+                  "x": {"scale": "pos", "field": "data.treatment"},
+                  "width": {"scale": "pos", "band": true},
+                  "y": {"scale": "amount", "field": "data.amount"},
+                  "y2": {"scale": "amount", "value": 0},
+                  "fill": {"scale": "color", "field": "data.component"}
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "properties": {
+        "symbols": {
+          "shape": {"value": "square"},
+          "stroke": {"value": "transparent"},
+          "strokeWidth": {"value": "0"}
+        }
+      }
+    }
+  ]
+}

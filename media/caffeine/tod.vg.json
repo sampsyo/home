@@ -1,0 +1,59 @@
+{
+    "width": 500,
+    "height": 20,
+    "name": "time of day",
+    "data": [
+        {
+            "name": "coffees",
+            "url": "coffees.json",
+            "format": {
+                "type": "json",
+                "property": "coffees",
+                "parse": {"tod": "date"}
+            },
+            "transform": [
+                {
+                    "type": "formula",
+                    "field": "ltime",
+                    "expr": "d.data.tod + 8 * 60 * 60 * 1000"
+                }
+            ]
+        }
+    ],
+    "scales": [
+        {
+            "name": "x",
+            "range": "width",
+            "type": "time",
+            "domain": {"data": "coffees", "field": "ltime"},
+            "nice": "hour"
+        }
+    ],
+    "axes": [
+        {
+            "type": "x",
+            "scale": "x"
+        }
+    ],
+    "marks": [
+        {
+            "type": "symbol",
+            "from": {"data": "coffees"},
+            "properties": {
+                "enter": {
+                    "x": {"scale": "x", "field": "ltime"},
+                    "y": {"value": 0},
+                    "fill": {"value": "#51a012"},
+                    "fillOpacity": {"value": 0.06},
+                    "size": {"value": 600}
+                },
+                "hover": {
+                    "fillOpacity": {"value": 1.0}
+                },
+                "update": {
+                    "fillOpacity": {"value": 0.06}
+                }
+            }
+        }
+    ]
+}
