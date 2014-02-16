@@ -15,11 +15,11 @@ permalink: /blog/:title.html
 navigation:
     - title: home
       link: /
-    - title: contact
-      link: /contact.html
-    - title: blog
-      link: /blog/
     - title: research
       link: /research.html
+    - title: blog
+      link: /blog/
+    - title: contact
+      link: /contact.html
     - title: '&amp;c.'
-      link: /etc.html
+      link: /misc.html
