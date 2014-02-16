@@ -50,15 +50,19 @@ nav {
     }
 }
 
+// Headings.
 h1 {
+    font-family: @title-font;
     font-weight: bold;
     color: @brand-primary;
     margin-bottom: 0;
 }
-
 h2 {
     font-family: @title-font;
     margin: 0;
+}
+h3 {
+    font-family: @title-font;
 }
 
 address {
@@ -67,6 +71,18 @@ address {
     margin-top: 0;
     a {
         display: block;
+    }
+}
+
+// Lists.
+ul {
+    list-style: square;
+}
+ul li, ol li {
+    margin: 0.8em 0;
+    ul li {
+        // Second level is more compact.
+        margin: 0;
     }
 }
 
