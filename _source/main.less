@@ -56,6 +56,11 @@ h1 {
     margin-bottom: 0;
 }
 
+h2 {
+    font-family: @title-font;
+    margin: 0;
+}
+
 address {
     font-family: @title-font;
     font-size: 1.2em;
@@ -70,21 +75,24 @@ address {
     font-size: 1.2em;
 }
 
+// Adornments on blog posts and such.
+.tagline {
+    text-transform: uppercase;
+    font-family: @title-font;
+    margin: 0;
+    color: @gray-light;
+    a {
+        color: inherit;
+    }
+}
+
 // Blog post previews on the homepage and blog index.
 .blogpreview {
     margin-top: 1.5em;
-    .tagline {
-        text-transform: uppercase;
-        font-family: @title-font;
-        margin: 0;
-        color: @gray-light;
-        a {
-            color: inherit;
-        }
-    }
-    h2 {
+    h3 {
         margin: 0;
         font-family: @title-font;
+        font-size: 2em;
         a {
             color: inherit;
             text-decoration: none;

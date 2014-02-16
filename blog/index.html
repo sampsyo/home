@@ -1,19 +1,18 @@
 ---
 layout: default
 ---
-<div class="blurb">
-    {{ content }}
-</div>
+<h2>Bloggings</h2>
 
+<p class="tagline">
+<a href="/blog.xml" class="feed">
+    Subscribe
+</a>
+</p>
+
+{% for post in site.posts %}
 <article class="blogpreview">
-    {% assign post = site.posts[0] %}
     <p class="tagline">
-        latest <a href="/blog/">blogging</a>:
         {{ post.date || date_to_long_string }}
-        &mdash;
-        <a href="/blog/">more bloggings</a>
-        &mdash;
-        <a href="/blog.xml">subscribe</a>
     </p>
     <h3>
         <a href="{{ post.url }}">{{ post.title }}</a>
@@ -22,3 +21,4 @@ layout: default
         {{ post.excerpt }}
     </p>
 </article>
+{% endfor %}
