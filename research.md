@@ -1,10 +1,10 @@
 ---
 title: Research
-layout: default
+layout: longy
+blurb: |
+    Here are a few short descriptions of some research projects that I've
+    worked on recently.
 ---
-
-Here are a few short descriptions of some research projects that I've worked on
-recently.
 
 ### <a id="enerj">Disciplined Approximate Computing</a>
 
