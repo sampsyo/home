@@ -35,11 +35,14 @@ nav {
         margin: 0 0.25em;
         font-size: 1.2em;
         padding: 2px 6px;
+        border: 1px solid white;
         border-radius: 3px;
     }
     a.active {
-        background: @brand-primary;
-        color: white;
+        border-color: @brand-primary;
+    }
+    a.active:hover {
+        border-color: @link-hover-color;
     }
     @media (min-width: @screen-sm-min) {
         margin-top: 2em;

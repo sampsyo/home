@@ -13,6 +13,8 @@ exclude:
 navigation:
     - title: home
       link: /
+    - title: contact
+      link: /contact.html
     - title: blog
       link: /blog/
     - title: research
