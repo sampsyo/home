@@ -3,6 +3,7 @@ name: Adrian Sampson
 markdown: redcarpet
 redcarpet:
     extensions: [smart]
+pygments: false
 
 exclude:
     - bower_components

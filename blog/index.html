@@ -18,8 +18,8 @@ title: Blog
     <h3>
         <a href="{{ post.url }}">{{ post.title }}</a>
     </h3>
-    <p class="excerpt">
-        {{ post.excerpt }}
-    </p>
+    <div class="excerpt">
+        {{ post.excerpt | markdownify }}
+    </div>
 </article>
 {% endfor %}
