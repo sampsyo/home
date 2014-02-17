@@ -1,11 +1,9 @@
 ---
 layout: default
 ---
-<article class="full">
-    <h2>{{ page.title }}</h2>
-    <p class="tagline">{{ page.date | date_to_string }}</p>
+<h2 class="with-tagline">{{ page.title }}</h2>
+<p class="tagline">{{ page.date | date_to_string }}</p>
 
-    <div class="post">
-    {{ content }}
-    </div>
-</article>
+<div class="post">
+{{ content }}
+</div>
