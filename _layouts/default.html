@@ -5,10 +5,23 @@
         <title>
             {{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}
         </title>
+
         <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="/media/main.css">
+
         <link rel="alternate" type="application/rss+xml" href="/blog.xml" title="Atom">
+
+        {% if page.mathjax %}
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {inlineMath: [['$','$']]}
+            });
+        </script>
+        <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        {% endif %}
     </head>
     <body>
         <div class="container">

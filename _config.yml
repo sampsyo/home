@@ -2,7 +2,7 @@ name: Adrian Sampson
 
 markdown: redcarpet
 redcarpet:
-    extensions: [smart]
+    extensions: [smart, no_intra_emphasis]
 pygments: false
 
 exclude:
