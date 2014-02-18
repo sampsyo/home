@@ -6,12 +6,7 @@ excerpt: |
     Some papers on approximate computing systems propose simple systems for checking computations' error rates. These systems can be naive and ineffective at solving the problems they were meant to address.
 ---
 
-<aside class="warning">
-<p>
-<strong>Warning:</strong>
-<em>Approximate computing</em> is a trend in computer systems research that seeks to trade off accuracy for efficiency. This post assumes some familiarity with, or at least a passing interest in, recent work on approximation. It could get boring otherwise. For context, you may be interested in reading a <a href="http://spectrum.ieee.org/computing/software/enerj-the-language-of-goodenough-computing">magazine article</a> or older <a href="https://homes.cs.washington.edu/~asampson/blog/">posts on this blog</a>.
-</p>
-</aside>
+{% include approxwarn.html %}
 
 As a cottage research industry, approximate computing is still young. But it has already developed characteristic research patterns worthy of criticism. One trend I've noticed recently is a repeated reinvention of a technique I'll call *naive monitoring* attached to otherwise excellent papers (which I won't call out individually). I believe that naive monitoring is ineffective at its stated goals and should be excised as an appendage to future research. Papers that include it would be just fine---better, even---without it.
 
