@@ -19,11 +19,11 @@ layout: nil
     {% comment %} legacy IDs for nanoc-migrated posts {% endcomment %}
     <id>tag:homes.cs.washington.edu,{{ post.date | date: '%Y-%m-%d' }}:/~asampson/{{ post.url }}</id>
     {% else %}
-    <id>{{ site.url }}{{ site.base }}{{ post.url }}</id>
+    <id>{{ site.url }}{{ post.url }}</id>
     {% endif %}
     <title type="html">{{ post.title }}</title>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <link rel="alternate" href="{{ site.url }}{{ site.base }}{{ post.url }}"/>
+    <link rel="alternate" href="{{ site.url }}{{ post.url }}"/>
     <content type="html">{{ post.content | xml_escape }}</content>
     <summary type="html">{{ post.excerpt | markdownify | xml_escape }}</summary>
   </entry>
