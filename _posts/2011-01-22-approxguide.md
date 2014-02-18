@@ -143,4 +143,4 @@ messages to higher- or lower-reliability communication channels.
 ### Citations
 
 The following citations are also available as [a BibTeX
-file](/media/approximation.bib).
+file]({{ site.base }}/media/approximation.bib).

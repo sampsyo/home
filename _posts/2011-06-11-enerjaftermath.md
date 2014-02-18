@@ -9,8 +9,8 @@ excerpt: |
     for the project. I also learned a little bit about research reporting in the
     media.
 
-    [slides]: /media/enerj-pldi-slides.pdf
-    [poster]: /media/enerj-poster.pdf
+    [slides]: SITE_BASE/media/enerj-pldi-slides.pdf
+    [poster]: SITE_BASE/media/enerj-poster.pdf
 ---
 I've just returned from [PLDI 2011][pldi] at [FCRC][fcrc] in San Jose, where I
 gave a talk about the [EnerJ][enerj] project. The conference was amazing, mostly
@@ -25,8 +25,8 @@ I have now posted the [slides for the PLDI talk][slides]. There's also a [very
 simplistic poster][poster] about EnerJ that I made for recruiting undergraduate
 collaborators (please [get in touch][email] if you're interested!).
 
-[slides]: /media/enerj-pldi-slides.pdf
-[poster]: /media/enerj-poster.pdf
+[slides]: {{ site.base }}/media/enerj-pldi-slides.pdf
+[poster]: {{ site.base }}/media/enerj-poster.pdf
 [email]: mailto:asampson@cs.washington.edu
 
 In the lead-up to the conference, the EnerJ got a small amount of coverage in

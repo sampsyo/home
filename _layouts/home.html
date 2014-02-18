@@ -8,17 +8,17 @@ layout: default
 <article class="blogpreview">
     {% assign post = site.posts[0] %}
     <p class="tagline">
-        latest <a href="/blog/">blogging</a>:
+        latest <a href="{{ site.base }}/blog/">blogging</a>:
         {{ post.date || date_to_long_string }}
         &mdash;
-        <a href="/blog/">more bloggings</a>
+        <a href="{{ site.base }}/blog/">more bloggings</a>
         &mdash;
-        <a href="/blog.xml">subscribe</a>
+        <a href="{{ site.base }}/blog.xml">subscribe</a>
     </p>
     <h3>
-        <a href="{{ post.url }}">{{ post.title }}</a>
+        <a href="{{ site.base }}{{ post.url }}">{{ post.title }}</a>
     </h3>
     <p class="excerpt">
-        {{ post.excerpt }}
+        {{ post.excerpt | replace: 'SITE_BASE', site.url | markdownify }}
     </p>
 </article>

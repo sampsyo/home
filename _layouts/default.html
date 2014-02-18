@@ -8,9 +8,9 @@
 
         <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="/media/main.css">
+        <link rel="stylesheet" href="{{ site.base }}/media/main.css">
 
-        <link rel="alternate" type="application/rss+xml" href="/blog.xml" title="Atom">
+        <link rel="alternate" type="application/rss+xml" href="{{ site.base }}/blog.xml" title="Atom">
     </head>
     <body>
         <div class="container">
@@ -32,7 +32,7 @@
                         {% if item.link == shorturl or (item.link == '/blog/' and page.date) %}
                             class="active"
                         {% endif %}
-                        href="{{ item.link }}">
+                        href="{{ site.base }}{{ item.link }}">
                         {{ item.title }}
                     </a>
                     {% endfor %}

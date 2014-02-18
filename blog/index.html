@@ -5,7 +5,7 @@ title: Blog
 <h2 class="with-tagline">Bloggings</h2>
 
 <p class="tagline">
-<a href="/blog.xml" class="feed">
+<a href="{{ site.base }}/blog.xml" class="feed">
     Subscribe
 </a>
 </p>
@@ -16,10 +16,10 @@ title: Blog
         {{ post.date || date_to_long_string }}
     </p>
     <h3>
-        <a href="{{ post.url }}">{{ post.title }}</a>
+        <a href="{{ site.base }}{{ post.url }}">{{ post.title }}</a>
     </h3>
     <div class="excerpt">
-        {{ post.excerpt | markdownify }}
+        {{ post.excerpt | replace: 'SITE_BASE', site.url | markdownify }}
     </div>
 </article>
 {% endfor %}

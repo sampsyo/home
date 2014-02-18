@@ -1,6 +1,7 @@
 name: Adrian Sampson
 author: Adrian Sampson
 url: http://homes.cs.washington.edu/~asampson
+base: ''
 
 markdown: redcarpet
 redcarpet:
