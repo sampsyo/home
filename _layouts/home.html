@@ -21,7 +21,7 @@ layout: default
     <div class="excerpt">
         {{ post.excerpt | replace: 'SITE_BASE', site.url | markdownify }}
         <p class="tagline">
-            <a href="{{ site.base }}">keep reading&hellip;</a>
+        <a href="{{ site.base }}{{ post.url }}">keep reading&hellip;</a>
         </p>
     </div>
 </article>
