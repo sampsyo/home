@@ -20,5 +20,8 @@ layout: default
     </h3>
     <div class="excerpt">
         {{ post.excerpt | replace: 'SITE_BASE', site.url | markdownify }}
+        <p class="tagline">
+            <a href="{{ site.base }}">keep reading&hellip;</a>
+        </p>
     </div>
 </article>

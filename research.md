@@ -6,7 +6,7 @@ blurb: |
     worked on recently.
 ---
 
-### <a id="enerj">Disciplined Approximate Computing</a>
+### Disciplined Approximate Computing
 
 The power consumption of CPUs and memory systems has traditionally been
 constrained by the need for strict correctness guarantees: processor voltage,
