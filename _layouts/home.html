@@ -18,7 +18,7 @@ layout: default
     <h3>
         <a href="{{ site.base }}{{ post.url }}">{{ post.title }}</a>
     </h3>
-    <p class="excerpt">
+    <div class="excerpt">
         {{ post.excerpt | replace: 'SITE_BASE', site.url | markdownify }}
-    </p>
+    </div>
 </article>
