@@ -27,7 +27,7 @@ cheap setup I used to get some reasonable power measurements.
 
 ### The Equipment
 
-<img src="http://www.cs.washington.edu/homes/asampson/media/apparatus/psup.jpeg"
+<img src="{{ site.url }}/media/apparatus/psup.jpeg"
 class="illus" width="350" height="179">
 
 The only equipment I shelled out for in this setup was a DC
@@ -45,7 +45,7 @@ materials...)
 
 ### The Setup
 
-<img src="http://www.cs.washington.edu/homes/asampson/media/apparatus/connection.jpeg"
+<img src="{{ site.url }}/media/apparatus/connection.jpeg"
 class="illus" width="350" height="219">
 
 The next challenge is to get the smartphone to run off of the power supply so we
@@ -66,7 +66,7 @@ phone (to control the software) and the power supply (to take measurements).
 
 ### The Software
 
-<img src="http://www.cs.washington.edu/homes/asampson/media/apparatus/netbook.jpeg"
+<img src="{{ site.url }}/media/apparatus/netbook.jpeg"
 class="illus" width="350" height="261">
 
 On the host machine, there are two main software components: one to talk to the

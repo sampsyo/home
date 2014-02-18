@@ -11,7 +11,7 @@ Submit to [Mossy Bits][], UW CSE’s creative arts journal!
 I have a superior calendar feed for department colloquia. Subscribe with
 [iCal][] or [Google Calendar][gcal].
 
-[ical]: webcal://www.cs.washington.edu/homes/asampson/colloquia.ics
+[ical]: webcal://homes.cs.washington.edu/~asampson/colloquia.ics
 [gcal]: http://www.google.com/calendar/embed?src=gkl8nsro4ovm5virmrgqkdac2culj23a%40import.calendar.google.com
 
 

@@ -19,7 +19,7 @@ other solid-state memories.
 [storage]: http://dl.acm.org/citation.cfm?id=2540708.2540712
 [uw cse]: http://www.cs.washington.edu/
 [sampa group]: http://sampa.cs.washington.edu/sampa/Main_Page
-[enerj]: /media/papers/enerj-pldi2011.pdf
+[enerj]: {{ site.base }}/media/papers/enerj-pldi2011.pdf
 [Luis Ceze]: http://www.cs.washington.edu/homes/luisceze/ 
 [Dan Grossman]: http://www.cs.washington.edu/homes/djg/ 
 

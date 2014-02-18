@@ -118,37 +118,37 @@ The slides linked below are PDF files. Keynote files are available on request.
 [PLDI 2014]: http://conferences.inf.ed.ac.uk/pldi2014/
 
 [approxstorage]: http://dl.acm.org/citation.cfm?id=2540708.2540712
-[storage-local]: /media/papers/approxstorage-micro2013.pdf
-[storage-slides]: /media/approxstorage-micro-slides.pdf
-[storage-poster]: /media/approxstorage-micro-poster.pdf
-[storage-lightning]: /media/approxstorage-micro-lightning.pdf
+[storage-local]: {{ site.base }}/media/papers/approxstorage-micro2013.pdf
+[storage-slides]: {{ site.base }}/media/approxstorage-micro-slides.pdf
+[storage-poster]: {{ site.base }}/media/approxstorage-micro-poster.pdf
+[storage-lightning]: {{ site.base }}/media/approxstorage-micro-lightning.pdf
 [MICRO 2013]: http://www.microarch.org/micro46/
 [ACM TOCS]: http://tocs.acm.org
 
-[npu-poster]: /media/npu-micro-poster.pdf
-[npu-slides]: /media/npu-micro-slides.pdf
-[npu-lightning]: /media/npu-micro-lightning.pdf
+[npu-poster]: {{ site.base }}/media/npu-micro-poster.pdf
+[npu-slides]: {{ site.base }}/media/npu-micro-slides.pdf
+[npu-lightning]: {{ site.base }}/media/npu-micro-lightning.pdf
 [npu-micro]: http://dl.acm.org/citation.cfm?id=2457519
-[npu-local]: /media/papers/npu-micro2012.pdf
+[npu-local]: {{ site.base }}/media/papers/npu-micro2012.pdf
 [MICRO 2012]: http://www.microsymposia.org/micro45/
 [npu-toppicks]: https://sites.google.com/site/ieeemicro/call-for-papers/top-picks-2013
 
 [iiswc 2012]: http://www.iiswc.org/iiswc2012/
-[webchar-tr]: /media/papers/webchar-tr.pdf
-[webchar-extabs]: /media/papers/webchar-iiswc2012-extabs.pdf
-[webchar-slides]: /media/webchar-iiswc-slides.pdf
-[webchar-poster]: /media/webchar-iiswc-poster.pdf
+[webchar-tr]: {{ site.base }}/media/papers/webchar-tr.pdf
+[webchar-extabs]: {{ site.base }}/media/papers/webchar-iiswc2012-extabs.pdf
+[webchar-slides]: {{ site.base }}/media/webchar-iiswc-slides.pdf
+[webchar-poster]: {{ site.base }}/media/webchar-iiswc-poster.pdf
 
 [truffle]: http://dl.acm.org/authorize?6607704
-[truffle-local]: /media/papers/truffle-asplos2012.pdf
-[truffle-slides]: /media/truffle-asplos-slides.pdf
+[truffle-local]: {{ site.base }}/media/papers/truffle-asplos2012.pdf
+[truffle-slides]: {{ site.base }}/media/truffle-asplos-slides.pdf
 
 [enerj]: http://dl.acm.org/authorize?436230
-[enerj-local]: /media/papers/enerj-pldi2011.pdf
-[enerj-slides]: /media/enerj-pldi-slides.pdf
-[enerj-poster]: /media/enerj-poster.pdf
+[enerj-local]: {{ site.base }}/media/papers/enerj-pldi2011.pdf
+[enerj-slides]: {{ site.base }}/media/enerj-pldi-slides.pdf
+[enerj-poster]: {{ site.base }}/media/enerj-poster.pdf
 [enerj-code]: http://sampa.cs.washington.edu/sampa/EnerJ#Source_Release
-[enerj-tr]: http://www.cs.washington.edu/homes/asampson/files/enerjproofs.pdf
+[enerj-tr]: {{ site.base }}/files/enerjproofs.pdf
 
 [osha]: http://dl.acm.org/authorize?390121
 [osha-local]: http://sampa.cs.washington.edu/public/uploads/e/e9/Osha-oopsla2010.pdf

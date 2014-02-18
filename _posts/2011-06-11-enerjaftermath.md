@@ -19,7 +19,7 @@ everyone again many times at future conferences.
 
 [pldi]: http://pldi11.cs.utah.edu/
 [fcrc]: http://www.acm.org/fcrc/
-[enerj]: http://www.cs.washington.edu/homes/asampson/blog/enerj.html
+[enerj]: {{ site.base }}/blog/enerj.html
 
 I have now posted the [slides for the PLDI talk][slides]. There's also a [very
 simplistic poster][poster] about EnerJ that I made for recruiting undergraduate
