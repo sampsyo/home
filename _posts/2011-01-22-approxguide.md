@@ -144,3 +144,179 @@ messages to higher- or lower-reliability communication channels.
 
 The following citations are also available as [a BibTeX
 file]({{ site.base }}/media/approximation.bib).
+
+<ul class="bib2xhtml">
+<!-- Authors: Agarwal Anant and Rinard Martin and Sidiroglou Stelios and
+  Misailovic Sasa and Hoffmann Henry --><li>
+<a name="perforationtr"></a>Anant Agarwal, Martin Rinard,
+  Stelios Sidiroglou, Sasa Misailovic, and
+  Henry Hoffmann.
+<a href="/web/20130212064944/http://hdl.handle.net/1721.1/46709">Using code perforation to improve
+  performance, reduce energy consumption, and respond to failures</a>.
+Technical report, MIT, 2009.</li>
+<!-- Authors: Akgul BES and Chakrapani LN and Korkmaz P and Palem KV -->
+<li>
+<a name="pcmossurvey"></a>B.E.S.
+  Akgul, L.N. Chakrapani, P. Korkmaz, and
+  K.V. Palem.
+<a href="/web/20130212064944/http://dx.doi.org/10.1109/VLSISOC.2006.313282">Probabilistic CMOS
+  technology: A survey and future directions</a>.
+In <cite>IFIP Intl. Conference on VLSI</cite>, 2006.</li>
+<!-- Authors: Alvarez Carlos and Corbal Jesus and Valero Mateo -->
+<li>
+<a name="fuzzymemo"></a>Carlos
+  Alvarez, Jesus Corbal, and Mateo Valero.
+<a href="/web/20130212064944/http://dx.doi.org/10.1109/TC.2005.119">Fuzzy memoization for
+  floating-point multimedia applications</a>.
+<cite>IEEE Trans. Comput.</cite>, 54(7), 2005.</li>
+<!-- Authors: Baek Woongki and Chilimbi Trishul M -->
+<li>
+<a name="green"></a>Woongki
+  Baek and Trishul M. Chilimbi.
+<a href="/web/20130212064944/http://dx.doi.org/10.1145/1806596.1806620">Green: a framework for
+  supporting energy-conscious programming using controlled approximation</a>.
+In <cite>PLDI</cite>, 2010.</li>
+<!-- Authors: Chakrapani Lakshmi N and Akgul Bilge E S and Cheemalavagu Suresh
+  and Korkmaz Pinar and Palem Krishna V and Seshasayee Balasubramanian -->
+<li>
+<a name="pcmos"></a>Lakshmi N. Chakrapani, Bilge
+  E. S. Akgul, Suresh Cheemalavagu, Pinar
+  Korkmaz, Krishna V. Palem, and Balasubramanian
+  Seshasayee.
+<a href="/web/20130212064944/http://portal.acm.org/citation.cfm?id=1131790">Ultra-efficient
+  (embedded) soc architectures based on probabilistic CMOS (PCMOS)
+  technology</a>.
+In <cite>DATE</cite>, 2006.</li>
+<!-- Authors: de Kruijf M and Sankaralingam K -->
+<li>
+<a name="dekruijf-selse09"></a>M. de Kruijf and
+  K. Sankaralingam.
+<a href="/web/20130212064944/http://pages.cs.wisc.edu/~dekruijf/docs/selse2009.pdf">Exploring the
+  synergy of emerging workloads and silicon reliability trends</a>.
+In <cite>SELSE</cite>, 2009.</li>
+<!-- Authors: de Kruijf Marc and Nomura Shuou and Sankaralingam Karthikeyan -->
+<li>
+<a name="relax"></a>Marc
+  de Kruijf, Shuou Nomura, and Karthikeyan
+  Sankaralingam.
+<a href="/web/20130212064944/http://dx.doi.org/10.1145/1815961.1816026">Relax: an architectural
+  framework for software recovery of hardware faults</a>.
+In <cite>ISCA</cite>, 2010.</li>
+<!-- Authors: Ernst D and Nam Sung Kim and Das S and Pant S and Rao R and Toan
+  Pham and Ziesler C and Blaauw D and Austin T and Flautner K and Mudge T -->
+<li>
+<a name="razor"></a>D. Ernst,
+  Nam Sung Kim, S. Das, S. Pant,
+  R. Rao, Toan Pham, C. Ziesler,
+  D. Blaauw, T. Austin,
+  K. Flautner, and T. Mudge.
+<a href="/web/20130212064944/http://dx.doi.org/10.1145/1150343.1150348">Razor: a low-power pipeline
+  based on circuit-level timing speculation</a>.
+In <cite>MICRO</cite>, 2003.</li>
+<!-- Authors: Hegde Rajamohana and Shanbhag Naresh R -->
+<li>
+<a name="ant"></a>Rajamohana Hegde and Naresh R.
+  Shanbhag.
+<a href="/web/20130212064944/http://dx.doi.org/10.1145/313817.313834">Energy-efficient signal
+  processing via algorithmic noise-tolerance</a>.
+In <cite>ISLPED</cite>, 1999.</li>
+<!-- Authors: Kahng AB and Seokhyeong Kang and Kumar R and Sartori J -->
+<li>
+<a name="hpca10cam"></a>A.B.
+  Kahng, Seokhyeong Kang, R. Kumar, and
+  J. Sartori.
+<a href="/web/20130212064944/http://dx.doi.org/10.1109/HPCA.2010.5416652">Designing a processor
+  from the ground up to allow voltage/reliability tradeoffs</a>.
+In <cite>HPCA</cite>, 2010.</li>
+<!-- Authors: Leem Larkhoon and Cho Hyungmin and Bau Jason and Jacobson Quinn A
+  and Mitra Subhasish -->
+<li>
+<a name="ersa"></a>Larkhoon
+  Leem, Hyungmin Cho, Jason Bau,
+  Quinn A. Jacobson, and Subhasish Mitra.
+<a href="/web/20130212064944/http://portal.acm.org/citation.cfm?id=1871302">ERSA: error resilient
+  system architecture for probabilistic applications</a>.
+In <cite>DATE</cite>, 2010.</li>
+<!-- Authors: Xuanhua Li and Donald Yeung -->
+<li>
+<a name="li06"></a>Xuanhua Li
+  and Donald Yeung.
+<a href="/web/20130212064944/http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.78.2997">Exploiting soft computing for increased fault tolerance</a>.
+In <cite>ASGI</cite>, 2006.</li>
+<!-- Authors: Li Xuanhua and Yeung Donald -->
+<li>
+<a name="li07"></a>Xuanhua Li
+  and Donald Yeung.
+<a href="/web/20130212064944/http://dx.doi.org/10.1109/HPCA.2007.346196">Application-level
+  correctness and its impact on fault tolerance</a>.
+In <cite>HPCA</cite>, 2007.</li>
+<!-- Authors: Xuanhua Li and Donald Yeung -->
+<li>
+<a name="li08"></a>Xuanhua Li
+  and Donald Yeung.
+<a href="/web/20130212064944/http://www.jilp.org/vol10/v10paper10.pdf">Exploiting application-level
+  correctness for low-cost fault tolerance</a>.
+<cite>Journal of Instruction-Level Parallelism</cite>, 2008.</li>
+<!-- Authors: Song Liu and Karthik Pattabiraman and Thomas Moscibroda and
+  Benjamin G Zorn -->
+<li>
+<a name="flicker"></a>Song Liu,
+  Karthik Pattabiraman, Thomas Moscibroda, and
+  Benjamin G. Zorn.
+<a href="/web/20130212064944/http://research.microsoft.com/apps/pubs/default.aspx?id=102932">Flicker: Saving refresh-power in mobile devices through critical data
+  partitioning</a>.
+Technical Report MSR-TR-2009-138, Microsoft Research, 2009.</li>
+<!-- Authors: Sasa Misailovic and Stelios Sidiroglou and Hank Hoffman and
+  Martin Rinard -->
+<li>
+<a name="qosprof"></a>Sasa
+  Misailovic, Stelios Sidiroglou, Hank Hoffman,
+  and Martin Rinard.
+<a href="/web/20130212064944/http://dx.doi.org/10.1145/1806799.1806808">Quality of service
+  profiling</a>.
+In <cite>ICSE</cite>, 2010.</li>
+<!-- Authors: Narayanan Sriram and Sartori John and Kumar Rakesh and Jones
+  Douglas L -->
+<li>
+<a name="stochasticproc"></a>Sriram Narayanan, John
+  Sartori, Rakesh Kumar, and Douglas L. Jones.
+<a href="/web/20130212064944/http://portal.acm.org/citation.cfm?id=1871008">Scalable stochastic
+  processors</a>.
+In <cite>DATE</cite>, 2010.</li>
+<!-- Authors: Rinard Martin and Hoffmann Henry and Misailovic Sasa and
+  Sidiroglou Stelios -->
+<li>
+<a name="rinard-onward"></a>Martin Rinard, Henry
+  Hoffmann, Sasa Misailovic, and Stelios
+  Sidiroglou.
+<a href="/web/20130212064944/http://dx.doi.org/10.1145/1869459.1869525">Patterns and statistical
+  analysis for understanding reduced resource computing</a>.
+In <cite>Onward!</cite>, 2010.</li>
+<!-- Authors: Phillip Stanley Marbell and Diana Marculescu -->
+<li>
+<a name="smpmup2006"></a>Phillip Stanley-Marbell and
+  Diana Marculescu.
+<a href="/web/20130212064944/http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.121.9864">A
+  programming model and language implementation for concurrent failureprone
+  hardware</a>.
+In <cite>PMUP</cite>, 2006.</li>
+<!-- Authors: Stanley Marbell Phillip -->
+<li>
+<a name="smitw2009"></a>Phillip Stanley-Marbell.
+<a href="/web/20130212064944/http://dx.doi.org/10.1109/ITW.2009.5351408">Encoding efficiency of
+  digital number representations under deviation constraints</a>.
+In <cite>ITW</cite>, 2009.</li>
+<!-- Authors: Tong Jonathan Ying Fai and Nagle David and Rutenbar Rob A -->
+<li>
+<a name="bitwidthred"></a>Jonathan Ying Fai Tong, David
+  Nagle, and Rob. A. Rutenbar.
+<a href="/web/20130212064944/http://dx.doi.org/10.1109/92.845894">Reducing power by optimizing the
+  necessary precision/range of floating-point arithmetic</a>.
+<cite>IEEE Trans. VLSI Syst.</cite>, 8(3), 2000.</li>
+<!-- Authors: Vicky Wong and Mark Horowitz -->
+<li>
+<a name="wong-selse06"></a>Vicky Wong and Mark Horowitz.
+<a href="/web/20130212064944/http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.77.6301">Soft
+  error resilience of probabilistic inference applications</a>.
+In <cite>SELSE</cite>, 2006.</li>
+</ul>
