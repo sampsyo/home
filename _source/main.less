@@ -127,7 +127,25 @@ article.preview.alone {
 
 article.full {
     margin-top: 1em;
+
+    // In full articles, shift down the type sizing.
+    h1 {
+        font-size: @font-size-h2;
+    }
+    h2 {
+        font-size: @font-size-h3;
+    }
+    h3 {
+        font-size: @font-size-h4;
+    }
+    h4 {
+        font-size: @font-size-h5;
+    }
+    h5 {
+        font-size: @font-size-h6;
+    }
 }
+
 
 // Blog post warning block.
 // Use Bootstrap's alert component.
