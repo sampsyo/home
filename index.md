@@ -40,7 +40,7 @@ Here's my [CV][].
 [fbfellow]: http://www.facebook.com/fellowships
 [XCG]: http://research.microsoft.com/en-us/labs/xcg/default.aspx
 [Karin Strauss]: http://research.microsoft.com/en-us/people/kstrauss/
-[cv]: /cv/
+[cv]: {{ site.base }}/cv/
 [qinf]: http://www.qualcomm.com/about/research/university-relations/innovation-fellowship/2013
 [msr redmond]: http://research.microsoft.com/en-us/labs/redmond/
 [google]: http://research.google.com/university/relations/phd_fellowships.html
