@@ -1,0 +1,5 @@
+---
+layout: none
+permalink: .htaccess
+---
+ErrorDocument 404 {{ site.base }}/404.html
