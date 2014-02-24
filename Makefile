@@ -24,4 +24,4 @@ cleanall:
 CSEHOST := bicycle.cs.washington.edu
 deploy: BUILDARGS=--config _config.yml,_config_deploy.yml
 deploy: clean site
-	rsync -avz -e ssh --delete _site/ $(CSEHOST):public_html/home
+	rsync --compress --recursive --checksum --itemize-changes --delete -e ssh _site/ $(CSEHOST):public_html/home
