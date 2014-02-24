@@ -21,6 +21,11 @@
         <meta name="twitter:title" content="{{ page.title }}">
         <meta name="twitter:description"
             content="{{ page.excerpt | markdownify | strip_html | strip_newlines }}">
+
+        <meta name="og:type" content="article">
+        <meta name="og:title" content="{{ page.title }}">
+        <meta name="og:description"
+            content="{{ page.excerpt | markdownify | strip_html | strip_newlines }}">
         {% endif %}
     </head>
     <body>
