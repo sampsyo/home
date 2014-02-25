@@ -167,6 +167,18 @@ The slides linked below are PDF files. Keynote files are available on request.
 
 ### Workshop Papers
 
+ * ["Tuning Approximate Computations with Constraint-Based Type
+   Inference."][wacas-inference-paper]
+   Brett Boston, Adrian Sampson, Dan Grossman, and Luis Ceze.
+   In [WACAS 2014][].
+ * ["Approximate Semantics for Wirelessly Networked
+   Applications."][wacas-wireless-paper]
+   Benjamin Ransford, Adrian Sampson, and Luis Ceze.
+   In [WACAS 2014][].
+ * ["Profiling and Autotuning for Energy-Aware Approximate
+   Programming."][wacas-profiling-paper]
+   Michael F. Ringenburg, Adrian Sampson, Luis Ceze, and Dan Grossman.
+   In [WACAS 2014][].
  * Design Tradeoffs of Approximate Analog Neural Accelerators.
    Renée St. Amant, Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, Arjang
    Hassibi, and Doug Burger. In [NIAC 2013][].
@@ -180,6 +192,10 @@ The slides linked below are PDF files. Keynote files are available on request.
  * ["Greedy Coherence."][greco] Emily Fortuna, Brandon Lucia, Adrian Sampson,
    Benjamin Wood and Luis Ceze. In [HPPC 2011][] (co-located with MICRO).
 
+[wacas-inference-paper]: http://sampa.cs.washington.edu/wacas14/papers/boston.pdf
+[wacas-wireless-paper]: http://sampa.cs.washington.edu/wacas14/papers/ransford.pdf
+[wacas-profiling-paper]: http://sampa.cs.washington.edu/wacas14/papers/ringenburg.pdf
+[WACAS 2014]: http://sampa.cs.washington.edu/wacas14/
 [NIAC 2013]: http://arch2neu.saclay.inria.fr/NIAC/
 [weed-paper]: http://research.ihost.com/weed2012/pdfs/paper%20G.pdf
 [dasi-paper]: http://sampa.cs.washington.edu/public/uploads/b/bc/Npu-dasi12.pdf
