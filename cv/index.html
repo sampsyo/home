@@ -10,13 +10,18 @@ title: CV
     <h1>
         <a href="{{ site.base }}/">{{ cv.name }}</a>
     </h1>
+    <address>
+        <a href="http://www.cs.washington.edu">University of
+            Washington Computer Science & Engineering</a>
+        <a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+    </address>
 </header>
 
 <section>
     <h2>Education</h2>
     {% for school in cv.education %}
     <p>
-        {{ school.school }}<br>
+        <strong>{{ school.school }}</strong><br>
         {{ school.degree }}<br>
         {{ school.dates }}<br>
         {{ school.note }}
@@ -56,7 +61,7 @@ title: CV
     {% for job in cv.jobs %}
     <p>
         {{ job.title }}<br>
-        {{ job.where }}<br>
+        <strong>{{ job.where }}</strong><br>
         {{ job.dates }}
     </p>
     {% endfor %}
