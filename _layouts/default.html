@@ -29,8 +29,9 @@
         {% endif %}
     </head>
     <body>
-        <div class="container">
+        <div class="container{% if page.class %} {{ page.class }}{% endif %}">
 
+            {% if page.plain != true %}
             <header>
                 <div id="leader">
                     <h1>
@@ -56,6 +57,7 @@
                     {% endfor %}
                 </nav>
             </header>
+            {% endif %}
 
             {{ content }}
 

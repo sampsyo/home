@@ -1,0 +1,70 @@
+---
+layout: default
+plain: true
+class: cv
+title: CV
+---
+{% assign cv = site.data.cv %}
+
+<header>
+    <h1>
+        <a href="{{ site.base }}/">{{ cv.name }}</a>
+    </h1>
+</header>
+
+<section>
+    <h2>Education</h2>
+    {% for school in cv.education %}
+    <p>
+        {{ school.school }}<br>
+        {{ school.degree }}<br>
+        {{ school.dates }}<br>
+        {{ school.note }}
+    </p>
+    {% endfor %}
+</section>
+
+<section>
+    <h2>Conference Publications</h2>
+    {% for paper in cv.publications %}
+        {% if paper.type == 'conference' %}
+            <p>
+                <span class="title">
+                    {% if paper.url %}<a href="{{ paper.url }}">{% endif %}&ldquo;{{ paper.title }}.&rdquo;{% if paper.url %}</a>{% endif %}
+                </span>
+                <span class="authors">{{ paper.authors }}.</span>
+                <span class="venue">
+                    {% if paper.pre %}To appear in{% else %}In{% endif %}
+                    {{ paper.venue }}.
+                </span>
+                {% if paper.note %}
+                    <span class="note">{{ paper.note }}</span>
+                {% endif %}
+            </p>
+        {% endif %}
+    {% endfor %}
+</section>
+
+<section>
+    <h2>Other Publications</h2>
+</section>
+
+<section>
+    <h2>Research Positions</h2>
+</section>
+
+<section>
+    <h2>Honors</h2>
+</section>
+
+<section>
+    <h2>Teaching</h2>
+</section>
+
+<section>
+    <h2>Service</h2>
+</section>
+
+<footer>
+    {{ cv.name }} &mdash; <a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+</footer>

@@ -1,0 +1,83 @@
+name: Adrian Sampson
+email: asampson@cs.washington.edu
+
+education:
+    -
+        school: University of Washington
+        degree: PhD, Computer Science and Engineering (in progress)
+        dates: 2009&ndash;present
+        note: |
+            Advisors: <a href="http://homes.cs.washington.edu/~luisceze/">Luis Ceze</a>
+            and <a href="http://homes.cs.washington.edu/~djg/">Dan Grossman</a>
+    -
+        school: Harvey Mudd College
+        degree: Bachelor of Science with High Distinction, Computer Science
+        dates: 2005&ndash;2009
+        note: |
+            Advisor: <a href="http://www.cs.hmc.edu/~geoff/">Geoff Kuenning</a>
+
+publications:
+    -
+        title: Expressing and Verifying Probabilistic Assertions
+        authors: Adrian Sampson, Pavel Panchekha, Todd Mytkowicz, Kathryn McKinley, Dan Grossman, and Luis Ceze
+        venue: PLDI 2014
+        venue_url: http://conferences.inf.ed.ac.uk/pldi2014/
+        pre: true
+        type: conference
+
+    -
+        title: Approximate Storage in Solid-State Memories
+        url: http://homes.cs.washington.edu/~asampson/media/papers/approxstorage-micro2013.pdf
+        authors: Adrian Sampson, Jacob Nelson, Karin Strauss, and Luis Ceze
+        venue: MICRO 2013
+        venue_url: http://www.microarch.org/micro46/
+        note: |
+            Selected to appear as an expanded version in <a
+            href="http://tocs.acm.org">ACM TOCS</a>.
+        type: conference
+
+    -
+        title: Neural Acceleration for General-Purpose Approximate Programs
+        url: http://homes.cs.washington.edu/~asampson/media/papers/npu-micro2012.pdf
+        authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
+        venue: MICRO 2012
+        venue_url: http://www.microarch.org/micro45/
+        note: |
+            Versions appear in MICRO Top Picks and CACM
+            Research Highlights (forthcoming).
+        type: conference
+
+    -
+        title: Automatic Discovery of Performance and Energy Pitfalls in HTML and CSS
+        url: http://homes.cs.washington.edu/~asampson/media/papers/webchar-iiswc2012-extabs.pdf
+        authors: Adrian Sampson, Călin Caşcaval, Luis Ceze, Pablo Montesinos, and Dario Suarez Gracia
+        venue: IISWC 2012
+        type: conference
+
+    -
+        title: Architecture Support for Disciplined Approximate Programming
+        url: http://www.cs.washington.edu/homes/asampson/media/papers/truffle-asplos2012.pdf
+        authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
+        venue: ASPLOS 2012
+        type: conference
+
+    -
+        title: 'EnerJ: Approximate Data Types for Safe and General Low-Power Computation'
+        url: http://sampa.cs.washington.edu/public/uploads/1/12/Enerj-pldi2011.pdf
+        authors: Adrian Sampson, Werner Dietl, Emily Fortuna, Danushen Gnanapragasam, Luis Ceze, and Dan Grossman
+        venue: PLDI 2011
+        type: conference
+
+    -
+        title: Composable Specifications for Structured Shared-Memory Communication
+        url: http://sampa.cs.washington.edu/public/uploads/e/e9/Osha-oopsla2010.pdf
+        authors: Benjamin Wood, Adrian Sampson, Luis Ceze, and Dan Grossman
+        venue: OOPSLA 2010
+        type: conference
+
+    -
+        title: On-line Distributed Traffic Grooming
+        url: http://dx.doi.org/10.1109/ICC.2008.984
+        authors: R. Jordan Crouser, Brian Rice, Adrian Sampson, and Ran Libeskind-Hadas
+        venue: ICC 2008
+        type: conference
