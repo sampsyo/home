@@ -28,25 +28,27 @@ title: CV
     <h2>Conference Publications</h2>
     {% for paper in cv.publications %}
         {% if paper.type == 'conference' %}
-            <p>
-                <span class="title">
-                    {% if paper.url %}<a href="{{ paper.url }}">{% endif %}&ldquo;{{ paper.title }}.&rdquo;{% if paper.url %}</a>{% endif %}
-                </span>
-                <span class="authors">{{ paper.authors }}.</span>
-                <span class="venue">
-                    {% if paper.pre %}To appear in{% else %}In{% endif %}
-                    {{ paper.venue }}.
-                </span>
-                {% if paper.note %}
-                    <span class="note">{{ paper.note }}</span>
-                {% endif %}
-            </p>
+            {% include paper_cv.html %}
+        {% endif %}
+    {% endfor %}
+</section>
+
+<section>
+    <h2>Workshop Publications</h2>
+    {% for paper in cv.publications %}
+        {% if paper.type == 'workshop' %}
+            {% include paper_cv.html %}
         {% endif %}
     {% endfor %}
 </section>
 
 <section>
     <h2>Other Publications</h2>
+    {% for paper in cv.publications %}
+        {% if paper.type != 'conference' and paper.type != 'workshop' %}
+            {% include paper_cv.html %}
+        {% endif %}
+    {% endfor %}
 </section>
 
 <section>

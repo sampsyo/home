@@ -1,0 +1,13 @@
+<p>
+    <span class="title">
+        {% if paper.url %}<a href="{{ paper.url }}">{% endif %}&ldquo;{{ paper.title }}.&rdquo;{% if paper.url %}</a>{% endif %}
+    </span>
+    <span class="authors">{{ paper.authors }}.</span>
+    <span class="venue">
+        {% if paper.pre %}To appear in{% else %}In{% endif %}
+        {% if paper.venue_url %}<a href="{{ paper.venue_url }}">{% endif %}{{ paper.venue }}{% if paper.venue_url %}</a>{% endif %}{% if paper.with %} (co-located with {{ paper.with }}){% endif %}.
+    </span>
+    {% if paper.note %}
+        <span class="note">{{ paper.note }}</span>
+    {% endif %}
+</p>
