@@ -26,7 +26,7 @@ title: CV
 
 <section>
     <h2>Conference Publications</h2>
-    {% for paper in cv.publications %}
+    {% for paper in site.data.pubs %}
         {% if paper.type == 'conference' %}
             {% include paper_cv.html %}
         {% endif %}
@@ -35,7 +35,7 @@ title: CV
 
 <section>
     <h2>Workshop Publications</h2>
-    {% for paper in cv.publications %}
+    {% for paper in site.data.pubs %}
         {% if paper.type == 'workshop' %}
             {% include paper_cv.html %}
         {% endif %}
@@ -44,7 +44,7 @@ title: CV
 
 <section>
     <h2>Other Publications</h2>
-    {% for paper in cv.publications %}
+    {% for paper in site.data.pubs %}
         {% if paper.type != 'conference' and paper.type != 'workshop' %}
             {% include paper_cv.html %}
         {% endif %}
