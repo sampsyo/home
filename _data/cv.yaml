@@ -15,3 +15,86 @@ education:
         dates: 2005&ndash;2009
         note: |
             Advisor: <a href="http://www.cs.hmc.edu/~geoff/">Geoff Kuenning</a>
+
+jobs:
+    -
+        title: Research Intern
+        where: Microsoft Research &mdash; Research in Software Engineering (RiSE)
+        dates: 2013
+
+    -
+        title: Research Intern
+        where: Microsoft Research &mdash; Extreme Computing Group (XCG)
+        dates: 2012
+
+    -
+        title: Research Intern
+        where: Qualcomm, Inc. &mdash; Bay Area R&amp;D
+        dates: 2010
+
+    -
+        title: Graduate Researcher
+        where: University of Washington
+        dates: 2009&ndash;present
+
+    -
+        title: Undergraduate Researcher
+        where: Harvey Mudd College &mdash; NSF REU Program
+        dates: 2007
+
+honors:
+    - 'Paper from MICRO 2013 invited for fast-track inclusion in <a href="http://tocs.acm.org">ACM TOCS</a>'
+    - 'Paper from MICRO 2012 selected for CACM research highlights'
+    - '<a href="http://googleresearch.blogspot.com/2013/06/2013-google-phd-fellowships-5-years-of.html">Google Ph.D. Fellowship in Computer Architecture</a> (2013&ndash;2015)'
+    - '<a href="http://www.qualcomm.com/about/research/university-relations/innovation-fellowship/2013">Qualcomm Innovation Fellowship</a> (2013&ndash;2014)'
+    - |
+        Paper from MICRO 2012 selected for <a href="https://sites.google.com/site/ieeemicro/call-for-papers/top-picks-2013">IEEE Micro's Top Picks from the Computer Architecture Conferences, 2013</a>
+    - 'Best lightning session presentation, <a href="http://www.microsymposia.org/micro45/">MICRO 2012</a>'
+    - '<a href="http://www.facebook.com/fellowships">Facebook Ph.D. Fellowship</a> (2012&ndash;2013)'
+    - ' University of Washington <a href="http://www.cs.washington.edu/education/grad/current/GradFellowships/Hacherl.html">Hacherl Graduate Fellowship in Computer Science and Engineering</a> (2009&ndash;2010)'
+    - 'Hertz Foundation Fellowship Finalist (2009)'
+    - |
+        Harvey Mudd College (2009):
+
+        * High Distinction
+        * Honors in Computer Science
+        * Honors in Humanities, Social Sciences, and the Arts
+        * Computer Science Class of &rsquo;94 Award
+        * Computer Science Clinic Award
+        * William and Margaret Radley Prize in Humanities, Social Sciences, and the Arts
+
+teaching:
+    - |
+        Teaching Assistant, University of Washington:
+
+        * <a href="http://www.cs.washington.edu/education/courses/csep548/11wi/">CSE PMP 548, Winter 2011</a> (M.S. Computer Architecture), with Luis Ceze
+        * <a href="http://www.cs.washington.edu/education/courses/cse505/12wi/">CSE 505, Winter 2012</a> (Graduate Programming Languages), with Dan Grossman
+        * <a href="http://www.cs.washington.edu/education/courses/cse548/13wi/">CSE 548, Winter 2013</a> (Graduate Computer Architecture), with Mark Oskin
+
+    - |
+        Tutor, University of Washington,
+        2009--present:
+        CSE 303 (Software Development), 311/312
+        (Foundations of Computing), 322 (Formal
+        Models), 331 (Software Engineering), 332 (Data
+        Structures), 351 (The Hardware/Software
+        Interface)
+
+service:
+    - |
+        University of Washington, Computer Science and Engineering:
+
+        * Graduate Admissions Committee, 2013&ndash;2014
+        * Prospective Student Committee Co-Chair, 2011; Member, 2010&ndash;present
+        * Student Survey Coordinator, 2011
+        * "Mossy Bits" Creative Arts Journal Editor, 2010--present
+        * New Graduate Student Mentor, 2010--present
+
+    - |
+        Organizer and program committee member, first <a href="http://sampa.cs.washington.edu/wacas14/">Workshop on Approximate Computing Across the System Stack</a> (WACAS 2014)
+
+    - |
+        Member, PLDI 2014 <a href="http://pldi14-aec.cs.brown.edu">artifact evaluation committee</a>
+
+    - |
+        Paper Reviews: ASPLOS 2011, POPL 2012, PPoPP 2012, PLDI 2012, HPCA 2013, HotPar 2013, CGO 2014

@@ -53,18 +53,34 @@ title: CV
 
 <section>
     <h2>Research Positions</h2>
+    {% for job in cv.jobs %}
+    <p>
+        {{ job.title }}<br>
+        {{ job.where }}<br>
+        {{ job.dates }}
+    </p>
+    {% endfor %}
 </section>
 
 <section>
     <h2>Honors</h2>
+    {% for text in cv.honors %}
+        {{ text | markdownify }}
+    {% endfor %}
 </section>
 
 <section>
     <h2>Teaching</h2>
+    {% for text in cv.teaching %}
+        {{ text | markdownify }}
+    {% endfor %}
 </section>
 
 <section>
     <h2>Service</h2>
+    {% for text in cv.service %}
+        {{ text | markdownify }}
+    {% endfor %}
 </section>
 
 <footer>
