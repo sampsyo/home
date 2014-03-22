@@ -76,6 +76,7 @@ The slides linked below are PDF files. Keynote files are available on request.
    Adrian Sampson, Pavel Panchekha, Todd Mytkowicz, Kathryn McKinley, Dan
    Grossman, and Luis Ceze.
    To appear in [PLDI 2014][].
+    * [Artifact evaluated!][pldi14-aec]
  * ["Approximate Storage in Solid-State Memories."][approxstorage]
    Adrian Sampson, Jacob Nelson, Karin Strauss, and Luis Ceze. In
    [MICRO 2013][]. Selected to appear as an expanded version in [ACM TOCS][].
@@ -123,6 +124,7 @@ The slides linked below are PDF files. Keynote files are available on request.
    In [ICC 2008][].
 
 [PLDI 2014]: http://conferences.inf.ed.ac.uk/pldi2014/
+[pldi14-aec]: http://pldi14-aec.cs.brown.edu
 
 [approxstorage]: http://dl.acm.org/citation.cfm?id=2540708.2540712
 [storage-local]: {{ site.base }}/media/papers/approxstorage-micro2013.pdf

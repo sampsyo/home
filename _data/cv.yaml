@@ -43,6 +43,7 @@ jobs:
         dates: 2007
 
 honors:
+    - 'Artifact accepted by the <a href="http://pldi14-aec.cs.brown.edu">PLDI 2014 Artifact Evaluation Committee</a>'
     - 'Paper from MICRO 2013 invited for fast-track inclusion in <a href="http://tocs.acm.org">ACM TOCS</a>'
     - 'Paper from MICRO 2012 selected for CACM research highlights'
     - '<a href="http://googleresearch.blogspot.com/2013/06/2013-google-phd-fellowships-5-years-of.html">Google Ph.D. Fellowship in Computer Architecture</a> (2013&ndash;2015)'

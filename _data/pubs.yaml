@@ -5,6 +5,8 @@
     venue_url: http://conferences.inf.ed.ac.uk/pldi2014/
     pre: true
     type: conference
+    note: |
+        <a href="http://pldi14-aec.cs.brown.edu">Artifact evaluated.</a>
 
 -
     title: Approximate Storage in Solid-State Memories
