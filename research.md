@@ -85,6 +85,7 @@ The slides linked below are PDF files. Keynote files are available on request.
     * [Slides.][storage-slides]
     * [Poster.][storage-poster]
     * [Lightning session slides.][storage-lightning]
+    * [Talk video.][storage-video]
  * ["Neural Acceleration for General-Purpose Approximate Programs."][npu-micro]
    Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger. In
    [MICRO 2012][].
@@ -136,6 +137,7 @@ The slides linked below are PDF files. Keynote files are available on request.
 [storage-lightning]: {{ site.base }}/media/approxstorage-micro-lightning.pdf
 [MICRO 2013]: http://www.microarch.org/micro46/
 [ACM TOCS]: http://tocs.acm.org
+[storage-video]: https://www.youtube.com/watch?v=YCoGNXSSMJo
 
 [npu-poster]: {{ site.base }}/media/npu-micro-poster.pdf
 [npu-slides]: {{ site.base }}/media/npu-micro-slides.pdf
