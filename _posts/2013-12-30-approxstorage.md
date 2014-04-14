@@ -39,3 +39,4 @@ In an endeavor to make this a reality, here's my first [conference talk video][v
 [micro]: http://www.microarch.org/micro46/
 [video]: http://www.youtube.com/watch?v=YCoGNXSSMJo
 [paper]: http://dl.acm.org/citation.cfm?id=2540708.2540712
+[email]: mailto:asampson@cs.washington.edu
