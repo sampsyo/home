@@ -11,8 +11,8 @@ tools that support approximate programming.
 
 I have worked on the [EnerJ][] approximation-aware programming language,
 the [Truffle][] dual-voltage architecture, [neural processing units
-(NPUs)][npu], and techniques for [approximate storage][storage] in PCM and
-other solid-state memories.
+(NPUs)][npu], systems for [approximate storage][storage] in PCM and
+other solid-state memories, and a new language construct called [probabilistic assertions][passert].
 
 [npu]: http://dl.acm.org/citation.cfm?id=2457519
 [truffle]: http://dl.acm.org/citation.cfm?id=2151008
@@ -22,6 +22,7 @@ other solid-state memories.
 [enerj]: {{ site.base }}/media/papers/enerj-pldi2011.pdf
 [Luis Ceze]: http://www.cs.washington.edu/homes/luisceze/ 
 [Dan Grossman]: http://www.cs.washington.edu/homes/djg/ 
+[passert]: {{ site.base }}/media/papers/passert-pldi2014.pdf
 
 I am supported by a 2013--2014 [Qualcomm Innovation Fellowship][qinf] with
 [Thierry Moreau][theirry] and a 2013--2015 [Google PhD Fellowship][google]
