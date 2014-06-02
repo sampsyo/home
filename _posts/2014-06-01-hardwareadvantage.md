@@ -2,7 +2,7 @@
 layout: post
 title: Put It in Hardware
 excerpt: |
-    xxx
+    Why does baking something into the hardware make it faster? It may seem obvious, but I think there are four distinct reasons for implementing something in hardware. It's cruicial to remember that they are separate advantages: architectures can "win" in some categories without addressing them all.
 ---
 What functionality should be baked into the hardware, and what is better off as software? This is the eternal question of modern computer architecture.
 
@@ -16,7 +16,7 @@ There is, of course, no free efficiency lunch. A hardware implementation fundame
 
 There are four major factors. They overlap and intersect, but it's important to keep them straight when arguing about the hardware--software divide.
 
-### The ASIC Advantage
+### Generality vs. Efficiency
 
 The first advantage comes from specialization: implementing a circuit that can only do one thing. An ASIC can eliminate fundamental inefficiencies inherent in a general-purpose processor. 
 
@@ -59,7 +59,7 @@ Like it or not, code size is one of the reasons [the x86 ISA][x86] is still with
 [uops]: http://en.wikipedia.org/wiki/Micro-operation
 [x86]: http://en.wikipedia.org/wiki/X86
 
-### Abstraction Layer
+### Abstraction Cost
 
 A final reason to add hardware support is when the hardware knows things that the software doesn't know and can't efficiently discover. If the software is found to be recomputing results that are already microarchitectural state, it may be time to add hardware support.
 
@@ -67,7 +67,7 @@ This source of efficiency is an argument for keeping hardware-managed caches ove
 
 Microarchitectural state is also essential to out-of-order processors' [dynamism][specdyn] advantage. A processor knows when a memory access misses in the L1 cache, for example, and hardware scheduling algorithms can respond immediately to reorder subsequent work. A software scheduler would need undue overhead to constantly monitor for L1 misses.
 
-## Why Put It in Hardware?
+## What Belongs in Hardware?
 
 When considering whether it's worth the cost for an architecture to provide some functionality, it's important we remember that hardware implementation's benefits do not arise only from circuit design. In fact, many of the benefits have nothing to do with efficient designs: control overhead, code size, and abstraction penalty can all be reduced without tackling the ASIC design problem. Architectures that aim for these less-obvious benefits can win by improving the ISA while sidestepping what we usually call "specialization."
 
