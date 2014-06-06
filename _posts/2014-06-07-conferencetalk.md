@@ -7,7 +7,7 @@ excerpt: |
     [pldi]: http://conferences.inf.ed.ac.uk/pldi2014/
     [passert]: http://homes.cs.washington.edu/~asampson/media/papers/passert-pldi2014.pdf
 ---
-Conference talks are a particularly rewarding part of grad school. And compared to reading your paper, you have a better shot at getting people on your side when they see your talk. But because they're so visible and critical to dissemination, they're an enormous responsibility to hoist onto students---especially if it's your first talk.
+Conference talks are a particularly rewarding part of grad school. And compared to reading your paper, you have a better shot at getting people on your side when they see your talk. But because they're so visible and critical to dissemination, they're an enormous responsibility to heap onto students---especially if it's your first talk.
 
 Here is what I have learned so far about the process of preparing a talk.
 
@@ -21,13 +21,13 @@ The first step is to make a high-level outline of the talk's contents. Your inst
 
 To make the outline, it can help to start with the rough outline of your paper: read off the section and subsection headings and call that an outline.
 
-A typical conference talk outline should contain:
+A typical conference talk outline should contain, in order:
 
-- An immediate preview ("executive summary") of the overall message of the talk. This should succinctly, in a slide or less, capture the story you want to tell. It is your chance to explain why the audience should momentarily stop checking their email.
-- The introduction, where you motivate the problem and describe why your angle on it is interesting and important.
-- The "body" sections, where you explain your technique. Pay careful attention to the level of detail: explain only the most surprising and distillable aspects of your work.
-- The evaluation, implementation, and results. Choose approximately one headline result figure from your paper that you will present. Do *not* attempt to include all the data you collected, or even all the data you described in the paper.
-- The conclusion. This can often be the "executive summary" from the top of your talk, rephrased as a takeaway message.
+1. An immediate preview ("executive summary") of the overall message of the talk. This should succinctly, in a slide or less, capture the story you want to tell. It is your chance to explain why the audience should momentarily stop checking their email.
+2. The introduction, where you motivate the problem and describe why your angle on it is interesting and important.
+3. The "body" sections, where you explain your technique. Pay careful attention to the level of detail: explain only the most surprising and distillable aspects of your work.
+4. The evaluation, implementation, and results. Choose approximately one headline result figure from your paper that you will present. Do not attempt to include all the data you collected, or even all the data you described in the paper.
+5. The conclusion. This can often be the "executive summary" from the top of your talk, rephrased as a takeaway message.
 
 This is a reasonable template for full conference talks in systems areas, but it may not apply exactly for position papers, workshop talks, and the like.
 
@@ -39,8 +39,8 @@ The introduction is the most important part of the talk: it's the only part of t
 
 Now that you've introduced your audience to the topic, you need to give structure to the remainder of your talk.
 
-- Create an "overview" slide, which comes right after the introduction, that describes the remaining sections in your outline.
-- For each section, including the evaluation section, create a "signpost" side that lets the audience know that you're shifting topics. They should have a uniform appearance; this way, they feel like your talk is returning home between each new adventure into technical content.
+- Create an *overview* slide, which comes right after the introduction, that describes the remaining sections in your outline.
+- For each section, including the evaluation section, create a *signpost* side that lets the audience know that you're shifting topics. They should have a uniform appearance; this way, they feel like your talk is returning home briefly between each new adventure into technical content.
 
 ## Fill in the content.
 
@@ -50,11 +50,11 @@ To give the right amount of detail, make a mental model of the background you ex
 
 ## Practice.
 
-Practice relentlessly. In my experience, practice is the *primary predictor* of talk quality: unpracticed talks are almost always terrible; thoroughly practiced talks usually go well. Every other effect is secondary.
+Practice relentlessly. In my experience, practice is the primary predictor of talk quality: unpracticed talks are almost always terrible; thoroughly practiced talks usually go well. Every other effect is secondary.
 
 Two kinds of practice are important:
 
-- Practice in front of other people: your co-authors, your research group, your advisors, willing friends, your cat. Feedback from other humans is crucial for designing an intelligible talk: earnestly try to understand how people are getting confused, try a fix, and do another practice. Everyone will want to give advice, but advice is usually not the most helpful outcome of a practice talk: the points of confusion are critical. You are the expert on slide-crafting for your talk; practice audiences are the experts on getting confused.
+- Practice in front of other people: your co-authors, your research group, your advisors, willing friends, your cat. Feedback from other humans is crucial for designing an intelligible talk: earnestly try to understand how people are getting confused, implement a fix, and do another practice. Everyone will want to give advice, but advice is usually not the most helpful outcome of a practice talk: the points of confusion are critical. You are the expert on slide-crafting for your talk; practice audiences are the experts on getting confused.
 - Practice by yourself: in front of a wall or a mirror. Solo practices are important for two reasons:
 	- "Full" practices are tricky to organize; you'll only get to do a handful even in optimal scheduling conditions. You need to go through the motions more often than that.
 	- Talking to yourself (if you're not overwhelmed by the self-consciousness that you look like a crazy person) is way less terrifying. By running through the words without anyone judging you, you can foster a sense of calm and associate it with your presentation. During the real thing, your brain can tap into this feeling instead of the at-hand alternatives: terrifying practice talks or the even more terrifying real thing.
