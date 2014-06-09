@@ -78,6 +78,9 @@ The slides linked below are PDF files. Keynote files are available on request.
    To appear in [PLDI 2014][].
     * [Artifact evaluated!][pldi14-aec]
     * [Full semantics and proof.][passert-aux]
+    * [Slides.][passert-slides]
+    * [Poster.][passert-poster]
+    * ["Teaser" slide.][passert-teaser]
  * ["Approximate Storage in Solid-State Memories."][approxstorage]
    Adrian Sampson, Jacob Nelson, Karin Strauss, and Luis Ceze. In
    [MICRO 2013][]. Selected to appear as an expanded version in [ACM TOCS][].
@@ -129,6 +132,9 @@ The slides linked below are PDF files. Keynote files are available on request.
 [pldi14-aec]: http://pldi14-aec.cs.brown.edu
 [passert]: {{ site.base }}/media/papers/passert-pldi2014.pdf
 [passert-aux]: {{ site.base }}/media/papers/passert-aux.pdf
+[passert-slides]: {{ site.base }}/media/passert-pldi-slides.pdf
+[passert-poster]: {{ site.base }}/media/passert-pldi-poster.pdf
+[passert-teaser]: {{ site.base }}/media/passert-pldi-teaser.pdf
 
 [approxstorage]: http://dl.acm.org/citation.cfm?id=2540708.2540712
 [storage-local]: {{ site.base }}/media/papers/approxstorage-micro2013.pdf
