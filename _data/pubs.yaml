@@ -68,6 +68,15 @@
 
 
 -
+    title: Two Approximate-Programmability Birds, One Statistical-Inference Stone
+    url: http://homes.cs.washington.edu/~asampson/media/approx2014.pdf
+    authors: Adrian Sampson
+    venue: APPROX 2014
+    type: workshop
+    venue_url: http://approx2014.cs.umass.edu/
+    with: PLDI
+
+-
     title: Tuning Approximate Computations with Constraint-Based Type Inference
     url: http://sampa.cs.washington.edu/wacas14/papers/boston.pdf
     authors: Brett Boston, Adrian Sampson, Dan Grossman, and Luis Ceze

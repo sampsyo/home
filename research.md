@@ -180,6 +180,10 @@ The slides linked below are PDF files. Keynote files are available on request.
 
 ### Workshop Papers
 
+ * ["Two Approximate-Programmability Birds, One Statistical-Inference
+   Stone."][approx-paper]
+   Adrian Sampson.
+   In [APPROX 2014][]. [Slides.][approx-slides]
  * ["Tuning Approximate Computations with Constraint-Based Type
    Inference."][wacas-inference-paper]
    Brett Boston, Adrian Sampson, Dan Grossman, and Luis Ceze.
@@ -205,6 +209,9 @@ The slides linked below are PDF files. Keynote files are available on request.
  * ["Greedy Coherence."][greco] Emily Fortuna, Brandon Lucia, Adrian Sampson,
    Benjamin Wood and Luis Ceze. In [HPPC 2011][] (co-located with MICRO).
 
+[approx-paper]: {{ site.base }}/media/approx2014.pdf
+[approx-slides]: {{ site.base }}/media/approx2014-slides.pdf
+[approx 2014]: http://approx2014.cs.umass.edu
 [wacas-inference-paper]: http://sampa.cs.washington.edu/wacas14/papers/boston.pdf
 [wacas-wireless-paper]: http://sampa.cs.washington.edu/wacas14/papers/ransford.pdf
 [wacas-profiling-paper]: http://sampa.cs.washington.edu/wacas14/papers/ringenburg.pdf
