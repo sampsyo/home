@@ -72,10 +72,11 @@ The slides linked below are PDF files. Keynote files are available on request.
 
 ### Conference Papers
 
- * ["Expressing and Verifying Probabilistic Assertions."][passert]
+ * ["Expressing and Verifying Probabilistic Assertions."][passert-acm]
    Adrian Sampson, Pavel Panchekha, Todd Mytkowicz, Kathryn McKinley, Dan
    Grossman, and Luis Ceze.
    To appear in [PLDI 2014][].
+    * [Local PDF.][passert]
     * [Artifact evaluated!][pldi14-aec]
     * [Full semantics and proof.][passert-aux]
     * [Slides.][passert-slides]
@@ -135,6 +136,7 @@ The slides linked below are PDF files. Keynote files are available on request.
 [passert-slides]: {{ site.base }}/media/passert-pldi-slides.pdf
 [passert-poster]: {{ site.base }}/media/passert-pldi-poster.pdf
 [passert-teaser]: {{ site.base }}/media/passert-pldi-teaser.pdf
+[passert-acm]: http://dl.acm.org/citation.cfm?id=2594294
 
 [approxstorage]: http://dl.acm.org/citation.cfm?id=2540708.2540712
 [storage-local]: {{ site.base }}/media/papers/approxstorage-micro2013.pdf
