@@ -7,7 +7,7 @@ twitter: '@samps'
 markdown: redcarpet
 redcarpet:
     extensions: [smart, no_intra_emphasis]
-pygments: false
+highlighter: null
 
 exclude:
     - bower_components
