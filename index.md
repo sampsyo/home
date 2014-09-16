@@ -24,10 +24,11 @@ and a new language construct called [probabilistic assertions][passert].
 [Dan Grossman]: http://www.cs.washington.edu/homes/djg/ 
 [passert]: {{ site.base }}/media/papers/passert-pldi2014.pdf
 
-I am supported by a 2013--2014 [Qualcomm Innovation Fellowship][qinf] with
-[Thierry Moreau][theirry] and a 2013--2015 [Google Ph.D. Fellowship][google]
-in Computer Architecture.
-Previously, I held a 2012--2013 [Facebook Ph.D. fellowship][fbfellow].
+I am supported by a 2013--2015 [Google Ph.D. Fellowship][google] in Computer
+Architecture.
+Previously, I held a 2013--2014 [Qualcomm Innovation Fellowship][qinf] with
+[Thierry Moreau][theirry] and a 2012--2013 [Facebook Ph.D.
+fellowship][fbfellow].
 I graduated from [Harvey Mudd College](http://www.hmc.edu/) in 2009.
 I have interned at [Qualcomm BARD][bard] and twice at [Microsoft
 Research][], where I have worked with [Karin Strauss][], [Todd
