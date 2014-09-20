@@ -25,3 +25,6 @@ CSEHOST := bicycle.cs.washington.edu
 deploy: BUILDARGS=--config _config.yml,_config_deploy.yml
 deploy: clean site
 	rsync --compress --recursive --checksum --itemize-changes --delete -e ssh _site/ $(CSEHOST):public_html/home
+
+cv.pdf:
+	wkpdf --source file://$(shell pwd)/_site/cv/index.html --output cv.pdf --caching false --stylesheet-media print --margins 52 36 88 18 --paper letter

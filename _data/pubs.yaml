@@ -4,7 +4,6 @@
     authors: Adrian Sampson, Pavel Panchekha, Todd Mytkowicz, Kathryn McKinley, Dan Grossman, and Luis Ceze
     venue: PLDI 2014
     venue_url: http://conferences.inf.ed.ac.uk/pldi2014/
-    pre: true
     type: conference
     note: |
         <a href="http://pldi14-aec.cs.brown.edu">Artifact evaluated.</a>
