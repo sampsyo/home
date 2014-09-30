@@ -4,9 +4,11 @@ url: http://homes.cs.washington.edu/~asampson
 base: ''
 twitter: '@samps'
 
-markdown: redcarpet
-redcarpet:
-    extensions: [smart, no_intra_emphasis]
+markdown: kramdown
+kramdown:
+    enable_coderay: false
+    auto_ids: false
+    entity_output: symbolic
 highlighter: null
 
 exclude:
