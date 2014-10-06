@@ -62,4 +62,11 @@ The project is risky, but as researchers we should be familiar with long bets.
 
 I want to hear from other computer scientists: What are your favorite complaints about the conference system? What could we build that would sidestep them? How can a new, lightweight publication venue achieve relevance? I know you have great ideas---please [get in touch][email].
 
+*My thanks to
+[Brandon Holt](http://homes.cs.washington.edu/~bholt/),
+[Amrita Mazumdar](http://amritamaz.me),
+[Pavel Panchekha](http://pavpanchekha.com),
+and John Toman
+for reading drafts of this post.*
+
 [email]: mailto:asampson@cs.washington.edu
