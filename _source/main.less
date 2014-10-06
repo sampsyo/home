@@ -15,8 +15,10 @@
 @title-font: 'PT Sans', sans-serif;
 
 body {
-    font-family: Lora, serif;
+    font-family: Merriweather, serif;
 }
+@font-size-base: 15px;
+@bigger-size: 1.1em;
 
 // Page header.
 header {
@@ -33,7 +35,7 @@ header {
         }
     }
     address {
-        font-size: 1.2em;
+        font-size: @bigger-size;
         margin: 0;
         a {
             display: block;
@@ -41,17 +43,17 @@ header {
     }
 }
 #leader {
-    .make-md-column(6);
-    .make-sm-column(6);
+    .make-md-column(5);
+    .make-sm-column(5);
 }
 nav {
-    .make-md-column(6);
-    .make-sm-column(6);
+    .make-md-column(7);
+    .make-sm-column(7);
     margin: 1em 0 0 0;
     a {
         display: inline-block;
         margin: 0 0.25em;
-        font-size: 1.2em;
+        font-size: @bigger-size;
         padding: 2px 6px;
         border: 1px solid white;
         border-radius: 3px;
@@ -93,7 +95,7 @@ ul li, ol li {
 
 // Front-page bio block.
 .blurb {
-    font-size: 1.2em;
+    font-size: @bigger-size;
     margin: 1em 0;
 }
 
@@ -172,7 +174,7 @@ article.full {
 footer {
     color: @gray-light;
     font-family: @title-font;
-    font-size: 1.2em;
+    font-size: @bigger-size;
     border-top: 1px solid @brand-primary;
     margin: 0.2em 0 0.5em;
     padding-top: 0.2em;
@@ -211,7 +213,7 @@ img.illus {
     }
     p strong {
         font-weight: normal;
-        font-size: 1.2em;
+        font-size: @bigger-size;
     }
 }
 
