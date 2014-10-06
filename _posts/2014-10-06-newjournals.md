@@ -7,7 +7,7 @@ excerpt:
 ---
 A favorite conversation topic at computer science conferences is griping about computer science conferences. While we may not agree on the specifics, everyone seems to concur that the list of shortcomings is long.
 
-The most popular complaints range from the ambitiously idealistic to the mundanely bureaucratic:
+Popular complaints range from the ambitiously idealistic to the mundanely bureaucratic:
 
 * Nondeterministic reviewer assignment makes authors play [Whac-A-Mole][wam] with wildly shifting criticisms from submission to resubmission.
 * Secret reviews and high per-PC-member load incentivize shoddy reviewing.
@@ -25,7 +25,7 @@ These issues, in some combination, have appeared at every conference business me
 
 We should keep pushing for incremental change within the current system. At the same time, there's room for a different approach. We can attack the stagnation from the outside in: we can start something new. The new thing will need to start from scratch with earning attention and credibility, but it could break with tradition more rapidly.
 
-We should take inspiration from other sciences that have been more proactive in adopting new publication norms: [the arXiv][arxiv] for preprints, open-access journals like [the Forum of Mathematics][forum], and---closer to home---[VLDB][], a notable computer science exception to conference conservatism.
+We should take inspiration from other communities that have been more proactive in adopting new publication norms: [the arXiv][arxiv] for unreviewed preprints, open-access journals like [the Forum of Mathematics][forum], and---closer to home---[VLDB][], a notable computer science exception to conference conservatism.
 
 [arxiv]: http://arxiv.org
 [forum]: http://journals.cambridge.org/forumofmathematics
