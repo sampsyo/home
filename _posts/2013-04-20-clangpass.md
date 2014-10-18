@@ -40,3 +40,18 @@ and you'll have a full-fledged compiler driver augmented with your instrumentati
 [ExtensionPointTy]: http://llvm.org/docs/doxygen/html/classllvm_1_1PassManagerBuilder.html#a575d14758794b0997be4f8edcef7dc91
 [pass registry]: http://llvm.org/docs/doxygen/html/classllvm_1_1PassRegistry.html
 [LLVM pass]: http://llvm.org/docs/WritingAnLLVMPass.html
+
+---
+
+**Update, October 17, 2014:** As of the current release (3.5), LLVM is in the midst of a transition to a new PassManager infrastructure. The old classes have moved into a `llvm::legacy` namespace. Clang, however, still uses the legacy PassManager, so this technique is still the right one to use.
+
+To explicitly use the legacy components, you may need to include a different file, `llvm/IR/LegacyPassManager.h`, and refer to `legacy::PassManagerBase` in your callback. Like so:
+
+    #include "llvm/IR/LegacyPassManager.h"
+    using namespace llvm;
+    static void registerPass(const PassManagerBuilder &,
+                             legacy::PassManagerBase &PM) {
+        ...
+    }
+
+Cursory searching on the mailing lists has failed to turn up any indication of whether or when Clang might move to the new PassManager infrastructure. If you know more, I'd be interested to hear from you.
