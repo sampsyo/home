@@ -11,7 +11,7 @@ You're probably wondering how your bug report stacks up against other denizens o
 
 ## Zero Points: The Solipsist
 
-You wrote down your problem in the first terms that come to mind.
+You wrote down your problem in the first terms that came to mind.
 
 > The ficus-blitzer crashes.
 
@@ -27,7 +27,7 @@ It's okay! Don't worry! Bug reporting is a learned skill. We'll get you there.
 
 ## Two Points: The Literalist
 
-Unlike the Novice, you've done this before---but you've overcorrected. You're *all about* detail. If there's a traceback, you include it. But the description is a bare-bones, Hemingwayian affair:
+You've begun to accept the Gospel of Detail into your heart. If there's a traceback, you include it. But the associated context is a bare-bones, Hemingwayian affair:
 
 > I ran this:
 >
@@ -40,13 +40,13 @@ Unlike the Novice, you've done this before---but you've overcorrected. You're *a
 >
 > I have the blitzer engine configured to use eight chads.
 
-For a minority of bugs, this is enough. You've shown the bare minimum for us to have a shot at understanding what's wrong. But there's probably no hope of reproducing it.
+For a minority of bugs, this is enough. You've shown the bare minimum for us to have a shot at understanding what's wrong. But there's probably no hope of reproducing anything but the simplest problem.
 
 Subtract half a point if you have all the output but neglected to paste the input.
 
 ## Three Points: The Completionist
 
-You take give the Literalist a run for her money by including even *more* detail about what happened:
+You take give the Literalist a run for their money by including even *more* detail about what happened:
 
 > Here's a link to my configuration file. Here's the file `blitz.hs` file I was using as input. This is my version of FicusBlitz:
 >
@@ -73,8 +73,8 @@ Your critical thinking makes our job an order of magnitude easier. It efficientl
 
 You're an emissary from another world. In your world, bug reporting is as ingrained a skill as walking while texting is in ours:
 
-> I narrowed down the crash to the 416th ficus in that file---here's a file that contains only that ficus that still crashes. I cleared out all the other metadata to show that the crash has to be related to the name field. If I change its name from Sébastien to Sebastien, the crash goes away. I've also attached the *accent-aigu*--free, crash-free version of the file for comparison.
+> I narrowed down the crash to the 416th ficus in that file---here's a file that contains only that crashy ficus. I cleared out all the other metadata to show that the crash has to be related to the name field. If I change its name from Sébastien to Sebastien, the crash goes away. I've also attached the *accent-aigu*--free, crash-free version of the file for comparison.
 >
 > The crash doesn't seem to be platform-specific; I tried it on my Amiga 500 with the same result.
 
-Full credit! Your thorough investigation is probably *more* helpful than a proposed fix. You didn't need to get your hands dirty trying to understand the code, but this will make the fix a small matter of programming.
+Full credit! Your thorough investigation is probably *more* helpful than a proposed fix. You didn't need to get your hands dirty trying to understand the code, and for us, this will make the fix a *small matter of programming*.
