@@ -12,6 +12,12 @@
 @code-color: @pre-color;
 @code-bg: @pre-bg;
 
+// No giant quote blocks.
+@blockquote-font-size: @font-size-base;
+blockquote {
+    margin-bottom: (@line-height-computed / 2);
+}
+
 @title-font: 'PT Sans', sans-serif;
 
 body {
