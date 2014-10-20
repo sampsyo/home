@@ -46,9 +46,9 @@ Subtract half a point if you have all the output but neglected to paste the inpu
 
 ## Three Points: The Completionist
 
-You take give the Literalist a run for their money by including even *more* detail about what happened:
+You give the Literalist a run for their money by including even *more* detail about what happened:
 
-> Here's a link to my configuration file. Here's the file `blitz.hs` file I was using as input. This is my version of FicusBlitz:
+> Here's a link to my configuration file. Here's the file `ficus1.doc` file I was using as input. This is my version of FicusBlitz:
 >
 >     $ blitz --version
 >     FicusBlitz 96.4.12.beta-8
