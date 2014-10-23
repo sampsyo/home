@@ -27,6 +27,8 @@ relatedly, managing ownership and participation. avoiding time sinks. what shape
 
 ## Practice Extreme Empathy
 
+Alternate section title: "Do not, under any circumstances, be yourself."
+
 Good advising does not come naturally. You can't interact with your students in the way that seems most natural, or even the most comfortable. People have specific needs for how they're motivated, how they're made to feel successful, etc.
 
 This is a perversion of the golden rule. You need to fight your natural instincts to treat everyone how you once wanted to be treated as a grad student. It is hard to think carefully about exactly which words of encouragement someone needs at a particular time, especially when they're different from how you operate. But this kind of extreme empathy is the essence of mentoring.
@@ -46,3 +48,17 @@ Err on the side of overcommunication
 You obviously have to hide some things strategically to avoid overwhelming students (and breaches of professionalism). But work hard to communicate everything that you don't have a reason for hiding. Some politics that you'd prefer to abstract away, or some decision-making details that are just tiresome to explain: explain them. Hiding them systematically hides students from the real way research gets done.
 
 Not only is this important for morale but it's critical to learning how research is done. If things seem to happen out of the blue, if things change when you're not looking, you can't develop intuition about how decisions are made.
+
+## Criticize
+
+There is a difference between making someone feel bad, being overbearing, and speaking your mind. Giving criticism is not mean.
+
+Personally, I have a problem where I am so afraid of discouraging people that I over-correct. I think this is common among nerds. Overcompensation leads us to be afraid to give strong, confident criticism. I got nice in the bag; what I need is a little mean!
+
+The thing is it's not hard to be nice while speaking your mind. You can even be wrong sometimes, but you need to give people guidance. Otherwise you're doing them a disservice.
+
+Spectrum:
+
+* Abusive, what I'm too afraid of: "You spelled this wrong! You can't write! Do five spelling worksheets before you try again!"
+* Unhelpful, what I'm actually prone to: "That's nice! Very creative! Can you see any words here that you might want to spell differently?"
+* The right thing: "This is how it's spelled."
