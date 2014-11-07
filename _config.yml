@@ -19,6 +19,14 @@ exclude:
 
 permalink: /blog/:title.html
 
+defaults:
+    -
+        scope:
+            path: ""
+            type: posts
+        values:
+            layout: post
+
 navigation:
     - title: home
       link: /

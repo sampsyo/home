@@ -4,13 +4,13 @@ kind: article
 excerpt: |
     My C and C++ type annotation project, Quala, aims to enable type-aware compiler research. This post demonstrates a type system that can insert dynamic null-pointer dereference checks to stop segfaults before they happen.
 ---
-My on-again, off-again, open-source side project, [Quala][], adds custom type annotations to a C and C++ compiler. One critical feature for me is that Quala's annotations are visible throughout the entire compilation lifecycle. The annotations don't end in the frontend; you can use an LLVM pass to do things with your annotations that would be difficult or impossible with a purely syntactic system.
+My perennial open-source side project, [Quala][], adds custom type annotations to a C and C++ compiler. One critical feature for me is that Quala's annotations are visible throughout the entire compilation lifecycle. The annotations don't end in the frontend; you can use an LLVM pass to do things with your annotations that would be difficult or impossible with a purely syntactic system.
 
-For example, Quala makes it easy to implement *type-driven program instrumentation*. Unlike syntax-level systems along the lines of [CQual][], you can do your instrumentation in the comfort of the compiler IR while using language-level type information.
+For example, Quala makes it easy to implement *type-driven program instrumentation*. Unlike syntax-level systems along the lines of [CQual][], you can do your instrumentation and heavyweight analysis in the comfort of the compiler IR while exploiting language-level type information.
 
 This kind of hybrid language/compiler work comes up surprisingly often in my research and that of similarly-inclined, [ASPLOS][]y academics.
 
-I recently added a library to Quala to help use this pattern. To demonstrate it, I built a compiler pass that automatically catches and prevents null-pointer dereferences.
+I recently added a library to Quala to help use this pattern. To demonstrate it, I built a type system and compiler pass that, together, can prevent null-pointer dereferences.
 
 ## Null Check Insertion
 
@@ -22,7 +22,7 @@ In [my previous post about Quala][quala-post], I wrote about [Quala's "nullness"
 
 and dereferencing null pointers (as in the last line above) will give you a warning.
 
-The new version of the nullness checker goes one step further: it can insert a *dynamic check* to detect when a null pointer is dereferenced. It only puts these checks where a null dereference is possible: a non-null (ordinary) pointer needs no check.
+The new version of the nullness checker goes one step further: it can insert a *dynamic check* to detect when a null pointer is dereferenced. It only puts these checks where a null dereference is possible: a non-null (unannotated) pointer needs no check.
 
 Here's a program whose whole purpose in life is to dereference a null pointer:
 
@@ -44,13 +44,13 @@ Here's a program whose whole purpose in life is to dereference a null pointer:
 Quala's null check insertion will call our custom `qualaHandleNull` function before any dereference to a null pointer. Unsurprisingly, if I compile this program with an ordinary compiler, it crashes:
 
     $ clang test.c
-    [ ... warning about an unrecognized attribute ... ]
+    (warning about an unrecognized attribute)
     $ ./a.out
     segmentation fault
 
 But compiling the same program with Quala's `nullness-cc` shows that the handler gets called instead:
 
-    $ ./nullness-cc test.c  7:51:23PM vladimir:~/uw/coderel/quala/examples/nullness
+    $ ./nullness-cc test.c
     test.c:13:10: warning: dereferencing nullable pointer
       return *foo;
              ^
@@ -61,7 +61,7 @@ This example is a bit contrived---exiting with a message is not much better than
 
 ## How It Works
 
-Quala produces [LLVM instruction metadata][md] that indicates the type qualifiers for every value produced in a program. It then provides an [LLVM analysis pass][pass] that gathers this information---so you can write your own pass that looks up these types. The nullness instrumentation pass, for example, asks:
+Quala produces [LLVM instruction metadata][md] that indicates the type qualifiers for every value produced in a program. It then provides an [LLVM analysis pass][pass] that gathers this information---so you can write your own pass that looks up these types. The nullness instrumentation pass, for example, [asks][checkline]:
 
     if (AI.hasAnnotation(Ptr, "nullable"))
       // instrument the instruction
@@ -72,7 +72,7 @@ By pairing a type checker plugin for [Clang][] with an instrumentation pass for 
 
 ## Get In Touch
 
-Quala is still a prototype. But it's ready for experimentation now. If you have a project that could exploit type systems with semantics, I implore you to [email me][contact].
+Quala is still a prototype. But it's ready for experimentation now. If you have a project that could exploit type systems with semantics, I implore you to [get in touch][contact].
 
 [foc]: http://dl.acm.org/citation.cfm?id=1251275
 [cqual]: http://www.cs.umd.edu/~jfoster/cqual/
@@ -86,3 +86,6 @@ Quala is still a prototype. But it's ready for experimentation now. If you have 
 [ml]: http://en.wikipedia.org/wiki/ML_(programming_language)
 [swift]: https://developer.apple.com/swift/
 [nullness]: https://github.com/sampsyo/quala/tree/master/examples/nullness
+[checkline]: https://github.com/sampsyo/quala/blob/0ecbb1c70305c2410c1d05d818f956dd8614c7c5/examples/nullness/NullChecks.cpp#L42
+[clang]: http://clang.llvm.org
+[llvm]: http://llvm.org
