@@ -23,10 +23,17 @@
     type: conference
     note: |
         <a href="http://pldi14-aec.cs.brown.edu">Artifact evaluated.</a>
+    extra:
+     - '[Local PDF.](BASE/media/papers/passert-pldi2014.pdf)'
+     - '[Artifact evaluated!](http://pldi14-aec.cs.brown.edu)'
+     - '[Full semantics and proof.](BASE/media/papers/passert-aux.pdf)'
+     - '[Slides.](BASE/media/passert-pldi-slides.pdf)'
+     - '[Poster.](BASE/media/passert-pldi-poster.pdf)'
+     - '["Teaser" slide.](BASE/media/passert-pldi-teaser.pdf)'
 
 -
     title: Approximate Storage in Solid-State Memories
-    url: http://homes.cs.washington.edu/~asampson/media/papers/approxstorage-micro2013.pdf
+    url: http://dl.acm.org/citation.cfm?id=2540708.2540712
     authors: Adrian Sampson, Jacob Nelson, Karin Strauss, and Luis Ceze
     venue: MICRO 2013
     venue_url: http://www.microarch.org/micro46/
@@ -34,6 +41,13 @@
         Selected to appear as an expanded version in <a
         href="http://tocs.acm.org">ACM TOCS</a>.
     type: conference
+    extra:
+     - '[Local PDF.](BASE/media/papers/approxstorage-micro2013.pdf)'
+     - '[Slides.](BASE/media/approxstorage-micro-slides.pdf)'
+     - '[Poster.](BASE/media/approxstorage-micro-poster.pdf)'
+     - '[Lightning session slides.](BASE/media/approxstorage-micro-lightning.pdf)'
+     - '[Talk video.](https://www.youtube.com/watch?v=YCoGNXSSMJo)'
+     - 'Selected to appear as an expanded version in [ACM TOCS](http://tocs.acm.org).'
 
 -
     title: Neural Acceleration for General-Purpose Approximate Programs
@@ -45,6 +59,13 @@
         Versions appear in MICRO Top Picks and CACM
         Research Highlights (forthcoming).
     type: conference
+    extra:
+     - '[Local PDF.](BASE/media/papers/npu-micro2012.pdf)'
+     - '[Slides.](BASE/media/npu-micro-slides.pdf)'
+     - '[Poster.](BASE/media/npu-micro-poster.pdf)'
+     - '[Lightning session slides.](BASE/media/npu-micro-lightning.pdf) (Winner of the "best lightning session presentation" award.)'
+     - 'Version in [IEEE MICRO Top Picks 2013](https://sites.google.com/site/ieeemicro/call-for-papers/top-picks-2013).'
+     - 'Version to appear in CACM Research Highlights.'
 
 -
     title: Automatic Discovery of Performance and Energy Pitfalls in HTML and CSS
@@ -52,27 +73,46 @@
     authors: Adrian Sampson, Călin Caşcaval, Luis Ceze, Pablo Montesinos, and Dario Suarez Gracia
     venue: IISWC 2012
     type: conference
+    venue_url: http://www.iiswc.org/iiswc2012/
+    extra:
+        - '[Extended technical report.](BASE/media/papers/webchar-tr.pdf)'
+        - '[Source code and data.](http://sampa.cs.washington.edu/sampa/WebChar)'
+        - '[Poster.](BASE/media/webchar-iiswc-poster.pdf)'
+        - '[Slides.](BASE/media/webchar-iiswc-slides.pdf)'
 
 -
     title: Architecture Support for Disciplined Approximate Programming
-    url: http://www.cs.washington.edu/homes/asampson/media/papers/truffle-asplos2012.pdf
+    url: http://dl.acm.org/authorize?6607704
     authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
     venue: ASPLOS 2012
     type: conference
+    venue_url: http://research.microsoft.com/en-us/um/cambridge/events/asplos_2012/
+    extra:
+        - '[Local PDF.](BASE/media/papers/truffle-asplos2012.pdf)'
+        - '[Slides.](BASE/media/truffle-asplos-slides.pdf)'
 
 -
     title: 'EnerJ: Approximate Data Types for Safe and General Low-Power Computation'
     url: http://sampa.cs.washington.edu/public/uploads/1/12/Enerj-pldi2011.pdf
     authors: Adrian Sampson, Werner Dietl, Emily Fortuna, Danushen Gnanapragasam, Luis Ceze, and Dan Grossman
     venue: PLDI 2011
+    venue_url: http://pldi11.cs.utah.edu/
     type: conference
+    extra:
+        - '[Slides.](BASE/media/enerj-pldi-slides.pdf)'
+        - '[Poster.](BASE/media/enerj-poster.pdf)'
+        - '[Technical report with full proofs.](BASE/files/enerjproofs.pdf)'
+        - '[Checker, simulator, and benchmark source code.](http://sampa.cs.washington.edu/sampa/EnerJ#Source_Release)'
 
 -
     title: Composable Specifications for Structured Shared-Memory Communication
-    url: http://sampa.cs.washington.edu/public/uploads/e/e9/Osha-oopsla2010.pdf
+    url: http://dl.acm.org/authorize?390121
     authors: Benjamin Wood, Adrian Sampson, Luis Ceze, and Dan Grossman
     venue: OOPSLA 2010
+    venue_url: 'http://www.splashcon.org/index.php?option=com_content&amp;view=article&amp;id=47:oopsla-research-papers&amp;catid=34:due-march-25-2010&amp;Itemid=55'
     type: conference
+    extra:
+        - '[Local PDF.](http://sampa.cs.washington.edu/public/uploads/e/e9/Osha-oopsla2010.pdf)'
 
 -
     title: On-line Distributed Traffic Grooming
@@ -80,7 +120,7 @@
     authors: R. Jordan Crouser, Brian Rice, Adrian Sampson, and Ran Libeskind-Hadas
     venue: ICC 2008
     type: conference
-
+    venue_url: http://www.ieee-icc.org/2008/
 
 -
     title: Two Approximate-Programmability Birds, One Statistical-Inference Stone
