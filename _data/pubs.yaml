@@ -1,4 +1,20 @@
 -
+    title: 'SNNAP: Approximate Computing on Programmable SoCs via Neural Acceleration'
+    authors: Thierry Moreau, Mark Wyse, Jacob Nelson, Adrian Sampson, Hadi Esmaeilzadeh, Luis Ceze, and Mark Oskin
+    venue: HPCA 2015
+    type: conference
+    venue_url: http://darksilicon.org/hpca/
+    pre: true
+
+-
+    title: Debugging Approximate Programs via Dynamic Analysis
+    authors: Michael Ringenburg, Adrian Sampson, Isaac Ackerman, Luis Ceze, and Dan Grossman
+    venue: ASPLOS 2015
+    type: conference
+    venue_url: http://asplos15.bilkent.edu.tr
+    pre: true
+
+-
     title: Expressing and Verifying Probabilistic Assertions
     url: http://dl.acm.org/citation.cfm?id=2594294
     authors: Adrian Sampson, Pavel Panchekha, Todd Mytkowicz, Kathryn McKinley, Dan Grossman, and Luis Ceze
