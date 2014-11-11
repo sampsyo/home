@@ -130,6 +130,8 @@
     type: workshop
     venue_url: http://approx2014.cs.umass.edu/
     with: PLDI
+    extra:
+        - '[Slides.](http://homes.cs.washington.edu/~asampson/media/approx2014-slides.pdf)'
 
 -
     title: Tuning Approximate Computations with Constraint-Based Type Inference
@@ -143,7 +145,7 @@
 -
     title: Approximate Semantics for Wirelessly Networked Applications
     url: http://sampa.cs.washington.edu/wacas14/papers/ransford.pdf
-    authors: Benjamin Ransford, Adrian Sampson, and Luis Ceze.
+    authors: Benjamin Ransford, Adrian Sampson, and Luis Ceze
     venue: WACAS 2014
     type: workshop
     venue_url: http://sampa.cs.washington.edu/wacas14/
