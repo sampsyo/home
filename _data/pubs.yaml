@@ -47,7 +47,7 @@
      - '[Poster.](BASE/media/approxstorage-micro-poster.pdf)'
      - '[Lightning session slides.](BASE/media/approxstorage-micro-lightning.pdf)'
      - '[Talk video.](https://www.youtube.com/watch?v=YCoGNXSSMJo)'
-     - 'Selected to appear as an expanded version in [ACM TOCS](http://tocs.acm.org).'
+     - 'Selected to appear as an [expanded version](http://dl.acm.org/citation.cfm?id=2644808) in [ACM TOCS](http://tocs.acm.org).'
 
 -
     title: Neural Acceleration for General-Purpose Approximate Programs
@@ -193,6 +193,16 @@
     with: MICRO
     url: http://abstract.cs.washington.edu/~blucia0a/pubs/greco.pdf
     venue_url: http://hppc.lsc.ic.unicamp.br/
+
+-
+    title: Approximate Storage in Solid-State Memories
+    url: http://dl.acm.org/citation.cfm?id=2644808
+    authors: Adrian Sampson, Jacob Nelson, Karin Strauss, and Luis Ceze
+    venue: ACM Transactions on Computer Systems, September 2014 
+    venue_url: http://tocs.acm.org
+    note: |
+        Expanded version of the MICRO 2013 paper.
+    type: journal
 
 -
     title: EnerJ, the Language of Good-Enough Computing
