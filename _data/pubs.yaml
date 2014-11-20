@@ -202,6 +202,8 @@
     venue_url: http://tocs.acm.org
     note: |
         Expanded version of the MICRO 2013 paper.
+    extra:
+        - Expanded version of the MICRO 2013 paper.
     type: journal
 
 -
