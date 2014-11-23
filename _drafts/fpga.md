@@ -1,8 +1,7 @@
 ---
 title: An FPGA is an Impoverished Accelerator
 kind: article
-layout: post
-excerpt:
+excerpt: |
     Architects tend to confuse FPGAs with ASIC acceleration. This is a mistake: when viewed as an acceleration substrate, FPGAs are a unfortunate accident of history with an exceptionally bad programming model. We should pay more attention to better alternatives.
 ---
 Architects are prone to describing [field-programmable gate arrays][fpga], or FGPAs, as a "light" version of hardware acceleration. While researchers have exploited FPGAs to great computational effect, [especially][catapult] [recently][xxx], it is critical to remember that FPGAs are what we *have,* not what we *want.*

@@ -1,8 +1,7 @@
 ---
 title: "Bootstrapping Credibility, or: My Secret Evil Superplan for World Domination"
 kind: article
-layout: post
-excerpt:
+excerpt: |
     I've written before about... xxxx
 ---
 If you were to start an [independent, lightweight, open-access journal][journals], the main obstacle will be bootstrapping credibility. How do you go from an unknown, probably-[spam][multiconference], scare-quotes "journal" with zero issues to a venue that people might actually consider submitting to?
