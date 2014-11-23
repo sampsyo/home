@@ -1,7 +1,5 @@
 ---
 title: "Let's Celebrate Good Reviewing"
-kind: article
-layout: post
 excerpt: |
     I believe that peer reviewing in our community is worse than necessary. Specifically, the conference system does not incentivize thoughtful reviewing: it encourages hasty, conservative reviews. A new publication model should focus on the quality of peer review as a primary concern.
 ---

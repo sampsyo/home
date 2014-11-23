@@ -1,7 +1,5 @@
 ---
 title: "On Advising: Note to My Future Self"
-kind: article
-layout: post
 excerpt: |
     I want to be a Ph.D. advisor. Being a Ph.D. advisee has given me unfounded, wildly impractical ideas about how advisors should advise. This is my advice to my future, advisorly self.
 ---

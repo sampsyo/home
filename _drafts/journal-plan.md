@@ -1,6 +1,5 @@
 ---
 title: "Bootstrapping Credibility, or: My Secret Evil Superplan for World Domination"
-kind: article
 excerpt: |
     I've written before about... xxxx
 ---

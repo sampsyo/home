@@ -1,6 +1,5 @@
 ---
 title: An FPGA is an Impoverished Accelerator
-kind: article
 excerpt: |
     Architects tend to confuse FPGAs with ASIC acceleration. This is a mistake: when viewed as an acceleration substrate, FPGAs are a unfortunate accident of history with an exceptionally bad programming model. We should pay more attention to better alternatives.
 ---

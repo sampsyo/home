@@ -1,7 +1,5 @@
 ---
 title: "Swift/Cocoa Type Dissonance"
-kind: article
-layout: post
 excerpt: |
     For no discernable reason, I've done a little iOS programming lately. Using the new Swift language has made it evident the language is young---and it sometimes conflicts with its much older framework counterpart, Cocoa. Here are two places where the disconnect is most stark, and where Swift should grow more sophisticated type-system features.
 ---
