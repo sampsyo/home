@@ -8,7 +8,7 @@ If you were to start an [independent, lightweight, open-access journal][journals
 [multiconference]: http://en.wikipedia.org/wiki/World_Multiconference_on_Systemics,_Cybernetics_and_Informatics
 [journals]: {{site.base}}/blog/newjournals.html
 
-Part of the answer is clearly brute force: coerce good people into reviewing or submitting on blind faith, or be so famous that your name alone engenders reverence and awe. But the design of the venue's purpose and operation also matter. There must be better ways to begin than blithely going head-to-head with the venues we already have and love/hate.
+Part of the answer is clearly brute force: coerce good people into reviewing or submitting on blind faith, or be so famous that your name alone engenders reverence and awe. But the design of the venue's purpose and operation also matter. There must be better ways to begin than blithely going toe-to-toe against established venues.
 
 Here are two ideas for making a new venue easier to trust---and, incidentally, more exciting.
 
@@ -27,17 +27,17 @@ Reviewing is not problematic because reviewers are lazy or malicious; they are a
 
 On the assumption that authors are tired of reading rushed evaluations and reviewers are tired of writing them, a new venue could make itself attractive by carefully constructing its process to invert the incentives. I envision a journal where:
 
-* Reviewers produce a public, signed review the accompany every accepted paper. The goal of reviewing would be outward-facing, to add peer context to the authors' own "marketing," rather than inward-facing, to convince a program committee to accept or reject. Attaching names to reviews will create a way for reviewers to cultivate a reputation as a careful observer of others' work, a skill that we do not celebrate enough. (Reviewers would remain anonymous before publication to avoid retaliation.)
+* Reviewers produce a public, signed review to accompany every accepted paper. The goal of reviewing would be outward-facing, to add peer context to the authors' own marketing, rather than inward-facing, to convince a program committee to accept or reject. Attaching names to reviews will create a way for reviewers to cultivate a reputation as a careful observer of others' work, a skill that we do not celebrate enough. (Reviewers would remain anonymous before publication to avoid retaliation.)
 * A rolling deadline keeps reviewer load low. Instead of organizing papers into batches---conference programs or journal issues---the venue should review and publish papers without a fixed schedule. Each reviewer will be responsible for one or two papers at a time rather than dozens as current PC members are.
 * Iterated revision is a dialogue between authors and reviewers. As in current journals, reviewers should be able to recommend substantial changes to the paper---*and then review those changes* after the author makes them. A good final product needs input from invested outsiders, of which the conference system's reject-and-resubmit cycle is a remarkably inefficient implementation.
 
-The prospect of a better way to go about peer review attracts me as a reviewer, and the promise of careful reviewing attracts me as an author. I hope the same is true of the community in general.
+The prospect of a better way to go about peer review attracts me as a reviewer, and the promise of careful reviewing attracts me as an author. I hope the same is true of the community as a whole.
 
 ## Address an Underserved Market
 
 To avoid competing with existing conferences, a new venue should focus on kinds of papers that they do not serve well. Some subgenres that are a poor match for conferences in my community include:
 
-* Interdisciplinary work: i.e., research that is always "too *X* for a *Y* conference, and too *Y* for an *X* conference." My community has [ASPLOS][], but this means that work that fits well neither at [PLDI][] nor at [ISCA][] has only one conference a year.
+* Interdisciplinary work: i.e., research that is always "too *X* for a *Y* conference, and too *Y* for an *X* conference." My community has [ASPLOS][], but this means that work that fits well neither at [PLDI][] nor at [ISCA][] has only one conference per year.
 * Implementation-heavy work: papers that bridge the gap between research and practice. This kind of work is notorious for garnering informal respect at the same time as reviews that complain of a lack of novelty.
 * Pre-publication ideas: short (say, three-page) gists of an upcoming project as a way to elicit early-stage feedback.
 * Post-publication recognition: authors nominate papers that have already appeared in an established conference. The venue recognizes and adds peer perspective to the "best" of the program, not unlike [SIGPLAN Research Highlights][] or [IEEE MICRO Top Picks][]. (This idea is due to my advisor, [Luis][], who's running Top Picks this year along with [Karin Strauss][].)
