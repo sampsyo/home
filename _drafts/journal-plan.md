@@ -14,12 +14,16 @@ Here are two ideas for making a new venue easier to trust---and, incidentally, m
 
 ## Incentivize Good Reviews
 
-Reviewing in my community (somewhere between architecture, languages, and systems) is not as good as it could feasibly be. This is not because reviewers are lazy or cruel; they are almost universally not. It's primarily because our conferences are unintentionally architected to incentivize quick decisions and conservatism. [High PC load][regehr], short PC meetings, secret reviews, [limited author--reviewer dialogue][yis], and the conference-to-conference resubmission cycle all contribute to an environment where the expedient reviewer looks for a low-hanging reason to reject (or delegates to a student to do so).
+Reviewing in computer science is not as good as it could feasibly be.
+I can't provide hard evidence for this perspective, since reviews are generally secret and sensitive, but [I](http://cacm.acm.org/blogs/blog-cacm/123611-the-nastiness-problem-in-computer-science/fulltext) [am](http://portal.acm.org/citation.cfm?id=1462581) [not](http://www.sigcomm.org/sites/default/files/SIGCOMM%2009%20Comm%20FB.pdf) [the](http://cacm.acm.org/blogs/blog-cacm/100284-how-should-peer-review-evolve/fulltext) [only](http://ccr.sigcomm.org/online/files/p3-v41n3ed-keshav-editorial.pdf) [one][anderson] [who](http://pages.cs.wisc.edu/~naughton/naughtonicde.pptx) [has](http://www.annemergmed.com/article/S0196-0644%2810%2901266-7/abstract) [it][fortnow].
+
+Reviewing is not problematic because reviewers are lazy or malicious; they are almost universally not. It's primarily because our conferences are unintentionally architected to incentivize quick decisions and conservatism. [High PC load][regehr], [short PC meetings][fortnow], [secret reviews][crowcroft], [limited author--reviewer dialogue][godfrey], and the [conference-to-conference resubmission cycle][anderson] all contribute to an environment where the expedient reviewer looks for a low-hanging reason to reject (or delegates to a student to do so).
 
 [regehr]: http://blog.regehr.org/archives/306
-[yis]: http://youinfinitesnake.blogspot.com/2011/08/whats-wrong-with-computer-science.html
-
-xxx links
+[godfrey]: http://youinfinitesnake.blogspot.com/2011/08/whats-wrong-with-computer-science.html
+[fortnow]: http://cacm.acm.org/magazines/2009/8/34492-viewpoint-time-for-computer-science-to-grow-up/fulltext
+[anderson]: http://www.pgbovine.net/PhD-memoir/anderson-09.pdf
+[crowcroft]: https://www.usenix.org/legacy/event/wowcs08/tech/full_papers/crowcroft/crowcroft.pdf
 
 On the assumption that authors are tired of reading rushed evaluations and reviewers are tired of writing them, a new venue could make itself attractive by carefully constructing its process to invert the incentives. I envision a journal where:
 
