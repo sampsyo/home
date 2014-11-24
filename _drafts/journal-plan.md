@@ -5,6 +5,9 @@ excerpt: |
 ---
 If you were to start an [independent, lightweight, open-access journal][journals], the main obstacle will be bootstrapping credibility. How do you go from an unknown, probably-[spam][multiconference], scare-quotes "journal" with zero issues to a venue that people might actually consider submitting to?
 
+[multiconference]: http://en.wikipedia.org/wiki/World_Multiconference_on_Systemics,_Cybernetics_and_Informatics
+[journals]: {{site.base}}/blog/newjournals.html
+
 Part of the answer is clearly brute force: coerce good people into reviewing or submitting on blind faith, or be so famous that your name alone engenders reverence and awe. But the design of the venue's purpose and operation also matter. There must be better ways to begin than blithely going head-to-head with the venues we already have and love/hate.
 
 Here are two ideas for making a new venue easier to trust---and, incidentally, more exciting.
@@ -33,7 +36,15 @@ To avoid competing with existing conferences, a new venue should focus on kinds 
 * Interdisciplinary work: i.e., research that is always "too *X* for a *Y* conference, and too *Y* for an *X* conference." My community has [ASPLOS][], but this means that work that fits well neither at [PLDI][] nor at [ISCA][] has only one conference a year.
 * Implementation-heavy work: papers that bridge the gap between research and practice. This kind of work is notorious for garnering informal respect at the same time as reviews that complain of a lack of novelty.
 * Pre-publication ideas: short (say, three-page) gists of an upcoming project as a way to elicit early-stage feedback.
-* Post-publication recognition: authors nominate papers that have already appeared in an established conference. The venue recognizes and adds peer perspective to the "best" of the program, not unlike [SIGPLAN Notices][] or [IEEE MICRO Top Picks][]. (This idea is due to my advisor, [Luis][], who's running Top Picks this year along with [Karin Strauss][].)
+* Post-publication recognition: authors nominate papers that have already appeared in an established conference. The venue recognizes and adds peer perspective to the "best" of the program, not unlike [SIGPLAN Research Highlights][] or [IEEE MICRO Top Picks][]. (This idea is due to my advisor, [Luis][], who's running Top Picks this year along with [Karin Strauss][].)
 * A student-focused forum: for instance, single-author papers in which students envision long-term research agendas (which their advisors may not approve of).
+
+[SIGPLAN Research Highlights]: http://www.sigplan.org/Highlights/
+[IEEE MICRO Top Picks]: https://sites.google.com/site/ieeemicro/call-for-papers/cfp---top-picks-2015-1
+[Karin Strauss]: http://research.microsoft.com/en-us/people/kstrauss/
+[Luis]: http://homes.cs.washington.edu/~luisceze/
+[PLDI]: http://conf.researchr.org/home/pldi2015
+[ISCA]: http://www.ece.cmu.edu/calcm/isca2015/
+[ASPLOS]: http://asplos15.bilkent.edu.tr
 
 A new venue can build initial credibility by attracting papers that can't go anywhere else. But even if it starts modestly---by highlighting existing publications, say---the venue can capitalize on an initial reputation to build something bigger. I am optimistic enough to believe that a niche publication that *does it right* could eventually expand to displace an established venue---or at least encourage it to evolve.
