@@ -15,7 +15,7 @@ It is a misperception that FPGAs are a great way to bridge the gap between softw
 [gpgpu]: https://en.wikipedia.org/wiki/GPGPU
 [linqits]: http://research.microsoft.com/pubs/198052/ISCA13_linqits.pdf
 
-FPGAs were designed for prototyping [ASIC][]s and they do that well. But prototyping an ASIC is not tantamount to harnessing an ASIC's acceleration benefits. A circuit design for an ASIC accelerator needs significant---sometimes fundamental---changes to become a good FPGA design. An FPGA design worth its salt needs to exploit FPGA-specific resources, like hard arithmetic logic, and respect a specific FPGA part's parameters.
+FPGAs were designed for prototyping [ASIC][]s and they do that well. But prototyping an ASIC is not tantamount to harnessing an ASIC's acceleration benefits. A circuit design for an ASIC accelerator needs significant---often fundamental---changes to become a good FPGA design. An FPGA design worth its salt needs to exploit FPGA-specific resources, like hard arithmetic logic, and respect a specific FPGA part's parameters.
 
 [ASIC]: https://en.wikipedia.org/wiki/Application-specific_integrated_circuit
 
@@ -23,7 +23,7 @@ It's no shock, then, that people who work on FPGAs for computation end up concoc
 
 [coram]: http://users.ece.cmu.edu/~echung/coram-distrib.pdf
 
-As accelerators, FPGAs are hampered by an unintelligible programming interface that is a consequence of vendor lock-in. This lock-in is due to the lack of abstraction that FPGAs present. To paper over the interface's complexity, the two [major][xilinx] [vendors][altera] sell proprietary software stacks that are infeasible to replace. No one seems happy with these tools, but the duopoly means we're stuck with them. Even more modern languages such as [Chisel][] and [Bluespec][] have to emit compatible [HDLs][hdl] on the backend and inherit the proprietary toolchains' warts.
+As accelerators, FPGAs are hampered by an unintelligible programming interface that is a consequence of vendor lock-in due to a paucity of abstraction. To paper over the interface's complexity, the two [major][xilinx] [vendors][altera] sell proprietary software stacks that are infeasible to replace. No one seems happy with these tools, but the duopoly means we're stuck with them. Even more modern languages such as [Chisel][] and [Bluespec][] have to emit compatible [HDLs][hdl] on the backend and inherit the proprietary toolchains' warts.
 
 [hdl]: http://en.wikipedia.org/wiki/Hardware_description_language
 [Chisel]: https://chisel.eecs.berkeley.edu/
