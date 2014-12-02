@@ -1,7 +1,7 @@
 ---
 title: "Bootstrapping Credibility, or: My Secret Evil Superplan for World Domination"
 excerpt: |
-    I've written before about... xxxx
+    I'm on a continuing quixotic quest to improve computer science publishing. Here's my top-secret plan for launching a new publication venue that necessarily starts from zero credibility. It's a two-pronged evil plan: first, incentivize good reviews, and second, address an underserved market.
 ---
 If you were to start an [independent, lightweight, open-access journal][journals], the main obstacle will be bootstrapping credibility. How do you go from an unknown, probably-[spam][multiconference], scare-quotes "journal" with zero issues to a venue that people might actually consider submitting to?
 
@@ -27,9 +27,11 @@ Reviewing is not problematic because reviewers are lazy or malicious; they are a
 
 On the assumption that authors are tired of reading rushed evaluations and reviewers are tired of writing them, a new venue could make itself attractive by carefully constructing its process to invert the incentives. I envision a journal where:
 
-* **Reviewers produce a public, signed review to accompany every accepted paper.** The goal of reviewing would be outward-facing, to add peer context to the authors' own marketing, rather than inward-facing, to convince a program committee to accept or reject. Attaching names to reviews will create a way for reviewers to cultivate a reputation as a careful observer of others' work, a skill that we do not celebrate enough. (Reviewers would remain anonymous before publication to avoid retaliation.)
+* **Reviewers produce a public, signed review to accompany every accepted paper.** Reviewing should be outward-facing, to add peer context to the authors' own marketing, in addition to inward-facing, to convince an editorial committee to accept or reject. [Attaching names to reviews][open review] will create a way for reviewers to cultivate a reputation as a careful observer of others' work, a skill that we do not celebrate enough. (Reviewers would remain anonymous before publication to avoid retaliation.)
 * **A rolling deadline keeps reviewer load low.** Instead of organizing papers into batches---conference programs or journal issues---the venue should review and publish papers without a fixed schedule. Each reviewer will be responsible for one or two papers at a time rather than dozens as current PC members are.
 * **Iterated revision is a dialogue between authors and reviewers.** As in current journals, reviewers should be able to recommend substantial changes to the paper---*and then review those changes* after the author makes them. A good final product needs input from invested outsiders, of which the conference system's reject-and-resubmit cycle is a remarkably inefficient implementation.
+
+[open review]: http://blog.f1000research.com/2014/05/21/what-is-open-peer-review/
 
 The prospect of a better way to go about peer review attracts me as a reviewer, and the promise of careful reviewing attracts me as an author. I hope the same is true of the community as a whole.
 
@@ -40,9 +42,10 @@ To avoid competing with existing conferences, a new venue should focus on kinds 
 * **Interdisciplinary work:** i.e., research that is always "too *X* for a *Y* conference, and too *Y* for an *X* conference." My community has [ASPLOS][], but this means that work that fits well neither at [PLDI][] nor at [ISCA][] has only one conference per year.
 * **Implementation-heavy work:** papers that bridge the gap between research and practice. This kind of work is notorious for garnering informal respect at the same time as reviews that complain of a lack of novelty.
 * **Pre-publication ideas:** short (say, three-page) gists of an upcoming project as a way to elicit early-stage feedback.
-* **Post-publication recognition:** authors nominate papers that have already appeared in an established conference. The venue recognizes and adds peer perspective to the "best" of the program, not unlike [SIGPLAN Research Highlights][] or [IEEE MICRO Top Picks][]. (This idea is due to my advisor, [Luis][], who's running Top Picks this year along with [Karin Strauss][].)
+* **Post-publication recognition:** authors nominate papers that have already appeared in an established conference. The venue recognizes and adds peer perspective to the "best" of the program, not unlike [SIGPLAN Research Highlights][], [IEEE MICRO Top Picks][], or [PubMed Commons][]. (This idea is due to my advisor, [Luis][], who's running Top Picks this year along with [Karin Strauss][].)
 * **A student-focused forum:** for instance, single-author papers in which students envision long-term research agendas (which their advisors may not approve of).
 
+[PubMed Commons]: http://www.ncbi.nlm.nih.gov/pubmedcommons
 [SIGPLAN Research Highlights]: http://www.sigplan.org/Highlights/
 [IEEE MICRO Top Picks]: https://sites.google.com/site/ieeemicro/call-for-papers/cfp---top-picks-2015-1
 [Karin Strauss]: http://research.microsoft.com/en-us/people/kstrauss/
