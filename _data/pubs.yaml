@@ -38,7 +38,7 @@
     venue: MICRO 2013
     venue_url: http://www.microarch.org/micro46/
     note: |
-        Selected to appear as an expanded version in <a
+        Expanded version appears in <a
         href="http://tocs.acm.org">ACM TOCS</a>.
     type: conference
     extra:
@@ -57,7 +57,7 @@
     venue_url: http://www.microarch.org/micro45/
     note: |
         Versions appear in MICRO Top Picks and CACM
-        Research Highlights (forthcoming).
+        Research Highlights.
     type: conference
     extra:
      - '[Local PDF.](BASE/media/papers/npu-micro2012.pdf)'
@@ -178,7 +178,7 @@
 
 -
     title: Towards Neural Acceleration for General-Purpose Approximate Computing
-    authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze and Doug Burger
+    authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
     venue: WEED 2012
     type: workshop
     with: ISCA
@@ -187,7 +187,7 @@
 
 -
     title: Greedy Coherence
-    authors: Emily Fortuna, Brandon Lucia, Adrian Sampson, Benjamin Wood and Luis Ceze
+    authors: Emily Fortuna, Brandon Lucia, Adrian Sampson, Benjamin Wood, and Luis Ceze
     venue: HPPC 2011
     type: workshop
     with: MICRO

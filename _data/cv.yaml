@@ -4,8 +4,8 @@ email: asampson@cs.washington.edu
 education:
     -
         school: University of Washington
-        degree: PhD, Computer Science and Engineering (in progress)
-        dates: 2009&ndash;present
+        degree: Ph.D., Computer Science and Engineering, in progress
+        dates: 2009&ndash;2015 (expected)
         note: |
             Advisors: <a href="http://homes.cs.washington.edu/~luisceze/">Luis Ceze</a>
             and <a href="http://homes.cs.washington.edu/~djg/">Dan Grossman</a>
@@ -102,3 +102,40 @@ service:
 
     - |
         Paper Reviews: ASPLOS 2011, POPL 2012, PPoPP 2012, PLDI 2012, HPCA 2013, HotPar 2013, CGO 2014, MICRO 2014, ACM TACO in 2014 (3x), IEEE Micro in 2014 (2x), ACM TECS in 2014
+
+students:
+    -
+        name: Luyi Liu
+        kind: B.S.
+        when: 2014
+        where: University of Washington
+    -
+        name: Chengfeng Shi
+        kind: B.S.
+        when: 2014
+        where: University of Washington
+    -
+        name: Joshua Yip
+        kind: B.S.
+        when: 2014
+        where: University of Washington
+    -
+        name: Brett Boston
+        kind: B.S. Honors Thesis
+        when: 2013&ndash;present
+        where: University of Washington
+    -
+        name: Wenjie (Marissa) He
+        kind: B.S.
+        when: 2013&ndash;present
+        where: University of Washington
+    -
+        name: Finn Parnell
+        kind: B.S. Honors Thesis
+        when: 2011&ndash;2012
+        where: University of Washington
+    -
+        name: Danushen Gnanapragasam
+        kind: B.S.
+        when: 2010&ndash;2011
+        where: University of Washington

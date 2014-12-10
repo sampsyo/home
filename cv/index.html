@@ -75,6 +75,18 @@ title: CV
 </section>
 
 <section>
+    <h2>Students</h2>
+    {% for student in cv.students %}
+    <p>
+        <strong>{{ student.name }}</strong><br>
+        {{ student.kind }},
+        {{ student.where }},
+        {{ student.when }}
+    </p>
+    {% endfor %}
+</section>
+
+<section>
     <h2>Teaching</h2>
     {% for text in cv.teaching %}
         {{ text | markdownify }}
