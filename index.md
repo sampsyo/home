@@ -33,7 +33,12 @@ I graduated from [Harvey Mudd College](http://www.hmc.edu/) in 2009.
 I have interned at [Qualcomm BARD][bard] and twice at [Microsoft
 Research][], where I have worked with [Karin Strauss][], [Todd
 Mytkowicz][], and [Kathryn McKinley][].
-Here's my [CV][].
+
+I am looking for academic and industrial research jobs this year. Here are my [research statement][rstatement], [teaching statement][tstatement], [diversity statement][dstatement], and [CV][].
+
+[rstatement]: {{site.base}}/materials/research.pdf
+[tstatement]: {{site.base}}/materials/teaching.pdf
+[dstatement]: {{site.base}}/materials/diversity.pdf
 
 [theirry]: http://homes.cs.washington.edu/~moreau/
 [Kathryn McKinley]: http://research.microsoft.com/en-us/people/mckinley/
