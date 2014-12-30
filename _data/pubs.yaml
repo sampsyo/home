@@ -65,7 +65,7 @@
      - '[Poster.](BASE/media/npu-micro-poster.pdf)'
      - '[Lightning session slides](BASE/media/npu-micro-lightning.pdf) and [video](http://youtu.be/92OszNy6L0M?t=1h5m59s). (Winner of the ["best lightning session presentation" award](http://www.microarch.org/micro45/awards.html).)'
      - 'Version in [IEEE MICRO Top Picks 2013](https://sites.google.com/site/ieeemicro/call-for-papers/top-picks-2013).'
-     - 'Version to appear in CACM Research Highlights.'
+     - 'Version in CACM Research Highlights.'
 
 -
     title: Automatic Discovery of Performance and Energy Pitfalls in HTML and CSS
@@ -195,10 +195,21 @@
     venue_url: http://hppc.lsc.ic.unicamp.br/
 
 -
+    title: Neural Acceleration for General-Purpose Approximate Programs
+    authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
+    venue: CACM Research Highlights, January 2015
+    venue_url: http://cacm.acm.org/magazines/2015/1#research-highlights
+    url: http://dl.acm.org/citation.cfm?id=2589750
+    note: |
+        Highlights from the MICRO 2012 paper.
+    extra:
+        - Highlights from the MICRO 2012 paper.
+
+-
     title: Approximate Storage in Solid-State Memories
     url: http://dl.acm.org/citation.cfm?id=2644808
     authors: Adrian Sampson, Jacob Nelson, Karin Strauss, and Luis Ceze
-    venue: ACM Transactions on Computer Systems, September 2014 
+    venue: ACM Transactions on Computer Systems, September 2014
     venue_url: http://tocs.acm.org
     note: |
         Expanded version of the MICRO 2013 paper.
