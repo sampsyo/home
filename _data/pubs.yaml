@@ -93,7 +93,7 @@
 
 -
     title: 'EnerJ: Approximate Data Types for Safe and General Low-Power Computation'
-    url: http://sampa.cs.washington.edu/public/uploads/1/12/Enerj-pldi2011.pdf
+    url: http://homes.cs.washington.edu/~asampson/media/papers/enerj-pldi2011.pdf
     authors: Adrian Sampson, Werner Dietl, Emily Fortuna, Danushen Gnanapragasam, Luis Ceze, and Dan Grossman
     venue: PLDI 2011
     venue_url: http://pldi11.cs.utah.edu/
