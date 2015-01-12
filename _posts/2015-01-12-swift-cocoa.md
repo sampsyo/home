@@ -1,13 +1,17 @@
 ---
 title: "Swift/Cocoa Type Dissonance"
 excerpt: |
-    For no discernable reason, I've done a little iOS programming lately. Using the new Swift language has made it evident the language is young---and it sometimes conflicts with its much older framework counterpart, Cocoa. Here are two places where the disconnect is most stark, and where Swift should grow more sophisticated type-system features.
+    I did some iOS programming recently (for an unknown reason). Using the new Swift language has made it evident the language is young---and, like a rebellious teenager, it conflicts with its much older framework counterpart, Cocoa. Here are two places where the disconnect is most stark, and where Swift should grow more sophisticated type-system features.
 ---
-Cocoa was designed for Objective-C. Swift's major, fundamental differences inevitably create clashes with the framework that were not present when everyone used Objective-C. Apple has done a remarkable job creating as few of these as possible, even baking in [special-purpose language features][interop] to ease interoperation, but it was inevitable that some things will remain uncomfortable.
+[Cocoa][] was designed for [Objective-C][]. Compared with Objective-C (b. 1989, like Taylor Swift), [Swift][] is an infant. Clashes with the much older framework were inevitable. Apple has baked in [special-purpose language features][interop] to ease interoperation, but fundamental disconnects remain.
 
-Here are two situations where Swift, Cocoa, or both should evolve to resolve their dissonance.
+Here are two cases where Swift's type system fails to capture Cocoa's intent. Modern type system features from other languages could help save the day in each case.
 
 [interop]: https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html
+[Objective-C]: https://en.wikipedia.org/wiki/Objective-C
+[Swift]: https://developer.apple.com/swift/
+[Cocoa]: https://developer.apple.com/technologies/mac/cocoa.html
+
 
 ## Stringly Typed Segues
 
@@ -49,10 +53,10 @@ But the framework again writes checks that the type system can't cash. Since the
 
     var parentController : SomeViewController!
 
-...which is a fine workaround. But it papers over a fundamentally unsatisfying design. There is again an opportunity for Swift and Cocoa to evolve together. A notion of [typestate][] or [Rust][]'s simpler [liftemes][], for instance, could resolve this discomfort.
+This workaround papers over a fundamentally unsatisfying design. There is again an opportunity for Swift and Cocoa to evolve together. A notion of [typestate][] or [Rust][]'s simpler [lifetimes][], for instance, could resolve this discomfort.
 
 [Rust]: http://www.rust-lang.org/
-[liftemes]: http://doc.rust-lang.org/guide-lifetimes.html
+[lifetimes]: http://doc.rust-lang.org/book/ownership.html#lifetimes
 [typestate]: http://en.wikipedia.org/wiki/Typestate_analysis
 [dependency injection]: https://en.wikipedia.org/wiki/Dependency_injection
 [uivc injection]: https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ManagingDataFlowBetweenViewControllers/ManagingDataFlowBetweenViewControllers.html#//apple_ref/doc/uid/TP40007457-CH8-SW4
