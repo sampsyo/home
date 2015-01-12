@@ -19,7 +19,7 @@ Swift's type system is much stronger (and, subjectively, much better) than Objec
 
 Case in point: [storyboard][] transitions, called *segues*, move the application between views. Segues are associated with particular objects, which have specific types. But segues are [stringly typed][]. The code that consumes identifier strings typically knows the associated types, but the compiler is powerless to help: the programmer has to supply all the type information.
 
-Most commonly, this comes up when contacting one [UIViewController][] from another when transitioning. The pattern invariably looks like this:
+This comes up when contacting one [UIViewController][] from another when transitioning. The pattern invariably looks like this:
 
     override func prepareForSegue(segue: UIStoryboardSegue,
                                   sender: AnyObject?) {
@@ -30,7 +30,7 @@ Most commonly, this comes up when contacting one [UIViewController][] from anoth
       }
     }
 
-The transition code almost always needs to explicitly cast the destination controller as a specific controller subclass. So the code needs to map the magic string identifier to this type---which feels natural in Objective-C, where this kind of thing happens all the time, and deeply uncomfortable in Swift.
+The transition code almost always needs to explicitly cast the destination controller (with `as MyViewController`). So the programmer needs to manually map the magic string identifier to this type. The redundancy feels natural in Objective-C, where this kind of thing happens all the time, and deeply uncomfortable in Swift.
 
 A future Cocoa+Swift framework should make segues first class and strongly typed. A mechanism like [type providers][] could help supply types from the storyboard file.
 
@@ -49,14 +49,22 @@ Since the field is guaranteed to be set before the controller does anything else
 
     var parentController : SomeViewController
 
-But the framework again writes checks that the type system can't cash. Since the field is set on transition and not on controller initialization, the compiler cannot enforce what the programmer knows is true: this field will never be null when user code runs. The field needs to be an implicitly unwrapped optional:
+But the framework again writes checks that the type system can't cash. Since the field is set on transition and not on controller initialization, the compiler cannot enforce what the programmer knows is true: this field *will never be null* when it matters. The field needs to be an implicitly unwrapped optional:
 
     var parentController : SomeViewController!
 
-This workaround papers over a fundamentally unsatisfying design. There is again an opportunity for Swift and Cocoa to evolve together. A notion of [typestate][] or [Rust][]'s simpler [lifetimes][], for instance, could resolve this discomfort.
+This workaround papers over a fundamental disconnect. There is again an opportunity for Swift and Cocoa to evolve together. A notion of [typestate][] or [Rust][]'s simpler [lifetimes][], for instance, could resolve this discomfort.
 
 [Rust]: http://www.rust-lang.org/
 [lifetimes]: http://doc.rust-lang.org/book/ownership.html#lifetimes
 [typestate]: http://en.wikipedia.org/wiki/Typestate_analysis
 [dependency injection]: https://en.wikipedia.org/wiki/Dependency_injection
 [uivc injection]: https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ManagingDataFlowBetweenViewControllers/ManagingDataFlowBetweenViewControllers.html#//apple_ref/doc/uid/TP40007457-CH8-SW4
+
+## More Types? Really?
+
+Both examples call out for Apple to make Swift's type system more powerful---but also more complicated. Languages with [stronger][haskell] [types][agda] run the risk of offending workaday programmers with their complexity. [Lattner][] and crew have a difficult job: to make good on their promise of safety while maintaining the ineffable mouthfeel of a "mainstream" language.
+
+[Lattner]: http://nondot.org/sabre/
+[agda]: http://wiki.portal.chalmers.se/agda/pmwiki.php
+[haskell]: https://www.haskell.org/
