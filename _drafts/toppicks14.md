@@ -10,7 +10,7 @@ excerpt: |
 ---
 I love reading each year's [IEEE Micro Top Picks][toppicks] special issue. It's the lazy computer architect's source for a distilled handful of must-read papers from the last year.
 
-For Top Picks 2014, [Luis][] and [Karin][] tried something new in the selection process: they asked for [community input][cinput], meaning that even a lowly grad student could submit short comments on each paper. This inevitably made me play "fantasy Top Picks committee" in my mind. And the other night, [Tim][] suggested that folks should put together their own Pitchforkesque year-end top-ten lists
+For Top Picks 2014, [Luis][] and [Karin][] tried something new in the selection process: they asked for [community input][cinput], meaning that even a lowly grad student could submit short comments on each paper. This inevitably made me play "fantasy Top Picks committee" in my mind. And the other night, [Tim][] suggested that folks should put together their own Pitchforkesque year-end top-ten lists.
 
 The architecture community needs more of this kind of research commentary. So let's give this a shot.
 
@@ -24,14 +24,36 @@ The architecture community needs more of this kind of research commentary. So le
 
 My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
-* **["Aladdin: a Pre-RTL, Power-Performance Accelerator Simulator Enabling Large Design Space Exploration of Customized Architectures,"][aladdin] by Yakun Sophia Shao, Brandon Reagen, Gu-Yeon Wei, and David Brooks.** For the rare feat of publishing a no-holds-barred research tool for other architects. The idea mashes up C-to-gates tools with a pile of heuristics. It sidesteps the persistent weaknesses of HLS by solving a different problem. Extra points for inventing something useful that we didn't know we needed.
-* **["Race Logic: a Hardware Acceleration for Dynamic Programming Algorithms,"][racelogic] by Advait Madhavan, Timothy Sherwood, and Dmitri Strukov.** For XXX.
-* **["Flipping Bits in Memory Without Accessing Them,"][flipping] by Yoongu Kim, Ross Daly, Jeremie Kim, Chris Fallin, Ji Hye Lee, Donghyuk Lee, Chris Wilkerson, Konrad Lai, and Onur Mutlu.** For revealing a shocking and terrifying harbinger of the end of useful DRAM scaling.
-* **["Heterogeneous-Race-Free Memory Models,"][hrf] by Derek Hower, Blake Hechtman, Bradford Beckmann, Benedict Gaster, Mark Hill, Steven Reinhardt, and David Wood.** For asking the question: What is the *minimum* common memory consistency model that heterogeneous CPU/GPU hybrid systems should enforce? Put another way, what is the equivalent to "sequential consistency for race-free programs" on homogeneous multiprocessors? I don't agree with all of this paper's answers, but I strongly agree with the question.
-* **["Load Value Approximation for Tackling Massive Data Sets,"][lva] by Joshua San Miguel, Mario Badr, Natalie Enright Jerger.** For an incredibly thorough design-space exploration that converges on an elegant, effective implementation of approximation. Approximate computing is close to my heart and LVA is an exemplary execution.
-* **["Memory Persistency,"][persistency] by Steven Pelley, Peter M. Chen, and Thomas F. Wenisch.** For drawing a connection between memory ordering in multiprocessors and the equivalent in systems that mix non-volatile main memory with volatile caches. The future seems inevitable: systems will get non-volatile main memories, they will combine them with volatile on-chip state, and programmability bugbears will abound. As with the HRF paper, this one is more significant for the question it poses than for the answers it provides.
-* **["PipeCheck: Specifying and Verifying Microarchitectural Enforcement of Memory Consistency Models,"][pipecheck] by Daniel Lustig, Michael Pellauer, and Margaret Martonosi.** For demonstrating a new level of abstraction for verifying a microarchitecture, for being the first [Coq][] paper I know of to appear in ISCA or MICRO, and for fixing no-shit memory model bugs in [gem5][].
-* **["Q100: The Architecture and Design of a Database Processing Unit,"][q100] by Lisa Wu, Andrea Lottarini, Timothy Paine, Martha Kim, and Kenneth Ross.** For demonstrating a workflow for designing domain-specific accelerators that emphasizes empiricism over intuition. The end result is a model of thorough accelerator evaluation.
+* ["Aladdin: a Pre-RTL, Power-Performance Accelerator Simulator Enabling Large Design Space Exploration of Customized Architectures,"][aladdin] by Yakun Sophia Shao, Brandon Reagen, Gu-Yeon Wei, and David Brooks.
+
+  For the rare feat of publishing a no-holds-barred research tool for other architects. The idea mashes up C-to-gates tools with a pile of heuristics. It sidesteps the persistent weaknesses of HLS by solving a different problem. Extra points for inventing something useful that we didn't know we needed.
+
+* ["Race Logic: a Hardware Acceleration for Dynamic Programming Algorithms,"][racelogic] by Advait Madhavan, Timothy Sherwood, and Dmitri Strukov.
+
+  For XXX.
+
+* ["Flipping Bits in Memory Without Accessing Them,"][flipping] by Yoongu Kim, Ross Daly, Jeremie Kim, Chris Fallin, Ji Hye Lee, Donghyuk Lee, Chris Wilkerson, Konrad Lai, and Onur Mutlu.
+
+  For revealing a shocking and terrifying harbinger of the end of useful DRAM scaling.
+
+* ["Heterogeneous-Race-Free Memory Models,"][hrf] by Derek Hower, Blake Hechtman, Bradford Beckmann, Benedict Gaster, Mark Hill, Steven Reinhardt, and David Wood.
+
+  For asking the question: What is the *minimum* common memory consistency model that heterogeneous CPU/GPU hybrid systems should enforce? Put another way, what is the equivalent to "sequential consistency for race-free programs" on homogeneous multiprocessors? I don't agree with all of this paper's answers, but I strongly agree with the question.
+
+* ["Load Value Approximation for Tackling Massive Data Sets,"][lva] by Joshua San Miguel, Mario Badr, Natalie Enright Jerger.
+
+  For an thorough design-space exploration that converges on an elegant, effective implementation of approximation. Approximate computing is close to my heart and LVA is an exemplary execution.
+
+* ["Memory Persistency,"][persistency] by Steven Pelley, Peter M. Chen, and Thomas F. Wenisch.
+
+  For drawing a connection between memory ordering in multiprocessors and the equivalent in systems that mix non-volatile main memory with volatile caches. The future seems inevitable: systems will get non-volatile main memories, they will combine them with volatile on-chip state, and programmability bugbears will abound. As with the HRF paper, this one is more significant for the question it poses than for the answers it provides.
+* ["PipeCheck: Specifying and Verifying Microarchitectural Enforcement of Memory Consistency Models,"][pipecheck] by Daniel Lustig, Michael Pellauer, and Margaret Martonosi.
+
+  For demonstrating a new level of abstraction for verifying a microarchitecture, for being the first [Coq][] paper I know of to appear in ISCA or MICRO, and for fixing no-shit memory model bugs in [gem5][].
+
+* ["Q100: The Architecture and Design of a Database Processing Unit,"][q100] by Lisa Wu, Andrea Lottarini, Timothy Paine, Martha Kim, and Kenneth Ross.
+
+  For demonstrating a workflow for designing domain-specific accelerators that emphasizes empiricism over intuition. The end result is a model of thorough accelerator evaluation.
 
 [racelogic]: http://dl.acm.org/citation.cfm?id=2665747
 [q100]: http://dl.acm.org/citation.cfm?id=2541961
@@ -46,10 +68,11 @@ My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
 ## Honorable Conflicts
 
-I had clear conflicts with two great submissions to Top Picks. I can't in good conscience list them above, but I also can't go without mentioning them:
+I had clear conflicts with two great submissions to Top Picks. I can't in good conscience list them above, but I also can't go without mentioning them. Both are veritable landmarks:
 
-* **["A Reconfigurable Fabric for Accelerating Large-Scale Datacenter Services,"][catapult] by Andrew Putnam, Adrian Caulfield, Eric Chung, Derek Chiou, Kypros Constantinides, John Demme, Hadi Esmaeilzadeh, Jeremy Fowers, Gopi Prashanth Gopal, Jan Gray, Michael Haselman, Scott Hauck, Stephen Heil, Amir Hormati, Joo-Young Kim, Sitaram Lanka, Jim Larus, Eric Peterson, Simon Pope, Aaron Smith, Jason Thong, Phillip Yi Xiao, and Doug Burger.** For XXX. The "Catapult" paper is a landmark.
-* **["Uncertain&lt;T&gt;: A First-Order Type for Uncertain Data,"][uncertaint] by James Bornholt, Todd Mytkowicz, and Kathryn S. McKinley.** For XXX.
+* ["A Reconfigurable Fabric for Accelerating Large-Scale Datacenter Services,"][catapult] by Andrew Putnam, Adrian Caulfield, Eric Chung, Derek Chiou, Kypros Constantinides, John Demme, Hadi Esmaeilzadeh, Jeremy Fowers, Gopi Prashanth Gopal, Jan Gray, Michael Haselman, Scott Hauck, Stephen Heil, Amir Hormati, Joo-Young Kim, Sitaram Lanka, Jim Larus, Eric Peterson, Simon Pope, Aaron Smith, Jason Thong, Phillip Yi Xiao, and Doug Burger.
+
+* ["Uncertain&lt;T&gt;: A First-Order Type for Uncertain Data,"][uncertaint] by James Bornholt, Todd Mytkowicz, and Kathryn S. McKinley.
 
 [catapult]: http://research.microsoft.com/pubs/212001/Catapult_ISCA_2014.pdf
 [uncertaint]: http://research.microsoft.com/pubs/208236/asplos077-bornholtA.pdf
