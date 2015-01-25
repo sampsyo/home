@@ -40,7 +40,7 @@ My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
   For asking the question: What is the *minimum* common memory consistency guarantee that heterogeneous CPU/GPU hybrid systems should enforce? Put another way, what is the equivalent to homogeneous multiprocessors' *sequential consistency for race-free programs* baseline? I don't agree with all of this paper's answers, but I strongly agree with the question.
 
-* ["Load Value Approximation for Tackling Massive Data Sets,"][lva] by Joshua San Miguel, Mario Badr, Natalie Enright Jerger.
+* ["Load Value Approximation,"][lva] by Joshua San Miguel, Mario Badr, Natalie Enright Jerger.
 
   For a thorough design-space exploration that converges on an elegant, effective implementation of approximation. Approximate computing is close to my heart and LVA is an exemplary execution.
 
