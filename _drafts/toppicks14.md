@@ -10,7 +10,7 @@ excerpt: |
 ---
 I love reading each year's [IEEE Micro Top Picks][toppicks] special issue. It's the lazy computer architect's source for a distilled handful of must-read papers from the last year.
 
-For Top Picks 2014, [Luis][] and [Karin][] tried something new in the selection process: they asked for [community input][cinput], meaning that even a lowly grad student could submit short comments on each paper. This inevitably made me play "fantasy Top Picks committee" in my mind. And the other night, [Tim][] suggested that folks should put together their own Pitchforkesque year-end top-ten lists.
+For Top Picks 2014, [Luis][] and [Karin][] tried something new in the selection process: they asked for [community input][cinput], meaning that even a lowly grad student could submit short comments on each paper. This inevitably made me play "fantasy Top Picks committee" in my mind. And the other night, [Tim][] suggested that folks should share their own Pitchforkesque year-end top-ten lists.
 
 The architecture community needs more of this kind of research commentary. So let's give this a shot.
 
@@ -30,7 +30,7 @@ My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
 * ["Race Logic: a Hardware Acceleration for Dynamic Programming Algorithms,"][racelogic] by Advait Madhavan, Timothy Sherwood, and Dmitri Strukov.
 
-  For XXX.
+  For expanding the definition of computation with a deeply wacky yet eminently implementable idea. Race logic is an exemplar of the balance between creativity and rigor that makes architecture research exciting.
 
 * ["Flipping Bits in Memory Without Accessing Them,"][flipping] by Yoongu Kim, Ross Daly, Jeremie Kim, Chris Fallin, Ji Hye Lee, Donghyuk Lee, Chris Wilkerson, Konrad Lai, and Onur Mutlu.
 
