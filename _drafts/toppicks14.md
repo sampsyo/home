@@ -46,7 +46,7 @@ My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
 * ["Memory Persistency,"][persistency] by Steven Pelley, Peter M. Chen, and Thomas F. Wenisch.
 
-  For drawing a connection between memory ordering in multiprocessors and the equivalent in systems that mix non-volatile main memory with volatile caches. The future seems inevitable: systems will get non-volatile main memories, they will combine them with volatile on-chip state, and programmability bugbears will abound. As with the HRF paper, I love this paper for the questions that "memory persistency" poses.
+  For drawing a connection between memory ordering in multiprocessors and the equivalent in systems that mix non-volatile main memory with volatile caches. The future seems inevitable: systems will get non-volatile main memories, they will combine them with volatile on-chip state, and programmability bugbears will abound. As with the HRF paper, I love this paper for the questions that it poses.
 
 * ["PipeCheck: Specifying and Verifying Microarchitectural Enforcement of Memory Consistency Models,"][pipecheck] by Daniel Lustig, Michael Pellauer, and Margaret Martonosi.
 
@@ -54,7 +54,7 @@ My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
 * ["Q100: The Architecture and Design of a Database Processing Unit,"][q100] by Lisa Wu, Andrea Lottarini, Timothy Paine, Martha Kim, and Kenneth Ross.
 
-  For demonstrating a workflow for designing domain-specific accelerators that emphasizes empiricism over intuition. The end result is a model of thorough accelerator evaluation.
+  For demonstrating a workflow for designing domain-specific accelerators that emphasizes empiricism over intuition. The end result is a paragon of thorough accelerator evaluation.
 
 [racelogic]: http://dl.acm.org/citation.cfm?id=2665747
 [q100]: http://dl.acm.org/citation.cfm?id=2541961
