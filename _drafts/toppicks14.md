@@ -1,5 +1,5 @@
 ---
-title: "My Top Picks from the 2014 Computer Architecture Conferences"
+title: "My Top Picks, 2014"
 excerpt: |
     [IEEE Micro Top Picks][toppicks] is an annual special issue that collects the best of each year's computer architecture conferences. This year, [the][luis] [chairs][karin] experimented with a [community input process][cinput], which meant that even a lowly grad student could read the submissions and contribute comments. Here are my favorite papers from the year.
 
@@ -26,7 +26,7 @@ My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
 * ["Aladdin: a Pre-RTL, Power-Performance Accelerator Simulator Enabling Large Design Space Exploration of Customized Architectures,"][aladdin] by Yakun Sophia Shao, Brandon Reagen, Gu-Yeon Wei, and David Brooks.
 
-  For the rare feat of publishing a no-holds-barred research tool for other architects. The idea is simple: Aladdin mashes up C-to-gates tools with a pile of heuristics. It sidesteps the persistent weaknesses of HLS by solving a different problem. Extra points for inventing something useful that we didn't know we needed.
+  For the rare feat of publishing a no-holds-barred research tool for other architects. The idea is simple: Aladdin mashes up unsound dynamic profiling with optimization heuristics and pattern matching to make guesses at a reasonable hardware design. It sidesteps the persistent weaknesses of HLS by solving a different problem. Extra points for inventing something useful that we didn't know we needed.
 
 * ["Race Logic: a Hardware Acceleration for Dynamic Programming Algorithms,"][racelogic] by Advait Madhavan, Timothy Sherwood, and Dmitri Strukov.
 
