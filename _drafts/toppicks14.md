@@ -8,9 +8,9 @@ excerpt: |
     [karin]: http://research.microsoft.com/en-us/people/kstrauss/
     [cinput]: http://homes.cs.washington.edu/~luisceze/toppicks15-community-input.md.html
 ---
-I love reading each year's [IEEE Micro Top Picks][toppicks] special issue. It's the lazy computer architect's source for a distilled handful of must-read papers from the last year.
+I love reading each year's [IEEE Micro Top Picks][toppicks] special issue. It's the lazy computer architect's source for must-read papers from the last year.
 
-For Top Picks 2014, [Luis][] and [Karin][] tried something new in the selection process: they asked for [community input][cinput], meaning that even a lowly grad student could submit short comments on each paper. This inevitably made me play "fantasy Top Picks committee" in my mind. And the other night, [Tim][] suggested that folks should share their own Pitchforkesque year-end top-ten lists.
+For Top Picks 2014, [Luis][] and [Karin][] tried something new: they asked for [community input][cinput] during the selection process. Even a lowly grad student could submit short comments on each paper. This inevitably made me play "fantasy Top Picks committee" in my mind. And the other night, [Tim][] suggested that folks should share their own Pitchforkesque year-end top-ten lists.
 
 The architecture community needs more of this kind of research commentary. So let's give this a shot.
 
@@ -26,27 +26,27 @@ My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
 * ["Aladdin: a Pre-RTL, Power-Performance Accelerator Simulator Enabling Large Design Space Exploration of Customized Architectures,"][aladdin] by Yakun Sophia Shao, Brandon Reagen, Gu-Yeon Wei, and David Brooks.
 
-  For the rare feat of publishing a no-holds-barred research tool for other architects. The idea is simple: Aladdin mashes up unsound dynamic profiling with optimization heuristics and pattern matching to make guesses at a reasonable hardware design. It sidesteps the persistent weaknesses of HLS by solving a different problem. Extra points for inventing something useful that we didn't know we needed.
+  For the rare feat of publishing a no-holds-barred architecture research tool. The idea is simple: Aladdin mashes up unsound dynamic profiling with optimization heuristics and pattern matching to make guesses at a reasonable hardware design. It sidesteps the persistent weaknesses of HLS by solving a different problem. Extra points for inventing something useful that we didn't know we needed.
 
 * ["Race Logic: a Hardware Acceleration for Dynamic Programming Algorithms,"][racelogic] by Advait Madhavan, Timothy Sherwood, and Dmitri Strukov.
 
-  For expanding the definition of computation with a deeply wacky yet eminently implementable idea. Race logic is an exemplar of the balance between creativity and rigor that makes architecture research exciting.
+  For expanding the definition of computation with a deeply wacky yet eminently implementable idea. Race logic exemplifies the balance between creativity and rigor that makes architecture research exciting.
 
 * ["Flipping Bits in Memory Without Accessing Them,"][flipping] by Yoongu Kim, Ross Daly, Jeremie Kim, Chris Fallin, Ji Hye Lee, Donghyuk Lee, Chris Wilkerson, Konrad Lai, and Onur Mutlu.
 
-  For revealing a shocking and terrifying harbinger of the end of useful DRAM scaling.
+  For exposing a shocking and terrifying harbinger of the end of useful DRAM scaling.
 
 * ["Heterogeneous-Race-Free Memory Models,"][hrf] by Derek Hower, Blake Hechtman, Bradford Beckmann, Benedict Gaster, Mark Hill, Steven Reinhardt, and David Wood.
 
-  For asking the question: What is the *minimum* common memory consistency model that heterogeneous CPU/GPU hybrid systems should enforce? Put another way, what is the equivalent to "sequential consistency for race-free programs" on homogeneous multiprocessors? I don't agree with all of this paper's answers, but I strongly agree with the question.
+  For asking the question: What is the *minimum* common memory consistency guarantee that heterogeneous CPU/GPU hybrid systems should enforce? Put another way, what is the equivalent to homogeneous multiprocessors' *sequential consistency for race-free programs* baseline? I don't agree with all of this paper's answers, but I strongly agree with the question.
 
 * ["Load Value Approximation for Tackling Massive Data Sets,"][lva] by Joshua San Miguel, Mario Badr, Natalie Enright Jerger.
 
-  For an thorough design-space exploration that converges on an elegant, effective implementation of approximation. Approximate computing is close to my heart and LVA is an exemplary execution.
+  For a thorough design-space exploration that converges on an elegant, effective implementation of approximation. Approximate computing is close to my heart and LVA is an exemplary execution.
 
 * ["Memory Persistency,"][persistency] by Steven Pelley, Peter M. Chen, and Thomas F. Wenisch.
 
-  For drawing a connection between memory ordering in multiprocessors and the equivalent in systems that mix non-volatile main memory with volatile caches. The future seems inevitable: systems will get non-volatile main memories, they will combine them with volatile on-chip state, and programmability bugbears will abound. As with the HRF paper, I love this paper for the questions that it poses.
+  For drawing a connection between memory ordering in multiprocessors and problems in systems that mix non-volatile main memory with volatile caches. The future seems inevitable: systems will get non-volatile main memories, they will combine them with volatile on-chip state, and programmability bugbears will abound. As with the HRF paper above, I love memory persistency for the questions it poses.
 
 * ["PipeCheck: Specifying and Verifying Microarchitectural Enforcement of Memory Consistency Models,"][pipecheck] by Daniel Lustig, Michael Pellauer, and Margaret Martonosi.
 
@@ -54,7 +54,7 @@ My favorite papers from the 2014 Top Picks slate (in alphabetical order):
 
 * ["Q100: The Architecture and Design of a Database Processing Unit,"][q100] by Lisa Wu, Andrea Lottarini, Timothy Paine, Martha Kim, and Kenneth Ross.
 
-  For demonstrating a workflow for designing domain-specific accelerators that emphasizes empiricism over intuition. The end result is a paragon of thorough accelerator evaluation.
+  For demonstrating an accelerator design workflow that emphasizes empiricism over intuition. The end result is a paragon of thorough accelerator evaluation.
 
 [racelogic]: http://dl.acm.org/citation.cfm?id=2665747
 [q100]: http://dl.acm.org/citation.cfm?id=2541961
