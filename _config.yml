@@ -7,7 +7,7 @@ twitter: '@samps'
 markdown: kramdown
 kramdown:
     enable_coderay: false
-    auto_ids: false
+    auto_ids: true
     entity_output: symbolic
 highlighter: null
 
