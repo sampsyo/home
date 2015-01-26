@@ -7,12 +7,13 @@
     pre: true
 
 -
-    title: Debugging Approximate Programs via Dynamic Analysis
+    title: Monitoring and Debugging the Quality of Results in Approximate Programs
     authors: Michael Ringenburg, Adrian Sampson, Isaac Ackerman, Luis Ceze, and Dan Grossman
     venue: ASPLOS 2015
     type: conference
     venue_url: http://asplos15.bilkent.edu.tr
     pre: true
+    url: BASE/media/papers/approxdebug-asplos2015.pdf
 
 -
     title: Expressing and Verifying Probabilistic Assertions

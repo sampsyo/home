@@ -1,6 +1,6 @@
 <p>
     <span class="title">
-        {% if paper.url %}<a href="{{ paper.url }}">{% endif %}&ldquo;{{ paper.title }}.&rdquo;{% if paper.url %}</a>{% endif %}
+        {% if paper.url %}<a href="{{ paper.url | replace: 'BASE', site.base }}">{% endif %}&ldquo;{{ paper.title }}.&rdquo;{% if paper.url %}</a>{% endif %}
     </span>
     <span class="authors">{{ paper.authors }}.</span>
     <span class="venue">
