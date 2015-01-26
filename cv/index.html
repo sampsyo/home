@@ -82,6 +82,7 @@ title: CV
         {{ student.kind }},
         {{ student.where }},
         {{ student.when }}
+        {% if student.extra %}<br>{{ student.extra }}{% endif %}
     </p>
     {% endfor %}
 </section>
