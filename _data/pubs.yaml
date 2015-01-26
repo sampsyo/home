@@ -5,6 +5,7 @@
     type: conference
     venue_url: http://darksilicon.org/hpca/
     pre: true
+    url: BASE/media/papers/snnap-hpca2015.pdf
 
 -
     title: Monitoring and Debugging the Quality of Results in Approximate Programs
