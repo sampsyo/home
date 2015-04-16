@@ -197,6 +197,13 @@
     venue_url: http://hppc.lsc.ic.unicamp.br/
 
 -
+    title: "Approximate Computing: Making Mobile Systems More Efficient"
+    authors: "Thierry Moreau, Adrian Sampson, and Luis Ceze"
+    venue: '<i>IEEE Pervasive Computing</i>, April/June 2015'
+    venue_url: http://www.computer.org/web/computingnow/pervasivecomputing
+    url: "http://online.qmags.com/PCM0415/default.aspx?sessionID=1812DBB6BEFA408E867C374BA&cid=3200720&eid=19366&pg=11&mode=2#pg11&mode2?fs=2&pg=11&mode=2"
+
+-
     title: Neural Acceleration for General-Purpose Approximate Programs
     authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
     venue: CACM Research Highlights, January 2015
