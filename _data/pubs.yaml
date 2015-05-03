@@ -1,10 +1,17 @@
 -
+    title: "Hardware-Software Co-Design: Not Just a Cliche"
+    authors: "Adrian Sampson, James Bornholt, and Luis Ceze"
+    venue: SNAPL 2015
+    type: conference
+    venue_url: http://snapl.org/2015/
+    url: BASE/media/papers/cliche-snapl2015.pdf
+
+-
     title: 'SNNAP: Approximate Computing on Programmable SoCs via Neural Acceleration'
     authors: Thierry Moreau, Mark Wyse, Jacob Nelson, Adrian Sampson, Hadi Esmaeilzadeh, Luis Ceze, and Mark Oskin
     venue: HPCA 2015
     type: conference
     venue_url: http://darksilicon.org/hpca/
-    pre: true
     url: BASE/media/papers/snnap-hpca2015.pdf
 
 -
