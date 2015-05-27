@@ -20,8 +20,8 @@ and a new language construct called [probabilistic assertions][passert].
 [uw cse]: http://www.cs.washington.edu/
 [sampa group]: http://sampa.cs.washington.edu/sampa/Main_Page
 [enerj]: {{ site.base }}/media/papers/enerj-pldi2011.pdf
-[Luis Ceze]: http://www.cs.washington.edu/homes/luisceze/ 
-[Dan Grossman]: http://www.cs.washington.edu/homes/djg/ 
+[Luis Ceze]: http://www.cs.washington.edu/homes/luisceze/
+[Dan Grossman]: http://www.cs.washington.edu/homes/djg/
 [passert]: {{ site.base }}/media/papers/passert-pldi2014.pdf
 
 I am supported by a 2013--2015 [Google Ph.D. Fellowship][google] in Computer
@@ -33,12 +33,7 @@ I graduated from [Harvey Mudd College](http://www.hmc.edu/) in 2009.
 I have interned at [Qualcomm BARD][bard] and twice at [Microsoft
 Research][], where I have worked with [Karin Strauss][], [Todd
 Mytkowicz][], and [Kathryn McKinley][].
-
-I am looking for academic and industrial research jobs this year. Here are my [research statement][rstatement], [teaching statement][tstatement], [diversity statement][dstatement], and [CV][].
-
-[rstatement]: {{site.base}}/materials/research.pdf
-[tstatement]: {{site.base}}/materials/teaching.pdf
-[dstatement]: {{site.base}}/materials/diversity.pdf
+Here's my [CV][].
 
 [theirry]: http://homes.cs.washington.edu/~moreau/
 [Kathryn McKinley]: http://research.microsoft.com/en-us/people/mckinley/
