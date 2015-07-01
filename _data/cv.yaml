@@ -1,11 +1,11 @@
 name: Adrian Sampson
-email: asampson@cs.washington.edu
+email: asampson@cornell.edu
 
 education:
     -
         school: University of Washington
-        degree: Ph.D., Computer Science and Engineering, in progress
-        dates: 2009&ndash;2015 (expected)
+        degree: Ph.D., Computer Science and Engineering
+        dates: 2009&ndash;2015
         note: |
             Advisors: <a href="http://homes.cs.washington.edu/~luisceze/">Luis Ceze</a>
             and <a href="http://homes.cs.washington.edu/~djg/">Dan Grossman</a>
@@ -17,6 +17,11 @@ education:
             Advisor: <a href="http://www.cs.hmc.edu/~geoff/">Geoff Kuenning</a>
 
 jobs:
+    -
+        title: Visiting Researcher
+        where: Microsoft Research &mdash; Research in Software Engineering (RiSE)
+        dates: 2015&ndash;2016
+
     -
         title: Research Intern
         where: Microsoft Research &mdash; Research in Software Engineering (RiSE)
@@ -35,7 +40,7 @@ jobs:
     -
         title: Graduate Researcher
         where: University of Washington
-        dates: 2009&ndash;present
+        dates: 2009&ndash;2015
 
     -
         title: Undergraduate Researcher
