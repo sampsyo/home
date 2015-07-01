@@ -22,9 +22,14 @@ cleanall:
 	rm -rf _site node_modules bower_components
 
 CSEHOST := bicycle.cs.washington.edu
+RSYNCARGS := --compress --recursive --checksum --itemize-changes \
+	--delete -e ssh _site/
 deploy: BUILDARGS=--config _config.yml,_config_deploy.yml
 deploy: clean site
-	rsync --compress --recursive --checksum --itemize-changes --delete -e ssh _site/ $(CSEHOST):public_html/home
+	rsync $(RSYNCARGS) $(CSEHOST):public_html/home
+
+deploy_dh:
+	rsync $(RSYNCARGS) dh:domains/adriansampson.net
 
 cv.pdf:
 	wkpdf --source file://$(shell pwd)/_site/cv/index.html --output cv.pdf --caching false --stylesheet-media print --margins 52 36 88 18 --paper letter
