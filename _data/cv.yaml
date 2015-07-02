@@ -80,7 +80,7 @@ teaching:
 
     - |
         Tutor, University of Washington,
-        2009--present:
+        2009--2014:
         CSE 303 (Software Development), 311/312
         (Foundations of Computing), 322 (Formal
         Models), 331 (Software Engineering), 332 (Data
@@ -104,13 +104,10 @@ service:
         University of Washington, Computer Science and Engineering:
 
         * Graduate Admissions Committee, 2013&ndash;2015
-        * Prospective Student Committee Co-Chair, 2011; Member, 2010&ndash;present
+        * Prospective Student Committee Co-Chair, 2011; Member, 2010&ndash;2014
         * Student Survey Coordinator, 2011
-        * "Mossy Bits" Creative Arts Journal Editor, 2010--present
-        * New Graduate Student Mentor, 2010--present
-
-    - |
-        Paper Reviews: ASPLOS 2011, POPL 2012, PPoPP 2012, PLDI 2012, HPCA 2013, HotPar 2013, CGO 2014, MICRO 2014, ACM TACO in 2014 (3x), IEEE Micro in 2014 (2x), ACM TECS in 2014, ACM TACO in 2015
+        * "Mossy Bits" Creative Arts Journal Editor, 2010--2015
+        * New Graduate Student Mentor, 2010--2015
 
 students:
     -
@@ -131,13 +128,13 @@ students:
     -
         name: Brett Boston
         kind: B.S. Honors Thesis
-        when: 2013&ndash;present
+        when: 2013&ndash;2015
         where: University of Washington
         extra: 'Runner-Up, <a href="http://cra.org/awards/undergrad-current/">2015 CRA Outstanding Undergraduate Researcher Awards</a>'
     -
         name: Wenjie (Marissa) He
         kind: B.S.
-        when: 2013&ndash;present
+        when: 2013&ndash;2015
         where: University of Washington
     -
         name: Finn Parnell
