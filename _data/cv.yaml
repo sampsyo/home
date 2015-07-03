@@ -133,7 +133,10 @@ students:
         kind: B.S. Honors Thesis
         when: 2013&ndash;2015
         where: University of Washington
-        extra: 'Runner-Up, <a href="http://cra.org/awards/undergrad-current/">2015 CRA Outstanding Undergraduate Researcher Awards</a>'
+        extra: |
+            Runner-up, <a href="http://cra.org/awards/undergrad-current/">2015 CRA Outstanding Undergraduate Researcher Awards</a><br>
+            Winner, <a href="https://www.cs.washington.edu/students/ugrad/thesis_award">2015 UW CSE Undergraduate Honors Thesis Award</a><br>
+            Now a Ph.D. student at MIT
     -
         name: Wenjie (Marissa) He
         kind: B.S.
