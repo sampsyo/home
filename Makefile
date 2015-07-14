@@ -22,10 +22,10 @@ cleanall:
 	rm -rf _site node_modules bower_components
 
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
-	--delete -e ssh _site/
-DEST := dh:domains/adriansampson.net
+	--delete -e ssh
+DEST := dh:domains/adriansampson.net/home
 deploy: clean site
-	rsync $(RSYNCARGS) $(DEST)
+	rsync $(RSYNCARGS) _site/ $(DEST)
 
 cv.pdf:
 	wkpdf --source file://$(shell pwd)/_site/cv/index.html --output cv.pdf --caching false --stylesheet-media print --margins 52 36 88 18 --paper letter
