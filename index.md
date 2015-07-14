@@ -3,7 +3,7 @@ layout: home
 ---
 I design better hardware--software abstractions through research in programming languages and computer architecture.
 Much of my work is on
-*approximate computing:* the idea that computers can be much more efficient
+*approximate computing:* the idea that computers can be more efficient
 if they are allowed to be imperfect.
 To help programmers trade off accuracy for efficiency, we need new [languages][enerj], [tools][passert], [processors][truffle], [accelerators][npu], [memories][storage], and [compilers][accept].
 
