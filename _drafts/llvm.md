@@ -322,7 +322,63 @@ Like magic!
 
 ## Linking With a Runtime Library
 
-Probably want to use some code you wrote at run time. Don't write it by generating LLVM instructions!
+When you need to instrument code to do something nontrivial, it can be painful to use [IRBuilder][] to generate the LLVM instructions to do it. Instead, you probably want to write your run-time behavior in C and link it with the program you're compiling. This section will show you how to write a runtime library that logs the results of binary operators instead of silently changing them.
+
+Here's the LLVM pass code, which is in [the `rtlib` branch][rtlib branch] of the `llvm-pass-skeleton` repository:
+
+```cpp
+// Get the function to call from our runtime library.
+LLVMContext &Ctx = F.getContext();
+Constant *logFunc = F.getParent()->getOrInsertFunction(
+  "logop", Type::getVoidTy(Ctx), Type::getInt32Ty(Ctx), NULL
+);
+
+for (auto& B : F) {
+  for (auto& I : B) {
+    if (auto* op = dyn_cast<BinaryOperator>(&I)) {
+      // Insert *after* `op`.
+      IRBuilder<> builder(op);
+      builder.SetInsertPoint(&B, ++builder.GetInsertPoint());
+
+      // Insert a call to our function.
+      Value* args[] = {op};
+      builder.CreateCall(logFunc, args);
+
+      return true;
+    }
+  }
+}
+```
+
+The tools you need are [getOrInsertFunction][] and [CreateCall][]. The former adds a *declaration* for your runtime function `logop`, which is like writing `void logop(int i);` in the program's C source without a function body. The instrumentation code pairs with a run-time library ([rtlib.c][] in the repository) that defines that `logop` function:
+
+```c
+#include <stdio.h>
+void logop(int i) {
+  printf("computed: %i\n", i);
+}
+```
+
+To run an instrumented program, link it with your runtime library:
+
+```none
+$ cc -c rtlib.c
+$ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.so -c example.c
+$ cc example.o rtlib.o
+$ ./a.out
+12
+computed: 14
+14
+```
+
+If you like, it's also possible to stitch together the program and runtime library *before compiling to machine code*. The [llvm-link][] utility, which you can think of as the rough IR-level equivalent of [ld][], can help with that.
+
+[createcall]: http://llvm.org/docs/doxygen/html/classllvm_1_1IRBuilder.html#aa6912a2a8a62dbd8706ec00df02c4b8a
+[getorinsertfunction]: http://llvm.org/docs/doxygen/html/classllvm_1_1Module.html#a66057011b4f824c8a8d04de9697c194a
+[rtlib branch]: https://github.com/sampsyo/llvm-pass-skeleton/tree/rtlib
+[llvm-link]: http://llvm.org/docs/CommandGuide/llvm-link.html
+[ld]: https://sourceware.org/binutils/docs/ld/
+[rtlib.c]: https://github.com/sampsyo/llvm-pass-skeleton/blob/rtlib/rtlib.c
 
 ## Annotations
 
