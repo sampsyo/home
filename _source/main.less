@@ -11,6 +11,10 @@
 // Non-pink <code>.
 @code-color: @pre-color;
 @code-bg: @pre-bg;
+// But it retains a color inside a link.
+a code {
+    color: inherit;
+}
 
 // No giant quote blocks.
 @blockquote-font-size: @font-size-base;

@@ -350,7 +350,7 @@ for (auto& B : F) {
 }
 ```
 
-The tools you need are [getOrInsertFunction][] and [CreateCall][]. The former adds a *declaration* for your runtime function `logop`, which is like writing `void logop(int i);` in the program's C source without a function body. The instrumentation code pairs with a run-time library ([rtlib.c][] in the repository) that defines that `logop` function:
+The tools you need are [`Module::getOrInsertFunction`][getOrInsertFunction] and [`IRBuilder::CreateCall`][CreateCall]. The former adds a *declaration* for your runtime function `logop`, which is like writing `void logop(int i);` in the program's C source without a function body. The instrumentation code pairs with a run-time library ([`rtlib.c`][rtlib.c] in the repository) that defines that `logop` function:
 
 ```c
 #include <stdio.h>
