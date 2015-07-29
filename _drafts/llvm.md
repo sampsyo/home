@@ -47,8 +47,8 @@ Even if a compiler doesn't seem like a *perfect* match for your task, it can oft
 Here are some nifty examples of research projects that used LLVM to do things that are not necessarily all that compilery:
 
 * [Virtual Ghost][] from UIUC showed you could use a compiler pass to protect processes from compromised OS kernels.
-* We use a compiler pass in our approximate computing work to inject errors into programs to simulate error-prone hardware.
 * [CoreDet][] from UW makes multithreaded programs deterministic.
+* In our approximate computing work, we use an LLVM pass to inject errors into programs to simulate error-prone hardware.
 
 So, to emphasize, LLVM is not just for implementing new compiler optimizations!
 
@@ -73,29 +73,48 @@ Although this architecture describes most compilers these days, one novelty abou
 
 ## Getting Oriented
 
-Documentation. Doxygen. Source code (from the git (GitHub?) mirror). Build instructions. Packages from Homebrew, etc.
+Let's start hacking.
 
-Often, the version of LLVM that comes with your OS doesn't have all the headers necessary to hack with it. You'll need to install it from source. Brandon Holt has [good instructions for building it "right" on OS X][bholt-osx]. There's also a [Homebrew formula][homebrew-llvm], to which you'll want to pass the `--with-clang` option.
+### Get LLVM
+
+You'll need to need to install LLVM. Linux distributions often have LLVM and Clang packages you can use off the shelf. But you'll need to ensure you get a version that includes all the headers necessary to hack with it. The OS X build that comes with [Xcode][], for example, is not complete enough. Fortunately, it's not hard to [build LLVM from source][buildllvm] using CMake. Usually, you only need to build LLVM itself---your system-provided Clang will do just fine (although there are [instructions for that][buildclang] too).
+
+On OS X in particular, [Brandon Holt][bholt] has [good instructions for doing it right][bholt-osx]. There's also a [Homebrew formula][homebrew-llvm].
+
+### RTFM
+
+You will need to get friendly with the documentation. I find these links in particular are worth coming back to periodically:
+
+- The [automatically generated Doxygen pages][llvmdoxygen] are *super important*. You will need to live inside these API docs to make any progress at all while hacking on LLVM. Those pages can be hard to navigate, though, so I recommend going through Google. If you append "LLVM" to any function or class name, Google [usually finds the right Doxygen page](https://google.com/search?q=basicblock+llvm). (If you're diligent, you can usually train Google to give you LLVM results first even without typing "LLVM"!) I realize this sounds ridiculous, but you really need to jump around LLVM's API docs like this to survive---and if there's a better way to navigate the API, I haven't found it.
+- The [language reference manual][langref] is handy if you ever get confused by syntax in an LLVM IR dump.
+- The [programmer's manual][progman] describes the toolchest of data structures peculiar to LLVM, including efficient strings, STL alternatives for maps and vectors and the like, etc. It also outlines the fast type introspection tools (`isa`, `cast`, and `dyn_cast`) that you'll run into everywhere.
+- Read the [*Writing an LLVM Pass*][passtut] whenever you have questions about what your pass can do. Because you're a researcher and not a day-to-day compiler hacker, this article disagrees with that tutorial on some details. (Most urgently, ignore the Makefile-based build system instructions and skip straight to the CMake-based ["out-of-source" instructions][outofsource].) But it's nonetheless the canonical source for answers about passes in general.
+- The [GitHub mirror][llvm-gh] is sometimes convenient for browsing the LLVM source online.
 
 [homebrew-llvm]: https://github.com/Homebrew/homebrew/blob/master/Library/Formula/llvm.rb
 [bholt-osx]: http://homes.cs.washington.edu/~bholt/posts/building-llvm.html
+[bholt]: http://homes.cs.washington.edu/~bholt/
+[buildllvm]: http://llvm.org/docs/CMake.html
+[buildclang]: http://clang.llvm.org/get_started.html
+[llvm-gh]: https://github.com/llvm-mirror/llvm
+[langref]: http://llvm.org/docs/LangRef.html
+[progman]: http://llvm.org/docs/ProgrammersManual.html
+[passtut]: http://llvm.org/docs/WritingAnLLVMPass.html
+[llvmdoxygen]: http://llvm.org/doxygen/
+[xcode]: https://developer.apple.com/xcode/
+[outofsource]: http://llvm.org/docs/CMake.html#cmake-out-of-source-pass
 
 ## So We're Going to Write a Pass
 
-An example template to start from, including build system.
-
-You may also want to check out the ["Writing an LLVM Pass"][passtut] tutorial. If you do, ignore the Makefile-based build system instructions and skip straight to the CMake-based ["out-of-source" instructions][outofsource], which is the only rational course of action.)
-
-[outofsource]: http://llvm.org/docs/CMake.html#cmake-out-of-source-pass
-[passtut]: http://llvm.org/docs/WritingAnLLVMPass.html
+Productive research with LLVM usually means writing a custom pass. This section will guide you through building and running a simple pass that transforms programs on the fly.
 
 ### A Skeleton
 
-Clone the [llvm-pass-skeleton][skel] repository from GitHub. It contains a useless LLVM pass where we can do our work.
+I've put together a [template repository][skel] that contains a useless LLVM pass. I recommend you start with the template: when starting from scratch, getting the build configuration set up can be especially painful.
+
+Clone the [llvm-pass-skeleton][skel] repository from GitHub. The real work gets done in `skeleton/Skeleton.cpp`, so open up that file. Here's the relevant part where the business happens:
 
 [skel]: https://github.com/sampsyo/llvm-pass-skeleton
-
-Here's the relevant part of `Skeleton.cpp`:
 
 ```cpp
 virtual bool runOnFunction(Function &F) {
