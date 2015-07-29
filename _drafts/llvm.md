@@ -54,6 +54,8 @@ So, to emphasize, LLVM is not just for implementing new compiler optimizations!
 
 ## The Pieces
 
+<img src="{{ site.base }}/media/llvm/compiler-arch.svg" alt="Front End, Passes, Back End" class="img-responsive">
+
 * Frontend. (Probably don't need to touch this. Just use Clang.)
 * Passes.
 * Code generation. (Almost certainly shouldn't touch this.)
@@ -134,6 +136,8 @@ I saw a function called main!
 ## Understanding a Program in LLVM
 
 Modules, Functions, Basic Blocks, instructions
+
+<img src="{{ site.base }}/media/llvm/llvm-containers.svg" width="250" height="190" alt="Module, Function, BasicBlock, Instruction">
 
 We can inspect all of these objects with a convenient common method in LLVM named `dump()`. It just prints out the human-readable representation of an object in the IR. Here's some code to do that, which is available in the `containers` branch of the `llvm-pass-skeleton` repository:
 
