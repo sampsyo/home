@@ -31,13 +31,16 @@ A few huge things make LLVM different from other compilers:
 
 LLVM is a great compiler, but who cares if you don't do compilers research?
 
-A compiler infrastructure is useful whenever you need to *do stuff with programs*. Which, in my experience, is kind of a lot. You can analyze programs to see how often they do a certain behavior you're interested in, transform them to work better with your system, or change them to pretend to use your hypothetical new architecture or OS without actually fabbing a new chip or writing an kernel module. For grad students, a compiler infrastructure is more often the right tool than most people give it credit for. I encourage you to reach for LLVM by default before any of these tools unless you have a really good reason:
+A compiler infrastructure is useful whenever you need to *do stuff with programs*. Which, in my experience, is kind of a lot. You can analyze programs to see how often they do a certain behavior you're interested in, transform them to work better with your system, or change them to pretend to use your hypothetical new architecture or OS without actually fabbing a new chip or writing an kernel module. For grad students, a compiler infrastructure is more often the right tool than most people give it credit for. I encourage you to reach for LLVM by default before hacking any of these tools unless you have a really good reason:
 
-* An architectural simulator
-* A dynamic binary instrumentation tool like Pin
+* An [architectural simulator][wddd]
+* A dynamic binary instrumentation tool like [Pin][]
 * Source-level transformation (from simple stuff like `sed` to complicated stuff like AST parsing and serialization)
 * Hacking the kernel to intercept system calls
 * Anything resembling a hypervisor
+
+[pin]: http://www.pintool.org/
+[wddd]: http://research.cs.wisc.edu/vertical/papers/2014/wddd-sim-harmful.pdf
 
 Even if a compiler doesn't seem like a *perfect* match for your task, it can often get you 90% of the way there far easier than, say, a source-to-source translation.
 
@@ -47,20 +50,26 @@ Here are some nifty examples of research projects that used LLVM to do things th
 * We use a compiler pass in our approximate computing work to inject errors into programs to simulate error-prone hardware.
 * [CoreDet][] from UW makes multithreaded programs deterministic.
 
-So, to emphasize, LLVM is not just for implementing new compiler optimizations! 
+So, to emphasize, LLVM is not just for implementing new compiler optimizations!
 
 [virtual ghost]: http://sva.cs.illinois.edu/pubs/VirtualGhost-ASPLOS-2014.pdf
 [coredet]: http://homes.cs.washington.edu/~djg/papers/asplos10-coredet.pdf
 
 ## The Pieces
 
+Here's a picture that shows the major components of LLVM's architecture (and, really, any modern compiler):
+
 <img src="{{ site.base }}/media/llvm/compiler-arch.svg" alt="Front End, Passes, Back End" class="img-responsive">
 
-* Frontend. (Probably don't need to touch this. Just use Clang.)
-* Passes.
-* Code generation. (Almost certainly shouldn't touch this.)
+There are:
 
-A picture, which could be a picture of basically any realistic compiler.
+* The *front end*, which takes your source code and turns it into an *intermediate representation* or IR. This translation simplifies the job of the rest of the compiler, which doesn't want to deal with the full complexity of C++ source code. You, an intrepid grad student, probably do not need to hack this part; you can use [Clang][] unmodified.
+* The *passes*, which transform IR to IR. In ordinary circumstances, passes usually optimize the code: that is, they produce an IR program as output that does the same thing as the IR they took as input, except that it's faster. **This is where you want to hack.** Your research can work by looking at and changing IR as it flows through the compilation process.
+* The *back end*, which generates actual machine code. You almost certainly don't need to touch this part.
+
+Although this architecture describes most compilers these days, one novelty about LLVM is worth noting here: programs use *the same IR* throughout the process. In other compilers, each pass might produce a program in a different form with different structure. LLVM opts for the opposite approach, is great for us as hackers: we don't have to worry too much about where in the process our code gets to see the IR, as long as it's somewhere between the front end and back end.
+
+[clang]: http://clang.llvm.org/
 
 ## Getting Oriented
 
@@ -169,7 +178,7 @@ The real magic comes in when you *look for patterns in the program* and, optiona
 ```cpp
 for (auto &B : F) {
   for (auto &I : B) {
-    if (auto *op = dyn_cast<BinaryOperator>(&I)) {
+    if (auto* op = dyn_cast<BinaryOperator>(&I)) {
       op->swapOperands();
     }
   }
@@ -185,7 +194,7 @@ Now if we compile a program like this:
 
 ```cpp
 #include <stdio.h>
-int main(int argc, const char **argv) {
+int main(int argc, const char** argv) {
     printf("%i\n", argc - 2);
 }
 ```
@@ -215,3 +224,7 @@ Most projects eventually need to interact with the programmer. Some ways to do t
 * Using the vast array of analyses and optimizations available to you.
 * Generating any special instructions (as architects often want to do) by modifying the backend.
 * Exploiting debug info, so you can connect back to lines and columns and such in the source code.
+
+---
+
+*Thanks to the UW architecture and systems groups, who sat through an out-loud tutorial version of this post.*
