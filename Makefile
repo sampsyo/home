@@ -12,7 +12,7 @@ media/main.css: _source/main.less $(BOWER_STUFF)
 # manual invocation.
 $(BOWER_STUFF):
 	npm install
-	./node_modules/bower/bin/bower install
+	./node_modules/bower/bin/bower install --config.interactive=fals
 setup: $(BOWER_STUFF)
 
 clean:

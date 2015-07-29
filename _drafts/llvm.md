@@ -178,12 +178,12 @@ Congratulations; you've just hacked a compiler! In the next steps, we'll extend 
 
 ## Understanding LLVM IR
 
-To work with programs in LLVM, you need to know a little about how the IR is organized.
-
-<figure>
-<img src="{{ site.base }}/media/llvm/llvm-containers.svg" width="250" height="190" alt="Module, Function, BasicBlock, Instruction">
+<figure style="max-width: 250px;">
+<img src="{{ site.base }}/media/llvm/llvm-containers.svg" alt="Module, Function, BasicBlock, Instruction">
 <figcaption><a href="http://llvm.org/docs/doxygen/html/classllvm_1_1Module.html">Module</a>s contain <a href="http://llvm.org/docs/doxygen/html/classllvm_1_1Function.html">Function</a>s, which contain <a href="http://llvm.org/docs/doxygen/html/classllvm_1_1BasicBlock.html">BasicBlock</a>s, which contain <a href="http://www.llvm.org/docs/doxygen/html/classllvm_1_1Instruction.html">Instruction</a>s. Everything but Module is a <a href="http://www.llvm.org/docs/doxygen/html/classllvm_1_1Value.html">Value</a>.</figcaption>
 </figure>
+
+To work with programs in LLVM, you need to know a little about how the IR is organized.
 
 We can inspect all of these objects with a convenient common method in LLVM named `dump()`. It just prints out the human-readable representation of an object in the IR. Here's some code to do that, which is available in the `containers` branch of the `llvm-pass-skeleton` repository:
 
