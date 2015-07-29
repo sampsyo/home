@@ -112,7 +112,13 @@ Productive research with LLVM usually means writing a custom pass. This section 
 
 I've put together a [template repository][skel] that contains a useless LLVM pass. I recommend you start with the template: when starting from scratch, getting the build configuration set up can be especially painful.
 
-Clone the [llvm-pass-skeleton][skel] repository from GitHub. The real work gets done in `skeleton/Skeleton.cpp`, so open up that file. Here's the relevant part where the business happens:
+Clone the [llvm-pass-skeleton][skel] repository from GitHub:
+
+```none
+$ git clone git@github.com:sampsyo/llvm-pass-skeleton.git
+```
+
+The real work gets done in `skeleton/Skeleton.cpp`, so open up that file. Here's the relevant part where the business happens:
 
 [skel]: https://github.com/sampsyo/llvm-pass-skeleton
 
@@ -123,12 +129,12 @@ virtual bool runOnFunction(Function &F) {
 }
 ```
 
-There are several kinds of LLVM pass, and we're using one called a *function pass* (it's a good place to start). Exactly as you would expect, LLVM invokes that function above with every function it finds in the program we're compiling. For now, all it does is print out the name.
+There are several kinds of LLVM pass, and we're using one called a *function pass* (it's a good place to start). Exactly as you would expect, LLVM invokes the method above with every function it finds in the program we're compiling. For now, all it does is print out the name.
 
 Details:
 
-* The `errs()` thing is an LLVM-provided C++ output stream we can use to print to the console
-* The function returns `false` to indicate that it didn't modify `F`.
+* That `errs()` thing is an LLVM-provided C++ output stream we can use to print to the console.
+* The function returns `false` to indicate that it didn't modify `F`. Later, when we actually transform the program, we'll need to return `true`.
 
 ### Build It
 
@@ -148,24 +154,36 @@ If LLVM isn't installed globally, you will need to tell CMake where to find it. 
 $ LLVM_DIR=/usr/local/opt/llvm/share/llvm/cmake cmake ..
 ```
 
+Building your pass produces a shared library. You can find it at `build/skeleton/libSkeletonPass.so` (or a similar name, depending on your platform). In the next step, we'll load this library to run the pass on some real code.
+
 [cmake]: http://www.cmake.org/
 
 ### Run It
 
-To run your new pass, you just have to invoke `clang` on some C program and use some freaky flags to get it in place:
+To run your new pass, invoke `clang` on some C program and use some freaky flags to get it in place:
 
 ```none
 $ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.* something.c
 I saw a function called main!
 ```
 
-(You can also run passes one at a time, independently from invoking `clang`, with LLVM's `opt` command. I won't cover that here.)
+That `-Xclang -load -Xclang path/to/lib.so` dance is all you need to [load and activate your pass in Clang][autoclang]. So if you need to process larger projects, you can just add those arguments to a Makefile's `CXXFLAGS` or the equivalent for your build system.
 
-## Understanding a Program in LLVM
+(You can also run passes one at a time, independently from invoking `clang`. This way, which uses LLVM's `opt` command, is the [official documentation-sanctioned way][optload], but I won't cover it here.)
 
-Modules, Functions, Basic Blocks, instructions
+Congratulations; you've just hacked a compiler! In the next steps, we'll extend this no-op pass to do something interesting to the program.
 
+[autoclang]: http://adriansampson.net/blog/clangpass.html
+[optload]: http://llvm.org/docs/WritingAnLLVMPass.html#running-a-pass-with-opt
+
+## Understanding LLVM IR
+
+To work with programs in LLVM, you need to know a little about how the IR is organized.
+
+<figure>
 <img src="{{ site.base }}/media/llvm/llvm-containers.svg" width="250" height="190" alt="Module, Function, BasicBlock, Instruction">
+<figcaption><a href="http://llvm.org/docs/doxygen/html/classllvm_1_1Module.html">Module</a>s contain <a href="http://llvm.org/docs/doxygen/html/classllvm_1_1Function.html">Function</a>s, which contain <a href="http://llvm.org/docs/doxygen/html/classllvm_1_1BasicBlock.html">BasicBlock</a>s, which contain <a href="http://www.llvm.org/docs/doxygen/html/classllvm_1_1Instruction.html">Instruction</a>s. Everything but Module is a <a href="http://www.llvm.org/docs/doxygen/html/classllvm_1_1Value.html">Value</a>.</figcaption>
+</figure>
 
 We can inspect all of these objects with a convenient common method in LLVM named `dump()`. It just prints out the human-readable representation of an object in the IR. Here's some code to do that, which is available in the `containers` branch of the `llvm-pass-skeleton` repository:
 
