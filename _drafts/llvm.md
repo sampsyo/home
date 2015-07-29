@@ -4,6 +4,7 @@ excerpt: |
     [LLVM][] is a godsend of a research tool. Here are some detailed notes on what LLVM is, why you would want to use it for research, and how to get started as a compiler hacker.
 
     [llvm]: http://llvm.org/
+highlight: true
 ---
 These are some notes on doing research with the [LLVM][] compiler infrastructure. It should be enough for a grad student to go from mostly uninterested in compilers to excited to learn more about how to use it.
 

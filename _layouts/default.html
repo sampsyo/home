@@ -72,6 +72,18 @@
         </script>
         {% endif %}
 
+        {% if page.highlight %}
+        <!-- highlight.js -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/github-gist.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+        <script>
+            hljs.configure({
+                languages: ['c', 'cpp', 'python', 'sh'],
+            });
+            hljs.initHighlightingOnLoad();
+        </script>
+        {% endif %}
+
         <!-- Google Analytics -->
         <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
