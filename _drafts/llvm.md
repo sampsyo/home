@@ -253,13 +253,31 @@ If you build the pass again and run a program through it, you should now see the
 
 ## Now Make the Pass Do Something Mildly Interesting
 
-The real magic comes in when you *look for patterns in the program* and, optionally, *change the code* when you find them. Here's a really simple example: let's say we want to switch the order of every binary operator in the program. So `a + b` will be come `b + a`. Sounds useful, right?
+The real magic comes in when you *look for patterns in the program* and, optionally, *change the code* when you find them. Here's a really simple example: let's say we want to replace the first binary operator (`+`, `-`, etc.) in every function with a multiply.Sounds useful, right?
+
+Here's the code to do that. This version, along with an example program to try it on, is available in [the `mutate` branch][mutate branch] of the `llvm-pass-skeleton` git repository:
 
 ```cpp
 for (auto &B : F) {
   for (auto &I : B) {
-    if (auto* op = dyn_cast<BinaryOperator>(&I)) {
-      op->swapOperands();
+    if (auto *op = dyn_cast<BinaryOperator>(&I)) {
+      // Insert at the point where the instruction `op` appears.
+      IRBuilder<> builder(op);
+
+      // Make a multiply with the same operands as `op`.
+      Value *lhs = op->getOperand(0);
+      Value *rhs = op->getOperand(1);
+      Value *mul = builder.CreateMul(lhs, rhs);
+
+      // Everywhere the old instruction was used as an operand, use our
+      // new multiply instruction instead.
+      for (auto &U : op->uses()) {
+        User *user = U.getUser();  // A User is anything with operands.
+        user->setOperand(U.getOperandNo(), mul);
+      }
+
+      // We modified the code.
+      return true;
     }
   }
 }
@@ -267,25 +285,40 @@ for (auto &B : F) {
 
 Details:
 
-* To find out that there's a `swapOperands()` method, you just have to dig around. The best way is to click around in Doxygen (here's [the page for Binary Operator][bo]). Or you can train Google to love to look in the LLVM docs (when I search for "binaryoperator", it knows exactly what I want).
-* That `dyn_cast<T>(p)` construct is LLVM-specific. It uses some conventions from the LLVM codebase to made type checks and such really efficient, since, in practice, compilers have to use them all the time. This particular construct returns a null pointer if `I` is not a `BinaryOperator`, so it's perfect for special-casing like this.
+* That `dyn_cast<T>(p)` construct is an [LLVM-specific introspection utility][llvm rtti]. It uses some conventions from the LLVM codebase to made type checks and such really efficient, since, in practice, compilers have to use them all the time. This particular construct returns a null pointer if `I` is not a `BinaryOperator`, so it's perfect for special-casing like this.
+* The [`IRBuilder`][irbuilder] is for constructing code. It has a million methods for creating any kind of instruction you could possibly want.
+* To stitch our new instruction into the code, we have to find all the places it's used and swap in our new instruction as an argument. Recall that an Instruction is a Value: here, the multiply Instruction is used as an operand in another Instruction, meaning that the product will be fed in as an argument.
+* We should probably also remove the old instruction, but I left bit that off for brevity.
 
-Now if we compile a program like this:
+[mutate branch]: https://github.com/sampsyo/llvm-pass-skeleton/tree/mutate
+[llvm rtti]: http://llvm.org/docs/ProgrammersManual.html#isa
+[irbuilder]: http://llvm.org/docs/doxygen/html/classllvm_1_1IRBuilder.html
+
+Now if we compile a program like this (`example.c` in the repository):
 
 ```cpp
 #include <stdio.h>
 int main(int argc, const char** argv) {
-    printf("%i\n", argc - 2);
+    int num;
+    scanf("%i", &num);
+    printf("%i\n", num + 2);
+    return 0;
 }
 ```
 
-You can see the substraction goes the wrong way!
+Compiling it with an ordinary compiler does what the code says, but our plugin makes it double the number instead of adding 2:
 
-[bo]: http://llvm.org/docs/doxygen/html/classllvm_1_1BinaryOperator.html
+```none
+$ ./a.out
+10
+12
+$ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.so example.c
+$ ./a.out
+10
+20
+```
 
-That would be incredibly challenging to do as a raw source-code transformation. It would be easier at the AST level, but do you really want to worry about templates, etc.?
-
-Eventually, explain IRBuilder.
+Like magic!
 
 ## Linking With a Runtime Library
 
