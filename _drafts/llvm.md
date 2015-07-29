@@ -86,10 +86,12 @@ Clone the [llvm-pass-skeleton][skel] repository from GitHub. It contains a usele
 
 Here's the relevant part of `Skeleton.cpp`:
 
-    virtual bool runOnFunction(Function &F) {
-      errs() << "I saw a function called " << F.getName() << "!\n";
-      return false;
-    }
+```cpp
+virtual bool runOnFunction(Function &F) {
+  errs() << "I saw a function called " << F.getName() << "!\n";
+  return false;
+}
+```
 
 There are several kinds of LLVM pass, and we're using one called a *function pass* (it's a good place to start). Exactly as you would expect, LLVM invokes that function above with every function it finds in the program we're compiling. For now, all it does is print out the name.
 
@@ -102,15 +104,19 @@ Details:
 
 Build the pass with [CMake][]:
 
-    $ cd llvm-pass-skeleton
-    $ mkdir build
-    $ cd build
-    $ cmake ..  # Generate the Makefile.
-    $ make  # Actually build the pass.
+```sh
+$ cd llvm-pass-skeleton
+$ mkdir build
+$ cd build
+$ cmake ..  # Generate the Makefile.
+$ make  # Actually build the pass.
+```
 
 If LLVM isn't installed globally, you will need to tell CMake where to find it. You can do that by giving it the path to the `share/llvm/cmake/` directory inside wherever LLVM resides in the `LLVM_DIR` environment variable. Here's an example with the path from Homebrew:
 
-    $ LLVM_DIR=/usr/local/opt/llvm/share/llvm/cmake cmake ..
+```none
+$ LLVM_DIR=/usr/local/opt/llvm/share/llvm/cmake cmake ..
+```
 
 [cmake]: http://www.cmake.org/
 
@@ -118,8 +124,10 @@ If LLVM isn't installed globally, you will need to tell CMake where to find it. 
 
 To run your new pass, you just have to invoke `clang` on some C program and use some freaky flags to get it in place:
 
-    $ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.* something.c
-    I saw a function called main!
+```none
+$ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.* something.c
+I saw a function called main!
+```
 
 (You can also run passes one at a time, independently from invoking `clang`, with LLVM's `opt` command. I won't cover that here.)
 
@@ -129,18 +137,20 @@ Modules, Functions, Basic Blocks, instructions
 
 We can inspect all of these objects with a convenient common method in LLVM named `dump()`. It just prints out the human-readable representation of an object in the IR. Here's some code to do that, which is available in the `containers` branch of the `llvm-pass-skeleton` repository:
 
-    errs() << "Function body:\n";
-    F.dump();
+```cpp
+errs() << "Function body:\n";
+F.dump();
 
-    for (auto &B : F) {
-      errs() << "Basic block:\n";
-      B.dump();
+for (auto &B : F) {
+  errs() << "Basic block:\n";
+  B.dump();
 
-      for (auto &I : B) {
-        errs() << "Instruction: ";
-        I.dump();
-      }
-    }
+  for (auto &I : B) {
+    errs() << "Instruction: ";
+    I.dump();
+  }
+}
+```
 
 Using C++11's fancy `auto` and foreach syntax makes the containment of LLVM's object hierarchy clear.
 
@@ -152,13 +162,15 @@ The SSA graph (what is SSA?).
 
 The real magic comes in when you *look for patterns in the program* and, optionally, *change the code* when you find them. Here's a really simple example: let's say we want to switch the order of every binary operator in the program. So `a + b` will be come `b + a`. Sounds useful, right?
 
-    for (auto &B : F) {
-      for (auto &I : B) {
-        if (auto *op = dyn_cast<BinaryOperator>(&I)) {
-          op->swapOperands();
-        }
-      }
+```cpp
+for (auto &B : F) {
+  for (auto &I : B) {
+    if (auto *op = dyn_cast<BinaryOperator>(&I)) {
+      op->swapOperands();
     }
+  }
+}
+```
 
 Details:
 
@@ -167,10 +179,12 @@ Details:
 
 Now if we compile a program like this:
 
-    #include <stdio.h>
-    int main(int argc, const char **argv) {
-        printf("%i\n", argc - 2);
-    }
+```cpp
+#include <stdio.h>
+int main(int argc, const char **argv) {
+    printf("%i\n", argc - 2);
+}
+```
 
 You can see the substraction goes the wrong way!
 

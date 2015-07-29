@@ -7,6 +7,8 @@ email: 'asampson@cornell.edu'
 
 markdown: kramdown
 kramdown:
+    input: GFM
+    hard_wrap: false
     enable_coderay: false
     auto_ids: true
     entity_output: symbolic
