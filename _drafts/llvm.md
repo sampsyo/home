@@ -185,7 +185,50 @@ Congratulations; you've just hacked a compiler! In the next steps, we'll extend 
 
 To work with programs in LLVM, you need to know a little about how the IR is organized.
 
-We can inspect all of these objects with a convenient common method in LLVM named `dump()`. It just prints out the human-readable representation of an object in the IR. Here's some code to do that, which is available in the `containers` branch of the `llvm-pass-skeleton` repository:
+### Containers
+
+Here's on overview of the most important components in an LLVM program:
+
+* A [Module][] represents a source file (roughly) or a *translation unit* (pedantically). Everything else is contained in a Module.
+* Most notably, Modules house [Function][]s, which are exactly what they sound like: named chunks of executable code. (In C++, both functions and methods correspond to LLVM Functions.)
+* Aside from declaring their name and arguments, Functions are mainly containers of [BasicBlock][]s. The [basic block][] is a familiar concept from compilers, but for our purposes, it's just a contiguous chunk of instructions.
+* An [Instruction][], in turn, is a single code operation. The level of abstraction is roughly the same as [RISC][]-like machine code: an instruction might be an integer addition, a floating-point divide, or a store to memory, for example.
+
+Most things in LLVM---including Function, BasicBlock, and Instruction---are C++ classes that inherit from an omnivorous base class called [Value][]. A Value is any data that can be used in a computation---a number, for example, or the address of some code. Global variables and constants (like 5) are also Values.
+
+### An Instruction
+
+Here's an example of an Instruction (in the human-readable text form of LLVM IR):
+
+```llvm
+%5 = add i32 %4, 2
+```
+
+This instruction adds two 32-bit integer values (indicated by the type `i32`). It adds the number in register 4 (written `%4`) and the literal number 2 (written `2`) and places its result in register 5. This is what I mean when I say LLVM IR looks like idealized RISC machine code: we even use the same terminology, like *register*, but there are an infinite number of registers.
+
+That same instruction is represented inside the compiler as an instance of the [Instruction][] C++ class. The object has an opcode indicating that it's an addition, a type, and a list of operands that are pointers to other Value objects. In our case, it points to a [Constant][] object representing the number 2 and another [Instruction][] corresponding to the register %5. (Since LLVM IR is in [static single assignment][ssa] form, registers and Instructions are actually one and the same.)
+
+[module]: http://llvm.org/docs/doxygen/html/classllvm_1_1Module.html
+[function]: http://llvm.org/docs/doxygen/html/classllvm_1_1Function.html
+[basicblock]: http://llvm.org/docs/doxygen/html/classllvm_1_1BasicBlock.html
+[instruction]: http://www.llvm.org/docs/doxygen/html/classllvm_1_1Instruction.html
+[value]: http://www.llvm.org/docs/doxygen/html/classllvm_1_1Value.html
+[basic block]: https://en.wikipedia.org/wiki/Basic_block
+[risc]: https://en.wikipedia.org/wiki/Reduced_instruction_set_computing
+[constant]: http://www.llvm.org/docs/doxygen/html/classllvm_1_1Constant.html
+[ssa]: https://en.wikipedia.org/wiki/Static_single_assignment_form
+
+By the way, if you ever want to see the LLVM IR for your program, you can instruct Clang to do that:
+
+```none
+$ clang -emit-llvm -S -o - something.c
+```
+
+### Inspecting IR in Our Pass
+
+Let's get back to that LLVM pass we were working on. We can inspect all of the important IR objects using a convenient common method in LLVM named `dump()`. It just prints out the human-readable representation of an object in the IR. Since our pass gets handed Functions, let's use it to iterate over each Function's BasicBlocks, and then over each BasicBlock's set of Instructions.
+
+Here's some code to do that. You can get it by checking out [the `containers` branch][containers branch] of the `llvm-pass-skeleton` git repository:
 
 ```cpp
 errs() << "Function body:\n";
@@ -202,11 +245,11 @@ for (auto &B : F) {
 }
 ```
 
-Using C++11's fancy `auto` and foreach syntax makes the containment of LLVM's object hierarchy clear.
+Using C++11's fancy `auto` type and foreach syntax makes it easy to navigate the hierarchy in LLVM IR.
 
-Most things are Values (including globals and constants, like 5)
+If you build the pass again and run a program through it, you should now see the various parts of the IR split out as we traverse them.
 
-The SSA graph (what is SSA?).
+[containers branch]: https://github.com/sampsyo/llvm-pass-skeleton/tree/containers
 
 ## Now Make the Pass Do Something Mildly Interesting
 
