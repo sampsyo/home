@@ -6,7 +6,7 @@ excerpt: |
     [llvm]: http://llvm.org/
 highlight: true
 ---
-These are some notes on doing research with the [LLVM][] compiler infrastructure. It should be enough for a grad student to go from mostly uninterested in compilers to excited to learn more about how to use it.
+This is an introduction to doing research with the [LLVM][] compiler infrastructure. It should be enough for a grad student to go from *mostly uninterested in compilers* to *excited to use LLVM to do great work*.
 
 [llvm]: http://llvm.org/
 
@@ -14,7 +14,9 @@ These are some notes on doing research with the [LLVM][] compiler infrastructure
 
 LLVM is a compiler. It's a *really nice* ahead-of-time compiler for "native" languages like C and C++.
 
-Of course, since LLVM is so awesome, you will also hear that it is much more than this (it can also be a JIT; it powers a great diversity of un-C-like languages; it is the bytecode format for the App Store; etc.; etc.) These are all true, but for all purposes, the above definition is what matters.
+Of course, since LLVM is so awesome, you will also hear that it is much more than this (it can also be a JIT; it powers a great diversity of un-C-like languages; it is [the new bytecode format for the App Store][bitcode]; etc.; etc.) These are all true, but for all purposes, the above definition is what matters.
+
+[bitcode]: https://developer.apple.com/library/prerelease/watchos/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html#//apple_ref/doc/uid/TP40012582-CH35-SW2
 
 A few huge things make LLVM different from other compilers:
 
@@ -406,10 +408,8 @@ LLVM is enormous. Here are a few more topics left that I won't cover here:
 * Generating any special machine instructions, as architects often want to do, by hacking the back end.
 * Exploiting [debug info][], so you can connect back to the source line and column corresponding to a point in the IR.
 
-I hope this gave you enough background to make something awesome. Please [get in touch][email] if it helped you---or if something could use improvement.
+I hope this gave you enough background to make something awesome. Explore, build, and [let me know][email] if this helped!
 
 [debug info]: http://llvm.org/docs/SourceLevelDebugging.html
 
----
-
-*Thanks to the UW architecture and systems groups, who sat through an out-loud of this post and asked many shockingly good questions.*
+*Thanks to the UW architecture and systems groups, who sat through an out-loud version of this post and asked many shockingly good questions.*
