@@ -258,21 +258,21 @@ The real magic comes in when you *look for patterns in the program* and, optiona
 Here's the code to do that. This version, along with an example program to try it on, is available in [the `mutate` branch][mutate branch] of the `llvm-pass-skeleton` git repository:
 
 ```cpp
-for (auto &B : F) {
-  for (auto &I : B) {
-    if (auto *op = dyn_cast<BinaryOperator>(&I)) {
+for (auto& B : F) {
+  for (auto& I : B) {
+    if (auto* op = dyn_cast<BinaryOperator>(&I)) {
       // Insert at the point where the instruction `op` appears.
       IRBuilder<> builder(op);
 
       // Make a multiply with the same operands as `op`.
-      Value *lhs = op->getOperand(0);
-      Value *rhs = op->getOperand(1);
-      Value *mul = builder.CreateMul(lhs, rhs);
+      Value* lhs = op->getOperand(0);
+      Value* rhs = op->getOperand(1);
+      Value* mul = builder.CreateMul(lhs, rhs);
 
       // Everywhere the old instruction was used as an operand, use our
       // new multiply instruction instead.
-      for (auto &U : op->uses()) {
-        User *user = U.getUser();  // A User is anything with operands.
+      for (auto& U : op->uses()) {
+        User* user = U.getUser();  // A User is anything with operands.
         user->setOperand(U.getOperandNo(), mul);
       }
 
