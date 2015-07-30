@@ -1,4 +1,10 @@
 -
+    title: "Probability Type Inference for Flexible Approximate Programming"
+    authors: "Brett Boston, Adrian Sampson, Dan Grossman, and Luis Ceze"
+    type: conference
+    venue_url: http://2015.splashcon.org/track/oopsla2015
+
+-
     title: "Hardware–Software Co-Design: Not Just a Cliche"
     authors: "Adrian Sampson, James Bornholt, and Luis Ceze"
     venue: SNAPL 2015
