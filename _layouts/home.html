@@ -9,7 +9,7 @@ layout: default
     {% assign post = site.posts[0] %}
     <p class="tagline">
         latest <a href="{{ site.base }}/blog/">blogging</a>:
-        {{ post.date || date_to_long_string }}
+        {{ post.date | date: '%B %-d, %Y' }}
         &mdash;
         <a href="{{ site.base }}/blog/">more bloggings</a>
         &mdash;
