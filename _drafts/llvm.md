@@ -382,11 +382,19 @@ If you like, it's also possible to stitch together the program and runtime libra
 
 ## Annotations
 
-Most projects eventually need to interact with the programmer. Some ways to do this:
+Most projects eventually need to interact with the programmer. That is, you'll eventually wish for *annotations:* some way to convey extra information from the program to your LLLVM pass. There are several ways to build up annotation systems:
 
-* The crude way: magic functions.
-* `__annotate__`
-* Quala.
+* The practical and hacky way is to use *magic functions*. Declare some empty functions with special, probably-unique names in a header file. Include that file in your source and call those do-nothing functions. Then, in your pass, look for [`CallInst` instructions][callinst] and use them to trigger your magic. For example, you might use calls like `__enable_instrumentation()` and `__disable_instrumentation()` to let the program confine your code-munging to specific passages.
+* If you need to let programmers add markers to function or variable declarations, Clang's `__attribute__((annotate("foo")))` syntax will emit [metadata][] with an arbitrary string that you can process in your pass. Brandon Holt again has [some background on this technique][bholt-annotate]. If you need to mark expressions instead of declarations, the undocumented and sadly limited [`__builtin_annotation(e, "foo")` intrinsic][builtin-annotation] might work.
+* You can jump in full dingle and modify Clang itself to interpret your new syntax. I don't recommend this.
+* If you need to annotate *types*---and I believe people often do, even if they don't realize it---I'm developing a system called [Quala][]. It patches Clang to support custom type qualifiers and pluggable type systems. &agrave; la [JSR-308][] for Java. [Let me know][email] if you're interested in collaborating on this project!
+
+[callinst]: http://llvm.org/docs/doxygen/html/classllvm_1_1CallInst.html
+[bholt-annotate]: http://homes.cs.washington.edu/~bholt/posts/llvm-quick-tricks.html
+[builtin-annotation]: https://github.com/llvm-mirror/clang/blob/master/test/Sema/annotate.c
+[email]: mailto:{{site.email}}
+[quala]: https://github.com/sampsyo/quala
+[jsr-308]: http://types.cs.washington.edu/jsr308/
 
 ## Not Covered Here
 
@@ -396,4 +404,4 @@ Most projects eventually need to interact with the programmer. Some ways to do t
 
 ---
 
-*Thanks to the UW architecture and systems groups, who sat through an out-loud tutorial version of this post.*
+*Thanks to the UW architecture and systems groups, who sat through an out-loud of this post and asked many shockingly good questions.*
