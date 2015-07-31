@@ -14,15 +14,15 @@ This is an introduction to doing research with the [LLVM][] compiler infrastruct
 
 LLVM is a compiler. It's a *really nice* ahead-of-time compiler for "native" languages like C and C++.
 
-Of course, since LLVM is so awesome, you will also hear that it is much more than this (it can also be a JIT; it powers a great diversity of un-C-like languages; it is [the new bytecode format for the App Store][bitcode]; etc.; etc.) These are all true, but for all purposes, the above definition is what matters.
+Of course, since LLVM is so awesome, you will also hear that it is much more than this (it can also be a JIT; it powers a great diversity of un-C-like languages; it is [the new bytecode format for the App Store][bitcode]; etc.; etc.). These are all true, but for our purposes, the above definition is what matters.
 
 [bitcode]: https://developer.apple.com/library/prerelease/watchos/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html#//apple_ref/doc/uid/TP40012582-CH35-SW2
 
 A few huge things make LLVM different from other compilers:
 
-* LLVM's intermediate representation (IR) is its great innovation. LLVM works on a representation of programs that you can *actually read* if you are reasonably familiar with assembly. This may not seem like a great revelation, but it is: other compilers' IRs tend to be in-memory structures so complicated that you can't really write them down. This makes other compilers harder for humans to understand and messier to implement.
-* LLVM is really nicely written: its architecture is *way* more modular than other compilers. Part of the reason for this niceness comes from its original implementor, who is [one of us][lattner].
-* Despite being the [research tool of choice][acmaward] for squirrelly academic hackers like us, LLVM is also an industrial-strength compiler backed by the largest company in the world. This means you don't have to compromise between a *great* compiler and a *hackable* compiler, as you do in Javaland when you choose between [HotSpot][] and [Jikes][].
+* LLVM's intermediate representation (IR) is its great innovation. LLVM works on a representation of programs that you can *actually read* if you are reasonably familiar with assembly. This may not seem like a great revelation, but it is: other compilers' IRs tend to be in-memory structures so complicated that you can't really write them down. This makes other compilers harder to understand and messier to implement.
+* LLVM is nicely written: its architecture is *way* more modular than other compilers. Part of the reason for this niceness comes from its original implementor, who is [one of us][lattner].
+* Despite being the [research tool of choice][acmaward] for squirrelly academic hackers like us, LLVM is also an industrial-strength compiler backed by the largest company on Earth. This means you don't have to compromise between a *great* compiler and a *hackable* compiler, as you do in Javaland when you choose between [HotSpot][] and [Jikes][].
 
 [lattner]: http://nondot.org/sabre/
 [acmaward]: http://awards.acm.org/award_winners/lattner_5074762.cfm
@@ -33,26 +33,26 @@ A few huge things make LLVM different from other compilers:
 
 LLVM is a great compiler, but who cares if you don't do compilers research?
 
-A compiler infrastructure is useful whenever you need to *do stuff with programs*. Which, in my experience, is kind of a lot. You can analyze programs to see how often they do a certain behavior you're interested in, transform them to work better with your system, or change them to pretend to use your hypothetical new architecture or OS without actually fabbing a new chip or writing an kernel module. For grad students, a compiler infrastructure is more often the right tool than most people give it credit for. I encourage you to reach for LLVM by default before hacking any of these tools unless you have a really good reason:
+A compiler infrastructure is useful whenever you need to *do stuff with programs*. Which, in my experience, is kind of a lot. You can analyze programs to see how often they do a certain behavior, transform them to work better with your system, or change them to pretend to use your hypothetical new architecture or OS without actually fabbing a new chip or writing a kernel module. For grad students, a compiler infrastructure is more often the right tool than most people give it credit for. I encourage you to reach for LLVM by default before hacking any of these tools unless you have a really good reason:
 
-* An [architectural simulator][wddd]
-* A dynamic binary instrumentation tool like [Pin][]
-* Source-level transformation (from simple stuff like `sed` to complicated stuff like AST parsing and serialization)
-* Hacking the kernel to intercept system calls
-* Anything resembling a hypervisor
+* an [architectural simulator][wddd]
+* a dynamic binary instrumentation tool like [Pin][]
+* source-level transformation (from simple stuff like `sed` to complicated stuff like AST parsing and serialization)
+* hacking the kernel to intercept system calls
+* anything resembling a hypervisor
 
 [pin]: http://www.pintool.org/
 [wddd]: http://research.cs.wisc.edu/vertical/papers/2014/wddd-sim-harmful.pdf
 
 Even if a compiler doesn't seem like a *perfect* match for your task, it can often get you 90% of the way there far easier than, say, a source-to-source translation.
 
-Here are some nifty examples of research projects that used LLVM to do things that are not necessarily all that compilery:
+Here are some nifty examples of research projects that used LLVM to do things that are not all that compilery:
 
 * [Virtual Ghost][] from UIUC showed you could use a compiler pass to protect processes from compromised OS kernels.
 * [CoreDet][] from UW makes multithreaded programs deterministic.
 * In our approximate computing work, we use an LLVM pass to inject errors into programs to simulate error-prone hardware.
 
-So, to emphasize, LLVM is not just for implementing new compiler optimizations!
+I'll reemphasize: LLVM is not just for implementing new compiler optimizations!
 
 [virtual ghost]: http://sva.cs.illinois.edu/pubs/VirtualGhost-ASPLOS-2014.pdf
 [coredet]: http://homes.cs.washington.edu/~djg/papers/asplos10-coredet.pdf
@@ -66,10 +66,10 @@ Here's a picture that shows the major components of LLVM's architecture (and, re
 There are:
 
 * The *front end*, which takes your source code and turns it into an *intermediate representation* or IR. This translation simplifies the job of the rest of the compiler, which doesn't want to deal with the full complexity of C++ source code. You, an intrepid grad student, probably do not need to hack this part; you can use [Clang][] unmodified.
-* The *passes*, which transform IR to IR. In ordinary circumstances, passes usually optimize the code: that is, they produce an IR program as output that does the same thing as the IR they took as input, except that it's faster. **This is where you want to hack.** Your research can work by looking at and changing IR as it flows through the compilation process.
+* The *passes*, which transform IR to IR. In ordinary circumstances, passes usually optimize the code: that is, they produce an IR program as output that does the same thing as the IR they took as input, except that it's faster. *This is where you want to hack.* Your research tool can work by looking at and changing IR as it flows through the compilation process.
 * The *back end*, which generates actual machine code. You almost certainly don't need to touch this part.
 
-Although this architecture describes most compilers these days, one novelty about LLVM is worth noting here: programs use *the same IR* throughout the process. In other compilers, each pass might produce a program in a different form with different structure. LLVM opts for the opposite approach, is great for us as hackers: we don't have to worry too much about where in the process our code gets to see the IR, as long as it's somewhere between the front end and back end.
+Although this architecture describes most compilers these days, one novelty about LLVM is worth noting here: programs use *the same IR* throughout the process. In other compilers, each pass might produce code in a unique form. LLVM opts for the opposite approach, is great for us as hackers: we don't have to worry much about *where* in the process our code runs, as long as it's somewhere between the front end and back end.
 
 [clang]: http://clang.llvm.org/
 
@@ -79,7 +79,7 @@ Let's start hacking.
 
 ### Get LLVM
 
-You'll need to need to install LLVM. Linux distributions often have LLVM and Clang packages you can use off the shelf. But you'll need to ensure you get a version that includes all the headers necessary to hack with it. The OS X build that comes with [Xcode][], for example, is not complete enough. Fortunately, it's not hard to [build LLVM from source][buildllvm] using CMake. Usually, you only need to build LLVM itself---your system-provided Clang will do just fine (although there are [instructions for that][buildclang] too).
+You'll need to need to install LLVM. Linux distributions often have LLVM and Clang packages you can use off the shelf. But you'll need to ensure you get a version that includes all the headers necessary to hack with it. The OS X build that comes with [Xcode][], for example, is not complete enough. Fortunately, it's not hard to [build LLVM from source][buildllvm] using CMake. Usually, you only need to build LLVM itself: your system-provided Clang will do just fine (although there are [instructions for building it][buildclang] too).
 
 On OS X in particular, [Brandon Holt][bholt] has [good instructions for doing it right][bholt-osx]. There's also a [Homebrew formula][homebrew-llvm].
 
@@ -87,10 +87,10 @@ On OS X in particular, [Brandon Holt][bholt] has [good instructions for doing it
 
 You will need to get friendly with the documentation. I find these links in particular are worth coming back to periodically:
 
-- The [automatically generated Doxygen pages][llvmdoxygen] are *super important*. You will need to live inside these API docs to make any progress at all while hacking on LLVM. Those pages can be hard to navigate, though, so I recommend going through Google. If you append "LLVM" to any function or class name, Google [usually finds the right Doxygen page](https://google.com/search?q=basicblock+llvm). (If you're diligent, you can usually train Google to give you LLVM results first even without typing "LLVM"!) I realize this sounds ridiculous, but you really need to jump around LLVM's API docs like this to survive---and if there's a better way to navigate the API, I haven't found it.
+- The [automatically generated Doxygen pages][llvmdoxygen] are *super important*. You will need to live inside these API docs to make any progress at all while hacking on LLVM. Those pages can be hard to navigate, though, so I recommend going through Google. If you append "LLVM" to any function or class name, Google [usually finds the right Doxygen page](https://google.com/search?q=basicblock+llvm). (If you're diligent, you can even train Google to give you LLVM results first even without typing "LLVM"!) I realize this sounds ridiculous, but you really need to jump around LLVM's API docs like this to survive---and if there's a better way to navigate the API, I haven't found it.
 - The [language reference manual][langref] is handy if you ever get confused by syntax in an LLVM IR dump.
 - The [programmer's manual][progman] describes the toolchest of data structures peculiar to LLVM, including efficient strings, STL alternatives for maps and vectors and the like, etc. It also outlines the fast type introspection tools (`isa`, `cast`, and `dyn_cast`) that you'll run into everywhere.
-- Read the [*Writing an LLVM Pass*][passtut] whenever you have questions about what your pass can do. Because you're a researcher and not a day-to-day compiler hacker, this article disagrees with that tutorial on some details. (Most urgently, ignore the Makefile-based build system instructions and skip straight to the CMake-based ["out-of-source" instructions][outofsource].) But it's nonetheless the canonical source for answers about passes in general.
+- Read the [*Writing an LLVM Pass*][passtut] tutorial whenever you have questions about what your pass can do. Because you're a researcher and not a day-to-day compiler hacker, this article disagrees with that tutorial on some details. (Most urgently, ignore the Makefile-based build system instructions and skip straight to the CMake-based ["out-of-source" instructions][outofsource].) But it's nonetheless the canonical source for answers about passes in general.
 - The [GitHub mirror][llvm-gh] is sometimes convenient for browsing the LLVM source online.
 
 [homebrew-llvm]: https://github.com/Homebrew/homebrew/blob/master/Library/Formula/llvm.rb
@@ -106,7 +106,7 @@ You will need to get friendly with the documentation. I find these links in part
 [xcode]: https://developer.apple.com/xcode/
 [outofsource]: http://llvm.org/docs/CMake.html#cmake-out-of-source-pass
 
-## So We're Going to Write a Pass
+## Let's Write a Pass
 
 Productive research with LLVM usually means writing a custom pass. This section will guide you through building and running a simple pass that transforms programs on the fly.
 
@@ -114,7 +114,7 @@ Productive research with LLVM usually means writing a custom pass. This section 
 
 I've put together a [template repository][skel] that contains a useless LLVM pass. I recommend you start with the template: when starting from scratch, getting the build configuration set up can be especially painful.
 
-Clone the [llvm-pass-skeleton][skel] repository from GitHub:
+Clone the [`llvm-pass-skeleton` repository][skel] from GitHub:
 
 ```none
 $ git clone git@github.com:sampsyo/llvm-pass-skeleton.git
@@ -131,7 +131,7 @@ virtual bool runOnFunction(Function &F) {
 }
 ```
 
-There are several kinds of LLVM pass, and we're using one called a *function pass* (it's a good place to start). Exactly as you would expect, LLVM invokes the method above with every function it finds in the program we're compiling. For now, all it does is print out the name.
+There are several kinds of LLVM pass, and we're using one called a [*function pass*][functionpass] (it's a good place to start). Exactly as you would expect, LLVM invokes the method above with every function it finds in the program we're compiling. For now, all it does is print out the name.
 
 Details:
 
@@ -156,20 +156,21 @@ If LLVM isn't installed globally, you will need to tell CMake where to find it. 
 $ LLVM_DIR=/usr/local/opt/llvm/share/llvm/cmake cmake ..
 ```
 
-Building your pass produces a shared library. You can find it at `build/skeleton/libSkeletonPass.so` (or a similar name, depending on your platform). In the next step, we'll load this library to run the pass on some real code.
+Building your pass produces a shared library. You can find it at `build/skeleton/libSkeletonPass.so` or a similar name, depending on your platform. In the next step, we'll load this library to run the pass on some real code.
 
 [cmake]: http://www.cmake.org/
+[functionpass]: http://llvm.org/docs/WritingAnLLVMPass.html#the-functionpass-class
 
 ### Run It
 
-To run your new pass, invoke `clang` on some C program and use some freaky flags to get it in place:
+To run your new pass, invoke `clang` on some C program and use some freaky flags to point at the shared library you just compiled:
 
 ```none
 $ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.* something.c
 I saw a function called main!
 ```
 
-That `-Xclang -load -Xclang path/to/lib.so` dance is all you need to [load and activate your pass in Clang][autoclang]. So if you need to process larger projects, you can just add those arguments to a Makefile's `CXXFLAGS` or the equivalent for your build system.
+That `-Xclang -load -Xclang path/to/lib.so` dance is all you need to [load and activate your pass in Clang][autoclang]. So if you need to process larger projects, you can just add those arguments to a Makefile's `CFLAGS` or the equivalent for your build system.
 
 (You can also run passes one at a time, independently from invoking `clang`. This way, which uses LLVM's `opt` command, is the [official documentation-sanctioned way][optload], but I won't cover it here.)
 
@@ -194,7 +195,7 @@ Here's on overview of the most important components in an LLVM program:
 * A [Module][] represents a source file (roughly) or a *translation unit* (pedantically). Everything else is contained in a Module.
 * Most notably, Modules house [Function][]s, which are exactly what they sound like: named chunks of executable code. (In C++, both functions and methods correspond to LLVM Functions.)
 * Aside from declaring their name and arguments, Functions are mainly containers of [BasicBlock][]s. The [basic block][] is a familiar concept from compilers, but for our purposes, it's just a contiguous chunk of instructions.
-* An [Instruction][], in turn, is a single code operation. The level of abstraction is roughly the same as [RISC][]-like machine code: an instruction might be an integer addition, a floating-point divide, or a store to memory, for example.
+* An [Instruction][], in turn, is a single code operation. The level of abstraction is roughly the same as in [RISC][]-like machine code: an instruction might be an integer addition, a floating-point divide, or a store to memory, for example.
 
 Most things in LLVM---including Function, BasicBlock, and Instruction---are C++ classes that inherit from an omnivorous base class called [Value][]. A Value is any data that can be used in a computation---a number, for example, or the address of some code. Global variables and constants (like 5) are also Values.
 
@@ -206,7 +207,7 @@ Here's an example of an Instruction (in the human-readable text form of LLVM IR)
 %5 = add i32 %4, 2
 ```
 
-This instruction adds two 32-bit integer values (indicated by the type `i32`). It adds the number in register 4 (written `%4`) and the literal number 2 (written `2`) and places its result in register 5. This is what I mean when I say LLVM IR looks like idealized RISC machine code: we even use the same terminology, like *register*, but there are an infinite number of registers.
+This instruction adds two 32-bit integer values (indicated by the type `i32`). It adds the number in register 4 (written `%4`) and the literal number 2 (written `2`) and places its result in register 5. This is what I mean when I say LLVM IR looks like idealized RISC machine code: we even use the same terminology, like *register*, but there infinitely many registers.
 
 That same instruction is represented inside the compiler as an instance of the [Instruction][] C++ class. The object has an opcode indicating that it's an addition, a type, and a list of operands that are pointers to other Value objects. In our case, it points to a [Constant][] object representing the number 2 and another [Instruction][] corresponding to the register %5. (Since LLVM IR is in [static single assignment][ssa] form, registers and Instructions are actually one and the same.)
 
@@ -228,7 +229,7 @@ $ clang -emit-llvm -S -o - something.c
 
 ### Inspecting IR in Our Pass
 
-Let's get back to that LLVM pass we were working on. We can inspect all of the important IR objects using a convenient common method in LLVM named `dump()`. It just prints out the human-readable representation of an object in the IR. Since our pass gets handed Functions, let's use it to iterate over each Function's BasicBlocks, and then over each BasicBlock's set of Instructions.
+Let's get back to that LLVM pass we were working on. We can inspect all of the important IR objects using a common convenient method in LLVM named `dump()`. It just prints out the human-readable representation of an object in the IR. Since our pass gets handed Functions, let's use it to iterate over each Function's BasicBlocks, and then over each BasicBlock's set of Instructions.
 
 Here's some code to do that. You can get it by checking out [the `containers` branch][containers branch] of the `llvm-pass-skeleton` git repository:
 
@@ -236,22 +237,23 @@ Here's some code to do that. You can get it by checking out [the `containers` br
 errs() << "Function body:\n";
 F.dump();
 
-for (auto &B : F) {
+for (auto& B : F) {
   errs() << "Basic block:\n";
   B.dump();
 
-  for (auto &I : B) {
+  for (auto& I : B) {
     errs() << "Instruction: ";
     I.dump();
   }
 }
 ```
 
-Using C++11's fancy `auto` type and foreach syntax makes it easy to navigate the hierarchy in LLVM IR.
+Using [C++11][]'s fancy `auto` type and foreach syntax makes it easy to navigate the hierarchy in LLVM IR.
 
 If you build the pass again and run a program through it, you should now see the various parts of the IR split out as we traverse them.
 
 [containers branch]: https://github.com/sampsyo/llvm-pass-skeleton/tree/containers
+[c++11]: https://en.wikipedia.org/wiki/C%2B%2B11
 
 ## Now Make the Pass Do Something Mildly Interesting
 
@@ -287,8 +289,8 @@ for (auto& B : F) {
 
 Details:
 
-* That `dyn_cast<T>(p)` construct is an [LLVM-specific introspection utility][llvm rtti]. It uses some conventions from the LLVM codebase to made type checks and such really efficient, since, in practice, compilers have to use them all the time. This particular construct returns a null pointer if `I` is not a `BinaryOperator`, so it's perfect for special-casing like this.
-* The [`IRBuilder`][irbuilder] is for constructing code. It has a million methods for creating any kind of instruction you could possibly want.
+* That `dyn_cast<T>(p)` construct is an [LLVM-specific introspection utility][llvm rtti]. It uses some conventions from the LLVM codebase to made dynamic type tests and such really efficient, since compilers have to use them all the time. This particular construct returns a null pointer if `I` is not a `BinaryOperator`, so it's perfect for special-casing like this.
+* The [IRBuilder][irbuilder] is for constructing code. It has a million methods for creating any kind of instruction you could possibly want.
 * To stitch our new instruction into the code, we have to find all the places it's used and swap in our new instruction as an argument. Recall that an Instruction is a Value: here, the multiply Instruction is used as an operand in another Instruction, meaning that the product will be fed in as an argument.
 * We should probably also remove the old instruction, but I left bit that off for brevity.
 
@@ -296,7 +298,7 @@ Details:
 [llvm rtti]: http://llvm.org/docs/ProgrammersManual.html#isa
 [irbuilder]: http://llvm.org/docs/doxygen/html/classllvm_1_1IRBuilder.html
 
-Now if we compile a program like this (`example.c` in the repository):
+Now if we compile a program like this ([`example.c`][example.c] in the repository):
 
 ```cpp
 #include <stdio.h>
@@ -311,6 +313,7 @@ int main(int argc, const char** argv) {
 Compiling it with an ordinary compiler does what the code says, but our plugin makes it double the number instead of adding 2:
 
 ```none
+$ cc example.c
 $ ./a.out
 10
 12
@@ -322,6 +325,8 @@ $ ./a.out
 
 Like magic!
 
+[example.c]: https://github.com/sampsyo/llvm-pass-skeleton/blob/mutate/example.c
+
 ## Linking With a Runtime Library
 
 When you need to instrument code to do something nontrivial, it can be painful to use [IRBuilder][] to generate the LLVM instructions to do it. Instead, you probably want to write your run-time behavior in C and link it with the program you're compiling. This section will show you how to write a runtime library that logs the results of binary operators instead of silently changing them.
@@ -330,8 +335,8 @@ Here's the LLVM pass code, which is in [the `rtlib` branch][rtlib branch] of the
 
 ```cpp
 // Get the function to call from our runtime library.
-LLVMContext &Ctx = F.getContext();
-Constant *logFunc = F.getParent()->getOrInsertFunction(
+LLVMContext& Ctx = F.getContext();
+Constant* logFunc = F.getParent()->getOrInsertFunction(
   "logop", Type::getVoidTy(Ctx), Type::getInt32Ty(Ctx), NULL
 );
 
@@ -386,7 +391,7 @@ If you like, it's also possible to stitch together the program and runtime libra
 
 Most projects eventually need to interact with the programmer. That is, you'll eventually wish for *annotations:* some way to convey extra information from the program to your LLLVM pass. There are several ways to build up annotation systems:
 
-* The practical and hacky way is to use *magic functions*. Declare some empty functions with special, probably-unique names in a header file. Include that file in your source and call those do-nothing functions. Then, in your pass, look for [`CallInst` instructions][callinst] and use them to trigger your magic. For example, you might use calls like `__enable_instrumentation()` and `__disable_instrumentation()` to let the program confine your code-munging to specific passages.
+* The practical and hacky way is to use *magic functions*. Declare some empty functions with special, probably-unique names in a header file. Include that file in your source and call those do-nothing functions. Then, in your pass, look for [`CallInst` instructions][callinst] to your functions and use them to trigger your magic. For example, you might use calls like `__enable_instrumentation()` and `__disable_instrumentation()` to let the program confine your code-munging to specific regions.
 * If you need to let programmers add markers to function or variable declarations, Clang's `__attribute__((annotate("foo")))` syntax will emit [metadata][] with an arbitrary string that you can process in your pass. Brandon Holt again has [some background on this technique][bholt-annotate]. If you need to mark expressions instead of declarations, the undocumented and sadly limited [`__builtin_annotation(e, "foo")` intrinsic][builtin-annotation] might work.
 * You can jump in full dingle and modify Clang itself to interpret your new syntax. I don't recommend this.
 * If you need to annotate *types*---and I believe people often do, even if they don't realize it---I'm developing a system called [Quala][]. It patches Clang to support custom type qualifiers and pluggable type systems, &agrave; la [JSR-308][] for Java. [Let me know][email] if you're interested in collaborating on this project!
@@ -397,12 +402,13 @@ Most projects eventually need to interact with the programmer. That is, you'll e
 [email]: mailto:{{site.email}}
 [quala]: https://github.com/sampsyo/quala
 [jsr-308]: http://types.cs.washington.edu/jsr308/
+[metadata]: http://llvm.org/docs/LangRef.html#metadata
 
 I hope to expand on some of these techniques in future posts.
 
 ## And More
 
-LLVM is enormous. Here are a few more topics left that I won't cover here:
+LLVM is enormous. Here are a few more topics I won't cover here:
 
 * Using the vast array of classic compiler analyses available in LLVM's junk drawer.
 * Generating any special machine instructions, as architects often want to do, by hacking the back end.
@@ -412,4 +418,7 @@ I hope this gave you enough background to make something awesome. Explore, build
 
 [debug info]: http://llvm.org/docs/SourceLevelDebugging.html
 
-*Thanks to the UW architecture and systems groups, who sat through an out-loud version of this post and asked many shockingly good questions.*
+*Thanks to the UW [architecture][sampa] and [systems][syslab] groups, who sat through an out-loud version of this post and asked many shockingly good questions.*
+
+[syslab]: http://syslab.cs.washington.edu
+[sampa]: http://sampa.cs.washington.edu
