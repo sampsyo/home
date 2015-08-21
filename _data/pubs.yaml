@@ -4,6 +4,7 @@
     venue: OOPSLA 2015
     type: conference
     venue_url: http://2015.splashcon.org/track/oopsla2015
+    url: BASE/media/papers/decaf-oopsla2015.pdf
 
 -
     title: "Hardware–Software Co-Design: Not Just a Cliche"
