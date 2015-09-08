@@ -10,7 +10,7 @@ Licensing an existing ISA might seem inevitable: when was the last time a brand-
 
 But Apple's outsourcing of this one crucial piece at the heart of its system design looks increasingly impractical. TK reasons are disappearing.
 
-In the Apple ecosystem, ARM is just a serializaiton format for LLVM to convey information to the Apple microarchitecture. And it's not a great serializaiton format: a traditional ISA like ARM forces a [semantic gap][], where the architecture needs to spend time and energy rediscovering facts that the compiler already knew.
+In the Apple ecosystem, ARM is just a serialization format for [LLVM][] to convey information to the Apple microarchitecture. And it's not a great serialization format: a traditional ISA like ARM forces a [semantic gap][], where the architecture needs to spend time and energy rediscovering facts that the compiler already knew.
 
 TK we have lots of ideas for better kinds of ISAs, but they stagnate because of compatibility. Architects tend to agree that (a) we need more [hardware--software co-design][snapl], and than (b) backwards compatibility is an impediment to progress.
 
@@ -33,3 +33,14 @@ Maybe not [tomorrow][sep9], but an Apple ISA is coming.
 [snapl]: http://adriansampson.net/media/papers/cliche-snapl2015.pdf
 [bitcode]: https://developer.apple.com/library/prerelease/watchos/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html#//apple_ref/doc/uid/TP40012582-CH35-SW2
 [watch]: http://www.apple.com/watch/
+[intel]: http://www.intel.com/
+[qualcomm]: https://www.qualcomm.com/
+[arm]: http://www.arm.com/
+[nvidia]: http://www.nvidia.com/
+[apple]: http://www.apple.com/
+[app store]: https://twitter.com/AppStore
+[amd]: http://www.amd.com/
+[macroscalar]: http://adriansampson.net/blog/macroscalar.html
+[isa]: https://en.wikipedia.org/wiki/Instruction_set
+[semantic gap]: https://en.wikipedia.org/wiki/Semantic_gap
+[llvm]: http://llvm.org/
