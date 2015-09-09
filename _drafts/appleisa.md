@@ -13,19 +13,15 @@ It's not surprising, then, that Apple controls almost every bit of the stack tha
 
 It *is* surprising that one last gap remains in the middle of this stack of system exclusivity: Apple [licenses][armlicense] the [instruction set architecture][isa] for its mobile devices from [ARM][].
 
-Licensing an existing ISA might seem inevitable: when was the last time a brand-new ISA succeeded? ARM, [from 1985][armwiki], is a baby next to x86, which [dates to 1978][x86]. IBM still makes [new machines][systemz] compatible with [its 1964 model][s360]. One does not simply walk into ISA design.
+Licensing an existing ISA might seem inevitable: when was the last time a brand-new ISA succeeded? ARM, [from 1985][armwiki], is a baby next to x86, which [dates to 1978][x86]. IBM still makes [new machines][systemz] binary-compatible with [its 1964 model][s360]. One does not simply walk into ISA design.
 
-But Apple's outsourcing of this one crucial piece at the heart of its system design looks increasingly impractical. TK reasons are disappearing.
+But Apple's outsourcing of this crucial piece at the heart of its systems looks increasingly incongruous. The reasons for machine-code interoperability with the broader ARM ecosystem are vanishing one by one. In the Apple stack, ARM today is little more than a serialization format for [LLVM][] to convey information to the Apple microarchitecture. And it's definitely not the best serialization format: a traditional [von Neumann][] ISA like ARM incurs a [semantic gap][]; the architecture wastes time and energy rediscovering facts that the compiler already knew.
 
-In the Apple ecosystem, ARM is just a serialization format for [LLVM][] to convey information to the Apple microarchitecture. And it's not a great serialization format: a traditional ISA like ARM forces a [semantic gap][], where the architecture needs to spend time and energy rediscovering facts that the compiler already knew.
+The computer architecture community has produced better alternatives to mainstream ISAs, from [conservative extensions][greendroid] to [complete rethinkings][trips]. Apple itself has explored [macroscalar][], an unconventional ISA design for efficient [instruction-level parallelism][ilp], and [Nvidia][]'s [Denver][] core has already gone full [Transmeta][] and just pretends to be an ARM processor for compatibility's sake. If there's one thing the architecture community can agree on, the need for [hardware--software co-design][snapl] is more urgent than ever: it's only a matter of time until the industry begins dismantling the decades-old abstractions that prevent serious co-design efforts.
 
-TK we have lots of ideas for better kinds of ISAs, but they stagnate because of compatibility. Architects tend to agree that (a) we need more [hardware--software co-design][snapl], and than (b) backwards compatibility is an impediment to progress.
+A few months ago, Apple announced that [Watch][] apps would be delivered as [LLVM IR][bitcode], not machine code---the ISA is completely hidden from third-party developers. Apple pundits have inferred that the bitcode development indicates ARM Macs or, even less plausibly, x86 phones. But it's more likely it means Apple hardware will move away from both ISAs.
 
-A few months ago, Apple announced that [you can ship apps compiled to LLVM IR][bitcode] instead of as ARM machine code. (In fact, this is the only way to ship code for the [Apple Watch][watch]---its ISA is already completely hidden from third-party developers.) Apple pundits have inferred that the bitcode development indicates ARM Macs or, even less plausibly, x86 phones. But it's far more likely it means Apple hardware will move away from both.
-
-Apple's [macroscalar][] effort indicates TK.
-And [Nvidia][]'s [Denver][] core already does something similar using [dynamic binary translation][transmeta].
-Maybe not [tomorrow][sep9], but an Apple ISA is coming.
+It may not come [tomorrow][sep9], but an Apple ISA is coming.
 
 [whole widget]: https://www.youtube.com/watch?v=V0OpB5THBOg
 [armlicense]: http://www.arm.com/products/buying-guide/licensing/index.php
