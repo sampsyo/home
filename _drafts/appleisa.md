@@ -1,13 +1,11 @@
 ---
 title: "The Apple ISA"
 excerpt: |
-    On the eve of yet another Apple hype event, I throw my hat into the prognostication ring: Apple is on track to diverge from ARM and x86 to its own proprietary instruction set.
+    Apple is on track to diverge from ARM and x86 to design its own proprietary instruction set. This good for the future of hardware--software co-design.
 ---
-# The Apple ISA
-
 [Apple][]'s institutional personality is easy to describe. Ruthless secrecy, monolithic opacity, and taste come to mind. But perhaps more than anything else, Apple wants to own [the whole widget][whole widget].
 
-<figure style="max-width: 250px;">
+<figure style="max-width: 325px;">
 <img src="{{ site.base }}/media/applestack.svg" alt="Apple controls its language, compiler, delivery system, microarchitecture, SoC, and devices. Not to mention its IDE and OS. But not its ISA.">
 </figure>
 
@@ -53,3 +51,4 @@ Maybe not [tomorrow][sep9], but an Apple ISA is coming.
 [isa]: https://en.wikipedia.org/wiki/Instruction_set
 [semantic gap]: https://en.wikipedia.org/wiki/Semantic_gap
 [llvm]: http://llvm.org/
+[swift]: https://developer.apple.com/swift/
