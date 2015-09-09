@@ -1,6 +1,15 @@
+---
+title: "The Apple ISA"
+excerpt: |
+    On the eve of yet another Apple hype event, I throw my hat into the prognostication ring: Apple is on track to diverge from ARM and x86 to its own proprietary instruction set.
+---
 # The Apple ISA
 
 [Apple][]'s institutional personality is easy to describe. Ruthless secrecy, monolithic opacity, and taste come to mind. But perhaps more than anything else, Apple wants to own [the whole widget][whole widget].
+
+<figure style="max-width: 250px;">
+<img src="{{ site.base }}/media/applestack.svg" alt="Apple controls its language, compiler, delivery system, microarchitecture, SoC, and devices. Not to mention its IDE and OS. But not its ISA.">
+</figure>
 
 It's not surprising, then, that Apple controls almost every bit of the stack that executes its software. Apple makes its own [programming language][swift], it sets the rules for its [App Store][], and---since [2012][a6]---it's one of [only][intel] [a][amd] [handful][arm] [of][qualcomm] [players][nvidia] in the consumer CPU business. Apple has always embraced vertical integration over the rest of the industry's commodification, and recent years have only further consolidated its technology stack.
 
@@ -30,7 +39,7 @@ Maybe not [tomorrow][sep9], but an Apple ISA is coming.
 [denver]: https://en.wikipedia.org/wiki/Project_Denver
 [transmeta]: https://en.wikipedia.org/wiki/Transmeta
 [sep9]: http://www.apple.com/apple-events/september-2015/
-[snapl]: http://adriansampson.net/media/papers/cliche-snapl2015.pdf
+[snapl]: {{site.base}}/media/papers/cliche-snapl2015.pdf
 [bitcode]: https://developer.apple.com/library/prerelease/watchos/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html#//apple_ref/doc/uid/TP40012582-CH35-SW2
 [watch]: http://www.apple.com/watch/
 [intel]: http://www.intel.com/
@@ -40,7 +49,7 @@ Maybe not [tomorrow][sep9], but an Apple ISA is coming.
 [apple]: http://www.apple.com/
 [app store]: https://twitter.com/AppStore
 [amd]: http://www.amd.com/
-[macroscalar]: http://adriansampson.net/blog/macroscalar.html
+[macroscalar]: {{site.base}}/blog/macroscalar.html
 [isa]: https://en.wikipedia.org/wiki/Instruction_set
 [semantic gap]: https://en.wikipedia.org/wiki/Semantic_gap
 [llvm]: http://llvm.org/
