@@ -272,9 +272,10 @@ pre code.hljs {
 // Floaty figures.
 figure {
     float: right;
-    margin: 0 0 1em 1em;
+    margin: 0 0 0 1em;
     img {
         .img-responsive;
+        margin-bottom: 0.5em;
     }
     @media (max-width: @screen-xs-max) {
         float: none;
@@ -284,4 +285,5 @@ figure {
 figcaption {
     .small;
     margin-top: 0.5em;
+    margin-bottom: 1em;
 }
