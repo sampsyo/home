@@ -73,10 +73,78 @@ The TypeScript syntax for function types is a little weird, because parameter na
 
 ### Mixins
 
-Step two is to write your additional "mixin" behavior as a combinator, separately from the 
+Step two is to write your additional "mixin" behavior as a combinator.
+
+```ts
+// The `trace` mixin just logs the parameter every time the function is
+// called.
+function trace <T extends Function> (fsuper: T): T {
+  // I want to make this work with any number of JavaScript function
+  // arguments, but I think that means this has to be type-unsafe. For a
+  // type-safe single-argument version, use:
+  //
+  // function trace <P, R> (fsuper: (_:P) => R): (_:P) => R {
+  //   return function (p : P): R { ... };
+  // }
+
+  return <any> function (...args: any[]): any {
+    console.log('called with arguments: ' + args);
+    return fsuper(...args);
+  }
+}
+```
+
+```ts
+// A memoization mixin. It's thunked to encapsulate a mutable memo table, so
+// use it as `memo()` instead of just `memo`.
+function memo <P, R> (): Gen<(_:P) => R> {
+  // The memo table is a JavaScript object (not an ES6 Map, which is what we
+  // really want), so only some parameter types will actually memoize
+  // correctly.
+  let cache : { [key: string]: any } = {};
+
+  return function (fsuper: (_:P) => R): (_:P) => R {
+    return function (p : P): R {
+      // Cached.
+      let r = cache[<any> p];
+      if (r !== undefined) {
+        return r;
+      }
+
+      // Uncached.
+      r = fsuper(p);
+      cache[<any> p] = r;
+      return r;
+    }
+  }
+}
+```
 
 ### Tying It Together
 
+The final piece is to mash up the core code with the mixins. To do this in TypeScript, we'll need two write a couple of pieces commonplace in functional languages: a fixed-point combinator and function composition.
+
+```ts
+// A fixed-point combinator.
+//
+// It supports any number of (uncurried) arguments. I don't think it's
+// possible to typecheck this TypeScript, because you can't parameterize
+// arbitrarily long lists of argument types. Hence all the `any`s.
+function fix <T extends Function> (f : Gen<T>) : T {
+  return <any> function (...args: any[]) {
+    return (f(fix(f)))(...args);
+  };
+}
+```
+
+```ts
+// Function composition.
+function compose <A, B, C> (g : (_:B) => C, f : (_:A) => B): (_:A) => C {
+  return function (x : A): C {
+    return g(f(x));
+  }
+}
+```
 
 [fpc]: https://en.wikipedia.org/wiki/Fixed-point_combinator
 [browncook]: http://www.cs.utexas.edu/~wcook/Drafts/2006/MemoMixins.pdf
@@ -88,5 +156,8 @@ Since embracing function inheritance last week, I've already used it twice in my
 
 * xxx
 * yyy
+
+TK link to SO quesiton
+TK about TS in general
 
 It was startlingly useful for me recently when writing parts of a compiler in [TypeScript][]
