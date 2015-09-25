@@ -149,6 +149,8 @@ function compose <A, B, C> (g : (_:B) => C, f : (_:A) => B): (_:A) => C {
 [fpc]: https://en.wikipedia.org/wiki/Fixed-point_combinator
 [browncook]: http://www.cs.utexas.edu/~wcook/Drafts/2006/MemoMixins.pdf
 [ycintro]: http://mvanier.livejournal.com/2897.html
+[typescript]: http://www.typescriptlang.org/
+[fibonacci]: https://en.wikipedia.org/wiki/Fibonacci_number
 
 ## For Compilers
 
