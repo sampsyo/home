@@ -1,7 +1,10 @@
 ---
 title: "Function Inheritance is Fun and Easy"
 excerpt: |
-    xxx
+    I've been using [function inheritance][browncook] to avoid writing boring boilerplate in a compiler project. Here, I demonstrate the technique with some examples written in [TypeScript][].
+
+    [browncook]: http://www.cs.utexas.edu/~wcook/Drafts/2006/MemoMixins.pdf
+    [typescript]: http://www.typescriptlang.org/
 highlight: true
 ---
 [Function inheritance][browncook] is a simple technique for adding extensibility to recursive functions. I'm in the midst of writing a compiler, which is just a giant pile of recursive tree traversals, so function inheritance is repeatedly saving my tender behind from jumbled abstractions.
