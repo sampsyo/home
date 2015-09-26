@@ -2,12 +2,12 @@
 title: "Function Inheritance is Fun and Easy"
 highlight: true
 excerpt: |
-    I've been using [function inheritance][browncook] to avoid writing boring boilerplate in a compiler project. Here, I demonstrate the technique with some examples written in [TypeScript][].
+    I've been using [function inheritance][browncook] to avoid writing boring boilerplate in a compiler project. Here, I demonstrate the technique with some examples in [TypeScript][].
 
     [browncook]: http://www.cs.utexas.edu/~wcook/Drafts/2006/MemoMixins.pdf
     [typescript]: http://www.typescriptlang.org/
 ---
-[Function inheritance][browncook] is a simple technique for adding extensibility to recursive functions. I'm in the midst of writing a compiler, which is just a giant pile of recursive tree traversals, so function inheritance is repeatedly saving my tender behind from jumbled abstractions.
+[Function inheritance][browncook] is a simple technique for adding extensibility to recursive functions. I'm in the midst of writing a compiler, which is just a giant pile of recursive tree traversals, so function inheritance is repeatedly saving my tender behind from jumbled confusion.
 
 This post demonstrates function inheritance with some [TypeScript][] examples. Here's [a Gist with the complete, executable code][gist] for everything.
 
@@ -33,7 +33,7 @@ That's a nice `fib`! But what if you need to *extend* it---for example, to log c
 
 * Your logging or memoization code isn't reusable; it's tied to `fib`.
 * You can't easily get the original non-logged, non-memoized variant of `fib` if you need it too.
-* In more complicated recursive functions than `fib`, where there are lots of cases, this can lead to a lot of boilerplate and obscure the important part of the original computation.
+* In more complicated recursive functions than `fib`, where there are lots of cases, this can lead to overwhelming boilerplate and can obscure the original computation.
 
 It would be better to write these additional behaviors *separately* from `fib` and some how smash them together.
 
@@ -92,7 +92,7 @@ function trace <T extends Function> (fsuper: T): T {
 }
 ```
 
-That `fsuper` name, like `fself`, is supposed to remind you of the corresponding OO concept. Calling it invokes the original version of the function we're extending.
+That `fsuper` name, like `fself`, is supposed to remind you of the corresponding OO concept. Calling it invokes the original version of the function that `trace` extends.
 
 This `trace` implementation is a little hacky because it supports an arbitrary number of function arguments via [ES6 "spread" syntax][spread]. For a less trivial example that also has stronger types, see the memoization combinator, `memo`, in [that there Gist][gist].
 
@@ -122,7 +122,7 @@ function compose <A, B, C> (g : (_:B) => C, f : (_:A) => B): (_:A) => C {
 }
 ```
 
-With those two pieces, we can apply our combinators and make real, recursive functions that we can call:
+With those two pieces, we can apply our combinators to build real, recursive functions:
 
 ```ts
 // Here's an ordinary recursive Fibonacci without any mixins.
@@ -132,7 +132,7 @@ let fib = fix(gen_fib);
 let fib_trace = fix(compose(trace, gen_fib));
 ```
 
-If you're still not convinced this actually works, clone [this Gist][gist] and type `make`. Feel the power!
+Calling these like `fib(8)` or `fib_trace(8)` does what you want. If you're still not convinced this actually works, clone [this Gist][gist] and type `make`. Feel the power!
 
 [fpc]: https://en.wikipedia.org/wiki/Fixed-point_combinator
 [browncook]: http://www.cs.utexas.edu/~wcook/Drafts/2006/MemoMixins.pdf
@@ -145,8 +145,8 @@ If you're still not convinced this actually works, clone [this Gist][gist] and t
 Since embracing function inheritance last week, I've already used it twice in my prototype compiler:
 
 * Type elaboration. Instead of [mucking up my type checker with AST-manipulation boilerplate][soq], I use something like a memoization combinator to save its results in a symbol table.
-* Desugaring. I wrote a pure-boilerplate generator, called `gen_translate`, that just copies an AST without changing it. Then I wrote a combinator to encapsulate pattern matching and replacement for some specific syntactic sugar. Mashed together, they copy the tree while desugaring it, and it will be straightforward to add new desugaring rules in the future.
+* Desugaring. I wrote a pure-boilerplate generator, called `gen_translate`, that just copies an AST without changing it. Then I wrote a mixin to encapsulate pattern matching and replacement for some specific syntactic sugar. Mashed together, the resulting function copies most of the tree unchanged while desugaring parts of it. It will be straightforward to add new desugaring rules in the future.
 
-As an aside, TypeScript is surprisingly comfortable as a language for compiler hacking. Gradual typing helps you stay mostly within the bounds of a sane, ML-esque, mostly-functional subset while still admitting the occasional necessary sin like that untyped fixed-point combinator above.
+As an aside, TypeScript is surprisingly comfortable as a language for compiler hacking. Gradual typing helps you stay mostly within the bounds of a sane, ML-reminiscent, mostly-functional subset while still admitting the occasional necessary sin like that untyped fixed-point combinator above.
 
 [soq]: http://stackoverflow.com/q/32641750/39182
