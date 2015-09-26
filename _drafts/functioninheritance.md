@@ -89,15 +89,15 @@ function trace <T extends Function> (fsuper: T): T {
 }
 ```
 
-TK what is fsuper?
+That `fsuper` name, like `fself`, is supposed to remind you of the corresponding OO concept. Calling it invokes the original version of the function we're extending.
 
-That implementation is a little hacky because it supports an arbitrary number of function arguments via [ES6 "spread" syntax][spread]. For a less trivial example that also has stronger types, see the memoization combinator, `memo`, in [this post's associated  Gist][gist].
+This `trace` implementation is a little hacky because it supports an arbitrary number of function arguments via [ES6 "spread" syntax][spread]. For a less trivial example that also has stronger types, see the memoization combinator, `memo`, in [that there Gist][gist].
 
 [spread]: http://wiki.ecmascript.org/doku.php?id=harmony:spread
 
 ### Tying It Together
 
-The final code is to mash up the core code with the mixins. To do this in TypeScript, we'll need two handy functional tools: a fixed-point combinator and function composition.
+The final code is to mash up the core code with the mixins. To do this in TypeScript, we'll need two handy functional tools: a fixed-point combinator and function composition. Throw them in your `util.ts`.
 
 Here's a simple fixed-point combinator that works with any number of function arguments:
 
@@ -142,8 +142,8 @@ If you're still not convinced this actually works, clone [this Gist][gist] and t
 Since embracing function inheritance last week, I've already used it twice in my prototype compiler:
 
 * Type elaboration. Instead of [mucking up my type checker with AST-manipulation boilerplate][soq], I use something like a memoization combinator to save its results in a symbol table.
-* Desugaring. I wrote a pure-boilerplate generator, `gen_translate`, that copies an AST without changing it. Then used a combinator to encapsulate the pattern matching I need to break down semantic sugar.
+* Desugaring. I wrote a pure-boilerplate generator, called `gen_translate`, that just copies an AST without changing it. Then I wrote a combinator to encapsulate pattern matching and replacement for some specific syntactic sugar. Mashed together, they copy the tree while desugaring it, and it will be straightforward to add new desugaring rules in the future.
 
-TK about TS in general
+As an aside, TypeScript is surprisingly comfortable as a language for compiler hacking. Gradual typing helps you stay mostly within the bounds of a sane, ML-esque, mostly-functional subset while still admitting the occasional necessary sin like that untyped fixed-point combinator above.
 
 [soq]: http://stackoverflow.com/q/32641750/39182
