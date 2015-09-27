@@ -144,9 +144,10 @@ Calling these like `fib(8)` or `fib_trace(8)` does what you want. If you're stil
 
 Since embracing function inheritance last week, I've already used it twice in my prototype compiler:
 
-* Type elaboration. Instead of [mucking up my type checker with AST-manipulation boilerplate][soq], I use something like memoization to save its results in a symbol table.
+* Type elaboration. Instead of [mucking up my type checker with AST-manipulation boilerplate][soq], I use something like memoization to save its results in a symbol table. Thanks to [Preston Briggs][] for this idea.
 * Desugaring. I wrote a pure-boilerplate generator, called `gen_translate`, that just copies an AST without changing it. Then I wrote a mixin to encapsulate pattern matching and replacement for some specific syntactic sugar. Mashed together, the resulting function copies most of the tree unchanged while desugaring parts of it. It will be straightforward to add new desugaring rules in the future.
 
 As an aside, TypeScript is surprisingly comfortable as a language for compiler hacking. Gradual typing helps you stay mostly within the bounds of a sane, ML-reminiscent, mostly-functional subset while still admitting the occasional necessary sin like that untyped fixed-point combinator above.
 
 [soq]: http://stackoverflow.com/q/32641750/39182
+[preston]: http://dblp.uni-trier.de/pers/hd/b/Briggs:Preston
