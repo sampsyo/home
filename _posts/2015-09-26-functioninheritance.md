@@ -150,4 +150,4 @@ Since embracing function inheritance last week, I've already used it twice in my
 As an aside, TypeScript is surprisingly comfortable as a language for compiler hacking. Gradual typing helps you stay mostly within the bounds of a sane, ML-reminiscent, mostly-functional subset while still admitting the occasional necessary sin like that untyped fixed-point combinator above.
 
 [soq]: http://stackoverflow.com/q/32641750/39182
-[preston]: http://dblp.uni-trier.de/pers/hd/b/Briggs:Preston
+[preston briggs]: http://dblp.uni-trier.de/pers/hd/b/Briggs:Preston
