@@ -8,7 +8,7 @@ SOURCE_SANS_PRO := bower_components/source-sans-pro
 
 # Build the site itself using Jekyll.
 .PHONY: site
-site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro
+site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro media/font/merriweather
 	jekyll build
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
@@ -68,14 +68,15 @@ media/font/source-sans-pro: $(SOURCE_SANS_PRO)
 	mkdir -p media/font
 	cp -r $< $@
 
-# Alegreya.
+# Merriweather.
+# TODO Replace with Source Serif Pro when it has italics.
 TYPOPRO := bower_components/typopro-web
 $(TYPOPRO): $(BOWER)
 	$(BOWER) install $(BOWER_ARGS) typopro
 	@touch $@
-media/font/alegreya: $(TYPOPRO)
+media/font/merriweather: $(TYPOPRO)
 	mkdir -p media/font
-	cp -r $(TYPOPRO)/web/TypoPRO-Alegreya $@
+	cp -r $(TYPOPRO)/web/TypoPRO-Merriweather $@
 
 # Install Bower and LESS using Node.
 $(BOWER):
@@ -87,4 +88,4 @@ $(LESSC):
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
-setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO)
+setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO) $(MERRIWEATHER)
