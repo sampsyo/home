@@ -23,12 +23,12 @@ blockquote {
     margin-bottom: (@line-height-computed / 2);
 }
 
+// Fonts!
 @title-font: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', sans-serif;
-
 body {
-    font-family: Merriweather, serif;
+    font-family: Alegreya, Verdana, serif;
 }
-@font-size-base: 15px;
+@font-size-base: 17px;
 @bigger-size: 1.1em;
 
 // Page header.
@@ -44,9 +44,9 @@ header {
         a:hover {
             color: @brand-primary;
         }
+        font-size: 40px;
     }
     address {
-        font-size: @bigger-size;
         margin: 0;
         a {
             display: block;
@@ -64,7 +64,6 @@ nav {
     a {
         display: inline-block;
         margin: 0 0.25em;
-        font-size: @bigger-size;
         padding: 2px 6px;
         border: 1px solid white;
         border-radius: 3px;
@@ -107,6 +106,7 @@ ul li, ol li {
 // Front-page bio block.
 .blurb {
     margin: 1em 0;
+    font-size: 18px;
 }
 
 // Adornments on blog posts and such.

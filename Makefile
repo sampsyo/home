@@ -8,7 +8,7 @@ SOURCE_SANS_PRO := bower_components/source-sans-pro
 
 # Build the site itself using Jekyll.
 .PHONY: site
-site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro
+site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro media/font/alegreya
 	jekyll build
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
@@ -87,4 +87,4 @@ $(LESSC):
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
-setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO)
+setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO) $(TYPOPRO)

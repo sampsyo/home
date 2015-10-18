@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>
             {{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}
         </title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link href='//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ site.base }}/media/main.css">
-
         <link rel="alternate" type="application/rss+xml" href="{{ site.base }}/blog.xml" title="Atom">
 
         {% if page.date %}
