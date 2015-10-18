@@ -32,6 +32,11 @@
         <!-- KaTeX -->
         <link rel="stylesheet" href="{{ site.base }}/media/katex/katex.min.css">
         {% endif %}
+
+        {% if page.highlight %}
+        <!-- highlight.js -->
+        <link rel="stylesheet" href="{{ site.base }}/media/highlightjs/github-gist.css">
+        {% endif %}
     </head>
     <body>
         <div class="container{% if page.class %} {{ page.class }}{% endif %}">
@@ -83,9 +88,7 @@
 
         {% if page.highlight %}
         <!-- highlight.js -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/github-gist.min.css">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/languages/typescript.min.js"></script>
+        <script src="{{ site.base }}/media/highlightjs/highlight.min.js"></script>
         <script>
             hljs.configure({
                 languages: ['c', 'cpp', 'python', 'sh', 'typescript'],

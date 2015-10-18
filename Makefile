@@ -3,10 +3,11 @@ BOWER_ARGS := --config.interactive=false
 LESSC := ./node_modules/less/bin/lessc
 BOOTSTRAP := bower_components/bootstrap/bower.json
 KATEX := bower_components/katex/dist
+HIGHLIGHT_JS := bower_components/highlightjs/highlight.pack.min.js
 
 # Build the site itself using Jekyll.
 .PHONY: site
-site: index.md media/main.css media/katex
+site: index.md media/main.css media/katex media/highlightjs
 	jekyll build
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
@@ -25,6 +26,15 @@ $(KATEX): $(BOWER)
 	@touch $@
 media/katex: $(KATEX)
 	cp -r $< $@
+
+# Same for Highlight.js.
+$(HIGHLIGHT_JS): $(BOWER)
+	$(BOWER) install $(BOWER_ARGS) highlightjs\#~8.8.0
+	@touch $@
+media/highlightjs: $(HIGHLIGHT_JS)
+	mkdir -p $@
+	cp $(HIGHLIGHT_JS) $@/highlight.min.js
+	cp bower_components/highlightjs/styles/github-gist.css $@
 
 # Install Bower and LESS using Node.
 $(BOWER):
