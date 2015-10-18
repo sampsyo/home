@@ -1,21 +1,30 @@
+BOWER := node_modules/bower/bin/bower
+BOWER_ARGS := --config.interactive=false
+LESSC := ./node_modules/less/bin/lessc
+BOOTSTRAP := bower_components/bootstrap/bower.json
+KATEX := bower_components/katex/dist
+
 # Build the site itself using Jekyll.
 .PHONY: site
-site: index.md media/main.css
+site: index.md media/main.css media/katex
 	jekyll build
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
 # includes the LESS for Bootstrap.
-LESSC := ./node_modules/less/bin/lessc
-BOOTSTRAP := bower_components/bootstrap/bower.json
 media/main.css: _source/main.less $(BOOTSTRAP) $(LESSC)
 	$(LESSC) $< $@
 
 # Install Bootstrap using Bower.
-BOWER := node_modules/bower/bin/bower
-BOWER_ARGS := --config.interactive=false
 $(BOOTSTRAP): $(BOWER)
 	$(BOWER) install $(BOWER_ARGS) bootstrap\#~3.2.0
 	@touch $@
+
+# Install KaTeX using Bower and copy it to the `media` directory.
+$(KATEX): $(BOWER)
+	$(BOWER) install $(BOWER_ARGS) katex\#~0.5.1
+	@touch $@
+media/katex: $(KATEX)
+	cp -r $< $@
 
 # Install Bower and LESS using Node.
 $(BOWER):
@@ -27,7 +36,7 @@ $(LESSC):
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
-setup: $(BOOTSTRAP) $(LESSC)
+setup: $(BOOTSTRAP) $(LESSC) $(KATEX)
 
 # Cleaning.
 .PHONY: clean cleanall
