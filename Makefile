@@ -9,7 +9,10 @@ SOURCE_CODE_PRO := bower_components/source-code-pro
 
 # Build the site itself using Jekyll.
 .PHONY: site
-site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro media/font/merriweather media/font/source-code-pro
+GENERATED := media/main.css media/katex media/highlightjs \
+	media/font/source-sans-pro media/font/merriweather \
+	media/font/source-code-pro
+site: index.md $(GENERATED)
 	jekyll build
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
@@ -98,4 +101,4 @@ $(LESSC):
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
-setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO) $(MERRIWEATHER) $(SOURCE_CODE_PRO)
+setup: $(GENERATED)
