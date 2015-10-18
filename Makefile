@@ -6,6 +6,7 @@ KATEX := bower_components/katex/dist
 HIGHLIGHT_JS := bower_components/highlightjs/highlight.pack.min.js
 SOURCE_SANS_PRO := bower_components/source-sans-pro
 SOURCE_CODE_PRO := bower_components/source-code-pro
+CLEANCSS := ./node_modules/clean-css/bin/cleancss
 
 # Build the site itself using Jekyll.
 .PHONY: site
@@ -17,8 +18,12 @@ site: index.md $(GENERATED)
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
 # includes the LESS for Bootstrap.
-media/main.css: _source/main.less $(BOOTSTRAP) $(LESSC) _source/fonts.less
+_source/main.css: _source/main.less $(BOOTSTRAP) $(LESSC) _source/fonts.less
 	$(LESSC) $< $@
+
+# Then minify it with clean-css.
+media/main.css: _source/main.css $(CLEANCSS)
+	$(CLEANCSS) --skip-rebase -o $@ $<
 
 
 # Cleaning.
@@ -91,12 +96,15 @@ media/font/source-code-pro: $(SOURCE_CODE_PRO)
 	mkdir -p media/font
 	cp -r $< $@
 
-# Install Bower and LESS using Node.
+# Install Bower, LESS, and clean-css using Node.
 $(BOWER):
 	npm install bower
 	@touch $@
 $(LESSC):
 	npm install less
+	@touch $@
+$(CLEANCSS):
+	npm install clean-css
 	@touch $@
 
 # A phony target for installing all the dependencies.
