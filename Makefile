@@ -68,6 +68,15 @@ media/font/source-sans-pro: $(SOURCE_SANS_PRO)
 	mkdir -p media/font
 	cp -r $< $@
 
+# Alegreya.
+TYPOPRO := bower_components/typopro-web
+$(TYPOPRO): $(BOWER)
+	$(BOWER) install $(BOWER_ARGS) typopro
+	@touch $@
+media/font/alegreya: $(TYPOPRO)
+	mkdir -p media/font
+	cp -r $(TYPOPRO)/web/TypoPRO-Alegreya $@
+
 # Install Bower and LESS using Node.
 $(BOWER):
 	npm install bower
