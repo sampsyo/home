@@ -1,5 +1,5 @@
 /* Regular-weight Source Sans Pro. */
-@SSP: "font/source-sans-pro";
+@SANS: "font/source-sans-pro";
 @font-face {
   font-family: 'Source Sans Pro';
   font-weight: 400;
@@ -8,51 +8,37 @@
   src:
     local('SourceSansPro-Regular'),
     local('Source Sans Pro'),
-    url('@{SSP}/WOFF2/TTF/SourceSansPro-Regular.ttf.woff2') format('woff2'),
-    url('@{SSP}/WOFF/OTF/SourceSansPro-Regular.otf.woff') format('woff'),
-    url('@{SSP}/OTF/SourceSansPro-Regular.otf') format('opentype'),
-    url('@{SSP}/TTF/SourceSansPro-Regular.ttf') format('truetype');
+    url('@{SANS}/WOFF2/TTF/SourceSansPro-Regular.ttf.woff2') format('woff2'),
+    url('@{SANS}/WOFF/OTF/SourceSansPro-Regular.otf.woff') format('woff'),
+    url('@{SANS}/OTF/SourceSansPro-Regular.otf') format('opentype'),
+    url('@{SANS}/TTF/SourceSansPro-Regular.ttf') format('truetype');
 }
 
 /* Alegreya for body text. Regular, italic, bold, bold italic. */
-@ALE: "font/alegreya";
+@SERIF: "font/source-serif-pro";
 @font-face {
-  font-family: 'Alegreya';
-  font-style: normal;
+  font-family: 'Source Serif Pro';
   font-weight: 400;
-  src:
-    local('Alegreya'),
-    local('Alegreya-Regular'),
-    url('@{ALE}/TypoPRO-Alegreya-Regular.woff') format('woff'),
-    url('@{ALE}/TypoPRO-Alegreya-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Alegreya';
   font-style: normal;
-  font-weight: 700;
+  font-stretch: normal;
   src:
-    local('Alegreya Bold'),
-    local('Alegreya-Bold'),
-    url('@{ALE}/TypoPRO-Alegreya-Bold.woff') format('woff'),
-    url('@{ALE}/TypoPRO-Alegreya-Bold.ttf') format('truetype');
+    local('SourceSerifPro-Regular'),
+    local('Source Serif Pro'),
+    url('@{SANS}/WOFF2/TTF/SourceSerifPro-Regular.ttf.woff2') format('woff2'),
+    url('@{SANS}/WOFF/OTF/SourceSerifPro-Regular.otf.woff') format('woff'),
+    url('@{SANS}/OTF/SourceSerifPro-Regular.otf') format('opentype'),
+    url('@{SANS}/TTF/SourceSerifPro-Regular.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'Alegreya';
-  font-style: italic;
+  font-family: 'Source Serif Pro';
   font-weight: 400;
-  src:
-    local('Alegreya Italic'),
-    local('Alegreya-Italic'),
-    url('@{ALE}/TypoPRO-Alegreya-Italic.woff') format('woff'),
-    url('@{ALE}/TypoPRO-Alegreya-Italic.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Alegreya';
   font-style: italic;
-  font-weight: 700;
+  font-stretch: normal;
   src:
-    local('Alegreya BoldItalic'),
-    local('Alegreya-BoldItalic'),
-    url('@{ALE}/TypoPRO-Alegreya-BoldItalic.woff') format('woff'),
-    url('@{ALE}/TypoPRO-Alegreya-BoldItalic.ttf') format('truetype');
+    local('SourceSerifPro-Italic'),
+    local('Source Serif Pro Italic'),
+    url('@{SANS}/WOFF2/TTF/SourceSerifPro-Italic.ttf.woff2') format('woff2'),
+    url('@{SANS}/WOFF/OTF/SourceSerifPro-Italic.otf.woff') format('woff'),
+    url('@{SANS}/OTF/SourceSerifPro-Italic.otf') format('opentype'),
+    url('@{SANS}/TTF/SourceSerifPro-Italic.ttf') format('truetype');
 }

@@ -5,10 +5,11 @@ BOOTSTRAP := bower_components/bootstrap/bower.json
 KATEX := bower_components/katex/dist
 HIGHLIGHT_JS := bower_components/highlightjs/highlight.pack.min.js
 SOURCE_SANS_PRO := bower_components/source-sans-pro
+SOURCE_SERIF_PRO := bower_components/source-serif-pro
 
 # Build the site itself using Jekyll.
 .PHONY: site
-site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro
+site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro media/font/source-serif-pro
 	jekyll build
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
@@ -68,14 +69,14 @@ media/font/source-sans-pro: $(SOURCE_SANS_PRO)
 	mkdir -p media/font
 	cp -r $< $@
 
-# Alegreya.
-TYPOPRO := bower_components/typopro-web
-$(TYPOPRO): $(BOWER)
-	$(BOWER) install $(BOWER_ARGS) typopro
+# Source Serif Pro.
+$(SOURCE_SERIF_PRO): $(BOWER)
+	$(BOWER) install $(BOWER_ARGS) \
+		git://github.com/adobe-fonts/source-serif-pro.git\#release
 	@touch $@
-media/font/alegreya: $(TYPOPRO)
+media/font/source-serif-pro: $(SOURCE_SERIF_PRO)
 	mkdir -p media/font
-	cp -r $(TYPOPRO)/web/TypoPRO-Alegreya $@
+	cp -r $< $@
 
 # Install Bower and LESS using Node.
 $(BOWER):
@@ -87,4 +88,4 @@ $(LESSC):
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
-setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO)
+setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO) $(SOURCE_SERIF_PRO)
