@@ -15,9 +15,9 @@ To help programmers trade off accuracy for efficiency, we need new [languages][e
 [passert]: {{ site.base }}/media/papers/passert-pldi2014.pdf
 [accept]: https://sampa.cs.washington.edu/accept/
 
-I will start as an assistant professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell] in the fall of 2016.
-Until then, I am visiting [Microsoft Research][msr] in the [RiSE][] group.
-I graduated with my Ph.D. from the [University of Washington][uw cse] this year.
+I am a new assistant professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell].
+For the 2015--2016 academic year, I am visiting [Microsoft Research][msr] in the [RiSE][] group.
+I graduated from the [University of Washington][uw cse] this year.
 Before that, I was at [Harvey Mudd College][hmc].
 Here's my [CV][].
 
