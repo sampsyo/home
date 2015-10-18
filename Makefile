@@ -1,31 +1,44 @@
-.PHONY: setup site deploy clean_site
-
-BUILDARGS :=
+# Build the site itself using Jekyll.
+.PHONY: site
 site: index.md media/main.css
-	jekyll build $(BUILDARGS)
+	jekyll build
 
-BOWER_STUFF := bower_components/bootstrap/bower.json
-media/main.css: _source/main.less $(BOWER_STUFF)
-	./node_modules/less/bin/lessc $(LESSARGS) $< $@
+# Compile the CSS using LESS. This consists of our main LESS file, which
+# includes the LESS for Bootstrap.
+LESSC := ./node_modules/less/bin/lessc
+BOOTSTRAP := bower_components/bootstrap/bower.json
+media/main.css: _source/main.less $(BOOTSTRAP) $(LESSC)
+	$(LESSC) $< $@
 
-# Somewhat dumb way to invoke setup on first run (but not thereafter) or on
-# manual invocation.
-$(BOWER_STUFF):
-	npm install
-	./node_modules/bower/bin/bower install --config.interactive=fals
-setup: $(BOWER_STUFF)
+# Install Bootstrap using Bower.
+BOWER := node_modules/bower/bin/bower
+BOWER_ARGS := --config.interactive=false
+$(BOOTSTRAP): $(BOWER)
+	$(BOWER) install $(BOWER_ARGS) bootstrap\#~3.2.0
+	@touch $@
 
+# Install Bower and LESS using Node.
+$(BOWER):
+	npm install bower
+	@touch $@
+$(LESSC):
+	npm install less
+	@touch $@
+
+# A phony target for installing all the dependencies.
+.PHONY: setup
+setup: $(BOOTSTRAP) $(LESSC)
+
+# Cleaning.
+.PHONY: clean cleanall
 clean:
 	rm -rf _site
-
 cleanall:
 	rm -rf _site node_modules bower_components
 
+# Deployment.
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
 	--delete -e ssh
 DEST := dh:domains/adriansampson.net/home
 deploy: clean site
 	rsync $(RSYNCARGS) _site/ $(DEST)
-
-cv.pdf:
-	wkpdf --source file://$(shell pwd)/_site/cv/index.html --output cv.pdf --caching false --stylesheet-media print --margins 52 36 88 18 --paper letter
