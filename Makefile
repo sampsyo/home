@@ -30,11 +30,11 @@ media/main.css: _source/main.css $(CLEANCSS)
 
 .PHONY: clean cleanall
 PRODUCTS := _site media/font media/highlightjs media/katex \
-	media/main.css _source/main.css _source/highlightjs
+	media/main.css _source/main.css
 clean:
 	rm -rf $(PRODUCTS)
 cleanall:
-	rm -rf $(PRODUCTS) node_modules bower_components
+	rm -rf $(PRODUCTS) _source/highlightjs node_modules bower_components
 
 
 # Deployment.
