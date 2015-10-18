@@ -29,7 +29,8 @@ media/main.css: _source/main.css $(CLEANCSS)
 # Cleaning.
 
 .PHONY: clean cleanall
-PRODUCTS := _site media/font media/highlightjs media/katex media/main.css
+PRODUCTS := _site media/font media/highlightjs media/katex \
+	media/main.css _source/main.css _source/highlightjs
 clean:
 	rm -rf $(PRODUCTS)
 cleanall:
@@ -58,15 +59,6 @@ $(KATEX): $(BOWER)
 	@touch $@
 media/katex: $(KATEX)
 	cp -r $< $@
-
-# Highlight.js.
-$(HIGHLIGHT_JS): $(BOWER)
-	$(BOWER) install $(BOWER_ARGS) highlightjs\#~8.8.0
-	@touch $@
-media/highlightjs: $(HIGHLIGHT_JS)
-	mkdir -p $@
-	cp $(HIGHLIGHT_JS) $@/highlight.min.js
-	cp bower_components/highlightjs/styles/github-gist.css $@
 
 # Source Sans Pro.
 $(SOURCE_SANS_PRO): $(BOWER)
@@ -106,6 +98,18 @@ $(LESSC):
 $(CLEANCSS):
 	npm install clean-css
 	@touch $@
+
+# Clone and build Highlight.js to get custom languages.
+_source/highlightjs:
+	git clone https://github.com/isagalaev/highlight.js.git $@
+	cd $@ ; git checkout 8.8.0
+_source/highlightjs/build: _source/highlightjs
+	cd $< ; npm install
+	cd $< ; node tools/build.js python c cpp bash typescript
+media/highlightjs: _source/highlightjs/build
+	mkdir -p $@
+	cp $</highlight.pack.js $@/highlight.min.js
+	cp $</../src/styles/github-gist.css $@
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
