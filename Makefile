@@ -5,10 +5,11 @@ BOOTSTRAP := bower_components/bootstrap/bower.json
 KATEX := bower_components/katex/dist
 HIGHLIGHT_JS := bower_components/highlightjs/highlight.pack.min.js
 SOURCE_SANS_PRO := bower_components/source-sans-pro
+SOURCE_CODE_PRO := bower_components/source-code-pro
 
 # Build the site itself using Jekyll.
 .PHONY: site
-site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro media/font/merriweather
+site: index.md media/main.css media/katex media/highlightjs media/font/source-sans-pro media/font/merriweather media/font/source-code-pro
 	jekyll build
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
@@ -78,6 +79,15 @@ media/font/merriweather: $(TYPOPRO)
 	mkdir -p media/font
 	cp -r $(TYPOPRO)/web/TypoPRO-Merriweather $@
 
+# Source Code Pro.
+$(SOURCE_CODE_PRO): $(BOWER)
+	$(BOWER) install $(BOWER_ARGS) \
+		git://github.com/adobe-fonts/source-code-pro.git\#release
+	@touch $@
+media/font/source-code-pro: $(SOURCE_CODE_PRO)
+	mkdir -p media/font
+	cp -r $< $@
+
 # Install Bower and LESS using Node.
 $(BOWER):
 	npm install bower
@@ -88,4 +98,4 @@ $(LESSC):
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
-setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO) $(MERRIWEATHER)
+setup: $(BOOTSTRAP) $(LESSC) $(KATEX) $(HIGHLIGHT_JS) $(SOURCE_SANS_PRO) $(MERRIWEATHER) $(SOURCE_CODE_PRO)
