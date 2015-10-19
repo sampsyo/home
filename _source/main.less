@@ -74,11 +74,11 @@ header {
 nav {
     .make-md-column(7);
     .make-sm-column(7);
-    margin: 1em 0 0 0;
+    margin: 0.5em 0 0 0;
     a {
         display: inline-block;
-        margin: 0 0.25em;
-        padding: 2px 6px;
+        margin: 0;
+        padding: 0 3px;
         border: 1px solid white;
         border-radius: 3px;
     }
@@ -88,9 +88,23 @@ nav {
     a.active:hover {
         border-color: @link-hover-color;
     }
+
+    // Looser layout on desktop.
     @media (min-width: @screen-sm-min) {
         margin-top: 2em;
         text-align: right;
+        a {
+            margin: 0 0.25em;
+            padding: 2px 6px;
+        }
+    }
+
+    // When the nav is alone, no margin please.
+    :first-child {
+        margin-left: -6px;  // negate padding
+    }
+    :last {
+        margin-right: 0;
     }
 }
 
