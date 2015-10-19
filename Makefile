@@ -5,14 +5,12 @@ BOOTSTRAP := bower_components/bootstrap/bower.json
 KATEX := bower_components/katex/dist
 HIGHLIGHT_JS := bower_components/highlightjs/highlight.pack.min.js
 SOURCE_SANS_PRO := bower_components/source-sans-pro
-SOURCE_CODE_PRO := bower_components/source-code-pro
 CLEANCSS := ./node_modules/clean-css/bin/cleancss
 
 # Build the site itself using Jekyll.
 .PHONY: site
 GENERATED := media/main.css media/katex media/highlightjs \
-	media/font/source-sans-pro media/font/merriweather \
-	media/font/source-code-pro
+	media/font/source-sans-pro
 site: index.md $(GENERATED)
 	jekyll build
 
@@ -66,25 +64,6 @@ $(SOURCE_SANS_PRO): $(BOWER)
 		git://github.com/adobe-fonts/source-sans-pro.git\#release
 	@touch $@
 media/font/source-sans-pro: $(SOURCE_SANS_PRO)
-	mkdir -p media/font
-	cp -r $< $@
-
-# Merriweather.
-# TODO Replace with Source Serif Pro when it has italics.
-TYPOPRO := bower_components/typopro-web
-$(TYPOPRO): $(BOWER)
-	$(BOWER) install $(BOWER_ARGS) typopro
-	@touch $@
-media/font/merriweather: $(TYPOPRO)
-	mkdir -p media/font
-	cp -r $(TYPOPRO)/web/TypoPRO-Merriweather $@
-
-# Source Code Pro.
-$(SOURCE_CODE_PRO): $(BOWER)
-	$(BOWER) install $(BOWER_ARGS) \
-		git://github.com/adobe-fonts/source-code-pro.git\#release
-	@touch $@
-media/font/source-code-pro: $(SOURCE_CODE_PRO)
 	mkdir -p media/font
 	cp -r $< $@
 
