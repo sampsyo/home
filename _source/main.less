@@ -33,6 +33,20 @@ blockquote {
 // Code.
 @font-family-monospace: 'Anonymous Pro', Inconsolata, Consolas, 'Source Code Pro', Menlo, Monaco, monospace;
 
+// Size fixes.
+pre {
+  font-size: (@font-size-base - 5);
+}
+code {
+  font-size: 80%;
+}
+@font-size-h1: floor((@font-size-base * 2.4));
+@font-size-h2: floor((@font-size-base * 1.9));
+@font-size-h3: ceil((@font-size-base * 1.4));
+@font-size-h4: ceil((@font-size-base * 1.1));
+@font-size-h5: @font-size-base;
+@font-size-h6: ceil((@font-size-base * 0.85));
+
 // Page header.
 header {
     .make-row();
@@ -142,7 +156,7 @@ article.preview {
 }
 article.preview.alone {
     h3 {
-        font-size: 2em;
+        font-size: @font-size-h2;
     }
 
     // Concatenate the "keep reading" link inline.
