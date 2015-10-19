@@ -287,9 +287,15 @@ img.illus {
     }
 }
 
-// Override highlight.js backgrounds.
 pre code.hljs {
+    // Override highlight.js backgrounds.
     background: transparent !important;
+
+    // Make <pre> code scroll horizontally when it's too wide (e.g., on
+    // mobile).
+    overflow-x: scroll;
+    word-wrap: normal;
+    white-space: pre;
 }
 
 // Floaty figures.
