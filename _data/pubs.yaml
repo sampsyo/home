@@ -1,4 +1,10 @@
 -
+    title: "Hardware and Software for Approximate Computing"
+    book: true
+    authors: Ph.D. dissertation
+    url: BASE/media/dissertation.pdf
+
+-
     title: "Probability Type Inference for Flexible Approximate Programming"
     authors: "Brett Boston, Adrian Sampson, Dan Grossman, and Luis Ceze"
     venue: OOPSLA 2015
