@@ -6,7 +6,7 @@ excerpt: |
 If you're curious about research in computer science, I want you to [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply].
 Cornell has a top-notch, world-class research program.
 It's especially strong in the spectrum of computer systems topics: programming languages, compilers, operating systems, networks, security, and architecture.
-I want to work with tenacious, creative new students who are curious about these topics when I start as an assistant professor there next fall.
+I look forward to working with tenacious, creative new students who are curious about these topics when I start as an assistant professor there next fall.
 Please tell everyone you know to apply.
 The deadline's December 15 for both departments.
 
@@ -15,7 +15,7 @@ I'll let these 6 puppies explain why Cornell is the perfect CS program for you.
 [csapply]: https://www.cs.cornell.edu/phd/admissions#application
 [eceapply]: http://www.ece.cornell.edu/ece/academics/graduate/phd/admission.cfm
 
-## 1. A top-tier department with incredible researchers in every area of computer science.
+## 1. This puppy, who graduated from a top-tier department with incredible researchers in every area of computer science.
 
 <img class="img-responsive" src="{{site.base}}/media/puppies/1.jpg" alt="mortarboard puppy!">
 
@@ -30,11 +30,11 @@ Whichever research you fall in love with, Cornell has the faculty in that area t
 [usnews]: http://grad-schools.usnews.rankingsandreviews.com/best-graduate-schools/top-science-schools/computer-science-rankings
 [csnews]: http://www.cs.cornell.edu/information/news
 
-## 2. An unfair concentration of programming-languages superstars.
+## 2. This adorable row of puppies, who symbolize Cornell's unfair concentration of programming-languages superstars.
 
 <img class="img-responsive" src="{{site.base}}/media/puppies/2.jpg" alt="so many puppies!">
 
-If programming languages or compilers are your thing, Cornell is an especially good match.
+If programming languages, software verification, type theory, software engineering, or compilers are your thing, Cornell is an especially good match.
 Just look at [this star-studded list][plfac].
 Even [our dean][greg] is a PL giant.
 It's downright unfair for for other CS departments.
@@ -42,7 +42,7 @@ It's downright unfair for for other CS departments.
 [plfac]: https://www.cs.cornell.edu/research/lang
 [greg]: http://www.cs.cornell.edu/~jgm/
 
-## 3. Collaborate with amazing computer architects in the ECE department.
+## 3. This puppy hanging out with a cat, in the same way Cornell CS researchers collaborate with amazing computer architects in the ECE department.
 
 <img class="img-responsive" src="{{site.base}}/media/puppies/3.gif" alt="a puppy meeting a cat!">
 
@@ -54,7 +54,7 @@ Through collaboration between the two departments, you can do cross-cutting rese
 [delimitrou]: http://web.stanford.edu/~cdel/
 [secverilog]: http://www.cs.cornell.edu/andru/papers/asplos15/asplos15.pdf
 
-## 4. A departmental culture that prioritizes your success as a grad student.
+## 4. This snuggly puppy, who reflects a departmental culture that prioritizes your success as a grad student.
 
 <img class="img-responsive" src="{{site.base}}/media/puppies/4.jpg" alt="cuddly puppy!">
 
@@ -62,7 +62,7 @@ For your success and happiness as a grad student, the cultural norms in a depart
 Cornell's CS department has a well-deserved reputation for preserving an open, approachable culture and for paying attention to its grad students' lives and careers.
 Doing great research is not worth being miserable for *n* years---and at Cornell, you don't have to choose.
 
-## 5. Ithaca is a real-life utopia.
+## 5. This outdoorsy puppy, who knows that Ithaca is a real-life utopia.
 
 <img class="img-responsive" src="{{site.base}}/media/puppies/5.jpg" alt="puppy in an Ithaca gorge!">
 
@@ -78,8 +78,11 @@ Oh, and [we're in New York City][tech] too.
 [ct]: http://www.businessinsider.com/ithaca-is-the-best-college-town-in-america-2014-10?op=1
 [sm]: http://venturebeat.com/2013/06/25/smartest-cities-in-america/
 
-## 6. Cornell has cows.
+## 6. This puppy who hangs out with cows, just like you can on Cornell's campus.
 
 <img class="img-responsive" src="{{site.base}}/media/puppies/6.jpg" alt="puppy hanging out with some cows!">
 
-Look! Cows!
+There are [cows][curc]! Right on campus! You can hang out with them, [just like Greg][gregcows]!
+
+[curc]: http://dairy.cornell.edu/extension-education/ruminant-center
+[gregcows]: https://www.quora.com/Why-is-Professor-Greg-Morrisett-so-fond-of-cows
