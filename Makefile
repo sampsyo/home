@@ -16,7 +16,7 @@ site: index.md $(GENERATED)
 
 # Compile the CSS using LESS. This consists of our main LESS file, which
 # includes the LESS for Bootstrap.
-_source/main.css: _source/main.less $(BOOTSTRAP) $(LESSC) _source/fonts.less
+_source/main.css: _source/main.less $(BOOTSTRAP) $(LESSC)
 	$(LESSC) $< $@
 
 # Then minify it with clean-css.
