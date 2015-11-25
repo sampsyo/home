@@ -17,18 +17,57 @@ I'll let these 6 puppies explain why Cornell is the perfect CS program for you.
 
 ## 1. A top-tier department with incredible researchers in every area of computer science.
 
-change the world
+Cornell has one of the world's most renowned computer-science research programs by any measure.
+It's in the top 10 of any traditional ranking out there, but it's not just about [*US News*][usnews].
+At any serious computer science conference, you'll see faculty and students from Cornell leading their fields.
+Check out the constant torrent of publicity and accolades on [the CS department's news feed][csnews].
+
+At a school like Cornell with broad excellence across different areas, you don't have to know exactly what you want to do before you apply.
+Whichever research you fall in love with, Cornell has the faculty in that area to help you change the world.
+
+[usnews]: http://grad-schools.usnews.rankingsandreviews.com/best-graduate-schools/top-science-schools/computer-science-rankings
+[csnews]: http://www.cs.cornell.edu/information/news
 
 ## 2. An unfair concentration of programming-languages superstars.
 
-## 3. Amazing computer architects in the ECE department.
+If programming languages or compilers are your thing, Cornell is an especially good match.
+Just look at [this star-studded list][plfac].
+Even [our dean][greg] is a PL giant.
+It's downright unfair for for other CS departments.
 
-collaboration
+[plfac]: https://www.cs.cornell.edu/research/lang
+[greg]: http://www.cs.cornell.edu/~jgm/
+
+## 3. Collaborate with amazing computer architects in the ECE department.
+
+The Cornell ECE department's [Computer Systems Laboratory][csl] houses even more world-class computer-science researchers.
+And they're not slowing down: this year, they hired the excellent [Christina Delimitrou][delimitrou] from Stanford.
+Through collaboration between the two departments, you can do cross-cutting research that spans the entire system stack [from logic gates to type theory][secverilog].
+
+[csl]: http://www.csl.cornell.edu
+[delimitrou]: http://web.stanford.edu/~cdel/
+[secverilog]: http://www.cs.cornell.edu/andru/papers/asplos15/asplos15.pdf
 
 ## 4. A departmental culture that prioritizes your success as a grad student.
 
+For your success and happiness as a grad student, the cultural norms in a department can be just as important as research excellence.
+Cornell's CS department has a well-deserved reputation for preserving an open, approachable culture and for paying attention to its grad students' lives and careers.
+Doing great research is not worth being miserable for *n* years---and at Cornell, you don't have to choose.
+
 ## 5. Ithaca is a real-life utopia.
 
-Oh, and we're in New York City too.
+[Ithaca, New York][ithaca] is a fantastic place to live.
+The natural beauty is stunning, the progressive culture and politics are renowned, local food is abundant, and the traffic is nonexistent.
+Questionable research outfits regularly rank Ithaca as stuff like ["the smartest city in America"][sm]
+and ["the best college town in America."][ct]
+
+Oh, and [we're in New York City][tech] too.
+
+[tech]: http://tech.cornell.edu
+[ithaca]: https://en.wikipedia.org/wiki/Ithaca,_New_York
+[ct]: http://www.businessinsider.com/ithaca-is-the-best-college-town-in-america-2014-10?op=1
+[sm]: http://venturebeat.com/2013/06/25/smartest-cities-in-america/
 
 ## 6. Cornell has cows.
+
+Look! Cows!
