@@ -3,14 +3,14 @@ title: 6 Puppies That Will Make You Apply to Cornell University for a Ph.D. in C
 excerpt: |
     No interest in computer science? Already have an advanced degree? These puppies don't care! Be careful before you click; you'll be preparing your application materials before you get to #4.
 ---
-If you're curious about research in computer science, I want you to [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply].
+If you're curious about research in computer science, please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply].
 Cornell has a top-notch, world-class research program.
 It's especially strong in the spectrum of computer systems topics: programming languages, compilers, operating systems, networks, security, and architecture.
 I look forward to working with tenacious, creative new students who are curious about these topics when I start as an assistant professor there next fall.
-Please tell everyone you know to apply.
-The deadline's December 15 for both departments.
 
-I'll let these 6 puppies explain why Cornell is the perfect CS program for you.
+Tell everyone you know to apply.
+The deadline's December 15 for both departments.
+I'll let these six puppies explain why Cornell is the perfect CS program for you.
 
 [csapply]: https://www.cs.cornell.edu/phd/admissions#application
 [eceapply]: http://www.ece.cornell.edu/ece/academics/graduate/phd/admission.cfm
@@ -25,7 +25,7 @@ At any serious computer science conference, you'll see faculty and students from
 Check out the constant torrent of publicity and accolades on [the CS department's news feed][csnews].
 
 At a school like Cornell with broad excellence across different areas, you don't have to know exactly what you want to do before you apply.
-Whichever research you fall in love with, Cornell has the faculty in that area to help you change the world.
+Whichever line of research you fall in love with, Cornell has incredible faculty in that area to help you change the world.
 
 [usnews]: http://grad-schools.usnews.rankingsandreviews.com/best-graduate-schools/top-science-schools/computer-science-rankings
 [csnews]: http://www.cs.cornell.edu/information/news
@@ -59,7 +59,7 @@ Through collaboration between the two departments, you can do cross-cutting rese
 <img class="img-responsive" src="{{site.base}}/media/puppies/4.jpg" alt="cuddly puppy!">
 
 For your success and happiness as a grad student, the cultural norms in a department can be just as important as research excellence.
-Cornell's CS department has a well-deserved reputation for preserving an open, approachable culture and for paying attention to its grad students' lives and careers.
+Cornell's CS department has a well-deserved reputation for preserving an inclusive, approachable culture and for paying attention to its grad students' lives and careers.
 Doing great research is not worth being miserable for *n* years---and at Cornell, you don't have to choose.
 
 ## 5. This outdoorsy puppy, who knows that Ithaca is a real-life utopia.
@@ -68,8 +68,8 @@ Doing great research is not worth being miserable for *n* years---and at Cornell
 
 [Ithaca, New York][ithaca] is a fantastic place to live.
 The natural beauty is stunning, the progressive culture and politics are renowned, local food is abundant, and the traffic is nonexistent.
-Questionable research outfits regularly rank Ithaca as stuff like ["the smartest city in America"][sm]
-and ["the best college town in America."][ct]
+Admittedly questionable research outfits regularly rank bestow titles like ["the smartest city in America"][sm]
+and ["the best college town in America"][ct] on Ithaca.
 
 Oh, and [we're in New York City][tech] too.
 
