@@ -21,6 +21,11 @@ education:
 
 jobs:
     -
+        title: Assistant Professor
+        where: Cornell University &mdash; Department of Computer Science
+        dates: 2016&ndash;
+
+    -
         title: Visiting Researcher
         where: Microsoft Research &mdash; Research in Software Engineering (RiSE)
         dates: 2015&ndash;2016
