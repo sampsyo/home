@@ -163,3 +163,9 @@ students:
         kind: B.S.
         when: 2010&ndash;2011
         where: University of Washington
+
+# Eventually?
+talks:
+    -
+        title: "Probabilistic Programming"
+        where: "Schloss Dagstuhl, Workshop on Approximate and Probabilistic Computing, November 2015"
