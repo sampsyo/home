@@ -98,6 +98,10 @@ title: CV
     {% for text in cv.service %}
         {{ text | markdownify }}
     {% endfor %}
+    <h3>Review Committees</h3>
+    {% for text in cv.committees %}
+        {{ text | markdownify }}
+    {% endfor %}
 </section>
 
 <footer>

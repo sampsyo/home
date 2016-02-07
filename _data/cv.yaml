@@ -100,27 +100,6 @@ service:
         Ph.D. committee member for Melanie Kambadur, Columbia University (2016)
 
     - |
-        Member, [SELSE 2016](http://www.selse.org) review committee
-
-    - |
-        Member, [ISCA 2016](http://isca2016.eecs.umich.edu) external review committee
-
-    - |
-        Member, [PLDI 2016](http://conf.researchr.org/home/pldi-2016) [program committee](http://conf.researchr.org/committee/pldi-2016/pldi-2016-program-committee)
-
-    - |
-        Organizer and program committee member, 2015 <a href="http://sampa.cs.washington.edu/wax2015/">Workshop on Approximate Computing Across the Stack</a> (WAX 2015)
-
-    - |
-        Organizer and program committee member, 2014 <a href="http://sampa.cs.washington.edu/wacas14/">Workshop on Approximate Computing Across the System Stack</a> (WACAS 2014)
-
-    - |
-        Member, PLDI 2014 <a href="http://pldi14-aec.cs.brown.edu">artifact evaluation committee</a>
-
-    - |
-        Member, OOPSLA 2014 <a href="http://2014.splashcon.org/track/splash2014-artifacts">artifact evaluation committee</a>
-
-    - |
         University of Washington, Computer Science and Engineering:
 
         * Graduate Admissions Committee, 2013&ndash;2015
@@ -128,6 +107,34 @@ service:
         * Student Survey Coordinator, 2011
         * "Mossy Bits" Creative Arts Journal Editor, 2010--2015
         * New Graduate Student Mentor, 2010--2015
+
+
+committees:
+
+    - |
+        [WAX 2016](http://approximate.computer/wax2016/): Organizer, program committee member
+
+    - |
+        [SELSE 2016](http://www.selse.org): Review committee member
+
+    - |
+        [ISCA 2016](http://isca2016.eecs.umich.edu): External review committee member
+
+    - |
+        [PLDI 2016](http://conf.researchr.org/home/pldi-2016): Program committee member
+
+    - |
+        [WAX 2015](http://sampa.cs.washington.edu/wax2015/): Organizer, program committee member
+
+    - |
+        [WACAS 2014](http://sampa.cs.washington.edu/wax2015/): Organizer, program committee member
+
+    - |
+        PLDI 2014: <a href="http://pldi14-aec.cs.brown.edu">Artifact evaluation committee</a> member
+
+    - |
+        OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
+
 
 students:
     -
