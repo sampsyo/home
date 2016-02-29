@@ -50,4 +50,4 @@ navigation:
       link: /misc.html
 
 redirect:
-    /files/enerjproofs.pdf: /media/enerjproofs.pdf
+    files/enerjproofs.pdf: media/enerjproofs.pdf
