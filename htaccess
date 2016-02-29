@@ -3,3 +3,11 @@ layout: null
 permalink: .htaccess
 ---
 ErrorDocument 404 {{ site.base }}/404.html
+
+RewriteEngine on
+RewriteBase {{ site.base }}/
+{% for item in site.redirect %}
+{% assign shortname=item[0] %}
+{% assign path=item[1] %}
+RewriteRule ^{{ shortname }} /{{ path }} [L,R=301]
+{% endfor %}

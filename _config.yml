@@ -48,3 +48,6 @@ navigation:
       link: /contact.html
     - title: '&amp;c.'
       link: /misc.html
+
+redirect:
+    /files/enerjproofs.pdf: /media/enerjproofs.pdf
