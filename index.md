@@ -17,8 +17,7 @@ To help programmers trade off accuracy for efficiency, we need new [languages][e
 
 I am a new assistant professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell].
 For the 2015--2016 academic year, I am visiting [Microsoft Research][msr] in the [RiSE][] group.
-I graduated from the [University of Washington][uw cse] this year.
-Before that, I was at [Harvey Mudd College][hmc].
+I graduated from the [University of Washington][uw cse] last year.
 Here's my [CV][].
 
 [cornell]: http://www.cornell.edu/
