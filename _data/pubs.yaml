@@ -6,6 +6,8 @@
     type: workshop
     venue_url: http://approximate.computer/wax2016/
     with: ASPLOS
+    extra:
+     - '[Slides.](http://approximate.computer/wax2016/slides/sampson.pdf)'
 
 -
     title: "Approximating to the Last Bit"
