@@ -1,4 +1,22 @@
 -
+    title: "The Case for Compulsory Approximation"
+    authors: "Adrian Sampson"
+    url: http://approximate.computer/wax2016/papers/sampson.pdf
+    venue: WAX 2016
+    type: workshop
+    venue_url: http://approximate.computer/wax2016/
+    with: ASPLOS
+
+-
+    title: "Approximating to the Last Bit"
+    authors: "Thierry Moreau, Adrian Sampson, Luis Ceze, and Mark Oskin"
+    url: http://approximate.computer/wax2016/papers/moreau.pdf
+    venue: WAX 2016
+    type: workshop
+    venue_url: http://approximate.computer/wax2016/
+    with: ASPLOS
+
+-
     title: "Hardware and Software for Approximate Computing"
     book: true
     authors: Ph.D. dissertation
@@ -11,6 +29,15 @@
     type: conference
     venue_url: http://2015.splashcon.org/track/oopsla2015
     url: BASE/media/papers/decaf-oopsla2015.pdf
+
+-
+    title: "REACT: A Framework for Rapid Exploration of Approximate Computing Techniques"
+    authors: "Mark Wyse, Andre Baixo, Thierry Moreau, Bill Zorn, James Bornholt, Adrian Sampson, Luis Ceze, and Mark Oskin"
+    url: http://sampa.cs.washington.edu/wax2015/papers/wyse.pdf
+    venue: WAX 2015
+    type: workshop
+    venue_url: http://sampa.cs.washington.edu/wax2015/
+    with: PLDI
 
 -
     title: "Hardware–Software Co-Design: Not Just a Cliche"
