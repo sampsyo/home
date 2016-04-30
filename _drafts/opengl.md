@@ -32,7 +32,7 @@ It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *requ
 
 ## Stringly Typed Binding Boilerplate
 
-This is all extremely verbose, but it's the moral equivalent of writing `set("variable", value)` instead of `let variable = value`.
+Even this simplified PseudoGL is extremely verbose, but it's the moral equivalent of writing `set("variable", value)` instead of `let variable = value`.
 
 ```c
 // Location for a scalar variable.
@@ -41,24 +41,20 @@ GLuint loc_phase = glGetUniformLocation(program, "phase");
 GLuint loc_position = glGetAttribLocation(program, "position");
 
 // Create a buffer for the position array so we can copy data into it.
+GLuint buffer;
 glBindBuffer(GL_ARRAY_BUFFER, buffer);
-glBufferData(GL_ARRAY_BUFFER, sizeof(points), NULL, GL_DYNAMIC_DRAW);
-glBindVertexArray(array);
 glVertexAttribPointer(loc_position, NDIMENSIONS, GL_FLOAT,
                       GL_FALSE, 0, 0);
-glEnableVertexAttribArray(loc_position);
-glBindVertexArray(0);  // Unbind.
-glBindBuffer(GL_ARRAY_BUFFER, 0);  // Unbind.
 
-while (!glfwWindowShouldClose(window)) {
+while (1) {
   // Set the scalar variable.
   glUniform1f(loc_phase, sin(4 * t));
 
   // Set the array variable by copying data into the buffer.
   glBindBuffer(GL_ARRAY_BUFFER, buffer);
   glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(points), points);
-  glBindBuffer(GL_ARRAY_BUFFER, 0);  // Unbind.
 
+  glUseProgram(program);
   glDrawArrays(GL_TRIANGLE_FAN, 0, NVERTICES);
 }
 ```
