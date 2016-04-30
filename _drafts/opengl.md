@@ -29,6 +29,39 @@ It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *requ
 
 [eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
 
+Here they are in string constants. (It's also common to load shader code from on-disk text files at startup time.)
+
+```c
+const char *vertex_shader =
+  "in vec4 position;\n"
+  "out vec4 myPos;\n"
+  "void main() {\n"
+  "  myPos = position;\n"
+  "  gl_Position = position;\n"
+  "}\n";
+
+const char *fragment_shader =
+  "uniform float phase;\n"
+  "in vec4 myPos;\n"
+  "out vec4 color;\n"
+  "void main() {\n"
+  "  color = ...;\n"
+  "}\n";
+```
+
+```c
+GLuint vshader = glCreateShader(GL_VERTEX_SHADER);
+glShaderSource(vshader, 1, &vertex_shader, 0);
+
+GLuint fshader = glCreateShader(GL_FRAGMENT_SHADER);
+glShaderSource(fshader, 1, &fragment_shader, 0);
+
+// Create a program that stitches the two shader stages together.
+GLuint shader_program = glCreateProgram();
+glAttachShader(shader_program, vshader);
+glAttachShader(shader_program, fshader);
+```
+
 
 ## Stringly Typed Binding Boilerplate
 
