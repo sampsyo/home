@@ -31,6 +31,8 @@ It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *requ
 
 ## Stringly Typed Binding Boilerplate
 
+This is all extremely verbose, but it's the moral equivalent of writing `set("variable", value)` instead of `let variable = value`.
+
 ```c
 // Location for a scalar variable.
 GLuint loc_phase = glGetUniformLocation(program, "phase");
