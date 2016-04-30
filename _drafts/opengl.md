@@ -1,7 +1,7 @@
 ---
 title: "Shed a Tear for Graphics Programming"
 excerpt: |
-    I was recently introduce to real-time 3D rendering with OpenGL. The experinece was appalling. This post for a language-inclined, graphics-ignorant audience enumerates what's going wrong.
+    I was recently introduced to real-time 3D rendering with OpenGL. It was awful. This post describes what went wrong for a language-inclined, graphics-ignorant audience.
 ---
 Programming for the dominant real-time graphics APIs, OpenGL and Direct3D, is unfathomably terrible.
 CPU--GPU coordination is stringly typed, unsafe, and hard to debug.
