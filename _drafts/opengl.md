@@ -2,6 +2,7 @@
 title: "Shed a Tear for Graphics Programming"
 excerpt: |
     I was recently introduced to real-time 3D rendering with OpenGL. It was awful. This post describes what went wrong for a language-inclined, graphics-ignorant audience.
+highlight: true
 ---
 Programming for the dominant real-time graphics APIs, OpenGL and Direct3D, is unfathomably terrible.
 CPU--GPU coordination is stringly typed, unsafe, and hard to debug.
@@ -24,7 +25,7 @@ n OpenGL, shader programs are written in [GLSL][].
 [shader]: https://en.wikipedia.org/wiki/Shader
 
 *Shaders in strings* are the root of all the evil in this post.
-It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *required* to cram some of their code into strings.
+It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *required* to cram some of its code into strings.
 
 [eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
 
