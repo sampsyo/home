@@ -6,11 +6,11 @@ highlight: true
 ---
 The mainstream real-time graphics APIs, OpenGL and Direct3D, are probably the most widespread way that programmers interact with heterogeneous hardware.
 But their brand of CPU--GPU integration is unconscionable.
-CPU-side code needs to coordinate closely with GPU-side *shader programs* for good performance, but the APIs we have today treat the two execution units as separate universes.
-This approach leads to stringly typed interfaces, a huge volume of boilerplate, and impoverished GPU-specific programming languages.
+CPU-side code needs to coordinate closely with GPU-side shader programs for good performance, but the APIs we have today treat the two execution units as isolated universes.
+This mindset leads to stringly typed interfaces, a huge volume of boilerplate, and impoverished GPU-specific programming languages.
 
-This post tours a few gritty realities in a tiny OpenGL application.
-You can follow along with [a literate listing][tinygl-rendered] of the full [source code][tinygl].
+This post tours a few gritty realities in a trivial OpenGL application.
+You can follow along with [a literate listing][tinygl-rendered] of the [full source code][tinygl].
 
 [tinygl-rendered]: http://sampsyo.github.io/tinygl/
 [tinygl]: https://github.com/sampsyo/tinygl/blob/master/tinygl.c
@@ -19,14 +19,13 @@ You can follow along with [a literate listing][tinygl-rendered] of the full [sou
 ## Shaders are Strings
 
 To define an object's appearance in a 3D scene, real-time graphics applications use *[shaders][shader]:* small programs that run on the GPU as part of the rendering pipeline.
-There are several kinds of shaders, but the two most common kinds are [vertex shaders][vtx], which produce the position of each vertex in an object's mesh, and [fragment shaders][frag], which decide the color of each pixel on the object's surface.
-You write shaders in special C-like programming languages: GLSL uses [GLSL][].
+There are several [kinds][shader kinds] of shaders, but the two most common are the [vertex shader][vtx], which determines the position of each vertex in an object's mesh, and the [fragment shader][frag], which produces the color of each pixel on the object's surface.
+You write shaders in special C-like programming languages: OpenGL uses [GLSL][].
 
 This is where things go wrong: to set up a shader, the host program sends a *string containing shader source code* to the graphics card driver.
 The driver JITs the source to the GPU's internal architecture and loads it onto the hardware.
 
-Here's a simplified pair of GLSL [vertex and fragment shaders in C string constants][tgl-shaders]
-(it's also common to load shader code from text files at startup time):
+Here's a simplified pair of GLSL [vertex and fragment shaders in C string constants][tgl-shaders]:
 
 ```c
 const char *vertex_shader =
@@ -45,6 +44,7 @@ const char *fragment_shader =
   "}\n";
 ```
 
+(It's also common to load shader code from text files at startup time.)
 Those [`in`, `out`, and `uniform` qualifiers][qualifiers] denote communication channels between the CPU and GPU and between the different stages of the GPU's rendering pipeline.
 The vertex shader's `main` function assigns to the magic `gl_Position` variable for its output, and the fragment shader assigns to `gl_FragColor`.
 
@@ -69,12 +69,11 @@ glLinkProgram(shader_program);
 With that boilerplate, we're ready to invoke `shader_program` to draw objects.
 
 The shaders-in-strings interface is the original sin of graphics programming.
-It means that part of the complete program's semantics are unknowable until run time---for no reason except that it runs on a different kind of hardware.
+It means that some parts of the complete program's semantics are unknowable until run time---for no reason except that they target a different hardware unit.
 It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *required* to cram some of its code into strings.
 
-The next generation of graphics APIs---[Mantle][], [Metal][], and [Vulkan][]---clean up some of the mess by using a bytecode to ship shaders instead of raw source code.
-(Direct3D already uses a bytecode.)
-But pre-compiling shader programs is only cosmetic; it doesn't solve the fundamental problem:
+Direct3D and the next generation of graphics APIs---[Mantle][], [Metal][], and [Vulkan][]---clean up some of the mess by using a bytecode to ship shaders instead of raw source code.
+But pre-compiling shader programs to an IR doesn't solve the fundamental problem:
 the *interface* between the CPU and GPU code is purely dynamic, so you can't reason statically about the whole, heterogeneous program.
 
 [glsl]: https://www.opengl.org/documentation/glsl/
@@ -87,6 +86,7 @@ the *interface* between the CPU and GPU code is purely dynamic, so you can't rea
 [vulkan]: https://www.khronos.org/vulkan/
 [mantle]: http://www.amd.com/en-us/innovations/software-technologies/technologies-gaming/mantle
 [metal]: https://developer.apple.com/metal/
+[shader kinds]: https://en.wikipedia.org/wiki/Shader#Types
 
 [tgl-shaders]: http://sampsyo.github.io/tinygl/#section-7
 [tgl-compile]: http://sampsyo.github.io/tinygl/#section-18
@@ -94,11 +94,11 @@ the *interface* between the CPU and GPU code is purely dynamic, so you can't rea
 
 ## Stringly Typed Binding Boilerplate
 
-If string-wrapped shader code is OpenGL's initial investment in pain,
-then it collects fantastic pain dividends in the CPU--GPU communication interface.
+If string-wrapped shader code is OpenGL's principal investment in pain,
+then it collects its pain dividends via the CPU--GPU communication interface.
+
 Check out those variables `position` and `phase` in the vertex and fragment shaders, respectively.
 The `in` and `uniform` qualifiers mean they're parameters that come from the CPU.
-
 To use those parameters, the first step is to [look up *location* handles][tgl-locs] for each variable:
 
 ```c
@@ -106,13 +106,13 @@ GLuint loc_phase = glGetUniformLocation(program, "phase");
 GLuint loc_position = glGetAttribLocation(program, "position");
 ```
 
-Yes, you look up the variable using its name as a string.
+Yes, you look up the variable by passing its name as a string.
 The `phase` parameter is just a `float` scalar, but `position` is an array of position vectors, so it requires even more boilerplate, which I won't show here, to [set up a backing buffer][tgl-buffer].
 
 Then, we need to use these handles to [pass new data to the shaders][tgl-pass] to draw each frame:
 
 ```c
-// The render loop draws each frame.
+// The render loop.
 while (1) {
   // Set the scalar `phase` variable.
   glUniform1f(loc_phase, sin(4 * t));
@@ -139,11 +139,10 @@ but the stringly typed CPU--GPU interface prevents either compiler from doing an
 [glUniform]: https://www.khronos.org/opengles/sdk/docs/man/xhtml/glUniform.xml
 
 
-## The Age of Heterogeneity Deserves Better
+## The Age of Heterogeneity
 
+OpenGL and its equivalents make miserable standard bearers for the age of hardware heterogeneity.
 Heterogeneity is rapidly becoming ubiquitous, and we need better ways to write software that spans hardware units with different capabilities.
-But OpenGL and its equivalents make miserable standard bearers for the age of hardware heterogeneity.
-Its programming model espouses the simplistic view that heterogeneous software should comprise multiple, loosely coupled, independent programs.
-We need to bury this 20th-century notion.
-If pervasive heterogeneity is going to succeed, we need programming models with *one* program that spans execution contexts.
-This won't make the essential complexity of heterogeneity disappear, but it will let us stop treating non-CPU code as a second-class citizen.
+OpenGL's programming model espouses the simplistic view that heterogeneous software should comprise multiple, loosely coupled, independent programs.
+If pervasive heterogeneity is going to succeed, we need to bury this 20th-century notion. We need programming models that let us write *one* program that spans multiple execution contexts.
+This won't erase heterogeneity's essential complexity, but it will let us stop treating non-CPU code as a second-class citizen.
