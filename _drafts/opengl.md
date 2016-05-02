@@ -20,7 +20,7 @@ You can follow along with [a literate listing][tinygl-rendered] of the full [sou
 
 To define an object's appearance in a 3D scene, real-time graphics applications use *[shaders][shader]:* small programs that run on the GPU as part of the rendering pipeline.
 There are several kinds of shaders, but the two most common kinds are [vertex shaders][vtx], which produce the position of each vertex in an object's mesh, and [fragment shaders][frag], which decide the color of each pixel on the object's surface.
-You write shaders in special C-like programming languages: [GLSL][] for OpenGL, [HLSL][] for Direct3D.
+You write shaders in special C-like programming languages: GLSL uses [GLSL][].
 
 This is where things go wrong: to set up a shader, the host program sends a *string containing shader source code* to the graphics card driver.
 The driver JITs the source to the GPU's internal architecture and loads it onto the hardware.
@@ -72,6 +72,10 @@ The shaders-in-strings interface is the original sin of graphics programming.
 It means that part of the complete program's semantics are unknowable until run time---for no reason except that it runs on a different kind of hardware.
 It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *required* to cram some of its code into strings.
 
+The next generation of graphics APIs---[Mantle][], [Metal][], and [Vulkan][]---clean up some of the mess by using a bytecode to ship shaders instead of raw source code.
+(Direct3D already uses a bytecode.)
+But even pre-compiling shader programs doesn't solve the fundamental problem:
+the *interface* between the CPU and GPU code is purely dynamic, so you can't reason statically about the whole, heterogeneous program.
 
 [glsl]: https://www.opengl.org/documentation/glsl/
 [shader]: https://en.wikipedia.org/wiki/Shader
@@ -80,6 +84,9 @@ It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *requ
 [vtx]: https://www.opengl.org/wiki/Vertex_Shader
 [frag]: https://www.opengl.org/wiki/Fragment_Shader
 [qualifiers]: https://www.opengl.org/wiki/Type_Qualifier_(GLSL)
+[vulkan]: https://www.khronos.org/vulkan/
+[mantle]: http://www.amd.com/en-us/innovations/software-technologies/technologies-gaming/mantle
+[metal]: https://developer.apple.com/metal/
 
 [tgl-shaders]: http://sampsyo.github.io/tinygl/#section-7
 [tgl-compile]: http://sampsyo.github.io/tinygl/#section-18
