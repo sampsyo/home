@@ -94,7 +94,8 @@ the *interface* between the CPU and GPU code is purely dynamic, so you can't rea
 
 ## Stringly Typed Binding Boilerplate
 
-Even this simplified PseudoGL is extremely verbose, but it's the moral equivalent of writing `set("variable", value)` instead of `let variable = value`.
+If string-wrapped shader code is an investment in pain,
+then it pays great pain dividends in the CPU--GPU communication interface.
 
 ```c
 // Location for a scalar variable.
@@ -120,6 +121,8 @@ while (1) {
   glDrawArrays(GL_TRIANGLE_FAN, 0, NVERTICES);
 }
 ```
+
+Even this simplified PseudoGL is extremely verbose, but it's the moral equivalent of writing `set("variable", value)` instead of `let variable = value`.
 
 
 ## Editorial
