@@ -1,13 +1,13 @@
 ---
-title: "Shed a Tear for Graphics Programming"
+title: "Weep for Graphics Programming"
 excerpt: |
     I was recently introduced to real-time 3D rendering with OpenGL. It was awful. This post describes what went wrong for a language-inclined, graphics-ignorant audience.
 highlight: true
 ---
-Programming for the dominant real-time graphics APIs, OpenGL and Direct3D, is unfathomably terrible.
-CPU--GPU coordination is stringly typed, unsafe, and hard to debug.
-The problem is that GPU-side code, in the form of *shader programs*, lives in a separate universe from CPU-side code.
-The GPU universe has its own set of impoverished programming languages, and it talks to the CPU via a huge volume of boilerplate.
+The mainstream real-time graphics APIs, OpenGL and Direct3D, are probably the most widespread way that programmers interact with heterogeneous hardware.
+But their brand of CPU--GPU integration is unconscionable.
+CPU-side code needs to coordinate closely with GPU-side *shader programs* for good performance, but the APIs we have today treat the two execution units as separate universes.
+This approach leads to stringly typed interfaces, a huge volume of boilerplate, and impoverished GPU-specific programming languages.
 
 This post tours a few horrifying realities in a tiny OpenGL application.
 You might also be interested in [a literate listing of the full, executable source code][tinygl].
