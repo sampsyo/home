@@ -47,6 +47,7 @@ const char *fragment_shader =
 
 (It's also common to load shader code from text files at startup time.)
 Those [`in`, `out`, and `uniform` qualifiers][qualifiers] denote communication channels between the CPU and GPU and between the different stages of the GPU's rendering pipeline.
+That `myPos` variable serves to shuffle data from through vertex shader into the fragment shader.
 The vertex shader's `main` function assigns to the magic `gl_Position` variable for its output, and the fragment shader assigns to `gl_FragColor`.
 
 Here's roughly how you [compile and load the shader program][tgl-compile]:
@@ -75,7 +76,7 @@ It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *requ
 
 Direct3D and the next generation of graphics APIs---[Mantle][], [Metal][], and [Vulkan][]---clean up some of the mess by using a bytecode to ship shaders instead of raw source code.
 But pre-compiling shader programs to an IR doesn't solve the fundamental problem:
-the *interface* between the CPU and GPU code is purely dynamic, so you can't reason statically about the whole, heterogeneous program.
+the *interface* between the CPU and GPU code is needlessly dynamic, so you can't reason statically about the whole, heterogeneous program.
 
 [glsl]: https://www.opengl.org/documentation/glsl/
 [shader]: https://en.wikipedia.org/wiki/Shader
@@ -100,7 +101,7 @@ then it collects its pain dividends via the CPU--GPU communication interface.
 
 Check out those variables `position` and `phase` in the vertex and fragment shaders, respectively.
 The `in` and `uniform` qualifiers mean they're parameters that come from the CPU.
-To use those parameters, the first step is to [look up *location* handles][tgl-locs] for each variable:
+To use those parameters, the host program's first step is to [look up *location* handles][tgl-locs] for each variable:
 
 ```c
 GLuint loc_phase = glGetUniformLocation(program, "phase");
@@ -108,9 +109,9 @@ GLuint loc_position = glGetAttribLocation(program, "position");
 ```
 
 Yes, you look up the variable by passing its name as a string.
-The `phase` parameter is just a `float` scalar, but `position` is an array of position vectors, so it requires even more boilerplate, which I won't show here, to [set up a backing buffer][tgl-buffer].
+The `phase` parameter is just a `float` scalar, but `position` is a dynamically sized array of position vectors, so it requires even more boilerplate to [set up a backing buffer][tgl-buffer].
 
-Then, we need to use these handles to [pass new data to the shaders][tgl-pass] to draw each frame:
+Next, we use these handles to [pass new data to the shaders][tgl-pass] to draw each frame:
 
 ```c
 // The render loop.
@@ -145,5 +146,6 @@ but the stringly typed CPU--GPU interface prevents either compiler from doing an
 OpenGL and its equivalents make miserable standard bearers for the age of hardware heterogeneity.
 Heterogeneity is rapidly becoming ubiquitous, and we need better ways to write software that spans hardware units with different capabilities.
 OpenGL's programming model espouses the simplistic view that heterogeneous software should comprise multiple, loosely coupled, independent programs.
+
 If pervasive heterogeneity is going to succeed, we need to bury this 20th-century notion. We need programming models that let us write *one* program that spans multiple execution contexts.
 This won't erase heterogeneity's essential complexity, but it will let us stop treating non-CPU code as a second-class citizen.
