@@ -45,7 +45,7 @@ const char *fragment_shader =
   "}\n";
 ```
 
-Those [`in` and `out` qualifiers][qualifiers] denote communication channels between the CPU and GPU and between the different stages of the GPU's rendering pipeline.
+Those [`in`, `out`, and `uniform` qualifiers][qualifiers] denote communication channels between the CPU and GPU and between the different stages of the GPU's rendering pipeline.
 The vertex shader's `main` function assigns to the magic `gl_Position` variable for its output, and the fragment shader assigns to `gl_FragColor`.
 
 Here's roughly how you [compile and load the shader program][tgl-compile]:
@@ -74,7 +74,7 @@ It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *requ
 
 The next generation of graphics APIs---[Mantle][], [Metal][], and [Vulkan][]---clean up some of the mess by using a bytecode to ship shaders instead of raw source code.
 (Direct3D already uses a bytecode.)
-But even pre-compiling shader programs doesn't solve the fundamental problem:
+But pre-compiling shader programs is only cosmetic; it doesn't solve the fundamental problem:
 the *interface* between the CPU and GPU code is purely dynamic, so you can't reason statically about the whole, heterogeneous program.
 
 [glsl]: https://www.opengl.org/documentation/glsl/
@@ -94,29 +94,34 @@ the *interface* between the CPU and GPU code is purely dynamic, so you can't rea
 
 ## Stringly Typed Binding Boilerplate
 
-If string-wrapped shader code is an investment in pain,
-then it pays great pain dividends in the CPU--GPU communication interface.
+If string-wrapped shader code is OpenGL's initial investment in pain,
+then it collects fantastic pain dividends in the CPU--GPU communication interface.
+Check out those variables `position` and `phase` in the vertex and fragment shaders, respectively.
+The `in` and `uniform` qualifiers mean they're parameters that come from the CPU.
+
+To use those parameters, the first step is to [look up *location* handles][tgl-locs] for each variable:
 
 ```c
-// Location for a scalar variable.
 GLuint loc_phase = glGetUniformLocation(program, "phase");
-
 GLuint loc_position = glGetAttribLocation(program, "position");
+```
 
-// Create a buffer for the position array so we can copy data into it.
-GLuint buffer;
-glBindBuffer(GL_ARRAY_BUFFER, buffer);
-glVertexAttribPointer(loc_position, NDIMENSIONS, GL_FLOAT,
-                      GL_FALSE, 0, 0);
+Yes, you look up the variable using its name as a string.
+The `phase` parameter is just a `float` scalar, but `position` is an array of position vectors, so it requires even more boilerplate, which I won't show here, to [set up a backing buffer][tgl-buffer].
 
+Then, we need to use these handles to [pass new data to the shaders][tgl-pass] to draw each frame:
+
+```c
+// The render loop.
 while (1) {
-  // Set the scalar variable.
+  // Set the scalar `phase` variable.
   glUniform1f(loc_phase, sin(4 * t));
 
-  // Set the array variable by copying data into the buffer.
+  // Set the `location` array by copying data into the buffer.
   glBindBuffer(GL_ARRAY_BUFFER, buffer);
   glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(points), points);
 
+  // Use these parameters and our shader program to draw something.
   glUseProgram(program);
   glDrawArrays(GL_TRIANGLE_FAN, 0, NVERTICES);
 }
@@ -124,14 +129,15 @@ while (1) {
 
 Even this simplified PseudoGL is extremely verbose, but it's the moral equivalent of writing `set("variable", value)` instead of `let variable = value`.
 
+[tgl-locs]: http://sampsyo.github.io/tinygl/#section-28
+[tgl-buffer]: http://sampsyo.github.io/tinygl/#section-34
+[tgl-pass]: http://sampsyo.github.io/tinygl/#section-42
+
 
 ## Editorial
 
-OpenGL and its equivalents are probably the most popular form of programming for heterogeneous hardware.
-But their tools for CPU--GPU coordination are unconscionable.
+OpenGL and its equivalents are probably the most popular form of programming for heterogeneous hardware, but they do a terrible job of treating the machine as one heterogeneous system instead of two faintly related domains.
 If the world really is moving toward heterogeneous hardware, we need programming languages that can span the whole system.
-
-TK Vulkan, Mantle, and Metal change a lot, but they don't do anything about the fundamentals of this CPU--GPU divide. The biggest change, in most of them, is ahead-of-time compilation to bytecode, but that's only cosmetic.
 
 I think the central problem is the misconception that there are two separate programs: one on the CPU and one on the GPU, with a loose interface between them.
 In reality, programmers are writing one program that needs to divide its execution between the two units.
