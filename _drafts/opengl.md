@@ -112,7 +112,7 @@ The `phase` parameter is just a `float` scalar, but `position` is an array of po
 Then, we need to use these handles to [pass new data to the shaders][tgl-pass] to draw each frame:
 
 ```c
-// The render loop.
+// The render loop draws each frame.
 while (1) {
   // Set the scalar `phase` variable.
   glUniform1f(loc_phase, sin(4 * t));
@@ -122,22 +122,28 @@ while (1) {
   glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(points), points);
 
   // Use these parameters and our shader program to draw something.
-  glUseProgram(program);
+  glUseProgram(shader_program);
   glDrawArrays(GL_TRIANGLE_FAN, 0, NVERTICES);
 }
 ```
 
-Even this simplified PseudoGL is extremely verbose, but it's the moral equivalent of writing `set("variable", value)` instead of `let variable = value`.
+The [verbosity][tgl-pass] is distracting, but those [`glUniform1f`][glUniform] and [`glBufferSubData`][glBufferSubData] calls are morally equivalent to
+writing `set("variable", value)` instead of `let variable = value`.
+The C and GLSL compilers can check and optimize the CPU and GPU code separately,
+but the stringly typed CPU--GPU interface prevents either compiler from doing anything useful to the complete program.
 
 [tgl-locs]: http://sampsyo.github.io/tinygl/#section-28
 [tgl-buffer]: http://sampsyo.github.io/tinygl/#section-34
 [tgl-pass]: http://sampsyo.github.io/tinygl/#section-42
+[glBufferSubData]: https://www.opengl.org/sdk/docs/man2/xhtml/glBufferSubData.xml
+[glUniform]: https://www.khronos.org/opengles/sdk/docs/man/xhtml/glUniform.xml
 
 
-## Editorial
+## The Age of Heterogeneity Deserves Better
 
-OpenGL and its equivalents are probably the most popular form of programming for heterogeneous hardware, but they do a terrible job of treating the machine as one heterogeneous system instead of two faintly related domains.
-If the world really is moving toward heterogeneous hardware, we need programming languages that can span the whole system.
-
-I think the central problem is the misconception that there are two separate programs: one on the CPU and one on the GPU, with a loose interface between them.
-In reality, programmers are writing one program that needs to divide its execution between the two units.
+Heterogeneity is rapidly becoming ubiquitous, and we need better ways to write software that spans hardware units with different capabilities.
+But OpenGL and its equivalents make miserable standard bearers for the age of hardware heterogeneity.
+Its programming model espouses the simplistic view that heterogeneous software should comprise multiple, loosely coupled, independent programs.
+We need to bury this 20th-century notion.
+If pervasive heterogeneity is going to succeed, we need programming models with *one* program that spans execution contexts.
+This won't make the essential complexity of heterogeneity disappear, but it will let us stop treating non-CPU code as a second-class citizen.
