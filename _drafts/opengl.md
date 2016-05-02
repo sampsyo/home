@@ -9,27 +9,24 @@ But their brand of CPU--GPU integration is unconscionable.
 CPU-side code needs to coordinate closely with GPU-side *shader programs* for good performance, but the APIs we have today treat the two execution units as separate universes.
 This approach leads to stringly typed interfaces, a huge volume of boilerplate, and impoverished GPU-specific programming languages.
 
-This post tours a few horrifying realities in a tiny OpenGL application.
-You might also be interested in [a literate listing of the full, executable source code][tinygl].
+This post tours a few gritty realities in a tiny OpenGL application.
+You can follow along with [a literate listing][tinygl-rendered] of the full [source code][tinygl].
 
-[tinygl]: http://sampsyo.github.io/tinygl/
+[tinygl-rendered]: http://sampsyo.github.io/tinygl/
+[tinygl]: https://github.com/sampsyo/tinygl/blob/master/tinygl.c
 
 
 ## Shaders are Strings
 
-A *[shader][]* is a small program that runs on the GPU as part of the graphics rendering pipeline.
-The graphics driver JITs shader programs from source code, which are passed in as a string from the application running on the CPU.
-n OpenGL, shader programs are written in [GLSL][].
+To define an object's appearance in a 3D scene, real-time graphics applications use *[shaders][shader]:* small programs that run on the GPU as part of the rendering pipeline.
+There are several kinds of shaders, but the two most common kinds are [vertex shaders][vtx], which produce the position of each vertex in an object's mesh, and [fragment shaders][frag], which decide the color of each pixel on the object's surface.
+You write shaders in special C-like programming languages: [GLSL][] for OpenGL, [HLSL][] for Direct3D.
 
-[glsl]: https://www.opengl.org/documentation/glsl/
-[shader]: https://en.wikipedia.org/wiki/Shader
+This is where things go wrong: to set up a shader, the host program sends a *string containing shader source code* to the graphics card driver.
+The driver JITs the source to the GPU's internal architecture and loads it onto the hardware.
 
-*Shaders in strings* are the root of all the evil in this post.
-It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *required* to cram some of its code into strings.
-
-[eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
-
-Here they are in string constants. (It's also common to load shader code from on-disk text files at startup time.)
+Here's a simplified pair of GLSL [vertex and fragment shaders in C string constants][tgl-shaders]
+(it's also common to load shader code from text files at startup time):
 
 ```c
 const char *vertex_shader =
@@ -43,16 +40,22 @@ const char *vertex_shader =
 const char *fragment_shader =
   "uniform float phase;\n"
   "in vec4 myPos;\n"
-  "out vec4 color;\n"
   "void main() {\n"
-  "  color = ...;\n"
+  "  gl_FragColor = ...;\n"
   "}\n";
 ```
 
+Those [`in` and `out` qualifiers][qualifiers] denote communication channels between the CPU and GPU and between the different stages of the GPU's rendering pipeline.
+The vertex shader's `main` function assigns to the magic `gl_Position` variable for its output, and the fragment shader assigns to `gl_FragColor`.
+
+Here's roughly how you [compile and load the shader program][tgl-compile]:
+
 ```c
+// Compile the vertex shader.
 GLuint vshader = glCreateShader(GL_VERTEX_SHADER);
 glShaderSource(vshader, 1, &vertex_shader, 0);
 
+// Compile the fragment shader.
 GLuint fshader = glCreateShader(GL_FRAGMENT_SHADER);
 glShaderSource(fshader, 1, &fragment_shader, 0);
 
@@ -60,7 +63,26 @@ glShaderSource(fshader, 1, &fragment_shader, 0);
 GLuint shader_program = glCreateProgram();
 glAttachShader(shader_program, vshader);
 glAttachShader(shader_program, fshader);
+glLinkProgram(shader_program);
 ```
+
+With that boilerplate, we're ready to invoke `shader_program` to draw objects.
+
+The shaders-in-strings interface is the original sin of graphics programming.
+It means that part of the complete program's semantics are unknowable until run time---for no reason except that it runs on a different kind of hardware.
+It's like [`eval` in JavaScript][eval], but worse: every OpenGL program is *required* to cram some of its code into strings.
+
+
+[glsl]: https://www.opengl.org/documentation/glsl/
+[shader]: https://en.wikipedia.org/wiki/Shader
+[hlsl]: https://msdn.microsoft.com/en-us/library/windows/desktop/bb509561(v=vs.85).aspx
+[eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+[vtx]: https://www.opengl.org/wiki/Vertex_Shader
+[frag]: https://www.opengl.org/wiki/Fragment_Shader
+[qualifiers]: https://www.opengl.org/wiki/Type_Qualifier_(GLSL)
+
+[tgl-shaders]: http://sampsyo.github.io/tinygl/#section-7
+[tgl-compile]: http://sampsyo.github.io/tinygl/#section-18
 
 
 ## Stringly Typed Binding Boilerplate
