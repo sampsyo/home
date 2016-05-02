@@ -1,7 +1,8 @@
 ---
 title: "Weep for Graphics Programming"
 excerpt: |
-    I was recently introduced to real-time 3D rendering with OpenGL. It was awful. This post describes what went wrong for a language-inclined, graphics-ignorant audience.
+    The mainstream real-time graphics APIs, OpenGL and Direct3D, make miserable standard bearers for the age of hardware heterogeneity.
+    Their approach to heterogeneous programming leads to stringly typed interfaces, a huge volume of boilerplate, and impoverished GPU-specific programming languages.
 highlight: true
 ---
 The mainstream real-time graphics APIs, OpenGL and Direct3D, are probably the most widespread way that programmers interact with heterogeneous hardware.
@@ -22,7 +23,7 @@ To define an object's appearance in a 3D scene, real-time graphics applications 
 There are several [kinds][shader kinds] of shaders, but the two most common are the [vertex shader][vtx], which determines the position of each vertex in an object's mesh, and the [fragment shader][frag], which produces the color of each pixel on the object's surface.
 You write shaders in special C-like programming languages: OpenGL uses [GLSL][].
 
-This is where things go wrong: to set up a shader, the host program sends a *string containing shader source code* to the graphics card driver.
+This is where things go wrong. To set up a shader, the host program sends a *string containing shader source code* to the graphics card driver.
 The driver JITs the source to the GPU's internal architecture and loads it onto the hardware.
 
 Here's a simplified pair of GLSL [vertex and fragment shaders in C string constants][tgl-shaders]:
