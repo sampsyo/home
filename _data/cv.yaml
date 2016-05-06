@@ -56,6 +56,7 @@ jobs:
         dates: 2007
 
 honors:
+    - 'UW CSE <a href="https://www.cs.washington.edu/education/award_winning_students/chan">William Chan Memorial Dissertation Award</a>, 2015'
     - 'Best presentation, <a href="https://news.cs.washington.edu/2015/01/10/cses-2015/">first UW Computer Science &amp; Engineering Symposium (CSES 2015)</a>'
     - 'Artifact accepted by the <a href="http://pldi14-aec.cs.brown.edu">PLDI 2014 Artifact Evaluation Committee</a>'
     - 'Paper from MICRO 2013 invited for fast-track inclusion in <a href="http://tocs.acm.org">ACM TOCS</a>'
