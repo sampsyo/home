@@ -4,6 +4,7 @@ url: http://adriansampson.net
 base: ''
 twitter: '@samps'
 email: 'asampson@cornell.edu'
+logo: https://brand.cornell.edu/images/web-logo.jpg
 
 markdown: kramdown
 kramdown:
