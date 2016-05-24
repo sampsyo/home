@@ -1,6 +1,7 @@
-# Probably Correct
-
-TK: What does it mean to say that a program is good enough when it's allowed to be wrong some of the time?
+---
+title: Probably Correct
+---
+What does it mean to say that a program is good enough when it's allowed to be wrong some of the time?
 
 If that sounds crazy, remember that machine-learning models compete on precision and recall, that distributed systems are allowed to fail, and that Siri is still useful despite its miss rate.
 And it's the whole idea in [approximate computing][].
