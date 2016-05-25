@@ -6,19 +6,23 @@ What does it mean to say that a program is good enough when it's allowed to be w
 If that sounds crazy, remember that machine-learning models compete on precision and recall, that distributed systems are allowed to fail, and that Siri is still useful despite its miss rate.
 And it's the whole idea in [approximate computing][].
 
-TK: Then: It's not as easy as with normal correctness, where the ultimate goal is **verification**:
+This post is about defining what it means for this kind of program to be *statistically* correct.
+If we're going to write papers about probably-correct programs (and we are), we need to be clear about what our goals are.
 
-$$f \text{ is correct}
-  \Leftrightarrow
-  \forall x \; f(x) \text{ is good}$$
+With normal, hopefully-always-correct programs, the ultimate goal is **verification**:
 
-which says the program behaves well on every input. That's hard, so we also have **testing,** which says a program behaves well on a few example inputs:
+$$\forall x \; f(x) \text{ is good}$$
+
+The word *good* is intentionally vague: it might say something about the output $f$ writes to a file, or about how fast $f$ runs, or whether $f$ violated some security policy.
+In any case, verification says your program behaves well on every input.
+
+Verification is hard, so we also have **testing,** which says a program behaves well on a few example inputs:
 
 $$\forall x \in X \; f(x) \text{ is good}$$
 
+Testing tells us a set of inputs $X$ all lead to good behavior.
 It doesn't imply $\forall x \; f(x) \text{ is correct}$, but it's something.
 
-The word *good* is intentionally vague: it might say something about the output $f$ writes to a file, or about how fast $f$ runs, or whether $f$ violated some security policy.
 
 ---
 
