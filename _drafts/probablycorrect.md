@@ -7,7 +7,11 @@ If that sounds crazy, remember that machine-learning models compete on precision
 And it's the whole idea in [approximate computing][].
 
 This post is about defining what it means for this kind of program to be *statistically* correct.
+The problem is that we don't even have names for the kinds of guarantees that different approaches to correctness can give us.
+What are the statistical equivalents of static verification, testing, or dynamic safety checking?
 If we're going to write papers about probably-correct programs (and we are), we need to be clear about what our goals are.
+
+## Normal Correctness
 
 With normal, hopefully-always-correct programs, the ultimate goal is **verification**:
 
@@ -23,81 +27,12 @@ $$\forall x \in X \; f(x) \text{ is good}$$
 Testing tells us a set of inputs $X$ all lead to good behavior.
 It doesn't imply $\forall x \; f(x) \text{ is correct}$, but it's something.
 
-
----
-
-But what happens when your program is allowed to be wrong some of the time?
+## Probably Correct Programs
 
 I'm going to ignore nondeterministic programs for this post. Those are programs where the probabilistic behavior arises from inside the program. In those, you want to show something like $\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge P$. Instead, this post is just about deterministic programs---for any given input, you always get the same output---where some inputs are good and other inputs are bad. That includes most machine learning models and approximate computing techniques like NPUs and loop perforation.
 
-The problem is that there are lots more ways to define correctness statistically than there are "deterministic" definitions. And we don't have names for them, so even explaining your goal can be tricky.
-
-There's a straightforward analog for program verification:
-
-$$\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge P$$
-
-Let's call this property **probabilistic verification**.
-This implies that $f$ is nondeterministic: for a given input $x$, sometimes it behaves well and sometimes it doesn't.
-But we know it has a high *chance* of giving a good answer on any given run.
-I think probabilistic verification is strictly harder than traditional program verification: it has all the same challenges and more.
-
-Then there's an equally straightforward analog for testing:
-
-$$\forall x \in X \; 
-  \text{Pr}\left[ f(x) \text{ is good} \right] \ge P$$
-
-This one looks straightforward, but it's actually pretty hard: you need a conservative analysis for the nondeterminism in $f$.
-To make things practical, *confidence* usually comes in at this point.
-Checking a property up to a given confidence level means that the property is allowed to be wrong sometimes.
-The nice thing is that this can be accomplished just by running the program a lot and using a *statistical hypothesis test*.
-
-You can take basically any property and call it "$f$ is correctly 
-
-Then, show the variation where $X$ is a distribution instead of a set, and the criterion is probability.
-Here we're crossing into crazy town.
-
-The spirit in this case is that you *know* what you will see at run time, in aggregate.
-Call it **known-distribution** checking. This is strictly weaker than verification in the analogy, where the spirit is that you *don't know* what you will see at run time.
-
-It's totally different from static verification where someone can't give you an *adversarial* input.
-That you can unleash the program on the world and still know that things will be OK.
-
-For *that*, for something analogous to static verification, we'd need to prove:
-
-$\forall x \; \Pr{f(x) \text{ is correct}} \ge P$
-
-Confidence is easier to do:
-
-$\Pr{ \forall x \; \Pr{f(x) \text{ is correct} \ge P } \ge 1 - \alpha$
-
-(Actually, you can put anything inside that outer probability.)
-This is the current gold standard for approximate computing evaluations, I guess. And some papers don't even do that.
-
-What we actually get from hypothesis testing (passert):
-
-$\Pr{f(x) \text{ is correct} \;|\; x \sim D} \ge P$
-
-Same with Roomba; new ISCA paper.
-
----
-
-A surprisingly hard way to test:
-
-$$\forall x \in X \; 
-  \text{Pr}\left[ f(x) \text{ is good} \right] \ge P$$
-
-Add confidence:
-
-$$
-\text{Pr}\left[
-\forall x \in X \; 
-  \text{Pr}\left[ f(x) \text{ is good} \right] \ge P
-\right] \ge 1 - \alpha
-$$
 
 ## Distribution Testing
-
-
 
 $$
 \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \ge P
@@ -131,6 +66,13 @@ It's also the *bare minimum* that a paper on approximate computing should do!
 If a paper reports the fraction of runs that were accurate enough but *doesn't* do a hypothesis test, you should be sad.
 
 ## The Limits of Distribution Testing
+
+Call it **known-distribution** checking. This is strictly weaker than verification in the analogy, where the spirit is that you *don't know* what you will see at run time.
+
+It's totally different from static verification where someone can't give you an *adversarial* input.
+That you can unleash the program on the world and still know that things will be OK.
+
+---
 
 The fundamental problem with the *easy way* is that it depends on a distribution.
 It has roughly the same power as testing for traditional programs: you test your program under some known conditions you *think* are representative of real-world behavior, and you hope your findings generalize to how things go in production.
