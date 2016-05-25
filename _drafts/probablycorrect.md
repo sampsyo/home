@@ -11,6 +11,7 @@ The problem is that we don't even have names for the kinds of guarantees that di
 What are the statistical equivalents of static verification, testing, or dynamic safety checking?
 If we're going to write papers about probably-correct programs (and we are), we need to be clear about what our goals are.
 
+
 ## Normal Correctness
 
 With normal, hopefully-always-correct programs, the ultimate goal is **verification**:
@@ -27,35 +28,59 @@ $$\forall x \in X \; f(x) \text{ is good}$$
 Testing tells us a set of inputs $X$ all lead to good behavior.
 It doesn't imply $\forall x \; f(x) \text{ is correct}$, but it's something.
 
-## Probably Correct Programs
 
-I'm going to ignore nondeterministic programs for this post. Those are programs where the probabilistic behavior arises from inside the program. In those, you want to show something like $\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge P$. Instead, this post is just about deterministic programs---for any given input, you always get the same output---where some inputs are good and other inputs are bad. That includes most machine learning models and approximate computing techniques like NPUs and loop perforation.
+## Probably Correct Deterministic Programs
+
+For this post, let's assume $f$ is good on some inputs and bad on others---but it's *deterministic*.
+If $f(x)$ is good for some $x$, it's *always* good; it doesn't fail at random.
+For example, $f$ might be an image classifier that gives the correct class for most of the photos in a test set but is still wrong on a few.
+Or it might use a deterministic approximation technique like [loop perforation][] or an [NPU][].
+
+Nondeterministically correct programs are also important, of course, but there the goal is to show something more complicated: something like $\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge P$.
+This post focuses on the easy stuff.
 
 
-## Distribution Testing
+## Statistical Testing
 
-$$
-\text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \ge P
-$$
+There's a statistical version of testing that I'll call **statistical testing**.
+It's almost as easy to accomplish as normal testing---you just need to run your program on example inputs---and the resulting correctness statement is about as useful.
 
-This is the kind of property we verify with passert. It's also what evaluation for approximate computing should do (but often don't).
-Here's what you need to do to get that kind of property via hypothesis testing:
+The idea is to pick, instead of a set $X$ of representative inputs, a distribution $D$ of inputs that you think is representative of real-world behavior.
+For example, if you're writing an approximate trigonometric function, you might choose a uniform distribution between 0.0 and 1.0.
+Or if you're running on data from the natural world, maybe you expect normally-distributed inputs.
+Then your goal is to show this:
+
+$$\text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \ge P$$
+
+This statement is pretty easy to show with high confidence.
+As long as you're willing to accept a probability, $\alpha$, of being wrong, all you need to do is run your program enough times to be confident that the behavior you observed wasn't a random fluke.
+Here's the recipe:
 
 1. Pick your distribution $D$.
-2. Get $n$ examples $x$ of $D$.
-3. Run $f$ on $x$ each time.
-4. Check whether $f(x)$ is good on each run; let $g$ be the number of good runs.
-5. Now, $g \over n$ is your estimate for $P$. Use some simple statistics to decide whether the true probability is likely bigger than $P$.
+2. Get $n$ examples (samples) of $D$.
+3. Run $f$ on each sampled $x$.
+4. Check whether $f(x)$ is good on each run.
+5. Let $g$ be the number of good runs. Now, $\hat{p} = \frac{g}{n}$ is your estimate for the probability $p = \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right]$.
+6. Use statistics to decide whether you have enough evidence to say $p \ge P$. You can use a [confidence interval formula][binomial interval] to get upper and lower bounds on $p$, for example. Or you can get a p-value by using the binomial distribution's density function.
+
+[binomial interval]: https://en.m.wikipedia.org/wiki/Binomial_proportion_confidence_interval
+
+This is the kind of property we verify with passert. It's also what evaluation for approximate computing should do (but often don't).
 
 It's a little trickier than testing for normal programs, since you have to pick a whole distribution $D$ that can generate lots of examples instead of just a fixed set of inputs $X$.
 But the idea is more or less the same: you don't need to know anything about the *inside* of the program; you just need to be able to run it and measure the "good" property you want, just like in normal testing.
 
 To be clear, the hypothesis testing gives you a guarantee *up to a confidence level*.
-That looks like a doubly-wrapped probability:
+That looks like a doubly-wrapped probability.
+Let $p$ be the correctness probability:
+
+$$p = \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right]$$
+
+Then statistical testing tells you:
 
 $$
 \text{Pr}\left[
-\text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \ge P
+p \ge P
 \right] \ge 1 - \alpha
 $$
 
