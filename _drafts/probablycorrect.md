@@ -90,7 +90,15 @@ That's the idea behind probabilistic assertions. (Our paper bakes this approach 
 It's also the *bare minimum* that a paper on approximate computing should do!
 If a paper reports the fraction of runs that were accurate enough but *doesn't* do a hypothesis test, you should be sad.
 
-## The Limits of Distribution Testing
+## A Stronger Guarantee
+
+Statistical testing tells you something for probably-correct programs that's about as strong as normal testing for normal programs: that your program works well *in vitro*, under lab conditions.
+It doesn't say anything about what will happens when your program is exposed to the nastiness of the real world.
+Just like testing, then, it's not really a *guarantee*, except for the conditions you were able to anticipate during development.
+
+What would a real guarantee look like, then, for probably-correct programs?
+
+TK
 
 Call it **known-distribution** checking. This is strictly weaker than verification in the analogy, where the spirit is that you *don't know* what you will see at run time.
 
