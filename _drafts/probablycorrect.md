@@ -5,12 +5,14 @@ mathjax: true
 What does it mean to say that a program is good enough when it's allowed to be wrong some of the time?
 
 If that sounds crazy, remember that machine-learning models compete on precision and recall, that distributed systems are allowed to fail, and that Siri is still useful despite its miss rate.
-And it's the whole idea in [approximate computing][].
+And it's the whole idea in [approximate computing][approx].
 
 This post is about defining what it means for this kind of program to be *statistically* correct.
 The problem is that we don't even have names for the kinds of guarantees that different approaches to correctness can give us.
 What are the statistical equivalents of static verification, testing, or dynamic safety checking?
 If we're going to write papers about probably-correct programs (and we are), we need to be clear about what our goals are.
+
+[approx]: {{site.base}}/research.html#approximate-computing
 
 
 ## Normal Correctness
@@ -66,7 +68,11 @@ Here's the recipe:
 
 [binomial interval]: https://en.m.wikipedia.org/wiki/Binomial_proportion_confidence_interval
 
-This is the kind of property we verify with [probabilistic assertions][]. It's also what evaluation for approximate computing should do (but often don't).
+This is the kind of property we verify with [probabilistic assertions][passert]. It's also what evaluation for approximate computing should do (but often don't).
+
+[passert]: http://dx.doi.org/10.1145/2594291.2594294
+[npu]: http://dx.doi.org/10.1109/MICRO.2012.48
+[loop perforation]: http://dx.doi.org/10.1145/2025113.2025133
 
 It's a little trickier than testing for normal programs, since you have to pick a whole distribution $D$ that can generate lots of examples instead of just a fixed set of inputs $X$.
 But the idea is more or less the same: you don't need to know anything about the *inside* of the program; you just need to be able to run it and measure the "good" property you want, just like in normal testing.
