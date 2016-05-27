@@ -1,5 +1,6 @@
 ---
 title: Probably Correct
+mathjax: true
 ---
 What does it mean to say that a program is good enough when it's allowed to be wrong some of the time?
 
@@ -65,7 +66,7 @@ Here's the recipe:
 
 [binomial interval]: https://en.m.wikipedia.org/wiki/Binomial_proportion_confidence_interval
 
-This is the kind of property we verify with passert. It's also what evaluation for approximate computing should do (but often don't).
+This is the kind of property we verify with [probabilistic assertions][]. It's also what evaluation for approximate computing should do (but often don't).
 
 It's a little trickier than testing for normal programs, since you have to pick a whole distribution $D$ that can generate lots of examples instead of just a fixed set of inputs $X$.
 But the idea is more or less the same: you don't need to know anything about the *inside* of the program; you just need to be able to run it and measure the "good" property you want, just like in normal testing.
