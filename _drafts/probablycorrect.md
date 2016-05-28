@@ -19,14 +19,14 @@ If we're going to write papers about probably-correct programs (and we are), we 
 
 With normal, hopefully-always-correct programs, the ultimate goal is **verification**:
 
-$$\forall x \; f(x) \text{ is good}$$
+\\[ \forall x \; f(x) \text{ is good} \\]
 
 The word *good* is intentionally vague: it might say something about the output $f$ writes to a file, or about how fast $f$ runs, or whether $f$ violated some security policy.
 In any case, verification says your program behaves well on every input.
 
 Verification is hard, so we also have **testing,** which says a program behaves well on a few example inputs:
 
-$$\forall x \in X \; f(x) \text{ is good}$$
+\\[ \forall x \in X \; f(x) \text{ is good} \\]
 
 Testing tells us a set of inputs $X$ all lead to good behavior.
 It doesn't imply $\forall x \; f(x) \text{ is correct}$, but it's something.
@@ -53,7 +53,7 @@ For example, if you're writing an approximate trigonometric function, you might 
 Or if you're running on data from the natural world, maybe you expect normally-distributed inputs.
 Then your goal is to show this:
 
-$$\text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \ge P$$
+\\[ \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \ge P \\]
 
 This statement is pretty easy to show with high confidence.
 As long as you're willing to accept a probability, $\alpha$, of being wrong, all you need to do is run your program enough times to be confident that the behavior you observed wasn't a random fluke.
@@ -81,15 +81,15 @@ To be clear, the hypothesis testing gives you a guarantee *up to a confidence le
 That looks like a doubly-wrapped probability.
 Let $p$ be the correctness probability:
 
-$$p = \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right]$$
+\\[ p = \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \\]
 
 Then statistical testing tells you:
 
-$$
+\\[
 \text{Pr}\left[
 p \ge P
 \right] \ge 1 - \alpha
-$$
+\\]
 
 Here, $\alpha$ is the confidence level. It's the chance that the verification is lying to you.
 
