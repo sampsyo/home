@@ -53,7 +53,7 @@ For example, if you're writing an approximate trigonometric function, you might 
 Or if you're running on data from the natural world, maybe you expect normally-distributed inputs.
 Then your goal is to show this:
 
-\\[ \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \ge P \\]
+\\[ \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right] \ge P \\]
 
 This statement is pretty easy to show with high confidence.
 As long as you're willing to accept a probability, $\alpha$, of being wrong, all you need to do is run your program enough times to be confident that the behavior you observed wasn't a random fluke.
@@ -63,7 +63,7 @@ Here's the recipe:
 2. Get $n$ examples (samples) of $D$.
 3. Run $f$ on each sampled $x$.
 4. Check whether $f(x)$ is good on each run.
-5. Let $g$ be the number of good runs. Now, $\hat{p} = \frac{g}{n}$ is your estimate for the probability $p = \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right]$.
+5. Let $g$ be the number of good runs. Now, $\hat{p} = \frac{g}{n}$ is your estimate for the probability $p = \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right]$.
 6. Use statistics to decide whether you have enough evidence to say $p \ge P$. You can use a [confidence interval formula][binomial interval] to get upper and lower bounds on $p$, for example. Or you can get a p-value by using the binomial distribution's density function.
 
 [binomial interval]: https://en.m.wikipedia.org/wiki/Binomial_proportion_confidence_interval
@@ -81,7 +81,7 @@ To be clear, the hypothesis testing gives you a guarantee *up to a confidence le
 That looks like a doubly-wrapped probability.
 Let $p$ be the correctness probability:
 
-\\[ p = \text{Pr}\left[ f(x) \text{ is good} \;|\; x \sim D \right] \\]
+\\[ p = \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right] \\]
 
 Then statistical testing tells you:
 
