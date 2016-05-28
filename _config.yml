@@ -13,6 +13,7 @@ kramdown:
     enable_coderay: false
     auto_ids: true
     entity_output: symbolic
+    math_engine: null
 highlighter: null
 
 exclude:
