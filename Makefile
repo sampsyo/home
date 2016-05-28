@@ -53,7 +53,7 @@ $(BOOTSTRAP): $(BOWER)
 
 # KaTeX.
 $(KATEX): $(BOWER)
-	$(BOWER) install $(BOWER_ARGS) katex\#~0.5.1
+	$(BOWER) install $(BOWER_ARGS) katex\#~0.6.0
 	@touch $@
 media/katex: $(KATEX)
 	cp -r $< $@
