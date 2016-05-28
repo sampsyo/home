@@ -143,3 +143,12 @@ You might tell yourself the story, "Well, instead of just running the program a 
 The current papers that do this kind of thing are just heuristics, so they absolutely cannot offer any stronger form of guarantee.
 Instead, all they can do is adjust $P$.
 In essence, they're ways to build a better approximation---not ways to bring better guarantees.
+
+I can't believe I'm about to make a car analogy, but it's like a Prius.
+Hybrid cars use electric motors internally, but that shouldn't fool you into thinking they're electric cars.
+A hybrid is fundamentally a gas-powered conveyance---it's just a more efficient way to build a gas-powered car.
+So when you think about a Prius's efficiency, think of it as on the same spectrum as traditional cars---not in another category entirely.
+
+In the same way, bolting some run-time heuristics onto an approximate program doesn't give it statistical guarantees.
+It just makes it, on average, more accurate.
+Shifting to a wholly new kind of statistical dependability will require very different-looking techniques.
