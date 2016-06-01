@@ -11,7 +11,7 @@ This post is about what it means for this kind of program to be *statistically* 
 We don't even have names for the kinds of guarantees we might want for most-of-the-time correctness.
 If we're going to write papers about probably-correct programs (and we are), we need to be clear about what our goals are.
 
-I'll describe a dorkily simple way to conclude something rigorous about your probably-correct program that only requires high-school--level statistics to apply.
+I'll describe a dorkily simple way to conclude something rigorous about your probably-correct program that only requires Wikipedia-level statistics to apply.
 Then I'll argue that it's deceptively difficult to do anything stronger than this basic technique---even when you try to catch bad behavior at run time.
 If we want to make stronger guarantees about probably-correct programs, we'll need more creative ideas.
 
@@ -71,7 +71,7 @@ Here's the complete recipe:
 2. Randomly choose $n$ inputs $x$ according to $D$. (This is called [sampling][].)
 3. Run $f$ on each sampled $x$ and check whether each $f(x)$ is good.
 4. Let $g$ be the number of good runs. Now, $\hat{p} = \frac{g}{n}$ is your estimate for $p$.
-5. Some light statistics magic.
+5. Perform some light statistics magic.
 
 There are a few ways to do the statistics. Here's a really simple way: use a [confidence interval formula][binomial interval] to get upper and lower bounds on $p$.
 The [Clopper--Pearson][] formula, for example, gives you a $p_{\text{low}}$ and $p_{\text{high}}$ so that:
@@ -83,7 +83,7 @@ If $p_{\text{low}} \ge P$, then you can say with confidence $\alpha$ that $f$ is
 If $p_{\text{high}} \le P$, then you can say it's wrong.
 Otherwise, the test is inconclusive---you need to take more samples.
 
-There are fancier ways, too: you could use [Wald's sequential sampling][wald] to automatically choose $n$ and rule out possibility that you don't have enough evidence.
+There are fancier ways, too: you could use [Wald's sequential sampling][wald] to automatically choose $n$ and rule out possibility of an inconclusive result.
 But the simple Clopper--Pearson way is perfectly good.
 
 [wald]: https://en.wikipedia.org/wiki/Sequential_probability_ratio_test
