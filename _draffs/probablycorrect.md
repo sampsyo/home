@@ -48,57 +48,62 @@ This post focuses on the easy stuff.
 
 ## Statistical Testing
 
-There's a statistical version of testing that I'll call **statistical testing**.
-It's almost as easy to accomplish as normal testing---you just need to run your program on example inputs---and the resulting correctness statement is about as useful.
+There's an easy way to get a basic kind of statistical correctness.
+It's roughly equivalent to traditional testing in terms of both difficulty and strength, so I'll call it **statistical testing**.
+(To be clear, this is not my invention, but we did use it in the [probabilistic assertions][] paper.)
 
-The idea is to pick, instead of a set $X$ of representative inputs, a distribution $D$ of inputs that you think is representative of real-world behavior.
-For example, if you're writing an approximate trigonometric function, you might choose a uniform distribution between 0.0 and 1.0.
-Or if you're running on data from the natural world, maybe you expect normally-distributed inputs.
-Then your goal is to show this:
+The idea is to pick, instead of a set $X$ of representative inputs, a [probability distribution][] $D$ of inputs that you think is representative of real-world behavior.
+For example, if you're going to run on data from the natural world, you might choose a [normal distribution][].
+Then you can show with high *confidence* that, when you randomly choose an $x$ from the input distribution $D$, it has a high probability of making $f(x)$ good.
+
+In other words, your goal is to show:
 
 \\[ \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right] \ge P \\]
 
-This statement is pretty easy to show with high confidence.
-As long as you're willing to accept a probability, $\alpha$, of being wrong, all you need to do is run your program enough times to be confident that the behavior you observed wasn't a random fluke.
-Here's the recipe:
+with confidence $\alpha$.
+Your [confidence][] parameter helps you decide how much evidence to collect---instead of proving that statement absolutely, we'll say that we have observed enough evidence that there's only an $\alpha$ chance we observed a random fluke.
 
-1. Pick your distribution $D$.
-2. Get $n$ examples (samples) of $D$.
-3. Run $f$ on each sampled $x$.
-4. Check whether $f(x)$ is good on each run.
-5. Let $g$ be the number of good runs. Now, $\hat{p} = \frac{g}{n}$ is your estimate for the probability $p = \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right]$.
-6. Use statistics to decide whether you have enough evidence to say $p \ge P$. You can use a [confidence interval formula][binomial interval] to get upper and lower bounds on $p$, for example. Or you can get a p-value by using the binomial distribution's density function.
+Let $p = \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right]$ be the *correctness probability* for $f$.
+Our goal is to check whether $p \ge P$, our threshold for *good enough*.
+Here's the complete recipe:
 
+1. Pick your input distribution $D$.
+2. Randomly choose $n$ inputs $x$ according to $D$. (This is called [sampling][].)
+3. Run $f$ on each sampled $x$ and check whether each $f(x)$ is good.
+4. Let $g$ be the number of good runs. Now, $\hat{p} = \frac{g}{n}$ is your estimate for $p$.
+5. Some light statistics magic.
+
+There are a few ways to do the statistics. Here's a really simple way: use a [confidence interval formula][binomial interval] to get upper and lower bounds on $p$.
+The [Clopper--Pearson][] formula, for example, gives you a $p_{\text{low}}$ and $p_{\text{high}}$ so that:
+
+\\[ \text{Pr}\left[ p_{\text{low}} \le p \le p_{\text{high}} \right] \ge 1 - \alpha \\]
+
+Remember that $\alpha$ is small, so you're saying that it's likely you have an interval around $p$.
+If $p_{\text{low}} \ge P$, then you can say with confidence $\alpha$ that $f$ is good on the input distribution $D$.
+If $p_{\text{high}} \le P$, then you can say it's wrong.
+Otherwise, the test is inconclusive---you need to take more samples.
+
+There are fancier ways, too: you could use [Wald's sequential sampling][wald] to automatically choose $n$ and rule out possibility that you don't have enough evidence.
+But the simple Clopper--Pearson way is perfectly good.
+
+[wald]: https://en.wikipedia.org/wiki/Sequential_probability_ratio_test
 [binomial interval]: https://en.m.wikipedia.org/wiki/Binomial_proportion_confidence_interval
+[uniform distribution]: http://mathworld.wolfram.com/UniformDistribution.html
+[probability distribution]: https://en.wikipedia.org/wiki/Probability_distribution
+[normal distribution]: https://en.wikipedia.org/wiki/Normal_distribution
+[sampling]: https://en.wikipedia.org/wiki/Sampling_(statistics)
+[clopper--pearson]: https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Clopper-Pearson_interval
 
-This is the kind of property we verify with [probabilistic assertions][passert]. It's also what evaluation for approximate computing should do (but often don't).
+Statistical testing should be the bar for publication in papers about statistical correctness.
+It doesn't require any fancy computer science: all you need to do is run $f$ as a black box and check its output, just like in traditional testing.
+Our [probabilistic assertions][] checker uses some fanciness to make statistical testing more efficient, but the statistics couldn't be easier to do at home.
+So if you read an approximate computing paper that doesn't report its $\alpha$, be suspicious.
 
 [passert]: http://dx.doi.org/10.1145/2594291.2594294
 [npu]: http://dx.doi.org/10.1109/MICRO.2012.48
 [loop perforation]: http://dx.doi.org/10.1145/2025113.2025133
+[confidence]: https://en.wikipedia.org/wiki/Confidence_interval
 
-It's a little trickier than testing for normal programs, since you have to pick a whole distribution $D$ that can generate lots of examples instead of just a fixed set of inputs $X$.
-But the idea is more or less the same: you don't need to know anything about the *inside* of the program; you just need to be able to run it and measure the "good" property you want, just like in normal testing.
-
-To be clear, the hypothesis testing gives you a guarantee *up to a confidence level*.
-That looks like a doubly-wrapped probability.
-Let $p$ be the correctness probability:
-
-\\[ p = \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right] \\]
-
-Then statistical testing tells you:
-
-\\[
-\text{Pr}\left[
-p \ge P
-\right] \ge 1 - \alpha
-\\]
-
-Here, $\alpha$ is the confidence level. It's the chance that the verification is lying to you.
-
-That's the idea behind probabilistic assertions. (Our paper bakes this approach into a tool and makes it more efficient.)
-It's also the *bare minimum* that a paper on approximate computing should do!
-If a paper reports the fraction of runs that were accurate enough but *doesn't* do a hypothesis test, you should be sad.
 
 ## A Stronger Guarantee
 
