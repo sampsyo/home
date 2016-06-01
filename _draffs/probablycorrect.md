@@ -133,32 +133,28 @@ And the third option is so vague that I'm not certain it's even possible.
 Getting a guarantee that's stronger than statistical testing will take real creativity.
 
 
-## How Not to Improve Statistical Guarantees
+## Heuristics Can't Beat Statistical Testing
 
-There's a worrying trend in approximate-computing research that appears to improve on "the easy way" without fundamentally changing anything.
-These papers add statistical controls to programs that make them better on average while purporting to offer better guarantees.
-But increasing $P$ is not a stronger kind of guarantee---you can accomplish the same thing by just using a more accurate approximate strategy, such as a larger NPU.
+One approach that *can't* beat statistical testing is an on-line heuristic.
+Here's the usual line of reasoning:
 
-Ideas like this include:
+> Statistical testing is weak because it only knows about inputs we anticipated *in vitro*.
+> To do better, let's try to detect bad inputs or bad outputs at run time!
+> It's easy: just before running $f$ on $x$, or just after getting the output $f(x)$, apply some heuristic to predict whether the execution is good or bad.
+> The heuristic will statistically avoid bad behavior, so we'll get a stronger guarantee.
 
-- Put a filter on the input and predict whether it will be a "good" or "bad" input. For bad inputs, run the approximate version.
-- Check the output $f(x)$ and try to guess cheaply whether it's a good or bad output.
+There's no program analysis necessary: we get to keep treating $f$ as a black box. Easy!
 
-There's nothing inherently wrong with these approaches, but they're easy and they lead to the same kind of distribution-sensitive guarantee.
+The problem is that *any heuristic* will have false positives.
+Regardless of whether you choose a decision tree, a support vector machine, a neural network, or just a lookup table, the result is the same---there's some $x_\text{bad}$ out there that will fool your heuristic.
+The existence of even a single $x_\text{bad}$ ruins your shot at a strong guarantee.
 
-These are *dynamic* approaches, but they don't change the approach you need to use to check their effectiveness.
-Just because a mechanism runs in deployment, it doesn't necessarily offer any stronger guarantees!
-
-You might tell yourself the story, "Well, instead of just running the program a bunch in testing and hoping for the best after that, this paper actually looks at every execution and decides whether it's good or not!" But *soundly* deciding this at run time is hard (probably impossible in general).
-The current papers that do this kind of thing are just heuristics, so they absolutely cannot offer any stronger form of guarantee.
-Instead, all they can do is adjust $P$.
-In essence, they're ways to build a better approximation---not ways to bring better guarantees.
+So while this kind of approach can help increase a program's correctness probability $p$, it doesn't change the *kind* of guarantee that's possible.
+In fact, to show that your heuristic is working, you need to resort to statistical testing and all its pitfalls.
+In that way, using a dynamic heuristic is morally equivalent to just using a more accurate $f$ in the first place---and then checking *that* with statistical testing.
 
 I can't believe I'm about to make a car analogy, but it's like a Prius.
-Hybrid cars use electric motors internally, but that shouldn't fool you into thinking they're electric cars.
-A hybrid is fundamentally a gas-powered conveyance---it's just a more efficient way to build a gas-powered car.
-So when you think about a Prius's efficiency, think of it as on the same spectrum as traditional cars---not in another category entirely.
-
-In the same way, bolting some run-time heuristics onto an approximate program doesn't give it statistical guarantees.
-It just makes it, on average, more accurate.
-Shifting to a wholly new kind of statistical dependability will require very different-looking techniques.
+Hybrid cars use electric motors internally, but they're still 100% powered by gas.
+So a Prius is just a more efficient way to make a traditional gas car, and we shouldn't be confused into thinking they're electric vehicles.
+In the same way, bolting a heuristic onto an approximate program doesn't give it a stronger kind of guarantee.
+Stronger guarantees will require something more.
