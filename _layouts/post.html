@@ -2,7 +2,11 @@
 layout: default
 ---
 <h2 class="with-tagline">{{ page.title }}</h2>
+{% if page.collection == "draffs" %}
+<p class="tagline">unpublished draft</p>
+{% else %}
 <p class="tagline">{{ page.date | date: '%B %-d, %Y' }}</p>
+{% endif %}
 <article class="full">
 {{ content }}
 </article>
