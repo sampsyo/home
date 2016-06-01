@@ -7,9 +7,8 @@ What does it mean to say that a program is good enough when it's allowed to be w
 If that sounds crazy, remember that machine-learning models compete on precision and recall, that distributed systems are allowed to fail, and that Siri is still useful despite its miss rate.
 And it's the whole idea in [approximate computing][approx].
 
-This post is about defining what it means for this kind of program to be *statistically* correct.
-The problem is that we don't even have names for the kinds of guarantees that different approaches to correctness can give us.
-What are the statistical equivalents of static verification, testing, or dynamic safety checking?
+This post is about what it means for this kind of program to be *statistically* correct.
+We don't even have names for the kinds of guarantees we might want for most-of-the-time correctness.
 If we're going to write papers about probably-correct programs (and we are), we need to be clear about what our goals are.
 
 [approx]: {{site.base}}/research.html#approximate-computing
@@ -29,7 +28,7 @@ Verification is hard, so we also have **testing,** which says a program behaves 
 \\[ \forall x \in X \; f(x) \text{ is good} \\]
 
 Testing tells us a set of inputs $X$ all lead to good behavior.
-It doesn't imply $\forall x \; f(x) \text{ is correct}$, but it's something.
+It doesn't imply $\forall x$ anything, but it's something.
 
 
 ## Probably Correct Deterministic Programs
