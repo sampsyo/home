@@ -38,6 +38,12 @@ defaults:
             type: drafts
         values:
             layout: post
+    -
+        scope:
+            path: ""
+            type: draft
+        values:
+            layout: post
 
 navigation:
     - title: home
@@ -51,3 +57,9 @@ navigation:
 
 redirect:
     files/enerjproofs.pdf: media/enerjproofs.pdf
+
+# Rendered drafts.
+collections:
+    draft:
+        output: true
+        permalink: /blog/drafts/:path
