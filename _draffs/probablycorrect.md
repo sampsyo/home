@@ -152,7 +152,7 @@ The problem is that every heuristic has false positives.
 Regardless of whether you choose a decision tree, a support vector machine, a neural network, or just a fuzzy lookup table, the result is the same---there's some $x_\text{bad}$ out there that will fool your heuristic.
 The existence of even a single $x_\text{bad}$ ruins your shot at a strong guarantee.
 
-So while this kind of approach can help increase a program's correctness probability $p$, it doesn't change the *kind* of guarantee that's possible.
+So while heuristic checking can help increase a program's correctness probability $p$, it doesn't change the *kind* of guarantee that's possible.
 In fact, to show that your heuristic is working, you need to resort to statistical testing and all its pitfalls.
 In that way, using a dynamic heuristic is morally equivalent to just using a more accurate $f$ in the first place---and then checking *that* with statistical testing.
 
