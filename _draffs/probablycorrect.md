@@ -23,18 +23,18 @@ With normal, hopefully-always-correct programs, the ultimate goal is **verificat
 The word *good* is intentionally vague: it might say something about the output $f$ writes to a file, or about how fast $f$ runs, or whether $f$ violated some security policy.
 In any case, verification says your program behaves well on every input.
 
-Verification is hard, so we also have **testing,** which says a program behaves well on a few example inputs:
+Verification is hard, so we also have **testing**, which says a program behaves well on a few example inputs:
 
-\\[ \forall x \in X \; f(x) \text{ is good} \\]
+\\[ \forall\; x \in X \; f(x) \text{ is good} \\]
 
 Testing tells us a set of inputs $X$ all lead to good behavior.
 It doesn't imply $\forall x$ anything, but it's something.
 
 
-## Probably Correct Deterministic Programs
+## Deterministic, Probably-Correct Programs
 
-For this post, let's assume $f$ is good on some inputs and bad on others---but it's *deterministic*.
-If $f(x)$ is good for some $x$, it's *always* good; it doesn't fail at random.
+For this post, let's assume $f$ is good on some inputs and bad on others, but it doesn't fail at random.
+In other words, it's *deterministic:* for a given $x$, running $f(x)$ is either always good or always bad.
 For example, $f$ might be an image classifier that gives the correct class for most of the photos in a test set but is still wrong on a few.
 Or it might use a deterministic approximation technique like [loop perforation][] or an [NPU][].
 
