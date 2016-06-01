@@ -107,31 +107,31 @@ So if you read an approximate computing paper that doesn't report its $\alpha$, 
 [cp gist]: https://gist.github.com/sampsyo/c073c089bde311a6777313a4a7ac933e
 
 
-## A Stronger Guarantee
+## Stronger Statements
 
-Statistical testing tells you something for probably-correct programs that's about as strong as normal testing for normal programs: that your program works well *in vitro*, under lab conditions.
-It doesn't say anything about what will happens when your program is exposed to the nastiness of the real world.
-Just like testing, then, it's not really a *guarantee*, except for the conditions you were able to anticipate during development.
+Statistical testing is about as strong as traditional testing is for normal programs:
+it says that your program behaves itself under specific conditions that you anticipate in development.
+It doesn't say anything about what will happen when your program meets the real world---there are no guarantees for any input distribution other than $D$.
 
-What would a real guarantee look like, then, for probably-correct programs?
+What would a strong guarantee look like for probably-correct programs?
+Ideally, we'd say that a program's correctness probability is high for any input distribution that users can throw at it.
+Independent of the input distribution, we should be guaranteed that 99 of every 100 executions are good in expectation.
 
-TK
+This kind of distribution-independent guarantee is deceptively difficult to certify.
+Any such technique would need to cope with adversarial input distributions.
+For example, a user could find a single $x_\text{bad}$ input that your program doesn't handle well and then issue a probability distribution $D_\text{bad}$ that just produces that $x_\text{bad}$ over and over again.
+I can only see three ways that might work:
 
-Call it **known-distribution** checking. This is strictly weaker than verification in the analogy, where the spirit is that you *don't know* what you will see at run time.
+* Conservatively identify *all* (not just most) of the bad $x$s for $f$ and detect them at run time.
+* Dynamically check *every* execution for correctness.
+* Somehow use a memory of previous runs to check for adversarial distributions, like those that lean too heavily on a small number of bad inputs.
 
-It's totally different from static verification where someone can't give you an *adversarial* input.
-That you can unleash the program on the world and still know that things will be OK.
+All these options are hard!
+The first two options are as hard as recovering complete correctness---anything less than perfection risks missing a single $x_\text{bad}$ that an adversary could use to drive your correctness probability to zero.
+And the third option is so vague that I'm not certain it's even possible.
 
----
+Getting a guarantee that's stronger than statistical testing will take real creativity.
 
-The fundamental problem with the *easy way* is that it depends on a distribution.
-It has roughly the same power as testing for traditional programs: you test your program under some known conditions you *think* are representative of real-world behavior, and you hope your findings generalize to how things go in production.
-You don't get any guarantee when the real world fails to conform to your expectations.
-
-The more challenging but useful property to verify is a *distribution-independent* one.
-We need tools that can tell you whether your program is going to succeed with high probability even when it runs on the weird distributions that real-world users come up with.
-
-To be clear, this has nothing to do with confidence: even a hypothesis-testing approach can do better than the easy way, up to confidence.
 
 ## How Not to Improve Statistical Guarantees
 
