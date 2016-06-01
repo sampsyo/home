@@ -62,4 +62,4 @@ redirect:
 collections:
     draffs:
         output: true
-        permalink: /blog/drafts/:path
+        permalink: /blog/drafts/:slug.html
