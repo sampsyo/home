@@ -82,9 +82,10 @@ Remember that $\alpha$ is small, so you're saying that it's likely you have an i
 If $p_{\text{low}} \ge P$, then you can say with confidence $\alpha$ that $f$ is good on the input distribution $D$.
 If $p_{\text{high}} \le P$, then you can say it's wrong.
 Otherwise, the test is inconclusive---you need to take more samples.
+Collecting more samples (increasing $n$) tightens the interval; demanding higher confidence (decreasing $\alpha$) loosens the interval.
 
 There are fancier ways, too: you could use [Wald's sequential sampling][wald] to automatically choose $n$ and rule out possibility of an inconclusive result.
-But the simple Clopper--Pearson way is perfectly good.
+But the simple Clopper--Pearson way is perfectly good, and it's easy to implement: here it is in [four lines of Python][cp gist].
 
 [wald]: https://en.wikipedia.org/wiki/Sequential_probability_ratio_test
 [binomial interval]: https://en.m.wikipedia.org/wiki/Binomial_proportion_confidence_interval
@@ -103,6 +104,7 @@ So if you read an approximate computing paper that doesn't report its $\alpha$, 
 [npu]: http://dx.doi.org/10.1109/MICRO.2012.48
 [loop perforation]: http://dx.doi.org/10.1145/2025113.2025133
 [confidence]: https://en.wikipedia.org/wiki/Confidence_interval
+[cp gist]: https://gist.github.com/sampsyo/c073c089bde311a6777313a4a7ac933e
 
 
 ## A Stronger Guarantee
