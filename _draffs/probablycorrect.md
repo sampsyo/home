@@ -143,10 +143,13 @@ Here's the usual line of reasoning:
 > It's easy: just before running $f$ on $x$, or just after getting the output $f(x)$, apply some heuristic to predict whether the execution is good or bad.
 > The heuristic will statistically avoid bad behavior, so we'll get a stronger guarantee.
 
-There's no program analysis necessary: we get to keep treating $f$ as a black box. Easy!
+There's no program analysis necessary: we get to keep treating $f$ as a black box.
+Let's call this general approach **heuristic checking**.
+Heuristic checking can be a useful way to adjust your program's correctness probability $p$; hence publications in [ASPLOS 2015][approxdebug] (where I'm an author), [ISCA 2015][rumba], [ASPLOS 2016][capri], [PLDI 2016][ira], and [ISCA 2016][mithra].
+But adjusting $p$ is all a heuristic can do: it can't give you a stronger kind of guarantee.
 
-The problem is that *any heuristic* will have false positives.
-Regardless of whether you choose a decision tree, a support vector machine, a neural network, or just a lookup table, the result is the same---there's some $x_\text{bad}$ out there that will fool your heuristic.
+The problem is that every heuristic has false positives.
+Regardless of whether you choose a decision tree, a support vector machine, a neural network, or just a fuzzy lookup table, the result is the same---there's some $x_\text{bad}$ out there that will fool your heuristic.
 The existence of even a single $x_\text{bad}$ ruins your shot at a strong guarantee.
 
 So while this kind of approach can help increase a program's correctness probability $p$, it doesn't change the *kind* of guarantee that's possible.
@@ -156,5 +159,10 @@ In that way, using a dynamic heuristic is morally equivalent to just using a mor
 I can't believe I'm about to make a car analogy, but it's like a Prius.
 Hybrid cars use electric motors internally, but they're still 100% powered by gas.
 So a Prius is just a more efficient way to make a traditional gas car, and we shouldn't be confused into thinking they're electric vehicles.
-In the same way, bolting a heuristic onto an approximate program doesn't give it a stronger kind of guarantee.
-Stronger guarantees will require something more.
+In the same way, bolting a heuristic onto an approximate program doesn't give it a stronger kind of guarantee than an "unchecked" approximate program.
+
+[mithra]: http://www.cc.gatech.edu/~ayazdanb/publication/papers/mithra-isca16.pdf
+[rumba]: http://cccp.eecs.umich.edu/papers/dskhudia-isca15.pdf
+[ira]: http://conf.researchr.org/event/pldi-2016/pldi-2016-papers-input-responsive-approximation-using-canary-inputs-to-dynamically-steer-software-approximation-
+[capri]: http://dl.acm.org/citation.cfm?id=2872402
+[approxdebug]: https://homes.cs.washington.edu/~luisceze/publications/approxdebug-asplos15.pdf
