@@ -50,7 +50,7 @@ This post focuses on the easy stuff.
 
 There's an easy way to get a basic kind of statistical correctness.
 It's roughly equivalent to traditional testing in terms of both difficulty and strength, so I'll call it **statistical testing**.
-(To be clear, this is not my invention, but we did use it in the [probabilistic assertions][] paper.)
+(But to be clear, this is not my invention.)
 
 The idea is to pick, instead of a set $X$ of representative inputs, a [probability distribution][] $D$ of inputs that you think is representative of real-world behavior.
 For example, if you're going to run on data from the natural world, you might choose a [normal distribution][].
@@ -96,7 +96,7 @@ But the simple Clopper--Pearson way is perfectly good.
 
 Statistical testing should be the bar for publication in papers about statistical correctness.
 It doesn't require any fancy computer science: all you need to do is run $f$ as a black box and check its output, just like in traditional testing.
-Our [probabilistic assertions][] checker uses some fanciness to make statistical testing more efficient, but the statistics couldn't be easier to do at home.
+Our [probabilistic assertions][passert] checker uses some fanciness to make statistical testing more efficient, but the statistics couldn't be easier to do at home.
 So if you read an approximate computing paper that doesn't report its $\alpha$, be suspicious.
 
 [passert]: http://dx.doi.org/10.1145/2594291.2594294
