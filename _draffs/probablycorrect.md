@@ -11,6 +11,10 @@ This post is about what it means for this kind of program to be *statistically* 
 We don't even have names for the kinds of guarantees we might want for most-of-the-time correctness.
 If we're going to write papers about probably-correct programs (and we are), we need to be clear about what our goals are.
 
+I'll describe a dorkily simple way to conclude something rigorous about your probably-correct program that only requires high-school--level statistics to apply.
+Then I'll argue that it's deceptively difficult to do anything stronger than this basic technique---even when you try to catch bad behavior at run time.
+If we want to make stronger guarantees about probably-correct programs, we'll need more creative ideas.
+
 [approx]: {{site.base}}/research.html#approximate-computing
 
 
