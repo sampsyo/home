@@ -41,7 +41,7 @@ defaults:
     -
         scope:
             path: ""
-            type: draft
+            type: draffs
         values:
             layout: post
 
@@ -60,6 +60,6 @@ redirect:
 
 # Rendered drafts.
 collections:
-    draft:
+    draffs:
         output: true
         permalink: /blog/drafts/:path
