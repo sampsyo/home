@@ -163,6 +163,6 @@ In the same way, bolting a heuristic onto an approximate program doesn't give it
 
 [mithra]: http://www.cc.gatech.edu/~ayazdanb/publication/papers/mithra-isca16.pdf
 [rumba]: http://cccp.eecs.umich.edu/papers/dskhudia-isca15.pdf
-[ira]: http://conf.researchr.org/event/pldi-2016/pldi-2016-papers-input-responsive-approximation-using-canary-inputs-to-dynamically-steer-software-approximation-
+[ira]: http://dl.acm.org/citation.cfm?id=2908087
 [capri]: http://dl.acm.org/citation.cfm?id=2872402
 [approxdebug]: https://homes.cs.washington.edu/~luisceze/publications/approxdebug-asplos15.pdf
