@@ -27,6 +27,11 @@
             content="{{ page.excerpt | markdownify | strip_html | strip_newlines }}">
         {% endif %}
 
+        {% if page.collection == "drafts" or page.title == "Blog Drafts" %}
+        <!-- Don't index drafts. -->
+        <meta name="robots" content="noindex">
+        {% endif %}
+
         {% if page.mathjax %}
         <!-- KaTeX -->
         <link rel="stylesheet" href="{{ site.base }}/media/katex/katex.min.css">
