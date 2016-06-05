@@ -6,9 +6,6 @@ title: Blog Drafts
 
 {% for post in site.drafts %}
 <article class="preview">
-    <p class="tagline">
-        {{ post.date || date: '%B %-d, %Y' }}
-    </p>
     <h3>
         <a href="{{ site.base }}{{ post.url }}">{{ post.title }}</a>
     </h3>
