@@ -133,13 +133,17 @@ Here's the statistical checking recipe:
 3. At the end of the day, tally up the number of times you checked, $c$, and the number of times the check came out good, $g$. Now, $\hat{r} = \frac{g}{c}$ is your estimate for $r$.
 4. Use a little more light statistical magic.
 
-TK note that random sampling is key, as I argued in a [less detailed blog post from a couple of years ago][monitoring post].
+Like random screening in the customs line, randomly choosing the executions to check is the key to defeating adversarial distributions.
+This way, your program's adversary can *provably* have no idea which executions will be checked---it has nowhere to hide.
+Any non-random strategy, such as [exponential backoff][], admits some adversary that behaves well only on checked executions.
+(This [old post with pictures][monitoring post] gets at the same idea.)
 
 TK what's the exact test
 
 TK repeated testing problem
 
 [monitoring post]: {{site.base}}/blog/naivemonitoring.html
+[exponential backoff]: https://en.wikipedia.org/wiki/Exponential_backoff
 
 
 ## Even Stronger Statements
