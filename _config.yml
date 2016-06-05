@@ -38,12 +38,6 @@ defaults:
             type: drafts
         values:
             layout: post
-    -
-        scope:
-            path: ""
-            type: draffs
-        values:
-            layout: post
 
 navigation:
     - title: home
@@ -60,6 +54,6 @@ redirect:
 
 # Rendered drafts.
 collections:
-    draffs:
+    drafts:
         output: true
         permalink: /blog/drafts/:slug.html
