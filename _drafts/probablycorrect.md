@@ -107,11 +107,41 @@ So if you read an approximate computing paper that doesn't report its $\alpha$, 
 [cp gist]: https://gist.github.com/sampsyo/c073c089bde311a6777313a4a7ac933e
 
 
-## Stronger Statements
+## Going on Line: Statistical Checking
 
 Statistical testing is about as strong as traditional testing is for normal programs:
 it says that your program behaves itself under specific conditions that you anticipate in development.
 It doesn't say anything about what will happen when your program meets the real world---there are no guarantees for any input distribution other than $D$.
+
+Are stronger guarantees possible?
+A stronger guarantee could help us cope with unanticipated distributions---even *adversarial* distributions.
+For example, a user might find
+a single $x_\text{bad}$ input that your program doesn't handle well and then issue a probability distribution $D_\text{bad}$ that just produces that $x_\text{bad}$ over and over again.
+Statistical testing will never help with adversarial input distributions, but some form of on-line enforcement might.
+
+Let's explore a simple on-line variant of statistical testing, which I'll call **statistical checking**, and consider how its guarantees stack up against adversarial input distributions.
+The idea is that you have an oracle that can decide whether a given execution $f(x)$ is good or bad, but it's too expensive to run on *every* execution.
+For example, you might have a precise version of your approximate program, $f'$, where "goodness" is defined using the distance between $f(x)$ and $f'(x)$, but running $f'$ obviates all the efficiency benefits of the $f$ approximation.
+Statistical checking, then, runs the oracle after a random sample of $f$ executions.
+
+Say you run $f$ on a server for a full day and, at the end of the day, you want to know how many of the requests were good.
+Let $r$ be the fraction of good executions in that day; we hope that $r$ will be high.
+Here's the statistical checking recipe:
+
+1. Choose a probability $p_\text{check}$ that you'll use to decide whether to check each execution.
+2. After running $f(x)$ each time, flip a biased coin that comes up heads with probability $p_\text{check}$. If it's heads, pay the expense to check whether $f(x)$ is good; otherwise, do nothing.
+3. At the end of the day, tally up the number of times you checked, $c$, and the number of times the check came out good, $g$. Now, $\hat{r} = \frac{g}{c}$ is your estimate for $r$.
+4. Use a little more light statistical magic.
+
+TK what's the exact test
+
+TK repeated testing problem
+
+
+## Even Stronger Statements
+
+Statistical testing and statistical checking are pretty simple techniques.
+TK Question about *even stronger* guarantees, like catching *outliers*.
 
 What would a strong guarantee look like for probably-correct programs?
 Ideally, we'd say that a program's correctness probability is high for any input distribution that users can throw at it.
@@ -119,7 +149,8 @@ Independent of the input distribution, we should be guaranteed that 99 of every 
 
 This kind of distribution-independent guarantee is deceptively difficult to certify.
 Any such technique would need to cope with adversarial input distributions.
-For example, a user could find a single $x_\text{bad}$ input that your program doesn't handle well and then issue a probability distribution $D_\text{bad}$ that just produces that $x_\text{bad}$ over and over again.
+For example, a user could find
+
 I can only see three ways that might work:
 
 * Conservatively identify *all* (not just most) of the bad $x$s for $f$ and detect them at run time.
