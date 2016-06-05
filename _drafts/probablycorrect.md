@@ -121,7 +121,7 @@ Statistical testing will never help with adversarial input distributions, but so
 
 Let's explore a simple on-line variant of statistical testing, which I'll call **statistical checking**, and consider how its guarantees stack up against adversarial input distributions.
 The idea is that you have an oracle that can decide whether a given execution $f(x)$ is good or bad, but it's too expensive to run on *every* execution.
-For example, you might have a precise version of your approximate program, $f'$, where "goodness" is defined using the distance between $f(x)$ and $f'(x)$, but running $f'$ obviates all the efficiency benefits of the $f$ approximation.
+For example, you might have a precise version of your approximate program, $f\'$, where "goodness" is defined using the distance between $f(x)$ and $f\'(x)$, but running $f\'$ obviates all the efficiency benefits of the $f$ approximation.
 Statistical checking, then, runs the oracle after a random sample of $f$ executions.
 
 Say you run $f$ on a server for a full day and, at the end of the day, you want to know how many of the requests were good.
@@ -133,9 +133,13 @@ Here's the statistical checking recipe:
 3. At the end of the day, tally up the number of times you checked, $c$, and the number of times the check came out good, $g$. Now, $\hat{r} = \frac{g}{c}$ is your estimate for $r$.
 4. Use a little more light statistical magic.
 
+TK note that random sampling is key, as I argued in a [less detailed blog post from a couple of years ago][monitoring post].
+
 TK what's the exact test
 
 TK repeated testing problem
+
+[monitoring post]: {{site.base}}/blog/naivemonitoring.html
 
 
 ## Even Stronger Statements
