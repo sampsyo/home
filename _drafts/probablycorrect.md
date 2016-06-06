@@ -59,9 +59,9 @@ It's roughly equivalent to traditional testing in terms of both difficulty and s
 (But to be clear, this is not my invention.)
 
 The idea is to pick, instead of a set $X$ of representative inputs, a [probability distribution][] $D$ of inputs that you think is representative of real-world behavior.
-For example, if you're going to run on data from the natural world, you might choose a [normal distribution][].
-Then you can show with high *confidence* that, when you randomly choose an $x$ from the input distribution $D$, it has a high probability of making $f(x)$ good.
+For the fast inverse square root function, for example, we might pick a uniform distribution between 0.0 and 10.0, suggesting that any input in that range is equally likely.
 
+Statistical testing can show, with high confidence, when you randomly choose an $x$ from the input distribution $D$, it has a high probability of making $f(x)$ good.
 In other words, your goal is to show:
 
 \\[ \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right] \ge P \\]
@@ -108,18 +108,28 @@ So if you read an approximate computing paper that doesn't report its $\alpha$, 
 
 [passert]: http://dx.doi.org/10.1145/2594291.2594294
 [npu]: http://dx.doi.org/10.1109/MICRO.2012.48
-[loop perforation]: http://dx.doi.org/10.1145/2025113.2025133http://localhost:4000/
+[loop perforation]: http://dx.doi.org/10.1145/2025113.2025133
 [confidence]: https://en.wikipedia.org/wiki/Confidence_interval
 [cp gist]: https://gist.github.com/sampsyo/c073c089bde311a6777313a4a7ac933e
 
 
-## Going on Line: Statistical Checking
+### Limitations
 
-Statistical testing is about as strong as traditional testing is for normal programs:
+Statistical testing is limited by its need for an input distribution, $D$.
+That requirement makes statistical testing's guarantee about as strong as traditional testing is for normal programs:
 it says that your program behaves itself under specific conditions that you anticipate in development.
 It doesn't say anything about what will happen when your program meets the real world---there are no guarantees for any input distribution other than $D$.
 
-Are stronger guarantees possible?
+More subtly, statistical testing also requires that you have a $D$ that you can generate random samples from.
+This makes it tricky to use, for example, if your $f$ is an image classifier that works on photographs that users upload to a Web service---it's hard to randomly generate photos from scratch!
+You could sample from a pool of test photos, but that will only let you draw conclusions about those test photos---not the distribution of photos that users might upload.
+
+Statistical testing is useful when you can anticipate the input distribution ahead of time.
+Is it possible to make statements that don't depend on a known, sample-able distribution?
+
+
+## Going on Line: Statistical Checking
+
 A stronger guarantee could help us cope with unanticipated distributions---even *adversarial* distributions.
 For example, a user might find
 a single $x_\text{bad}$ input that your program doesn't handle well and then issue a probability distribution $D_\text{bad}$ that just produces that $x_\text{bad}$ over and over again.
