@@ -136,6 +136,9 @@ Here's the statistical checking recipe:
 
 The same binomial confidence interval techniques that we used for statistical testing, like Clopper--Pearson, work here too.
 And if you want to do the statistics multiple times, like at the end of *every* day or even after each execution you randomly check, you can again use [Wald's sequential sampling][wald] to avoid the [multiple comparisons problem][mcp].
+
+TK: Should we do anything with the total number of executions, $n$?
+
 The guarantees are similar: you again get an $\alpha$-confidence interval on $p$ that lets you decide whether you have enough evidence to conclude that the day's executions were good enough or not.
 The $p_\text{check}$ knob lets you pay more overhead for a better shot at a conclusive outcome in either direction.
 
@@ -144,8 +147,6 @@ This way, your program's adversary can *provably* have no idea which executions 
 Any non-random strategy, such as [exponential backoff][], admits some adversary that behaves well only on checked executions.
 (This [old post with pictures][monitoring post] gets at the same idea.)
 
-TK: Should we do anything with the total number of executions, $n$?
-
 [monitoring post]: {{site.base}}/blog/naivemonitoring.html
 [exponential backoff]: https://en.wikipedia.org/wiki/Exponential_backoff
 [mcp]: https://en.wikipedia.org/wiki/Multiple_comparisons_problem
@@ -153,28 +154,22 @@ TK: Should we do anything with the total number of executions, $n$?
 
 ## Even Stronger Statements
 
-Statistical testing and statistical checking are pretty simple techniques.
-TK Question about *even stronger* guarantees, like catching *outliers*.
+Statistical testing and statistical checking, as simple as they are, yield surprisingly good guarantees.
+Is it possible to do even better?
 
-What would a strong guarantee look like for probably-correct programs?
-Ideally, we'd say that a program's correctness probability is high for any input distribution that users can throw at it.
-Independent of the input distribution, we should be guaranteed that 99 of every 100 executions are good in expectation.
+In particular, neither sampling-based technique can say anything about worst-case errors.
+We can know with high confidence that 99% of executions are good enough, for example, but we can't know *how* bad that remaining 1% might be.
+We could check looser bounds, but sampling will never get us to 100% certainty about anything: there's always a chance we got unlucky and failed to see a particularly bad $x_\text{bad}$.
 
-This kind of distribution-independent guarantee is deceptively difficult to certify.
-Any such technique would need to cope with adversarial input distributions.
-For example, a user could find
-
-I can only see three ways that might work:
+A worst-case guarantee is deceptively difficult to certify.
+I can only see two ways that might work:
 
 * Conservatively identify *all* (not just most) of the bad $x$s for $f$ and detect them at run time.
-* Dynamically check *every* execution for correctness.
-* Somehow use a memory of previous runs to check for adversarial distributions, like those that lean too heavily on a small number of bad inputs.
+* Derive a cheap-enough oracle that can dynamically check *every* execution for correctness.
 
-All these options are hard!
-The first two options are as hard as recovering complete correctness---anything less than perfection risks missing a single $x_\text{bad}$ that an adversary could use to drive your correctness probability to zero.
-And the third option is so vague that I'm not certain it's even possible.
-
-Getting a guarantee that's stronger than statistical testing will take real creativity.
+Both options are hard!
+And they amount to recovering complete correctness---anything less than perfection risks missing a single outlier $x_\text{bad}$.
+Getting a guarantee that's stronger than simple statistical checking will take real creativity.
 
 
 ## Heuristics Can't Beat Statistical Testing
