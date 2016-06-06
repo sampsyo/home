@@ -178,14 +178,22 @@ One approach that *can't* beat statistical testing is an on-line heuristic.
 Here's the usual line of reasoning:
 
 > Statistical testing is weak because it only knows about inputs we anticipated *in vitro*.
-> To do better, let's try to detect bad inputs or bad outputs at run time!
-> It's easy: just before running $f$ on $x$, or just after getting the output $f(x)$, apply some heuristic to predict whether the execution is good or bad.
+> And statistical checking is weak because it only looks at a subset of the inputs at run time.
+> To do better, let's check *every* execution!
+> Just before running $f$ on $x$, or just after getting the output $f(x)$, apply some heuristic to predict whether the execution is good or bad.
 > The heuristic will statistically avoid bad behavior, so we'll get a stronger guarantee.
 
-There's no program analysis necessary: we get to keep treating $f$ as a black box.
 Let's call this general approach **heuristic checking**.
+There's no program analysis necessary: we get to keep treating $f$ as a black box.
+And the idea to check every run sounds like it might offer a stronger kind of guarantee.
+
+It can't.
+Heuristics by themselves cannot by themselves offer *any* guarantees---you need to resort to principled techniques, like statistical testing or checking, to say anything about them.
+
+I don't mean to imply that heuristics are useless.
 Heuristic checking can be a useful way to adjust your program's correctness probability $p$; hence publications in [ASPLOS 2015][approxdebug] (where I'm an author), [ISCA 2015][rumba], [ASPLOS 2016][capri], [PLDI 2016][ira], and [ISCA 2016][mithra].
 But adjusting $p$ is all a heuristic can do: it can't give you a stronger kind of guarantee.
+The kind of guarantee you get comes from the validation you apply *after* introducing the heuristic.
 
 The problem is that every heuristic has false positives.
 Regardless of whether you choose a decision tree, a support vector machine, a neural network, or just a fuzzy lookup table, the result is the same---there's some $x_\text{bad}$ out there that will fool your heuristic.
@@ -194,8 +202,6 @@ The existence of even a single $x_\text{bad}$ ruins your shot at a strong guaran
 So while heuristic checking can help increase a program's correctness probability $p$, it doesn't change the *kind* of guarantee that's possible.
 In fact, to show that your heuristic is working, you need to resort to statistical testing and all its pitfalls.
 In that way, using a dynamic heuristic is morally equivalent to just using a more accurate $f$ in the first place---and then checking *that* with statistical testing.
-
-TK: Or with on-line statistical checking, that works too! But a heuristic by itself *is strictly weaker than statistical checking.*
 
 I can't believe I'm about to make a car analogy, but it's like a Prius.
 Hybrid cars use electric motors internally, but they're still 100% powered by gas.
