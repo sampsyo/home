@@ -64,12 +64,12 @@ For the fast inverse square root function, for example, we might pick a uniform 
 Statistical testing can show, with high confidence, when you randomly choose an $x$ from the input distribution $D$, it has a high probability of making $f(x)$ good.
 In other words, your goal is to show:
 
-\\[ \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right] \ge P \\]
+\\[ \text{Pr}_{x \sim D} \left[ f(x) \text{ is good} \right] \ge P \\]
 
 with confidence $\alpha$.
 Your [confidence][] parameter helps you decide how much evidence to collect---instead of proving that statement absolutely, we'll say that we have observed enough evidence that there's only an $\alpha$ chance we observed a random fluke.
 
-Let $p = \text{Pr}\left[ f(x) \text{ is good} \;\vert\; x \sim D \right]$ be the *correctness probability* for $f$.
+Let $p = \text{Pr}_{x \sim D} \left[ f(x) \text{ is good} \right]$ be the *correctness probability* for $f$.
 Our goal is to check whether $p \ge P$, our threshold for *good enough*.
 Here's the complete recipe:
 
