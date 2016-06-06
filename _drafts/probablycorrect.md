@@ -195,6 +195,8 @@ So while heuristic checking can help increase a program's correctness probabilit
 In fact, to show that your heuristic is working, you need to resort to statistical testing and all its pitfalls.
 In that way, using a dynamic heuristic is morally equivalent to just using a more accurate $f$ in the first place---and then checking *that* with statistical testing.
 
+TK: Or with on-line statistical checking, that works too! But a heuristic by itself *is strictly weaker than statistical checking.*
+
 I can't believe I'm about to make a car analogy, but it's like a Prius.
 Hybrid cars use electric motors internally, but they're still 100% powered by gas.
 So a Prius is just a more efficient way to make a traditional gas car, and we shouldn't be confused into thinking they're electric vehicles.
