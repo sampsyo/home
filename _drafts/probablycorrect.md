@@ -2,22 +2,22 @@
 title: Probably Correct
 mathjax: true
 ---
-What does it mean to say that a program is good enough when it's allowed to be wrong some of the time?
+How do you know whether a program is good enough if it's allowed to be wrong some of the time?
 
 Say, for example, that you want to know whether [Quake III's famous inverse square root approximation][fisr] is accurate enough for you.
 The approximation is closer to $x^{-1/2}$ for some inputs $x$ and farther away for others.
-You might want to know the chances that the approximation is close enough for any given $x$.
+You'll want to know the chances that the approximation is close enough for any given $x$.
 The same "good enough" requirements come up when you're classifying images with machine learning or applying your favorite [approximate computing][approx] technique.
 
 [fisr]: https://en.wikipedia.org/wiki/Fast_inverse_square_root
 
-It's important to take a statistical view when your program can only be right some of the time.
-This post is about infusing statistics into the ways we rigorously define correctness and the everyday tools we use to enforce it, like unit testing.
+When your program can only be right some of the time, it's important to take a statistical view of correctness.
+This post is about infusing statistics into the ways we define correctness and the everyday tools we use to enforce it, like unit testing.
 We'll explore two simple but solid approaches to enforcing statistical correctness.
 The first is an analogy to traditional testing, and the second moves checking to run time for a stronger guarantee.
 Both require only Wikipedia-level statistics to understand and implement.
 
-At the end, I'll argue that these simple approaches are deceptively hard to beat.
+At the end, I'll argue that these basic approaches are deceptively difficult to beat.
 If we want to make stronger guarantees about probably-correct programs, we'll need more creative ideas.
 
 [approx]: {{site.base}}/research.html#approximate-computing
@@ -107,7 +107,7 @@ So if you read an approximate computing paper that doesn't report its $\alpha$, 
 
 [passert]: http://dx.doi.org/10.1145/2594291.2594294
 [npu]: http://dx.doi.org/10.1109/MICRO.2012.48
-[loop perforation]: http://dx.doi.org/10.1145/2025113.2025133
+[loop perforation]: http://dx.doi.org/10.1145/2025113.2025133http://localhost:4000/
 [confidence]: https://en.wikipedia.org/wiki/Confidence_interval
 [cp gist]: https://gist.github.com/sampsyo/c073c089bde311a6777313a4a7ac933e
 
