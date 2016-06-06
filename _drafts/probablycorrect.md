@@ -125,25 +125,30 @@ For example, you might have a precise version of your approximate program, $f\'$
 Statistical checking, then, runs the oracle after a random sample of $f$ executions.
 
 Say you run $f$ on a server for a full day and, at the end of the day, you want to know how many of the requests were good.
-Let $r$ be the fraction of good executions in that day; we hope that $r$ will be high.
+Let $p$ be the probability that an execution on that day is good: in expectation, $p$ is also the fraction of good executions.
+Again, we hope $p$ will be high.
 Here's the statistical checking recipe:
 
 1. Choose a probability $p_\text{check}$ that you'll use to decide whether to check each execution.
 2. After running $f(x)$ each time, flip a biased coin that comes up heads with probability $p_\text{check}$. If it's heads, pay the expense to check whether $f(x)$ is good; otherwise, do nothing.
-3. At the end of the day, tally up the number of times you checked, $c$, and the number of times the check came out good, $g$. Now, $\hat{r} = \frac{g}{c}$ is your estimate for $r$.
-4. Use a little more light statistical magic.
+3. At the end of the day, tally up the number of times you checked, $c$, and the number of times the check came out good, $g$. Now, $\hat{p} = \frac{g}{c}$ is your estimate for $p$.
+4. Use the same statistical magic as last time to get a confidence interval on $p$.
+
+The same binomial confidence interval techniques that we used for statistical testing, like Clopper--Pearson, work here too.
+And if you want to do the statistics multiple times, like at the end of *every* day or even after each execution you randomly check, you can again use [Wald's sequential sampling][wald] to avoid the [multiple comparisons problem][mcp].
+The guarantees are similar: you again get an $\alpha$-confidence interval on $p$ that lets you decide whether you have enough evidence to conclude that the day's executions were good enough or not.
+The $p_\text{check}$ knob lets you pay more overhead for a better shot at a conclusive outcome in either direction.
 
 Like random screening in the customs line, randomly choosing the executions to check is the key to defeating adversarial distributions.
 This way, your program's adversary can *provably* have no idea which executions will be checked---it has nowhere to hide.
 Any non-random strategy, such as [exponential backoff][], admits some adversary that behaves well only on checked executions.
 (This [old post with pictures][monitoring post] gets at the same idea.)
 
-TK what's the exact test
-
-TK repeated testing problem
+TK: Should we do anything with the total number of executions, $n$?
 
 [monitoring post]: {{site.base}}/blog/naivemonitoring.html
 [exponential backoff]: https://en.wikipedia.org/wiki/Exponential_backoff
+[mcp]: https://en.wikipedia.org/wiki/Multiple_comparisons_problem
 
 
 ## Even Stronger Statements
