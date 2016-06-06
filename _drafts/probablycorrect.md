@@ -46,7 +46,7 @@ The [fast inverse square root][fisr] function is one example: the error is below
 (See for yourself with this [Python implementation][fisr.py].)
 If you know your threshold for a good-enough inverse square root is an error of 0.01, you'll want to know you chances of violating that bound.
 
-Nondeterministically correct programs are also important, of course, but there the goal is to show something more complicated: something like $\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge P$.
+Nondeterministically correct programs are also important, of course, but there the goal is to show something more complicated: something like $\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge T$.
 This post focuses on deterministic programs.
 
 [fisr.py]: {{site.base}}/media/fisr.py
@@ -64,13 +64,13 @@ For the fast inverse square root function, for example, we might pick a uniform 
 Statistical testing can show, with high confidence, when you randomly choose an $x$ from the input distribution $D$, it has a high probability of making $f(x)$ good.
 In other words, your goal is to show:
 
-\\[ \text{Pr}_{x \sim D} \left[ f(x) \text{ is good} \right] \ge P \\]
+\\[ \text{Pr}_{x \sim D} \left[ f(x) \text{ is good} \right] \ge T \\]
 
 with confidence $\alpha$.
 Your [confidence][] parameter helps you decide how much evidence to collect---instead of proving that statement absolutely, we'll say that we have observed enough evidence that there's only an $\alpha$ chance we observed a random fluke.
 
 Let $p = \text{Pr}_{x \sim D} \left[ f(x) \text{ is good} \right]$ be the *correctness probability* for $f$.
-Our goal is to check whether $p \ge P$, our threshold for *good enough*.
+Our goal is to check whether $p \ge T$, our threshold for *good enough*.
 Here's the complete recipe:
 
 1. Pick your input distribution $D$.
@@ -85,8 +85,8 @@ The [Clopper--Pearson][] formula, for example, gives you a $p_{\text{low}}$ and 
 \\[ \text{Pr}\left[ p_{\text{low}} \le p \le p_{\text{high}} \right] \ge 1 - \alpha \\]
 
 Remember that $\alpha$ is small, so you're saying that it's likely you have an interval around $p$.
-If $p_{\text{low}} \ge P$, then you can say with confidence $\alpha$ that $f$ is good on the input distribution $D$.
-If $p_{\text{high}} \le P$, then you can say it's wrong.
+If $p_{\text{low}} \ge T$, then you can say with confidence $\alpha$ that $f$ is good on the input distribution $D$.
+If $p_{\text{high}} \le T$, then you can say it's wrong.
 Otherwise, the test is inconclusive---you need to take more samples.
 Collecting more samples (increasing $n$) tightens the interval; demanding higher confidence (decreasing $\alpha$) loosens the interval.
 
