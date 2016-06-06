@@ -137,8 +137,8 @@ Statistical testing will never help with adversarial input distributions, but so
 
 Let's explore a simple on-line variant of statistical testing, which I'll call **statistical checking**, and consider how its guarantees stack up against adversarial input distributions.
 The idea is that you have an oracle that can decide whether a given execution $f(x)$ is good or bad, but it's too expensive to run on *every* execution.
-For example, you might have a precise version of your approximate program, $f\'$, where "goodness" is defined using the distance between $f(x)$ and $f\'(x)$, but running $f\'$ obviates all the efficiency benefits of the $f$ approximation.
-Statistical checking, then, runs the oracle after a random sample of $f$ executions.
+For example, you can always check the [fast inverse square root][fisr] output by comparing with an exact $x^{-1/2}$ computation, but that would obviate all the efficiency benefits of using the approximation in the first place.
+Statistical checking reduces the overhead by running the oracle after a random sample of executions.
 
 Say you run $f$ on a server for a full day and, at the end of the day, you want to know how many of the requests were good.
 Let $p$ be the probability that an execution on that day is good: in expectation, $p$ is also the fraction of good executions.
