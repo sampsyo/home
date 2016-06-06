@@ -153,7 +153,7 @@ Here's the statistical checking recipe:
 The same binomial confidence interval techniques that we used for statistical testing, like Clopper--Pearson, work here too.
 And if you want to do the statistics multiple times, like at the end of *every* day or even after each execution you randomly check, you can again use [Wald's sequential sampling][wald] to avoid the [multiple comparisons problem][mcp].
 
-TK: Should we do anything with the total number of executions, $n$?
+**TK**: Should we do anything with the total number of executions, $n$?
 
 The guarantees are similar: you again get an $\alpha$-confidence interval on $p$ that lets you decide whether you have enough evidence to conclude that the day's executions were good enough or not.
 The $p_\text{check}$ knob lets you pay more overhead for a better shot at a conclusive outcome in either direction.
@@ -190,39 +190,39 @@ Getting a guarantee that's stronger than simple statistical checking will take r
 
 ## Heuristics Can't Beat Statistical Testing
 
-One approach that *can't* beat statistical testing is an on-line heuristic.
+One approach that *can't* beat the simple techniques is an on-line heuristic.
 Here's the usual line of reasoning:
 
 > Statistical testing is weak because it only knows about inputs we anticipated *in vitro*.
-> And statistical checking is weak because it only looks at a subset of the inputs at run time.
+> And statistical checking is weak because it only looks at some of the inputs at run time.
 > To do better, let's check *every* execution!
 > Just before running $f$ on $x$, or just after getting the output $f(x)$, apply some heuristic to predict whether the execution is good or bad.
 > The heuristic will statistically avoid bad behavior, so we'll get a stronger guarantee.
 
 Let's call this general approach **heuristic checking**.
-There's no program analysis necessary: we get to keep treating $f$ as a black box.
+It's "easy" because there's no program analysis necessary: we get to keep treating $f$ as a black box.
 And the idea to check every run sounds like it might offer a stronger kind of guarantee.
 
 It can't.
-Heuristics by themselves cannot by themselves offer *any* guarantees---you need to resort to principled techniques, like statistical testing or checking, to say anything about them.
-
-I don't mean to imply that heuristics are useless.
-Heuristic checking can be a useful way to adjust your program's correctness probability $p$; hence publications in [ASPLOS 2015][approxdebug] (where I'm an author), [ISCA 2015][rumba], [ASPLOS 2016][capri], [PLDI 2016][ira], and [ISCA 2016][mithra].
-But adjusting $p$ is all a heuristic can do: it can't give you a stronger kind of guarantee.
-The kind of guarantee you get comes from the validation you apply *after* introducing the heuristic.
+Heuristics are orthogonal to statistical guarantees---you need some other technique, like statistical testing or checking, to make any rigorous statements about them.
 
 The problem is that every heuristic has false positives.
-Regardless of whether you choose a decision tree, a support vector machine, a neural network, or just a fuzzy lookup table, the result is the same---there's some $x_\text{bad}$ out there that will fool your heuristic.
-The existence of even a single $x_\text{bad}$ ruins your shot at a strong guarantee.
+Regardless of whether you choose a decision tree, a support vector machine, a neural network, or a fuzzy lookup table, your favorite heuristic necessarily has blind spots.
+For example, you might try to train an SVM on lots of inputs to predict when a given $x$ will cause lots of error in your fast inverse square root approximation, $f$.
+If the SVM predicts for a given $x$ that $f(x)$ will be bad, then run the slower fallback $x^{-1/2}$ code instead.
 
-So while heuristic checking can help increase a program's correctness probability $p$, it doesn't change the *kind* of guarantee that's possible.
-In fact, to show that your heuristic is working, you need to resort to statistical testing and all its pitfalls.
-In that way, using a dynamic heuristic is morally equivalent to just using a more accurate $f$ in the first place---and then checking *that* with statistical testing.
+Like any trained model, the SVM will make an wrong prediction in some minority of the cases---in exactly the same way that the approximation itself is inaccurate some of the time.
+In other words, we can think of the entire SVM-augmented system as just another probably-correct program with all the same problems as the original $f$.
+Let $f\'$ be the function that runs the SVM predictor and then chooses to run $f$ or the accurate $x^{-1/2}$;
+this new $f\'$ you've created also has $x_\text{bad}$ inputs and also needs some validation of its correctness, just as much as the original $f$.
 
-I can't believe I'm about to make a car analogy, but it's like a Prius.
-Hybrid cars use electric motors internally, but they're still 100% powered by gas.
-So a Prius is just a more efficient way to make a traditional gas car, and we shouldn't be confused into thinking they're electric vehicles.
-In the same way, bolting a heuristic onto an approximate program doesn't give it a stronger kind of guarantee than an "unchecked" approximate program.
+In that sense, heuristic checking can never offer any statistical guarantees by itself---it's *orthogonal* to the technique you use to assess statistical correctness.
+To understand the statistical correctness of a heuristically-checked $f\'$, you'll need to use the same tools that you'd use to assess the original $f$: statistical testing, statistical checking, or something of their ilk.
+Because it depends on the same old ways of assessing correctness, heuristic checking can only adjust the correctness probability; it can't change the *kind* of guarantee that's possible.
+
+That's not to say that heuristic checking is useless.
+It can definitely be a useful to empirically improve your program's correctness probability; hence publications in [ASPLOS 2015][approxdebug] (where I'm an author), [ISCA 2015][rumba], [ASPLOS 2016][capri], [PLDI 2016][ira], and [ISCA 2016][mithra].
+But adjusting the program's correctness probability is all a heuristic can do: it can't give you a stronger kind of guarantee.
 
 [mithra]: http://www.cc.gatech.edu/~ayazdanb/publication/papers/mithra-isca16.pdf
 [rumba]: http://cccp.eecs.umich.edu/papers/dskhudia-isca15.pdf
