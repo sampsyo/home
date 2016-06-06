@@ -44,7 +44,7 @@ For this post, we'll assume $f$ is good on some inputs and bad on others, but it
 In other words, it's *deterministic:* for a given $x$, running $f(x)$ is either always good or always bad.
 The [fast inverse square root][fisr] function is one example: the error is below $10^{-4}$ for most inputs, but it can be as high as $0.04$ for reasonably small values of $x$.
 (See for yourself with this [Python implementation][fisr.py].)
-If you know your threshold for a good-enough inverse square root is an error of 0.01, you'll want to know you chances of violating that bound.
+If you know your threshold for a good-enough inverse square root is an error of 0.01, you'll want to know your chances of violating that bound.
 
 Nondeterministically correct programs are also important, of course, but there the goal is to show something more complicated: something like $\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge T$.
 This post focuses on deterministic programs.
