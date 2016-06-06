@@ -200,7 +200,7 @@ Here's the usual line of reasoning:
 > The heuristic will statistically avoid bad behavior, so we'll get a stronger guarantee.
 
 Let's call this general approach **heuristic checking**.
-It's "easy" because there's no program analysis necessary: we get to keep treating $f$ as a black box.
+It's "easy" because there's no program analysis necessary: we still get to treat $f$ as a black box.
 And the idea to check every run sounds like it might offer a stronger kind of guarantee.
 
 It can't.
@@ -212,13 +212,14 @@ For example, you might try to train an SVM on lots of inputs to predict when a g
 If the SVM predicts for a given $x$ that $f(x)$ will be bad, then run the slower fallback $x^{-1/2}$ code instead.
 
 Like any trained model, the SVM will make an wrong prediction in some minority of the cases---in exactly the same way that the approximation itself is inaccurate some of the time.
-In other words, we can think of the entire SVM-augmented system as just another probably-correct program with all the same problems as the original $f$.
+That means that we can think of the entire SVM-augmented system as just another probably-correct program with all the same problems as the original $f$.
 Let $f\'$ be the function that runs the SVM predictor and then chooses to run $f$ or the accurate $x^{-1/2}$;
 this new $f\'$ you've created also has $x_\text{bad}$ inputs and also needs some validation of its correctness, just as much as the original $f$.
+You
+You'll still need to apply statistical testing, statistical checking, or something of their ilk to understand the correctness of $f\'$.
 
 In that sense, heuristic checking can never offer any statistical guarantees by itself---it's *orthogonal* to the technique you use to assess statistical correctness.
-To understand the statistical correctness of a heuristically-checked $f\'$, you'll need to use the same tools that you'd use to assess the original $f$: statistical testing, statistical checking, or something of their ilk.
-Because it depends on the same old ways of assessing correctness, heuristic checking can only adjust the correctness probability; it can't change the *kind* of guarantee that's possible.
+Even the best heuristic can only adjust the correctness probability; it can't change the *kind* of guarantee that's possible.
 
 That's not to say that heuristic checking is useless.
 It can definitely be a useful to empirically improve your program's correctness probability; hence publications in [ASPLOS 2015][approxdebug] (where I'm an author), [ISCA 2015][rumba], [ASPLOS 2016][capri], [PLDI 2016][ira], and [ISCA 2016][mithra].
