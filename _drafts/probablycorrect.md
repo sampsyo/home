@@ -23,13 +23,14 @@ If we want to make stronger guarantees about probably-correct programs, we'll ne
 [approx]: {{site.base}}/research.html#approximate-computing
 
 
-## Normal Correctness
+## Correct vs. Probably Correct
 
-With normal, hopefully-always-correct programs, the ultimate goal is **verification**:
+First, let's recap traditional definitions of correctness.
+With ordinary, hopefully-always-correct programs, the ultimate goal is **verification**:
 
 \\[ \forall x \; f(x) \text{ is good} \\]
 
-The word *good* is intentionally vague: it might say something about the output $f$ writes to a file, or about how fast $f$ runs, or whether $f$ violated some security policy.
+The word *good* is intentionally vague: it might mean something about the output $f$ writes to a file, or about how fast $f$ runs, or whether $f$ violated some security policy.
 In any case, verification says your program behaves well on every input.
 
 Verification is hard, so we also have **testing**, which says a program behaves well on a few example inputs:
@@ -39,16 +40,16 @@ Verification is hard, so we also have **testing**, which says a program behaves 
 Testing tells us a set of inputs $X$ all lead to good behavior.
 It doesn't imply $\forall x$ anything, but it's something.
 
-
-## Deterministic, Probably-Correct Programs
-
-For this post, let's assume $f$ is good on some inputs and bad on others, but it doesn't fail at random.
+For this post, we'll assume $f$ is good on some inputs and bad on others, but it doesn't fail at random.
 In other words, it's *deterministic:* for a given $x$, running $f(x)$ is either always good or always bad.
-For example, $f$ might be an image classifier that gives the correct class for most of the photos in a test set but is still wrong on a few.
-Or it might use a deterministic approximation technique like [loop perforation][] or an [NPU][].
+The [fast inverse square root][fisr] function is one example: the error is below $10^{-4}$ for most inputs, but it can be as high as $0.04$ for reasonably small values of $x$.
+(See for yourself with this [Python implementation][fisr.py].)
+If you know your threshold for a good-enough inverse square root is an error of 0.01, you'll want to know you chances of violating that bound.
 
 Nondeterministically correct programs are also important, of course, but there the goal is to show something more complicated: something like $\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge P$.
-This post focuses on the easy stuff.
+This post focuses on deterministic programs.
+
+[fisr.py]: {{site.base}}/media/fisr.py
 
 
 ## Statistical Testing
