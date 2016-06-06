@@ -17,7 +17,7 @@ We'll explore two simple but solid approaches to enforcing statistical correctne
 The first is an analogy to traditional testing, and the second moves checking to run time for a stronger guarantee.
 Both require only Wikipedia-level statistics to understand and implement.
 
-At the end, I'll argue that these approaches, while simple, are hard to beat.
+At the end, I'll argue that these simple approaches are deceptively hard to beat.
 If we want to make stronger guarantees about probably-correct programs, we'll need more creative ideas.
 
 [approx]: {{site.base}}/research.html#approximate-computing
