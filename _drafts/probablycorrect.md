@@ -213,8 +213,8 @@ If the SVM predicts for a given $x$ that $f(x)$ will be bad, then run the slower
 
 Like any trained model, the SVM will make an wrong prediction in some minority of the cases---in exactly the same way that the approximation itself is inaccurate some of the time.
 That means that we can think of the entire SVM-augmented system as just another probably-correct program with all the same problems as the original $f$.
-Let $f\'$ be the function that runs the SVM predictor and then chooses to run $f$ or the accurate $x^{-1/2}$;
-this new $f\'$ you've created also has $x_\text{bad}$ inputs and also needs some validation of its correctness, just as much as the original $f$.
+Let $f\'$ be the function that runs the SVM predictor and then chooses to run $f$ or the accurate $x^{-1/2}$.
+This new $f\'$ you've created also has some $x_\text{bad}$ inputs and also needs some validation of its correctness, just as much as the original $f$.
 You
 You'll still need to apply statistical testing, statistical checking, or something of their ilk to understand the correctness of $f\'$.
 
@@ -223,7 +223,9 @@ Even the best heuristic can only adjust the correctness probability; it can't ch
 
 That's not to say that heuristic checking is useless.
 It can definitely be a useful to empirically improve your program's correctness probability; hence publications in [ASPLOS 2015][approxdebug] (where I'm an author), [ISCA 2015][rumba], [ASPLOS 2016][capri], [PLDI 2016][ira], and [ISCA 2016][mithra].
-But adjusting the program's correctness probability is all a heuristic can do: it can't give you a stronger kind of guarantee.
+But work along these lines needs to be careful to use the right baseline.
+Enhancing an $f$ with heuristic checking is morally equivalent to using a more accurate $f$ in the first place, such as a fast inverse square root with the second Newton iteration enabled.
+So if you design a new checking heuristic, just remember to compare against other, non-checking ways of improving accuracy.
 
 [mithra]: http://www.cc.gatech.edu/~ayazdanb/publication/papers/mithra-isca16.pdf
 [rumba]: http://cccp.eecs.umich.edu/papers/dskhudia-isca15.pdf
