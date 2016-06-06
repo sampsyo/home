@@ -4,15 +4,20 @@ mathjax: true
 ---
 What does it mean to say that a program is good enough when it's allowed to be wrong some of the time?
 
-If that sounds crazy, remember that machine-learning models compete on precision and recall, that distributed systems are allowed to fail, and that Siri is still useful despite its miss rate.
-And it's the whole idea in [approximate computing][approx].
+Say, for example, that you want to know whether [Quake III's famous inverse square root approximation][fisr] is accurate enough for you.
+The approximation is closer to $x^{-1/2}$ for some inputs $x$ and farther away for others.
+You might want to know the chances that the approximation is close enough for any given $x$.
+The same "good enough" requirements come up when you're classifying images with machine learning or applying your favorite [approximate computing][approx] technique.
 
-This post is about what it means for this kind of program to be *statistically* correct.
-We don't even have names for the kinds of guarantees we might want for most-of-the-time correctness.
-If we're going to write papers about probably-correct programs (and we are), we need to be clear about what our goals are.
+[fisr]: https://en.wikipedia.org/wiki/Fast_inverse_square_root
 
-I'll describe a dorkily simple way to conclude something rigorous about your probably-correct program that only requires Wikipedia-level statistics to apply.
-Then I'll argue that it's deceptively difficult to do anything stronger than this basic technique---even when you try to catch bad behavior at run time.
+It's important to take a statistical view when your program can only be right some of the time.
+This post is about infusing statistics into the ways we rigorously define correctness and the everyday tools we use to enforce it, like unit testing.
+We'll explore two simple but solid approaches to enforcing statistical correctness.
+The first is an analogy to traditional testing, and the second moves checking to run time for a stronger guarantee.
+Both require only Wikipedia-level statistics to understand and implement.
+
+At the end, I'll argue that these approaches, while simple, are hard to beat.
 If we want to make stronger guarantees about probably-correct programs, we'll need more creative ideas.
 
 [approx]: {{site.base}}/research.html#approximate-computing
