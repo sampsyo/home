@@ -101,9 +101,9 @@ But the simple Clopper--Pearson way is perfectly good, and it's easy to implemen
 [sampling]: https://en.wikipedia.org/wiki/Sampling_(statistics)
 [clopper--pearson]: https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval#Clopper-Pearson_interval
 
-Statistical testing should be the bar for publication in papers about statistical correctness.
+The statistical testing technique is so simple that it, or something at least as strong, should appear in every paper that proposes a new approximation strategy.
 It doesn't require any fancy computer science: all you need to do is run $f$ as a black box and check its output, just like in traditional testing.
-Our [probabilistic assertions][passert] checker uses some fanciness to make statistical testing more efficient, but the statistics couldn't be easier to do at home.
+Our [probabilistic assertions][passert] checker uses some fanciness to make the approach more efficient, but these tricks aren't necessary to perform a statistically sound test.
 So if you read an approximate computing paper that doesn't report its $\alpha$, be suspicious.
 
 [passert]: http://dx.doi.org/10.1145/2594291.2594294
