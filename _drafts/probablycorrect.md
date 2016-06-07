@@ -128,7 +128,7 @@ Statistical testing is useful when you can anticipate the input distribution ahe
 Is it possible to make statements that don't depend on a known, sample-able distribution?
 
 
-## Going on Line: Statistical Checking
+## Going On-Line: Statistical Checking
 
 A stronger guarantee could help us cope with unanticipated distributions---even *adversarial* distributions.
 For example, a user might find
@@ -152,8 +152,6 @@ Here's the statistical checking recipe:
 
 The same binomial confidence interval techniques that we used for statistical testing, like Clopper--Pearson, work here too.
 And if you want to do the statistics multiple times, like at the end of *every* day or even after each execution you randomly check, you can again use [Wald's sequential sampling][wald] to avoid the [multiple comparisons problem][mcp].
-
-**TK**: Should we do anything with the total number of executions, $n$?
 
 The guarantees are similar: you again get an $\alpha$-confidence interval on $p$ that lets you decide whether you have enough evidence to conclude that the day's executions were good enough or not.
 The $p_\text{check}$ knob lets you pay more overhead for a better shot at a conclusive outcome in either direction.
@@ -215,7 +213,6 @@ Like any trained model, the SVM will make an wrong prediction in some minority o
 That means that we can think of the entire SVM-augmented system as just another probably-correct program with all the same problems as the original $f$.
 Let $f\'$ be the function that runs the SVM predictor and then chooses to run $f$ or the accurate $x^{-1/2}$.
 This new $f\'$ you've created also has some $x_\text{bad}$ inputs and also needs some validation of its correctness, just as much as the original $f$.
-You
 You'll still need to apply statistical testing, statistical checking, or something of their ilk to understand the correctness of $f\'$.
 
 In that sense, heuristic checking can never offer any statistical guarantees by itself---it's *orthogonal* to the technique you use to assess statistical correctness.
@@ -225,7 +222,7 @@ That's not to say that heuristic checking is useless.
 It can definitely be a useful to empirically improve your program's correctness probability; hence publications in [ASPLOS 2015][approxdebug] (where I'm an author), [ISCA 2015][rumba], [ASPLOS 2016][capri], [PLDI 2016][ira], and [ISCA 2016][mithra].
 But work along these lines needs to be careful to use the right baseline.
 Enhancing an $f$ with heuristic checking is morally equivalent to using a more accurate $f$ in the first place, such as a fast inverse square root with the second Newton iteration enabled.
-So if you design a new checking heuristic, just remember to compare against other, non-checking ways of improving accuracy.
+So if you design a new checking heuristic, just remember to compare against other strategies for improving accuracy.
 
 [mithra]: http://www.cc.gatech.edu/~ayazdanb/publication/papers/mithra-isca16.pdf
 [rumba]: http://cccp.eecs.umich.edu/papers/dskhudia-isca15.pdf
