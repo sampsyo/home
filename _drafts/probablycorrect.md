@@ -49,7 +49,7 @@ If you know your threshold for a good-enough inverse square root is an error of 
 Nondeterministically correct programs are also important, of course, but there the goal is to show something more complicated: something like $\forall x \; \text{Pr}\left[ f(x) \text{ is good} \right] \ge T$.
 This post focuses on deterministic programs.
 
-[fisr.py]: {{site.base}}/media/fisr.py
+[fisr.py]: https://gist.github.com/sampsyo/c1ed448618dadce682fdc5303ce432ec
 
 
 ## Statistical Testing
