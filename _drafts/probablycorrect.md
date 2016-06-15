@@ -135,7 +135,7 @@ Is it possible to make statements that don't depend on a known, sample-able dist
 
 A stronger guarantee could help us cope with unanticipated distributions---even *adversarial* distributions.
 For example, a user might find
-a single $x_\text{bad}$ input that your program doesn't handle well and then issue a probability distribution $D_\text{bad}$ that just produces that $x_\text{bad}$ over and over again.
+a single $x_\text{bad}$ input that your program doesn't handle well and then issue a probability distribution $D_\text{bad}$ that hammers on that one $x_\text{bad}$ over and over.
 Statistical testing will never help with adversarial input distributions, but some form of on-line enforcement might.
 
 Let's explore a simple on-line variant of statistical testing, which I'll call **statistical checking**, and consider how its guarantees stack up against adversarial input distributions.
@@ -246,6 +246,8 @@ A good evaluation should treat the obvious strategy as a baseline: compare the t
 [ira]: http://dl.acm.org/citation.cfm?id=2908087
 [capri]: http://dl.acm.org/citation.cfm?id=2872402
 [approxdebug]: https://homes.cs.washington.edu/~luisceze/publications/approxdebug-asplos15.pdf
+
+Statistical correctness is a critical but underappreciated problem. Fortunately, basic statistics are enough to make pretty good statements about statistical correctness. But we're far from done: there are juicy, unsolved, computer-sciencey problems remaining in meaningfully outperforming these basic tools.
 
 ---
 
