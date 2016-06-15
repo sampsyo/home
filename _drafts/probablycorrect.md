@@ -107,7 +107,7 @@ But the simple Clopper--Pearson way is perfectly good, and it's easy to implemen
 The statistical testing technique is so simple that it, or something at least as strong, should appear in every paper that proposes a new approximation strategy.
 It doesn't require any fancy computer science: all you need to do is run $f$ as a black box and check its output, just like in traditional testing.
 Our [probabilistic assertions][passert] checker uses some fanciness to make the approach more efficient, but these tricks aren't necessary to perform a statistically sound test.
-So if you read an approximate computing paper that doesn't report its $\alpha$, be suspicious.
+So if you read an [approximate computing][approx] paper that doesn't report its $\alpha$, be suspicious.
 
 [passert]: http://dx.doi.org/10.1145/2594291.2594294
 [npu]: http://dx.doi.org/10.1109/MICRO.2012.48
@@ -246,3 +246,7 @@ A good evaluation should treat the obvious strategy as a baseline: compare the t
 [ira]: http://dl.acm.org/citation.cfm?id=2908087
 [capri]: http://dl.acm.org/citation.cfm?id=2872402
 [approxdebug]: https://homes.cs.washington.edu/~luisceze/publications/approxdebug-asplos15.pdf
+
+---
+
+*Thanks to Cyrus Rashtchian, Todd Mytkowicz, and Kathryn McKinley for unbelievably valuable feedback on earlier drafts of this post. Needless to say, they don't necessarily agree with everything I said.*
