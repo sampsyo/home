@@ -12,10 +12,14 @@ The same "good enough" requirements come up when you're classifying images with 
 [fisr]: https://en.wikipedia.org/wiki/Fast_inverse_square_root
 
 When your program can only be right some of the time, it's important to take a statistical view of correctness.
+It's not just about squirrelly floating-point hacks: probably-correct programs are ubiquitous, from [Siri][] to [Tesla's autopilot][autopilot].
 This post is about infusing statistics into the ways we define correctness and the everyday tools we use to enforce it, like unit testing.
 We'll explore two simple but solid approaches to enforcing statistical correctness.
 The first is an analogy to traditional testing, and the second moves checking to run time for a stronger guarantee.
 Both require only Wikipedia-level statistics to understand and implement.
+
+[Siri]: http://www.apple.com/ios/siri/
+[autopilot]: https://www.teslamotors.com/presskit/autopilot
 
 At the end, I'll argue that these basic approaches are deceptively difficult to beat.
 If we want to make stronger guarantees about probably-correct programs, we'll need more creative ideas.
