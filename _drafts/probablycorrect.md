@@ -209,6 +209,11 @@ Regardless of whether you choose a decision tree, a support vector machine, a ne
 For example, you might try to train an SVM on lots of inputs to predict when a given $x$ will cause lots of error in your fast inverse square root approximation, $f$.
 If the SVM predicts for a given $x$ that $f(x)$ will be bad, then run the slower fallback $x^{-1/2}$ code instead.
 
+<figure style="max-width: 200px;">
+<img src="{{site.base}}/media/heuristiccheck.svg" alt="heuristic checks on inputs and outputs">
+<figcaption>Adding checks to an approximate program $f$ yields a new approximate program $f'$.</figcaption>
+</figure>
+
 Like any trained model, the SVM will make an wrong prediction in some minority of the cases---in exactly the same way that the approximation itself is inaccurate some of the time.
 That means that we can think of the entire SVM-augmented system as just another probably-correct program with all the same problems as the original $f$.
 Let $f\'$ be the function that runs the SVM predictor and then chooses to run $f$ or the accurate $x^{-1/2}$.
