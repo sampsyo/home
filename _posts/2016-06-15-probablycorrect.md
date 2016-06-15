@@ -2,7 +2,7 @@
 title: Probably Correct
 mathjax: true
 excerpt: |
-    Say you have a program that's right only some of the time. How can you tell whether it's correct enough? Using with some Wikipedia-level statistics, it's pretty easy to make probabilistic statements about quality. I'll explain a couple of easy techniques for measuring statistical correctness. Then I'll argue that it's deceptively difficult produce guarantees that are any stronger than the ones you get from the basic techniques.
+    Say you have a program that's right only some of the time. How can you tell whether it's correct enough? Using with some Wikipedia-level statistics, it's pretty easy to make probabilistic statements about quality. I'll explain two strategies for measuring statistical correctness. Then I'll argue that it's deceptively difficult produce guarantees that are any stronger than the ones you get from the basic techniques.
 ---
 How do you know whether a program is good enough if it's allowed to be wrong some of the time?
 
