@@ -251,4 +251,4 @@ Statistical correctness is a critical but underappreciated problem. Fortunately,
 
 ---
 
-*Thanks to Cyrus Rashtchian, Todd Mytkowicz, and Kathryn McKinley for unbelievably valuable feedback on earlier drafts of this post. Needless to say, they don't necessarily agree with everything I said.*
+*Thanks to Cyrus Rashtchian, Todd Mytkowicz, and Kathryn McKinley for unbelievably valuable feedback on earlier drafts of this post. Needless to say, they don't necessarily agree with everything here.*
