@@ -4,15 +4,14 @@ mathjax: true
 ---
 How do you know whether a program is good enough if it's allowed to be wrong some of the time?
 
-Say, for example, that you want to know whether [Quake III's famous inverse square root approximation][fisr] is accurate enough for you.
+Say, for example, that you want to use [Quake III's famous inverse square root approximation][fisr].
 The approximation is closer to $x^{-1/2}$ for some inputs $x$ and farther away for others.
-You'll want to know the chances that the approximation is close enough for any given $x$.
-The same "good enough" requirements come up when you're classifying images with machine learning or applying your favorite [approximate computing][approx] technique.
+You'll want to know the chances that the approximation is close enough for the $x$s you care about.
 
 [fisr]: https://en.wikipedia.org/wiki/Fast_inverse_square_root
 
 When your program can only be right some of the time, it's important to take a statistical view of correctness.
-It's not just about squirrelly floating-point hacks: probably-correct programs are ubiquitous, from [Siri][] to [Tesla's autopilot][autopilot].
+This is not just about squirrelly floating-point hacks: probably-correct programs are ubiquitous, from [Siri][] to [Tesla's autopilot][autopilot].
 This post is about infusing statistics into the ways we define correctness and the everyday tools we use to enforce it, like unit testing.
 We'll explore two simple but solid approaches to enforcing statistical correctness.
 The first is an analogy to traditional testing, and the second moves checking to run time for a stronger guarantee.
