@@ -220,9 +220,18 @@ Even the best heuristic can only adjust the correctness probability; it can't ch
 
 That's not to say that heuristic checking is useless.
 It can definitely be a useful to empirically improve your program's correctness probability; hence publications in [ASPLOS 2015][approxdebug] (where I'm an author), [ISCA 2015][rumba], [ASPLOS 2016][capri], [PLDI 2016][ira], and [ISCA 2016][mithra].
-But work along these lines needs to be careful to use the right baseline.
-Enhancing an $f$ with heuristic checking is morally equivalent to using a more accurate $f$ in the first place, such as a fast inverse square root with the second Newton iteration enabled.
-So if you design a new checking heuristic, just remember to compare against other strategies for improving accuracy.
+But we need to be clear about exactly what this kind of work can do: it can adjust the correctness probability $p$, but it can't change the *kind* of guarantee you state about $p$.
+
+Work along these lines needs to be careful to use the right baseline.
+Enhancing an $f$ with heuristic checking is morally equivalent to using a more accurate $f$ in the first place.
+You could, for example, change your fast inverse square root function to enable the second Newton iteration.
+This would increase accuracy and increase cost---exactly the same effects as adding heuristic checking.
+So if you design a new checking heuristic, remember to compare against other strategies for improving accuracy.
+
+In my own [ASPLOS 2015 paper][approxdebug], for example, we used a fuzzy memoization table to detect approximate outputs that deviated too much from previously-observed behavior.
+Our evaluation showed that the extra checking costs energy, but it also increases accuracy on average.
+There were other, more obvious ways to change the energy--accuracy trade-off: we could have adjusted the hardware voltage parameters, for example, and ended up with the same strength of guarantee.
+A good evaluation should treat the obvious strategy as a baseline: compare the total energy energy savings when the average accuracy is equal, or vice-versa.
 
 [mithra]: http://www.cc.gatech.edu/~ayazdanb/publication/papers/mithra-isca16.pdf
 [rumba]: http://cccp.eecs.umich.edu/papers/dskhudia-isca15.pdf
