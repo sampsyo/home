@@ -16,8 +16,7 @@ To help programmers trade off accuracy for efficiency, we need new [languages][e
 [accept]: https://sampa.cs.washington.edu/accept/
 
 I am a new assistant professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell].
-For the 2015--2016 academic year, I am visiting [Microsoft Research][msr] in the [RiSE][] group.
-I graduated from the [University of Washington][uw cse] last year.
+I graduated from the [University of Washington][uw cse] in 2015.
 Here's my [CV][].
 
 [cornell]: http://www.cornell.edu/
