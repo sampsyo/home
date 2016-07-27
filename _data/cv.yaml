@@ -118,6 +118,9 @@ service:
 
 committees:
     - |
+        [ASPLOS 2017](http://novel.ict.ac.cn/ASPLOS2017/): Program committee member
+
+    - |
         [CGO 2017](http://cgo.org/cgo2017/): Program committee member
 
     - |
