@@ -39,6 +39,11 @@ defaults:
             type: drafts
         values:
             layout: post
+    -
+        scope:
+            type: pages
+        values:
+            permalink: /:path/:basename:output_ext
 
 navigation:
     - title: home
