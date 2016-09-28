@@ -81,6 +81,12 @@ honors:
 
 teaching:
     - |
+        Cornell University:
+
+        * Spring 2017: CS 6110, "Advanced Programming Languages."
+        * [Fall 2016: CS 4110, "Programming Languages and Logics."](https://www.cs.cornell.edu/Courses/cs4110/2016fa/)
+
+    - |
         Teaching Assistant, University of Washington:
 
         * <a href="http://www.cs.washington.edu/education/courses/csep548/11wi/">CSE PMP 548, Winter 2011</a> (M.S. Computer Architecture), with Luis Ceze
@@ -97,6 +103,12 @@ teaching:
         Interface)
 
 service:
+    - |
+        PLDI 2017: Publicity Co-Chair
+
+    - |
+        ISCA 2017: Registration Chair
+
     - |
         [CGO 2017](http://cgo.org/cgo2017/): Workshops/Tutorials Chair
 

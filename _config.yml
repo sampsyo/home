@@ -3,7 +3,7 @@ author: Adrian Sampson
 url: http://adriansampson.net
 base: ''
 twitter: '@samps'
-email: 'asampson@cornell.edu'
+email: 'asampson@cs.cornell.edu'
 logo: https://brand.cornell.edu/images/web-logo.jpg
 ghrepo: https://github.com/sampsyo/home
 
@@ -39,12 +39,19 @@ defaults:
             type: drafts
         values:
             layout: post
+    -
+        scope:
+            type: pages
+        values:
+            permalink: /:path/:basename:output_ext
 
 navigation:
     - title: home
       link: /
     - title: research
       link: /research.html
+    - title: teaching
+      link: /teaching.html
     - title: blog
       link: /blog/
     - title: contact
