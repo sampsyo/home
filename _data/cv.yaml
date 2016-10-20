@@ -130,6 +130,9 @@ service:
 
 committees:
     - |
+        [ISCA 2017](https://www.sigarch.org/2016/09/08/call-for-papers-isca-2017/): Program committee member
+
+    - |
         [ASPLOS 2017](http://novel.ict.ac.cn/ASPLOS2017/): Program committee member
 
     - |
