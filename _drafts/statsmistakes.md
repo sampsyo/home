@@ -63,10 +63,12 @@ If you use a lot of statistical tests, you have extra work to do. The problem is
 
 For example, say you choose $\alpha = 0.01$ and run a $t$-test. When the test succeeds---when it finds a significant difference--it's telling you that there's at most an $\alpha$ chance that the difference arose from random chance. In 99 out of 100 parallel universes, your paper found a difference that actually exists. I'd take that bet.
 
-But say you run $n$ tests in the scope of one paper. Then every test has an $\alpha$ chance of going wrong. The chances that your paper has at least one error in is given by the binomial distribution:
+But say you run $n$ tests in the scope of one paper. Then every test has an $\alpha$ chance of going wrong. The chances that your paper has more than $k$ errors in it is given by the binomial distribution:
 
-TK
+\\[
+1 - \sum_{i=0}^{k} {n \choose i} \alpha^i (1-\alpha)^{n-i}
+\\]
 
-which grows (TK exponentially?) with the number of tests, $n$. If you do just 10 tests, for example, your chance of lying grows to TK. If you do 100, the probability is TK.
+which grows (TK exponentially?) with the number of tests, $n$. If you do just 10 tests, for example, your chance of one test with $\alpha = 0.05$ lying grows to 40%. If you do 100, the probability is above 99%. At that point, it's a near certainty that your paper is misreporting at a result.
 
 This pitfall is called the [multiple comparison problem][mcp]. There are several ways to address it by tightening your thresholds to compensate for the increased chance of error TK
