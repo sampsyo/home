@@ -19,7 +19,7 @@ Here are two easy things that every paper should do when it deals with performan
 
 First, plot the error bars. In every figure that represents an average, compute the [standard error of the mean][] or just the plain old [standard deviation][] and add little whiskers to each bar. Explain what the error bars mean in the caption.
 
-[figure]
+<img src="{{ site.base }}/media/errorbars.svg" alt="(a) Just noise. (b) Meaningful results. (c) Who knows???" class="img-responsive" style="width: 100%;">
 
 Second, do a simple statistical test. If you ever say "our system's average running time is X seconds, which is less than the baseline running time of Y seconds," you need show that the difference is [statistically significant][]. Statistical significance tells the reader that the difference you found was more than just "in the noise."
 
