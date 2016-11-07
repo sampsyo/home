@@ -28,7 +28,7 @@ For most CS papers I read, a really basic test will work: [Student's $t$-test][t
 \\[
 t =
 \frac{ \overline{X}_1 - \overline{X}_2 }
-{ \sqrt{ \frac{s_1^2}{N_1} \; + \;
+{ \sqrt{ \frac{s_1^2}{N_1} +
   \frac{s_2^2}{N_2} } }
 \\]
 
