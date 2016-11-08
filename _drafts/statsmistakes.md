@@ -5,11 +5,9 @@ excerpt: |
     You can get CS papers published with shoddy statistics, but that doesn't mean you should. Here are three easy ways to bungle the data analysis in your evaluation section: don't even try to use statistics when you really ought to; misinterpret an inconclusive statistical test as concluding a negative; or run too many tests without considering that some of them might be lying to you. I've seen all three of these mistakes in multiple published papers---don't let this be you!
 ---
 
-Most computer scientists I know don't know too much about statistics. Maybe this is because, historically, the methods of "core CS" fields didn't require any statistical thinking: who needs probabilities, for example, to argue about the design of UNIX or LISP? Machine learning folks are an exception, of course, and so are HCI and other fields that conduct user studies. But the rest of us have something to learn from other sciences where statistical analysis is part of the job.
+Computer scientists on the systems side of things, myself included, aren't great at using statistics. I'm not sure why---maybe it's because there are so many other potential problems with empirical evaluations that statistical soundness doesn't seem that important. Other subfields, such as HCI and machine learning, have much higher standards for data analysis; let's learn from their example.
 
-In a recent deluge of paper reviews, I noticed three data-analysis errors that several otherwise-good papers repeated.
-
-TK transition
+There are three kinds of avoidable statistics mistakes I've noticed in lots of published papers.
 
 ### No Statistics at All
 
