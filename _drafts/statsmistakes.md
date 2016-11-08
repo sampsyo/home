@@ -69,6 +69,8 @@ But say you run $n$ tests in the scope of one paper. Then every test has an $\al
 1 - \sum_{i=0}^{k} {n \choose i} \alpha^i (1-\alpha)^{n-i}
 \\]
 
-which grows (TK exponentially?) with the number of tests, $n$. If you do just 10 tests, for example, your chance of one test with $\alpha = 0.05$ lying grows to 40%. If you do 100, the probability is above 99%. At that point, it's a near certainty that your paper is misreporting at a result.
+which grows exponentially with the number of tests, $n$. If you do just 10 tests, for example, your chance of one test with $\alpha = 0.05$ lying grows to 40%. If you do 100, the probability is above 99%. At that point, it's a near certainty that your paper is misreporting at a result.
+
+(To compute these probabilities yourself, set $k = 0$ so you get the chance of at least one error. Then the formula simplifies down to $1 - (1 - \alpha) ^ n$.)
 
 This pitfall is called the [multiple comparison problem][mcp]. There are several ways to address it by tightening your thresholds to compensate for the increased chance of error TK
