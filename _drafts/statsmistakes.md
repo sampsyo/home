@@ -30,13 +30,13 @@ t =
   \frac{s_2^2}{N_2} } }
 \\]
 
-then plug that $t$ into [the cumulative distribution function of the $t$-distribution][tdist] to get a $p$-value. If your $p$-value is below a threshold $\alpha$ you choose ahead of time, like 0.05 or 0.01, you have a statistically significant difference. Your favorite numerical package probably already has [an implementation][ttest-numpy] that does all the work for you.
+then plug that $t$ into [the cumulative distribution function of the $t$-distribution][tdist] to get a $p$-value. If your $p$-value is below a threshold $\alpha$ that you chose ahead of time (0.05 or 0.01, say), then you have a statistically significant difference. Your favorite numerical package probably already has [an implementation][ttest-numpy] that does all the work for you.
 
 [tdist]: https://en.m.wikipedia.org/wiki/Student%27s_t-distribution
 [ttest]: http://vassarstats.net/textbook/ch11pt1.html
 [ttest-numpy]: http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
 
-If you've taken even an intro stats course, you definitely know all this already! But you might be surprised to know how many computer scientists don't. Program committees don't require that papers use solid statistics, so the literature is full of statistics-free but otherwise-good papers, so standards remain low, and Oroborous keeps drawing figures without error bars. Other fields are [moving *beyond* the $p$-value][], and CS isn't even there yet.
+If you've taken even an intro stats course, you definitely know all this already! But you might be surprised to know how many computer scientists don't. Program committees don't require that papers use solid statistics, so the literature is full of statistics-free but otherwise-good papers, so standards remain low, and Oroborous keeps drawing figures without error bars [TK improve this joke]. Other fields are [moving *beyond* the $p$-value][], and CS isn't even there yet.
 
 ### Failure to Reject = Confirmation
 
@@ -67,8 +67,8 @@ But say you run $n$ tests in the scope of one paper. Then every test has an $\al
 1 - \sum_{i=0}^{k} {n \choose i} \alpha^i (1-\alpha)^{n-i}
 \\]
 
-which grows exponentially with the number of tests, $n$. If you do just 10 tests, for example, your chance of one test with $\alpha = 0.05$ lying grows to 40%. If you do 100, the probability is above 99%. At that point, it's a near certainty that your paper is misreporting at a result.
+which grows exponentially with the number of tests, $n$. If you do just 10 tests with $\alpha = 0.05$, for example, your chance of having one bad test grows to 40%. If you do 100, the probability is above 99%. At that point, it's a near certainty that your paper is misreporting some result.
 
-(To compute these probabilities yourself, set $k = 0$ so you get the chance of at least one error. Then the formula simplifies down to $1 - (1 - \alpha) ^ n$.)
+(To compute these probabilities yourself, set $k = 0$ so you get the chance of at least one error. Then the CDF above simplifies down to $1 - (1 - \alpha) ^ n$.)
 
-This pitfall is called the [multiple comparison problem][mcp]. There are several ways to address it by tightening your thresholds to compensate for the increased chance of error TK
+This pitfall is called the [multiple comparison problem][mcp]. If you really need to run lots of tests, all is not lost: there are standard ways to compensate for the increased chance of error. TK
