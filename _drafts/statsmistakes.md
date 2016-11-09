@@ -42,12 +42,10 @@ If you've taken even an intro stats course, you definitely know all this already
 
 When you do use a statistical test in a paper, it's really important to interpret its results correctly. When your test produces a $p$-value, here are the correct interpretations:
 
-* $p \le \alpha$: The difference between our average running time and the baseline's average running time is statistically significant. Pedantically, we *reject the null hypothesis* that says that the averages might be the same.
-* $p > \alpha$: We conclude nothing at all. Pedantically, we *fail to reject* that null hypothesis.
+* $p < \alpha$: The difference between our average running time and the baseline's average running time is statistically significant. Pedantically, we *reject the null hypothesis* that says that the averages might be the same.
+* $p \ge \alpha$: We conclude nothing at all. Pedantically, we *fail to reject* that null hypothesis.
 
-It's tempting to think, when $p > \alpha$, that you've found the opposite thing from the $p \le \alpha$ case: that you get to conclude that there is *no statistically significant difference* between the two averages. Don't do that!
-
-TK check strictness
+It's tempting to think, when $p \ge \alpha$, that you've found the opposite thing from the $p < \alpha$ case: that you get to conclude that there is *no statistically significant difference* between the two averages. Don't do that!
 
 Simple statistical tests like the $t$-test only tell you when averages are different; they can't tell you when they're the same. When they fail to find a difference, there are two possible explanations: either there is no difference, or you haven't collected enough data yet. So when a test fails, it could be your fault: if you had run a slightly larger experiment with a slightly larger $N$, the test might have successfully found the difference. So it's wrong to conclude that the difference does not exist.
 
