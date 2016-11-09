@@ -49,7 +49,9 @@ It's tempting to think, when $p \ge \alpha$, that you've found the opposite thin
 
 Simple statistical tests like the $t$-test only tell you when averages are different; they can't tell you when they're the same. When they fail to find a difference, there are two possible explanations: either there is no difference, or you haven't collected enough data yet. So when a test fails, it could be your fault: if you had run a slightly larger experiment with a slightly larger $N$, the test might have successfully found the difference. So it's wrong to conclude that the difference does not exist.
 
-TK statistical power to show lack of a difference
+If you want to claim that two means are *equal*, you'll need to use different a test where the null hypothesis says that they differ by at least a certain amount. For example, a [one-tailed $t$-test][ttest] will do.
+
+[ttest]: http://stattrek.com/hypothesis-test/difference-in-means.aspx?Tutorial=AP
 
 ### The Multiple Comparisons Problem
 
