@@ -36,7 +36,7 @@ then plug that $t$ into [the cumulative distribution function of the $t$-distrib
 [ttest]: http://vassarstats.net/textbook/ch11pt1.html
 [ttest-numpy]: http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
 
-If you've taken even an intro stats course, you definitely know all this already! But you might be surprised to know how many computer scientists don't. Program committees don't require that papers use solid statistics, so the literature is full of statistics-free but otherwise-good papers, so standards remain low, and Oroborous keeps drawing figures without error bars [TK improve this joke]. Other fields are [moving *beyond* the $p$-value][], and CS isn't even there yet.
+If you've taken even an intro stats course, you definitely know all this already! But you might be surprised to know how many computer scientists don't. Program committees don't require that papers use solid statistics, so the literature is full of statistics-free but otherwise-good papers, so standards remain low, and Prof. Ouroboros keeps drawing figures without error bars. Other fields are [moving *beyond* the $p$-value][], and CS isn't even there yet.
 
 ### Failure to Reject = Confirmation
 
