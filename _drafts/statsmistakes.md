@@ -53,7 +53,7 @@ Simple statistical tests like the $t$-test only tell you when averages are diffe
 
 TK statistical power to show lack of a difference
 
-### The Multiple Comparison Problem
+### The Multiple Comparisons Problem
 
 In most ordinary evaluation sections, it's probably enough to use only a handful of statistical tests to draw one or two bottom-line conclusions. But you might find yourself automatically running an unbounded number of comparisons. Perhaps you have $n$ benchmarks, and you want to compare the running time *on each one* to a corresponding baseline with a separate statistical test. Or maybe your system works in a feedback loop: it tries one strategy, performs a statistical test to check whether the strategy worked, and starts over with a new strategy otherwise.
 
@@ -71,4 +71,7 @@ which grows exponentially with the number of tests, $n$. If you do just 10 tests
 
 (To compute these probabilities yourself, set $k = 0$ so you get the chance of at least one error. Then the CDF above simplifies down to $1 - (1 - \alpha) ^ n$.)
 
-This pitfall is called the [multiple comparison problem][mcp]. If you really need to run lots of tests, all is not lost: there are standard ways to compensate for the increased chance of error. TK
+This pitfall is called the [multiple comparisons problem][mcp]. If you really need to run lots of tests, all is not lost: there are standard ways to compensate for the increased chance of error. The simplest is the [Bonferroni correction][bonferroni], where you reduce your per-test $\alpha$ to $\frac{\alpha}{n}$ to preserve an overall $\alpha$ chance of going wrong.
+
+[bonferroni]: http://mathworld.wolfram.com/BonferroniCorrection.html
+[mcp]: https://en.wikipedia.org/wiki/Multiple_comparisons_problem
