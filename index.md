@@ -15,10 +15,11 @@ To help programmers trade off accuracy for efficiency, we need new [languages][e
 [passert]: {{ site.base }}/media/papers/passert-pldi2014.pdf
 [accept]: https://sampa.cs.washington.edu/accept/
 
-I am a new assistant professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell].
+I am an assistant professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell], where I am also part of the [Computer Systems Laboratory][cls].
 I graduated from the [University of Washington][uw cse] in 2015.
 Here's my [CV][].
 
+[cls]: http://www.csl.cornell.edu
 [cornell]: http://www.cornell.edu/
 [cornellcs]: http://www.cs.cornell.edu/
 [RiSE]: http://research.microsoft.com/en-us/groups/rise/
