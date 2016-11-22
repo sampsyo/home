@@ -15,11 +15,13 @@ The most common blunder is not using statistics at all when your paper clearly h
 
 Here are two easy things that every paper should do when it deals with performance data or anything else that varies a little bit nondeterministically:
 
-First, plot the error bars. In every figure that represents an average, compute the [standard error of the mean][] or just the plain old [standard deviation][] and add little whiskers to each bar. Explain what the error bars mean in the caption.
+First, plot the error bars. In every figure that represents an average, compute the [standard error of the mean][stderr] or just the plain old standard deviation and add little whiskers to each bar. Explain what the error bars mean in the caption.
 
 <img src="{{ site.base }}/media/errorbars.svg" alt="(a) Just noise. (b) Meaningful results. (c) Who knows???" class="img-responsive" style="width: 100%;">
 
-Second, do a simple statistical test. If you ever say "our system's average running time is X seconds, which is less than the baseline running time of Y seconds," you need show that the difference is [statistically significant][]. Statistical significance tells the reader that the difference you found was more than just "in the noise."
+Second, do a simple statistical test. If you ever say "our system's average running time is X seconds, which is less than the baseline running time of Y seconds," you need show that the difference is [statistically significant][statsig]. Statistical significance tells the reader that the difference you found was more than just "in the noise."
+
+[statsig]: https://en.wikipedia.org/wiki/Statistical_significance
 
 For most CS papers I read, a really basic test will work: [Student's $t$-test][ttest] checks that two averages that look different actually are different. The process is easy. Collect some $N$ samples from the two conditions, compute the mean $\overline{X}$ and the standard deviation $s$ for each, and plug them into this formula:
 
@@ -36,7 +38,9 @@ then plug that $t$ into [the cumulative distribution function of the $t$-distrib
 [ttest]: http://vassarstats.net/textbook/ch11pt1.html
 [ttest-numpy]: http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
 
-If you've taken even an intro stats course, you definitely know all this already! But you might be surprised to know how many computer scientists don't. Program committees don't require that papers use solid statistics, so the literature is full of statistics-free but otherwise-good papers, so standards remain low, and Prof. Ouroboros keeps drawing figures without error bars. Other fields are [moving *beyond* the $p$-value][], and CS isn't even there yet.
+If you've taken even an intro stats course, you definitely know all this already! But you might be surprised to know how many computer scientists don't. Program committees don't require that papers use solid statistics, so the literature is full of statistics-free but otherwise-good papers, so standards remain low, and Prof. Ouroboros keeps drawing figures without error bars. Other fields are [moving *beyond* the $p$-value][pvalueban], and CS isn't even there yet.
+
+[pvalueban]: http://www.nature.com/news/psychology-journal-bans-p-values-1.17001
 
 ### Failure to Reject = Confirmation
 
@@ -47,11 +51,12 @@ When you do use a statistical test in a paper, it's really important to interpre
 
 It's tempting to think, when $p \ge \alpha$, that you've found the opposite thing from the $p < \alpha$ case: that you get to conclude that there is *no statistically significant difference* between the two averages. Don't do that!
 
-Simple statistical tests like the $t$-test only tell you when averages are different; they can't tell you when they're the same. When they fail to find a difference, there are two possible explanations: either there is no difference, or you haven't collected enough data yet. So when a test fails, it could be your fault: if you had run a slightly larger experiment with a slightly larger $N$, the test might have successfully found the difference. So it's wrong to conclude that the difference does not exist.
+Simple statistical tests like the $t$-test only tell you when averages are different; they can't tell you when they're the same. When they fail to find a difference, there are two possible explanations: either there is no difference or you haven't collected enough data yet. So when a test fails, it could be your fault: if you had run a slightly larger experiment with a slightly larger $N$, the test might have successfully found the difference. So it's wrong to conclude that the difference does not exist.
 
 If you want to claim that two means are *equal*, you'll need to use different a test where the null hypothesis says that they differ by at least a certain amount. For example, a [one-tailed $t$-test][ttest] will do.
 
 [ttest]: http://stattrek.com/hypothesis-test/difference-in-means.aspx?Tutorial=AP
+[stderr]: https://www.r-bloggers.com/standard-deviation-vs-standard-error/
 
 ### The Multiple Comparisons Problem
 
