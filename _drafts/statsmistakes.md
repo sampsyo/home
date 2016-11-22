@@ -1,13 +1,13 @@
 ---
-title: Statistics Mistakes Computer Scientists Love to Make
+title: Statistical Mistakes and How to Avoid Them
 mathjax: true
 excerpt: |
     You can get CS papers published with shoddy statistics, but that doesn't mean you should. Here are three easy ways to bungle the data analysis in your evaluation section: don't even try to use statistics when you really ought to; misinterpret an inconclusive statistical test as concluding a negative; or run too many tests without considering that some of them might be lying to you. I've seen all three of these mistakes in multiple published papers---don't let this be you!
 ---
 
-Computer scientists on the systems side of things, myself included, aren't great at using statistics. I'm not sure why---maybe it's because there are so many other potential problems with empirical evaluations that statistical soundness doesn't seem that important. Other subfields, such as HCI and machine learning, have much higher standards for data analysis; let's learn from their example.
+Computer scientists in systemsy fields, myself included, aren't great at using statistics. Maybe it's because there are so many other potential problems with empirical evaluations that solid statistical reasoning doesn't seem that important. Other subfields, like HCI and machine learning, have much higher standards for data analysis. Let's learn from their example.
 
-There are three kinds of avoidable statistics mistakes I've noticed in lots of published papers.
+Here are three kinds of avoidable statistics mistakes that I notice in published papers.
 
 ### No Statistics at All
 
