@@ -1,16 +1,11 @@
-BOWER := node_modules/bower/bin/bower
-BOWER_ARGS := --config.interactive=false
 LESSC := ./node_modules/less/bin/lessc
-BOOTSTRAP := bower_components/bootstrap/bower.json
-KATEX := bower_components/katex/dist
-HIGHLIGHT_JS := bower_components/highlightjs/highlight.pack.min.js
-SOURCE_SANS_PRO := bower_components/source-sans-pro
+BOOTSTRAP := node_modules/bootstrap/package.json
+KATEX := node_modules/katex/dist
 CLEANCSS := ./node_modules/clean-css/bin/cleancss
 
 # Build the site itself using Jekyll.
 .PHONY: site
-GENERATED := media/main.css media/katex media/highlightjs \
-	media/font/source-sans-pro
+GENERATED := media/main.css media/katex media/highlightjs
 site: index.md $(GENERATED)
 	jekyll build
 
@@ -32,7 +27,7 @@ PRODUCTS := _site media/font media/highlightjs media/katex \
 clean:
 	rm -rf $(PRODUCTS)
 cleanall:
-	rm -rf $(PRODUCTS) _source/highlightjs node_modules bower_components
+	rm -rf $(PRODUCTS) _source/highlightjs node_modules
 
 
 # Deployment.
@@ -46,37 +41,23 @@ deploy: clean site
 
 # Install dependencies.
 
-# Bootstrap.
-$(BOOTSTRAP): $(BOWER)
-	$(BOWER) install $(BOWER_ARGS) bootstrap\#~3.2.0
-	@touch $@
-
-# KaTeX.
-$(KATEX): $(BOWER)
-	$(BOWER) install $(BOWER_ARGS) katex\#~0.6.0
-	@touch $@
-media/katex: $(KATEX)
-	cp -r $< $@
-
-# Source Sans Pro.
-$(SOURCE_SANS_PRO): $(BOWER)
-	$(BOWER) install $(BOWER_ARGS) \
-		git://github.com/adobe-fonts/source-sans-pro.git\#release
-	@touch $@
-media/font/source-sans-pro: $(SOURCE_SANS_PRO)
-	mkdir -p media/font
-	cp -r $< $@
-
-# Install Bower, LESS, and clean-css using Node.
-$(BOWER):
-	npm install bower
-	@touch $@
+# Dependencies from npm. TODO: This should be replaced with a package.json.
 $(LESSC):
 	npm install less
 	@touch $@
 $(CLEANCSS):
 	npm install clean-css
 	@touch $@
+$(KATEX):
+	npm install katex
+	@touch $@
+$(BOOTSTRAP):
+	npm install bootstrap@3.3.7
+	@touch $@
+
+# Publish client-side assets.
+media/katex: $(KATEX)
+	cp -r $< $@
 
 # Clone and build Highlight.js to get custom languages.
 _source/highlightjs:
