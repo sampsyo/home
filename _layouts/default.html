@@ -61,7 +61,7 @@
                     {% assign shorturl = page.url | replace:'index.html','' %}
                     {% for item in site.navigation %}
                     <a
-                        {% if item.link == shorturl or (item.link == '/blog/' and page.date) %}
+                        {% if item.link == '/blog/' and page.date or item.link == shorturl %}
                             class="active"
                         {% endif %}
                         href="{{ site.base }}{{ item.link }}">
