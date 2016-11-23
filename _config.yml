@@ -7,6 +7,9 @@ email: 'asampson@cs.cornell.edu'
 logo: https://brand.cornell.edu/images/web-logo.jpg
 ghrepo: https://github.com/sampsyo/home
 
+# Use a prefix for the local server. Eventually, replace `base` with this.
+baseurl: '/~asampson'
+
 markdown: kramdown
 kramdown:
     input: GFM
