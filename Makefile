@@ -36,7 +36,7 @@ cleanbuild:
 
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
 	--delete -e ssh
-DEST := dh:domains/adriansampson.net/home
+DEST := fox:/home/WIN/asampson/MyWeb
 deploy: cleanbuild site
 	rsync $(RSYNCARGS) _site/ $(DEST)
 
