@@ -22,12 +22,14 @@ media/main.css: _source/main.css $(CLEANCSS)
 # Cleaning.
 
 .PHONY: clean cleanall
-PRODUCTS := _site media/font media/highlightjs media/katex \
+PRODUCTS := _site media/highlightjs media/katex \
 	media/main.css _source/main.css
 clean:
 	rm -rf $(PRODUCTS)
 cleanall:
 	rm -rf $(PRODUCTS) _source/highlightjs node_modules
+cleanbuild:
+	rm -rf _site
 
 
 # Deployment.
@@ -35,7 +37,7 @@ cleanall:
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
 	--delete -e ssh
 DEST := dh:domains/adriansampson.net/home
-deploy: clean site
+deploy: cleanbuild site
 	rsync $(RSYNCARGS) _site/ $(DEST)
 
 
