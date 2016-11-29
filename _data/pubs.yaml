@@ -152,7 +152,7 @@
     extra:
         - '[Slides.](BASE/media/enerj-pldi-slides.pdf)'
         - '[Poster.](BASE/media/enerj-poster.pdf)'
-        - '[Technical report with full proofs.](BASE/files/enerjproofs.pdf)'
+        - '[Technical report with full proofs.](BASE/media/enerjproofs.pdf)'
         - '[Checker, simulator, and benchmark source code.](http://sampa.cs.washington.edu/sampa/EnerJ#Source_Release)'
 
 -
