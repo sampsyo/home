@@ -9,7 +9,9 @@ Send me email at [{{site.email}}][email]. My office in [Gates Hall][gates] is 41
 [email]: mailto:{{site.email}}
 [gates]: https://blogs.cornell.edu/gateshall/
 
-Here are some answers to a couple of common questions.
+---
+
+Here are some answers to common questions.
 
 * **Can you send me the slides for a talk you gave?**
 
@@ -22,6 +24,10 @@ Here are some answers to a couple of common questions.
   Fantastic! I'm thrilled that you're interested in the same kinds of hardware--software abstraction problems that I am. Cornell is a great place to do a Ph.D. in computer science.
 
   Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply]. I'll look forward to reading your application to either department.
+
+* **May we "repost" the text of one of your blog posts on our site?**
+
+  I'm glad you're interested in the article! But copies of blog posts on sites I don't control make it impossible for me to correct mistakes or add updates in the future. Please don't "repost" anything.
 
 [csapply]: https://www.cs.cornell.edu/phd/admissions#application
 [eceapply]: http://www.ece.cornell.edu/ece/academics/graduate/phd/admission.cfm
