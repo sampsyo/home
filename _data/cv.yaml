@@ -1,7 +1,12 @@
 name: Adrian Sampson
 email: asampson@cornell.edu
-dept: Cornell University Department of Computer Science
-dept_url: https://www.cs.cornell.edu
+
+affiliation: |
+    Assistant Professor, [Computer Science](https://www.cs.cornell.edu)
+
+    Field Member, [Electrical and Computer Engineering](https://www.ece.cornell.edu)
+
+    [Cornell University](http://www.cornell.edu)
 
 education:
     -

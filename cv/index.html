@@ -11,8 +11,7 @@ title: CV
         <a href="{{ site.base }}/">{{ cv.name }}</a>
     </h1>
     <address>
-        <a href="{{ cv.dept_url }}">{{ cv.dept }}</a>
-        <a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+        {{ cv.affiliation | markdownify }}
     </address>
 </header>
 
