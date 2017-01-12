@@ -1,4 +1,11 @@
 -
+    title: "Approximate Computing: Unlocking Efficiency with Hardware&ndash;Software Co-Design"
+    authors: "Luis Ceze and Adrian Sampson"
+    venue: '<i>GetMobile</i>, July 2016'
+    venue_url: https://www.sigmobile.org/pubs/getmobile/
+    url: "http://dl.acm.org/citation.cfm?id=3036703"
+
+-
     title: "The Case for Compulsory Approximation"
     authors: "Adrian Sampson"
     url: http://approximate.computer/wax2016/papers/sampson.pdf
