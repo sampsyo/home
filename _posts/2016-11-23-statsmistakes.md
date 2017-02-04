@@ -76,7 +76,8 @@ which grows exponentially with the number of tests, $n$. If you use just 10 test
 
 (To compute these probabilities yourself, set $k = 0$ so you get the chance of at least one error. Then the CDF above simplifies down to $1 - (1 - \alpha) ^ n$.)
 
-This pitfall is called the [multiple comparisons problem][mcp]. If you really need to run lots of tests, all is not lost: there are standard ways to compensate for the increased chance of error. The simplest is the [Bonferroni correction][bonferroni], where you reduce your per-test $\alpha$ to $\frac{\alpha}{n}$ to preserve an overall $\alpha$ chance of going wrong.
+This pitfall is called the [multiple comparisons problem][mcp]. If you really need to run lots of tests, all is not lost: there are standard ways to compensate for the increased chance of error. The simplest are the [Bonferroni][bonferroni] and [Šidák][sidak] corrections, where you reduce your per-test $\alpha$ to $\frac{\alpha}{n}$ to preserve an overall $\alpha$ chance of going wrong.
 
 [bonferroni]: http://mathworld.wolfram.com/BonferroniCorrection.html
 [mcp]: https://en.wikipedia.org/wiki/Multiple_comparisons_problem
+[sidak]: https://en.m.wikipedia.org/wiki/Šidák_correction
