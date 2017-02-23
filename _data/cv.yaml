@@ -183,6 +183,45 @@ committees:
 
 students:
     -
+        category: Ph.D.
+        students:
+            -
+                name: Mark Buckler
+                when: 2016&ndash;
+    -
+        category: Master of Engineering
+        students:
+            -
+                name: Richie Henwood
+                when: 2017&ndash;
+            -
+                name: Moshe Klebanov
+                when: 2017&ndash;
+            -
+                name: Taehoon Lee
+                when: 2017&ndash;
+            -
+                name: Mingyang Li
+                when: 2017&ndash;
+            -
+                name: Eric Lin
+                when: 2017&ndash;
+    -
+        category: Undergraduate
+        students:
+            -
+                name: Harry Goldstein
+                when: 2017&ndash;
+            -
+                name: Alex Renda
+                when: 2017&ndash;
+            -
+                name: Omar Abdelaziz
+                when: 2016&ndash;
+            -
+                name: Chirag Bharadwaj
+                when: 2016&ndash;
+    -
         category: Undergraduate Researchers at UW
         details: |
             I worked with these B.S. students while I was a graduate student at the University of Washington.
@@ -199,6 +238,7 @@ students:
             -
                 name: Brett Boston
                 when: 2013&ndash;2015
+                url: https://people.csail.mit.edu/boston/
                 extra: |
                     B.S. Honors Thesis
                     Runner-up, <a href="http://cra.org/awards/undergrad-current/">2015 CRA Outstanding Undergraduate Researcher Awards</a><br>

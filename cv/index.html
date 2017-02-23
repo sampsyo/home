@@ -79,10 +79,7 @@ title: CV
         {% if category.details %}<p>{{ category.details }}</p>{% endif %}
         {% for student in category.students %}
         <p>
-            <strong>{{ student.name }}</strong><br>
-            {% if student.kind %}{{ student.kind }},{% endif %}
-            {% if student.where %}{{ student.where }},{% endif %}
-            {{ student.when }}
+            <strong>{{ student.name }}</strong>, {{ student.when }}
             {% if student.extra %}<br>{{ student.extra }}{% endif %}
         </p>
         {% endfor %}
