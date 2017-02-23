@@ -5,6 +5,7 @@ class: cv
 title: CV
 ---
 {% assign cv = site.data.cv %}
+{% assign students = site.data.students %}
 
 <header>
     <h1>
@@ -74,7 +75,7 @@ title: CV
 
 <section>
     <h2>Students</h2>
-    {% for category in cv.students %}
+    {% for category in students %}
         <h3>{{ category.category }}</h3>
         {% if category.details %}<p>{{ category.details }}</p>{% endif %}
         {% for student in category.students %}
