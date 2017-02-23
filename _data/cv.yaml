@@ -183,44 +183,37 @@ committees:
 
 students:
     -
-        name: Luyi Liu
-        kind: B.S.
-        when: 2014
-        where: University of Washington
-    -
-        name: Chengfeng Shi
-        kind: B.S.
-        when: 2014
-        where: University of Washington
-    -
-        name: Joshua Yip
-        kind: B.S.
-        when: 2014
-        where: University of Washington
-    -
-        name: Brett Boston
-        kind: B.S. Honors Thesis
-        when: 2013&ndash;2015
-        where: University of Washington
-        extra: |
-            Runner-up, <a href="http://cra.org/awards/undergrad-current/">2015 CRA Outstanding Undergraduate Researcher Awards</a><br>
-            Winner, <a href="https://www.cs.washington.edu/students/ugrad/thesis_award">2015 UW CSE Undergraduate Honors Thesis Award</a><br>
-            Now a Ph.D. student at MIT
-    -
-        name: Wenjie (Marissa) He
-        kind: B.S.
-        when: 2013&ndash;2015
-        where: University of Washington
-    -
-        name: Finn Parnell
-        kind: B.S. Honors Thesis
-        when: 2011&ndash;2012
-        where: University of Washington
-    -
-        name: Danushen Gnanapragasam
-        kind: B.S.
-        when: 2010&ndash;2011
-        where: University of Washington
+        category: Undergraduate Researchers at UW
+        details: |
+            I worked with these B.S. students while I was a graduate student at the University of Washington.
+        students:
+            -
+                name: Luyi Liu
+                when: 2014
+            -
+                name: Chengfeng Shi
+                when: 2014
+            -
+                name: Joshua Yip
+                when: 2014
+            -
+                name: Brett Boston
+                when: 2013&ndash;2015
+                extra: |
+                    B.S. Honors Thesis
+                    Runner-up, <a href="http://cra.org/awards/undergrad-current/">2015 CRA Outstanding Undergraduate Researcher Awards</a><br>
+                    Winner, <a href="https://www.cs.washington.edu/students/ugrad/thesis_award">2015 UW CSE Undergraduate Honors Thesis Award</a><br>
+                    Now a Ph.D. student at MIT
+            -
+                name: Wenjie (Marissa) He
+                when: 2013&ndash;2015
+            -
+                name: Finn Parnell
+                extra: B.S. Honors Thesis
+                when: 2011&ndash;2012
+            -
+                name: Danushen Gnanapragasam
+                when: 2010&ndash;2011
 
 # Eventually?
 talks:

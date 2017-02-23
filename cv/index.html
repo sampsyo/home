@@ -74,14 +74,18 @@ title: CV
 
 <section>
     <h2>Students</h2>
-    {% for student in cv.students %}
-    <p>
-        <strong>{{ student.name }}</strong><br>
-        {{ student.kind }},
-        {{ student.where }},
-        {{ student.when }}
-        {% if student.extra %}<br>{{ student.extra }}{% endif %}
-    </p>
+    {% for category in cv.students %}
+        <h3>{{ category.category }}</h3>
+        {% if category.details %}<p>{{ category.details }}</p>{% endif %}
+        {% for student in category.students %}
+        <p>
+            <strong>{{ student.name }}</strong><br>
+            {% if student.kind %}{{ student.kind }},{% endif %}
+            {% if student.where %}{{ student.where }},{% endif %}
+            {{ student.when }}
+            {% if student.extra %}<br>{{ student.extra }}{% endif %}
+        </p>
+        {% endfor %}
     {% endfor %}
 </section>
 
