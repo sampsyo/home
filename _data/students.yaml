@@ -4,6 +4,7 @@
         -
             name: Mark Buckler
             when: 2016&ndash;
+
 -
     category: Master of Engineering
     students:
@@ -22,6 +23,7 @@
         -
             name: Eric Lin
             when: 2017&ndash;
+
 -
     category: Undergraduate
     students:
@@ -37,6 +39,7 @@
         -
             name: Chirag Bharadwaj
             when: 2016&ndash;
+
 -
     category: Undergraduate Researchers at UW
     details: |
