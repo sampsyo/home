@@ -64,9 +64,11 @@ In most ordinary evaluation sections, it's probably enough to use only a handful
 
 Repeated statistical tests can get you into trouble. The problem is that every statistical test has a probability of lying to you. The probability that any *single* test is wrong is small, but if you do lots of test, the probability amplifies quickly.
 
-For example, say you choose $\alpha = 0.05$ and run one $t$-test. When the test succeeds---when it finds a significant difference---it's telling you that there's at most an $\alpha$ chance that the difference arose from random chance. In 95 out of 100 parallel universes, your paper found a difference that actually exists. I'd take that bet.
+For example, say you choose $\alpha = 0.05$ and run one $t$-test. When the test succeeds---when it finds a significant difference---it's telling you that if the test groups were actually equivalent you'd still see this difference 5% of the time by dumb luck. If this difference actually doesn't exist despite you measuring it, you're in 5 out of 100 parallel universes where you just got unlucky.
 
-Now, say you run a series of $n$ tests in the scope of one paper. Then every test has an $\alpha$ chance of going wrong. The chances that your paper has more than $k$ errors in it is given by the binomial distribution:
+Existing in these unlucky universes isn't likely on any given test.  But do enough tests, and chances are good that for a handful of them you'll be unlucky.  Here's an intuitive example: suppose you built a machine that counted neutrinos from the sun and compared them to yesterday's measurements.  Every day it tested whether the neutrino-level dropped (and thus the sun had exploded) at the $\alpha = 0.05$ level.  After a few dozen days of testing you wake up and it alerts you the sun has exploded, do you panic? [xkcd]
+
+Now, say you run a series of $n$ tests in the scope of one paper. Even if there's no real difference between groups, there's an $\alpha$ chance of getting unlucky and seeing one. The chances that your paper has more than $k$ errors in it is given by the binomial distribution:
 
 \\[
 1 - \sum_{i=0}^{k} {n \choose i} \alpha^i (1-\alpha)^{n-i}
@@ -76,8 +78,10 @@ which grows exponentially with the number of tests, $n$. If you use just 10 test
 
 (To compute these probabilities yourself, set $k = 0$ so you get the chance of at least one error. Then the CDF above simplifies down to $1 - (1 - \alpha) ^ n$.)
 
-This pitfall is called the [multiple comparisons problem][mcp]. If you really need to run lots of tests, all is not lost: there are standard ways to compensate for the increased chance of error. The simplest are the [Bonferroni][bonferroni] and [Šidák][sidak] corrections, where you reduce your per-test $\alpha$ to $\frac{\alpha}{n}$ to preserve an overall $\alpha$ chance of going wrong.
+This pitfall is called the [multiple comparisons problem][mcp]. If you really need to run lots of tests, all is not lost: there are standard ways to compensate for the increased chance of error. The simplest are the [Bonferroni][bonferroni] and [Šidák][sidak] corrections, where you reduce your per-test $\alpha$ to $\frac{\alpha}{n}$ to preserve an overall $\alpha$ chance of going wrong.  A less stringent method involves controling for the False Discovery Rate [fdr].
 
 [bonferroni]: http://mathworld.wolfram.com/BonferroniCorrection.html
 [mcp]: https://en.wikipedia.org/wiki/Multiple_comparisons_problem
 [sidak]: https://en.m.wikipedia.org/wiki/Šidák_correction
+[xkcd]: https://xkcd.com/1132/
+[fdr]: https://en.wikipedia.org/wiki/False_discovery_rate
