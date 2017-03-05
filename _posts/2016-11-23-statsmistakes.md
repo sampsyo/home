@@ -64,9 +64,9 @@ In most ordinary evaluation sections, it's probably enough to use only a handful
 
 Repeated statistical tests can get you into trouble. The problem is that every statistical test has a probability of lying to you. The probability that any *single* test is wrong is small, but if you do lots of test, the probability amplifies quickly.
 
-For example, say you choose $\alpha = 0.05$ and run one $t$-test. When the test succeeds---when it finds a significant difference---it's telling you that there's at most an $\alpha$ chance that the difference arose from random chance. In 95 out of 100 parallel universes, your paper found a difference that actually exists. I'd take that bet.
+For example, say you choose $\alpha = 0.05$ and run one $t$-test. When the test succeeds---when it finds a significant difference---it's telling you that, if a difference *didn't* exist, the data you saw would arise by random chance with probability $\alpha$. So there's still a chance that you measured a difference when one doesn't really exist, but that can only happen in only 5 out of 100 parallel universes. I'd take that bet.
 
-Now, say you run a series of $n$ tests in the scope of one paper. Then every test has an $\alpha$ chance of going wrong. The chances that your paper has more than $k$ errors in it is given by the binomial distribution:
+Now, say you run a series of $n$ tests in the scope of one paper. Say there's no *true* difference to be found. Even so, every test has an $\alpha$ chance of going wrong and telling you a difference exists. The chances that your paper has more than $k$ errors in it is given by the binomial distribution:
 
 \\[
 1 - \sum_{i=0}^{k} {n \choose i} \alpha^i (1-\alpha)^{n-i}
