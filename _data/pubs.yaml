@@ -1,4 +1,20 @@
 -
+    title: "Rethinking the Camera Pipeline for Computer Vision"
+    authors: "Mark Buckler, Suren Jayasuriya, and Adrian Sampson"
+    venue: WAX 2017
+    type: workshop
+    venue_url: http://approximate.computer/wax2017/
+    with: ASPLOS
+
+-
+    title: "Let’s Fix OpenGL"
+    authors: "Adrian Sampson"
+    venue: 'SNAPL 2017'
+    venue_url: http://snapl.org/2017/
+    preprint: true
+    type: conference
+
+-
     title: "Approximate Computing: Unlocking Efficiency with Hardware&ndash;Software Co-Design"
     authors: "Luis Ceze and Adrian Sampson"
     venue: '<i>GetMobile</i>, July 2016'
