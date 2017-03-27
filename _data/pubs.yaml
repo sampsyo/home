@@ -13,6 +13,8 @@
     venue_url: http://snapl.org/2017/
     preprint: true
     type: conference
+    extra:
+      - '[Preprint.](BASE/media/papers/opengl-snapl2017-preprint.pdf)'
 
 -
     title: "Approximate Computing: Unlocking Efficiency with Hardware&ndash;Software Co-Design"
