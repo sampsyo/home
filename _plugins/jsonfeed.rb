@@ -9,7 +9,7 @@ module Jekyll
       markdown = @site.find_converter_instance(Jekyll::Converters::Markdown)
       smart = @site.find_converter_instance(Jekyll::Converters::SmartyPants)
 
-      items = @docs.map do |doc|
+      items = @docs.reverse.map do |doc|
         docurl = @site.config['url'] + doc.url
         {
           :id => docurl,
