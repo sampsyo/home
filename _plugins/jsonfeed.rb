@@ -6,14 +6,17 @@ module Jekyll
     end
 
     def feed_data()
+      markdown = @site.find_converter_instance(Jekyll::Converters::Markdown)
+      smart = @site.find_converter_instance(Jekyll::Converters::SmartyPants)
+
       items = @docs.map do |doc|
         docurl = @site.config['url'] + doc.url
         {
           :id => docurl,
           :url => docurl,
-          :title => doc.data['title'],
+          :title => smart.convert(doc.data['title']),
           :content_html => doc.content,
-          :summary => doc.data['excerpt'],
+          :summary => markdown.convert(doc.data['excerpt']),
           :date_published => doc.date.to_datetime.rfc3339,
         }
       end
