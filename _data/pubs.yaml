@@ -1,10 +1,18 @@
 -
+    title: "Debugging Probabilistic Programs"
+    authors: "Chandrakana Nandi, Dan Grossman, Adrian Sampson, Todd Mytkowicz, and Kathryn S. McKinley"
+    venue: MAPL 2017
+    vanue_url: https://sites.google.com/view/mapl2017/home
+    with: PLDI
+
+-
     title: "Rethinking the Camera Pipeline for Computer Vision"
     authors: "Mark Buckler, Suren Jayasuriya, and Adrian Sampson"
     venue: WAX 2017
     type: workshop
     venue_url: http://approximate.computer/wax2017/
     with: ASPLOS
+    url: http://approximate.computer/wax2017/papers/buckler.pdf
 
 -
     title: "Let’s Fix OpenGL"
@@ -13,8 +21,7 @@
     venue_url: http://snapl.org/2017/
     preprint: true
     type: conference
-    extra:
-      - '[Preprint.](BASE/media/papers/opengl-snapl2017-preprint.pdf)'
+    url: http://drops.dagstuhl.de/opus/volltexte/2017/7130/
 
 -
     title: "Approximate Computing: Unlocking Efficiency with Hardware&ndash;Software Co-Design"
