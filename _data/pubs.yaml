@@ -30,6 +30,8 @@
     venue_url: http://snapl.org/2017/
     type: conference
     url: http://drops.dagstuhl.de/opus/volltexte/2017/7130/
+    extra:
+     - '[Slides.](BASE/media/opengl-snapl17-slides.pdf)'
 
 -
     title: "Approximate Computing: Unlocking Efficiency with Hardware&ndash;Software Co-Design"
