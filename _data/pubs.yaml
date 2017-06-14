@@ -1,9 +1,18 @@
 -
+    title: "A Taxonomy of General Purpose Approximate Computing Techniques"
+    authors: "Thierry Moreau, Joshua San Miguel, Mark Wyse, James Bornholt, Armin Alaghi, Luis Ceze, Natalie Enright Jerger, and Adrian Sampson"
+    venue: "IEEE Embedded Systems Letters"
+    type: journal
+    preprint: true
+
+-
     title: "Debugging Probabilistic Programs"
     authors: "Chandrakana Nandi, Dan Grossman, Adrian Sampson, Todd Mytkowicz, and Kathryn S. McKinley"
     venue: MAPL 2017
     vanue_url: https://sites.google.com/view/mapl2017/home
     with: PLDI
+    type: workshop
+    preprint: true
 
 -
     title: "Rethinking the Camera Pipeline for Computer Vision"
@@ -19,7 +28,6 @@
     authors: "Adrian Sampson"
     venue: 'SNAPL 2017'
     venue_url: http://snapl.org/2017/
-    preprint: true
     type: conference
     url: http://drops.dagstuhl.de/opus/volltexte/2017/7130/
 
