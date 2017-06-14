@@ -22,6 +22,8 @@
     venue_url: http://approximate.computer/wax2017/
     with: ASPLOS
     url: http://approximate.computer/wax2017/papers/buckler.pdf
+    extra:
+     - '[Slides.](http://approximate.computer/wax2017/slides/sampson.pdf)'
 
 -
     title: "Let’s Fix OpenGL"
