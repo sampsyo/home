@@ -33,7 +33,7 @@
     type: conference
     url: http://drops.dagstuhl.de/opus/volltexte/2017/7130/
     extra:
-     - '[Slides.](BASE/media/opengl-snapl17-slides.pdf)'
+     - '[Slides.](BASE/media/opengl-snapl2017-slides.pdf)'
 
 -
     title: "Approximate Computing: Unlocking Efficiency with Hardware&ndash;Software Co-Design"
@@ -86,12 +86,14 @@
     with: PLDI
 
 -
-    title: "Hardware–Software Co-Design: Not Just a Cliche"
+    title: "Hardware–Software Co-Design: Not Just a Cliché"
     authors: "Adrian Sampson, James Bornholt, and Luis Ceze"
     venue: SNAPL 2015
     type: conference
     venue_url: http://snapl.org/2015/
     url: BASE/media/papers/cliche-snapl2015.pdf
+    extra:
+     - '[Slides.](BASE/media/cliche-snapl2015-slides.pdf)'
 
 -
     title: 'SNNAP: Approximate Computing on Programmable SoCs via Neural Acceleration'
