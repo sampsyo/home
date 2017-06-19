@@ -139,13 +139,16 @@ service:
 
 committees:
     - |
+        [ASPLOS 2018](https://www.asplos2018.org): External review committee member
+
+    - |
         [WAX 2017](http://approximate.computer/wax2017/): Organizer, program committee member
 
     - |
-        MICRO 2017: External review committee member
+        [MICRO 2017](https://www.microarch.org/micro50/): External review committee member
 
     - |
-        Onward! 2017: Program committee member
+        [Onward! 2017](http://conf.researchr.org/home/onward-2017): Program committee member
 
     - |
         [ISCA 2017](https://www.sigarch.org/2016/09/08/call-for-papers-isca-2017/): Program committee member
