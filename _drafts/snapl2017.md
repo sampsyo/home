@@ -11,5 +11,5 @@ excerpt: |
 [snapl]: http://snapl.org/2017/
 
 <div class="embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-VqZO3QvwL0?ecver=1" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/-VqZO3QvwL0?ecver=1&vq=hd720" frameborder="0" allowfullscreen></iframe>
 </div>
