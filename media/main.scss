@@ -1,32 +1,25 @@
 ---
 ---
 
-// Bootstrap customization.
-// Narrow, centered page content even on large screen sizes.
-$container-md: 750px;
-$container-lg: 750px;
+$column-width: 740px;
 
 // My trademarked green.
 $brand-primary: #51a012;
 
+// Vestiges from Bootstrap variables.
+$text-color: #333;
+$font-size-base: 18px;
+$line-height-base: 1.428571429;
+$line-height-computed: floor(($font-size-base * $line-height-base));
+$link-color: $brand-primary;
+$link-hover-color: darken($link-color, 15%);
+
 // Non-pink <code>.
-$code-color: #333;
+$code-color: $text-color;
 $code-bg: #f5f5f5;
 // But it retains a color inside a link.
 a code {
     color: inherit;
-}
-
-$font-size-base: 18px;
-$line-height-base:        1.428571429;
-$line-height-computed:    floor(($font-size-base * $line-height-base));
-$link-color:            $brand-primary;
-$link-hover-color:      darken($link-color, 15%);
-
-// No giant quote blocks.
-$blockquote-font-size: $font-size-base;
-blockquote {
-    margin-bottom: ($line-height-computed / 2);
 }
 
 // Fonts!
@@ -40,6 +33,30 @@ $font-family-monospace: 'Anonymous Pro', Inconsolata, Consolas, 'Source Code Pro
 // Size fixes.
 pre {
   font-size: ($font-size-base - 4);
+}
+
+// Basic style.
+body {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    font-family: $font-family-base;
+    color: $text-color;
+}
+a {
+    text-decoration: none;
+    color: $link-color;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: $title-font;
+    font-weight: 500;
+}
+.container {
+    // Narrow, centered column.
+    max-width: $column-width;
+    margin: 0 auto;
 }
 
 // Page header.
@@ -58,6 +75,7 @@ header {
         font-size: 35px;
     }
     address {
+        font-style: normal;
         margin: 0;
         color: $brand-primary;
         p {
