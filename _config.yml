@@ -20,6 +20,9 @@ kramdown:
     math_engine: null
 highlighter: null
 
+sass:
+    style: compressed
+
 exclude:
     - bower_components
     - node_modules
