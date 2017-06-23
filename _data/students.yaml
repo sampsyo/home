@@ -10,19 +10,19 @@
     students:
         -
             name: Richie Henwood
-            when: 2017&ndash;
+            when: 2017
         -
             name: Moshe Klebanov
-            when: 2017&ndash;
+            when: 2017
         -
             name: Taehoon Lee
-            when: 2017&ndash;
+            when: 2017
         -
             name: Mingyang Li
-            when: 2017&ndash;
+            when: 2017
         -
             name: Eric Lin
-            when: 2017&ndash;
+            when: 2017
 
 -
     category: Undergraduate
@@ -35,10 +35,10 @@
             when: 2017&ndash;
         -
             name: Omar Abdelaziz
-            when: 2016&ndash;
+            when: 2016&ndash;2017
         -
             name: Chirag Bharadwaj
-            when: 2016&ndash;
+            when: 2016&ndash;2017
 
 -
     category: Undergraduate Researchers at UW
