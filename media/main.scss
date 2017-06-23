@@ -17,10 +17,11 @@ a code {
     color: inherit;
 }
 
+$font-size-base: 18px;
 $line-height-base:        1.428571429;
 $line-height-computed:    floor(($font-size-base * $line-height-base));
-$link-hover-color:      darken($link-color, 15%);
 $link-color:            $brand-primary;
+$link-hover-color:      darken($link-color, 15%);
 
 // No giant quote blocks.
 $blockquote-font-size: $font-size-base;
@@ -31,7 +32,6 @@ blockquote {
 // Fonts!
 $title-font: Verdana, Tahoma, Geneva, sans-serif;
 $font-family-base: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Cambria, Georgia, serif;
-$font-size-base: 18px;
 $bigger-size: 1.1em;
 $ui-size: 0.9em;
 // Code.
@@ -310,21 +310,17 @@ pre code.hljs {
     white-space: pre;
 }
 
-// Responsive image
-@mixin img-responsive($display: block)
-{
-  display: $display;
-  max-width: 100%;
-  height: auto;
-}
-
 // Floaty figures.
 figure {
     float: right;
     margin: 0 0 0 1em;
     img {
-        .img-responsive;
         margin-bottom: 0.5em;
+
+        // Responsive sizing.
+        display: block;
+        max-width: 100%;
+        height: auto;
     }
     @media (max-width: 767px) {
         float: none;
