@@ -59,11 +59,25 @@ h1, h2, h3, h4, h5, h6 {
     max-width: $column-width;
     margin: 0 auto;
 }
+p {
+    margin: 0 0 ($line-height-computed / 2);
+}
+hr {
+  margin-top: $line-height-computed;
+  margin-bottom: $line-height-computed;
+  border: 0;
+  border-top: 1px solid $brand-primary;
+}
 
 // Page header layout.
 $leftwidth: 310;
 header {
+    margin-top: 0.5rem;
+
     // Mobile: stacked.
+    nav {
+        margin-top: 0.75rem;
+    }
 
     // Desktop: side by side.
     @media (min-width: $mobile-size) {
@@ -73,6 +87,7 @@ header {
         }
         nav {
             width: $column-width - $leftwidth;
+            margin-top: 0.5rem;
         }
     }
 }
@@ -85,7 +100,7 @@ header {
         text-decoration: none;
     }
     h1 {
-        margin-bottom: 0;
+        margin: 0;
         a:hover {
             color: $brand-primary;
         }
@@ -104,7 +119,7 @@ header {
     white-space: nowrap;
 }
 nav {
-    margin: 0.5em 0 0 0;
+    margin: 0;
     font-size: $ui-size;
     a {
         display: inline-block;
@@ -122,7 +137,6 @@ nav {
 
     // Looser layout on desktop.
     @media (min-width: $mobile-size) {
-        margin-top: 2em;
         text-align: right;
         a {
             padding: 2px 6px;
@@ -207,6 +221,7 @@ article.preview.alone {
     }
 }
 
+// Headings.
 $font-size-h1:            floor(($font-size-base * 2.6));
 $font-size-h2:            floor(($font-size-base * 2.15));
 $font-size-h3:            ceil(($font-size-base * 1.7));
@@ -231,6 +246,11 @@ h5 {
 h6 {
     font-size: $font-size-h6;
 }
+h1, h2, h3, h4, h5, h6 {
+  margin-top: $line-height-computed;
+  margin-bottom: ($line-height-computed / 2);
+}
+
 article.full {
     margin-top: 1em;
 
