@@ -13,6 +13,7 @@
     with: PLDI
     type: workshop
     preprint: true
+    url: 'http://dl.acm.org/citation.cfm?id=3088564'
 
 -
     title: "Rethinking the Camera Pipeline for Computer Vision"
