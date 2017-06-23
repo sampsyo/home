@@ -1,7 +1,7 @@
 ---
 ---
 
-$column-width: 730px;
+$column-width: 710px;
 $mobile-size: $column-width;
 
 // My trademarked green.
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Page header layout.
-$navwidth: 50%;
+$leftwidth: 310;
 header {
     // Mobile: stacked.
 
@@ -69,10 +69,10 @@ header {
     @media (min-width: $mobile-size) {
         display: flex;
         #leader {
-            width: (100% - $navwidth);
+            width: $leftwidth;
         }
         nav {
-            width: $navwidth;
+            width: $column-width - $leftwidth;
         }
     }
 }
@@ -359,17 +359,23 @@ pre code.hljs {
     white-space: pre;
 }
 
+// Responsive images.
+@mixin img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.img-responsive {
+    @include img-responsive;
+}
+
 // Floaty figures.
 figure {
     float: right;
     margin: 0 0 0 1em;
     img {
+        @include img-responsive;
         margin-bottom: 0.5em;
-
-        // Responsive sizing.
-        display: block;
-        max-width: 100%;
-        height: auto;
     }
     @media (max-width: 767px) {
         float: none;
