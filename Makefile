@@ -1,5 +1,4 @@
 LESSC := ./node_modules/less/bin/lessc
-BOOTSTRAP := node_modules/bootstrap/package.json
 KATEX := node_modules/katex/dist
 CLEANCSS := ./node_modules/clean-css/bin/cleancss
 
@@ -9,9 +8,8 @@ GENERATED := media/main.css media/katex media/highlightjs
 site: index.md $(GENERATED)
 	jekyll build
 
-# Compile the CSS using LESS. This consists of our main LESS file, which
-# includes the LESS for Bootstrap.
-_source/main.css: _source/main.less $(BOOTSTRAP) $(LESSC)
+# Compile the CSS using LESS.
+_source/main.css: _source/main.less $(LESSC)
 	$(LESSC) $< $@
 
 # Then minify it with clean-css.
@@ -52,9 +50,6 @@ $(CLEANCSS):
 	@touch $@
 $(KATEX):
 	npm install katex
-	@touch $@
-$(BOOTSTRAP):
-	npm install bootstrap@3.3.7
 	@touch $@
 
 # Publish client-side assets.

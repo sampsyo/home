@@ -1,20 +1,23 @@
-@import "../node_modules/bootstrap/less/bootstrap.less";
-
 // Bootstrap customization.
 // Narrow, centered page content even on large screen sizes.
-@container-md: @container-sm;
-@container-lg: @container-sm;
+@container-md: 750px;
+@container-lg: 750px;
 
 // My trademarked green.
 @brand-primary: #51a012;
 
 // Non-pink <code>.
-@code-color: @pre-color;
-@code-bg: @pre-bg;
+@code-color: #333;
+@code-bg: #f5f5f5;
 // But it retains a color inside a link.
 a code {
     color: inherit;
 }
+
+@line-height-base:        1.428571429;
+@line-height-computed:    floor((@font-size-base * @line-height-base));
+@link-hover-color:      darken(@link-color, 15%);
+@link-color:            @brand-primary;
 
 // No giant quote blocks.
 @blockquote-font-size: @font-size-base;
@@ -38,7 +41,7 @@ pre {
 
 // Page header.
 header {
-    .make-row();
+    // .make-row();
     color: @brand-primary;
     font-family: @title-font;
     a:hover {
@@ -60,13 +63,13 @@ header {
     }
 }
 #leader {
-    .make-md-column(5);
-    .make-sm-column(5);
+    // .make-md-column(5);
+    // .make-sm-column(5);
     white-space: nowrap;
 }
 nav {
-    .make-md-column(7);
-    .make-sm-column(7);
+    // .make-md-column(7);
+    // .make-sm-column(7);
     margin: 0.5em 0 0 0;
     font-size: @ui-size;
     a {
@@ -84,7 +87,7 @@ nav {
     }
 
     // Looser layout on desktop.
-    @media (min-width: @screen-sm-min) {
+    @media (min-width: 750px) {
         margin-top: 2em;
         text-align: right;
         a {
@@ -135,7 +138,7 @@ ul li, ol li {
     font-family: @title-font;
     font-size: @ui-size;
     margin: 0;
-    color: @gray-light;
+    color: #777;
     a {
         color: inherit;
     }
@@ -170,6 +173,12 @@ article.preview.alone {
     }
 }
 
+@font-size-h1:            floor((@font-size-base * 2.6));
+@font-size-h2:            floor((@font-size-base * 2.15));
+@font-size-h3:            ceil((@font-size-base * 1.7));
+@font-size-h4:            ceil((@font-size-base * 1.25));
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85));
 article.full {
     margin-top: 1em;
 
@@ -196,8 +205,8 @@ article.full {
 // Use Bootstrap's alert component.
 .warning {
     display: block;
-    .alert;
-    .alert-warning;
+    // .alert;
+    // .alert-warning;
     p {
         margin: 0;
     }
@@ -208,7 +217,7 @@ article.full {
 }
 
 footer {
-    color: @gray-light;
+    color: #777;
     font-family: @title-font;
     border-top: 1px solid @brand-primary;
     margin: @line-height-computed 0 0.5em;
@@ -298,6 +307,13 @@ pre code.hljs {
     white-space: pre;
 }
 
+// Responsive image
+.img-responsive(@display: block) {
+  display: @display;
+  max-width: 100%;
+  height: auto;
+}
+
 // Floaty figures.
 figure {
     float: right;
@@ -306,13 +322,13 @@ figure {
         .img-responsive;
         margin-bottom: 0.5em;
     }
-    @media (max-width: @screen-xs-max) {
+    @media (max-width: 767px) {
         float: none;
         margin: 1em auto;
     }
 }
 figcaption {
-    .small;
+    font-size: ceil((@font-size-base * 0.85));
     margin-top: 0.5em;
     margin-bottom: 1em;
 }
