@@ -1,20 +1,10 @@
-LESSC := ./node_modules/less/bin/lessc
 KATEX := node_modules/katex/dist
-CLEANCSS := ./node_modules/clean-css/bin/cleancss
 
 # Build the site itself using Jekyll.
 .PHONY: site
 GENERATED := media/main.css media/katex media/highlightjs
 site: index.md $(GENERATED)
 	jekyll build
-
-# Compile the CSS using LESS.
-_source/main.css: _source/main.less $(LESSC)
-	$(LESSC) $< $@
-
-# Then minify it with clean-css.
-media/main.css: _source/main.css $(CLEANCSS)
-	$(CLEANCSS) --skip-rebase -o $@ $<
 
 
 # Cleaning.
@@ -42,12 +32,6 @@ deploy: cleanbuild site
 # Install dependencies.
 
 # Dependencies from npm. TODO: This should be replaced with a package.json.
-$(LESSC):
-	npm install less
-	@touch $@
-$(CLEANCSS):
-	npm install clean-css
-	@touch $@
 $(KATEX):
 	npm install katex
 	@touch $@
