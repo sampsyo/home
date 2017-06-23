@@ -1,7 +1,7 @@
 ---
 ---
 
-$column-width: 740px;
+$column-width: 730px;
 $mobile-size: $column-width;
 
 // My trademarked green.
@@ -213,6 +213,24 @@ $font-size-h3:            ceil(($font-size-base * 1.7));
 $font-size-h4:            ceil(($font-size-base * 1.25));
 $font-size-h5:            $font-size-base;
 $font-size-h6:            ceil(($font-size-base * 0.85));
+h1 {
+    font-size: $font-size-h1;
+}
+h2 {
+    font-size: $font-size-h2;
+}
+h3 {
+    font-size: $font-size-h3;
+}
+h4 {
+    font-size: $font-size-h4;
+}
+h5 {
+    font-size: $font-size-h5;
+}
+h6 {
+    font-size: $font-size-h6;
+}
 article.full {
     margin-top: 1em;
 
