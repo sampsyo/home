@@ -2,7 +2,7 @@ KATEX := node_modules/katex/dist
 
 # Build the site itself using Jekyll.
 .PHONY: site
-GENERATED := media/main.css media/katex media/highlightjs
+GENERATED := media/katex media/highlightjs
 site: index.md $(GENERATED)
 	jekyll build
 
