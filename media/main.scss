@@ -274,11 +274,15 @@ article.full {
 
 
 // Blog post warning block.
-// Use Bootstrap's alert component.
+// Based on Bootstrap's alert component.
 .warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border: 1px solid #faebcc;
+    padding: 1em;
+    margin-bottom: $line-height-computed;
+
     display: block;
-    // .alert;
-    // .alert-warning;
     p {
         margin: 0;
     }
