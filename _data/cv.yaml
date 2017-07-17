@@ -144,6 +144,9 @@ service:
 
 committees:
     - |
+        [HPCA 2018](http://hpca2018.ece.ucsb.edu): External review committee member
+
+    - |
         [ASPLOS 2018](https://www.asplos2018.org): External review committee member
 
     - |
