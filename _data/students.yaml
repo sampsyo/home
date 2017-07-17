@@ -28,6 +28,10 @@
     category: Undergraduate
     students:
         -
+            name: Yiteng Guo
+            when: 2017&ndash;
+
+        -
             name: Harry Goldstein
             when: 2017&ndash;
         -
