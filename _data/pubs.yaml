@@ -1,4 +1,12 @@
 -
+    title: "Reconfiguring the Imaging Pipeline for Computer Vision"
+    authors: "Mark Buckler, Suren Jayasuriya, and Adrian Sampson"
+    venue: "ICCV 2017"
+    venue_url: http://iccv2017.thecvf.com
+    preprint: true
+    type: conference
+
+-
     title: "A Taxonomy of General Purpose Approximate Computing Techniques"
     authors: "Thierry Moreau, Joshua San Miguel, Mark Wyse, James Bornholt, Armin Alaghi, Luis Ceze, Natalie Enright Jerger, and Adrian Sampson"
     venue: "IEEE Embedded Systems Letters"
@@ -12,7 +20,6 @@
     vanue_url: https://sites.google.com/view/mapl2017/home
     with: PLDI
     type: workshop
-    preprint: true
     url: 'http://dl.acm.org/citation.cfm?id=3088564'
 
 -
