@@ -144,6 +144,9 @@ service:
 
 committees:
     - |
+        OOPSLA 2018: Program committee member
+
+    - |
         [HPCA 2018](http://hpca2018.ece.ucsb.edu): External review committee member
 
     - |
