@@ -5,6 +5,7 @@
     venue_url: http://iccv2017.thecvf.com
     preprint: true
     type: conference
+    url: BASE/media/papers/visionmode-iccv2017.pdf
 
 -
     title: "A Taxonomy of General Purpose Approximate Computing Techniques"
