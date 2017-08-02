@@ -7,7 +7,7 @@
     type: conference
     url: BASE/media/papers/visionmode-iccv2017.pdf
     extra:
-     - '[Extra background and results.](BASE/media/visionmode-iccv2017-supplemental.pdf)'
+     - '[Extra background and results.](BASE/media/papers/visionmode-iccv2017-supplemental.pdf)'
 
 -
     title: "A Taxonomy of General Purpose Approximate Computing Techniques"
