@@ -1,4 +1,14 @@
 -
+    title: "Static Stages for Heterogeneous Programming"
+    authors: "Adrian Sampson, Kathryn S McKinley, and Todd Mytkowicz"
+    venue: "OOPSLA 2017"
+    preprint: true
+    type: conference
+    venue_url: "http://2017.splashcon.org/track/splash-2017-OOPSLA"
+    extra:
+     - '[Project page.](https://capra.cs.cornell.edu/braid/)'
+
+-
     title: "Reconfiguring the Imaging Pipeline for Computer Vision"
     authors: "Mark Buckler, Suren Jayasuriya, and Adrian Sampson"
     venue: "ICCV 2017"
@@ -19,7 +29,7 @@
 
 -
     title: "Debugging Probabilistic Programs"
-    authors: "Chandrakana Nandi, Dan Grossman, Adrian Sampson, Todd Mytkowicz, and Kathryn S. McKinley"
+    authors: "Chandrakana Nandi, Dan Grossman, Adrian Sampson, Todd Mytkowicz, and Kathryn S McKinley"
     venue: MAPL 2017
     vanue_url: https://sites.google.com/view/mapl2017/home
     with: PLDI
@@ -126,7 +136,7 @@
 -
     title: Expressing and Verifying Probabilistic Assertions
     url: http://dl.acm.org/authorize?N83273
-    authors: Adrian Sampson, Pavel Panchekha, Todd Mytkowicz, Kathryn McKinley, Dan Grossman, and Luis Ceze
+    authors: Adrian Sampson, Pavel Panchekha, Todd Mytkowicz, Kathryn S McKinley, Dan Grossman, and Luis Ceze
     venue: PLDI 2014
     venue_url: http://conferences.inf.ed.ac.uk/pldi2014/
     type: conference
