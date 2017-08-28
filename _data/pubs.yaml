@@ -7,6 +7,9 @@
     venue_url: "http://2017.splashcon.org/track/splash-2017-OOPSLA"
     extra:
      - '[Project page.](https://capra.cs.cornell.edu/braid/)'
+     - '[Artifact evaluated!](http://2017.splashcon.org/track/splash-2017-OOPSLA-Artifacts)'
+    note: |
+        <a href="http://2017.splashcon.org/track/splash-2017-OOPSLA-Artifacts">Artifact evaluated.</a>
 
 -
     title: "Reconfiguring the Imaging Pipeline for Computer Vision"
