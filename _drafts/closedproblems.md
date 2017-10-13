@@ -66,8 +66,11 @@ It’s time to stop looking. While it can be fun to cook up novel unsound compil
 # Quality
 
 **No more weak statistical guarantees.**
-TK lots of fancy-seeming approaches are fundamentally unable to defend against adversarial inputs that get reused lots of times. This means that their statistical guarantees all start with the same assumption: at development time, we know exactly the probability distribution that the program will encounter in deployment. This assumption is extremely hard to defend. It means that, in the real world, the statistical guarantee is useless.
-TK link to “probably correct” blog post
+To control output quality degradation in approximate computing, one promising approach is to offer a *statistical guarantee*. When an approximation technique leads to good quality in most cases but poor quality in rare cases, traditional compile-time guarantees can be unhelpful. A statistical guarantee, on the other hand, can bound the *probability* of seeing a bad output. A statistical guarantee might certify, for example, that the probability of observing output error $E$ above a threshold $T$ is at most $P$.
+
+Too many papers that strive to check statistical correctness end up offering [extremely weak guarantees][probablycorrect]. The problem is that even fancy-sounding statistical machinery rests on the dubious assumption that we can predict the probability distribution that programs will encounter at run time. We assume that an input follows a Gaussian distribution, or that it’s uniformly distributed in some range, or that it is drawn from a known body of example images, for instance. For an input randomly selected from this given input distribution, we can make a strong guarantee about the probability of observing a high-quality output.
+
+When real-world inputs inevitably follow some other distribution, however, all bets are off. Imagine a degenerate distribution that finds the worst possible input for your approximate program, in terms of output quality, and presents that value with probability 1.0. An *adversarial input distribution* can break any quality enforcement technique that relies on stress-testing a program pre-deployment. Even ignoring adversarial conditions, it’s extremely hard to defend the assumption that in-deployment inputs for a program will *exactly* match the distributions that the programmer modeled in development. Run-time input distributions are inherently unpredictable, and they render development-time statistical guarantees useless.
 
 Instead:
 
