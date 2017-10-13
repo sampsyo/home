@@ -36,7 +36,7 @@ Approximate functional units and voltage overscaling are both instances of *oper
 
 ## Instead…
 
-TK CGRAs and other configurable accelerators. Minimize control overhead so these techniques can be useful again.
+If we have any hope of making hardware approximation useful, we will need to start by addressing control overhead. Research that reduces non-computational processing costs works as a benefit multiplier for approximate computing. Approximate operations in [CGRA-like spatial architectures][TK] or [TK Wisconsin dataflow][TK], for example, have a chance of succeeding where they would fail in a CPU or GPU context. We have work to do to integrate approximation into the [constraint-based][chlorophyll] [techniques][TK pldi 2013?] that these accelerators use for configuration.
 
 # Programming
 
