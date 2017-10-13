@@ -58,9 +58,6 @@ Loop perforation is surprisingly hard to beat. By taking inspiration from loop p
 
 It’s time to stop looking. While it can be fun to cook up novel unsound compiler transformations, we do not need any more papers in this vein.
 
-**No more end-to-end framework development.**
-TK ACCEPT Is out there, useful, and mostly unused. I wanted to make life easier for everyone, but it turns out that everyone is fine building all their infrastructure from scratch.
-
 ## Instead…
 
 - debugger: explain *why* quality was so low this time
