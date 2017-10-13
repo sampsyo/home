@@ -60,8 +60,7 @@ It’s time to stop looking. While it can be fun to cook up novel unsound compil
 
 ## Instead…
 
-- debugger: explain *why* quality was so low this time
-- practical OS support (scheduler balances resources/quality)
+More researchers in our community should favor tool design over language constructs and program analysis. For example, there is room for practical operating system support for managing resource contention with approximate computing. [Especially in data centers][TK], applications should be able to negotiate with the OS to reduce their output quality in exchange for bandwidth or latency. An approximation-aware resource scheduler does not depend on novel hardware or compiler techniques: many applications have built-in quality parameters that can compete with resource consumption. Research prototypes probably won’t cut it for this kind of work, however; real-world system implementations, on the other hand, might be ripe for adoption.
 
 # Quality
 
