@@ -32,8 +32,7 @@ There’s even a credible argument that the results are likely to be bad. In vol
 Research should stop using voltage overscaling as the “default” approximate computing technique. In fact, we should stop using it altogether until we have evidence *in silica* that the technique’s voltage--error trade-offs are favorable.
 
 **In general, no more fine-grained approximate operations.**
-TK Benefits are overwhelmed by control. Maybe OK if you’re designing accelerators
-granularity is the common thread!
+Approximate functional units and voltage overscaling are both instances of *operation-level* approximation techniques. They reduce the cost of individual multiplies or other dynamic operations, but they do not change the computation’s higher-level structure. All of these [fine-grained techniques][taxonomy] have to contend with [the Horowitz imbalance][horowitz], to coin a phrase: the huge discrepancy between the cost of processor control versus “real work” like adding and multiplying numbers. Even if an FU operation were free, the benefit would be irrelevant compared to the cost of fetching, decoding, and scheduling the instruction that invoked it. These fine-grained approximation strategies are no longer worth pursuing on their own.
 
 ## Instead…
 
