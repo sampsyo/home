@@ -23,9 +23,13 @@ This paper has raised the bar for FU-level approximation research. We should no 
 [barrois]: https://hal.inria.fr/hal-01423147
 
 **No more voltage overscaling.**
-TK voltage overscaling is incredibly hard to evaluate without real tape-outs on modern processes
-Basically nobody knows the error/energy trade-offs
-Despite this being synonymous with “approximate computing” for some. (I accept some blame for this—cite Truffle.)
+For too many people I meet, *approximate computing* is a synonym for *voltage overscaling*. Voltage overscaling when you turn up the clock or turn down the $V_{\text{DD}}$ beyond their safe ranges and allowing occasional timing errors. I accept some of the blame for solidifying voltage overscaling’s outsized mindshare by co-authoring [a paper about “hardware support for approximate computing”][truffle] that exclusivley used voltage as its error/energy knob.
+
+The problem with voltage overscaling is that it’s nearly impossible to evaluate. It’s easy to model its effects on energy and frequency, but the pattern of timing errors depends on a chip’s design, synthesis, layout, manufacturing process, and even environmental conditions such as temperature. Even a halfway-decent error analysis for voltage overscaling requires a full circuit simulator. To account for process variation, we’d need to tape out real silicon at scale. In a frustrating Catch-22 of research evaluation, it’s hard to muster the enthusiasm for a tapeout before we can prove that the results are likely to be good.
+
+There’s even a credible argument that the results are likely to be bad. In voltage overscaling, the circuit’s critical path fails first. And in many circuits, the longest paths in the design contribute the most to the output accuracy. In a functional unit, for example, the most significant output bits arise from the longest paths. So instead of a smooth degradation in accuracy as the voltage decreases, these circuits are likely to fall off a steep accuracy cliff when the critical path first fails to meet timing.
+
+Research should stop using voltage overscaling as the “default” approximate computing technique. In fact, we should stop using it altogether until we have evidence *in silica* that the technique’s voltage--error trade-offs are favorable.
 
 **In general, no more fine-grained approximate operations.**
 TK Benefits are overwhelmed by control. Maybe OK if you’re designing accelerators
@@ -77,3 +81,4 @@ TK using PARSEC-like applications, or little kernels, paired with dubious qualit
 
 compulsory approximation
 TK link to WAX paper
+Cloud services for ML are a perfect target!
