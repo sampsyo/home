@@ -72,10 +72,9 @@ Too many papers that strive to check statistical correctness end up offering [ex
 
 When real-world inputs inevitably follow some other distribution, however, all bets are off. Imagine a degenerate distribution that finds the worst possible input for your approximate program, in terms of output quality, and presents that value with probability 1.0. An *adversarial input distribution* can break any quality enforcement technique that relies on stress-testing a program pre-deployment. Even ignoring adversarial conditions, it’s extremely hard to defend the assumption that in-deployment inputs for a program will *exactly* match the distributions that the programmer modeled in development. Run-time input distributions are inherently unpredictable, and they render development-time statistical guarantees useless.
 
-Instead:
+## Instead…
 
-- trustworthy "Quality SLAs" for SaaS
-- run-time verification — actually *sound* checks for large errors
+We can’t depend on statistical guarantees enforced at development time, so we need more research on run-time enforcement that directly addresses the problem of unpredictable input distributions. For a scenario where this galaxy of problems already exists, consider SaaS applications based on machine learning: [Wit.ai][] for natural language understanding or TK for computer vision, for example. All ML models have an error rate, meaning that some customers’ workloads will observe higher accuracy than others. Given this subjective variation in output accuracy, what strong statements can cloud providers make to their customers about precision? And if a service advertises a quality guarantee, how can customers keep the provider honest without recomputing everything themselves? These narrower questions may be tractable where the fully general problem of statistical guarantees is not.
 
 # Domains
 
