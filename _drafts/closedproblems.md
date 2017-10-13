@@ -52,8 +52,11 @@ That’s very useful to know, compiler, but it’s not strong enough evidence to
 Work that makes EnerJ annotations implicit fundamentally misunderstands EnerJ’s intent. We designed EnerJ *in response* to earlier work that applied approximation without developer involvement. The explicit annotation style acts as a check on the compiler’s freedom to break your code. The time has passed for research that places the power back into the compiler’s grubby hands.
 
 **No more generic unsound compiler transformation.**
-TK loop perforation, with all due respect, is the world’s dumbest approximate program transformation.
-And it’s surprisingly hard to meaningfully beat.
+I love [loop perforation][] and the devil-may-care attitude that its paper represents. I hope its inventors won’t be angry if I say loop perforation is the world’s dumbest approximate programming technique: it works by finding a loop and changing its counter increment, `i++`, to `i += 2` or `i += 3`. The shocking thing about loop perforation is that it sometimes works: some loops can survive the removal of some of their iterations.
+
+Loop perforation is surprisingly hard to beat. By taking inspiration from loop perforation, you can imagine endless compiler-driven schemes for creatively transforming programs that, while totally unsound, will work some of the time. In my anecdotal experience, however, few techniques can dominate loop perforation on an efficiency–accuracy Pareto frontier. Some transformations do somewhat better some of the time, but I have never seen a dramatic, broad improvement.
+
+It’s time to stop looking. While it can be fun to cook up novel unsound compiler transformations, we do not need any more papers in this vein.
 
 **No more end-to-end framework development.**
 TK ACCEPT Is out there, useful, and mostly unused. I wanted to make life easier for everyone, but it turns out that everyone is fine building all their infrastructure from scratch.
