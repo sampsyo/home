@@ -282,19 +282,20 @@ aside {
         margin: 0;
     }
 
+    color: #666;
     background-color: $code-bg;
     border: 1px solid #ccc;
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
 
     // Based on Bootstrap's alert component.
     &.warning {
         color: #8a6d3b;
         background-color: #fcf8e3;
         border: 1px solid #faebcc;
-
-        a {
-            color: inherit;
-            text-decoration: underline;
-        }
     }
 }
 
