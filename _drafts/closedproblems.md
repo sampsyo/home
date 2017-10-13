@@ -31,35 +31,49 @@ Despite this being synonymous with “approximate computing” for some. (I acce
 TK Benefits are overwhelmed by control. Maybe OK if you’re designing accelerators
 granularity is the common thread!
 
-## Instead
+## Instead…
 
 TK CGRAs and other configurable accelerators. Minimize control overhead so these techniques can be useful again.
 
 # Programming
 
-- eliminate EnerJ's annotation burden
-- program transformations that are worse than loop perforation
-- compiler infrastructure (ACCEPT)
+**No more automatic approximability analysis.**
+The idea is—sometimes explicitly—to lift [EnerJ][]'s annotation burden.
+TK
 
-instead:
+**No more generic unsound compiler transformation.**
+TK loop perforation, with all due respect, is the world’s dumbest approximate program transformation.
+And it’s surprisingly hard to meaningfully beat.
 
-- run-time verification -- actually *sound* checks for large errors
+**No more end-to-end framework development.**
+TK ACCEPT Is out there, useful, and mostly unused. I wanted to make life easier for everyone, but it turns out that everyone is fine building all their infrastructure from scratch.
+
+## Instead…
+
 - debugger: explain *why* quality was so low this time
+- practical OS support (scheduler balances resources/quality)
 
 # Quality
 
-- fully general ""statistical guarantees"" (adversarial inputs)
+**No more weak statistical guarantees.**
+TK lots of fancy-seeming approaches are fundamentally unable to defend against adversarial inputs that get reused lots of times. This means that their statistical guarantees all start with the same assumption: at development time, we know exactly the probability distribution that the program will encounter in deployment. This assumption is extremely hard to defend. It means that, in the real world, the statistical guarantee is useless.
+TK link to “probably correct” blog post
 
 Instead:
 
 - trustworthy "Quality SLAs" for SaaS
-- practical OS support (scheduler balances resources/quality)
+- run-time verification — actually *sound* checks for large errors
 
 # Domains
 
-- don't balk at the idea of quality metrics being imperfect
-- in fact, general "benchmark-oriented" approximate computing techniques are starting to get tired
+**No more sadness about the imperfection of quality metrics.**
+TK we know they’re not perfect. Let’s standardize and move on
+TK I think we invented the 10% quality threshold in the EnerJ paper. It sucks, but it’s what we have
 
-Instead:
+**No more benchmark-oriented research?**
+TK using PARSEC-like applications, or little kernels, paired with dubious quality metrics of our own invention, and necessarily arbitrary quality thresholds, with no attempt to ground utility in how people really want to use software—all of this is getting kind of old. It may be time for a completely new approach.
 
-- compulsory approximation
+## Instead…
+
+compulsory approximation
+TK link to WAX paper
