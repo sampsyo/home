@@ -273,24 +273,31 @@ article.full {
 }
 
 
-// Blog post warning block.
-// Based on Bootstrap's alert component.
-.warning {
-    color: #8a6d3b;
-    background-color: #fcf8e3;
-    border: 1px solid #faebcc;
+// Blog post asides and warning labels.
+aside {
     padding: 1em;
     margin-bottom: $line-height-computed;
-
     display: block;
     p {
         margin: 0;
     }
-    a {
-        color: inherit;
-        text-decoration: underline;
+
+    background-color: $code-bg;
+    border: 1px solid #ccc;
+
+    // Based on Bootstrap's alert component.
+    &.warning {
+        color: #8a6d3b;
+        background-color: #fcf8e3;
+        border: 1px solid #faebcc;
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+        }
     }
 }
+
 
 footer {
     color: #777;
