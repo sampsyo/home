@@ -41,8 +41,15 @@ If we have any hope of making hardware approximation useful, we will need to sta
 # Programming
 
 **No more automatic approximability analysis.**
-The idea is—sometimes explicitly—to lift [EnerJ][]'s annotation burden.
-TK
+Papers in programming languages sometimes try to automatically determine which variables and operations in an unannotated program require perfect precision and which are amenable to approximation. The idea is—sometimes explicitly—to alleviate [EnerJ][]'s annotation burden (which can be high, I admit).
+
+This is not a good goal. Imagine a world where your compiler is free to make its own decisions about which parts of your program are really critical and which matter a little less and could stand some approximation. No one wants this compiler.
+
+“But wait,” the compiler might protest. “I can demonstrate that approximating those variables has only a tiny impact on your quality metric in this broad set of test inputs!”
+
+That’s very useful to know, compiler, but it’s not strong enough evidence to justify breaking a program without the developer’s express consent. Without a guarantee that the test inputs perfectly represent real run-time conditions, silent failures in the field are a real possibility. And quality metrics are only a loose reflection of real-world utility, so basing automatic decisions on them seems deeply concerning.
+
+Work that makes EnerJ annotations implicit fundamentally misunderstands EnerJ’s intent. We designed EnerJ *in response* to earlier work that applied approximation without developer involvement. The explicit annotation style acts as a check on the compiler’s freedom to break your code. The time has passed for research that places the power back into the compiler’s grubby hands.
 
 **No more generic unsound compiler transformation.**
 TK loop perforation, with all due respect, is the world’s dumbest approximate program transformation.
