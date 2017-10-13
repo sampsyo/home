@@ -7,6 +7,8 @@ title: Closed Problems in Approximate Computing
 
 [Approximate computing][approx] has reached an adolescent phase as a research area. We have picked bushels of low-hanging fruit. While there are many approximation papers left to write, it's a good time to enumerate the *closed* problems: research problems that are probably no longer worth pursuing.
 
+[approx]: {{site.base}}/research.html#approximate-computing
+
 # Hardware
 
 - approximate adders (DAC paper???)
