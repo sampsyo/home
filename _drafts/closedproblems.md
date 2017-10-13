@@ -11,21 +11,29 @@ title: Closed Problems in Approximate Computing
 
 # Hardware
 
-- approximate adders (DAC paper???)
-- voltage overscaling
-- generalizing from that: per-op optimizations without a new approach. granularity is the common thread!
+**No more approximate functional units.**
+Especially for people who love VLSI work, a natural first step in approximate computing is designing approximate adders, multipliers, and other basic functional units. Cut a carry chain here, drop a block of intermediate results there, or use an automated search to find “unnecessary” gate---there are lots of ways to design an FU that’s mostly right most of the time. Despite dozens of papers in this vein, however, the gains seem to range from minimal to nonexistent. A lovely [DATE 2017 paper by Barrois et al.][barrois] recently studied some of these approximate FUs and found that:
 
-> existing approximate adders and multipliers tend to be dominated by truncated or rounded fixed-point ones
+> existing approximate adders and multipliers tend to be dominated by truncated or rounded fixed-point ones.
 
-[DATE 2017 paper by Barrois et al.][barrois]
+In other words, plain old fixed-point FUs with a narrower bit width are usually at least as good as fancy “approximate” FUs. The problem is that, if you’re approximating the values below a given bit position, it’s usually not worth it to compute those approximate bits at all. In fact, by dropping the approximate bits altogether, you can exploit the smaller data size for broader advantages in the whole application. Applications using approximate adders and multipliers, on the other hand, software ends up copying around and operating on worthless, incorrect trailing bits for no benefit in precision.
 
-The gist is that if you're approximating below a given bit position, it's usually just as good not to compute those bits at all. Then you get systemic benefits from reducing the data size too (i.e., the rest of the application can benefit from that too!).
+This paper has raised the bar for FU-level approximation research. We should no longer publish VLSI papers that measure approximate adders in isolation and insist on whole-application benefits over narrow arithmetic. Without a radically different approach, we should stop designing approximate functional units altogether.
 
 [barrois]: https://hal.inria.fr/hal-01423147
 
-instead:
+**No more voltage overscaling.**
+TK voltage overscaling is incredibly hard to evaluate without real tape-outs on modern processes
+Basically nobody knows the error/energy trade-offs
+Despite this being synonymous with “approximate computing” for some. (I accept some blame for this—cite Truffle.)
 
-- CGRAs and other configurable accelerators
+**In general, no more fine-grained approximate operations.**
+TK Benefits are overwhelmed by control. Maybe OK if you’re designing accelerators
+granularity is the common thread!
+
+## Instead
+
+TK CGRAs and other configurable accelerators. Minimize control overhead so these techniques can be useful again.
 
 # Programming
 
