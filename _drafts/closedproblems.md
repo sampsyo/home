@@ -26,7 +26,9 @@ This paper has raised the bar for FU-level approximation research. We should no 
 [barrois]: https://hal.inria.fr/hal-01423147
 
 **No more voltage overscaling.**
-For too many people I meet, *approximate computing* is a synonym for *voltage overscaling*. Voltage overscaling when you turn up the clock or turn down the $V_{\text{DD}}$ beyond their safe ranges and allowing occasional timing errors. I accept some of the blame for solidifying voltage overscaling’s outsized mindshare by co-authoring [a paper about “hardware support for approximate computing”][truffle] that exclusivley used voltage as its error/energy knob.
+For too many people I meet, *approximate computing* is a synonym for *voltage overscaling*. Voltage overscaling when you turn up the clock or turn down the $V_{\text{DD}}$ beyond their safe ranges and allowing occasional timing errors. I accept some of the blame for solidifying voltage overscaling’s outsized mindshare by co-authoring [a paper about “architecture support for approximate computing”][truffle] that exclusively used voltage as its error/energy knob.
+
+[truffle]: {{site.base}}/media/papers/truffle-asplos2012.pdf
 
 The problem with voltage overscaling is that it’s nearly impossible to evaluate. It’s easy to model its effects on energy and frequency, but the pattern of timing errors depends on a chip’s design, synthesis, layout, manufacturing process, and even environmental conditions such as temperature. Even a halfway-decent error analysis for voltage overscaling requires a full circuit simulator. To account for process variation, we’d need to tape out real silicon at scale. In a frustrating Catch-22 of research evaluation, it’s hard to muster the enthusiasm for a tapeout before we can prove that the results are likely to be good.
 
@@ -37,14 +39,23 @@ Research should stop using voltage overscaling as the “default” approximate 
 **In general, no more fine-grained approximate operations.**
 Approximate functional units and voltage overscaling are both instances of *operation-level* approximation techniques. They reduce the cost of individual multiplies or other dynamic operations, but they do not change the computation’s higher-level structure. All of these [fine-grained techniques][taxonomy] have to contend with [the Horowitz imbalance][horowitz], to coin a phrase: the huge discrepancy between the cost of processor control versus “real work” like adding and multiplying numbers. Even if an FU operation were free, the benefit would be irrelevant compared to the cost of fetching, decoding, and scheduling the instruction that invoked it. These fine-grained approximation strategies are no longer worth pursuing on their own.
 
+[taxonomy]: http://ieeexplore.ieee.org/document/8054698/
+[horowitz]: http://ieeexplore.ieee.org/document/6757323/
+
 ### Instead…
 
-If we have any hope of making hardware approximation useful, we will need to start by addressing control overhead. Research that reduces non-computational processing costs works as a benefit multiplier for approximate computing. Approximate operations in [CGRA-like spatial architectures][TK] or [TK Wisconsin dataflow][TK], for example, have a chance of succeeding where they would fail in a CPU or GPU context. We have work to do to integrate approximation into the [constraint-based][chlorophyll] [techniques][TK pldi 2013?] that these accelerators use for configuration.
+If we have any hope of making hardware approximation useful, we will need to start by addressing control overhead. Research that reduces non-computational processing costs works as a benefit multiplier for approximate computing. Approximate operations in [CGRA-like spatial architectures][chlorophyll] or [explicit dataflow processors][nowatzki-seed], for example, have a chance of succeeding where they would fail in a CPU or GPU context. We have work to do to integrate approximation into the [constraint-based][chlorophyll] [techniques][nowatzki-pldi] that these accelerators use for configuration.
+
+[nowatzki-seed]: https://dl.acm.org/citation.cfm?id=2750380
+[nowatzki-pldi]: https://dl.acm.org/citation.cfm?id=2462163
+[chlorophyll]: https://dl.acm.org/citation.cfm?id=2594339
 
 ## Closed Problems in Approximate Programming Models
 
 **No more automatic approximability analysis.**
 Papers in programming languages sometimes try to automatically determine which variables and operations in an unannotated program require perfect precision and which are amenable to approximation. The idea is—sometimes explicitly—to alleviate [EnerJ][]'s annotation burden (which can be high, I admit).
+
+[enerj]: {{site.base}}/media/papers/enerj-pldi2011.pdf
 
 This is not a good goal. Imagine a world where your compiler is free to make its own decisions about which parts of your program are really critical and which matter a little less and could stand some approximation. No one wants this compiler.
 
@@ -55,7 +66,9 @@ That’s very useful to know, compiler, but it’s not strong enough evidence to
 Work that makes EnerJ annotations implicit fundamentally misunderstands EnerJ’s intent. We designed EnerJ *in response* to earlier work that applied approximation without developer involvement. The explicit annotation style acts as a check on the compiler’s freedom to break your code. The time has passed for research that places the power back into the compiler’s grubby hands.
 
 **No more generic unsound compiler transformation.**
-I love [loop perforation][] and the devil-may-care attitude that its paper represents. I hope its inventors won’t be angry if I say loop perforation is the world’s dumbest approximate programming technique: it works by finding a loop and changing its counter increment, `i++`, to `i += 2` or `i += 3`. The shocking thing about loop perforation is that it sometimes works: some loops can survive the removal of some of their iterations.
+I love [loop perforation][loopperf] and the devil-may-care attitude that its paper represents. I hope its inventors won’t be angry if I say loop perforation is the world’s dumbest approximate programming technique: it works by finding a loop and changing its counter increment, `i++`, to `i += 2` or `i += 3`. The shocking thing about loop perforation is that it sometimes works: some loops can survive the removal of some of their iterations.
+
+[loopperf]: https://people.csail.mit.edu/stelios/papers/fse11.pdf
 
 Loop perforation is surprisingly hard to beat. By taking inspiration from loop perforation, you can imagine endless compiler-driven schemes for creatively transforming programs that, while totally unsound, will work some of the time. In my anecdotal experience, however, few techniques can dominate loop perforation on an efficiency–accuracy Pareto frontier. Some transformations do somewhat better some of the time, but I have never seen a dramatic, broad improvement.
 
@@ -63,7 +76,9 @@ It’s time to stop looking. While it can be fun to cook up novel unsound compil
 
 ### Instead…
 
-More researchers in our community should favor tool design over language constructs and program analysis. For example, there is room for practical operating system support for managing resource contention with approximate computing. [Especially in data centers][TK], applications should be able to negotiate with the OS to reduce their output quality in exchange for bandwidth or latency. An approximation-aware resource scheduler does not depend on novel hardware or compiler techniques: many applications have built-in quality parameters that can compete with resource consumption. Research prototypes probably won’t cut it for this kind of work, however; real-world system implementations, on the other hand, might be ripe for adoption.
+More researchers in our community should favor tool design over language constructs and program analysis. For example, there is room for practical operating system support for managing resource contention with approximate computing. [Especially in data centers][kulkarni-wax], applications should be able to negotiate with the OS to reduce their output quality in exchange for bandwidth or latency. An approximation-aware resource scheduler does not depend on novel hardware or compiler techniques: many applications have built-in quality parameters that can compete with resource consumption. Research prototypes probably won’t cut it for this kind of work, however; real-world system implementations, on the other hand, might be ripe for adoption.
+
+[kulkarni-wax]: http://approximate.computer/wax2017/papers/kulkarni.pdf
 
 ## Closed Problems in Quality Enforcement
 
@@ -72,11 +87,16 @@ To control output quality degradation in approximate computing, one promising ap
 
 Too many papers that strive to check statistical correctness end up offering [extremely weak guarantees][probablycorrect]. The problem is that even fancy-sounding statistical machinery rests on the dubious assumption that we can predict the probability distribution that programs will encounter at run time. We assume that an input follows a Gaussian distribution, or that it’s uniformly distributed in some range, or that it is drawn from a known body of example images, for instance. For an input randomly selected from this given input distribution, we can make a strong guarantee about the probability of observing a high-quality output.
 
+[probablycorrect]: {{site.base}}/blog/probablycorrect.html
+
 When real-world inputs inevitably follow some other distribution, however, all bets are off. Imagine a degenerate distribution that finds the worst possible input for your approximate program, in terms of output quality, and presents that value with probability 1.0. An *adversarial input distribution* can break any quality enforcement technique that relies on stress-testing a program pre-deployment. Even ignoring adversarial conditions, it’s extremely hard to defend the assumption that in-deployment inputs for a program will *exactly* match the distributions that the programmer modeled in development. Run-time input distributions are inherently unpredictable, and they render development-time statistical guarantees useless.
 
 ### Instead…
 
-We can’t depend on statistical guarantees enforced at development time, so we need more research on run-time enforcement that directly addresses the problem of unpredictable input distributions. For a scenario where this galaxy of problems already exists, consider SaaS applications based on machine learning: [Wit.ai][] for natural language understanding or TK for computer vision, for example. All ML models have an error rate, meaning that some customers’ workloads will observe higher accuracy than others. Given this subjective variation in output accuracy, what strong statements can cloud providers make to their customers about precision? And if a service advertises a quality guarantee, how can customers keep the provider honest without recomputing everything themselves? These narrower questions may be tractable where the fully general problem of statistical guarantees is not.
+We can’t depend on statistical guarantees enforced at development time, so we need more research on run-time enforcement that directly addresses the problem of unpredictable input distributions. For a scenario where this galaxy of problems already exists, consider SaaS applications based on machine learning: [Wit.ai][] for natural language understanding or [Rekognition][] for computer vision, for example. All ML models have an error rate, meaning that some customers’ workloads will observe higher accuracy than others. Given this subjective variation in output accuracy, what strong statements can cloud providers make to their customers about precision? And if a service advertises a quality guarantee, how can customers keep the provider honest without recomputing everything themselves? These narrower questions may be tractable where the fully general problem of statistical guarantees is not.
+
+[wit.ai]: https://wit.ai
+[rekognition]: https://aws.amazon.com/rekognition/
 
 ## Closed Domains for Approximation
 
@@ -93,6 +113,8 @@ This commitment to generality is the root cause of approximate computing’s mes
 ### Instead…
 
 Instead of bringing approximation to every domain we can think of, let’s look for domains that already embrace approximation. In the PARSEC benchmarks, approximate computing is optional. There are real, important applications where [approximation is compulsory][compulsory] because perfection is unachievable. In these domains, we don’t have to invent quality metrics: researchers in the domain already have a consensus on what makes one system better than another.
+
+[compulsory]: http://approximate.computer/wax2016/papers/sampson.pdf
 
 AI domains like vision, natural language understanding, and speech recognition all have compulsory approximation and, therefore, widely established methodologies for measuring accuracy. These established metrics, like word error rate for speech recognition or mean average precision for object detection, are certainly not perfect, but their flaws are carefully understood by ML and AI researchers. Real-time 3D rendering is another example: approximations abound in the effort to draw a subjectively beautiful scene at a high frame rate.
 
