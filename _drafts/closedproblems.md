@@ -9,7 +9,7 @@ title: Closed Problems in Approximate Computing
 
 [approx]: {{site.base}}/research.html#approximate-computing
 
-# Closed Problems in Approximate Hardware
+## Closed Problems in Approximate Hardware
 
 **No more approximate functional units.**
 Especially for people who love VLSI work, a natural first step in approximate computing is designing approximate adders, multipliers, and other basic functional units. Cut a carry chain here, drop a block of intermediate results there, or use an automated search to find “unnecessary” gate---there are lots of ways to design an FU that’s mostly right most of the time. Despite dozens of papers in this vein, however, the gains seem to range from minimal to nonexistent. A lovely [DATE 2017 paper by Barrois et al.][barrois] recently studied some of these approximate FUs and found that:
@@ -34,11 +34,11 @@ Research should stop using voltage overscaling as the “default” approximate 
 **In general, no more fine-grained approximate operations.**
 Approximate functional units and voltage overscaling are both instances of *operation-level* approximation techniques. They reduce the cost of individual multiplies or other dynamic operations, but they do not change the computation’s higher-level structure. All of these [fine-grained techniques][taxonomy] have to contend with [the Horowitz imbalance][horowitz], to coin a phrase: the huge discrepancy between the cost of processor control versus “real work” like adding and multiplying numbers. Even if an FU operation were free, the benefit would be irrelevant compared to the cost of fetching, decoding, and scheduling the instruction that invoked it. These fine-grained approximation strategies are no longer worth pursuing on their own.
 
-## Instead…
+### Instead…
 
 If we have any hope of making hardware approximation useful, we will need to start by addressing control overhead. Research that reduces non-computational processing costs works as a benefit multiplier for approximate computing. Approximate operations in [CGRA-like spatial architectures][TK] or [TK Wisconsin dataflow][TK], for example, have a chance of succeeding where they would fail in a CPU or GPU context. We have work to do to integrate approximation into the [constraint-based][chlorophyll] [techniques][TK pldi 2013?] that these accelerators use for configuration.
 
-# Closed Problems in Approximate Programming Models
+## Closed Problems in Approximate Programming Models
 
 **No more automatic approximability analysis.**
 Papers in programming languages sometimes try to automatically determine which variables and operations in an unannotated program require perfect precision and which are amenable to approximation. The idea is—sometimes explicitly—to alleviate [EnerJ][]'s annotation burden (which can be high, I admit).
@@ -58,11 +58,11 @@ Loop perforation is surprisingly hard to beat. By taking inspiration from loop p
 
 It’s time to stop looking. While it can be fun to cook up novel unsound compiler transformations, we do not need any more papers in this vein.
 
-## Instead…
+### Instead…
 
 More researchers in our community should favor tool design over language constructs and program analysis. For example, there is room for practical operating system support for managing resource contention with approximate computing. [Especially in data centers][TK], applications should be able to negotiate with the OS to reduce their output quality in exchange for bandwidth or latency. An approximation-aware resource scheduler does not depend on novel hardware or compiler techniques: many applications have built-in quality parameters that can compete with resource consumption. Research prototypes probably won’t cut it for this kind of work, however; real-world system implementations, on the other hand, might be ripe for adoption.
 
-# Closed Problems in Quality Enforcement
+## Closed Problems in Quality Enforcement
 
 **No more weak statistical guarantees.**
 To control output quality degradation in approximate computing, one promising approach is to offer a *statistical guarantee*. When an approximation technique leads to good quality in most cases but poor quality in rare cases, traditional compile-time guarantees can be unhelpful. A statistical guarantee, on the other hand, can bound the *probability* of seeing a bad output. A statistical guarantee might certify, for example, that the probability of observing output error $E$ above a threshold $T$ is at most $P$.
@@ -71,11 +71,11 @@ Too many papers that strive to check statistical correctness end up offering [ex
 
 When real-world inputs inevitably follow some other distribution, however, all bets are off. Imagine a degenerate distribution that finds the worst possible input for your approximate program, in terms of output quality, and presents that value with probability 1.0. An *adversarial input distribution* can break any quality enforcement technique that relies on stress-testing a program pre-deployment. Even ignoring adversarial conditions, it’s extremely hard to defend the assumption that in-deployment inputs for a program will *exactly* match the distributions that the programmer modeled in development. Run-time input distributions are inherently unpredictable, and they render development-time statistical guarantees useless.
 
-## Instead…
+### Instead…
 
 We can’t depend on statistical guarantees enforced at development time, so we need more research on run-time enforcement that directly addresses the problem of unpredictable input distributions. For a scenario where this galaxy of problems already exists, consider SaaS applications based on machine learning: [Wit.ai][] for natural language understanding or TK for computer vision, for example. All ML models have an error rate, meaning that some customers’ workloads will observe higher accuracy than others. Given this subjective variation in output accuracy, what strong statements can cloud providers make to their customers about precision? And if a service advertises a quality guarantee, how can customers keep the provider honest without recomputing everything themselves? These narrower questions may be tractable where the fully general problem of statistical guarantees is not.
 
-# Closed Domains for Approximation
+## Closed Domains for Approximation
 
 **No more sadness about the imperfection of quality metrics.**
 All approximate computing research depends on application-specific output quality metrics, and these quality metrics are far from perfect. Researchers make a good-faith effort to capture meaningful properties in each program’s output, but we have no real assurances that any metric is reasonable. Even worse, we often need to fix an arbitrary threshold on quality to call an output “good enough.” These thresholds rarely have any bearing on any deployment scenario, real or imagined. A *de facto* standard threshold of 10% error has emerged, which is both a triumph in consistency and a tragedy in real-world relevance.
@@ -87,7 +87,7 @@ More worrisome than quality metrics themselves is the fact that we need to inven
 
 This commitment to generality is the root cause of approximate computing’s messy evaluation strategy. When a research project needs to demonstrate benefits for seven different domains, the researchers don’t have time to deeply engage with any single domain. A benchmark-driven attitude leads directly to invented quality metrics, arbitrary thresholds, and minimal involvement from domain experts. To break free from the traditional trappings of approximate computing work, we may need to break free from benchmark suites.
 
-## Instead…
+### Instead…
 
 compulsory approximation
 TK link to WAX paper
