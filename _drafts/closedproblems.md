@@ -78,8 +78,9 @@ We can’t depend on statistical guarantees enforced at development time, so we 
 # Domains
 
 **No more sadness about the imperfection of quality metrics.**
-TK we know they’re not perfect. Let’s standardize and move on
-TK I think we invented the 10% quality threshold in the EnerJ paper. It sucks, but it’s what we have
+All approximate computing research depends on application-specific output quality metrics, and these quality metrics are far from perfect. Researchers make a good-faith effort to capture meaningful properties in each program’s output, but we have no real assurances that any metric is reasonable. Even worse, we often need to fix an arbitrary threshold on quality to call an output “good enough.” These thresholds rarely have any bearing on any deployment scenario, real or imagined. A *de facto* standard threshold of 10% error has emerged, which is both a triumph in consistency and a tragedy in real-world relevance.
+
+Arbitrary thresholds and researcher-invented quality metrics are worth griping about, but most of what needs to be said about this state of affairs has already been said. The system is not perfect, but PARSEC is not a perfect representation of all parallel computation workloads; Gem5 is not a perfect model of real CPUs; and geometric mean speedup is not a perfect proxy for utility in all deployments. No standard evaluation strategy is without flaws. We should constantly work to develop better quality metrics and to understand thresholds that actually matter to users, but it is no longer useful to complain about the basic system of quality metrics and thresholds.
 
 **No more benchmark-oriented research?**
 TK using PARSEC-like applications, or little kernels, paired with dubious quality metrics of our own invention, and necessarily arbitrary quality thresholds, with no attempt to ground utility in how people really want to use software—all of this is getting kind of old. It may be time for a completely new approach.
