@@ -85,10 +85,12 @@ Arbitrary thresholds and researcher-invented quality metrics are worth griping a
 **No more benchmark-oriented research?**
 More worrisome than quality metrics themselves is the fact that we need to invent quality metrics at all. Our current evaluation standards are a symptom of a *benchmark-oriented* approach to approximate computing research. It follows the basic strategy for any architecture or compiler research: develop a new gadget and measure its impact on figures of merit for a broad class of off-the-shelf benchmarks from as many domains as possible. The idea is to asses generality: to show that an idea advances the capabilities of *computers in general*, and it’s not just an optimization for one person’s code.
 
-This commitment to generality is the root cause of approximate computing’s messy evaluation strategy. When a research project needs to demonstrate benefits for seven different domains, the researchers don’t have time to deeply engage with any single domain. A benchmark-driven attitude leads directly to invented quality metrics, arbitrary thresholds, and minimal involvement from domain experts. To break free from the traditional trappings of approximate computing work, we may need to break free from benchmark suites.
+This commitment to generality is the root cause of approximate computing’s messy evaluation strategy. When a research project needs to demonstrate benefits for seven different domains, the researchers don’t have time to deeply engage with any single domain. A benchmark-driven attitude leads directly to invented quality metrics, arbitrary thresholds, and minimal involvement from domain experts. To break free from the traditional trappings of approximate computing work, we need to break free from benchmark suites.
 
 ### Instead…
 
-compulsory approximation
-TK link to WAX paper
-Cloud services for ML are a perfect target!
+Instead of bringing approximation to every domain we can think of, let’s look for domains that already embrace approximation. In the PARSEC benchmarks, approximate computing is optional. There are real, important applications where [approximation is compulsory][compulsory]. In these domains, we don’t have to invent quality metrics: there are consensus TK
+
+TK ML is an example. Real-time graphics too: that’s one big approximation
+
+TK this kind of work is inherently harder than traditional approximate computing research, because you have to compete with domain experts. Your approximation has to beat the Pareto frontier established already in the field. But no one said research was supposed to be easy.
