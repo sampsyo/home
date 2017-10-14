@@ -5,7 +5,7 @@ excerpt: |
     I’m giving a talk at the [NOPE](http://nope.pub) workshop about impossible problems in approximate computing. Here are some research directions that are no longer worth pursuing—and a few that are.
 ---
 <aside>
-  These are notes for a talk I will give at the <a href="http://nope.pub">NOPE</a> workshop at MICRO 2017, where the title is <i>Approximate Computing Is Dead; Long Live Approximate Computing</i>.
+  These are notes for a <a href="{{site.base}}/media/closedproblems-nope2017-slides.pdf">talk</a> I will give at the <a href="http://nope.pub">NOPE</a> workshop at MICRO 2017, where the title is <i>Approximate Computing Is Dead; Long Live Approximate Computing</i>.
 </aside>
 
 [Approximate computing][approx] has reached an adolescent phase as a research area. We have picked bushels of low-hanging fruit. While there are many approximation papers left to write, it's a good time to enumerate the closed problems: research problems that are probably no longer worth pursuing.
