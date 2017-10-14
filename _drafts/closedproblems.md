@@ -89,8 +89,10 @@ This commitment to generality is the root cause of approximate computing’s mes
 
 ### Instead…
 
-Instead of bringing approximation to every domain we can think of, let’s look for domains that already embrace approximation. In the PARSEC benchmarks, approximate computing is optional. There are real, important applications where [approximation is compulsory][compulsory]. In these domains, we don’t have to invent quality metrics: there are consensus TK
+Instead of bringing approximation to every domain we can think of, let’s look for domains that already embrace approximation. In the PARSEC benchmarks, approximate computing is optional. There are real, important applications where [approximation is compulsory][compulsory] because perfection is unachievable. In these domains, we don’t have to invent quality metrics: researchers in the domain already have a consensus on what makes one system better than another.
 
-TK ML is an example. Real-time graphics too: that’s one big approximation
+AI domains like vision, natural language understanding, and speech recognition all have compulsory approximation and, therefore, widely established methodologies for measuring accuracy. These established metrics, like word error rate for speech recognition or mean average precision for object detection, are certainly not perfect, but their flaws are carefully understood by ML and AI researchers. Real-time 3D rendering is another example: approximations abound in the effort to draw a subjectively beautiful scene at a high frame rate.
 
-TK this kind of work is inherently harder than traditional approximate computing research, because you have to compete with domain experts. Your approximation has to beat the Pareto frontier established already in the field. But no one said research was supposed to be easy.
+Approximate computing researchers should embed with domains and learn from them instead of trying to foist new approximation mechanisms onto them.
+
+TK this kind of work is inherently harder than traditional approximate computing research, because you have to compete with domain experts. Your approximation has to beat the Pareto frontier established already in the field. And you can’t manipulate the quality metric or threshold as it suits you. But no one said research was supposed to be easy.
