@@ -1,5 +1,8 @@
 ---
 title: Closed Problems in Approximate Computing
+mathjax: true
+excerpt: |
+    I’m giving a talk at the [NOPE](http://nope.pub) workshop about impossible problems in approximate computing. Here are some research directions that are no longer worth pursuing—and a few that are.
 ---
 <aside>
   These are notes for a talk I will give at the <a href="http://nope.pub">NOPE</a> workshop at MICRO 2017, where the title is <i>Approximate Computing Is Dead; Long Live Approximate Computing</i>.
