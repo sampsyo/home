@@ -63,7 +63,7 @@ This is not a good goal. Imagine a world where your compiler is free to make its
 
 That’s very useful to know, compiler, but it’s not strong enough evidence to justify breaking a program without the developer’s express consent. Without a guarantee that the test inputs perfectly represent real run-time conditions, silent failures in the field are a real possibility. And quality metrics are only a loose reflection of real-world utility, so basing automatic decisions on them is deeply concerning.
 
-Work that makes EnerJ annotations implicit fundamentally misunderstands EnerJ’s intent. We designed EnerJ *in response* to earlier work that applied approximation without developer involvement. The explicit annotation style acts as a check on the compiler’s freedom to break your code. The time has passed for research that places the power back into the compiler’s grubby hands.
+Work that makes EnerJ annotations implicit misunderstands EnerJ’s intent. We designed EnerJ *in response* to earlier work that applied approximation without developer involvement. The explicit annotation style acts as a check on the compiler’s freedom to break your code. The time has passed for research that places the power back into the compiler’s grubby hands.
 
 **No more generic unsound compiler transformation.**
 I love [loop perforation][loopperf] and the devil-may-care attitude that its paper represents. I hope its inventors won’t be angry if I say loop perforation is the world’s dumbest approximate programming technique: it works by finding a loop and changing its counter increment expression, `i++`, to `i += 2` or `i += 3`. The shocking thing about loop perforation is that it sometimes works: some loops can survive the removal of some of their iterations.
