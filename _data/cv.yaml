@@ -61,10 +61,10 @@ jobs:
         dates: 2007
 
 honors:
+    - 'Distinguished Artifact Award, <a href="https://2017.splashcon.org/track/splash-2017-OOPSLA">OOPSLA 2017</a>'
     - '<a href="https://research.googleblog.com/2017/02/google-research-awards-2016.html">Google Faculty Research Award</a>, 2016'
     - 'UW CSE <a href="https://www.cs.washington.edu/education/award_winning_students/chan">William Chan Memorial Dissertation Award</a>, 2015'
     - 'Best presentation, <a href="https://news.cs.washington.edu/2015/01/10/cses-2015/">first UW Computer Science &amp; Engineering Symposium (CSES 2015)</a>'
-    - 'Artifact accepted by the <a href="http://pldi14-aec.cs.brown.edu">PLDI 2014 Artifact Evaluation Committee</a>'
     - 'Paper from MICRO 2013 invited for fast-track inclusion in <a href="http://tocs.acm.org">ACM TOCS</a>'
     - 'Paper from MICRO 2012 selected for CACM research highlights'
     - '<a href="http://googleresearch.blogspot.com/2013/06/2013-google-phd-fellowships-5-years-of.html">Google Ph.D. Fellowship in Computer Architecture</a> (2013&ndash;2015)'
