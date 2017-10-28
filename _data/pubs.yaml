@@ -2,17 +2,17 @@
     title: "Static Stages for Heterogeneous Programming"
     authors: "Adrian Sampson, Kathryn S McKinley, and Todd Mytkowicz"
     venue: "OOPSLA 2017"
-    preprint: true
     type: conference
     venue_url: "http://2017.splashcon.org/track/splash-2017-OOPSLA"
     extra:
+     - '[Local PDF.](BASE/media/papers/braid-oopsla2017.pdf)'
      - '[Project page.](https://capra.cs.cornell.edu/braid/)'
      - '[Full type system and semantics.](BASE/media/papers/braid-oopsla2017-formalism.pdf)'
      - '[Artifact evaluated!](http://2017.splashcon.org/track/splash-2017-OOPSLA-Artifacts)'
      - 'Winner of an OOPSLA Distinguished Artifact Award.'
     note: |
         <a href="http://2017.splashcon.org/track/splash-2017-OOPSLA-Artifacts">Artifact evaluated.</a> Distinguished Artifact Award.
-    url: BASE/media/papers/braid-oopsla2017-preprint.pdf
+    url: https://doi.org/10.1145/3133895
 
 -
     title: "Reconfiguring the Imaging Pipeline for Computer Vision"
