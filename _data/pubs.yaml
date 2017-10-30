@@ -8,6 +8,7 @@
      - '[Local PDF.](BASE/media/papers/braid-oopsla2017.pdf)'
      - '[Project page.](https://capra.cs.cornell.edu/braid/)'
      - '[Full type system and semantics.](BASE/media/papers/braid-oopsla2017-formalism.pdf)'
+     - '[Some of the slides as a PDF](BASE/media/braid-oopsla2017-slides.pdf) and [the source code for the rest of the slides](https://github.com/cucapra/braid-talk), which run in a Web browser.'
      - '[Artifact evaluated!](http://2017.splashcon.org/track/splash-2017-OOPSLA-Artifacts)'
      - 'Winner of an OOPSLA Distinguished Artifact Award.'
     note: |
