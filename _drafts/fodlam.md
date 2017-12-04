@@ -9,7 +9,7 @@ Despite this area's face-melting hotness, it has not generated many reusable res
 [eemstool]: https://energyestimation.mit.edu
 [eems]: http://www.rle.mit.edu/eems/
 
-Imagine that an architect designing a new branch predictor needed to implement or model an entire CPU to get performance results. That's where we are with neural network accelerators. I don't know whether deep learning ASICs will become as commonplace as CPUs or GPUs, but some reasonable people certainly claim that they will. If that's the case, we need reusable, standardized, open-source research tools to make any progress.
+Imagine working on a new branch predictor and needing to implement or model an entire CPU to get performance results. That's where we are with neural network accelerators. I don't know whether deep learning ASICs will become as commonplace as CPUs or GPUs, but some reasonable people certainly claim that they will. If that's the case, we need reusable, standardized, open-source research tools to make any progress.
 
 It's more important for tools to be open and reusable than it is for them to be perfect. So we're releasing our miniscule, simplistic power and performance model as open source. The [First-Order Deep Learning Accelerator Model (FODLAM)][fodlam] aggregates published numbers from two recent papers and extrapolates per-layer latency and energy consumption for CNN execution. You feed in a configuration file describing your neural network and FODLAM dumps out JSON containing joules and seconds.
 
