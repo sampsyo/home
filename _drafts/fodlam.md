@@ -3,7 +3,7 @@ title: FODLAM, a Poorly Named Tool for Estimating the Power and Performance of D
 ---
 My group is working on a project that intersects with research on hardware accelerators for deep neural networks. We're not building a new accelerator ourselves, but we need to know roughly how one behaves.
 
-Despite this area's face-melting hotness, it has not generated many reusable research tools. MIT's [EEMS group][eems] has a web-based [energy estimation tool][eemstool], but it's closed source and supports a limited range of layer types. Nvidia recently released the Verilog source for [an accelerator they call NVDLA][nvdla], but its simulator [isn't available yet][nvdla-cmod] and a complete HDL implementation is not the most reusable substrate for research. We emailed a handful of groups, but no one was interested in open-sourcing anything.
+Despite this area's face-melting hotness, it has not generated many reusable research tools. MIT's [EEMS group][eems] has a web-based [energy estimation tool][eemstool], but it's closed source and supports a limited range of layer types. Nvidia recently released the Verilog source for [their accelerator, NVDLA][nvdla], but its simulator [isn't available yet][nvdla-cmod] and a complete HDL implementation is not the most reusable substrate for research. We emailed a handful of groups, but no one was interested in open-sourcing anything.
 
 [nvdla-cmod]: https://github.com/nvdla/hw/blob/7c769aa9a62f209a0487bd383eb046bebdf676b6/cmod/README.md
 [nvdla]: http://nvdla.org
