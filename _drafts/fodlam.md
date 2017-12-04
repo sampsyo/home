@@ -1,16 +1,15 @@
 ---
 title: A Poorly Named Tool for Estimating the Performance and Power of Deep Learning Accelerators
 ---
-My group is working on a project that collides with research on hardware accelerators for deep neural networks. We're not actually building a new accelerator, but we need to know roughly how one behaves.
+My group is working on a project that collides with research on hardware accelerators for deep neural networks. We're not building a new accelerator ourselves, but we need to know roughly how one behaves.
 
-Despite this area's face-melting hotness, it has not generated many reusable research tools.
-TK link to Eyeriss web tool and NVDLA.
-TK we emailed lots of people.
+Despite this area's face-melting hotness, it has not generated many reusable research tools. MIT's [EEMS group][emms] has a web-based [energy estimation tool][eemstool], but it's closed source and supports a limited range of layer types. Nvidia recently released the Verilog source for [an accelerator they call NVDLA][nvdla], but a complete HDL implementation is not the most reusable substrate for research. We emailed a handful of groups, but no one wants to share their tools.
 
-There's an analogy to be made to research on CPUs or GPUs.
-TK links to McPAT, etc.
-Some people argue that deep learning accelerators will soon be as commonplace as those more traditional units---and while it's not a foregone conclusion, it is a plausible argument.
-TK branch predictor analogy: it would be crazy if every predictor needed to design a whole core to go around it.
+[nvdla]: http://nvdla.org
+[eemstool]: https://energyestimation.mit.edu
+[emms]: http://www.rle.mit.edu/eems/
+
+Imagine that an architect designing a new branch predictor needed to implement or model an entire CPU to get performance results. That's where we are with neural network accelerators. I don't know whether deep learning ASICs will become as commonplace as CPUs or GPUs, but some reasonable people certainly claim that they will. If that's the case, we need reusable, standardized, open-source research tools to make any progress.
 
 TK if CNN accelerators are going to be as commonplace, we need common infrastructrure. a baseline of agreement.
 TK importance of standardization, even on imperfect tools.
