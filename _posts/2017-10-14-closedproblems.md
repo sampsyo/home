@@ -21,9 +21,10 @@ Especially for people who love VLSI work, a natural first step in approximate co
 
 In other words, plain old fixed-point FUs with a narrower bit width are usually at least as good as fancy “approximate” FUs. The problem is that, if you’re approximating the values below a given bit position, it’s usually not worth it to compute those approximate bits at all. In fact, by dropping the approximate bits altogether, you can exploit the smaller data size for broader advantages in the whole application. Software using approximate adders and multipliers, on the other hand, ends up copying around and operating on worthless, incorrect trailing bits for no benefit in precision.
 
-This paper has raised the bar for FU-level approximation research. We should no longer publish VLSI papers that measure approximate adders in isolation. Without a radically different approach, we should stop designing approximate functional units altogether.
+This paper has raised the bar for FU-level approximation research. (Thanks, by the way, to [Andreas Gerstlauer][andreas], who pointed me toward this paper.) We should no longer publish VLSI papers that measure approximate adders in isolation. Without a radically different approach, we should stop designing approximate functional units altogether.
 
 [barrois]: https://hal.inria.fr/hal-01423147
+[andreas]: http://users.ece.utexas.edu/~gerstl/
 
 **No more voltage overscaling.**
 For some, *approximate computing* is a synonym for *voltage overscaling*. Voltage overscaling is when you turn up the clock rate or turn down $V_{\text{DD}}$ beyond their safe ranges and allow occasional timing errors. I accept some of the blame for solidifying voltage overscaling’s outsized mindshare by co-authoring [a paper about “architecture support for approximate computing”][truffle] that exclusively used voltage as its error--energy knob.
