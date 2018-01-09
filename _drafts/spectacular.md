@@ -1,12 +1,16 @@
-Spectre has [nerdsniped][xkcd356] me, hard. I’ve been walking into lampposts and stuff. The more I think about it, the less I understand it.
+---
+title: Spectacular
+excerpt: |
+    Excerpt.
+---
+[Spectre][] has [nerdsniped][xkcd356] me, hard. I've been walking into lampposts and stuff. The more I think about it, the less I understand it.
 
 [xkcd356]: https://xkcd.com/356/
+[spectre]: https://spectreattack.com/spectre.pdf
 
-Here's the thing: the problems are so easy to see once someone explains them. And it's a fundamental problem in a technology that's been around for decades. A bread-and-butter tool architects have used since long before I was an architect. It's one of those obvious-in-retrospect epiphanies that makes me rethink everything.
+The thing is that the problem is so easy to see once you hear it explained. And it's a fundamental problem in an idea that's been around for decades. A bread-and-butter tool architects have used since long before I was an architect. It's one of those obvious-in-retrospect epiphanies that makes me rethink everything.
 
-Like many architects, I see an upside too: maybe this shock will be enough to hasten richer interfaces to hardware and software, where perhaps programs can communicate richer security policies than incremental ISA extensions would allow. Maybe it will even hasten the end of the von Neumann abstraction: one story of Spectre says that it was obscured because of the disconnect between a traditional ISA and a high-performance implementation. Maybe it's time to expose a more detailed model of how modern processing actually works so software has a chance in hell to audit it for security. Dormant VLIW and EDGE boosters, rejoice.
-
-The other thing is that it’s not just speculation. We now live in a world where side channels might exist in microarchitecture that leave no real trace in the architectural state. There are already papers about [leaks through prefetching][tk]---someone learns about your activity by observing how it affected a reverse-engineered prefetcher. Imagine similar attacks on TLB state, branch predictor state, store buffer coalescing, and coherence protocols. Suddenly, the [SMT side channel][tk] doesn't look so bad.
+The other thing is that it’s not just about speculation. We now live in a world where side channels might exist in microarchitecture that leave no real trace in the architectural state. There are already papers about [leaks through prefetching][tk]---someone learns about your activity by observing how it affected a reverse-engineered prefetcher. Imagine similar attacks on TLB state, branch predictor state, store buffer coalescing, and coherence protocols. Suddenly, the [SMT side channel][tk] doesn't look so bad.
 
 # Sufficient Conditions
 
@@ -30,6 +34,8 @@ But I can't help feeling that these conditions are still too strong. Or at least
 
 - semantically consistent. For example if we knew a lower bound on the length. If we can prove for a memop that its address cannot ever falsify the prediction assumption—there is no valuation to the unknown values (like the bound) that would contradict the address being that, it’s OK.
 
-tk This is nonsense.
+tk This is nonsense. 
 
-# Semantic Models for Speculative Execution
+# The Bright Side
+
+Like many architects, I see an upside too: maybe this shock will be enough to hasten richer interfaces to hardware and software, where perhaps programs can communicate richer security policies than incremental ISA extensions would allow. Maybe it will even hasten the end of the von Neumann abstraction: one story of Spectre says that it was obscured because of the disconnect between a traditional ISA and a high-performance implementation. Maybe it's time to expose a more detailed model of how modern processing actually works so software has a chance in hell to audit it for security. Dormant VLIW and EDGE boosters, rejoice.
