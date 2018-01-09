@@ -10,7 +10,9 @@ excerpt: |
 
 The thing is that the problem is so easy to see once you hear it explained. And it's a fundamental problem in an idea that's been around for decades. A bread-and-butter tool architects have used since long before I was an architect. It's one of those obvious-in-retrospect epiphanies that makes me rethink everything.
 
-The other thing is that it’s not just about speculation. We now live in a world where side channels might exist in microarchitecture that leave no real trace in the architectural state. There are already papers about [leaks through prefetching][tk]---someone learns about your activity by observing how it affected a reverse-engineered prefetcher. Imagine similar attacks on TLB state, branch predictor state, store buffer coalescing, and coherence protocols. Suddenly, the [SMT side channel][tk] doesn't look so bad.
+The other thing is that it’s not just about speculation. We now live in a world where side channels might exist in microarchitecture that leave no real trace in the architectural state. There are already papers about [leaks through prefetching][pfsc]---someone learns about your activity by observing how it affected a reverse-engineered prefetcher. Imagine similar attacks on TLB state, branch predictor state, store buffer coalescing, and coherence protocols. Suddenly, the [SMT side channel][tk] doesn't look so bad.
+
+[pfsc]: https://dl.acm.org/citation.cfm?id=2978356
 
 # Sufficient Conditions
 
