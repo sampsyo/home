@@ -10,20 +10,23 @@ excerpt: |
 
 The thing is that the problem is so easy to see once you hear it explained. And it's a fundamental problem in an idea that's been around for decades. A bread-and-butter tool architects have used since long before I was an architect. It's one of those obvious-in-retrospect epiphanies that makes me rethink everything.
 
-The other thing is that it’s not just about speculation. We now live in a world where side channels might exist in microarchitecture that leave no real trace in the architectural state. There are already papers about [leaks through prefetching][pfsc]---someone learns about your activity by observing how it affected a reverse-engineered prefetcher. Imagine similar attacks on TLB state, branch predictor state, store buffer coalescing, and coherence protocols. Suddenly, the [SMT side channel][tk] doesn't look so bad.
+The other thing is that it’s not just about speculation. We now live in a world where side channels might exist in microarchitecture that leave no real trace in the architectural state. There are already papers about [leaks through prefetching][pfsc]---someone learns about your activity by observing how it affected a reverse-engineered prefetcher. Imagine similar attacks on TLB state, branch predictor state, store buffer coalescing, and coherence protocols. Suddenly, the [SMT side channel][htch] doesn't look so embarrassing.
 
 [pfsc]: https://dl.acm.org/citation.cfm?id=2978356
+[htch]: http://www.daemonology.net/hyperthreading-considered-harmful/
 
 # Sufficient Conditions
 
 The main thing that has me mystified is what a minimal architectural fix would be: what’s the least amount of speculation you could give up and still prevent side channels through memory activity triggered by speculative code?
 I think this is a hard question to answer even just with that limited scope, ignoring the whole world of other, non-speculation-related microarchitectural side channels.
 
-Let's do the easy ones first. Microarch need to either enforce, or appear to enforce:
+Let's do the easy ones first. A processor design can prevent Spectre by doing—or appearing to do—one of these things:
 
-- no speculation
-- no speculative memops
-- no speculative memops that miss in the L1
+- **Don’t speculate at all.** The problem is speculation, so disabling it—or completely isolating all of its observable effects—suffices trivially.
+- **Don’t execute speculative memory operations.** Stop speculating when the predicted path reaches a load or a store. Only execute non-speculative memops.
+- **Don’t execute speculative memory operations that miss in the L1.** When 
+
+[s5statement]: https://www.sifive.com/blog/2018/01/05/sifive-statement-on-meltdown-and-spectre/
 
 And maybe that's where this will end. Maybe processor designers will stop speculating through L1 misses, take this performance L, and move on.
 
