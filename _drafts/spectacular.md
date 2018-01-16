@@ -45,4 +45,7 @@ While predictor isolation makes Spectre attacks more difficult, it connot preven
 
 ## The Bright Side
 
-Like many architects, I see an upside too: maybe this shock will be enough to hasten richer interfaces to hardware and software, where perhaps programs can communicate richer security policies than incremental ISA extensions would allow. Maybe it will even hasten the end of the von Neumann abstraction: one story of Spectre says that it was obscured because of the disconnect between a traditional ISA and a high-performance implementation. Maybe it's time to expose a more detailed model of how modern processing actually works so software has a chance in hell to audit it for security. Dormant VLIW and EDGE boosters, rejoice.
+Spectre may have driven me to distraction, but like many architects, I see an upside too.
+Perhaps this shock will spur a transition to richer hardware–software interfaces that let programs communicate richer security policies than “rings” allow.
+
+Maybe it will even hasten the end of the von Neumann abstraction. When we tell the Spectre story in five years, we may say that it arose from the widening semantic gap between an ISA paradigm from the 1960s and a high-performance hardware implementation from the 2010s. Maybe it's time to expose a more detailed model of how modern processing actually works so software has a chance in hell to audit it for security. Dormant VLIW and EDGE boosters, rejoice.
