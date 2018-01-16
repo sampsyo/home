@@ -8,27 +8,26 @@ excerpt: |
 [xkcd356]: https://xkcd.com/356/
 [spectre]: https://spectreattack.com/spectre.pdf
 
-The thing is that the problem is so easy to see once you hear it explained. And it's a fundamental problem in an idea that's been around for decades. A bread-and-butter tool architects have used since long before I was an architect. It's one of those obvious-in-retrospect epiphanies that makes me rethink everything.
+The first shocking thing is that, once you read about it, the problem is so easy to see. Here’s how I’d summarize it: predictor state is untrusted, and mispredicted execution paths can leave traces in the memory system, so malicious code can observe the behavior of “impossible” paths. It's a fundamental problem in an idea that's been [architectural gospel][speculation] for decades. It's one of those obvious-in-retrospect epiphanies that makes me rethink everything.
 
-The other thing is that it’s not just about speculation. We now live in a world where side channels might exist in microarchitecture that leave no real trace in the architectural state. There are already papers about [leaks through prefetching][pfsc]---someone learns about your activity by observing how it affected a reverse-engineered prefetcher. Imagine similar attacks on TLB state, branch predictor state, store buffer coalescing, and coherence protocols. Suddenly, the [SMT side channel][htch] doesn't look so embarrassing.
+The second thing is that it’s not just about speculation. We now live in a world where side channels might exist in microarchitecture that leave no real trace in the architectural state. There are already papers about [leaks through prefetching][pfsc], where someone learns about your activity by observing how it affected a reverse-engineered prefetcher. You can imagine similar attacks on TLB state, store buffer coalescing, coherence protocols, and replacement policies. Suddenly, the [SMT side channel][htch] doesn't look so bad.
 
 [pfsc]: https://dl.acm.org/citation.cfm?id=2978356
 [htch]: http://www.daemonology.net/hyperthreading-considered-harmful/
+[speculation]: https://books.google.com/books?id=XX69oNsazH4C&q=Speculation#v=snippet&q=Speculation&f=false
 
 # Sufficient Conditions
 
-The main thing that has me mystified is what a minimal architectural fix would be: what’s the least amount of speculation you could give up and still prevent side channels through memory activity triggered by speculative code?
-I think this is a hard question to answer even just with that limited scope, ignoring the whole world of other, non-speculation-related microarchitectural side channels.
-
-Let's do the easy ones first. A processor design can prevent Spectre by doing—or appearing to do—one of these things:
+But the main thing that has me mystified is how to fix it. What is the weakest possible restriction on speculation that would prevent Spectre?
+There are the easier, stronger conditions:
 
 - **Don’t speculate at all.** The problem is speculation, so disabling it—or completely isolating all of its observable effects—suffices trivially.
 - **Don’t execute speculative memory operations.** Stop speculating when the predicted path reaches a load or a store. Only execute non-speculative memops.
-- **Don’t execute speculative memory operations that miss in the L1.** When 
+- **Don’t execute speculative memory operations that miss in the L1.** Keep servicing speculative loads that hit in the L1 cache, because they leave no microarchitectural trace. But stop at any memop that would need to escape to the rest of the memory hierarchy.
 
 [s5statement]: https://www.sifive.com/blog/2018/01/05/sifive-statement-on-meltdown-and-spectre/
 
-And maybe that's where this will end. Maybe processor designers will stop speculating through L1 misses, take this performance L, and move on.
+It suffices for an architecture to do any of these things—or to pretend to do them, by rolling back the microarchitectural state when a misspeculation resolves, for example. These are big hammers, but maybe this where the Spectre will end. Maybe processor designers will stop speculating through L1 misses, take the performance L, and move on.
 
 But I can't help feeling that these conditions are still too strong. Or at least that they could be made weaker, if an efficient enforcement implementation can be found.
 
