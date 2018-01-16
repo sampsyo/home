@@ -16,7 +16,7 @@ The second thing is that it’s not just about speculation. We now live in a wor
 [htch]: http://www.daemonology.net/hyperthreading-considered-harmful/
 [speculation]: https://books.google.com/books?id=XX69oNsazH4C&q=Speculation#v=snippet&q=Speculation&f=false
 
-# Sufficient Conditions
+## Sufficient Conditions
 
 But the main thing that has me mystified is how to fix it. What is the weakest possible restriction on speculation that would prevent Spectre?
 There are the easier, stronger conditions:
@@ -37,12 +37,12 @@ But I have a feeling that these restrictions are too strong. There are some situ
 
 Each of these conditions is an exception to the “no speculative misses” rule. Piecemeal exceptions are unsatisfying, though. I’m suspicious that there’s a clean, general rule for deciding which speculative accesses are safe. Even if that sufficient condition is wildly impractical to enforce in hardware, we should nail it down.
 
-# Semantically Consistent Speculation
+## An Insufficient Fix
 
-- semantically consistent. For example if we knew a lower bound on the length. If we can prove for a memop that its address cannot ever falsify the prediction assumption—there is no valuation to the unknown values (like the bound) that would contradict the address being that, it’s OK.
+One tempting mitigation is to isolate the predictor state. The proof-of-concept attacks we know about rely on the attacker’s ability to manipulate the predictor into mispredicting in useful ways. Without BTB collisions, malicious code would not be able to “mistrain” the predictor to bend it to its will. For example, consider an architecture that flushes the BTB or swaps its state when transitioning between trusted and untrusted code. The untrusted code can execute as many cleverly-crafted branches as it likes, but only trusted-code branches can influence trusted-code predictions.
 
-tk This is nonsense. 
 
-# The Bright Side
+
+## The Bright Side
 
 Like many architects, I see an upside too: maybe this shock will be enough to hasten richer interfaces to hardware and software, where perhaps programs can communicate richer security policies than incremental ISA extensions would allow. Maybe it will even hasten the end of the von Neumann abstraction: one story of Spectre says that it was obscured because of the disconnect between a traditional ISA and a high-performance implementation. Maybe it's time to expose a more detailed model of how modern processing actually works so software has a chance in hell to audit it for security. Dormant VLIW and EDGE boosters, rejoice.
