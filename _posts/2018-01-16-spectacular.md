@@ -41,7 +41,7 @@ Each of these conditions represents an exception to the *no speculative misses* 
 
 One tempting mitigation is to isolate the predictor state. The proof-of-concept attacks we know about rely on the attacker’s ability to manipulate the predictor into mispredicting in useful ways. Without carefully orchestrated BTB collisions, malicious code would not be able to “mistrain” the predictor to bend it to its will. For example, consider an architecture that flushes the BTB or swaps its state when transitioning between trusted and untrusted code. The untrusted code can execute as many cleverly-crafted branches as it likes, but only trusted-code branches can influence trusted-code predictions.
 
-While predictor isolation makes Spectre attacks more difficult, it connot prevent them. Even if untrusted branch instructions can’t manipulate the BTB, malicious *inputs* can still influence the outcomes of branches in *trusted* code. An attacker can identify input-dependent branches in the kernel or browser that collide in the BTB with a target branch. This way, the attacker can manipulate trusted code into plotting its own demise.
+While predictor isolation makes Spectre attacks more difficult, it cannot prevent them. Even if untrusted branch instructions can’t manipulate the BTB, malicious *inputs* can still influence the outcomes of branches in *trusted* code. An attacker can identify input-dependent branches in the kernel or browser that collide in the BTB with a target branch. This way, the attacker can manipulate trusted code into plotting its own demise.
 
 ## The Bright Side
 
