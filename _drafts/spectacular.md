@@ -35,7 +35,7 @@ But I have a feeling that these restrictions are too strong. There are some situ
 - Missing on **constant addresses** should be safe, because they only disclose the predictor’s behavior. And one of Spectre’s main lessons is that predictor state is untrustworthy and under the attacker’s control anyway. For example, consider an attack on an indirect jump that convinces the CPU to speculatively execute the attacker’s own malicious code. If that code executes `ld 0xDEADBEEF`, the attacker can learn only that their attack was successful by measuring the time to access that fixed address. Problems only arise when the maliciously speculative memop accesses an address based on private data.
 - In general, enforcing **noninterference for non-speculative state** seems to suffice. Speculative execution can safely compute new addresses for loads—as long as those speculative addresses would be the same under any starting, non-speculative state. If a CPU could somehow prove that a speculative memop accesses an address whose provenance is exclusively speculative, it could be certain that executing it will leak no useful information.
 
-These 
+Each of these conditions is an exception to the “no speculative misses” rule. Piecemeal exceptions are unsatisfying, though. I’m suspicious that there’s a clean, general rule for deciding which speculative accesses are safe. Even if that sufficient condition is wildly impractical to enforce in hardware, we should nail it down.
 
 # Semantically Consistent Speculation
 
