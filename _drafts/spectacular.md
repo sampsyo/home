@@ -29,12 +29,13 @@ There are the easier, stronger conditions:
 
 It suffices for an architecture to do any of these things—or to pretend to do them, by rolling back the microarchitectural state when a misspeculation resolves, for example. These are big hammers, but maybe this where the Spectre will end. Maybe processor designers will stop speculating through L1 misses, take the performance L, and move on.
 
-But I have a feeling that these restrictions are too strong. There are some situations where speculative misses *should* be safe to service, if only the hardware could detect them:
+But I have a feeling that these restrictions are too strong. There are some situations where speculative misses *should* be safe to service, if the hardware could detect them:
 
 - **Foregone conclusions** are a trivial case that should be safe. If a memop would be executed on either side of a branch, executing it speculatively should disclose nothing that the attacker wouldn’t learn anyway. For example, consider a condition `if (b) x = *p; else y = *p;`. The program will load the pointer `p` regardless of `b`, so loading it speculatively will cause no state leaks that wouldn’t be caused by a non-speculative execution. Of course, loading `*p` before the branch resolves isn’t really speculative at all in this case: the program will need the result in either case, so a good compiler should just hoist the load above the branch anyway.
 - Missing on **constant addresses** should be safe, because they only disclose the predictor’s behavior. And one of Spectre’s main lessons is that predictor state is untrustworthy and under the attacker’s control anyway. For example, consider an attack on an indirect jump that convinces the CPU to speculatively execute the attacker’s own malicious code. If that code executes `ld 0xDEADBEEF`, the attacker can learn only that their attack was successful by measuring the time to access that fixed address. Problems only arise when the maliciously speculative memop accesses an address based on private data.
+- In general, enforcing **noninterference for non-speculative state** seems to suffice. Speculative execution can safely compute new addresses for loads—as long as those speculative addresses would be the same under any starting, non-speculative state. If a CPU could somehow prove that a speculative memop accesses an address whose provenance is exclusively speculative, it could be certain that executing it will leak no useful information.
 
-TK
+These 
 
 # Semantically Consistent Speculation
 
