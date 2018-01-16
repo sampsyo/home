@@ -1,7 +1,7 @@
 ---
 title: Spectacular
 excerpt: |
-   [Spectre][] is a shock, and the architectural implications seem unbounded. The weirdest part is that it’s not clear what the next generation of CPUs should do in response. Here are a few possibilities, but there are no easy answers.
+   [Spectre](https://spectreattack.com/spectre.pdf) is a shock, and the architectural implications seem unbounded. The weirdest part is that it’s not clear what the next generation of CPUs should do in response. Here are a few possibilities, but there are no easy answers.
 ---
 [Spectre][] has [nerdsniped][xkcd356] me, hard. I've been walking into lampposts and stuff. The more I think about it, the less I understand it.
 
