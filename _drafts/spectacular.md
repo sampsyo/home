@@ -23,7 +23,7 @@ There are the easier, stronger conditions:
 
 - **Don’t speculate at all.** The problem is speculation, so disabling it—or completely isolating all of its observable effects—suffices trivially.
 - **Don’t execute speculative memory operations.** Stop speculating when the predicted path reaches a load or a store. Only execute non-speculative memops.
-- **Don’t execute speculative memory operations that miss in the L1.** Keep servicing speculative loads that hit in the L1 cache, because they leave no microarchitectural trace. But stop at any memop that would need to escape to the rest of the memory hierarchy.
+- **Don’t execute speculative memory operations that miss in the L1.** Keep servicing speculative loads that hit in the L1 cache, because they leave no microarchitectural trace. But stop at any memop that would need to escape to the rest of the memory hierarchy. The [SiFive blog][s5statement], for example, says that all their RISC-V parts obey this limitation.
 
 [s5statement]: https://www.sifive.com/blog/2018/01/05/sifive-statement-on-meltdown-and-spectre/
 
