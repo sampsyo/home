@@ -24,7 +24,7 @@ cleanbuild:
 
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
 	--delete -e ssh
-DEST := fox:/home/WIN/asampson/MyWeb
+DEST := cslinux:/people/als485
 deploy: cleanbuild site
 	rsync $(RSYNCARGS) _site/ $(DEST)
 
