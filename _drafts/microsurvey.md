@@ -1,6 +1,6 @@
 ---
 title: The MICRO Diversity Survey
-excerpt:
+excerpt: |
     The MICRO steering committee recently published a [survey on diversity at the conference][survey]. Here are some of my responses.
 
     [survey]: https://docs.google.com/forms/d/e/1FAIpQLSfczMKQzdhtBZVjNQsPDkLFLKrxGypxtMpzD1qXqb098LiZXw/viewform
