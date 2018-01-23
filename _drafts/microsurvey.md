@@ -46,7 +46,9 @@ One format that I *can* imagine being useful would be to invite outside experts 
 
 > What should be the goal of such a mentorship program? [The question is about a hypothetical program where senior members of the community volunteer to mentor newer researchers. --ed.]
 
-We should basically steal the programming languages community's model! The Programming Languages Mentoring Workshop (PLMW) is an NSF-funded, incredibly successful series of workshops that takes place at every PL conference. It has a diversity mission, but it also functions as a venue for mentoring even students who are not underrepresented. Crucially, it provides funding to attend conferences.
+We should basically steal the programming languages community's model! The [Programming Languages Mentoring Workshop (PLMW)][plmw] is an NSF-funded, incredibly successful series of workshops that takes place at every PL conference. It has a diversity mission, but it also functions as a venue for mentoring even students who are not underrepresented. Crucially, it provides funding to attend conferences.
+
+[plmw]: http://www.sigplan.org/Conferences/PLMW/
 
 ---
 
