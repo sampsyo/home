@@ -1,5 +1,9 @@
 ---
 title: The MICRO Diversity Survey
+excerpt:
+    The MICRO steering committee recently published a [survey on diversity at the conference][survey]. Here are some of my responses.
+
+    [survey]: https://docs.google.com/forms/d/e/1FAIpQLSfczMKQzdhtBZVjNQsPDkLFLKrxGypxtMpzD1qXqb098LiZXw/viewform
 ---
 The MICRO steering committee recently published a [survey on diversity at the conference][survey]. This survey is the latest development in a renewed conversation among computer architects that began with a [September 2017 blog post][gdca] by [Natalie Enright Jerger][natalie] and [Kim Hazelwood][kim] that highlighted unsettling statistics on gender diversity in the community. If you count yourself as part of this community, please take the survey.
 
