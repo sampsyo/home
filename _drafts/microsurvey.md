@@ -36,7 +36,7 @@ Perhaps because of my nature, I *still* want to believe that he and others who e
 
 ---
 
-> What topics do you think should be included in such a workshop? [The question is about a hypothetical co-located workshop on diversity topics. --ed.]
+> What topics do you think should be included in such a workshop? *[The question is about a hypothetical co-located workshop on diversity topics. ---ed.]*
 
 I'm not sure whether this is a good idea because I'm not sure whether it would be productive. At this point, I feel like the right next steps are fairly clear---it's hard for me to come up with workshop elements (talks, panels, debates, etc.) that would help more than action at the executive level. Or, to use an aphorism: perhaps we've done enough talking, and now we just need action.
 
@@ -44,7 +44,7 @@ One format that I *can* imagine being useful would be to invite outside experts 
 
 ---
 
-> What should be the goal of such a mentorship program? [The question is about a hypothetical program where senior members of the community volunteer to mentor newer researchers. --ed.]
+> What should be the goal of such a mentorship program? *[The question is about a hypothetical program where senior members of the community volunteer to mentor newer researchers. ---ed.]*
 
 We should basically steal the programming languages community's model! The [Programming Languages Mentoring Workshop (PLMW)][plmw] is an NSF-funded, incredibly successful series of workshops that takes place at every PL conference. It has a diversity mission, but it also functions as a venue for mentoring even students who are not underrepresented. Crucially, it provides funding to attend conferences.
 
