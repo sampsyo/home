@@ -30,7 +30,7 @@ In other areas of my academic life, such as the internal department culture at m
 
 I wrote above that the main conclusion stemming from this blog post is the reminder that well-intentioned people in our community were not trying hard enough to prioritize diversity above other issues. That is certainly the main problem. It's the same problem that made me and others bristle at the all-men "Legends of MICRO" panel last year and other embarrassing reminders of our collective failure to prioritize a serious problem.
 
-But a *secondary* problem that shocked me during this period was the set of online disagreements from people in our community who seemed *not* in the same category of well-intentioned but negligent leaders. Instead, these disagreements suggested that some people don't believe there is a problem. The most prominent example was a MICRO steering committee member who posited in a [series of comments][comment] that the data was not worth being concerned about.
+But a *secondary* problem that shocked me during this period was the set of online disagreements from people in our community who seemed *not* to be in the same category of well-intentioned but negligent leaders. Instead, these disagreements suggested that some people don't believe there is a problem. The most prominent example was a MICRO steering committee member who posited in a [series of comments][comment] that the data was not worth being concerned about.
 
 [comment]: http://disq.us/p/1mzty12
 
