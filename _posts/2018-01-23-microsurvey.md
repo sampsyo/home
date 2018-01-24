@@ -22,7 +22,7 @@ Here are some of my responses to this survey.
 
 I knew already from first-hand experience that architecture has worse diversity problems than some other areas in CS, but the level of gender disparity depicted in the blog post still surprised me. Here are some especially shocking statistics: that only ~10% of authors in major conferences are women; that there was no female MICRO PC chair from 1991 (when I was four years old) to 2017; that no keynote speakers at ISCA have been women in the last five years.
 
-In other areas of my academic life, such as the internal department culture at my university, I'm accustomed to public, concerted efforts to make sure that women and underrepresented minorities are well represented in important positions. This is hard work and people—even well-meaning people—often fail. The data from this blog post suggested to me that the architecture community is failing more often than it's succeeding. More concretely, it convinced me that the (again, usually well-meaning!) leadership hadn't made the issue a priority. Clearly, that needs to change.
+In other areas of my academic life, such as the internal department culture at my university, I'm accustomed to public, concerted efforts to make sure that women and underrepresented minorities are well represented in important positions. This is hard work and people—even well-meaning people—often fail. The data from this blog post suggests that the architecture community is failing more often than it's succeeding. It convinced me that the (again, usually well-meaning) leadership hadn't made the issue a priority. Clearly, that needs to change.
 
 ---
 
