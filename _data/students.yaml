@@ -5,6 +5,18 @@
             name: Mark Buckler
             when: 2016&ndash;
 
+        -
+            name: Philip Bedoukian
+            when: 2017&ndash;
+
+        -
+            name: Dietrich Geisler
+            when: 2018&ndash;
+
+        -
+            name: Edwin Peguero
+            when: 2018&ndash;
+
 -
     category: Master of Engineering
     students:
@@ -23,6 +35,9 @@
         -
             name: Eric Lin
             when: 2017
+        -
+            name: Daniel Sainati
+            when: 2018
 
 -
     category: Undergraduate
