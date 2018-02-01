@@ -17,6 +17,10 @@
             name: Edwin Peguero
             when: 2018&ndash;
 
+        -
+            name: Drew Zagieboylo
+            when: 2017
+
 -
     category: Master of Engineering
     students:
@@ -45,7 +49,6 @@
         -
             name: Yiteng Guo
             when: 2017&ndash;
-
         -
             name: Harry Goldstein
             when: 2017&ndash;
@@ -58,6 +61,9 @@
         -
             name: Chirag Bharadwaj
             when: 2016&ndash;2017
+        -
+            name: Tyler Etzel
+            when: 2017&ndash;
 
 -
     category: Undergraduate Researchers at UW
