@@ -1,19 +1,14 @@
 ---
 layout: home
 ---
-I design better hardware--software abstractions through research in programming languages and computer architecture.
-Much of my work is on
-*approximate computing:* the idea that computers can be more efficient
-if they are allowed to be imperfect.
-To help programmers trade off accuracy for efficiency, we need new [languages][enerj], [tools][passert], [processors][truffle], [accelerators][npu], [memories][storage], and [compilers][accept].
+I do programming languages and computer architecture.
+I like research that breaks down abstraction barriers and rethinks the hardware--software interface.
+I worked on [*approximate computing*][approx], the idea that computers can be more efficient if we let them make mistakes.
+See what's going on in [my research group][capra], which is called *Capra*.
 
-[npu]: http://dl.acm.org/citation.cfm?id=2457519
-[truffle]: http://dl.acm.org/citation.cfm?id=2151008
-[storage]: http://dl.acm.org/citation.cfm?id=2540708.2540712
+[capra]: https://capra.cs.cornell.edu
+[approx]: research.html#approximate-computing
 [uw cse]: http://www.cs.washington.edu/
-[enerj]: {{ site.base }}/media/papers/enerj-pldi2011.pdf
-[passert]: {{ site.base }}/media/papers/passert-pldi2014.pdf
-[accept]: https://sampa.cs.washington.edu/accept/
 
 I am an assistant professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell], where I am also part of the [Computer Systems Laboratory][cls].
 I graduated from the [University of Washington][uw cse] in 2015.

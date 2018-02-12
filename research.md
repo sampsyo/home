@@ -2,7 +2,9 @@
 title: Research
 layout: longy
 blurb: |
-    My research is on hardware--software abstractions. It includes computer architecture, programming languages, compilers, and software engineering.
+    My research is on computer architecture and programming languages.
+    I am particularly enthusiastic about rethinking hardware--software abstractions.
+    For current projects, see the research happening in [my research group, Capra](https://capra.cs.cornell.edu).
 ---
 
 ## Approximate Computing
