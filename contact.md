@@ -25,6 +25,12 @@ Here are some answers to common questions.
 
   Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply]. I'll look forward to reading your application to either department.
 
+* **I'm looking for a summer research internship.**
+
+  I can't consider applications for new research interns right now. I hope you find a great internship with another group!
+
+  However, I am interested in working undergraduates from underrepresented groups via the [DREU][] and [LSAMP][] programs. Please consider applying to one of those if they apply to you.
+
 * **May we "repost" the text of one of your blog posts on our site?**
 
   I'm glad you're interested in the article! But copies of blog posts on sites I don't control make it impossible for me to correct mistakes or add updates in the future. Please don't "repost" anything.
@@ -32,3 +38,5 @@ Here are some answers to common questions.
 [csapply]: https://www.cs.cornell.edu/phd/admissions#application
 [eceapply]: http://www.ece.cornell.edu/ece/academics/graduate/phd/admission.cfm
 [confpapers]: {{site.base}}/research.html#conference-papers
+[dreu]: https://cra.org/cra-w/dreu/
+[lsamp]: https://sites.coecis.cornell.edu/lsampreu/
