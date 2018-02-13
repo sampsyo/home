@@ -1,4 +1,14 @@
 -
+    title: "Programming Language Support for Natural Language Interaction"
+    authors: "Alex Renda, Harrison Goldstein, Sarah Bird, Chris Quirk, and Adrian Sampson"
+    venue: "SysML 2018"
+    type: conference
+    venue_url: 'http://www.sysml.cc'
+    url: 'http://www.sysml.cc/doc/56.pdf'
+    extra:
+     - '[Project page.](https://capra.cs.cornell.edu/research/opal/)'
+
+-
     title: "Static Stages for Heterogeneous Programming"
     authors: "Adrian Sampson, Kathryn S McKinley, and Todd Mytkowicz"
     venue: "OOPSLA 2017"
