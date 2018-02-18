@@ -42,6 +42,12 @@
         -
             name: Daniel Sainati
             when: 2018
+        -
+            name: Evan Su
+            when: 2018
+        -
+            name: Shiyu Wang
+            when: 2018
 
 -
     category: Undergraduate
