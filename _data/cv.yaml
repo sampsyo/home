@@ -146,6 +146,10 @@ service:
 
 
 committees:
+
+    - |
+        MICRO 2018: Program committee member
+
     - |
         [WAX 2018](http://approximate.computer/wax2018/): Organizer
 
