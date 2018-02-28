@@ -1,5 +1,6 @@
 ---
 title: Is JavaScript Statically or Dynamically Scoped?
+highlight: true
 ---
 It's hard to define many of the terms we use to classify programming languages. I still don't really know what people mean by *strongly* vs. *weakly typed*, and *interpreted* vs. *compiled* is certainly a gray-area bugaboo.
 
@@ -12,21 +13,25 @@ But how does this definition translate to real programming languages? As an exam
 
 Let's start with the example λ-calculus term from the course notes:
 
-    let n = 12 in
-    let f = λx. n + x in
-    let n = 17 in
-    f 30
+```none
+let n = 12 in
+let f = λx. n + x in
+let n = 17 in
+f 30
+```
 
 This is an applied λ-calculus extended with `let`, but you can imagine the [desugared][lec11] version. Our notes say that an ordinary evaluation, and a trivial OCaml translation, will produce 42. Both the λ-calculus and OCaml are statically scoped, so the value for `n` comes from the nearest definition in the program text (12), not the most recent assignment in time (17).
 
 Let's try translating that example into JavaScript:
 
-    n = 12;
-    function addn(m) {
-        return n + m;
-    }
-    n = 17;
-    console.log(addn(30));
+```typescript
+n = 12;
+function addn(m) {
+    return n + m;
+}
+n = 17;
+console.log(addn(30));
+```
 
 You can give it a try, but (spoilers) this program prints 47. So is JavaScript dynamically scoped?
 
@@ -34,21 +39,25 @@ One of JavaScript's many historical quirks is that undeclared variable reference
 
 Nobody likes global variables, of course, and modern JavaScript's [strict mode][] avoids this weird implicit behavior. Surely we can get static scoping by sprinkling [`var`][var] in:
 
-    var n = 12;
-    function addn(m) {
-        return n + m;
-    }
-    var n = 17;
-    console.log(addn(30));
+```typescript
+var n = 12;
+function addn(m) {
+    return n + m;
+}
+var n = 17;
+console.log(addn(30));
+```
 
 You can try this one too, but it also prints 47. You can even take other standard JavaScript advice to avoid top-level `function` declarations and use modern arrow syntax:
 
-    var n = 12;
-    var addn = (m) => {
-        return n + m;
-    }
-    var n = 17;
-    console.log(addn(30));
+```typescript
+var n = 12;
+var addn = (m) => {
+    return n + m;
+}
+var n = 17;
+console.log(addn(30));
+```
 
 But you'll still get 47. Is JavaScript *really* dynamically scoped?
 
@@ -56,16 +65,20 @@ The problem here is `var`'s [hoisting][], a feature that pushes declarations to 
 
 Following still more modern JavaScript advice, you can try replacing `var` with [`let`][let], which does not hoist:
 
-    let n = 12;
-    let addn = (m) => {
-        return n + m;
-    }
-    let n = 17;
-    console.log(addn(30));
+```typescript
+let n = 12;
+let addn = (m) => {
+    return n + m;
+}
+let n = 17;
+console.log(addn(30));
+```
 
 But instead of printing 42, Node says:
 
-    SyntaxError: Identifier 'n' has already been declared
+```none
+SyntaxError: Identifier 'n' has already been declared
+```
 
 which is a reasonable position to take, but it doesn't help us decide whether JavaScript is statically scoped. We need a different tactic.
 
@@ -74,17 +87,21 @@ which is a reasonable position to take, but it doesn't help us decide whether Ja
 
 The problem with all of these examples it that I haven't faithfully translated my original λ-calculus into JavaScript. I assumed that the λ-calculus `let` construct could map directly onto JavaScript's `let`. But a more faithful translation of `let x = e1 in e2` just uses function application:
 
-    (x => e2)(e1)
+```typescript
+(x => e2)(e1)
+```
 
 So let's try translating that example again:
 
-    (n => {
-        (addn => {
-            (n => {
-                console.log(addn(30))
-            })(17)
-        })(m => n + m)
-    })(12)
+```typescript
+(n => {
+    (addn => {
+        (n => {
+            console.log(addn(30))
+        })(17)
+    })(m => n + m)
+})(12)
+```
 
 It's not pretty, but it finally prints 42. For function arguments, at least, JavaScript has static scope.
 
@@ -93,15 +110,17 @@ It's not pretty, but it finally prints 42. For function arguments, at least, Jav
 
 To write a nicer example that involves `var` but still exhibits statically scoped behavior, we can abandon the idea that we can redefine `n` in the reference's *parent* scope. Instead, let's assign to it in a *sibling* scope in a separate function:
 
-    var n = 12;
-    function addn(m) {
-        return n + m;
-    }
-    function setn() {
-        var n = 17;
-    }
-    setn();
-    console.log(addn(30));
+```typescript
+var n = 12;
+function addn(m) {
+    return n + m;
+}
+function setn() {
+    var n = 17;
+}
+setn();
+console.log(addn(30));
+```
 
 While it's a little more complicated than our original example, it does print 42, like all good programs.
 

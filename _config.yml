@@ -18,7 +18,7 @@ kramdown:
     auto_ids: true
     entity_output: symbolic
     math_engine: null
-highlighter: null
+highlighter: none
 
 sass:
     style: compressed
