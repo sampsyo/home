@@ -1,0 +1,116 @@
+---
+title: Is JavaScript Statically or Dynamically Scoped?
+---
+It's hard to define many of the terms we use to classify programming languages. I still don't really know what people mean by *strongly* vs. *weakly typed*, and *interpreted* vs. *compiled* is certainly a gray-area bugaboo.
+
+In [CS 6100][], we [define *static* vs. *dynamic* or *lexical* scoping][lec12] precisely for the λ-calculus. Here's a flimsy, informal definition. Scoping decides which value you get when you look up the variable. Static scoping matches variable references to assignments using the structure of your program text: the "nearest" definition wins. Dynamic scoping uses execution time: it gives you the value that you most recently assigned to the variable.
+
+But how does this definition translate to real programming languages? As an example, let's try to decide whether JavaScript is statically or dynamically scoped.
+
+
+## A Litmus Test
+
+Let's start with the example λ-calculus term from the course notes:
+
+    let n = 12 in
+    let f = λx. n + x in
+    let n = 17 in
+    f 30
+
+This is an applied λ-calculus extended with `let`, but you can imagine the [desugared][lec11] version. Our notes say that an ordinary evaluation, and a trivial OCaml translation, will produce 42. Both the λ-calculus and OCaml are statically scoped, so the value for `n` comes from the nearest definition in the program text (12), not the most recent assignment in time (17).
+
+Let's try translating that example into JavaScript:
+
+    n = 12;
+    function addn(m) {
+        return n + m;
+    }
+    n = 17;
+    console.log(addn(30));
+
+You can give it a try, but (spoilers) this program prints 47. So is JavaScript dynamically scoped?
+
+One of JavaScript's many historical quirks is that undeclared variable references are "global" variables. If you run that example in a browser, when we say `n = 17`, the compiler executes it as `window.n = 17`, assigning a field on a global `window` object. There is only one global `n` here, and the reference to it gets the most recent value we assigned to that field.
+
+Nobody likes global variables, of course, and modern JavaScript's [strict mode][] avoids this weird implicit behavior. Surely we can get static scoping by sprinkling [`var`][var] in:
+
+    var n = 12;
+    function addn(m) {
+        return n + m;
+    }
+    var n = 17;
+    console.log(addn(30));
+
+You can try this one too, but it also prints 47. You can even take other standard JavaScript advice to avoid top-level `function` declarations and use modern arrow syntax:
+
+    var n = 12;
+    var addn = (m) => {
+        return n + m;
+    }
+    var n = 17;
+    console.log(addn(30));
+
+But you'll still get 47. Is JavaScript *really* dynamically scoped?
+
+The problem here is `var`'s [hoisting][], a feature that pushes declarations to the "top" of the scope. So this example hasn't *really* demonstrated dynamic scoping; it's just overwriting the first `n` declaration with the second one before the function has a chance to reference it.
+
+Following still more modern JavaScript advice, you can try replacing `var` with [`let`][let], which does not hoist:
+
+    let n = 12;
+    let addn = (m) => {
+        return n + m;
+    }
+    let n = 17;
+    console.log(addn(30));
+
+But instead of printing 42, Node says:
+
+    SyntaxError: Identifier 'n' has already been declared
+
+which is a reasonable position to take, but it doesn't help us decide whether JavaScript is statically scoped. We need a different tactic.
+
+
+## A Proper Desugaring
+
+The problem with all of these examples it that I haven't faithfully translated my original λ-calculus into JavaScript. I assumed that the λ-calculus `let` construct could map directly onto JavaScript's `let`. But a more faithful translation of `let x = e1 in e2` just uses function application:
+
+    (x => e2)(e1)
+
+So let's try translating that example again:
+
+    (n => {
+        (addn => {
+            (n => {
+                console.log(addn(30))
+            })(17)
+        })(m => n + m)
+    })(12)
+
+It's not pretty, but it finally prints 42. For function arguments, at least, JavaScript has static scope.
+
+
+## Using Sibling Scopes
+
+To write a nicer example that involves `var` but still exhibits statically scoped behavior, we can abandon the idea that we can redefine `n` in the reference's *parent* scope. Instead, let's assign to it in a *sibling* scope in a separate function:
+
+    var n = 12;
+    function addn(m) {
+        return n + m;
+    }
+    function setn() {
+        var n = 17;
+    }
+    setn();
+    console.log(addn(30));
+
+While it's a little more complicated than our original example, it does print 42, like all good programs.
+
+If you remove the `var` keyword, of course, you can still get a global variable and 47 as output. Dynamic scope always lurks.
+
+[CS 6100]: http://www.cs.cornell.edu/courses/cs6110/2018sp/
+[lec11]: http://www.cs.cornell.edu/courses/cs6110/2018sp/lectures/lec11.pdf
+[lec12]: http://www.cs.cornell.edu/courses/cs6110/2018sp/lectures/lec12.pdf
+[strict mode]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+[var]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
+[hoisting]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting
+[let]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
