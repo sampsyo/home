@@ -4,9 +4,9 @@ highlight: true
 ---
 It's hard to define many of the terms we use to classify programming languages. I still don't really know what people mean by *strongly* vs. *weakly typed*, and *interpreted* vs. *compiled* is certainly a gray-area bugaboo.
 
-In [CS 6100][], we [define *static* vs. *dynamic* or *lexical* scoping][lec12] precisely for the λ-calculus. Here's a flimsy, informal definition. Scoping decides which value you get when you look up the variable. Static scoping matches variable references to assignments using the structure of your program text: the "nearest" definition wins. Dynamic scoping uses execution time: it gives you the value that you most recently assigned to the variable.
+In [CS 6100][], we [define *static* vs. *dynamic* or *lexical* scoping][lec12] precisely for the λ-calculus. Here's a flimsy, informal definition. Scoping decides which value you get when you look up the variable. Static scoping matches variable references to assignments using the structure of your program text: the "nearest" definition wins. Dynamic scoping uses execution time: it gives you the value that you most recently assigned to a given name.
 
-But how does this definition translate to real programming languages? As an example, let's try to decide whether JavaScript is statically or dynamically scoped.
+But how does our definition apply to real programming languages? As an example, let's try to decide whether JavaScript is statically or dynamically scoped.
 
 
 ## A Litmus Test
@@ -35,9 +35,9 @@ console.log(addn(30));
 
 You can give it a try, but (spoilers) this program prints 47. So is JavaScript dynamically scoped?
 
-One of JavaScript's many historical quirks is that undeclared variable references are "global" variables. If you run that example in a browser, when we say `n = 17`, the compiler executes it as `window.n = 17`, assigning a field on a global `window` object. There is only one global `n` here, and the reference to it gets the most recent value we assigned to that field.
+One of JavaScript's many quirks is that undeclared variable references implicitly refer to global variables. If you run that example in a browser, when we say `n = 17`, the compiler executes it as `window.n = 17`, assigning a field on a global `window` object. There is only one global `n` here, and the reference to it gets the most recent value we assigned to that field.
 
-Nobody likes global variables, of course, and modern JavaScript's [strict mode][] avoids this weird implicit behavior. Surely we can get static scoping by sprinkling [`var`][var] in:
+Nobody likes global variables, of course, and modern JavaScript's [strict mode][] prohibits this weird implicit behavior. Surely we can get static scoping by sprinkling [`var`][var] in:
 
 ```typescript
 var n = 12;
@@ -61,7 +61,7 @@ console.log(addn(30));
 
 But you'll still get 47. Is JavaScript *really* dynamically scoped?
 
-The problem here is `var`'s [hoisting][], a feature that pushes declarations to the "top" of the scope. So this example hasn't *really* demonstrated dynamic scoping; it's just overwriting the first `n` declaration with the second one before the function has a chance to reference it.
+The problem here is `var`'s [hoisting][], a questionable feature that pushes declarations to the "top" of the scope. So this example hasn't *really* demonstrated dynamic scoping; it's just overwriting the first `n` declaration with the second one before the function has a chance to reference it.
 
 Following still more modern JavaScript advice, you can try replacing `var` with [`let`][let], which does not hoist:
 
@@ -85,7 +85,7 @@ which is a reasonable position to take, but it doesn't help us decide whether Ja
 
 ## A Proper Desugaring
 
-The problem with all of these examples it that I haven't faithfully translated my original λ-calculus into JavaScript. I assumed that the λ-calculus `let` construct could map directly onto JavaScript's `let`. But a more faithful translation of `let x = e1 in e2` just uses function application:
+The problem with all of these examples it that I haven't faithfully translated my original λ-calculus into JavaScript. I assumed that the λ-calculus `let` construct could map directly onto JavaScript's `let`. But a more faithful translation of `let x = e1 in e2` would use function application instead:
 
 ```typescript
 (x => e2)(e1)
@@ -106,9 +106,9 @@ So let's try translating that example again:
 It's not pretty, but it finally prints 42. For function arguments, at least, JavaScript has static scope.
 
 
-## Using Sibling Scopes
+## A Sibling Scope
 
-To write a nicer example that involves `var` but still exhibits statically scoped behavior, we can abandon the idea that we can redefine `n` in the reference's *parent* scope. Instead, let's assign to it in a *sibling* scope in a separate function:
+To write a nicer example that involves `var` but still demonstrates static scope, we can abandon the idea that we can redefine `n` in the reference's *parent* scope. Instead, let's assign to it in a *sibling* scope in a separate function:
 
 ```typescript
 var n = 12;
