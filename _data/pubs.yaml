@@ -1,4 +1,13 @@
 -
+    title: "EVA²: Exploiting Temporal Redundancy in Live Computer Vision"
+    authors: "Mark Buckler, Philip Bedoukian, Suren Jayasuriya, and Adrian Sampson"
+    venue: "ISCA 2018"
+    type: conference
+    preprint: true
+    venue_url: "http://iscaconf.org/isca2018/"
+    url: 'https://arxiv.org/abs/1803.06312'
+
+-
     title: "Programming Language Support for Natural Language Interaction"
     authors: "Alex Renda, Harrison Goldstein, Sarah Bird, Chris Quirk, and Adrian Sampson"
     venue: "SysML 2018"
@@ -31,7 +40,6 @@
     authors: "Mark Buckler, Suren Jayasuriya, and Adrian Sampson"
     venue: "ICCV 2017"
     venue_url: http://iccv2017.thecvf.com
-    preprint: true
     type: conference
     url: BASE/media/papers/visionmode-iccv2017.pdf
     extra:
