@@ -30,7 +30,7 @@ Here are some answers to common questions.
 
   I can't consider applications for new research interns right now. I hope you find a great internship with another group!
 
-  However, I am interested in working undergraduates from underrepresented groups via the [DREU][] and [LSAMP][] programs. Please consider applying to one of those if they apply to you.
+  However, I am interested in working undergraduates from underrepresented groups via the [DREU][] and [LSAMP][] programs. Please consider applying to one of those if you are eligible.
 
 * **May we "repost" the text of one of your blog posts on our site?**
 
