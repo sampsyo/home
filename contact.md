@@ -2,9 +2,9 @@
 layout: shorty
 title: Contact
 ---
-Send me email at [{{site.email}}][email]. My office in [Gates Hall][gates] is 411A. I share lots of code on [GitHub][gh]. You probably shouldn't [follow me on Twitter][twitter]. Follow [@acmsigarch][] instead!
+Send me email at [{{site.email}}][email]. My office in [Gates Hall][gates] is 411A. I share lots of code on [GitHub][gh]. You probably shouldn't [follow me on Twitter][twitter]. Follow [@sigarch][] instead!
 
-[@acmsigarch]: https://twitter.com/acmsigarch
+[@sigarch]: https://twitter.com/sigarch
 [gh]: https://github.com/sampsyo
 [twitter]: http://twitter.com/samps
 [email]: mailto:{{site.email}}
