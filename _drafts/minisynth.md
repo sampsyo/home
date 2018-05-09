@@ -68,11 +68,38 @@ Z3 also has a theory of bit vectors, as opposed to unbounded integers, which sup
     y = z3.BitVec('y', 8)
     print(solve(y << 3 == 40))
 
+There are even logical quantifiers:
+
+    z = z3.Int('z')
+    n = z3.Int('n')
+    print(solve(z3.ForAll([z], z * n == z)))
+
 Truly, Z3 is amazing.
 But we're not quite at program synthesis.
 
 
 ## Sketching
+
+In the [Sketch][] spirit, we'll start by synthesizing *holes* to make programs equivalent.
+Here's the scenario: you have a slow version of a program you're happy with; that's your specification.
+You can *sort of* imagine how to write a faster version, but a few of the hard parts elude you.
+The synthesis engine's job will be fill in those details so that the two programs are equivalent on every input.
+
+Take [Aws's little example][primer]:
+you have the "slow" expression `x * 2?`, and you know that there's a "faster" version to be had that can be written `x << ??` for some value of `??`.
+[Let's ask Z3][ex1] what to write there:
+
+    x = z3.BitVec('x', 8)
+    slow_expr = x * 2
+    h = z3.BitVec('h', 8)  # The hole, a.k.a. ??
+    fast_expr = x << h
+    goal = z3.ForAll([x], slow_expr == fast_expr)
+    print(solve(goal))
+
+Nice! We get the model `[h = 1]`, which tells us that the two programs produce the same result for every byte `x` when we left-shift by 1.
+
+[sketch]: https://people.csail.mit.edu/asolar/papers/thesis.pdf
+[ex1]: https://github.com/sampsyo/minisynth/blob/master/ex1.py
 
 
 ## A Tiny Language
