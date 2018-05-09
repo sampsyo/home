@@ -274,9 +274,9 @@ And I'll add a very suspicious-looking case to our interpreter:
         cond = interp(tree.children[0], lookup)
         true = interp(tree.children[1], lookup)
         false = interp(tree.children[2], lookup)
-        return (cond & 1) * true + (1 - (cond & 1)) * false
+        return (cond != 0) * true + (cond == 0) * false
 
-These funky bit operations are the worst possible alternative to Python's built-in condition expression.
+These funky multiplications are just a terrible alternative to Python's built-in condition expression.
 I'm using this here instead of a straightforward `true if cond else false` because this works in both interpreter mode *and in Z3 constraint generation mode* and behaves the same way.
 I apologize for the illegible code but not for the convenience of a single implementation.
 
