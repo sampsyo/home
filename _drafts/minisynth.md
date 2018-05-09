@@ -239,6 +239,45 @@ It absolutely works:
     (x << 3) + (x << 1)
 
 
+## Better Holes with Conditions
+
+Our example so far can only synthesize constants, which is nice but unsatisfying.
+What if we want to synthesize a shifty equivalent to `x * 9`, for example?
+We might think of a sketch like `x << ?? + ??`, but there are no literal numbers we can put into those holes to make it equivalent.
+How can we synthesize a wider variety of expressions, like `x`?
+
+We can get this to work without fundamentally changing our synthesis strategy.
+We will, however, need to add conditions to our language.
+We'll need to extend the parser with a ternary operator:
+
+    ?start: sum
+      | sum "?" sum ":" sum -> if
+
+And I'll add a very suspicious-looking case to our interpreter:
+
+    elif op == 'if':
+        cond = interp(tree.children[0], lookup)
+        true = interp(tree.children[1], lookup)
+        false = interp(tree.children[2], lookup)
+        return (cond & 1) * true + (1 - (cond & 1)) * false
+
+These funky bit operations are the worst possible alternative to Python's built-in condition expression.
+I'm using this here instead of a straightforward `true if cond else false` because this works in both interpreter mode *and in Z3 constraint generation mode* and behaves the same way.
+I apologize for the illegible code but not for the convenience of a single implementation.
+
+The trick is to use conditional holes to switch between expression forms.
+Here's an implementation of the sketch we want above:
+
+    $ cat sketches/s4.txt
+    x * 9
+    x << (hb1 ? x : hn1) + (hb2 ? x : hn2)
+
+Each ternary operator here represents a `??` hole in the sketch we wanted to write, `x << ?? + ??`.
+By choosing the values of `hb1` and `hb2`, the synthesizer can choose whether to use a literal or a variable in that place.
+In a proper synthesis system, we'd hide these conditions from the surface syntax---the constraint generator would insert a condition for every `??`.
+By conditionally switching between a wider variety of syntax forms---even using nested conditions for nested expressions---the tool can synthesize complex program fragments in each hole.
+
+
 ## Keep Synthesizing
 
 - Rosette is about doing this for you
