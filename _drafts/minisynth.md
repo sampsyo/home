@@ -1,6 +1,7 @@
 ---
 title: "Program Synthesis is Possible"
 mathjax: true
+highlight: true
 excerpt:
     TK
 ---
@@ -110,29 +111,31 @@ Let's [conjure a programming language][ex2].
 We'll need a parser; I choose [Lark][].
 Here's my Lark grammar for a little language of arithmetic expressions, which I ripped off from the [Lark examples][calc] and which I offer to you now for no charge:
 
-    GRAMMAR = """
-    ?start: sum
+```python
+GRAMMAR = """
+?start: sum
 
-    ?sum: term
-      | sum "+" term        -> add
-      | sum "-" term        -> sub
+?sum: term
+  | sum "+" term        -> add
+  | sum "-" term        -> sub
 
-    ?term: item
-      | term "*"  item      -> mul
-      | term "/"  item      -> div
-      | term ">>" item      -> shr
-      | term "<<" item      -> shl
+?term: item
+  | term "*"  item      -> mul
+  | term "/"  item      -> div
+  | term ">>" item      -> shr
+  | term "<<" item      -> shl
 
-    ?item: NUMBER           -> num
-      | "-" item            -> neg
-      | CNAME               -> var
-      | "(" start ")"
+?item: NUMBER           -> num
+  | "-" item            -> neg
+  | CNAME               -> var
+  | "(" start ")"
 
-    %import common.NUMBER
-    %import common.WS
-    %import common.CNAME
-    %ignore WS
-    """.strip()
+%import common.NUMBER
+%import common.WS
+%import common.CNAME
+%ignore WS
+""".strip()
+```
 
 You can write arithmetic and shift operations on literal numbers and variables. And there are parentheses!
 Lark parsers are easy to use:
