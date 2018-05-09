@@ -280,4 +280,10 @@ By conditionally switching between a wider variety of syntax forms---even using 
 
 ## Keep Synthesizing
 
-- Rosette is about doing this for you
+It may be a toy language, but we've built a synthesizer!
+Program synthesis is a powerful idea that can come in handy in far-flung domains of computer science.
+To learn more about the hard parts that come next, I recommend [James Bornholt][james]'s [overview][explained].
+And you must check out [Rosette][], a tool that gives you the scaffolding to write synthesis-based tools without interacting with an SMT solver directly as we did here.
+
+[james]: https://homes.cs.washington.edu/~bornholt/
+[explained]: https://homes.cs.washington.edu/~bornholt/post/synthesis-explained.html
