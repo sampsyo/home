@@ -97,6 +97,8 @@ you have the "slow" expression `x * 2?`, and you know that there's a "faster" ve
     print(solve(goal))
 
 Nice! We get the model `[h = 1]`, which tells us that the two programs produce the same result for every byte `x` when we left-shift by 1.
+That's (a very simple case of) synthesis: we've generated a (subexpression of a) program that meets our specification.
+Without a proper programming language, however, it doesn't feel much like generating programs---we'll fix that next.
 
 [sketch]: https://people.csail.mit.edu/asolar/papers/thesis.pdf
 [ex1]: https://github.com/sampsyo/minisynth/blob/master/ex1.py
@@ -104,9 +106,86 @@ Nice! We get the model `[h = 1]`, which tells us that the two programs produce t
 
 ## A Tiny Language
 
-[lark]: https://github.com/lark-parser/lark
+Let's [conjure a programming language][ex2].
+We'll need a parser; I choose [Lark][].
+Here's my Lark grammar for a little language of arithmetic expressions, which I ripped off from the [Lark examples][calc] and which I offer to you now for no charge:
 
-- write an interpreter. that's the big step
+    GRAMMAR = """
+    ?start: sum
+
+    ?sum: term
+      | sum "+" term        -> add
+      | sum "-" term        -> sub
+
+    ?term: item
+      | term "*"  item      -> mul
+      | term "/"  item      -> div
+      | term ">>" item      -> shr
+      | term "<<" item      -> shl
+
+    ?item: NUMBER           -> num
+      | "-" item            -> neg
+      | CNAME               -> var
+      | "(" start ")"
+
+    %import common.NUMBER
+    %import common.WS
+    %import common.CNAME
+    %ignore WS
+    """.strip()
+
+You can write arithmetic and shift operations on literal numbers and variables. And there are parentheses!
+Lark parsers are easy to use:
+
+    import lark
+    parser = lark.Lark(GRAMMAR)
+    tree = parser.parse("(5 * (3 << x)) + y - 1")
+
+As for any good language, you'll want an interpreter.
+[Here's one][ex2] that processes Lark parse trees and takes a function in as an argument to look up variables by their names:
+
+    def interp(tree, lookup):
+        op = tree.data
+        if op in ('add', 'sub', 'mul', 'div', 'shl', 'shr'):
+            lhs = interp(tree.children[0], lookup)
+            rhs = interp(tree.children[1], lookup)
+            if op == 'add':
+                return lhs + rhs
+            elif op == 'sub':
+                return lhs - rhs
+            elif op == 'mul':
+                return lhs * rhs
+            elif op == 'div':
+                return lhs / rhs
+            elif op == 'shl':
+                return lhs << rhs
+            elif op == 'shr':
+                return lhs >> rhs
+        elif op == 'neg':
+            sub = interp(tree.children[0], lookup)
+            return -sub
+        elif op == 'num':
+            return int(tree.children[0])
+        elif op == 'var':
+            return lookup(tree.children[0])
+
+As everybody already knows from their time in [CS 6110][], your interpreter is just an embodiment of your language's big-step operational semantics.
+It works:
+
+    env = {'x': 2, 'y': -17}
+    interp(tree, lambda v: env[v])
+
+Nifty, but there's no magic here yet.
+Let's add the magic.
+
+[calc]: https://github.com/lark-parser/lark/blob/master/examples/calc.py
+[ex2]: https://github.com/sampsyo/minisynth/blob/master/ex2.py
+[lark]: https://github.com/lark-parser/lark
+[cs 6110]: http://www.cs.cornell.edu/courses/cs6110/2018sp/
+
+
+## From Interpreter to Constraint Generator
+
 - now write a translator into Z3. it's surprisingly similar---in fact, in Python, it's identical!
 - convince yourself of adequacy of the translation
 
