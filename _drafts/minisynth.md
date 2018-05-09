@@ -2,8 +2,13 @@
 title: "Program Synthesis is Possible"
 mathjax: true
 highlight: true
-excerpt:
-    TK
+excerpt: |
+    Inspired by [Aws Albarghouthi][aws]'s [primer][], I wanted to give a special lecture for [CS 6110][] on program synthesis. Here's a [code][minisynth]-driven introduction whose goal is to convince you that you can synthesize programs.
+
+    [primer]: http://barghouthi.github.io/2017/04/24/synthesis-primer/
+    [aws]: http://www.cs.wisc.edu/~aws
+    [cs 6110]: http://www.cs.cornell.edu/courses/cs6110/2018sp/
+    [minisynth]: https://github.com/sampsyo/minisynth
 ---
 
 Program synthesis is not only a hip session title at programming languages conferences; it's also a broadly applicable technique that more people should know about.
