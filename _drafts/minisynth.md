@@ -173,7 +173,7 @@ As everybody already knows from their time in [CS 6110][], your interpreter is j
 It works:
 
     env = {'x': 2, 'y': -17}
-    interp(tree, lambda v: env[v])
+    answer = interp(tree, lambda v: env[v])
 
 Nifty, but there's no magic here yet.
 Let's add the magic.
@@ -186,8 +186,57 @@ Let's add the magic.
 
 ## From Interpreter to Constraint Generator
 
-- now write a translator into Z3. it's surprisingly similar---in fact, in Python, it's identical!
-- convince yourself of adequacy of the translation
+The key ingredient we'll need is a *translation* from our source programs into Z3 constraint systems.
+Instead of computing actual numbers, we want to produce equivalent formulas.
+For this, Z3's operator overloading is the raddest thing:
+
+    formula = interp(tree, lambda v: z3.BitVec(v, 8))
+
+Incredibly, we get to reuse our interpreter as a constraint generator by just swapping out the variable-lookup function.
+Every `+` becomes a plus-constraint-generator; every variable becomes a Z3 bit vector; etc.
+In general, we'd want to convince ourselves of the *adequacy* of our translation, but reusing our interpreter code makes this particularly easy to believe.
+This similarity between interpreters and synthesizers is a big deal: it's an insight that [Emina Torlak][emina]'s [Rosette][] exploits with great aplomb.
+
+[rosette]: https://emina.github.io/rosette/
+[emina]: https://homes.cs.washington.edu/~emina/index.html
+
+
+## Finishing Synthesis
+
+With formulas in hand, we're almost there.
+Remember that we want to synthesize values for holes to make two programs equivalent, so
+we'll need two Z3 expressions that share variables.
+I wrapped up an enhanced version of the constraint generator above in a function that also produces the variables involved:
+
+    expr1, vars1 = z3_expr(tree1)
+    expr2, vars2 = z3_expr(tree2, vars1)
+
+And here's my hack for allowing holes without changing the grammar: any variable name that stars with an "H" is a hole.
+So we can filter out the plain, non-hole variables:
+
+    plain_vars = {k: v for k, v in vars1.items()
+                  if not k.startswith('h')}
+
+All we need now is a quantifier over equality:
+
+    goal = z3.ForAll(
+        list(plain_vars.values()),  # For every valuation of variables...
+        expr1 == expr2,  # ...the two expressions produce equal results.
+    )
+
+Running `solve(goal)` gets a valuation for each hole.
+In [my complete example][ex2], I've added some scaffolding to load programs from files and to pretty-print the expression with the holes substituted for their values.
+It expects two programs, the spec and the hole-ridden sketch, on two lines:
+
+    $ cat sketches/s2.txt
+    x * 10
+    x << h1 + x << h2
+
+It absolutely works:
+
+    $ python3 ex2.py < sketches/s2.txt
+    x * 10
+    (x << 3) + (x << 1)
 
 
 ## Keep Synthesizing
