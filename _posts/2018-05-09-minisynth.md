@@ -3,7 +3,7 @@ title: "Program Synthesis is Possible"
 mathjax: true
 highlight: true
 excerpt: |
-    Inspired by [Aws Albarghouthi][aws]'s [primer][], I wanted to give a special lecture for [CS 6110][] on program synthesis. Here's a [code][minisynth]-driven introduction whose goal is to convince you that you can synthesize programs.
+    Inspired by [Aws Albarghouthi][aws]'s [primer][], I'll give a little lecture on program synthesis for the last day of this year's [CS 6110][]. Here's a [code][minisynth]-driven introduction whose goal is to convince you that you too can synthesize programs.
 
     [primer]: http://barghouthi.github.io/2017/04/24/synthesis-primer/
     [aws]: http://www.cs.wisc.edu/~aws
@@ -11,33 +11,38 @@ excerpt: |
     [minisynth]: https://github.com/sampsyo/minisynth
 ---
 
-Program synthesis is not only a hip session title at programming languages conferences; it's also a broadly applicable technique that more people should know about.
-But it can seem like magic: automatically generating programs from specifications sounds like the kind of thing that requires a PhD in formal methods.
-[Aws Albarghouthi][aws] wrote a wonderful [primer on synthesis][primer] last year that helps demystify the basic techniques, complete with example code.
+[Program synthesis][explained] is not only a hip session title at programming languages conferences. It's also a broadly applicable technique that people from many walks of computer-science life can use.
+But it can seem like magic: automatically generating programs from specifications sounds it might require a PhD in formal methods.
+[Wisconsin][wisc]'s [Aws Albarghouthi][aws] wrote a wonderful [primer on synthesis][primer] last year that helps demystify the basic techniques with example code.
 Here, we'll expand on Aws's primer and build a tiny but complete-ish synthesis engine from scratch.
 
-You can follow along with [my Python code][minisynth] or start from an empty buffer if you like.
+You can follow along with [my Python code][minisynth] or start from an empty buffer.
 
 [minisynth]: https://github.com/sampsyo/minisynth
 [primer]: http://barghouthi.github.io/2017/04/24/synthesis-primer/
 [aws]: http://www.cs.wisc.edu/~aws
+[wisc]: https://www.cs.wisc.edu
 
 
 ## Z3 is Amazing
 
-We won't quite start from scratch---we'll start with [Z3][] and its Python bindings.
-Z3 is a [satisfiability modulo theories (SMT) solver][smt], which is like a SAT solver with "theories" that let you express constraints involving integers, bit vectors, floating point numbers, and what have you.
+We won't *quite* start from scratch---we'll start with [Z3][] and its Python bindings.
+Z3 is a [satisfiability modulo theories (SMT) solver][smt], which is like a SAT solver with *theories* that let you express constraints involving integers, bit vectors, floating point numbers, and what have you.
 We'll use Z3's Python bindings.
-On a Mac, you can install the whole thing from [Homebrew][]:
+On a Mac, you can install everything from [Homebrew][]:
 
-    $ brew install z3 --with-python
+```sh
+$ brew install z3 --with-python
+```
 
 Let's [try it out][ex0]:
 
-    import z3
+```python
+import z3
+```
 
 To use Z3, we'll write a logical formula over some variables and then solve them to get a *model*, which is a valuation of the variables that makes the formula true.
-Here's a formula, for example:
+Here's one formula, for example:
 
     formula = (z3.Int('x') / 7 == 6)
 
@@ -54,7 +59,7 @@ We'll use a little function called `solve` to invoke Z3:
         s.check()
         return s.model()
 
-Z3's solver interface is much more powerful than what we're doing here, but this is all we'll need to solve a single formula:
+Z3's solver interface is much more powerful than what we're doing here, but this is all we'll need to get the model for a single problem:
 
     print(solve(formula))
 
@@ -62,7 +67,7 @@ On my machine, I get:
 
     [x = 43]
 
-which is admittedly a little disappointing, but at least it's true: under integer division, $43 \div 7 = 6$.
+which is admittedly a little disappointing, but at least it's true: using integer division, $43 \div 7 = 6$.
 
 [ex0]: https://github.com/sampsyo/minisynth/blob/master/ex0.py
 [smt]: https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
@@ -81,7 +86,7 @@ There are even logical quantifiers:
     print(solve(z3.ForAll([z], z * n == z)))
 
 Truly, Z3 is amazing.
-But we're not quite at program synthesis.
+But we haven't quite synthesized a program yet.
 
 
 ## Sketching
@@ -92,7 +97,7 @@ You can *sort of* imagine how to write a faster version, but a few of the hard p
 The synthesis engine's job will be fill in those details so that the two programs are equivalent on every input.
 
 Take [Aws's little example][primer]:
-you have the "slow" expression `x * 2?`, and you know that there's a "faster" version to be had that can be written `x << ??` for some value of `??`.
+you have the "slow" expression `x * 2`, and you know that there's a "faster" version to be had that can be written `x << ??` for some value of `??`.
 [Let's ask Z3][ex1] what to write there:
 
     x = z3.BitVec('x', 8)
@@ -104,7 +109,9 @@ you have the "slow" expression `x * 2?`, and you know that there's a "faster" ve
 
 Nice! We get the model `[h = 1]`, which tells us that the two programs produce the same result for every byte `x` when we left-shift by 1.
 That's (a very simple case of) synthesis: we've generated a (subexpression of a) program that meets our specification.
-Without a proper programming language, however, it doesn't feel much like generating programs---we'll fix that next.
+
+Without a proper programming language, however, it doesn't feel much like generating programs.
+We'll fix that next.
 
 [sketch]: https://people.csail.mit.edu/asolar/papers/thesis.pdf
 [ex1]: https://github.com/sampsyo/minisynth/blob/master/ex1.py
@@ -201,7 +208,7 @@ For this, Z3's operator overloading is the raddest thing:
     formula = interp(tree, lambda v: z3.BitVec(v, 8))
 
 Incredibly, we get to reuse our interpreter as a constraint generator by just swapping out the variable-lookup function.
-Every `+` becomes a plus-constraint-generator; every variable becomes a Z3 bit vector; etc.
+Every Python `+` becomes a plus-constraint-generator, etc.
 In general, we'd want to convince ourselves of the *adequacy* of our translation, but reusing our interpreter code makes this particularly easy to believe.
 This similarity between interpreters and synthesizers is a big deal: it's an insight that [Emina Torlak][emina]'s [Rosette][] exploits with great aplomb.
 
@@ -251,7 +258,7 @@ It absolutely works:
 
 Our example so far can only synthesize constants, which is nice but unsatisfying.
 What if we want to synthesize a shifty equivalent to `x * 9`, for example?
-We might think of a sketch like `x << ?? + ??`, but there are no literal numbers we can put into those holes to make it equivalent.
+We might think of a sketch like `x << ?? + ??`, but there is no pair of literal numbers we can put into those holes to make it equivalent.
 How can we synthesize a wider variety of expressions, like `x`?
 
 We can get this to work without fundamentally changing our synthesis strategy.
