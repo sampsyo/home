@@ -12,7 +12,7 @@ excerpt: |
 ---
 
 [Program synthesis][explained] is not only a hip session title at programming languages conferences. It's also a broadly applicable technique that people from many walks of computer-science life can use.
-But it can seem like magic: automatically generating programs from specifications sounds it might require a PhD in formal methods.
+But it can seem like magic: automatically generating programs from specifications sounds like it might require a PhD in formal methods.
 [Wisconsin][wisc]'s [Aws Albarghouthi][aws] wrote a wonderful [primer on synthesis][primer] last year that helps demystify the basic techniques with example code.
 Here, we'll expand on Aws's primer and build a tiny but complete-ish synthesis engine from scratch.
 
@@ -226,7 +226,7 @@ I wrapped up an enhanced version of the constraint generator above in a function
     expr1, vars1 = z3_expr(tree1)
     expr2, vars2 = z3_expr(tree2, vars1)
 
-And here's my hack for allowing holes without changing the grammar: any variable name that stars with an "H" is a hole.
+And here's my hack for allowing holes without changing the grammar: any variable name that starts with an "H" is a hole.
 So we can filter out the plain, non-hole variables:
 
     plain_vars = {k: v for k, v in vars1.items()
