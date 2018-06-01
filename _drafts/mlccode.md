@@ -1,6 +1,10 @@
 ---
 title: Please Help Me Solve an Old Approximate Computing Problem
 mathjax: true
+excerpt: |
+    Here's a problem from our paper on [approximate storage][approxstorage] that has been bugging me for about five years now. I think it's a coding theory problem, but I don't know where to start. Send me your brilliant insights.
+
+    [approxstorage]: https://dl.acm.org/citation.cfm?id=2644808
 ---
 In a different era, I worked on a project about [approximate storage][approxstorage].
 This post is about a problem we never solved during that project---a problem that haunts me to this day.
