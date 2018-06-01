@@ -1,5 +1,5 @@
 ---
-title: Please Help Me Solve an Open Problem on Error-Robust Coding for Approximate Multi-Level Memory Cells
+title: Please Help Me Solve an Old Approximate Computing Problem
 mathjax: true
 ---
 In a different era, I worked on a project about [approximate storage][approxstorage].
