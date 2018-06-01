@@ -38,7 +38,7 @@ small changes in one cell might cause large changes in our four-bit number.
 
 Let's compare different strategies for encoding $n$-bit numbers onto $c$ cell values of $b$ bits each.
 We'll consider codes by defining their encoding function $e$ and decoding function $d$.
-Encoding turns a single $n$-bit number into a $c$-tuple of $b$-bit numbers, so we'll write $e(x) = \vec{v} = \langle v_1, v_2, \ldots, v_c \rangle$ where each $v_i$ consists of $b$ bits.
+Encoding turns a single $n$-bit number into a $c$-tuple of $b$-bit numbers, so we'll write $e(x) = \overline{v} = \langle v_1, v_2, \ldots, v_c \rangle$ where each $v_i$ consists of $b$ bits.
 
 We assume that, within a given cell, small errors are more likely than large errors.
 We *hope* that small per-cell errors translate to small errors in the decoded value.
@@ -47,9 +47,9 @@ For plain numbers, for example, $\Delta(1000, 0110) = 2$, or just the absolute d
 For encoded cell-value tuples, $\Delta(\langle 01, 10 \rangle, \langle 10, 01 \rangle) = 2$, which is the sum of the differences for each cell.
 Here's a formal statement of the error-monotonicity property we'd like:
 
-$$\Delta(\vec{v}, \vec{v_1}) \ge \Delta(\vec{v}, \vec{v_2})
+$$\Delta(\overline{v}, \overline{v}_1) \ge \Delta(\overline{v}, \overline{v}_2)
 \Rightarrow
-\Delta(d(\vec{v}), d(\vec{v_1})) \ge \Delta(d(\vec{v}), d(\vec{v_2}))$$
+\Delta(d(\overline{v}), d(\overline{v}_1)) \ge \Delta(d(\overline{v}), d(\overline{v}_2))$$
 
 In other words, if an error is smaller in the space of encoded cell values than another error, then it *also* translates to a smaller error in the space of decoded numbers.
 
