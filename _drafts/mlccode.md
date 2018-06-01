@@ -25,7 +25,7 @@ Approximate computing!
 The nice thing about these approximate memories is that analog storage errors are more often small than large.
 In a four-level (two-bit) cell, for example, when you write a 0 into the cell, you are more likely to read a 1 back later than a 3.
 Put differently, error probabilities are monotonic in the value distance.
-If $v$ is the value you originally wrote and $v^\prime$ and $v^{\prime\prime}$ are possible values you might read back where $|v - v^\prime| \ge |v - v^{\prime\prime}|$, then the probability of reading $v'$ is at most the probability of reading $v^{\prime\prime}$.
+If $v$ is the value you originally wrote and $v_1$ and $v_2$ are possible values you might read back where $|v - v_1| \ge |v - v_2|$, then the probability of reading $v_1$ is at most the probability of reading $v_2$.
 Applications like small errors more than they like large errors, so MLC errors are a good fit.
 
 The problem, however, is that real programs don't use many two-bit numbers.
@@ -38,7 +38,7 @@ small changes in one cell might cause large changes in our four-bit number.
 
 Let's compare different strategies for encoding $n$-bit numbers onto $c$ cell values of $b$ bits each.
 We'll consider codes by defining their encoding function $e$ and decoding function $d$.
-Encoding turns a single $n$-bit number into a $c$-tuple of $b$-bit numbers, so we'll write $e(x) = \vec{v} = \langle v_1, v_2, \dots, v_c \rangle$ where each $v_i$ consists of $b$ bits.
+Encoding turns a single $n$-bit number into a $c$-tuple of $b$-bit numbers, so we'll write $e(x) = \vec{v} = \langle v_1, v_2, \ldots, v_c \rangle$ where each $v_i$ consists of $b$ bits.
 
 We assume that, within a given cell, small errors are more likely than large errors.
 We *hope* that small per-cell errors translate to small errors in the decoded value.
@@ -47,9 +47,9 @@ For plain numbers, for example, $\Delta(1000, 0110) = 2$, or just the absolute d
 For encoded cell-value tuples, $\Delta(\langle 01, 10 \rangle, \langle 10, 01 \rangle) = 2$, which is the sum of the differences for each cell.
 Here's a formal statement of the error-monotonicity property we'd like:
 
-$$\Delta(\vec{v}, \vec{v}^\prime) \ge \Delta(\vec{v}, \vec{v}^{\prime\prime})
+$$\Delta(\vec{v}, \vec{v_1}) \ge \Delta(\vec{v}, \vec{v_2})
 \Rightarrow
-\Delta(d(\vec{v}), d(\vec{v}^\prime)) \ge \Delta(d(\vec{v}), d(\vec{v}^{\prime\prime}))$$
+\Delta(d(\vec{v}), d(\vec{v_1})) \ge \Delta(d(\vec{v}), d(\vec{v_2}))$$
 
 In other words, if an error is smaller in the space of encoded cell values than another error, then it *also* translates to a smaller error in the space of decoded numbers.
 
