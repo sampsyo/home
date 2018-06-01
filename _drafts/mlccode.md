@@ -46,9 +46,11 @@ To make this precise, define an overloaded function $\Delta$ that gets the size 
 For plain numbers, for example, $\Delta(1000, 0110) = 2$, or just the absolute difference between the values.
 For encoded cell-value tuples, $\Delta(\langle 01, 10 \rangle, \langle 10, 01 \rangle) = 2$, which is the sum of the differences for each cell.
 Here's a formal statement of the error-monotonicity property we'd like:
-$\Delta(\vec{v}, \vec{v}^\prime) \ge \Delta(\vec{v}, \vec{v}^{\prime\prime})$
-implies
-$\Delta(d(\vec{v}), d(\vec{v}^\prime)) \ge \Delta(d(\vec{v}), d(\vec{v}^{\prime\prime}))$.
+
+$$\Delta(\vec{v}, \vec{v}^\prime) \ge \Delta(\vec{v}, \vec{v}^{\prime\prime})
+\Rightarrow
+\Delta(d(\vec{v}), d(\vec{v}^\prime)) \ge \Delta(d(\vec{v}), d(\vec{v}^{\prime\prime}))$$
+
 In other words, if an error is smaller in the space of encoded cell values than another error, then it *also* translates to a smaller error in the space of decoded numbers.
 
 ### The Options
