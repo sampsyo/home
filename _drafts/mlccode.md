@@ -89,7 +89,7 @@ None of these three options meets the goal I wrote above.
 Worse, none of them seems meaningfully *closer* to satisfying error-monotonicity than any other.
 For about five years now, I've wondered whether it's possible to do any better than the naïve chunking code.
 I would be equally satisfied with a definitive *no* as with an existence proof.
-But so far, I have no traction at all in either direction.
+But so far, I have no traction at all in either direction and Google has failed me.
 Let me know if you have any bright ideas---I'd be thrilled.
 
 [approxstorage]: https://dl.acm.org/citation.cfm?id=2644808
