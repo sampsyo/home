@@ -78,6 +78,15 @@ For simplicity, I'll give examples for $n=4$, $c=2$, and $b=2$, but each strateg
   For example, a single-level error can produce $\langle 10, 01 \rangle$ and
   $d(\langle 10, 01 \rangle) = 1001$, which is an error of 6.
 
+### A Question
+
+None of these three options meets the goal I wrote above.
+Worse, none of them seems meaningfully *closer* to satisfying error-monotonicity than any other.
+For about five years now, I've wondered whether it's possible to do any better than the naïve chunking code.
+I would be equally satisfied with a definitive *no* as with an existence proof.
+But so far, I have no traction whatsoever in either direction.
+Let me know if you have any bright ideas---I'd be thrilled.
+
 [approxstorage]: https://dl.acm.org/citation.cfm?id=2644808
 [mlc]: https://en.wikipedia.org/wiki/Multi-level_cell
 [gray code]: https://en.wikipedia.org/wiki/Gray_code
