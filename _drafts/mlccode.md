@@ -2,7 +2,7 @@
 title: Please Help Me Solve an Old Approximate Computing Problem
 mathjax: true
 excerpt: |
-    Here's a problem from our paper on [approximate storage][approxstorage] that has been bugging me for about five years now. I think it's a coding theory problem, but I don't know where to start. Send me your brilliant insights.
+    Here's a problem from our paper on [approximate storage][approxstorage] that has been bugging me for about five years now. I think it's a coding theory problem, but I have no traction whatsoever. Send me your brilliant insights.
 
     [approxstorage]: https://dl.acm.org/citation.cfm?id=2644808
 ---
