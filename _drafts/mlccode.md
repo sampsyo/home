@@ -1,5 +1,5 @@
 ---
-title: Maybe an Open Problem on Error-Robust Coding for Approximate Multi-Level Memory Cells
+title: Please Help Me Solve an Open Problem on Error-Robust Coding for Approximate Multi-Level Memory Cells
 mathjax: true
 ---
 In a different era, I worked on a project about [approximate storage][approxstorage].
@@ -25,7 +25,7 @@ Approximate computing!
 The nice thing about these approximate memories is that analog storage errors are more often small than large.
 In a four-level (two-bit) cell, for example, when you write a 0 into the cell, you are more likely to read a 1 back later than a 3.
 Put differently, error probabilities are monotonic in the value distance.
-If $w$ is the value you originally wrote and $r$ is a possibly-faulty error you read back, if $|w - r_1| \ge |w - r_2|$ then the probability of reading $r_1$ is at most the probability of reading $r_2$.
+If $v$ is the value you originally wrote and $v'$ and $v''$ are possible values you might read back where $|v - v'| \ge |v - v''|$, then the probability of reading $v'$ is at most the probability of reading $v''$.
 Applications like small errors more than they like large errors, so MLC errors are a good fit.
 
 The problem, however, is that real programs don't use many two-bit numbers.
@@ -34,10 +34,31 @@ It's easy to combine, say, two two-bit cells to represent a four-bit number unde
 But these strategies ruin our nice error monotonicity property:
 small changes in one cell might cause large changes in our four-bit number.
 
-Let's consider a few options for how we might encode a four-bit number onto two two-bit cells.
-We'll define an encoding function $e$ and a decoding function $d$ for each:
+### Stating the Problem
 
-* In a *chunking code*, the high two bits go to the first cell and the lower bits go to the second cell.
+Let's compare different strategies for encoding $n$-bit numbers onto $c$ cell values of $b$ bits each.
+We'll consider codes by defining their encoding function $e$ and decoding function $d$.
+Encoding turns a single $n$-bit number into a $c$-tuple of $b$-bit numbers, so we'll write $e(x) = \overrightarrow{v} = \langle v_1, v_2, \dots, v_c \rangle$ where each $v_i$ consists of $b$ bits.
+
+We assume that, within a given cell, small errors are more likely than large errors.
+We *hope* that small per-cell errors translate to small errors in the decoded value.
+To make this precise, define an overloaded function $\Delta$ that gets the size of errors in either encoded or plain-text values.
+For plain numbers, for example, $\Delta(1000, 0110) = 2$, or just the absolute difference between the values.
+For encoded cell-value tuples, $\Delta(\langle 01, 10 \rangle, \langle 10, 01 \rangle) = 2$, which is the sum of the differences for each cell.
+Here's a formal statement of the error-monotonicity property we'd like:
+$\Delta(\overrightarrow{v}, \overrightarrow{v}') \ge \Delta(\overrightarrow{v}, \overrightarrow{v}'')$
+implies
+$\Delta(d(\overrightarrow{v}), d(\overrightarrow{v}')) \ge \Delta(d(\overrightarrow{v}), d(\overrightarrow{v}''))$.
+In other words, if an error is smaller in the space of encoded cell values than another error, then it *also* translates to a smaller error in the space of decoded numbers.
+
+### The Options
+
+Let's consider a few options.
+For simplicity, I'll give examples for $n=4$, $c=2$, and $b=2$, but each strategy should generalize to any problem size where $n = c \times b$.
+
+* I'll call the naïve strategy a *chunking code* because it just breaks the number into $c$ equally-sized pieces.
+  For example, $e(0110) = \langle 01, 10 \rangle$.
+
   In binary, then, the number $0110$ is represented as the pair $\langle 01, 10 \rangle$.
   In other words, our encoding function has $e(0110) = \langle 01, 10 \rangle$.
   But a small, one-level error in the first cell causes a large error in the represented value.
