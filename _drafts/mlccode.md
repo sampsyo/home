@@ -60,14 +60,11 @@ For simplicity, I'll give examples for $n=4$, $c=2$, and $b=2$, but each strateg
 
 * I'll call the naïve strategy a *chunking code* because it just breaks the number into $c$ equally-sized pieces.
   For example, $e(0110) = \langle 01, 10 \rangle$.
-
-  In binary, then, the number $0110$ is represented as the pair $\langle 01, 10 \rangle$.
-  In other words, our encoding function has $e(0110) = \langle 01, 10 \rangle$.
   But a small, one-level error in the first cell causes a large error in the represented value.
-  A one-level error makes us read $00$ from the first cell instead of the correct value, $01$.
-  And $d(\langle 00, 10 \rangle) = 0010$.
-  The value-space error is $|0110 - 0010|$, or a value of 4.
-  In fact, an error of 4 (arising from the first cell) is just as likely as an error of 1 (arising from the second cell).
+  For example, an error of size one can turn $\langle 01, 10 \rangle$
+  into $\langle 00, 10 \rangle$.
+  The decoded error size is $\Delta(0110, 0010) = 4$.
+  So a distance-one error in the cells can lead to a distance-four error in the value. Such an error is just as likely as a distance-one value error (when the second cell is faulty instead of the first).
 
 [approxstorage]: https://dl.acm.org/citation.cfm?id=2644808
 [mlc]: https://en.wikipedia.org/wiki/Multi-level_cell
