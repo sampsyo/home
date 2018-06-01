@@ -66,6 +66,18 @@ For simplicity, I'll give examples for $n=4$, $c=2$, and $b=2$, but each strateg
   The decoded error size is $\Delta(0110, 0010) = 4$.
   So a distance-one error in the cells can lead to a distance-four error in the value. Such an error is just as likely as a distance-one value error (when the second cell is faulty instead of the first).
 
+* A [Gray code][] tries to avoid situations where incrementing a number makes many cells change simultaneously.
+  This property minimizes the cost of the most common writes, so it's a popular strategy for memory coding.
+  But I contend that, in an abstract sense, it's the *opposite* of what we want for error robustness.
+  A Gray code takes small changes in the value and turns them into small changes in the cells. We want this implication to go the other way around: small changes in the cells should lead to small changes in the corresponding values.
+  A small change in a cell can still lead to an arbitrarily large change in the represented number.
+
+* Grasping at straws, we could try a *striping code* where the bits are interleaved: the first cell holds all the bits at positions that are zero mod $b$; the next cell gets the bits that are at 1 mod $b$, and so on.
+  For example, $e(0011) = \langle 01, 01 \rangle$.
+  But clearly, a small error in one cell can still lead to a large error in the value.
+  For example, a single-level error can produce $\langle 10, 01 \rangle$ and
+  $d(\langle 10, 01 \rangle) = 1001$, which is an error of 6.
+
 [approxstorage]: https://dl.acm.org/citation.cfm?id=2644808
 [mlc]: https://en.wikipedia.org/wiki/Multi-level_cell
 [gray code]: https://en.wikipedia.org/wiki/Gray_code
