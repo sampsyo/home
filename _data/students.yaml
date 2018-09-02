@@ -57,10 +57,10 @@
             when: 2017&ndash;
         -
             name: Harry Goldstein
-            when: 2017&ndash;
+            when: 2017&ndash;2018
         -
             name: Alex Renda
-            when: 2017&ndash;
+            when: 2017&ndash;2018
         -
             name: Omar Abdelaziz
             when: 2016&ndash;2017
@@ -69,10 +69,10 @@
             when: 2016&ndash;2017
         -
             name: Tyler Etzel
-            when: 2017&ndash;
+            when: 2017&ndash;2018
         -
             name: Joshua Diaz
-            when: 2017&ndash;
+            when: 2017&ndash;2018
 
 -
     category: Undergraduate Researchers at UW
