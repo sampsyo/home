@@ -224,5 +224,14 @@ committees:
 # Eventually?
 talks:
     -
+        title: 'TBD'
+        where: 'Colloquium, Computer Science, Williams College'
+    -
+        title: 'TBD'
+        where: 'Colloquium, School of Arts, Media + Engineering, Arizona State University'
+    -
+        title: "Approximate Computing Is Dead; Long Live Approximate Computing"
+        where: "Workshop on  Negative Outcomes, Post-Mortems, and Experiences (NOPE), at MICRO 2017"
+    -
         title: "Probabilistic Programming"
         where: "Schloss Dagstuhl, Workshop on Approximate and Probabilistic Computing, November 2015"
