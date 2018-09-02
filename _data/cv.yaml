@@ -135,9 +135,6 @@ service:
         NSF panel member, [CCF](https://www.nsf.gov/div/index.jsp?org=CCF) division (2016)
 
     - |
-        Ph.D. committee member for Melanie Kambadur, Columbia University (2016)
-
-    - |
         University of Washington, Computer Science and Engineering:
 
         * Graduate Admissions Committee, 2013&ndash;2015
@@ -220,6 +217,13 @@ committees:
 
     - |
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
+
+phdcommittees:
+    -
+        name: Melanie Kambadur
+        advisor: Martha Kim
+        school: Columbia University
+        defense: 2016
 
 # Eventually?
 talks:

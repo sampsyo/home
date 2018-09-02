@@ -103,6 +103,16 @@ title: CV
     {% for text in cv.committees %}
         {{ text | markdownify }}
     {% endfor %}
+    <h3>Ph.D. Committees</h3>
+    {% for student in cv.phdcommittees %}
+    <p>
+        {{ student.name }}{% if student.school %},
+        {{ student.school }}{%
+        endif %}.
+        Advisor: {{ student.advisor }}.
+        {% if student.defense %}Defended {{ student.defense }}.{% endif %}
+    </p>
+    {% endfor %}
 </section>
 
 <footer>
