@@ -220,10 +220,32 @@ committees:
 
 phdcommittees:
     -
+        name: 'Yuan Zhou'
+        advisor: Zhiru Zhang
+        link: 'https://zhang.ece.cornell.edu/people/yuan-zhou/'
+    -
+        name: 'Maofan (Ted) Yin'
+        advisor: 'Emin Gün Sirer'
+        link: 'https://www.cs.cornell.edu/~tedyin/'
+    -
+        name: Wil Thomason
+        advisor: Ross Knepper
+        link: https://wbthomason.github.io
+    -
+        name: 'Yi-Hsiang (Sean) Lai'
+        advisor: Zhiru Zhang
+        link: http://people.ece.cornell.edu/yl2666/
+    -
+        name: Gai Liu
+        advisor: Zhiru Zhang
+        defense: 2018
+        link: https://sites.google.com/a/cornell.edu/gai/
+    -
         name: Melanie Kambadur
         advisor: Martha Kim
         school: Columbia University
         defense: 2016
+        link: http://www.cs.columbia.edu/~melanie/
 
 # Eventually?
 talks:
