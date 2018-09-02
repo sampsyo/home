@@ -5,7 +5,10 @@
     type: conference
     preprint: true
     venue_url: "http://iscaconf.org/isca2018/"
-    url: 'https://arxiv.org/abs/1803.06312'
+    url: 'https://ieeexplore.ieee.org/document/8416853/'
+    extra:
+     - '[Local PDF.](BASE/media/papers/eva2-isca2018.pdf)'
+     - '[Project page.](https://capra.cs.cornell.edu/research/eva2/)'
 
 -
     title: "Programming Language Support for Natural Language Interaction"
