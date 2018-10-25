@@ -261,7 +261,7 @@
     venue_url: 'http://www.splashcon.org/index.php?option=com_content&amp;view=article&amp;id=47:oopsla-research-papers&amp;catid=34:due-march-25-2010&amp;Itemid=55'
     type: conference
     extra:
-        - '[Local PDF.](http://sampa.cs.washington.edu/public/uploads/e/e9/Osha-oopsla2010.pdf)'
+        - '[Local PDF.](BASE/media/papers/osha-oopsla2010.pdf)'
 
 -
     title: On-line Distributed Traffic Grooming
