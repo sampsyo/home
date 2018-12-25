@@ -162,6 +162,11 @@ service:
 
 
 committees:
+    - |
+        ISCA 2019: Program committee member
+
+    - |
+        [YArch 2019](http://sites.psu.edu/yarch2019/): Program committee member
 
     - |
         ASPLOS 2019: Program committee member
@@ -236,6 +241,12 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    -
+        name: 'Lin Cheng'
+        advisor: Chris Batten
+    -
+        name: 'Tuan Ta'
+        advisor: Chris Batten
     -
         name: 'Yuan Zhou'
         advisor: Zhiru Zhang
