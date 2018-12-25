@@ -26,6 +26,8 @@ Here are some answers to common questions.
 
   Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply]. I'll look forward to reading your application to either department.
 
+  We have a department-wide collective admissions process, however, which means that I can't say anything useful about anybody's chances for acceptance.
+
 * **I'm looking for a summer research internship.**
 
   I can't consider applications for new research interns right now. I hope you find a great internship with another group!
