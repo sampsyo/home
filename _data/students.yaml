@@ -21,6 +21,14 @@
             name: Drew Zagieboylo
             when: 2017
 
+        -
+            name: Rachit Nigam
+            when: 2018&ndash;
+
+        -
+            name: Alexa VanHattum
+            when: 2018&ndash;
+
 -
     category: Master of Engineering
     students:
@@ -47,6 +55,9 @@
             when: 2018
         -
             name: Shiyu Wang
+            when: 2018
+        -
+            name: Arthur Wang
             when: 2018
 
 -
@@ -79,7 +90,18 @@
         -
             name: Ted Bauer
             when: 2018&ndash;
-
+        -
+            name: Jenna Choi
+            when: 2018&ndash;
+        -
+            name: Aditi Kabra
+            when: 2018&ndash;
+        -
+            name: Yinnon Sanders
+            when: 2018&ndash;
+        -
+            name: Horace He
+            when: 2018&ndash;
 -
     category: Undergraduate Researchers at UW
     details: |
