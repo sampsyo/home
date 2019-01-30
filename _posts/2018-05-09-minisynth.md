@@ -32,7 +32,7 @@ We'll use Z3's Python bindings.
 On a Mac, you can install everything from [Homebrew][]:
 
 ```sh
-$ brew install z3 --with-python
+$ brew install z3
 ```
 
 Let's [try it out][ex0]:
