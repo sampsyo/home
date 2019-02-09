@@ -62,13 +62,16 @@
         -
             name: Arthur Wang
             when: 2018
+        -
+            name: Alex Wong
+            when: 2019
 
 -
     category: Undergraduate
     students:
         -
             name: Yiteng Guo
-            when: 2017&ndash;
+            when: 2017&ndash;2018
         -
             name: Harry Goldstein
             when: 2017&ndash;2018
@@ -105,6 +108,9 @@
         -
             name: Horace He
             when: 2018&ndash;
+        -
+            name: Kenneth Fang
+            when: 2019&ndash;
 -
     category: Undergraduate Researchers at UW
     details: |
