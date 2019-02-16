@@ -4,7 +4,7 @@
     venue: "SPLASH-E 2018"
     type: workshop
     venue_url: 'https://2018.splashcon.org/track/splash-2018-SPLASH-E'
-    url: 'BASE/media/papers/lambdalab-splashe2018-preprint.pdf'
+    url: 'BASE/media/papers/lambdalab-splashe2018.pdf'
     extra:
      - '[Live tool.](https://capra.cs.cornell.edu/lambdalab/)'
      - '[Source repository.](https://github.com/cucapra/lambdalab)'
@@ -14,7 +14,6 @@
     authors: "Mark Buckler, Philip Bedoukian, Suren Jayasuriya, and Adrian Sampson"
     venue: "ISCA 2018"
     type: conference
-    preprint: true
     venue_url: "http://iscaconf.org/isca2018/"
     url: 'https://ieeexplore.ieee.org/document/8416853/'
     extra:
