@@ -163,6 +163,12 @@ service:
 
 committees:
     - |
+        PLDI 2020: Program committee member
+
+    - |
+        ASPLOS 2020: Program committee member
+
+    - |
         ISCA 2019: Program committee member
 
     - |
