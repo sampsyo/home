@@ -31,6 +31,9 @@
         -
             name: Neil Adit
             when: 2018&ndash;
+        -
+            name: Zhijing Li
+            when: 2018&ndash;
 
 -
     category: Master of Engineering
@@ -64,6 +67,12 @@
             when: 2018
         -
             name: Alex Wong
+            when: 2019
+        -
+            name: Eric Mei
+            when: 2019
+        -
+            name: James Chen
             when: 2019
 
 -
@@ -110,6 +119,12 @@
             when: 2018&ndash;
         -
             name: Kenneth Fang
+            when: 2019&ndash;
+        -
+            name: Apurva Koti
+            when: 2019&ndash;
+        -
+            name: Samuel Thomas
             when: 2019&ndash;
 -
     category: Undergraduate Researchers at UW
