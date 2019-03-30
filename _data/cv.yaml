@@ -289,7 +289,8 @@ talks:
     -
         title: 'Designing Systems with Types'
         where: 'Colloquium, School of Arts, Media + Engineering, Arizona State University'
-        link: 'https://artsmediaengineering.asu.edu/events/designing-systems-types-adrian-sampson-0'
+        # link: 'https://artsmediaengineering.asu.edu/events/designing-systems-types-adrian-sampson-0'
+        link: https://vimeo.com/322092403
     -
         title: "Approximate Computing Is Dead; Long Live Approximate Computing"
         where: "Workshop on  Negative Outcomes, Post-Mortems, and Experiences (NOPE), at MICRO 2017"
