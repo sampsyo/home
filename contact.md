@@ -20,6 +20,10 @@ Here are some answers to common questions.
 
   If you're presenting a paper in a reading group, I'd love to hear a summary of the discussion!
 
+* **I'm a Cornell undergraduate, and I'm curious about getting involved in research.**
+
+  Yay! Please check out my research group's [instructions for prospective undergraduate researchers][capra-ugr]. We really enjoy collaborating with talented Cornell undergrads.
+
 * **I'm applying to grad school soon, and I'm interested in doing research with you!**
 
   Fantastic! I'm thrilled that you're interested in the same kinds of hardware--software abstraction problems that I am. Cornell is a great place to do a Ph.D. in computer science.
@@ -43,3 +47,4 @@ Here are some answers to common questions.
 [confpapers]: {{site.base}}/research.html#conference-papers
 [dreu]: https://cra.org/cra-w/dreu/
 [lsamp]: https://sites.coecis.cornell.edu/lsampreu/
+[capra-ugr]: https://capra.cs.cornell.edu/ugresearch.html
