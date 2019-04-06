@@ -249,6 +249,9 @@ committees:
 
 phdcommittees:
     -
+        name: 'Yuwei Hu'
+        advisor: Zhiru Zhang
+    -
         name: 'Lin Cheng'
         advisor: Chris Batten
     -
