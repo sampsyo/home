@@ -285,22 +285,23 @@ phdcommittees:
         defense: 2016
         link: http://www.cs.columbia.edu/~melanie/
 
-# Eventually?
 talks:
     -
         title: 'Designing Custom Hardware Accelerators with Types'
-        where: 'Colloquium, Computer Science, Williams College'
-        date: '2019-04-05'
+        where: 'Colloquium, Department of Computer Science, Williams College'
+        date: 2019-04-05
         link: 'https://events.williams.edu/event/computer-science-colloquium-designing-custom-hardware-accelerators-with-types/'
     -
         title: 'Designing Systems with Types'
         where: 'Colloquium, School of Arts, Media + Engineering, Arizona State University'
         # link: 'https://artsmediaengineering.asu.edu/events/designing-systems-types-adrian-sampson-0'
         link: https://vimeo.com/322092403
-        date: '2019-02-14'
+        date: 2019-02-14
     -
         title: "Approximate Computing Is Dead; Long Live Approximate Computing"
-        where: "Workshop on  Negative Outcomes, Post-Mortems, and Experiences (NOPE), at MICRO 2017"
+        where: "[Workshop on Negative Outcomes, Post-Mortems, and Experiences (NOPE)](http://nope.pub/2017/), at MICRO 2017"
+        date: 2017-10-14
     -
         title: "Probabilistic Programming"
-        where: "Schloss Dagstuhl, Workshop on Approximate and Probabilistic Computing, November 2015"
+        where: "Schloss Dagstuhl, [Seminar 15491: Approximate and Probabilistic Computing: Design, Coding, Verification](https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=15491)"
+        date: 2015-12-01
