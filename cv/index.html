@@ -64,6 +64,9 @@ title: CV
             {% if talk.link %}<a href="{{ talk.link }}">{% endif %}&ldquo;{{ talk.title }}.&rdquo;{% if talk.link %}</a>{% endif %}
         </span>
         {{ talk.where | markdownify | remove: '<p>' | remove: '</p>' | strip }}.
+        {% for extra in talk.extra %}
+            {{ extra | markdownify | remove: '<p>' | remove: '</p>' | strip }}
+        {% endfor %}
     </p>
     {% endfor %}
 </section>
