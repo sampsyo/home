@@ -24,6 +24,15 @@ Here are some answers to common questions.
 
   Yay! Please check out my research group's [instructions for prospective undergraduate researchers][capra-ugr]. We really enjoy collaborating with talented Cornell undergrads.
 
+* **I'm one of your undergraduate advisees. Can you meet up so I can ask you some questions or get a form signed?**
+
+  I'd be happy to! Please [pick a time][advmtg].
+
+  Before you do, though, I should warn you that if your question is about course requirements, graduation logistics, and the like, I'm not the best person to ask---our [undergraduate advisors][ugrad] are the true experts. You can reach them in Gates 110 or at [ugrad@cs.cornell.edu](mailto:ugrad@cs.cornell.edu).
+
+  [advmtg]: https://when.works/invitations/5b7b21532ee0750014c9b495
+  [ugrad]: https://www.cs.cornell.edu/undergrad/ustaff
+
 * **I'm applying to grad school soon, and I'm interested in doing research with you!**
 
   Fantastic! I'm thrilled that you're interested in the same kinds of hardware--software abstraction problems that I am. Cornell is a great place to do a Ph.D. in computer science.
