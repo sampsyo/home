@@ -122,7 +122,6 @@ header {
     white-space: nowrap;
 }
 nav {
-    margin: 0;
     font-size: $ui-size;
     a {
         display: inline-block;
@@ -138,20 +137,15 @@ nav {
         border-color: $link-hover-color;
     }
 
+    // Negate first/last link padding.
+    margin: 0 -3px;
+
     // Looser layout on desktop.
     @media (min-width: $mobile-size) {
         text-align: right;
         a {
             padding: 2px 6px;
         }
-    }
-
-    // When the nav is alone, no margin please.
-    :first-child {
-        margin-left: -3px;  // negate padding
-    }
-    :last {
-        margin-right: 0;
     }
 }
 
