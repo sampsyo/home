@@ -1,6 +1,7 @@
 ---
 layout: shorty
 title: Contact
+class: contact
 ---
 Send me email at [{{site.email}}][email]. My office in [Gates Hall][gates] is 411A. I share lots of code on [GitHub][gh]. You probably shouldn't [follow me on Twitter][twitter]. Follow [@sigarch][] instead!
 
@@ -14,42 +15,48 @@ Send me email at [{{site.email}}][email]. My office in [Gates Hall][gates] is 41
 
 Here are some answers to common questions.
 
-* **Can you send me the slides for a talk you gave?**
 
-  There are links to my talks in my [conference paper list][confpapers]. There are PDF versions there, and I can also send you Keynote files if you [email me][email]. I don't have PowerPoint files.
+### Can you send me the slides for a talk you gave?  {#slides}
 
-  If you're presenting a paper in a reading group, I'd love to hear a summary of the discussion!
+There are links to my talks in my [conference paper list][confpapers]. There are PDF versions there, and I can also send you Keynote files if you [email me][email]. I don't have PowerPoint files.
 
-* **I'm a Cornell undergraduate, and I'm curious about getting involved in research.**
+If you're presenting a paper in a reading group, I'd love to hear a summary of the discussion!
 
-  Yay! Please check out my research group's [instructions for prospective undergraduate researchers][capra-ugr]. We really enjoy collaborating with talented Cornell undergrads.
 
-* **I'm one of your undergraduate advisees. Can you meet up so I can ask you some questions or get a form signed?**
+### I'm a Cornell undergraduate, and I'm curious about getting involved in research.  {#ugresearch}
 
-  I'd be happy to! Please [pick a time][advmtg].
+Yay! Please check out my research group's [instructions for prospective undergraduate researchers][capra-ugr]. We really enjoy collaborating with talented Cornell undergrads.
 
-  Before you do, though, I should warn you that if your question is about course requirements, graduation logistics, and the like, I'm not the best person to ask---our [undergraduate advisors][ugrad] are the true experts. You can reach them in Gates 110 or at [ugrad@cs.cornell.edu](mailto:ugrad@cs.cornell.edu).
+
+### I'm one of your undergraduate advisees. Can you meet up so I can ask you some questions or get a form signed?  {#advising}
+
+I'd be happy to! Please [pick a time][advmtg].
+
+Before you do, though, I should warn you that if your question is about course requirements, graduation logistics, and the like, I'm not the best person to ask---our [undergraduate advisors][ugrad] are the true experts. You can reach them in Gates 110 or at [ugrad@cs.cornell.edu](mailto:ugrad@cs.cornell.edu).
 
   [advmtg]: https://when.works/invitations/5b7b21532ee0750014c9b495
   [ugrad]: https://www.cs.cornell.edu/undergrad/ustaff
 
-* **I'm applying to grad school soon, and I'm interested in doing research with you!**
 
-  Fantastic! I'm thrilled that you're interested in the same kinds of hardware--software abstraction problems that I am. Cornell is a great place to do a Ph.D. in computer science.
+### I'm applying to grad school soon, and I'm interested in doing research with you!  {#grad}
 
-  Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply]. I'll look forward to reading your application to either department.
+Fantastic! I'm thrilled that you're interested in the same kinds of hardware--software abstraction problems that I am. Cornell is a great place to do a Ph.D. in computer science.
 
-  We have a department-wide collective admissions process, however, which means that I can't say anything useful about anybody's chances for acceptance.
+Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply]. I'll look forward to reading your application to either department.
 
-* **I'm looking for a summer research internship.**
+We have a department-wide collective admissions process, however, which means that I can't say anything useful about anybody's chances for acceptance.
 
-  I can't consider applications for new research interns right now. (That includes "self-funded" applicants.) I hope you find a great internship with another group!
 
-  However, I am interested in working undergraduates from underrepresented groups via the [DREU][] and [LSAMP][] programs. Please consider applying to one of those if you are eligible.
+### I'm looking for a summer research internship.  {#intern}
 
-* **May we "repost" the text of one of your blog posts on our site?**
+I can't consider applications for new research interns right now. (That includes "self-funded" applicants.) I hope you find a great internship with another group!
 
-  I'm glad you're interested in the article! But copies of blog posts on sites I don't control make it impossible for me to correct mistakes or add updates in the future. Please don't "repost" anything.
+However, I am interested in working undergraduates from underrepresented groups via the [DREU][] and [LSAMP][] programs. Please consider applying to one of those if you are eligible.
+
+
+### May we "repost" the text of one of your blog posts on our site?  {#repost}
+
+I'm glad you're interested in the article! But copies of blog posts on sites I don't control make it impossible for me to correct mistakes or add updates in the future. Please don't "repost" anything.
 
 [csapply]: https://www.cs.cornell.edu/phd/admissions#application
 [eceapply]: http://www.ece.cornell.edu/ece/academics/graduate/phd/admission.cfm
