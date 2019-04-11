@@ -334,6 +334,12 @@ blockquote {
 .contact h3 {
     font-size: inherit;
     font-weight: bold;
+
+    &:target {
+        background: $brand-primary;
+        color: white;
+        outline: 0.75rem solid $brand-primary;
+    }
 }
 
 
