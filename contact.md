@@ -49,7 +49,7 @@ We have a department-wide collective admissions process, however, which means th
 
 ### I'm looking for a summer research internship.  {#intern}
 
-I can't consider applications for new research interns right now. (That includes "self-funded" applicants.) I hope you find a great internship with another group!
+I can't consider internship applications from non-Cornell students right now. (That includes "self-funded" applicants.) I hope you find a great internship with another group!
 
 However, I am interested in working undergraduates from underrepresented groups via the [DREU][] and [LSAMP][] programs. Please consider applying to one of those if you are eligible.
 
