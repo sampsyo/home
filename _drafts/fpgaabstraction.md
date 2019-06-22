@@ -91,8 +91,10 @@ What’s missing here is an ISA-like abstraction for the *software* that FPGAs r
 
 The *de facto* ISA for today’s computational FPGAs is Verilog.
 The major FPGA vendors’ toolchains take Verilog as input, and compilers from higher-level languages emit Verilog as their output.
-In a world where bitstream formats are secret, lower-level control over FPGA hardware is infeasible.
+In a world where [bitstream formats are secret][secretbs], lower-level control over FPGA hardware is infeasible.
 The problem is that Verilog neither does a good job as a low-level hardware abstraction nor as a high-level programming abstraction.
+
+[secretbs]: http://www.megacz.com/thoughts/bitstream.secrecy.html
 
 Let’s do two thought experiments and consider whether Verilog does a good job of filling roles that we know of in a "normal" programming stack.
 
