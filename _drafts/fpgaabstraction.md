@@ -30,7 +30,7 @@ This is the classic, mainstream use case for FPGAs, and it’s the reason FPGAs 
 The point of an FPGA is to take a hardware design, in the form of HDL code, and to get cheap hardware that behaves the same as the ASIC you would eventually produce.
 Of course everybody knows you’re unlikely to take *exactly* the same Verilog code and make it work both on an FPGA and on real silicon, but it’s not wrong to think of an FPGA as a circuit emulator.
 
-**Definition 3:** *An FPGA is a pseudo-general-purpose computational accelerator.* Like a GPGPU, an FPGA is good for offloading a certain kind of computation. It’s harder to program than a CPU, for the right workload, it can be worth the effort: a good FPGA implementation can offer orders-of-magnitude performance and energy advantages over a CPU baseline on certain kernels.
+**Definition 3:** *An FPGA is a pseudo-general-purpose computational accelerator.* Like a GPGPU, an FPGA is good for offloading a certain kind of computation. It’s harder to program than a CPU, but for the right workload, it can be worth the effort: a good FPGA implementation can offer orders-of-magnitude performance and energy advantages over a CPU baseline on certain kernels.
 
 This is a completely different use case from ASIC prototyping.
 Unlike circuit emulation, computational acceleration is an *emerging* use case for FPGAs.
