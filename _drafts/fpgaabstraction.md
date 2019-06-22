@@ -125,12 +125,10 @@ I don’t know what abstraction should replace RTL for computational FPGAs.
 Practically, replacing Verilog may be impossible as long as the FPGA vendors keep their lower-level abstractions secret and their sub-RTL toolchains closed source.
 The long-term resolution to this problem might only come when the hardware evolves, as GPUs once did:
 
-<p class=“showcase”>
+<p class="showcase">
 GPU : GPGPU :: FPGA : ____
 </p>
 
 If computational FPGAs are accelerators for a particular class of algorithmic patterns, there’s no reason to believe that today’s FPGAs are the ideal implementation of that goal.
 A new category of hardware that beats FPGAs at their own game could bring with it a fresh abstraction hierarchy.
-The new software stack should dispense with the fiction that 
-
-", so new hardware that exploits the same fundamental advantages but with a new programming model.
+The new software stack should dispense with the legacy connection to circuit emulation and, with it, the RTL abstraction.
