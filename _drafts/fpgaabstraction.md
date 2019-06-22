@@ -94,19 +94,29 @@ The major FPGA vendors’ toolchains take Verilog as input, and compilers from h
 In a world where [bitstream formats are secret][secretbs], lower-level control over FPGA hardware is infeasible.
 The problem is that Verilog neither does a good job as a low-level hardware abstraction nor as a high-level programming abstraction.
 
+TK the above summation sort of contradicts the dichotomy laid out below
+
 [secretbs]: http://www.megacz.com/thoughts/bitstream.secrecy.html
 
-Let’s do two thought experiments and consider whether Verilog does a good job of filling roles that we know of in a "normal" programming stack.
+Let’s consider the two roles that a good instruction might play.
 
-- Consider: Verilog is the high-level language that targets a low-level execution model (a netlist or a bitstream).
-  - Preposterous! Verilog is *not* a good high-level abstraction for programming. It neither faithfully represents what’s going on in the hardware *nor* makes it easy to program.
-  - This should be easy to swallow: writing RTL is not the way that we’re going to get FPGA acceleration to go mainstream.
-  - I don’t want to sound like an HLS advocate. I’m not. But that’s a story for another talk.
+**Role 1:** *Verilog is an ergonomic high-level programming model that targets a lower-level abstraction.*
+In this thought experiment, the ISA for computational FPGAs is something at a lower level of abstraction than an RTL: netlists or bitstreams, for example.
+Verilog is the more productive, high-level programming model that we expose to humans.
 
-- Consider: Verilog is like a CPU’s ISA. Something higher level needs to be built on it, but it’s a good common compilation target.
-  - No! Verilog *cannot* be the ISA. It has so much compilation before you get to something executable. And the results are not predictable. That’s not a good ISA.
-  - An ISA needs to be something that literally happens in the hardware.
-  - Look no further than the compilation times to understand that the toolchain from Verilog to hardware is a big leap.
+Even RTL experts probably don’t believe that Verilog is a productive way to do mainstream FPGA development that will propel programmable logic into the mainstream.
+RTL design may seem friendly and familiar to veteran hardware hackers, but the productivity gap with software languages is unfathomable.
+
+**Role 2:** *Verilog is a low-level abstraction for FPGA hardware resources.* That is, Verilog is to an FPGA as an ISA is to a CPU. It may not be convenient to program in, but it’s a good target for compilers from higher-level languages because it directly describes what goes on in the hardware.
+
+TK maybe bring in the status quo here?
+
+The problem with this framing is that Verilog is too far removed from the hardware.
+The abstraction gap between RTL and FPGA hardware is enormous: it traditionally contains synthesis, place & route, technology mapping, TK.
+This compiler toolchain is notoriously slow and, worse, it’s unpredictable---it can be hard to tell how changes in RTL will affect the resulting bitstream.
+
+A good ISA directly exposes the factors in the hardware that affect performance.
+This way, higher levels in the system stack---compilers and programmers---have a hope of producing good code.
 
 ## TK wrap up: something forward looking
 
