@@ -74,22 +74,18 @@ This realization let GPUs evolve from targeting a particular application domain 
 I think we’re in the midst of a similar transition with computational FPGAs:
 
 <p class="showcase">
-GPU : massive, mostly regular data parallelism :: FPGA : ____
+GPU : massive, mostly regular data parallelism :: FPGA : irregular parallelism with static structure
 </p>
 
-I don’t know how to succinctly describe the computational pattern that FPGAs can exploit.
-Crystallizing this analogy will let us decide what an ISA-like abstraction should be for expressing this general computational pattern:
-
-TK maybe just make it up instead
+The world hasn’t settled yet on a succinct description of the fundamental computational pattern that FPGAs are supposed to be good at.
+But it has something to do with potentially-irregular parallelism, data reuse, and mostly-static data flow.
+Like GPUs, FPGAs need a hardware abstraction that embodies this computational pattern:
 
 <p class="showcase">
-GPU : SIMT ISAs :: FPGA : ____
+GPU : SIMT ISA :: FPGA : ____
 </p>
 
-FPGAs execute software expressed in this "ISA."
-By framing it this way, we can liberate computational FPGA programming from the flawed notion that an FPGA configuration is a hardware design---and the burden of the EDA toolchain that comes along with that notion.
-They execute an exotic kind of software, and it’s critical that we find a good abstraction for expressing that software.
-TK this is the path to broadening FPGA programming beyond an audience of "hardware people" and bringing things we like from the software world to hardware. Exotic notions like modularity, abstraction
+What’s missing here is an ISA-like abstraction for the *software* that FPGAs run.
 
 ## RTL Is Not an ISA
 
