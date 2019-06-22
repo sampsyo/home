@@ -119,12 +119,18 @@ RTL is not that target.
 
 [secretbs]: http://www.megacz.com/thoughts/bitstream.secrecy.html
 
-## TK wrap up: something forward looking
+## The Right Abstraction?
 
-So what do we use instead?
-I don’t know.
-Part of the problem is that the FPGA vendors want Verilog to be the abstraction. Proprietary tools, etc. It’s hard to overstate how important open-source toolchain are in the software world to enabling innovation. There are fledgling OSS efforts for compiling to FPGAs, but they are far from being the "de facto" compilers as we have in the CPU world.
-A couple of options:
+I don’t know what abstraction should replace RTL for computational FPGAs.
+Practically, replacing Verilog may be impossible as long as the FPGA vendors keep their lower-level abstractions secret and their sub-RTL toolchains closed source.
+The long-term resolution to this problem might only come when the hardware evolves, as GPUs once did:
 
-1. Make do and work around the limitations, building higher and lower levels of abstraction that force the Verilog tools to do the right thing.
-2. Revisit "GPU : GPGPU :: FPGA : ??", so new hardware that exploits the same fundamental advantages but with a new programming model.
+<p class=“showcase”>
+GPU : GPGPU :: FPGA : ____
+</p>
+
+If computational FPGAs are accelerators for a particular class of algorithmic patterns, there’s no reason to believe that today’s FPGAs are the ideal implementation of that goal.
+A new category of hardware that beats FPGAs at their own game could bring with it a fresh abstraction hierarchy.
+The new software stack should dispense with the fiction that 
+
+", so new hardware that exploits the same fundamental advantages but with a new programming model.
