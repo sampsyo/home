@@ -3,10 +3,8 @@ title: FPGAs Have the Wrong Abstraction
 excerpt: TK
 ---
 <aside>
-These are notes from a short talk I’ll do at an "open mic" that [Doug Carmean][doug] is hosting at FCRC this weekend.
+These are notes from a short talk I’ll do at an "open mic" that <a href=“https://www.microsoft.com/en-us/research/people/dcarmean/”>Doug Carmean</a> is hosting at FCRC this weekend.
 </aside>
-
-[doug]: https://www.microsoft.com/en-us/research/people/dcarmean/
 
 ## The Computational FPGA
 
