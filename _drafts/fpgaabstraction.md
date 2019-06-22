@@ -38,6 +38,9 @@ It’s behind the recent Microsoft successes accelerating [search][catapult] and
 And critically, the computational use case doesn’t depend on FPGAs’ relationship to real ASICs:
 the Verilog code people write for FPGA-based acceleration need not bear any similarity to the kind of Verilog that would go into a proper tapeout.
 
+[catapult]: https://www.microsoft.com/en-us/research/project/project-catapult/
+[brainwave]: https://www.microsoft.com/en-us/research/project/project-brainwave/
+
 These two use cases are different, especially in their implications for programming, compilers, and abstractions.
 I want to focus on the latter, which I’ll call *computational FPGA* programming.
 My thesis here is that the current approach to programming computational FPGAs, which borrows the traditional programming model from circuit emulation, is not the right thing.
