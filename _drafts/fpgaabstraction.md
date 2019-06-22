@@ -89,9 +89,10 @@ What’s missing here is an ISA-like abstraction for the *software* that FPGAs r
 
 ## RTL Is Not an ISA
 
-TK section: RTL is not the thing
-The problem is that it is neither a good programming abstraction nor a good compilation target.
-It’s neither doing a good job as a low-level abstraction *or* a high-level abstraction.
+The *de facto* ISA for today’s computational FPGAs is Verilog.
+The major FPGA vendors’ toolchains take Verilog as input, and compilers from higher-level languages emit Verilog as their output.
+In a world where bitstream formats are secret, lower-level control over FPGA hardware is infeasible.
+The problem is that Verilog neither does a good job as a low-level hardware abstraction nor as a high-level programming abstraction.
 
 Let’s do two thought experiments and consider whether Verilog does a good job of filling roles that we know of in a "normal" programming stack.
 
