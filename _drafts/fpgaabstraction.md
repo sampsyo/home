@@ -104,15 +104,18 @@ And it’s the programming language of last resort for when you need to eke out 
 
 And indeed, Verilog is the *de facto* ISA for today’s computational FPGAs.
 The major FPGA vendors’ toolchains take Verilog as input, and compilers from higher-level languages emit Verilog as their output.
-[Vendors keep bitstream formats secret][secretbs], 
-In a world where [bitstream formats are secret][secretbs], lower-level control over FPGA hardware is infeasible.
+[Vendors keep bitstream formats secret][secretbs], so Verilog is in practice as low in the abstraction hierarchy as you can go.
 
-The problem with this framing is that Verilog is too far removed from the hardware.
-The abstraction gap between RTL and FPGA hardware is enormous: it traditionally contains synthesis, place & route, technology mapping, TK.
-This compiler toolchain is notoriously slow and, worse, it’s unpredictable---it can be hard to tell how changes in RTL will affect the resulting bitstream.
+The problem with Verilog as an ISA is that it is too far removed from the hardware.
+The abstraction gap between RTL and FPGA hardware is enormous: it traditionally contains at least synthesis, technology mapping, and place & route, technology mapping---each of which is a complex, slow process.
+As a result, the compile/edit/run cycle for RTL programming on FPGAs takes hours or days and, worse still, it’s unpredictable:
+the deep stack of toolchain stages can obscure the way that changes in RTL will affect the performance and energy.
 
-A good ISA directly exposes the factors in the hardware that affect performance.
-This way, higher levels in the system stack---compilers and programmers---have a hope of producing good code.
+A good ISA should directly expose unvarnished truth about the underlying hardware.
+Like an assembly language, it need not be convenient to program in.
+But also like assembly, it should be extremely fast to compile and yield predictable results.
+If there’s going to be a hope of building higher-level abstractions and compilers, they’re going to need such a low-level target that’s free of surprises.
+RTL is not that target.
 
 [secretbs]: http://www.megacz.com/thoughts/bitstream.secrecy.html
 
