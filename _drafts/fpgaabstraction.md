@@ -89,7 +89,8 @@ What’s missing here is an ISA-like abstraction for the *software* that FPGAs r
 
 ## RTL Is Not an ISA
 
-Let’s consider the two roles that a good instruction might play.
+The problem with Verilog for computational FPGAs is that it neither does a good job as a low-level hardware abstraction nor as a high-level programming abstraction.
+By way of contradiction, let’s imagine what it would look like if RTL were playing each of these roles well.
 
 **Role 1:** *Verilog is an ergonomic high-level programming model that targets a lower-level abstraction.*
 In this thought experiment, the ISA for computational FPGAs is something at a lower level of abstraction than an RTL: netlists or bitstreams, for example.
@@ -99,12 +100,12 @@ Even RTL experts probably don’t believe that Verilog is a productive way to do
 RTL design may seem friendly and familiar to veteran hardware hackers, but the productivity gap with software languages is unfathomable.
 
 **Role 2:** *Verilog is a low-level abstraction for FPGA hardware resources.* That is, Verilog is to an FPGA as an ISA is to a CPU. It may not be convenient to program in, but it’s a good target for compilers from higher-level languages because it directly describes what goes on in the hardware.
+And it’s the programming language of last resort for when you need to eke out the last few percentage points of performance.
 
-TK and indeed…
-The *de facto* ISA for today’s computational FPGAs is Verilog.
+And indeed, Verilog is the *de facto* ISA for today’s computational FPGAs.
 The major FPGA vendors’ toolchains take Verilog as input, and compilers from higher-level languages emit Verilog as their output.
+[Vendors keep bitstream formats secret][secretbs], 
 In a world where [bitstream formats are secret][secretbs], lower-level control over FPGA hardware is infeasible.
-The problem is that Verilog neither does a good job as a low-level hardware abstraction nor as a high-level programming abstraction.
 
 The problem with this framing is that Verilog is too far removed from the hardware.
 The abstraction gap between RTL and FPGA hardware is enormous: it traditionally contains synthesis, place & route, technology mapping, TK.
