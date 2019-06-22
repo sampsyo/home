@@ -89,15 +89,6 @@ What’s missing here is an ISA-like abstraction for the *software* that FPGAs r
 
 ## RTL Is Not an ISA
 
-The *de facto* ISA for today’s computational FPGAs is Verilog.
-The major FPGA vendors’ toolchains take Verilog as input, and compilers from higher-level languages emit Verilog as their output.
-In a world where [bitstream formats are secret][secretbs], lower-level control over FPGA hardware is infeasible.
-The problem is that Verilog neither does a good job as a low-level hardware abstraction nor as a high-level programming abstraction.
-
-TK the above summation sort of contradicts the dichotomy laid out below
-
-[secretbs]: http://www.megacz.com/thoughts/bitstream.secrecy.html
-
 Let’s consider the two roles that a good instruction might play.
 
 **Role 1:** *Verilog is an ergonomic high-level programming model that targets a lower-level abstraction.*
@@ -109,7 +100,11 @@ RTL design may seem friendly and familiar to veteran hardware hackers, but the p
 
 **Role 2:** *Verilog is a low-level abstraction for FPGA hardware resources.* That is, Verilog is to an FPGA as an ISA is to a CPU. It may not be convenient to program in, but it’s a good target for compilers from higher-level languages because it directly describes what goes on in the hardware.
 
-TK maybe bring in the status quo here?
+TK and indeed…
+The *de facto* ISA for today’s computational FPGAs is Verilog.
+The major FPGA vendors’ toolchains take Verilog as input, and compilers from higher-level languages emit Verilog as their output.
+In a world where [bitstream formats are secret][secretbs], lower-level control over FPGA hardware is infeasible.
+The problem is that Verilog neither does a good job as a low-level hardware abstraction nor as a high-level programming abstraction.
 
 The problem with this framing is that Verilog is too far removed from the hardware.
 The abstraction gap between RTL and FPGA hardware is enormous: it traditionally contains synthesis, place & route, technology mapping, TK.
@@ -117,6 +112,8 @@ This compiler toolchain is notoriously slow and, worse, it’s unpredictable---i
 
 A good ISA directly exposes the factors in the hardware that affect performance.
 This way, higher levels in the system stack---compilers and programmers---have a hope of producing good code.
+
+[secretbs]: http://www.megacz.com/thoughts/bitstream.secrecy.html
 
 ## TK wrap up: something forward looking
 
