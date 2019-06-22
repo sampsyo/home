@@ -55,7 +55,7 @@ An FPGA configuration is a funky kind of software, but it’s software, not hard
 
 There’s a strong analogy here to GPUs.
 Before deep learning and before dogecoin, there was a time when GPUs were for graphics.
-In TK, people realized they could abuse a GPU as an accelerator for lots of computationally intensive kernels that had nothing to do with graphics: that GPU designers had built a more general kind of machine, for which graphics was just one application.
+[In the early 2000s][gpumm], people realized they could abuse a GPU as an accelerator for lots of computationally intensive kernels that had nothing to do with graphics: that GPU designers had built a more general kind of machine, for which graphics was just one application.
 
 Computational FPGAs are following the same trajectory.
 The idea is to abuse this hardware not for circuit emulation but to exploit computational patterns that make them amenable to circuit-like execution.
@@ -84,6 +84,8 @@ GPU : SIMT ISA :: FPGA : ____
 </p>
 
 What’s missing here is an ISA-like abstraction for the *software* that FPGAs run.
+
+[gpumm]: https://graphics.stanford.edu/papers/gpumatrixmult/gpumatrixmult.pdf
 
 ## RTL Is Not an ISA
 
