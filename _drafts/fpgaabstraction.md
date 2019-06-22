@@ -4,6 +4,8 @@ excerpt: TK
 ---
 These are notes from a short talk I’ll do at an "open mic" that [Doug Carmean][doug] is hosting at FCRC this weekend.
 
+[doug]: https://www.microsoft.com/en-us/research/people/dcarmean/
+
 ## The Computational FPGA
 
 What is an FPGA?
