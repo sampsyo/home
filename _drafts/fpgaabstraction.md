@@ -27,8 +27,8 @@ The next two definitions will do a better job of describing what FPGAs are for.
 **Definition 2:** *An FPGA is a cheaper alternative to making a custom chip, for prototyping and low-volume production.* If you’re building a router, you can avoid the immense cost of taping out a new chip for it and instead ship an off-the-shelf FPGA programmed with the functionality you need. Or if you’re designing a CPU, you can use an FPGA as a prototype: you can build a real, bootable system around it for testing and snazzy demos before you ship the design off to a fab.
 
 Circuit emulation is the classic, mainstream use case for FPGAs, and it’s the reason they exist in the first place.
-The point of an FPGA is to take a hardware design, in the form of HDL code, and to get cheap hardware that behaves the same as the ASIC you would eventually produce.
-Of course everybody knows you’re unlikely to take *exactly* the same Verilog code and make it work both on an FPGA and on real silicon, but at least it’s in the same abstraction ballpark.
+The point of an FPGA is to take a hardware design, in the form of HDL code, and to buy cheap hardware that behaves the same as the ASIC you would eventually produce.
+You’re unlikely to take *exactly* the same Verilog code and make it work both on an FPGA and on real silicon, of course, but at least it’s in the same abstraction ballpark.
 
 **Definition 3:** *An FPGA is a pseudo-general-purpose computational accelerator.* Like a GPGPU, an FPGA is good for offloading a certain kind of computation. It’s harder to program than a CPU, but for the right workload, it can be worth the effort: a good FPGA implementation can offer orders-of-magnitude performance and energy advantages over a CPU baseline.
 
@@ -55,7 +55,7 @@ An FPGA configuration is a funky kind of software, but it’s software, not hard
 
 There’s a strong analogy here to GPUs.
 Before deep learning and before dogecoin, there was a time when GPUs were for graphics.
-[In the early 2000s][gpumm], people realized they could abuse a GPU as an accelerator for lots of computationally intensive kernels that had nothing to do with graphics: that GPU designers had built a more general kind of machine, for which graphics was just one application.
+[In the early 2000s][gpumm], people realized they could abuse a GPU as an accelerator for lots of computationally intensive kernels that had nothing to do with graphics: that GPU designers had built a more general kind of machine, for which 3D rendering was just one application.
 
 Computational FPGAs are following the same trajectory.
 The idea is to abuse this funky hardware not for circuit emulation but to exploit computational patterns that are amenable to circuit-like execution.
@@ -68,7 +68,7 @@ GPU : graphics :: FPGA : circuit simulation
 To let GPUs blossom into the data-parallel accelerators they are today, people had to reframe the concept of what a GPU takes as input.
 We used to think of a GPU taking in an exotic, intensely domain specific description of a visual effect.
 We unlocked their true potential by realizing that GPUs execute programs.
-This realization let GPUs evolve from targeting an *application* domain to a *computational* domain.
+This realization let GPUs evolve from targeting a single *application* domain to targeting an entire *computational* domain.
 I think we’re in the midst of a similar transition with computational FPGAs:
 
 <p class="showcase">
@@ -93,7 +93,7 @@ The problem with Verilog for computational FPGAs is that it neither does a good 
 By way of contradiction, let’s imagine what it would look like if RTL were playing each of these roles well.
 
 **Role 1:** *Verilog is an ergonomic high-level programming model that targets a lower-level abstraction.*
-In this thought experiment, the ISA for computational FPGAs is something at a lower level of abstraction than an RTL: netlists or bitstreams, for example.
+In this thought experiment, the ISA for computational FPGAs is something at a lower level of abstraction than RTL: netlists or bitstreams, for example.
 Verilog is the more productive, high-level programming model that we expose to humans.
 
 Even RTL experts probably don’t believe that Verilog is a productive way to do mainstream FPGA development. It won’t propel programmable logic into the mainstream.
@@ -131,4 +131,4 @@ GPU : GPGPU :: FPGA : ____
 
 If computational FPGAs are accelerators for a particular class of algorithmic patterns, there’s no reason to believe that today’s FPGAs are the ideal implementation of that goal.
 A new category of hardware that beats FPGAs at their own game could bring with it a fresh abstraction hierarchy.
-The new software stack should dispense with the entanglement with FPGAs’ circuit emulation legacy and, with it, their RTL abstraction.
+The new software stack should dispense with FPGAs’ circuit emulation legacy and, with it, their RTL abstraction.
