@@ -3,7 +3,7 @@ title: FPGAs Have the Wrong Abstraction
 excerpt: Verilog is the *de facto* abstraction for programming today's FPGAs. RTL programming is fine if you want to use FPGAs for their traditional purpose as circuit emulators, but it's not the right thing for the new view of FPGAs as general-purpose computational accelerators.
 ---
 <aside>
-These are notes from a short talk I’ll do at an &ldquo;open mic&rdquo; that <a href="https://www.microsoft.com/en-us/research/people/dcarmean/">Doug Carmean</a> is hosting at FCRC this weekend.
+These are notes from a short talk I’ll do at an &ldquo;open mic&rdquo; that some Microsoft folks are hosting at FCRC this weekend.
 </aside>
 
 ## The Computational FPGA
