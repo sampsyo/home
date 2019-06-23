@@ -24,15 +24,15 @@ FPGAs do a pretty good job of faking arbitrary circuits, but they really are fak
 The answer doesn’t work metaphorically because it oversimplifies the way people actually use FPGAs.
 The next two definitions will do a better job of describing what FPGAs are for.
 
-**Definition 2:** *An FPGA is a cheaper alternative to making a custom chip, for prototyping and lower-volume production.* If you’re building a router, you can avoid the immense cost of taping out a new chip for it and instead ship an off-the-shelf FPGA programmed with the functionality you need. Or if you’re designing a CPU, you can use an FPGA as a prototype: you can build a real, bootable system around it for testing and snazzy demos before you ship the design off to a fab.
+**Definition 2:** *An FPGA is a cheaper alternative to making a custom chip, for prototyping and low-volume production.* If you’re building a router, you can avoid the immense cost of taping out a new chip for it and instead ship an off-the-shelf FPGA programmed with the functionality you need. Or if you’re designing a CPU, you can use an FPGA as a prototype: you can build a real, bootable system around it for testing and snazzy demos before you ship the design off to a fab.
 
-This is the classic, mainstream use case for FPGAs, and it’s the reason FPGAs exist in the first place.
+Circuit emulation is the classic, mainstream use case for FPGAs, and it’s the reason they exist in the first place.
 The point of an FPGA is to take a hardware design, in the form of HDL code, and to get cheap hardware that behaves the same as the ASIC you would eventually produce.
-Of course everybody knows you’re unlikely to take *exactly* the same Verilog code and make it work both on an FPGA and on real silicon, but it’s not wrong to think of an FPGA as a circuit emulator.
+Of course everybody knows you’re unlikely to take *exactly* the same Verilog code and make it work both on an FPGA and on real silicon, but at least it’s in the same abstraction ballpark.
 
-**Definition 3:** *An FPGA is a pseudo-general-purpose computational accelerator.* Like a GPGPU, an FPGA is good for offloading a certain kind of computation. It’s harder to program than a CPU, but for the right workload, it can be worth the effort: a good FPGA implementation can offer orders-of-magnitude performance and energy advantages over a CPU baseline on certain kernels.
+**Definition 3:** *An FPGA is a pseudo-general-purpose computational accelerator.* Like a GPGPU, an FPGA is good for offloading a certain kind of computation. It’s harder to program than a CPU, but for the right workload, it can be worth the effort: a good FPGA implementation can offer orders-of-magnitude performance and energy advantages over a CPU baseline.
 
-This is a completely different use case from ASIC prototyping.
+This is a different use case from ASIC prototyping.
 Unlike circuit emulation, computational acceleration is an *emerging* use case for FPGAs.
 It’s behind the recent Microsoft successes accelerating [search][catapult] and [deep neural networks][brainwave].
 And critically, the computational use case doesn’t depend on FPGAs’ relationship to real ASICs:
@@ -41,11 +41,11 @@ the Verilog code people write for FPGA-based acceleration need not bear any simi
 [catapult]: https://www.microsoft.com/en-us/research/project/project-catapult/
 [brainwave]: https://www.microsoft.com/en-us/research/project/project-brainwave/
 
-These two use cases are different, especially in their implications for programming, compilers, and abstractions.
-I want to focus on the latter, which I’ll call *computational FPGA* programming.
+These two use cases differ sharply in their implications for programming, compilers, and abstractions.
+I want to focus on the latter use case, which I’ll call *computational FPGA* programming.
 My thesis here is that the current approach to programming computational FPGAs, which borrows the traditional programming model from circuit emulation, is not the right thing.
 Verilog and VHDL are exactly the right thing if you want to prototype an ASIC.
-But we can and should rethink the entire stack for when the goal is computational efficiency.
+But we can and should rethink the entire stack when the goal is computation.
 
 ## The GPU--FPGA Analogy
 
@@ -58,7 +58,7 @@ Before deep learning and before dogecoin, there was a time when GPUs were for gr
 [In the early 2000s][gpumm], people realized they could abuse a GPU as an accelerator for lots of computationally intensive kernels that had nothing to do with graphics: that GPU designers had built a more general kind of machine, for which graphics was just one application.
 
 Computational FPGAs are following the same trajectory.
-The idea is to abuse this hardware not for circuit emulation but to exploit computational patterns that make them amenable to circuit-like execution.
+The idea is to abuse this funky hardware not for circuit emulation but to exploit computational patterns that are amenable to circuit-like execution.
 In the form of an SAT analogy:
 
 <p class="showcase">
@@ -67,8 +67,8 @@ GPU : graphics :: FPGA : circuit simulation
 
 To let GPUs blossom into the data-parallel accelerators they are today, people had to reframe the concept of what a GPU takes as input.
 We used to think of a GPU taking in an exotic, intensely domain specific description of a visual effect.
-We unlocked their true potential by realizing that GPUs execute *programs*.
-This realization let GPUs evolve from targeting a particular application domain to a broad *computational* domain.
+We unlocked their true potential by realizing that GPUs execute programs.
+This realization let GPUs evolve from targeting an *application* domain to a *computational* domain.
 I think we’re in the midst of a similar transition with computational FPGAs:
 
 <p class="showcase">
@@ -83,7 +83,7 @@ Like GPUs, FPGAs need a hardware abstraction that embodies this computational pa
 GPU : SIMT ISA :: FPGA : ____
 </p>
 
-What’s missing here is an ISA-like abstraction for the *software* that FPGAs run.
+What’s missing here is an ISA-like abstraction for the software that FPGAs run.
 
 [gpumm]: https://graphics.stanford.edu/papers/gpumatrixmult/gpumatrixmult.pdf
 
@@ -96,20 +96,20 @@ By way of contradiction, let’s imagine what it would look like if RTL were pla
 In this thought experiment, the ISA for computational FPGAs is something at a lower level of abstraction than an RTL: netlists or bitstreams, for example.
 Verilog is the more productive, high-level programming model that we expose to humans.
 
-Even RTL experts probably don’t believe that Verilog is a productive way to do mainstream FPGA development that will propel programmable logic into the mainstream.
-RTL design may seem friendly and familiar to veteran hardware hackers, but the productivity gap with software languages is unfathomable.
+Even RTL experts probably don’t believe that Verilog is a productive way to do mainstream FPGA development. It won’t propel programmable logic into the mainstream.
+RTL design may seem friendly and familiar to veteran hardware hackers, but the productivity gap with software languages is immeasurable.
 
 **Role 2:** *Verilog is a low-level abstraction for FPGA hardware resources.* That is, Verilog is to an FPGA as an ISA is to a CPU. It may not be convenient to program in, but it’s a good target for compilers from higher-level languages because it directly describes what goes on in the hardware.
 And it’s the programming language of last resort for when you need to eke out the last few percentage points of performance.
 
 And indeed, Verilog is the *de facto* ISA for today’s computational FPGAs.
 The major FPGA vendors’ toolchains take Verilog as input, and compilers from higher-level languages emit Verilog as their output.
-[Vendors keep bitstream formats secret][secretbs], so Verilog is in practice as low in the abstraction hierarchy as you can go.
+[Vendors keep bitstream formats secret][secretbs], so Verilog is as low in the abstraction hierarchy as you can go.
 
 The problem with Verilog as an ISA is that it is too far removed from the hardware.
-The abstraction gap between RTL and FPGA hardware is enormous: it traditionally contains at least synthesis, technology mapping, and place & route, technology mapping---each of which is a complex, slow process.
+The abstraction gap between RTL and FPGA hardware is enormous: it traditionally contains at least synthesis, technology mapping, and place & route---each of which is a complex, slow process.
 As a result, the compile/edit/run cycle for RTL programming on FPGAs takes hours or days and, worse still, it’s unpredictable:
-the deep stack of toolchain stages can obscure the way that changes in RTL will affect the performance and energy.
+the deep stack of toolchain stages can obscure the way that changes in RTL will affect the design’s performance and energy characteristics.
 
 A good ISA should directly expose unvarnished truth about the underlying hardware.
 Like an assembly language, it need not be convenient to program in.
@@ -122,7 +122,7 @@ RTL is not that target.
 ## The Right Abstraction?
 
 I don’t know what abstraction should replace RTL for computational FPGAs.
-Practically, replacing Verilog may be impossible as long as the FPGA vendors keep their lower-level abstractions secret and their sub-RTL toolchains closed source.
+Practically, replacing Verilog may be impossible as long as the FPGA vendors keep their lower-level abstractions secret and their sub-RTL toolchains proprietary.
 The long-term resolution to this problem might only come when the hardware evolves, as GPUs once did:
 
 <p class="showcase">
@@ -131,4 +131,4 @@ GPU : GPGPU :: FPGA : ____
 
 If computational FPGAs are accelerators for a particular class of algorithmic patterns, there’s no reason to believe that today’s FPGAs are the ideal implementation of that goal.
 A new category of hardware that beats FPGAs at their own game could bring with it a fresh abstraction hierarchy.
-The new software stack should dispense with the legacy connection to circuit emulation and, with it, the RTL abstraction.
+The new software stack should dispense with the entanglement with FPGAs’ circuit emulation legacy and, with it, their RTL abstraction.
