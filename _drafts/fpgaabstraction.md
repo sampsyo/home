@@ -10,19 +10,19 @@ These are notes from a short talk I’ll do at an &ldquo;open mic&rdquo; that <a
 
 What is an FPGA?
 
-I think the architecture community doesn’t have a consensus answer.
+I don’t think the architecture community has a consensus definition.
 Let’s entertain three possible answers:
 
-**Definition 1:** *An FPGA is a bunch of transistors that you can wire up to make any circuit you want.* It’s like a breadboard at nanometer scale. Having an FPGA is like taping out a chip, but you only need to buy one chip to build lots of different designs---but you take an efficiency penalty in exchange.
+**Definition 1:** *An FPGA is a bunch of transistors that you can wire up to make any circuit you want.* It’s like a breadboard at nanometer scale. Having an FPGA is like taping out a chip, but you only need to buy one chip to build lots of different designs---and you take an efficiency penalty in exchange.
 
 I don’t like this answer.
 It’s neither literally true nor a solid metaphor for how people actually use FPGAs.
 
 It’s not literally true because of course you don’t literally rewire an FPGA---it’s actually a 2D grid of lookup tables connected by a routing network, with some arithmetic units and memories thrown in for good measure.
-FPGAs do a pretty good job of faking arbitrary circuits, but they really are faking it, just like any software circuit emulator.
+FPGAs do a pretty good job of faking arbitrary circuits, but they really are faking it, in the same way that a software circuit emulator fakes it.
 
-The answer doesn’t work metaphorically either because it oversimplifies the way people actually use FPGAs.
-The other two definitions will do a better job of describing the usefulness of FPGAs.
+The answer doesn’t work metaphorically because it oversimplifies the way people actually use FPGAs.
+The next two definitions will do a better job of describing what FPGAs are for.
 
 **Definition 2:** *An FPGA is a cheaper alternative to making a custom chip, for prototyping and lower-volume production.* If you’re building a router, you can avoid the immense cost of taping out a new chip for it and instead ship an off-the-shelf FPGA programmed with the functionality you need. Or if you’re designing a CPU, you can use an FPGA as a prototype: you can build a real, bootable system around it for testing and snazzy demos before you ship the design off to a fab.
 
