@@ -287,6 +287,11 @@ phdcommittees:
 
 talks:
     -
+        title: 'Panel: Charting Your Path'
+        where: 'Programming Languages Mentoring Workshop at PLDI 2019'
+        date: 2019-06-23
+        link: 'https://pldi19.sigplan.org/home/PLMW-PLDI-2019'
+    -
         title: 'Designing Languages for Designing Hardware'
         where: 'Programming Languages Mentoring Workshop at PLDI 2019'
         date: 2019-06-23
