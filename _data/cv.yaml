@@ -299,6 +299,12 @@ talks:
         extra:
             - '[Slides.](https://www.cs.cornell.edu/~asampson/media/plmw2019.pdf)'
     -
+        title: 'FPGAs Have the Wrong Abstraction'
+        where: 'Open mic night at FCRC 2019.'
+        date: 2019-06-22
+        extra:
+            - '[Slides.](https://www.cs.cornell.edu/~asampson/media/fpga-openmic.pdf)'
+    -
         title: 'Designing Custom Hardware Accelerators with Types'
         where: 'Colloquium, Department of Computer Science, Williams College'
         date: 2019-04-05
