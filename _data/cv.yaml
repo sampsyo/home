@@ -287,6 +287,13 @@ phdcommittees:
 
 talks:
     -
+        title: 'Designing Languages for Designing Hardware'
+        where: 'Programming Languages Mentoring Workshop at PLDI 2019'
+        date: 2019-06-23
+        link: 'https://pldi19.sigplan.org/home/PLMW-PLDI-2019'
+        extra:
+            - '[Slides.](https://www.cs.cornell.edu/~asampson/media/plmw2019.pdf)'
+    -
         title: 'Designing Custom Hardware Accelerators with Types'
         where: 'Colloquium, Department of Computer Science, Williams College'
         date: 2019-04-05
