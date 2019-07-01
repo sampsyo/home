@@ -300,10 +300,11 @@ talks:
             - '[Slides.](https://www.cs.cornell.edu/~asampson/media/plmw2019.pdf)'
     -
         title: 'FPGAs Have the Wrong Abstraction'
-        where: 'Open mic night at FCRC 2019.'
+        where: 'Open mic night at FCRC 2019'
         date: 2019-06-22
         extra:
             - '[Slides.](https://www.cs.cornell.edu/~asampson/media/fpga-openmic.pdf)'
+            - '[Notes.](https://www.cs.cornell.edu/~asampson/blog/fpgaabstraction.html)'
     -
         title: 'Designing Custom Hardware Accelerators with Types'
         where: 'Colloquium, Department of Computer Science, Williams College'
@@ -321,7 +322,7 @@ talks:
         where: "[Workshop on Negative Outcomes, Post-Mortems, and Experiences (NOPE)](http://nope.pub/2017/), at MICRO 2017"
         date: 2017-10-14
         extra:
-            - '[Blog post.](https://www.cs.cornell.edu/~asampson/blog/closedproblems.html)'
+            - '[Notes.](https://www.cs.cornell.edu/~asampson/blog/closedproblems.html)'
     -
         title: "Probabilistic Programming"
         where: "Schloss Dagstuhl, [Seminar 15491: Approximate and Probabilistic Computing: Design, Coding, Verification](https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=15491)"
