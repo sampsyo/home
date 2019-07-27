@@ -105,6 +105,9 @@ title: CV
             {% else %}
             {{ student.start }}&ndash;
             {% endif %}
+            {% if student.extra %}
+                <br><span class="details">{{ student.extra }}</span>
+            {% endif %}
         </p>
         {% endfor %}
     {% endfor %}
