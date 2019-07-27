@@ -3,129 +3,146 @@
     students:
         -
             name: Mark Buckler
-            when: 2016&ndash;
-
+            start: 2016
         -
             name: Philip Bedoukian
-            when: 2017&ndash;
-
+            start: 2017
         -
             name: Dietrich Geisler
-            when: 2018&ndash;
-
+            start: 2018
         -
             name: Edwin Peguero
-            when: 2018&ndash;
-
+            start: 2018
         -
             name: Drew Zagieboylo
-            when: 2017
-
+            start: 2017
+            end: 2017
         -
             name: Rachit Nigam
-            when: 2018&ndash;
-
+            start: 2018
         -
             name: Alexa VanHattum
-            when: 2018&ndash;
+            start: 2018
         -
             name: Neil Adit
-            when: 2018&ndash;
+            start: 2018
         -
             name: Zhijing Li
-            when: 2019&ndash;
+            start: 2019
+        -
+            name: Sachille Atapattu
+            start: 2018
 
 -
     category: Master of Engineering
     students:
         -
             name: Richie Henwood
-            when: 2017
+            start: 2017
+            end: 2017
         -
             name: Moshe Klebanov
-            when: 2017
+            start: 2017
+            end: 2017
         -
             name: Taehoon Lee
-            when: 2017
+            start: 2017
+            end: 2017
         -
             name: Mingyang Li
-            when: 2017
+            start: 2017
+            end: 2017
         -
             name: Eric Lin
-            when: 2017
+            start: 2017
+            end: 2017
         -
             name: Daniel Sainati
-            when: 2018
+            start: 2018
+            end: 2018
         -
             name: Evan Su
-            when: 2018
+            start: 2018
+            end: 2018
         -
             name: Shiyu Wang
-            when: 2018
+            start: 2018
+            end: 2018
         -
             name: Arthur Wang
-            when: 2018
+            start: 2018
+            end: 2018
         -
             name: Alex Wong
-            when: 2019
+            start: 2019
+            end: 2019
         -
             name: Eric Mei
-            when: 2019
+            start: 2019
+            end: 2019
         -
             name: James Chen
-            when: 2019
+            start: 2019
+            end: 2019
 
 -
     category: Undergraduate
     students:
         -
             name: Yiteng Guo
-            when: 2017&ndash;2018
+            start: 2017
+            end: 2018
         -
             name: Harry Goldstein
-            when: 2017&ndash;2018
+            start: 2017
+            end: 2018
         -
             name: Alex Renda
-            when: 2017&ndash;2018
+            start: 2017
+            end: 2018
         -
             name: Omar Abdelaziz
-            when: 2016&ndash;2017
+            start: 2016
+            end: 2017
         -
             name: Chirag Bharadwaj
-            when: 2016&ndash;2017
+            start: 2016
+            end: 2017
         -
             name: Tyler Etzel
-            when: 2017&ndash;2018
+            start: 2017
+            end: 2018
         -
             name: Joshua Diaz
-            when: 2017&ndash;2018
+            start: 2017
+            end: 2018
         -
             name: Irene Yoon
-            when: 2018&ndash;
+            start: 2018
         -
             name: Ted Bauer
-            when: 2018&ndash;
+            start: 2018
         -
             name: Jenna Choi
-            when: 2018&ndash;
+            start: 2018
         -
             name: Aditi Kabra
-            when: 2018&ndash;
+            start: 2018
         -
             name: Yinnon Sanders
-            when: 2018&ndash;
+            start: 2018
         -
             name: Horace He
-            when: 2018&ndash;
+            start: 2018
         -
             name: Kenneth Fang
-            when: 2019&ndash;
+            start: 2019
         -
             name: Apurva Koti
-            when: 2019&ndash;
+            start: 2019
         -
             name: Samuel Thomas
-            when: 2019&ndash;
+            start: 2019
 -
     category: Undergraduate Researchers at UW
     details: |
@@ -133,16 +150,20 @@
     students:
         -
             name: Luyi Liu
-            when: 2014
+            start: 2014
+            end: 2014
         -
             name: Chengfeng Shi
-            when: 2014
+            start: 2014
+            end: 2014
         -
             name: Joshua Yip
-            when: 2014
+            start: 2014
+            end: 2014
         -
             name: Brett Boston
-            when: 2013&ndash;2015
+            start: 2013
+            end: 2015
             url: https://people.csail.mit.edu/boston/
             extra: |
                 B.S. Honors Thesis
@@ -151,11 +172,14 @@
                 Now a Ph.D. student at MIT
         -
             name: Wenjie (Marissa) He
-            when: 2013&ndash;2015
+            start: 2013
+            end: 2015
         -
             name: Finn Parnell
             extra: B.S. Honors Thesis
-            when: 2011&ndash;2012
+            start: 2011
+            end: 2012
         -
             name: Danushen Gnanapragasam
-            when: 2010&ndash;2011
+            start: 2010
+            end: 2011

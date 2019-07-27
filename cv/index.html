@@ -96,8 +96,14 @@ title: CV
         {% if category.details %}<p>{{ category.details }}</p>{% endif %}
         {% for student in category.students %}
         <p>
-            <strong>{{ student.name }}</strong>, {{ student.when }}
-            {% if student.extra %}<br>{{ student.extra }}{% endif %}
+            <strong>{{ student.name }}</strong>,
+            {% if student.start == student.end %}
+            {{ student.start }}
+            {% elsif student.end %}
+            {{ student.start }}&ndash;{{ student.end }}
+            {% else %}
+            {{ student.start }}&ndash;
+            {% endif %}
         </p>
         {% endfor %}
     {% endfor %}
