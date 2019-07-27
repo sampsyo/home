@@ -94,7 +94,8 @@ title: CV
     {% for category in students %}
         <h3>{{ category.category }}</h3>
         {% if category.details %}<p>{{ category.details }}</p>{% endif %}
-        {% for student in category.students %}
+        {% assign st = category.students | sort: 'start' | reverse %}
+        {% for student in st %}
         <p>
             <strong>{{ student.name }}</strong>,
             {% if student.start == student.end %}
