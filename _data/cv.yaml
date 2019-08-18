@@ -139,13 +139,14 @@ service:
     - |
         Cornell University, Computing and Information Science:
 
+        * 2019 [CIS Summer Talk Series for Undergraduate Researchers](https://capra.cs.cornell.edu/summertalks.html), organizer
         * Rhodes Hall Renovation Stakeholder Committee: 2018
 
     - |
         Cornell University, Computer Science:
 
-        * Ph.D. Admissions Committee: 2015--16, 2016--17, 2017-18, 2018--19
-        * Programming Languages Retreat, Organizer: 2018
+        * Ph.D. Admissions Committee: 2015--16, 2016--17, 2017--18, 2018--19
+        * Programming Languages Retreat, Organizer: 2018, 2019
         * Colloquium Committee: 2017--18
         * Vision Statement Committee: 2017
         * Faculty Recruiting Committee: 2016--17
@@ -287,16 +288,16 @@ phdcommittees:
 
 talks:
     -
-        title: 'Designing Programming Languages for Heterogeneous Hardware'
-        where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
-        date: 2019-08-06
-        link: 'https://cmmrs.mpi-sws.org/lectures/'
-
-    -
         title: 'Panel: How to Apply to Graduate School'
         where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
         date: 2019-08-09
         link: 'https://cmmrs.mpi-sws.org/program/'
+
+    -
+        title: 'Designing Programming Languages for Heterogeneous Hardware'
+        where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
+        date: 2019-08-06
+        link: 'https://cmmrs.mpi-sws.org/lectures/'
 
     -
         title: 'Panel: Charting Your Path'
