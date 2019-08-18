@@ -287,6 +287,18 @@ phdcommittees:
 
 talks:
     -
+        title: 'Designing Programming Languages for Heterogeneous Hardware'
+        where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
+        date: 2019-08-06
+        link: 'https://cmmrs.mpi-sws.org/lectures/'
+
+    -
+        title: 'Panel: How to Apply to Graduate School'
+        where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
+        date: 2019-08-09
+        link: 'https://cmmrs.mpi-sws.org/program/'
+
+    -
         title: 'Panel: Charting Your Path'
         where: 'Programming Languages Mentoring Workshop at PLDI 2019'
         date: 2019-06-23
