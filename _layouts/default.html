@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <title>
-            {{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}
+            {% if page.plain %}{{ page.title }}{% else %}{{ site.name }}{% if page.title %}: {{ page.title }}{% endif %}{% endif %}
         </title>
 
         <link rel="stylesheet" href="{{ site.base }}/media/main.css">
