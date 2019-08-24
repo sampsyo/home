@@ -3,7 +3,10 @@
     students:
         -
             name: Mark Buckler
+            link: http://www.markbuckler.com
             start: 2016
+            end: 2019
+            extra: 'Dissertation: <i>Holistic Optimization of Embedded Computer Vision Systems</i>.'
         -
             name: Philip Bedoukian
             start: 2017
@@ -15,19 +18,24 @@
             start: 2018
         -
             name: Drew Zagieboylo
+            link: https://www.cs.cornell.edu/~dzag/
             start: 2017
             end: 2017
         -
             name: Rachit Nigam
+            link: https://rachitnigam.com
             start: 2018
         -
             name: Alexa VanHattum
+            link: https://www.cs.cornell.edu/~avh/
             start: 2018
         -
             name: Neil Adit
+            link: http://www.neiladit.com
             start: 2018
         -
             name: Zhijing Li
+            link: https://tissue3.github.io/
             start: 2019
         -
             name: Sachille Atapattu

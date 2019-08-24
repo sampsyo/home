@@ -97,7 +97,7 @@ title: 'Adrian Sampson: CV'
         {% assign st = category.students | sort: 'start' | reverse %}
         {% for student in st %}
         <p>
-            <strong>{{ student.name }}</strong>,
+            <strong>{% if student.link %}<a href="{{ student.link }}">{% endif %}{{ student.name }}{% if student.link %}</a>{% endif %}</strong>,
             {% if student.start == student.end %}
             {{ student.start }}
             {% elsif student.end %}
