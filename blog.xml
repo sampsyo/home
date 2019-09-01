@@ -8,11 +8,12 @@ layout: null
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <link rel="alternate" href="{{ site.url }}/"/>
   <link rel="self" href="{{ site.url }}/blog.xml"/>
+  <icon>{{ site.url }}/media/icon/favicon.ico</icon>
   <author>
     <name>{{ site.author }}</name>
     <uri>{{ site.url }}/</uri>
   </author>
-  
+
   {% for post in site.posts limit:5 %}
   <entry>
     {% if post.kind == 'article' %}
