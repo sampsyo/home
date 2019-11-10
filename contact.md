@@ -34,8 +34,8 @@ I'd be happy to! Please [pick a time][advmtg].
 
 Before you do, though, I should warn you that if your question is about course requirements, graduation logistics, and the like, I'm not the best person to ask---our [undergraduate advisors][ugrad] are the true experts. You can reach them in Gates 110 or at [ugrad@cs.cornell.edu](mailto:ugrad@cs.cornell.edu).
 
-  [advmtg]: https://when.works/invitations/5b7b21532ee0750014c9b495
-  [ugrad]: https://www.cs.cornell.edu/undergrad/ustaff
+[advmtg]: https://calendly.com/samps/advising
+[ugrad]: https://www.cs.cornell.edu/undergrad/ustaff/contact-academic-advisor
 
 
 ### I'm applying to grad school soon, and I'm interested in doing research with you!  {#grad}
