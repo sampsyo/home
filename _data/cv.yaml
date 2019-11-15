@@ -256,6 +256,10 @@ committees:
 
 phdcommittees:
     -
+        name: 'Kevin Negy'
+        advisor: 'Emin Gün Sirer'
+        link: 'https://www.cs.cornell.edu/~kevinnegy/'
+    -
         name: 'Peitian Pan'
         advisor: Chris Batten
     -
