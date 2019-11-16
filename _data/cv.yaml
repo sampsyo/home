@@ -256,6 +256,9 @@ committees:
 
 phdcommittees:
     -
+        name: 'A.F. Cooper'
+        advisor: 'Chris De Sa'
+    -
         name: 'Kevin Negy'
         advisor: 'Emin Gün Sirer'
         link: 'https://www.cs.cornell.edu/~kevinnegy/'
