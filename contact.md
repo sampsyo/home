@@ -44,7 +44,8 @@ Fantastic! I'm thrilled that you're interested in the same kinds of hardware--so
 
 Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply]. I'll look forward to reading your application to either department.
 
-We have a department-wide collective admissions process, however, which means that I can't say anything useful about anybody's chances for acceptance.
+We have a department-wide collective admissions process, which means that I can't say anything useful about your chances for acceptance.
+Our programs are very competitive, however, so be sure to apply to multiple programs.
 
 
 ### I'm looking for a summer research internship.  {#intern}
