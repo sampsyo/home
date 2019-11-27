@@ -331,6 +331,7 @@ talks:
         link: 'https://pldi19.sigplan.org/home/PLMW-PLDI-2019'
         extra:
             - '[Slides.](https://www.cs.cornell.edu/~asampson/media/plmw2019.pdf)'
+            - '[Video.](https://youtu.be/c4twmx8tZw4)'
     -
         title: 'FPGAs Have the Wrong Abstraction'
         where: 'Open mic night at FCRC 2019'
