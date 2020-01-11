@@ -171,6 +171,9 @@ service:
 
 committees:
     - |
+        [YArch 2020](https://sites.psu.edu/yarch2020/): Program committee member
+
+    - |
         OOPSLA 2020: Review committee member
 
     - |
