@@ -4,11 +4,13 @@ layout: shorty
 ---
 I am teaching:
 
-* [Fall 2019: CS 6120, "Advanced Compilers."](https://www.cs.cornell.edu/courses/cs6120/2019fa/)
-  This is a new and experimental PhD-level course about programming language implementation.
+* [Spring 2020: CS 7491, "The Great ISAs."](https://www.cs.cornell.edu/courses/cs7491/2020sp/)
+  This is a new reading seminar on the history of hardware–software abstractions.
 
 I previously taught:
 
+* [Fall 2019: CS 6120, "Advanced Compilers."](https://www.cs.cornell.edu/courses/cs6120/2019fa/)
+  This is a new and experimental PhD-level course about programming language implementation.
 * [Spring 2019: CS 6110, "Advanced Programming Languages."](http://www.cs.cornell.edu/courses/cs6110/2019sp/)
   This is our graduate programming languages course. It is "enjoyed" by PL-oriented and non-PL PhD students alike.
 * [Fall 2018: CS 4110, "Programming Languages and Logics."](https://www.cs.cornell.edu/Courses/cs4110/2018fa/)
