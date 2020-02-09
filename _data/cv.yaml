@@ -320,6 +320,10 @@ phdcommittees:
 
 talks:
     -
+        title: 'Reconfigurability Through a Language Lens'
+        where: 'Facebook Boston'
+        date: 2020-02-03
+    -
         title: 'Panel: How to Apply to Graduate School'
         where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
         date: 2019-08-09
