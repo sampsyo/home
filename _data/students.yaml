@@ -92,6 +92,10 @@
             name: James Chen
             start: 2019
             end: 2019
+        -
+            name: Henry Liu
+            start: 2019
+            end: 2020
 
 -
     category: Undergraduate
@@ -168,6 +172,17 @@
             start: 2019
         -
             name: Edan Mobed
+            start: 2019
+            end: 2019
+        -
+            name: Kimberly Baum
+            start: 2019
+            end: 2019
+        -
+            name: Palini Ramnarayan
+            start: 2019
+        -
+            name: Katy Voor
             start: 2019
 -
     category: Undergraduate Researchers at UW
