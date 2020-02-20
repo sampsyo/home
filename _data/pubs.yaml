@@ -1,4 +1,12 @@
 -
+    title: "Optimizing JPEG Quantization for Classification Networks"
+    authors: "Zhijing Li, Christopher De Sa and Adrian Sampson"
+    venue: "ReCoML 2020"
+    venue_url: 'https://sites.google.com/view/recomlsys2020'
+    type: workshop
+    with: MLSys
+    url: 'BASE/media/papers/deepjpeg-recoml2020.pdf'
+-
     title: "LambdaLab: An Interactive λ-Calculus Reducer for Learning"
     authors: "Daniel Sainati and Adrian Sampson"
     venue: "SPLASH-E 2018"
