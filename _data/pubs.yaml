@@ -33,8 +33,8 @@
     authors: "Alex Renda, Harrison Goldstein, Sarah Bird, Chris Quirk, and Adrian Sampson"
     venue: "SysML 2018"
     type: conference
-    venue_url: 'http://www.sysml.cc'
-    url: 'http://www.sysml.cc/doc/56.pdf'
+    venue_url: 'https://mlsys.org/Conferences/2018/'
+    url: 'https://mlsys.org/Conferences/2019/doc/2018/56.pdf'
     extra:
      - '[Project page.](https://capra.cs.cornell.edu/research/opal/)'
 
