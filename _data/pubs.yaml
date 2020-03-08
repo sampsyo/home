@@ -1,4 +1,13 @@
 -
+    title: "Predictable Accelerator Design with Time-Sensitive Affine types"
+    authors: "Rachit Nigam, Sachille Atapattu, Samuel Thomas, Zhijing Li, Ted Bauer, Yuwei Yi, Apurva Koti, Adrian Sampson, and Zhiru Zhang"
+    venue: "PLDI 2020"
+    type: conference
+    venue_url: 'https://pldi20.sigplan.org'
+    url: 'https://rachitnigam.com/files/pubs/dahlia.pdf'
+    preprint: true
+
+-
     title: "Optimizing JPEG Quantization for Classification Networks"
     authors: "Zhijing Li, Christopher De Sa and Adrian Sampson"
     venue: "ReCoML 2020"
@@ -6,6 +15,7 @@
     type: workshop
     with: MLSys
     url: 'BASE/media/papers/deepjpeg-recoml2020.pdf'
+
 -
     title: "LambdaLab: An Interactive λ-Calculus Reducer for Learning"
     authors: "Daniel Sainati and Adrian Sampson"
@@ -72,7 +82,6 @@
     authors: "Thierry Moreau, Joshua San Miguel, Mark Wyse, James Bornholt, Armin Alaghi, Luis Ceze, Natalie Enright Jerger, and Adrian Sampson"
     venue: "IEEE Embedded Systems Letters"
     type: journal
-    preprint: true
     url: http://ieeexplore.ieee.org/document/8054698/
 
 -
