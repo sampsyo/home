@@ -329,6 +329,11 @@ phdcommittees:
 
 talks:
     -
+        title: 'Predictable Accelerator Design'
+        where: 'UCLA Center for Domain-Specific Computing'
+        date: 2020-02-28
+        link: 'https://cdsc.ucla.edu/all-events/'
+    -
         title: 'Reconfigurability Through a Language Lens'
         where: 'Facebook Boston'
         date: 2020-02-03
@@ -337,7 +342,6 @@ talks:
         where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
         date: 2019-08-09
         link: 'https://cmmrs.mpi-sws.org/program/'
-
     -
         title: 'Designing Programming Languages for Heterogeneous Hardware'
         where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
