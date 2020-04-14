@@ -1,4 +1,13 @@
 -
+    title: 'A Synthesis-Aided Compiler for DSP Architectures'
+    authors: 'Alexa VanHattum, Rachit Nigam, Vincent T. Lee, James Bornholt, and Adrian Sampson'
+    venue: 'LCTES 2020'
+    type: conference
+    venue_url: https://conf.researchr.org/home/LCTES-2020
+    url: https://www.cs.cornell.edu/~avh/diospyros-lctes-2020.pdf
+    preprint: true
+
+-
     title: "Predictable Accelerator Design with Time-Sensitive Affine Types"
     authors: "Rachit Nigam, Sachille Atapattu, Samuel Thomas, Zhijing Li, Ted Bauer, Yuwei Yi, Apurva Koti, Adrian Sampson, and Zhiru Zhang"
     venue: "PLDI 2020"
