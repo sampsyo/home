@@ -450,3 +450,21 @@ figcaption {
 .katex {
     font-size: 1.05em !important;
 }
+
+// Bookmarklet link style.
+.bookmarklet {
+    display: block;
+    width: 6rem;
+    margin: auto;
+    text-align: center;
+    background: #999;
+    color: white;
+    border-radius: 4px;
+    font-family: $title-font;
+    padding: 3px 0;
+    box-shadow: 2px 2px 2px #ccc;
+    text-shadow: 1px 1px 2px #ccc;
+    &:hover {
+        text-decoration: none;
+    }
+}
