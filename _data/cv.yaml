@@ -332,6 +332,10 @@ phdcommittees:
 
 talks:
     -
+        title: 'Accelerator Design Languages'
+        where: 'University of Wisconsin–Madison, Computer Sciences Department'
+        date: 2020-05-22
+    -
         title: 'Predictable Accelerator Design'
         where: 'UCLA Center for Domain-Specific Computing'
         date: 2020-02-28
