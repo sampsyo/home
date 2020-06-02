@@ -332,6 +332,13 @@ phdcommittees:
 
 talks:
     -
+        title: 'Predictable Accelerator Design'
+        where: 'CHIPKIT Tutorial on Agile Research Test Chips at ISCA 2020'
+        date: 2020-05-31
+        link: 'https://mrc-donato.github.io/CHIPKIT-Tutorial/'
+        extra:
+            - '[Video.](https://vod.video.cornell.edu/media/CHIPKITA+Predictable+Accelerator+Design/1_abyr0ukw)'
+    -
         title: 'Accelerator Design Languages'
         where: 'University of Wisconsin–Madison, Computer Sciences Department'
         date: 2020-05-22
