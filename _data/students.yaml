@@ -174,14 +174,17 @@
         -
             name: Horace He
             start: 2018
+            end: 2020
             extra: |
                 Honorable mention, <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">2020 CRA Outstanding Undergraduate Researcher Awards</a>
         -
             name: Kenneth Fang
             start: 2019
+            end: 2020
         -
             name: Apurva Koti
             start: 2019
+            end: 2020
         -
             name: Samuel Thomas
             start: 2019
@@ -198,15 +201,33 @@
         -
             name: Kimberly Baum
             start: 2019
-            end: 2019
         -
             name: Palini Ramnarayan
             start: 2019
         -
             name: Katy Voor
             start: 2019
+            end: 2020
         -
             name: Yasmin Sarita
+            start: 2020
+            end: 2020
+        -
+            name: Patrick LaFontaine
+            start: 2020
+        -
+            name: Maya Ifekauche
+            extra: Auburn University
+            start: 2020
+        -
+            name: Jacob Delgado-López
+            extra: University of Puerto Rico
+            start: 2020
+        -
+            name: Evan Adler
+            start: 2020
+        -
+            name: Akshat Singh
             start: 2020
 -
     category: Undergraduate Researchers at UW
