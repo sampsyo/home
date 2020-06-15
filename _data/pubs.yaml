@@ -387,6 +387,13 @@
     url: "http://online.qmags.com/PCM0415/default.aspx?sessionID=1812DBB6BEFA408E867C374BA&cid=3200720&eid=19366&pg=11&mode=2#pg11&mode2?fs=2&pg=11&mode=2"
 
 -
+    title: "ACCEPT: A Programmer-Guided Compiler Framework for Practical Approximate Computing"
+    authors: "Adrian Sampson, André Baixo, Benjamin Ransford, Thierry Moreau, Joshua Yip, Luis Ceze, and Mark Oskin"
+    venue: "Technical report UW-CSE-15-01 1."
+    url: https://dada.cs.washington.edu/research/tr/2015/01/UW-CSE-15-01-01.pdf
+    type: tr
+
+-
     title: Neural Acceleration for General-Purpose Approximate Programs
     authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
     venue: CACM Research Highlights, January 2015
