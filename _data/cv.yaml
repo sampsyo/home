@@ -332,6 +332,13 @@ phdcommittees:
 
 talks:
     -
+        title: '"Ask Me Anything" with Margaret Martonosi'
+        where: 'PLDI 200'
+        link: 'https://pldi20.sigplan.org/details/pldi-2020-ask-me-anything/6/-Ask-Me-Anything-with-Margaret-Martonosi'
+        date: 2020-06-17
+        extra:
+            - '[Video.](https://youtu.be/ig5xmWoyo_I)'
+    -
         title: 'Predictable Accelerator Design'
         where: 'CHIPKIT Tutorial on Agile Research Test Chips at ISCA 2020'
         date: 2020-05-31
