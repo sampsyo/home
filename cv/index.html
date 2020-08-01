@@ -61,7 +61,7 @@ title: 'Adrian Sampson: CV'
     <p>
         {{ talk.date | date: "%B %e, %Y" }}:
         <span class="title">
-            {% if talk.link %}<a href="{{ talk.link }}">{% endif %}&ldquo;{{ talk.title }}.&rdquo;{% if talk.link %}</a>{% endif %}
+            {% if talk.link %}<a href="{{ talk.link }}">{% endif %}{% unless talk.notitle %}&ldquo;{% endunless %}{{ talk.title }}.{% unless talk.notitle %}&rdquo;{% endunless %}{% if talk.link %}</a>{% endif %}
         </span>
         {{ talk.where | markdownify | remove: '<p>' | remove: '</p>' | strip }}.
         {% for extra in talk.extra %}

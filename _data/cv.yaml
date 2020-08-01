@@ -335,7 +335,8 @@ phdcommittees:
 
 talks:
     -
-        title: '"Ask Me Anything" with Margaret Martonosi'
+        title: '“Ask Me Anything” with Margaret Martonosi'
+        notitle: true
         where: 'PLDI 200'
         link: 'https://pldi20.sigplan.org/details/pldi-2020-ask-me-anything/6/-Ask-Me-Anything-with-Margaret-Martonosi'
         date: 2020-06-17
@@ -363,6 +364,7 @@ talks:
         date: 2020-02-03
     -
         title: 'Panel: How to Apply to Graduate School'
+        notitle: true
         where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
         date: 2019-08-09
         link: 'https://cmmrs.mpi-sws.org/program/'
@@ -374,6 +376,7 @@ talks:
 
     -
         title: 'Panel: Charting Your Path'
+        notitle: true
         where: 'Programming Languages Mentoring Workshop at PLDI 2019'
         date: 2019-06-23
         link: 'https://pldi19.sigplan.org/home/PLMW-PLDI-2019'
