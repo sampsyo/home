@@ -39,10 +39,11 @@ Yay! Please check out my research group's [instructions for prospective undergra
 
 I'd be happy to! Please [pick a time][advmtg].
 
-Before you do, though, I should warn you that if your question is about course requirements, graduation logistics, and the like, I'm not the best person to ask---our [undergraduate advisors][ugrad] are the true experts. You can reach them in Gates 110 or at [ugrad@cs.cornell.edu](mailto:ugrad@cs.cornell.edu).
+Before you do, though, I should warn you that if your question is about course requirements, graduation logistics, and the like, I'm not the best person to ask---our [undergraduate advisors][ugrad] are the true experts. For example, the [A&S application to graduate][graduation] goes through that office, not your faculty advisor. You can reach them in Gates 110 or at [ugrad@cs.cornell.edu](mailto:ugrad@cs.cornell.edu).
 
 [advmtg]: https://calendly.com/samps/advising
 [ugrad]: https://www.cs.cornell.edu/undergrad/ustaff/contact-academic-advisor
+[graduation]: https://www.cs.cornell.edu/undergrad/csmajor/graduationreqs
 
 
 ### I'm applying to grad school soon, and I'm interested in doing research with you!  {#grad}
