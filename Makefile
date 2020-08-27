@@ -24,7 +24,7 @@ cleanbuild:
 
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
 	--delete -e ssh --timeout=30
-DEST := cslinux:/people/als485
+DEST := cslinux:/people/als485/home
 deploy: cleanbuild site
 	rsync $(RSYNCARGS) _site/ $(DEST)
 
