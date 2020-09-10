@@ -38,6 +38,7 @@ Yay! Please check out my research group's [instructions for prospective undergra
 ### I'm one of your undergraduate advisees. Can you meet up so I can ask you some questions or get a form signed?  {#advising}
 
 I'd be happy to! Please [pick a time][advmtg].
+Please send any forms along before you schedule the meeting.
 
 Before you do, though, I should warn you that if your question is about course requirements, graduation logistics, and the like, I'm not the best person to ask---our [undergraduate advisors][ugrad] are the true experts. For example, that office signs part 2 of the [A&S application to graduate][graduation] (this policy supersedes the college's advice that your faculty advisor should sign it). You can reach them in Gates 110 or at [ugrad@cs.cornell.edu](mailto:ugrad@cs.cornell.edu).
 
