@@ -356,6 +356,9 @@ talks:
         title: 'Accelerator Design Languages'
         where: 'University of Wisconsin–Madison, Computer Sciences Department'
         date: 2020-05-22
+        link: 'https://madpl.cs.wisc.edu/pl-seminar/20200522-adrian_sampson/'
+        extra:
+            - '[Video.](https://youtu.be/6gX21ruBRaw)'
     -
         title: 'Predictable Accelerator Design'
         where: 'UCLA Center for Domain-Specific Computing'
