@@ -338,6 +338,11 @@ phdcommittees:
 
 talks:
     -
+        title: Languages and Compilers for Accelerator Design
+        where: University of Massachusetts Amherst
+        link: https://systems-lunch.org/#october-2-2020
+        date: 2020-10-02
+    -
         title: '“Ask Me Anything” with Margaret Martonosi'
         notitle: true
         where: 'PLDI 200'
