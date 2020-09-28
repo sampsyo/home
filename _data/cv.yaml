@@ -185,6 +185,9 @@ service:
 
 
 committees:
+    - venue: ISCA
+      year: 2021
+      role: Program committee member
     - venue: IEEE Micro Top Picks
       year: 2021
       role: Selection committee member
