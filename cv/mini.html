@@ -1,7 +1,7 @@
 ---
 layout: default
 plain: true
-class: cv
+class: cv mini
 title: 'Adrian Sampson: Short CV'
 ---
 {% assign cv = site.data.cv %}
@@ -38,19 +38,6 @@ title: 'Adrian Sampson: Short CV'
 </section>
 
 <section>
-    <h2>Research Positions</h2>
-    {% for job in cv.jobs %}
-    {% if job.selected %}
-    <p>
-        {{ job.title }}<br>
-        <strong>{{ job.where }}</strong><br>
-        {{ job.dates }}
-    </p>
-    {% endif %}
-    {% endfor %}
-</section>
-
-<section>
     <h2>Selected Honors</h2>
     {% for h in cv.honors %}
         {% if h.selected %}
@@ -59,7 +46,7 @@ title: 'Adrian Sampson: Short CV'
     {% endfor %}
 </section>
 
-<section>
+<section class="collapsed">
     <h2>Ph.D. Students</h2>
     {% for category in students %}
     {% if category.category == "Ph.D." %}
@@ -75,16 +62,13 @@ title: 'Adrian Sampson: Short CV'
             {% else %}
             {{ student.start }}&ndash;
             {% endif %}
-            {% if student.extra %}
-                <br><span class="details">{{ student.extra }}</span>
-            {% endif %}
         </p>
         {% endfor %}
     {% endif %}
     {% endfor %}
 </section>
 
-<section>
+<section class="collapsed">
     <h3>Recent Review Committees</h3>
     {% for c in cv.committees %}
     {% if c.year > 2019 %}
@@ -96,7 +80,3 @@ title: 'Adrian Sampson: Short CV'
     {% endif %}
     {% endfor %}
 </section>
-
-<footer>
-    {{ cv.name }} &mdash; <a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
-</footer>

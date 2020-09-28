@@ -368,6 +368,9 @@ blockquote {
         a {
             color: inherit;
         }
+        address {
+            color: inherit
+        }
         font-size: 80%;
         h2 {
             font-size: 170%;
@@ -376,6 +379,14 @@ blockquote {
     p .details {
         font-size: 0.9em;
         color: #999;
+    }
+    .collapsed p {
+        display: inline-block;
+        margin-right: 1em;
+        margin-bottom: 0.2em;
+    }
+    &.mini p {
+        margin-bottom: 0.2em;
     }
 }
 
