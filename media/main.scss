@@ -385,8 +385,18 @@ blockquote {
         margin-right: 1em;
         margin-bottom: 0.2em;
     }
-    &.mini p {
-        margin-bottom: 0.2em;
+    &.mini {
+        font-size: 70%;
+        h1, h2 {
+            font-size: 120%;
+        }
+        h2 {
+            margin-top: 1em;
+            margin-bottom: 0.2em;
+        }
+        p {
+            margin-bottom: 0.2em;
+        }
     }
 }
 
