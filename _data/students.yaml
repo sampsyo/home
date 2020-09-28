@@ -40,6 +40,10 @@
         -
             name: Sachille Atapattu
             start: 2018
+        -
+            name: Kevin Negy
+            start: 2020
+            extra: 'Co-advised with <a href="https://hackingdistributed.com/egs/">Emin Gün Sirer</a>.'
 
 -
     category: Master of Engineering
