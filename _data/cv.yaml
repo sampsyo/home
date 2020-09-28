@@ -29,11 +29,13 @@ jobs:
         title: Assistant Professor
         where: Cornell University &mdash; Department of Computer Science
         dates: 2016&ndash;
+        selected: true
 
     -
         title: Visiting Researcher
         where: Microsoft Research &mdash; Research in Software Engineering (RiSE)
         dates: 2015&ndash;2016
+        selected: true
 
     -
         title: Research Intern
@@ -61,23 +63,27 @@ jobs:
         dates: 2007
 
 honors:
-    - '<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1845952">NSF CAREER award</a>, 2019'
-    - 'Cornell College of Engineering Ralph S. Watts ’72 Excellence in Teaching Award, 2018'
-    - 'Distinguished Artifact Award, <a href="https://2017.splashcon.org/track/splash-2017-OOPSLA">OOPSLA 2017</a>'
-    - '<a href="https://research.googleblog.com/2017/02/google-research-awards-2016.html">Google Faculty Research Award</a>, 2016'
-    - 'UW CSE <a href="https://www.cs.washington.edu/education/award_winning_students/chan">William Chan Memorial Dissertation Award</a>, 2015'
-    - 'Best presentation, <a href="https://news.cs.washington.edu/2015/01/10/cses-2015/">first UW Computer Science &amp; Engineering Symposium (CSES 2015)</a>'
-    - 'Paper from MICRO 2013 invited for fast-track inclusion in <a href="http://tocs.acm.org">ACM TOCS</a>'
-    - 'Paper from MICRO 2012 selected for CACM research highlights'
-    - '<a href="http://googleresearch.blogspot.com/2013/06/2013-google-phd-fellowships-5-years-of.html">Google Ph.D. Fellowship in Computer Architecture</a> (2013&ndash;2015)'
-    - '<a href="http://www.qualcomm.com/about/research/university-relations/innovation-fellowship/2013">Qualcomm Innovation Fellowship</a> (2013&ndash;2014)'
-    - |
+    - text: '<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1845952">NSF CAREER award</a>, 2019'
+      selected: true
+    - text: 'Cornell College of Engineering Ralph S. Watts ’72 Excellence in Teaching Award, 2018'
+      selected: true
+    - text: 'Distinguished Artifact Award, <a href="https://2017.splashcon.org/track/splash-2017-OOPSLA">OOPSLA 2017</a>'
+    - text: '<a href="https://research.googleblog.com/2017/02/google-research-awards-2016.html">Google Faculty Research Award</a>, 2016'
+      selected: true
+    - text: 'UW CSE <a href="https://www.cs.washington.edu/education/award_winning_students/chan">William Chan Memorial Dissertation Award</a>, 2015'
+      selected: true
+    - text: 'Best presentation, <a href="https://news.cs.washington.edu/2015/01/10/cses-2015/">first UW Computer Science &amp; Engineering Symposium (CSES 2015)</a>'
+    - text: 'Paper from MICRO 2013 invited for fast-track inclusion in <a href="http://tocs.acm.org">ACM TOCS</a>'
+    - text: 'Paper from MICRO 2012 selected for CACM research highlights'
+    - text: '<a href="http://googleresearch.blogspot.com/2013/06/2013-google-phd-fellowships-5-years-of.html">Google Ph.D. Fellowship in Computer Architecture</a> (2013&ndash;2015)'
+    - text: '<a href="http://www.qualcomm.com/about/research/university-relations/innovation-fellowship/2013">Qualcomm Innovation Fellowship</a> (2013&ndash;2014)'
+    - text: |
         Paper from MICRO 2012 selected for <a href="https://sites.google.com/site/ieeemicro/call-for-papers/top-picks-2013">IEEE Micro's Top Picks from the Computer Architecture Conferences, 2013</a>
-    - 'Best lightning session presentation, <a href="http://www.microsymposia.org/micro45/">MICRO 2012</a>'
-    - '<a href="http://www.facebook.com/fellowships">Facebook Ph.D. Fellowship</a> (2012&ndash;2013)'
-    - ' University of Washington <a href="http://www.cs.washington.edu/education/grad/current/GradFellowships/Hacherl.html">Hacherl Graduate Fellowship in Computer Science and Engineering</a> (2009&ndash;2010)'
-    - 'Hertz Foundation Fellowship Finalist (2009)'
-    - |
+    - text: 'Best lightning session presentation, <a href="http://www.microsymposia.org/micro45/">MICRO 2012</a>'
+    - text: '<a href="http://www.facebook.com/fellowships">Facebook Ph.D. Fellowship</a> (2012&ndash;2013)'
+    - text: ' University of Washington <a href="http://www.cs.washington.edu/education/grad/current/GradFellowships/Hacherl.html">Hacherl Graduate Fellowship in Computer Science and Engineering</a> (2009&ndash;2010)'
+    - text: 'Hertz Foundation Fellowship Finalist (2009)'
+    - text: |
         Harvey Mudd College (2009):
 
         * High Distinction
@@ -179,32 +185,34 @@ service:
 
 
 committees:
-    - |
-        IEEE Micro Top Picks 2021: Selection committee member
-
-    - |
-        ASPLOS 2021: Program committee member
-
-    - |
-        MICRO 2020: External review committee member
-
-    - |
-        [YArch 2020](https://sites.psu.edu/yarch2020/): Program committee member
-
-    - |
-        OOPSLA 2020: Review committee member
-
-    - |
-        ISCA 2020: External review committee member
-
-    - |
-        PLDI 2020: Program committee member
-
-    - |
-        ASPLOS 2020: Program committee member
-
-    - |
-        ISCA 2019: Program committee member
+    - venue: IEEE Micro Top Picks
+      year: 2021
+      role: Selection committee member
+    - venue: ASPLOS
+      year: 2021
+      role: Program committee member
+    - venue: MICRO
+      year: 2020
+      role: External review committee member
+    - venue: YArch
+      year: 2020
+      role: Program committee member
+      link: https://sites.psu.edu/yarch2020/
+    - venue: OOPSLA
+      year: 2020
+      role: Review committee member
+    - venue: ISCA
+      year: 2020
+      role: External review committee member
+    - venue: PLDI
+      year: 2020
+      role: Program committee member
+    - venue: ASPLOS
+      year: 2020
+      role: Program committee member
+    - venue: ISCA
+      year: 2019
+      role: Program committee member
 
     - |
         [YArch 2019](http://sites.psu.edu/yarch2019/): Program committee member

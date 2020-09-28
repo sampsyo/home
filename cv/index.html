@@ -84,8 +84,8 @@ title: 'Adrian Sampson: CV'
 
 <section>
     <h2>Honors</h2>
-    {% for text in cv.honors %}
-        {{ text | markdownify }}
+    {% for h in cv.honors %}
+        {{ h.text | markdownify }}
     {% endfor %}
 </section>
 
@@ -126,8 +126,17 @@ title: 'Adrian Sampson: CV'
         {{ text | markdownify }}
     {% endfor %}
     <h3>Review Committees</h3>
-    {% for text in cv.committees %}
-        {{ text | markdownify }}
+    {% for c in cv.committees %}
+        {% if c.venue %}
+        <p>
+            {% if c.link %}<a href="{{c.link}}">{% endif %}
+            {{ c.venue }} {{ c.year }}:
+            {% if c.link %}</a>{% endif %}
+            {{ c.role }}
+        </p>
+        {% else %}
+        {{ c | markdownify }}
+        {% endif %}
     {% endfor %}
     <h3>Ph.D. Committees</h3>
     {% for student in cv.phdcommittees %}

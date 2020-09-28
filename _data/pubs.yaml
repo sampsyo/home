@@ -5,6 +5,7 @@
     type: conference
     venue_url: https://2020.splashcon.org/track/splash-2020-oopsla
     preprint: true
+    selected: true
 
 -
     title: 'A Synthesis-Aided Compiler for DSP Architectures (WiP Paper)'
@@ -13,6 +14,7 @@
     type: conference
     venue_url: https://conf.researchr.org/home/LCTES-2020
     url: https://www.cs.cornell.edu/~avh/diospyros-lctes-2020.pdf
+    selected: true
 
 -
     title: "Predictable Accelerator Design with Time-Sensitive Affine Types"
@@ -21,6 +23,7 @@
     type: conference
     venue_url: 'https://pldi20.sigplan.org'
     url: 'https://rachitnigam.com/files/pubs/dahlia.pdf'
+    selected: true
 
 -
     title: "Optimizing JPEG Quantization for Classification Networks"
@@ -52,6 +55,7 @@
     extra:
      - '[Local PDF.](BASE/media/papers/eva2-isca2018.pdf)'
      - '[Project page.](https://capra.cs.cornell.edu/research/eva2/)'
+    selected: true
 
 -
     title: "Programming Language Support for Natural Language Interaction"
@@ -62,6 +66,7 @@
     url: 'https://mlsys.org/Conferences/2019/doc/2018/56.pdf'
     extra:
      - '[Project page.](https://capra.cs.cornell.edu/research/opal/)'
+    selected: true
 
 -
     title: "Static Stages for Heterogeneous Programming"
@@ -80,6 +85,7 @@
     note: |
         <a href="http://2017.splashcon.org/track/splash-2017-OOPSLA-Artifacts">Artifact evaluated.</a> Distinguished Artifact Award.
     url: https://doi.org/10.1145/3133895
+    selected: true
 
 -
     title: "Reconfiguring the Imaging Pipeline for Computer Vision"
@@ -91,6 +97,7 @@
     extra:
      - '[Extra background and results.](BASE/media/papers/visionmode-iccv2017-supplemental.pdf)'
      - '[Project page.](https://capra.cs.cornell.edu/research/visionmode/)'
+    selected: true
 
 -
     title: "A Taxonomy of General Purpose Approximate Computing Techniques"
@@ -128,6 +135,7 @@
     url: http://drops.dagstuhl.de/opus/volltexte/2017/7130/
     extra:
      - '[Slides.](BASE/media/opengl-snapl2017-slides.pdf)'
+    selected: true
 
 -
     title: "Approximate Computing: Unlocking Efficiency with Hardware&ndash;Software Co-Design"
