@@ -94,16 +94,32 @@ honors:
         * William and Margaret Radley Prize in Humanities, Social Sciences, and the Arts
 
 teaching:
-    - |
-        Cornell University:
-
-        * [Spring 2019: CS 6110, "Advanced Programming Languages."](https://www.cs.cornell.edu/courses/cs6110/2019sp/)
-        * [Fall 2018: CS 4110, "Programming Languages and Logics."](https://www.cs.cornell.edu/Courses/cs4110/2018fa/)
-        * [Spring 2018: CS 6110, "Advanced Programming Languages."](https://www.cs.cornell.edu/courses/cs6110/2018sp/)
-        * [Fall 2017: CS 2110, "Object-Oriented Programming and Data Structures."](https://www.cs.cornell.edu/courses/cs2110/2017fa/)
-        * [Spring 2017: CS 6110, "Advanced Programming Languages."](https://www.cs.cornell.edu/courses/cs6110/2017sp/)
-        * [Fall 2016: CS 4110, "Programming Languages and Logics."](https://www.cs.cornell.edu/Courses/cs4110/2016fa/)
-
+    - where: Cornell University
+      classes:
+          - term: Spring 2019
+            number: CS 6110
+            title: Advanced Programming Languages
+            link: https://www.cs.cornell.edu/courses/cs6110/2019sp/
+          - term: Fall 2018
+            number: CS 4110
+            title: Programming Languages and Logics
+            link: https://www.cs.cornell.edu/Courses/cs4110/2018fa/
+          - term: Spring 2018
+            number: CS 6110
+            title: Advanced Programming Languages
+            link: https://www.cs.cornell.edu/courses/cs6110/2018sp/
+          - term: Fall 2017
+            number: CS 2110
+            title: Object-Oriented Programming and Data Structures
+            link: https://www.cs.cornell.edu/courses/cs2110/2017fa/
+          - term: Spring 2017
+            number: CS 6110
+            title: Advanced Programming Languages
+            link: https://www.cs.cornell.edu/courses/cs6110/2017sp/
+          - term: Fall 2016
+            number: CS 4110
+            title: Programming Languages and Logics
+            link: https://www.cs.cornell.edu/Courses/cs4110/2016fa/
     - |
         Teaching Assistant, University of Washington:
 

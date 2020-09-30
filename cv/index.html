@@ -115,8 +115,17 @@ title: 'Adrian Sampson: CV'
 
 <section>
     <h2>Teaching</h2>
-    {% for text in cv.teaching %}
-        {{ text | markdownify }}
+    {% for t in cv.teaching %}
+    {% if t.where %}
+    <p>{{ t.where }}</p>
+    <ul>
+    {% for c in t.classes %}
+        <li><a href="{{c.link}}">{{ c.term }}: {{ c.number }}, “{{ c.title }}.”</a></li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        {{ t | markdownify }}
+    {% endif %}
     {% endfor %}
 </section>
 
