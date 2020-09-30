@@ -99,14 +99,19 @@ teaching:
           - term: Spring 2021
             number: CS 3410
             title: Computer System Organization and Programming
+            future: true
+            desc: "This is our department's introduction to architecture and the systems side of the world. I will co-teach with [Anne Bracy](https://www.cs.cornell.edu/~bracy/)."
           - term: Fall 2020
             number: CS 6120
             title: Advanced Compilers
             link: https://www.cs.cornell.edu/courses/cs6120/2020fa/
+            current: true
+            desc: This is a new and experimental PhD-level course about programming language implementation.
           - term: Spring 2020
             number: CS 7491
             title: The Great ISAs
             link: https://www.cs.cornell.edu/courses/cs7491/2020sp/
+            desc: This is a new reading seminar on the history of hardware–software abstractions.
           - term: Fall 2019
             number: CS 6120
             title: Advanced Compilers
@@ -115,10 +120,12 @@ teaching:
             number: CS 6110
             title: Advanced Programming Languages
             link: https://www.cs.cornell.edu/courses/cs6110/2019sp/
+            desc: 'This is our graduate programming languages course. It is "enjoyed" by PL-oriented and non-PL PhD students alike.'
           - term: Fall 2018
             number: CS 4110
             title: Programming Languages and Logics
             link: https://www.cs.cornell.edu/Courses/cs4110/2018fa/
+            desc: "This is Cornell's undergraduate programming languages elective. 4110 is full of content you'd expect to find in a graduate PL course."
           - term: Spring 2018
             number: CS 6110
             title: Advanced Programming Languages
@@ -127,6 +134,7 @@ teaching:
             number: CS 2110
             title: Object-Oriented Programming and Data Structures
             link: https://www.cs.cornell.edu/courses/cs2110/2017fa/
+            desc: "This the second course in our department's introductory CS sequence. I co-taught with [David Gries](https://www.cs.cornell.edu/gries/) and [Eleanor Birrell](http://www.cs.cornell.edu/~eleanor/)."
           - term: Spring 2017
             number: CS 6110
             title: Advanced Programming Languages
