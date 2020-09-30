@@ -117,10 +117,10 @@ title: 'Adrian Sampson: CV'
     <h2>Teaching</h2>
     {% for t in cv.teaching %}
     {% if t.where %}
-    <p>{{ t.where }}</p>
+    <p>{{ t.where }}:</p>
     <ul>
     {% for c in t.classes %}
-        <li><a href="{{c.link}}">{{ c.term }}: {{ c.number }}, “{{ c.title }}.”</a></li>
+        <li>{% if c.link %}<a href="{{c.link}}">{% endif %}{{ c.term }}: {{ c.number }}, “{{ c.title }}.”{% if c.link %}</a>{% endif %}</li>
     {% endfor %}
     </ul>
     {% else %}

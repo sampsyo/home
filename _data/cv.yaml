@@ -96,6 +96,21 @@ honors:
 teaching:
     - where: Cornell University
       classes:
+          - term: Spring 2021
+            number: CS 3410
+            title: Computer System Organization and Programming
+          - term: Fall 2020
+            number: CS 6120
+            title: Advanced Compilers
+            link: https://www.cs.cornell.edu/courses/cs6120/2020fa/
+          - term: Spring 2020
+            number: CS 7491
+            title: The Great ISAs
+            link: https://www.cs.cornell.edu/courses/cs7491/2020sp/
+          - term: Fall 2019
+            number: CS 6120
+            title: Advanced Compilers
+            link: https://www.cs.cornell.edu/courses/cs6120/2019fa/
           - term: Spring 2019
             number: CS 6110
             title: Advanced Programming Languages
