@@ -223,15 +223,24 @@
             name: Maya Ifekauche
             extra: Auburn University
             start: 2020
+            end: 2020
         -
             name: Jacob Delgado-López
             extra: University of Puerto Rico
             start: 2020
+            end: 2020
         -
             name: Evan Adler
             start: 2020
         -
             name: Akshat Singh
+            start: 2020
+            end: 2020
+        -
+            name: YooNa Chang
+            start: 2020
+        -
+            name: Chris Gyurgyik
             start: 2020
 -
     category: Undergraduate Researchers at UW
