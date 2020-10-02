@@ -1,4 +1,12 @@
 -
+    title: 'Online Verification of Commutativity'
+    authors: 'Aditi Kabra, Dietrch Geisler, and Adrian Sampson'
+    venue: 'TAPAS 2020'
+    type: workshop
+    venue_url: https://2020.splashcon.org/home/tapas-2020
+    preprint: true
+
+-
     title: 'Geometry Types for Graphics Programming'
     authors: 'Dietrich Geisler, Irene Yoon, Aditi Kabra, Horace He, Yinnon Sanders, and Adrian Sampson'
     venue: 'OOPSLA 2020'
