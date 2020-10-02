@@ -5,6 +5,7 @@
     type: workshop
     venue_url: https://2020.splashcon.org/home/tapas-2020
     preprint: true
+    with: SPLASH
 
 -
     title: 'Geometry Types for Graphics Programming'
