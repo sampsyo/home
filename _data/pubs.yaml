@@ -15,6 +15,7 @@
     venue_url: https://2020.splashcon.org/track/splash-2020-oopsla
     preprint: true
     selected: true
+    url: 'BASE/media/papers/gator-oopsla2020-preprint.pdf'
 
 -
     title: 'A Synthesis-Aided Compiler for DSP Architectures (WiP Paper)'
