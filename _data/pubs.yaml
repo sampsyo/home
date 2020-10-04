@@ -35,9 +35,10 @@
     venue: "PLDI 2020"
     type: conference
     venue_url: 'https://pldi20.sigplan.org'
-    url: 'https://rachitnigam.com/files/pubs/dahlia.pdf'
+    url: 'https://dl.acm.org/doi/abs/10.1145/3385412.3385974'
     selected: true
     extra:
+      - '[Local PDF.](BASE/media/papers/dahlia-pldi2020.pdf)'
       - '[Project page.](https://capra.cs.cornell.edu/dahlia/)'
       - '[Artifact evaluated!](https://github.com/cucapra/dahlia-evaluation)'
 
