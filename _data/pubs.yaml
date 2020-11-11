@@ -6,6 +6,7 @@
     venue_url: https://2020.splashcon.org/home/tapas-2020
     pre: true
     with: SPLASH
+    url: 'BASE/media/papers/pathind-tapas2020.pdf'
 
 -
     title: 'Geometry Types for Graphics Programming'
