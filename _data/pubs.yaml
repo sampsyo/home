@@ -1,4 +1,20 @@
 -
+    title: 'Vectorization for Digital Signal Processors via Equality Saturation'
+    authors: 'Alexa VanHattum, Rachit Nigam, Vincent T. Lee, James Bornholt, and Adrian Sampson'
+    venue: 'ASPLOS 2021'
+    pre: true
+    venue_url: 'https://asplos-conference.org'
+    type: conference
+
+-
+    title: 'A Compiler Infrastructure for Accelerator Generators'
+    authors: 'Samuel Thomas, Rachit Nigam, Zhijing Li, and Adrian Sampson'
+    venue: 'ASPLOS 2021'
+    pre: true
+    venue_url: 'https://asplos-conference.org'
+    type: conference
+
+-
     title: 'Online Verification of Commutativity'
     authors: 'Aditi Kabra, Dietrch Geisler, and Adrian Sampson'
     venue: 'TAPAS 2020'
