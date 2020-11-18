@@ -391,6 +391,13 @@ phdcommittees:
 
 talks:
     -
+        title: Graphics Programming Needs You
+        where: 'University of Rochester, CSC 572/292'
+        link: https://www.cs.rochester.edu/courses/572/fall2020/schedule.html
+        date: 2020-11-18
+        extra:
+            - '[Slides.](https://www.cs.rochester.edu/courses/572/fall2020/decks/opengl.pdf)'
+    -
         title: Languages and Compilers for Accelerator Design
         where: University of Massachusetts Amherst
         link: https://systems-lunch.org/#october-2-2020
