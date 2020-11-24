@@ -398,6 +398,10 @@ talks:
         extra:
             - '[Slides.](https://www.cs.rochester.edu/courses/572/fall2020/decks/opengl.pdf)'
     -
+        title: Toward a Predictable System Stack for Reconfigurable Computing
+        where: HLD Reading Group, Intel
+        date: 2020-10-26
+    -
         title: Languages and Compilers for Accelerator Design
         where: University of Massachusetts Amherst
         link: https://systems-lunch.org/#october-2-2020
