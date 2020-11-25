@@ -10,18 +10,19 @@ Here, though, is my #1 exclusive hot tip for maximizing your chances of getting 
 
 Your personal statement is not the most important part of your application---that's your prior research and research-relevant experience, as conveyed through your recommendation letters---but it is the part you have the most control over once application season is upon you.
 
-The problem with personal statements is that it's weirdly hard to convey what makes a good one and what makes a bad one, even if it's not too hard for us on admissions committees to conclude "this statement is so exciting that I can't imagine not admitting this person!" or "this particular statement is a total no-op so I hope the letters say something useful."
+The problem with personal statements is that it's weirdly hard to convey what makes a good one and what makes a bad one.
+It's not too hard for us on admissions committees to conclude "this statement is so exciting that I can't imagine not admitting this person!" or "this particular statement is a total no-op so I hope the letters say something useful."
 We do that all the time, but I find it nearly impossible to give advice about how to write one of the good ones.
 You want to make a convincing case that you have the potential to be a great researcher in computer science.
 But that's not actionable advice---it's just a wish.
 
-So the only way I know to write a good statement is to start early (seriously!) and get feedback from someone who has read a million of these.
+So the only way I know to write a good statement is to start early (seriously!) and get feedback from someone who has read a million of these things.
 That describes just about any professor beyond their first year, so start by asking your research mentor if you have one.
-PhD students are involved in admissions in many CS departments, so ask them if you have friends on that side of the undergrad-to-grad threshold.
+Some PhD students are involved in admissions at many CS departments, so ask them if you have friends on that side of the undergrad-to-grad threshold.
 But crucially, it's not enough to ask a friend who's good at writing, or even [the writing center][wc].
 You need to track down one of those weary admissions veterans who has read so many statements that they know all the clichés and can see all the opportunities for making your case.
 
-The problem with this advice is that access to local statement feedback dispensers is, like so many things in academia, unfairly and inequitably distributed.
+The problem with this advice is that access to local feedback dispensers is, like so many things in academia, unfairly and inequitably distributed.
 On my department's admissions committee, for example, we often observe that disappointing personal statements typically reflect a lack of local expertise at an undergraduate institution, not any shortcomings in the applicant.
 So our usual advice is that great statements might help an application, but even terrible statements should not hurt an application.
 
