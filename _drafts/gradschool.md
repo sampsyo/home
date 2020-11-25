@@ -1,6 +1,7 @@
 ---
 title: Make Your Grad School Application Sparkle with This One Weird Trick
-excerpt: TK
+excerpt: |
+    When PhD application season rolls around, much of what goes into your application is already pre-determined. I have one piece of advice you can still apply as deadlines loom to improve your materials.
 ---
 It's advice season here in academia. If you're applying to a PhD in computer science, an admittedly mysterious endeavor, there are so many great compendia that will give you the conventional wisdom---there's not much I can add to [Mor Harchol-Balter's classic][gradschooltalk], for instance. My first-order advice is to take her advice.
 
