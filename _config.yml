@@ -4,7 +4,7 @@ url: https://www.cs.cornell.edu/~asampson
 base: '/~asampson'
 twitter: '@samps'
 email: 'asampson@cs.cornell.edu'
-logo: https://brand.cornell.edu/images/web-logo.jpg
+logo: https://www.cs.cornell.edu/~asampson/media/icon/favicon512.png
 ghrepo: https://github.com/sampsyo/home
 
 # Use a prefix for the local server. Eventually, replace `base` with this.
