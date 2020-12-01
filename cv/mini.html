@@ -46,6 +46,17 @@ title: 'Adrian Sampson: Short CV'
     {% endfor %}
 </section>
 
+<section>
+    <h2>Research Positions</h2>
+    {% for job in cv.jobs %}
+    <p>
+        {{ job.title }},
+        <strong>{{ job.where }}</strong>:
+        {{ job.dates }}
+    </p>
+    {% endfor %}
+</section>
+
 <section class="collapsed">
     <h2>Ph.D. Students</h2>
     {% for category in students %}
