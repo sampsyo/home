@@ -5,6 +5,7 @@
     pre: true
     venue_url: 'https://asplos-conference.org'
     type: conference
+    selected: true
 
 -
     title: 'A Compiler Infrastructure for Accelerator Generators'
@@ -13,6 +14,7 @@
     pre: true
     venue_url: 'https://asplos-conference.org'
     type: conference
+    selected: true
 
 -
     title: 'Online Verification of Commutativity'
@@ -209,6 +211,7 @@
     authors: "Brett Boston, Adrian Sampson, Dan Grossman, and Luis Ceze"
     venue: OOPSLA 2015
     type: conference
+    selected: true
     venue_url: http://2015.splashcon.org/track/oopsla2015
     url: BASE/media/papers/decaf-oopsla2015.pdf
 
@@ -236,6 +239,7 @@
     authors: Thierry Moreau, Mark Wyse, Jacob Nelson, Adrian Sampson, Hadi Esmaeilzadeh, Luis Ceze, and Mark Oskin
     venue: HPCA 2015
     type: conference
+    selected: true
     venue_url: http://darksilicon.org/hpca/
     url: BASE/media/papers/snnap-hpca2015.pdf
 
@@ -244,6 +248,7 @@
     authors: Michael Ringenburg, Adrian Sampson, Isaac Ackerman, Luis Ceze, and Dan Grossman
     venue: ASPLOS 2015
     type: conference
+    selected: true
     venue_url: http://asplos15.bilkent.edu.tr
     url: BASE/media/papers/approxdebug-asplos2015.pdf
 
@@ -252,6 +257,7 @@
     url: http://dl.acm.org/authorize?N83273
     authors: Adrian Sampson, Pavel Panchekha, Todd Mytkowicz, Kathryn S McKinley, Dan Grossman, and Luis Ceze
     venue: PLDI 2014
+    selected: true
     venue_url: http://conferences.inf.ed.ac.uk/pldi2014/
     type: conference
     note: |
@@ -270,6 +276,7 @@
     authors: Adrian Sampson, Jacob Nelson, Karin Strauss, and Luis Ceze
     venue: MICRO 2013
     venue_url: http://www.microarch.org/micro46/
+    selected: true
     note: |
         Expanded version appears in <a
         href="http://tocs.acm.org">ACM TOCS</a>.
@@ -288,6 +295,7 @@
     authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
     venue: MICRO 2012
     venue_url: http://www.microarch.org/micro45/
+    selected: true
     note: |
         Versions appear in MICRO Top Picks and CACM
         Research Highlights.
@@ -319,6 +327,7 @@
     authors: Hadi Esmaeilzadeh, Adrian Sampson, Luis Ceze, and Doug Burger
     venue: ASPLOS 2012
     type: conference
+    selected: true
     venue_url: http://research.microsoft.com/en-us/um/cambridge/events/asplos_2012/
     extra:
         - '[Local PDF.](BASE/media/papers/truffle-asplos2012.pdf)'
@@ -331,6 +340,7 @@
     venue: PLDI 2011
     venue_url: http://pldi11.cs.utah.edu/
     type: conference
+    selected: true
     extra:
         - '[Slides.](BASE/media/enerj-pldi-slides.pdf)'
         - '[Poster.](BASE/media/enerj-poster.pdf)'
