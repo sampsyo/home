@@ -50,9 +50,9 @@ title: 'Adrian Sampson: Short CV'
     <h2>Research Positions</h2>
     {% for job in cv.jobs %}
     <p>
+        {{ job.dates }}:
         {{ job.title }},
-        <strong>{{ job.where }}</strong>:
-        {{ job.dates }}
+        <strong>{{ job.where }}</strong>
     </p>
     {% endfor %}
 </section>
@@ -82,7 +82,7 @@ title: 'Adrian Sampson: Short CV'
 <section class="collapsed">
     <h2>Recent Review Committees</h2>
     {% for c in cv.committees %}
-    {% if c.year > 2019 %}
+    {% if c.year > 2017 %}
     <p>
         {% if c.link %}<a href="{{c.link}}">{% endif %}
         {{ c.venue }} {{ c.year }}

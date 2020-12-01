@@ -258,75 +258,94 @@ committees:
     - venue: ISCA
       year: 2019
       role: Program committee member
+    - venue: YArch
+      year: 2019
+      role: Program committee member
+      link: http://sites.psu.edu/yarch2019/
+    - venue: ASPLOS
+      year: 2019
+      role: Program committee member
+    - venue: MICRO
+      year: 2018
+      role: Program committee member
+    - venue: WAX
+      year: 2018
+      link: http://approximate.computer/wax2018/
+      role: Organizer
+    - venue: SELSE
+      year: 2018
+      link: http://www.selse.org
+      role: Program committee member
+    - venue: ISCA
+      year: 2018
+      role: Program committee member
+    - venue: OOPSLA
+      year: 2018
+      role: Program committee member
+    - venue: HPCA
+      year: 2018
+      link: http://hpca2018.ece.ucsb.edu
+      role: External review committee member
+    - venue: ASPLOS
+      year: 2018
+      link: https://www.asplos2018.org
+      role: External review committee member
+    - venue: WAX
+      year: 2017
+      link: http://approximate.computer/wax2017/
+      role: Organizer, program committee member
+    - venue: MICRO
+      year: 2017
+      link: https://www.microarch.org/micro50/
+      role: External review committee member
+    - venue: Onward!
+      year: 2017
+      link: http://conf.researchr.org/home/onward-2017
+      role: Program committee member
+    - venue: ISCA
+      year: 2017
+      link: https://www.sigarch.org/2016/09/08/call-for-papers-isca-2017/
+      role: Program committee member
+    - venue: ASPLOS
+      year: 2017
+      link: http://novel.ict.ac.cn/ASPLOS2017/
+      role: Program committee member
+    - venue: CGO
+      year: 2017
+      link: http://cgo.org/cgo2017/
+      role: Program committee member
+    - venue: MASS
+      year: 2016
+      link: http://www.cs.binghamton.edu/%7Edavidl/mass16.html
+      role: Program committee member
 
     - |
-        [YArch 2019](http://sites.psu.edu/yarch2019/): Program committee member
+         [TinyToCS Vol. 4](http://tinytocs.org): Program committee member
 
-    - |
-        ASPLOS 2019: Program committee member
-
-    - |
-        MICRO 2018: Program committee member
-
-    - |
-        [WAX 2018](http://approximate.computer/wax2018/): Organizer
-
-    - |
-        [SELSE 2018](http://www.selse.org): Program committee member
-
-    - |
-        ISCA 2018: Program committee member
-
-    - |
-        OOPSLA 2018: Program committee member
-
-    - |
-        [HPCA 2018](http://hpca2018.ece.ucsb.edu): External review committee member
-
-    - |
-        [ASPLOS 2018](https://www.asplos2018.org): External review committee member
-
-    - |
-        [WAX 2017](http://approximate.computer/wax2017/): Organizer, program committee member
-
-    - |
-        [MICRO 2017](https://www.microarch.org/micro50/): External review committee member
-
-    - |
-        [Onward! 2017](http://conf.researchr.org/home/onward-2017): Program committee member
-
-    - |
-        [ISCA 2017](https://www.sigarch.org/2016/09/08/call-for-papers-isca-2017/): Program committee member
-
-    - |
-        [ASPLOS 2017](http://novel.ict.ac.cn/ASPLOS2017/): Program committee member
-
-    - |
-        [CGO 2017](http://cgo.org/cgo2017/): Program committee member
-
-    - |
-        [MASS 2016](http://www.cs.binghamton.edu/%7Edavidl/mass16.html): Program committee member
-
-    - |
-        [TinyToCS Vol. 4](http://tinytocs.org): Program committee member
-
-    - |
-        [WAX 2016](http://approximate.computer/wax2016/): Organizer, program committee member
-
-    - |
-        [SELSE 2016](http://www.selse.org): Review committee member
-
-    - |
-        [ISCA 2016](http://isca2016.eecs.umich.edu): External review committee member
-
-    - |
-        [PLDI 2016](http://conf.researchr.org/home/pldi-2016): Program committee member
-
-    - |
-        [WAX 2015](http://sampa.cs.washington.edu/wax2015/): Organizer, program committee member
-
-    - |
-        [WACAS 2014](http://sampa.cs.washington.edu/wax2015/): Organizer, program committee member
+    - venue: WAX
+      year: 2016
+      link: http://approximate.computer/wax2016/
+      role: Organizer, program committee member
+    - venue: SELSE
+      year: 2016
+      link: http://www.selse.org
+      role: Review committee member
+    - venue: ISCA
+      year: 2016
+      link: http://isca2016.eecs.umich.edu
+      role: External review committee member
+    - venue: PLDI
+      year: 2016
+      link: http://conf.researchr.org/home/pldi-2016
+      role: Program committee member
+    - venue: WAX
+      year: 2015
+      link: http://sampa.cs.washington.edu/wax2015/
+      role: Organizer, program committee member
+    - venue: WACAS
+      year: 2014
+      link: http://sampa.cs.washington.edu/wax2015/
+      role: Organizer, program committee member
 
     - |
         PLDI 2014: <a href="http://pldi14-aec.cs.brown.edu">Artifact evaluation committee</a> member
