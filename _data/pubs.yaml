@@ -22,7 +22,6 @@
     venue: 'TAPAS 2020'
     type: workshop
     venue_url: https://2020.splashcon.org/home/tapas-2020
-    pre: true
     with: SPLASH
     url: 'BASE/media/papers/pathind-tapas2020.pdf'
 
@@ -32,7 +31,6 @@
     venue: 'OOPSLA 2020'
     type: conference
     venue_url: https://2020.splashcon.org/track/splash-2020-oopsla
-    pre: true
     selected: true
     url: 'BASE/media/papers/gator-oopsla2020-preprint.pdf'
     extra:
@@ -46,7 +44,6 @@
     type: conference
     venue_url: https://conf.researchr.org/home/LCTES-2020
     url: https://www.cs.cornell.edu/~avh/diospyros-lctes-2020.pdf
-    selected: true
 
 -
     title: "Predictable Accelerator Design with Time-Sensitive Affine Types"
