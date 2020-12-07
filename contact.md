@@ -23,6 +23,13 @@ Ithaca, NY 14853-7501
 Here are some answers to common questions.
 
 
+### I have questions about enrolling in CS 3410 in spring 2021.  {#cs3410}
+
+Please see [Prof. Bracy's FAQ][bracy-faq].
+
+[bracy-faq]: https://www.cs.cornell.edu/~bracy/teach/
+
+
 ### Can you send me the slides for a talk you gave?  {#slides}
 
 There are links to my talks in my [conference paper list][confpapers]. There are PDF versions there, and I can also send you Keynote files if you [email me][email]. I don't have PowerPoint files.
