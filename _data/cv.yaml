@@ -167,7 +167,7 @@ service:
         NSF panel member, [CCF](https://www.nsf.gov/div/index.jsp?org=CCF) division (2020)
 
     - |
-        ISCA 2021: Social Media Chair
+        ISCA 2021: Publicity & Social Media Chair
 
     - |
         [PLMW @ PLDI 2020](https://pldi20.sigplan.org/home/PLMW-PLDI-2020): Co-organizer
@@ -409,6 +409,13 @@ phdcommittees:
         link: http://www.cs.columbia.edu/~melanie/
 
 talks:
+    -
+        title: Toward a Predictable System Stack for Reconfigurable Computing
+        where: 'University of California, Santa Cruz Hardware Systems Collective Seminar'
+        link: https://hsc.ucsc.edu/seminar/
+        date: 2020-12-01
+        extra:
+            - '[Video.](https://youtu.be/YueY0UP1aWI)'
     -
         title: Graphics Programming Needs You
         where: 'University of Rochester, CSC 572/292'
