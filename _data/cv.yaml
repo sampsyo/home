@@ -228,6 +228,10 @@ service:
 
 
 committees:
+    - venue: YArch
+      year: 2021
+      role: Program committee member
+      link: https://sites.gatech.edu/yarch2021/
     - venue: ISCA
       year: 2021
       role: Program committee member
