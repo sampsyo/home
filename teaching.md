@@ -14,7 +14,9 @@ I am teaching:
 {% for class in classes %}{% if class.current %}
 * {% if class.link %}[{% endif %}{{class.term}}: {{class.number}}, "{{class.title}}."{% if class.link %}]({{class.link}}){% endif %} {{class.desc}}{% endif %}{% endfor %}
 
+{% for class in classes %}{% if class.future %}
 I will teach:
+{% break %}{% endif %}{% endfor %}
 
 {% for class in classes %}{% if class.future %}
 * {% if class.link %}[{% endif %}{{class.term}}: {{class.number}}, "{{class.title}}."{% if class.link %}]({{class.link}}){% endif %} {{class.desc}}{% endif %}{% endfor %}

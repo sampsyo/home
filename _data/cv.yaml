@@ -99,13 +99,12 @@ teaching:
           - term: Spring 2021
             number: CS 3410
             title: Computer System Organization and Programming
-            future: true
+            current: true
             desc: "This is our department's introduction to architecture and the systems side of the world. I will co-teach with [Anne Bracy](https://www.cs.cornell.edu/~bracy/)."
           - term: Fall 2020
             number: CS 6120
             title: Advanced Compilers
             link: https://www.cs.cornell.edu/courses/cs6120/2020fa/
-            current: true
             desc: This is a new and experimental PhD-level course about programming language implementation.
           - term: Spring 2020
             number: CS 7491

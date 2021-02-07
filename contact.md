@@ -23,9 +23,10 @@ Ithaca, NY 14853-7501
 Here are some answers to common questions.
 
 
-### I have questions about enrolling in CS 3410 in spring 2021.  {#cs3410}
+### I have questions CS 3410 in spring 2021.  {#cs3410}
 
-Please see [Prof. Bracy's FAQ][bracy-faq].
+Please see [Prof. Bracy's FAQ][bracy-faq] about enrollment.
+If you're already in the course, please post questions on Ed.
 
 [bracy-faq]: https://www.cs.cornell.edu/~bracy/teach/
 
