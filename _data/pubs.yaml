@@ -6,6 +6,7 @@
     venue_url: 'https://asplos-conference.org'
     type: conference
     selected: true
+    url: 'https://rachitnigam.com/files/pubs/calyx.pdf'
 
 -
     title: 'A Compiler Infrastructure for Accelerator Generators'
