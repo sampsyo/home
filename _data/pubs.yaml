@@ -6,7 +6,7 @@
     venue_url: 'https://asplos-conference.org'
     type: conference
     selected: true
-    url: 'https://rachitnigam.com/files/pubs/calyx.pdf'
+    url: 'https://www.cs.cornell.edu/~avh/diospyros-asplos-2021-preprint.pdf'
 
 -
     title: 'A Compiler Infrastructure for Accelerator Generators'
@@ -16,6 +16,7 @@
     venue_url: 'https://asplos-conference.org'
     type: conference
     selected: true
+    url: 'https://rachitnigam.com/files/pubs/calyx.pdf'
 
 -
     title: 'Online Verification of Commutativity'
