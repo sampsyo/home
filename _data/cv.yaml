@@ -227,6 +227,9 @@ service:
 
 
 committees:
+    - venue: HPCA
+      year: 2022
+      role: External review committee member
     - venue: YArch
       year: 2021
       role: Program committee member
