@@ -230,6 +230,10 @@ committees:
     - venue: HPCA
       year: 2022
       role: External review committee member
+    - venue: LATTE
+      year: 2021
+      role: Organizer
+      link: https://capra.cs.cornell.edu/latte21/
     - venue: YArch
       year: 2021
       role: Program committee member
@@ -362,11 +366,27 @@ committees:
 
 phdcommittees:
     -
+        name: Socrates Wong
+        advisor: 'José Martínez'
+    -
+        name: Ariel Kellison
+        advisor: David Bindel
+        link: 'https://ak-2485.github.io'
+    -
+        name: Griffin Berlstein
+        advisor: Nate Foster
+        link: 'https://griffinberlste.in'
+    -
+        name: Shaojie Xiang
+        advisor: Zhiru Zhang
+        link: 'https://www.csl.cornell.edu/~xiangs/'
+    -
         name: 'Yanghui Ou'
         advisor: Chris Batten
     -
         name: 'A.F. Cooper'
         advisor: 'Chris De Sa'
+        link: 'https://cacioepe.pe'
     -
         name: 'Kevin Negy'
         advisor: 'Emin Gün Sirer'
@@ -387,6 +407,7 @@ phdcommittees:
     -
         name: 'Tuan Ta'
         advisor: Chris Batten
+        link: 'http://tuanqta.net'
     -
         name: 'Yuan Zhou'
         advisor: Zhiru Zhang
@@ -397,7 +418,7 @@ phdcommittees:
         link: 'https://www.cs.cornell.edu/~tedyin/'
     -
         name: Wil Thomason
-        advisor: Ross Knepper
+        advisor: Hadas Kress-Gazit
         link: https://wbthomason.github.io
     -
         name: 'Yi-Hsiang (Sean) Lai'
