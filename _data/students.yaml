@@ -12,6 +12,7 @@
             start: 2017
         -
             name: Dietrich Geisler
+            link: https://www.cs.cornell.edu/~dgeisler/
             start: 2018
         -
             name: Edwin Peguero
@@ -101,26 +102,9 @@
             start: 2019
             end: 2020
         -
-            name: Andrew Pareles
-            start: 2020
-        -
-            name: Michelle Chao
-            start: 2020
-        -
-            name: Kofi Efah
-            start: 2020
-        -
-            name: Yuyi He
-            start: 2020
-        -
             name: Evan Adler
             start: 2020
-        -
-            name: Akshat Singh
-            start: 2020
-        -
-            name: Paul Joo
-            start: 2020
+            end: 2020
 
 -
     category: Undergraduate
@@ -237,6 +221,25 @@
             start: 2020
             end: 2020
         -
+            name: Andrew Pareles
+            start: 2020
+            end: 2020
+        -
+            name: Michelle Chao
+            start: 2020
+            end: 2020
+        -
+            name: Kofi Efah
+            start: 2020
+            end: 2020
+        -
+            name: Yuyi He
+            start: 2020
+            end: 2020
+        -
+            name: Paul Joo
+            start: 2020
+        -
             name: Akshat Singh
             start: 2020
             end: 2020
@@ -249,6 +252,12 @@
         -
             name: Karen Zhang
             start: 2020
+        -
+            name: Iain Pile
+            start: 2021
+        -
+            name: Andrei Shpilenok
+            start: 2021
 -
     category: Undergraduate Researchers at UW
     details: |
