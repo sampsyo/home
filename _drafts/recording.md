@@ -28,10 +28,13 @@ I have tried an embarrassing and expensive array of awful "speakerphone" product
 Every one of them makes me sound like a 32&nbsp;kbps MP3 of a call from a payphone in hell.
 Then I remembered that I have a [Blue Yeti][] that I bought from an old roommate back when podcasting was cool.
 It sounds great.
+It seems like any proper, standalone USB microphone would be fine as long as you can get it close to your face.
 
 [Blue Yeti]: https://www.bluemic.com/en-us/products/yeti/
 
 ### Metal Stand Dinguses
+
+I got a 
 
 These are the ingredients:
 
@@ -43,6 +46,14 @@ For the former, I use [Notability][]. Although I'm sure there are many other app
 I use [ScreenFlow][] to record and also to edit the video, including superimposing the recording of me over my iPad scribblings or my desktop and inserting ridiculous [royalty-free music][bensound]. I have used ScreenFlow for a long time to record conference talks. It's not cheap but it's the best. They have [educational discounts][screenflow-edu].
 
 <img src="{{ site.base }}/media/recording/screenflow.jpg" alt="screenshot of editing a lesson video in ScreenFlow 9" class="img-responsive">
+
+Editing videos takes me a long time because I make lots of mistakes.
+Here are my only tips for making it a little less painful.
+I try as hard as I can to pretend that I'm doing a live, in-person lecture in a real classroom, where there's no editing and mistakes are just part of life.
+I never stop recording and try to just keep on truckin' when I screw up.
+Somehow, that tactic is far easier said than done, and every few minutes I still get sufficiently derailed that an edit becomes inevitable (e.g., I lose my train of thought, mutter swear words, and pace around the room for a minute before getting back on track).
+For those, I use ScreenFlow's feature where you can press a hotkey to make a marker in the timeline to indicate that you want to edit something there later.
+Then, when editing, I can just jump between markers---I never watch the whole thing all the way through, which saves a ton of time.
 
 [ScreenFlow]: http://www.telestream.net/screenflow/overview.htm
 [screenflow-edu]: https://www.telestream.net/purchase/educational.htm
