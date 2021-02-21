@@ -17,7 +17,7 @@ There are other apps that do this but they all seem to be crappy and broken exce
 I used it first with an old iPad and now, less awkwardly, with my iPhone SE.
 The result so so much better than my iMac's built-in webcam that doing the below side-by-side comparison between the two made me make this face.
 
-<img src="{{ site.base }}/media/recording/webcams.jpg" alt="comparison between Camo and iMac camera quality" class="img-responsive">
+<img src="{{ site.base }}/media/recording/webcams.jpeg" alt="comparison between Camo and iMac camera quality" class="img-responsive">
 
 [camo]: https://reincubate.com/camo/
 [camo-blog]: https://reincubate.com/support/how-to/why-are-webcams-bad/
@@ -36,7 +36,11 @@ It seems like any proper, standalone USB microphone would be fine as long as you
 
 I got a 
 
+*not* the octopus kind
+
 These are the ingredients:
+
+<img src="{{ site.base }}/media/recording/desk.jpeg" alt="horribly backlit photo of my desk showing the microphone stand and tripod" class="img-responsive">
 
 ### Software
 
@@ -45,7 +49,7 @@ For the former, I use [Notability][]. Although I'm sure there are many other app
 
 I use [ScreenFlow][] to record and also to edit the video, including superimposing the recording of me over my iPad scribblings or my desktop and inserting ridiculous [royalty-free music][bensound]. I have used ScreenFlow for a long time to record conference talks. It's not cheap but it's the best. They have [educational discounts][screenflow-edu].
 
-<img src="{{ site.base }}/media/recording/screenflow.jpg" alt="screenshot of editing a lesson video in ScreenFlow 9" class="img-responsive">
+<img src="{{ site.base }}/media/recording/screenflow.jpeg" alt="screenshot of editing a lesson video in ScreenFlow 9" class="img-responsive">
 
 Editing videos takes me a long time because I make lots of mistakes.
 Here are my only tips for making it a little less painful.
@@ -59,9 +63,3 @@ Then, when editing, I can just jump between markers---I never watch the whole th
 [screenflow-edu]: https://www.telestream.net/purchase/educational.htm
 [notability]: https://www.gingerlabs.com
 [bensound]: https://www.bensound.com
-
-### Anti-Recommendations
-
-- that speakerphone
-- that expensive camera
-- 
