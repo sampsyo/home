@@ -12,9 +12,9 @@ While I have no idea what I'm doing, here are some notes on the hardware and sof
 ### Camera
 
 [All webcams are terrible][camo-blog], and the less-terrible ones are only available on the black market for 1 million dogecoin apiece.
-I've been using [Reincubate Camo][camo], an app that lets you use an iOS device's actually-good camera as a webcam.
-There are other apps that do this but they all seem to be crappy and broken except for Camo.
-I used it first with an old iPad and now, less awkwardly, with my iPhone SE.
+I've been using [Reincubate Camo][camo], an app that uses an iOS device's actually-good camera as a webcam.
+There are other apps that do this, but all the other ones I tried were crappy and broken.
+I used Camo first with an old iPad and now, less awkwardly, with my iPhone SE.
 The result so so much better than my iMac's built-in webcam that doing the below side-by-side comparison between the two made me make this face.
 
 <img src="{{ site.base }}/media/recording/webcams.jpeg" alt="comparison between Camo and iMac camera quality" class="img-responsive">
@@ -34,13 +34,17 @@ It seems like any proper, standalone USB microphone would be fine as long as you
 
 ### Metal Stand Dinguses
 
-I got a 
+I hastily bought a cheap [tripod for the iPhone-as-camera][tripod], which came with an adjustable phone mount, and a [microphone arm that clamps onto the edge of my desk][micstand].
+I say "desk" here, but for most of CS 6120, it was a piece of scrap plywood balanced on top of the open top drawer of my dresser (not pictured; I have a real desk now).
 
-*not* the octopus kind
-
-These are the ingredients:
+I set the tripod up behind my iMac so it's not too awkward to look directly at it.
+At first, I tried one of those [knobbly squidlike tripods][squid], thinking I could dangle it off the corner of my screen, but that turned out to be impossible---I don't recommend those things.
 
 <img src="{{ site.base }}/media/recording/desk.jpeg" alt="horribly backlit photo of my desk showing the microphone stand and tripod" class="img-responsive">
+
+[tripod]: https://www.amazon.com/gp/product/B075WQYN3B
+[micstand]: https://www.amazon.com/gp/product/B01L3LL95O
+[squid]: https://www.amazon.com/gp/product/B07WD8XRZD
 
 ### Software
 
