@@ -1,7 +1,9 @@
 ---
 title: Minimum-Effort Class Recording Setup
 excerpt: |
-    TK
+    Here are a few notes and links about the camera, microphone, stand thingies, software, and an editing technique I used to make the videos for [CS 6120][] in the fall.
+
+    [CS 6120]: https://www.cs.cornell.edu/courses/cs6120/2020fa/
 ---
 I got a few questions about my setup for recording the [course videos][] for [CS 6120][] this fall.
 While I have no idea what I'm doing, here are some notes on the hardware and software I settled on.
@@ -34,7 +36,7 @@ It seems like any proper, standalone USB microphone would be fine as long as you
 
 ### Metal Stand Dinguses
 
-I hastily bought a cheap [tripod for the iPhone-as-camera][tripod], which came with an adjustable phone mount, and a [microphone arm that clamps onto the edge of my desk][micstand].
+I hastily bought a cheap [tripod for the iPhone-as-camera][tripod] and a [microphone arm that clamps onto the edge of my desk][micstand].
 I say "desk" here, but for most of CS 6120, it was a piece of scrap plywood balanced on top of the open top drawer of my dresser (not pictured; I have a real desk now).
 
 I set the tripod up behind my iMac so it's not too awkward to look directly at it.
@@ -57,9 +59,11 @@ I use [ScreenFlow][] to record and also to edit the video, including superimposi
 
 Editing videos takes me a long time because I make lots of mistakes.
 Here are my only tips for making it a little less painful.
+
 I try as hard as I can to pretend that I'm doing a live, in-person lecture in a real classroom, where there's no editing and mistakes are just part of life.
 I never stop recording and try to just keep on truckin' when I screw up.
-Somehow, that tactic is far easier said than done, and every few minutes I still get sufficiently derailed that an edit becomes inevitable (e.g., I lose my train of thought, mutter swear words, and pace around the room for a minute before getting back on track).
+
+Somehow, that attitude is unbelievably hard to maintain, and every few minutes I still get sufficiently derailed that an edit becomes inevitable (e.g., I lose my train of thought, mutter swear words, and pace around the room for a minute before getting back on track).
 For those, I use ScreenFlow's feature where you can press a hotkey to make a marker in the timeline to indicate that you want to edit something there later.
 Then, when editing, I can just jump between markers---I never watch the whole thing all the way through, which saves a ton of time.
 
