@@ -1,7 +1,7 @@
 ---
 title: Minimum-Effort Class Recording Setup
 excerpt: |
-    Here are a few notes and links about the camera, microphone, stand thingies, software, and an editing technique I used to make the videos for [CS 6120][] in the fall.
+    Here are a few notes and links about the camera, microphone, stand thingies, software, and an editing strategy I used to make the videos for [CS 6120][] in the fall.
 
     [CS 6120]: https://www.cs.cornell.edu/courses/cs6120/2020fa/
 ---
