@@ -1,4 +1,13 @@
 -
+    title: 'Reticle: A Virtual Machine for Programming Modern FPGAs'
+    authors: 'Luis Vega, Joseph McMahan, Adrian Sampson, Dan Grossman, and Luis Ceze'
+    venue: 'PLDI 2021'
+    pre: true
+    venue_url: 'https://conf.researchr.org/home/pldi-2021'
+    type: conference
+    selected: true
+
+-
     title: 'Vectorization for Digital Signal Processors via Equality Saturation'
     authors: 'Alexa VanHattum, Rachit Nigam, Vincent T. Lee, James Bornholt, and Adrian Sampson'
     venue: 'ASPLOS 2021'
