@@ -230,6 +230,9 @@ committees:
     - venue: HPCA
       year: 2022
       role: External review committee member
+    - venue: OOPSLA
+      year: 2021
+      role: External review committee member
     - venue: LATTE
       year: 2021
       role: Organizer
