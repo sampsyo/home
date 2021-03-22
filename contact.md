@@ -76,9 +76,16 @@ However, I am interested in working undergraduates from underrepresented groups 
 
 I'm glad you're interested in the article! But copies of blog posts on sites I don't control make it impossible for me to correct mistakes or add updates in the future. Please don't "repost" anything.
 
+
+### Can you send me your bio, photo, and CV?  {#bio}
+
+Here's a [short bio and photo][bio], and here's my [CV][].
+
 [csapply]: https://www.cs.cornell.edu/phd/admissions#application
 [eceapply]: http://www.ece.cornell.edu/ece/academics/graduate/phd/admission.cfm
 [confpapers]: {{site.base}}/research.html#conference-papers
 [dreu]: https://cra.org/cra-w/dreu/
 [lsamp]: https://sites.coecis.cornell.edu/lsampreu/
 [capra-ugr]: https://capra.cs.cornell.edu/ugresearch.html
+[bio]: bio.html
+[cv]: cv
