@@ -441,6 +441,12 @@ phdcommittees:
 
 talks:
     -
+        title: '“Demystifying Grad School” panel moderator'
+        notitle: true
+        where: 'Young Architect Workshop (YArch) 2021'
+        link: 'https://sites.gatech.edu/yarch2021/#panel'
+        date: 2021-04-13
+    -
         title: Toward a Predictable System Stack for Reconfigurable Computing
         where: 'University of California, Santa Cruz Hardware Systems Collective Seminar'
         link: https://hsc.ucsc.edu/seminar/
