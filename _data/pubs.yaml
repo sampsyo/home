@@ -6,6 +6,7 @@
     venue_url: 'https://conf.researchr.org/home/pldi-2021'
     type: conference
     selected: true
+    url: 'BASE/media/papers/reticle-pldi2021-preprint.pdf'
 
 -
     title: 'Vectorization for Digital Signal Processors via Equality Saturation'
