@@ -227,6 +227,9 @@ service:
 
 
 committees:
+    - venue: ASPLOS
+      year: 2022
+      role: Program committee member
     - venue: HPCA
       year: 2022
       role: External review committee member
