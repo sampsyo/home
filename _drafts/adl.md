@@ -12,9 +12,22 @@ Hardware accelerator design has both essential complexity, but the languages and
 
 <img src="{{site.base}}/media/adl/complexity1.png" class="img-responsive">
 
-Personally speaking, however, TK
+Personally speaking, however, I've found the actual complexity to be far worse.
+When I use a traditional hardware description language (HDL), such as Verilog or Chisel, designing a fast, correct accelerator is
+not *incrementally* harder than parallel programming; for me, at least, it is *ridiculously* challenging by comparison.
 
 <img src="{{site.base}}/media/adl/complexity2.png" class="img-responsive">
+
+In an HDL, the essential complexities of hardware design---fine-grained parallelism, orchestrating many distributed memories, and so on---collide with a host of accidental complexities.
+Writing in an HDL reminds me of writing entire programs in assembly:
+I have granular control over performance, but this control comes at the cost of extreme verbosity and brittleness.
+
+TK the fundamental problem is the abstraction level.
+worrying about gates & wires loses the forest for the trees.
+
+TK HLS tools are awesome and help a lot. but they are just one point in a very large design space. and their ties to legacy software languages (mainly, C and C++) offers familiarity but make for an awkward fit with hardware generation (cite Dahlia).
+
+TK what we need are programming models that scale with the essential complexity of hardware design. what is that extra complexity, and how should languages express it?
 
 TK the missing piece: use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
