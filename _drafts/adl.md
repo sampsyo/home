@@ -10,7 +10,11 @@ TK something about eye-watering performance, maybe genomics
 Today's tools, however, require rarefied hardware expertise.
 Hardware accelerator design has both essential complexity, but the languages and tools available today complement it with a generous helping of accidental complexity.
 
-TK picture
+<img src="{{site.base}}/media/adl/complexity1.png" class="img-responsive">
+
+Personally speaking, however, TK
+
+<img src="{{site.base}}/media/adl/complexity2.png" class="img-responsive">
 
 TK the missing piece: use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
