@@ -32,9 +32,10 @@ not *incrementally* harder than parallel programming; for me, at least, it is *r
 In an HDL, the essential complexities of hardware design---fine-grained parallelism, orchestrating many distributed memories, and so on---collide with a host of accidental complexities.
 Writing in an HDL reminds me of writing entire programs in assembly:
 I have granular control over performance, but this control comes at the cost of extreme verbosity and brittleness.
-
-TK the fundamental problem is the abstraction level.
-worrying about gates & wires loses the forest for the trees.
+The problem is the abstraction level:
+*too much* detail and control over performance can paradoxically make it harder to productively iterate toward a fast implementation.
+Just as not all high-performance software needs to drop down to the level of assembly,
+not all accelerator design needs the granular control that HDLs offer.
 
 TK HLS tools are awesome and help a lot. but they are just one point in a very large design space. and their ties to legacy software languages (mainly, C and C++) offers familiarity but make for an awkward fit with hardware generation (cite Dahlia).
 
