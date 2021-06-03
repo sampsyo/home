@@ -45,6 +45,8 @@ TK the missing piece: use/multiplexing of physical resources. that's the essenti
 
 ---
 
+TK let's leave HDLs to what they're good at: arbitrary hardware, designing CPUs, etc. for an algorithmic accelerator...
+
 TK we need a new category of programming languages for this task
 there is already C-based HLS, Spatial, HeteroCL, our own Dahlia, TK.
 But as with software languages, there will never be one language to rule them all---we need a broad diversity of options that embrace different language paradigms,
