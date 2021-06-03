@@ -3,16 +3,27 @@ title: From Hardware Description Languages to Accelerator Design Languages
 excerpt:
     TK
 ---
-We need to make it easier for to design custom hardware accelerators. High-performance FPGA cards are quickly becoming accessible, and even custom silicon no longer needs to entail an astronomical investment. With sheer cost fading away as a barrier, the bottleneck will soon shift to development: realizing the potential of hardware specialization will require putting the tools into the hands of mainstream software developers.
+We need to make it easier for to design custom hardware accelerators. High-performance FPGA cards are quickly becoming accessible, and even custom silicon no longer needs to entail an astronomical investment.
+With sheer cost fading away as a barrier, the bottleneck for hardware acceleration will soon shift to development: realizing the potential of hardware specialization will require putting the tools into the hands of mainstream software developers.
+Putting specialized accelerators within reach of more applications is urgent because the potential upside is so enormous:
+domain-specific hardware like [Stanford's Darwin][darwin] can offer five orders of magnitude better performance than software,
+and Microsoft successfully [used FPGAs to double server efficiency][catapult] for a Bing workload.
 
-TK something about eye-watering performance, maybe genomics
+[darwin]: http://bejerano.stanford.edu/papers/p199-turakhia.pdf
+[catapult]: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Catapult_ISCA_2014.pdf
 
-Today's tools, however, require rarefied hardware expertise.
-Hardware accelerator design has both essential complexity, but the languages and tools available today complement it with a generous helping of accidental complexity.
+Today's tools for developing accelerators, however, require rarefied expertise in hardware design.
+Two kinds of factors make accelerator design hard:
+there is *essential* complexity that is truly fundamental to the problem, and there is *accidental* complexity because the tools are bad.
+Accelerator design shares fundamental challenges with high-performance software programming,
+such as understanding cost models and grappling with parallelism,
+and adds a few more,
+such as contending with clock cycles and the freedom to customize memory hierarchies.
+In an ideal world, the languages and tools for accelerator design would reflect those fundamental challenges---they would embrace the best techniques we have for high-performance and parallel software programming, and they would incrementally ratchet up the complexity to address the unique problems of hardware.
 
 <img src="{{site.base}}/media/adl/complexity1.png" class="img-responsive">
 
-Personally speaking, however, I've found the actual complexity to be far worse.
+Personally speaking, I've found the reality to be far more bleak.
 When I use a traditional hardware description language (HDL), such as Verilog or Chisel, designing a fast, correct accelerator is
 not *incrementally* harder than parallel programming; for me, at least, it is *ridiculously* challenging by comparison.
 
