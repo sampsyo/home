@@ -37,9 +37,11 @@ The problem is the abstraction level:
 Just as not all high-performance software needs to drop down to the level of assembly,
 not all accelerator design needs the granular control that HDLs offer.
 
-TK HLS tools are awesome and help a lot. but they are just one point in a very large design space. and their ties to legacy software languages (mainly, C and C++) offers familiarity but make for an awkward fit with hardware generation (cite Dahlia).
+TK HDLs have their place: for designing CPUs, for example. When you need to design truly arbitrary hardware. But when you want to implement hardware to perform a specific computation, we need a different level of abstraction.
 
 TK what we need are programming models that scale with the essential complexity of hardware design. what is that extra complexity, and how should languages express it?
+
+TK HLS tools are awesome and help a lot. but they are just one point in a very large design space. and their ties to legacy software languages (mainly, C and C++) offers familiarity but make for an awkward fit with hardware generation (cite Dahlia).
 
 TK the missing piece: use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
