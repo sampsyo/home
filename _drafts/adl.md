@@ -37,11 +37,28 @@ The problem is the abstraction level:
 Just as not all high-performance software needs to drop down to the level of assembly,
 not all accelerator design needs the granular control that HDLs offer.
 
-TK HDLs have their place: for designing CPUs, for example. When you need to design truly arbitrary hardware. But when you want to implement hardware to perform a specific computation, we need a different level of abstraction.
+HDLs have their place: they remain the right tool for the job when designing general-purpose processors, for example.
+But my thesis here is that their unique ability to express arbitrary circuits is unnecessary for most cases when the goal is to design hardware that implements a specific computation.
+HDLs' generality and low-level control, while indispensable for classic hardware design scenarios, is the root cause of the accidental complexity that makes FPGAs so much harder to program than GPUs.
 
-TK what we need are programming models that scale with the essential complexity of hardware design. what is that extra complexity, and how should languages express it?
+If application-specific accelerator design is going to go mainstream, we need alternatives that embrace different levels of abstraction.
+The key challenge is to identify the key factors in the *essential complexity* of hardware design---the fundamental factors that make it harder than other parallel programming---and to embody that complexity in a programming model.
+What would a programming language look like that was designed from the ground up for implementing algorithmic accelerators?
 
-TK HLS tools are awesome and help a lot. but they are just one point in a very large design space. and their ties to legacy software languages (mainly, C and C++) offers familiarity but make for an awkward fit with hardware generation (cite Dahlia).
+Today, the commercially successful answer to this question lies in *high-level synthesis* (HLS) tools.
+HLS compilers from [Xilinx][xilinx-hls], [Mentor][mentor-hls], and [Intel][intel-hls] can already generate high-quality HDL implementations from programs written in C, C++, and OpenCL.
+HLS research and products have made huge strides in recent years---Harvard's [FlexNLP][] and Google's [VCU][] are two high-profile recent examples of hardware accelerators that have relied on HLS for significant parts of their design.
+However, the traditional approach to HLS represents a single design point in a larger space of accelerator-focused programming models.
+Their reuse of legacy software languages means that they prioritize familiarity and compatibility over expressiveness and transparency.
+Because traditional HLS needs to bridge the gap between C-like software semantics and hardware designs, they tend to sacrifice correctness and predictability.
+Recently,
+researchers at Imperial College London [used fuzz testing to find many bugs for even simple C code in mature commercial HLS tools][hls-fuzz],
+and our lab at Cornell [identified performance predictability problems][dahlia-paper]
+where small, seemingly benign changes in the input C code can yield wild changes in the generated hardware's size and speed.
+Despite the success of this C-focused approach to traditional HLS, there is ample room for other approaches---languages designed from the ground up for designing accelerators.
+
+[hls-fuzz]: https://yannherklotz.com/papers/esrhls_fccm2021.pdf
+[dahlia-paper]: https://rachitnigam.com/files/pubs/dahlia.pdf
 
 TK the missing piece: use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
