@@ -3,14 +3,21 @@ title: From Hardware Description Languages to Accelerator Design Languages
 excerpt:
     TK
 ---
-We need to make it easier for to design custom hardware accelerators. High-performance FPGA cards are quickly becoming accessible, and even custom silicon no longer needs to entail an astronomical investment.
-With sheer cost fading away as a barrier, the bottleneck for hardware acceleration will soon shift to development: realizing the potential of hardware specialization will require putting the tools into the hands of mainstream software developers.
-Putting specialized accelerators within reach of more applications is urgent because the potential upside is so enormous:
-domain-specific hardware like [Stanford's Darwin][darwin] can offer five orders of magnitude better performance than software,
-and Microsoft successfully [used FPGAs to double server efficiency][catapult] for a Bing workload.
+We need to make it easier for to design custom, application-specific hardware accelerators.
+The potential [efficiency gains][darwin] gains are [enormous][catapult], and the cost of deploying accelerators is falling rapidly with the widespread [availability][f1] of [FPGA][intel-pac] [cards][xilinx-alveo] and the increasing accessibility of [custom silicon][google-tapeout].
+As the cost of hardware itself falls and the urgency for alternatives to general-purpose processors intensifies, the difficulty of designing custom hardware remains a bottleneck.
+
+The thesis of this post is that hardware description languages (HDLs), while indispensable for implementing arbitrary hardware, are not the key to making application-specific specialization go mainstream.
+An emerging and distinct class of languages, which might be called *accelerator design languages* (ADLs), target new abstraction levels with different trade-offs between generality and productivity.
+As with software languages, there will never be a one-size-fits all ADL:
+and crucially, traditional high-level synthesis (HLS) tools that repurpose C-based programming languages are not the only approach.
+This is a call for more research to explore the design space of ADLs, their compilers, and accompanying tools.
+An ecosystem of ADL approaches can put the power of specialized computing into the hands of domain experts, not just hardware designers.
 
 [darwin]: http://bejerano.stanford.edu/papers/p199-turakhia.pdf
 [catapult]: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Catapult_ISCA_2014.pdf
+
+### Essential vs. Accidental Complexity in Accelerator Design
 
 Today's tools for developing accelerators, however, require rarefied expertise in hardware design.
 Two kinds of factors make accelerator design hard:
@@ -45,9 +52,14 @@ If application-specific accelerator design is going to go mainstream, we need al
 The key challenge is to identify the key factors in the *essential complexity* of hardware design---the fundamental factors that make it harder than other parallel programming---and to embody that complexity in a programming model.
 What would a programming language look like that was designed from the ground up for implementing algorithmic accelerators?
 
+### C-Based HLS is Not the Only Way
+
+TK clarify that HLS "C-with-pragmas" does *count* as an HDL
+
 Today, the commercially successful answer to this question lies in *high-level synthesis* (HLS) tools.
 HLS compilers from [Xilinx][xilinx-hls], [Mentor][mentor-hls], and [Intel][intel-hls] can already generate high-quality HDL implementations from programs written in C, C++, and OpenCL.
 HLS research and products have made huge strides in recent years---Harvard's [FlexNLP][] and Google's [VCU][] are two high-profile recent examples of hardware accelerators that have relied on HLS for significant parts of their design.
+
 However, the traditional approach to HLS represents a single design point in a larger space of accelerator-focused programming models.
 Their reuse of legacy software languages means that they prioritize familiarity and compatibility over expressiveness and transparency.
 Because traditional HLS needs to bridge the gap between C-like software semantics and hardware designs, they tend to sacrifice correctness and predictability.
@@ -60,7 +72,14 @@ Despite the success of this C-focused approach to traditional HLS, there is ampl
 [hls-fuzz]: https://yannherklotz.com/papers/esrhls_fccm2021.pdf
 [dahlia-paper]: https://rachitnigam.com/files/pubs/dahlia.pdf
 
-TK the missing piece: use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
+TK somewhere in here, coin the term.
+not DSL. not *just* HLS.
+
+### The Missing Piece
+
+TK better title. what's missing from parallel programming models? (they are a great starting point, but what is the additional concerns that ADLs must embrace?)
+
+use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
 ---
 
