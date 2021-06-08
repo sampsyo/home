@@ -4,7 +4,7 @@ excerpt:
     TK
 ---
 We need to make it easier for to design custom, application-specific hardware accelerators.
-The potential [efficiency gains][darwin] gains are [enormous][catapult], and the cost of deploying accelerators is falling rapidly with the widespread [availability][f1] of [FPGA][intel-pac] [cards][xilinx-alveo] and the increasing accessibility of [custom silicon][google-tapeout].
+The potential [efficiency gains][darwin] gains are [enormous][catapult], and the cost of deploying accelerators is falling rapidly with the [widespread][azurenp] [availability][f1] of [FPGA][intel-pac] [cards][xilinx-alveo] and the increasing accessibility of [custom silicon][google-tapeout].
 As the cost of hardware itself falls and the urgency for alternatives to general-purpose processors intensifies, the difficulty of designing custom hardware remains a bottleneck.
 
 The thesis of this post is that hardware description languages (HDLs), while indispensable for implementing arbitrary hardware, are not the key to making application-specific specialization go mainstream.
@@ -16,6 +16,11 @@ An ecosystem of ADL approaches can put the power of specialized computing into t
 
 [darwin]: http://bejerano.stanford.edu/papers/p199-turakhia.pdf
 [catapult]: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Catapult_ISCA_2014.pdf
+[xilinx-alveo]: https://www.xilinx.com/products/boards-and-kits/alveo.html
+[intel-pac]: https://www.intel.com/content/www/us/en/products/details/fpga/platforms/pac.html
+[f1]: https://aws.amazon.com/ec2/instance-types/f1/
+[azurenp]: https://docs.microsoft.com/en-us/azure/virtual-machines/np-series
+[google-tapeout]: https://www.fossi-foundation.org/2020/06/30/skywater-pdk
 
 ### Essential vs. Accidental Complexity in Accelerator Design
 
@@ -107,7 +112,7 @@ TK also not DSLs. (???)
 ---
 
 TK what should the goals be? balancing these competing objectives:
-- computational semantics. (unlike HDLs.) should be able to understand its input-output behavior by reading the code, not doing a discrete event simulation.
+- computational semantics. (unlike HDLs.) should be able to understand its input-output behavior by reading the code, not doing a discrete event simulation. be up-front that I don't know exactly what "computational semantics" means.
 - predictability and transparent cost models. put the tools into the hands of programmers; don't imagine that we'll isolate them from hardware concerns entirely
 
 TK again, different languages will balance these goals differently. hide more to make the semantics more computational and therefore more understandable to programmers. reveal more hardware details to make performance optimization more tractable without relying on a mythical "sufficiently smart compiler."
