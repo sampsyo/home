@@ -107,7 +107,7 @@ If you want to design the next great out-of-order RISC-V CPU, you'll want a prop
 In exchange for full generality,
 ADLs can offer *computational semantics:*
 to understand what an ADL program does, you can read it like an algorithm mapping inputs to outputs.
-To interpret an HDL design, in contrast, there is not really any way around running a hardware simulation.
+To interpret an HDL design, in contrast, there is not really any general way around running an iterative, time-based hardware simulation.
 
 These ADLs are different from domain-specific languages (DSLs).
 While DSLs have also shown promise as an approach to making it easier to design accelerators in TK domains,
