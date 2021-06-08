@@ -57,22 +57,26 @@ If application-specific accelerator design is going to go mainstream, we need al
 The key challenge is to identify the key factors in the *essential complexity* of hardware design---the fundamental factors that make it harder than other parallel programming---and to embody that complexity in a programming model.
 What would a programming language look like that was designed from the ground up for implementing algorithmic accelerators?
 
-### C-Based HLS is Not the Only Way
-
-TK clarify that HLS "C-with-pragmas" does *count* as an ADL
+### C-Based HLS is Not the Only Answer
 
 Today, the commercially successful answer to this question lies in *high-level synthesis* (HLS) tools.
-HLS compilers from [Xilinx][xilinx-hls], [Mentor][mentor-hls], and [Intel][intel-hls] can already generate high-quality HDL implementations from programs written in C, C++, and OpenCL.
+HLS compilers from [Xilinx][xilinx-hls], [Mentor][mentor-hls], and [Intel][intel-hls] can already generate high-quality HDL implementations from programs written in C, C++, or OpenCL.
+To work around C's sequential-first, pointer-based semantics,
+HLS tools extend the language with vendor-specific `#pragma` annotations or [SystemC][] constructs to express hardware concepts.
 HLS research and products have made huge strides in recent years---Harvard's [EdgeBERT][] and Google's [VCU][] are two high-profile recent examples of hardware accelerators that have relied on HLS for significant parts of their design.
+C-based HLS tools automate some of the tedious tasks in hardware design by automatically scheduling and pipelining basic logic to match sequential semantics.
 
-However, the traditional approach to HLS represents a single design point in a larger space of accelerator-focused programming models.
-Their reuse of legacy software languages means that they prioritize familiarity and compatibility over expressiveness and transparency.
-Because traditional HLS needs to bridge the gap between C-like software semantics and hardware designs, they tend to sacrifice correctness and predictability.
+However, traditional C-based HLS tools have succeeded *despite* their grounding in C---not *because* of it.
+By reusing a legacy software language, they create a semantic gap that in turn yields correctness and performance pitfalls.
 Recently,
-researchers at Imperial College London [used fuzz testing to find many bugs for even simple C code in mature commercial HLS tools][hls-fuzz],
+researchers at Imperial College London [used fuzz testing to find a torrent of bugs in mature HLS tools][hls-fuzz] when compiling even simple C code,
 and our lab at Cornell [identified performance predictability problems][dahlia-paper]
-where small, seemingly benign changes in the input C code can yield wild changes in the generated hardware's size and speed.
-Despite the success of this C-focused approach to traditional HLS, there is ample room for other approaches---languages designed from the ground up for designing accelerators.
+where small, seemingly benign changes in the input program can yield wild changes in the generated hardware's size and speed.
+While reusing C offers compatibility and familiarity, it also comes at a cost in reliability and transparency.
+
+What would HLS look like if it were freed from the baggage of software programming languages like C?
+Could we build compilers that are faster, more correct, and easier to use?
+How big is the design space for languages designed from the ground up for implementing hardware accelerators?
 
 [hls-fuzz]: https://yannherklotz.com/papers/esrhls_fccm2021.pdf
 [dahlia-paper]: https://rachitnigam.com/files/pubs/dahlia.pdf
@@ -81,11 +85,12 @@ Despite the success of this C-focused approach to traditional HLS, there is ampl
 [xilinx-hls]: https://www.xilinx.com/products/design-tools/vivado/integration/esl-design.html
 [edgebert]: https://arxiv.org/abs/2011.14203
 [vcu]: https://dl.acm.org/doi/abs/10.1145/3445814.3446723
+[systemc]: https://accellera.org/community/systemc
+
+### Accelerator Design Languages and the Missing Concepts
 
 TK somewhere in here, coin the term.
-not DSL. not *just* HLS.
-
-### The Missing Piece
+not DSL. not *just* HLS. but HLS-C-with-annotations-or-whatever counts.
 
 TK better title. what's missing from parallel programming models? (they are a great starting point, but what is the additional concerns that ADLs must embrace?)
 
@@ -96,7 +101,7 @@ use/multiplexing of physical resources. that's the essential thing about hardwar
 TK let's leave HDLs to what they're good at: arbitrary hardware, designing CPUs, etc. for an algorithmic accelerator...
 
 TK we need a new category of programming languages for this task
-there is already C-based HLS, Spatial, HeteroCL, our own Dahlia, TK.
+there is already C-based HLS, Spatial, HeteroCL, our own Dahlia, Sandpiper, TK.
 But as with software languages, there will never be one language to rule them all---we need a broad diversity of options that embrace different language paradigms,
 strike different trade-offs between performance and productivity,
 or offer special features for specific application domains.
