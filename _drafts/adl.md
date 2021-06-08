@@ -59,11 +59,11 @@ What would a programming language look like that was designed from the ground up
 
 ### C-Based HLS is Not the Only Way
 
-TK clarify that HLS "C-with-pragmas" does *count* as an HDL
+TK clarify that HLS "C-with-pragmas" does *count* as an ADL
 
 Today, the commercially successful answer to this question lies in *high-level synthesis* (HLS) tools.
 HLS compilers from [Xilinx][xilinx-hls], [Mentor][mentor-hls], and [Intel][intel-hls] can already generate high-quality HDL implementations from programs written in C, C++, and OpenCL.
-HLS research and products have made huge strides in recent years---Harvard's [FlexNLP][] and Google's [VCU][] are two high-profile recent examples of hardware accelerators that have relied on HLS for significant parts of their design.
+HLS research and products have made huge strides in recent years---Harvard's [EdgeBERT][] and Google's [VCU][] are two high-profile recent examples of hardware accelerators that have relied on HLS for significant parts of their design.
 
 However, the traditional approach to HLS represents a single design point in a larger space of accelerator-focused programming models.
 Their reuse of legacy software languages means that they prioritize familiarity and compatibility over expressiveness and transparency.
@@ -76,6 +76,11 @@ Despite the success of this C-focused approach to traditional HLS, there is ampl
 
 [hls-fuzz]: https://yannherklotz.com/papers/esrhls_fccm2021.pdf
 [dahlia-paper]: https://rachitnigam.com/files/pubs/dahlia.pdf
+[intel-hls]: https://www.intel.com/content/www/us/en/software/programmable/quartus-prime/hls-compiler.html
+[mentor-hls]: https://resources.sw.siemens.com/en-US/fact-sheet-catapult-high-level-synthesis-and-verification
+[xilinx-hls]: https://www.xilinx.com/products/design-tools/vivado/integration/esl-design.html
+[edgebert]: https://arxiv.org/abs/2011.14203
+[vcu]: https://dl.acm.org/doi/abs/10.1145/3445814.3446723
 
 TK somewhere in here, coin the term.
 not DSL. not *just* HLS.
