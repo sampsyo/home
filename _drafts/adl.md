@@ -36,7 +36,7 @@ In an ideal world, the languages and tools for accelerator design would reflect 
 <img src="{{site.base}}/media/adl/complexity1.png" class="img-responsive">
 
 Personally speaking, I've found the reality to be far more bleak.
-When I use a traditional hardware description language (HDL), such as Verilog or Chisel, designing a fast, correct accelerator is
+When I use a traditional hardware description language (HDL), such as [Verilog][] or [Chisel][], designing a fast, correct accelerator is
 not *incrementally* harder than parallel programming; for me, at least, it is *ridiculously* challenging by comparison.
 
 <img src="{{site.base}}/media/adl/complexity2.png" class="img-responsive">
@@ -87,7 +87,7 @@ How big is the design space for languages designed from the ground up for implem
 [vcu]: https://dl.acm.org/doi/abs/10.1145/3445814.3446723
 [systemc]: https://accellera.org/community/systemc
 
-### The Characteristics of Accelerator Design Languages
+### What Makes an Accelerator Design Language?
 
 We need a name for the emerging class of programming languages meant for designing computational accelerators---to distinguish them from fully general hardware description languages (HDLs).
 I'll call them *accelerator design languages* (ADLs).
@@ -101,7 +101,7 @@ Similar efforts are underway in industry:
 Microsoft has previewed an in-house ADL called [Sandpiper][],
 and Google's open-source [XLS][] builds a custom ADL on a new intermediate representation.
 
-All these ADLs differ from HDLs, from Verilog and VHDL to [Chisel][] and [PyMTL][], in a few critical ways:
+All these ADLs differ from HDLs, from [Verilog][] and [Bluespec][] to [Chisel][] and [PyMTL][], in a few critical ways:
 
 * TK let's leave HDLs to what they're good at: arbitrary hardware, designing CPUs, etc.
 The goal is *not* to specify arbitrary hardware! The ability to design a RISC-V CPU, for example, is a non-goal.
@@ -123,6 +123,11 @@ or offer special features for specific application domains.
 [spatial]: https://spatial-lang.org/
 [hls-stream]: https://www.xilinx.com/html_docs/xilinx2020_2/vitis_doc/hls_stream_library.html#mes1539734221433
 [legup-pragma]: https://download-soc.microsemi.com/FPGA/HLS-EAP/docs/legup-9.1-docs/pragmas.html#pragmas
+[pymtl]: https://www.chisel-lang.org/
+[chisel]: https://www.chisel-lang.org/
+[vhdl]: https://en.wikipedia.org/wiki/VHDL
+[verilog]: https://en.wikipedia.org/wiki/Verilog
+[bluespec]: http://wiki.bluespec.com/bluespec-systemverilog-and-compiler
 
 ### Challenges for the Next Generation of ADLs
 
