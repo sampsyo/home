@@ -101,20 +101,18 @@ Similar efforts are underway in industry:
 Microsoft has previewed an in-house ADL called [Sandpiper][],
 and Google's open-source [XLS][] builds a custom ADL on a new intermediate representation.
 
-All these ADLs differ from HDLs, from [Verilog][] and [Bluespec][] to [Chisel][] and [PyMTL][], in a few critical ways:
+All these ADLs differ from HDLs, from [Verilog][] and [Bluespec][] to [Chisel][] and [PyMTL][], in one critical way:
+*they do not attempt to enable the design of arbitrary hardware*.
+If you want to design the next great out-of-order RISC-V CPU, you'll want a proper HDL.
+In exchange for full generality,
+ADLs can offer *computational semantics:*
+to understand what an ADL program does, you can read it like an algorithm mapping inputs to outputs.
+To interpret an HDL design, in contrast, there is not really any way around running a hardware simulation.
 
-* TK let's leave HDLs to what they're good at: arbitrary hardware, designing CPUs, etc.
-The goal is *not* to specify arbitrary hardware! The ability to design a RISC-V CPU, for example, is a non-goal.
-
-These ADLs are also not really domain-specific languages (DSLs).
+These ADLs are different from domain-specific languages (DSLs).
 While DSLs have also shown promise as an approach to making it easier to design accelerators in TK domains,
 ADLs are different because they span application domains.
 As important as DSLs will surely be in the era of specialized hardware designs, we will always need more general-purpose alternatives to fill in the gaps between popular computational domains.
-
-TK
-But as with software languages, there will never be one language to rule them all---we need a broad diversity of options that embrace different language paradigms,
-strike different trade-offs between performance and productivity,
-or offer special features for specific application domains.
 
 [xls]: https://google.github.io/xls/
 [sandpiper]: https://twitter.com/pldrnt/status/1300851721829261312
@@ -130,6 +128,11 @@ or offer special features for specific application domains.
 [bluespec]: http://wiki.bluespec.com/bluespec-systemverilog-and-compiler
 
 ### Challenges for the Next Generation of ADLs
+
+TK
+But as with software languages, there will never be one language to rule them all---we need a broad diversity of options that embrace different language paradigms,
+strike different trade-offs between performance and productivity,
+or offer special features for specific application domains.
 
 use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
