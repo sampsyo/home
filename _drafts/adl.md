@@ -129,21 +129,27 @@ As important as DSLs will surely be in the era of specialized hardware designs, 
 
 ### Challenges for the Next Generation of ADLs
 
-TK
-But as with software languages, there will never be one language to rule them all---we need a broad diversity of options that embrace different language paradigms,
+As with software languages, there will never be one ADL to rule them all---we need a broad diversity of options that embrace different language paradigms,
 strike different trade-offs between performance and productivity,
 or offer special features for specific application domains.
+
+TK
+what are the fundamental concepts that ADLs will need to confront?
+The challenge in designing an ADL is finding a way to express the essential complexity of accelerator design without adding too much accidental complexity.
+Accelerator design inherits all the same challenges as parallel software programming and adds new concerns.
+We need to identify those underlying concepts that form the marginal complexity of the accelerator setting and design languages to embody those.
+
+<img src="{{site.base}}/media/adl/complexity3.png" class="img-responsive">
 
 use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
 TK what should the goals be? balancing these competing objectives:
+
 - computational semantics. (unlike HDLs.) should be able to understand its input-output behavior by reading the code, not doing a discrete event simulation. be up-front that I don't know exactly what "computational semantics" means.
 - predictability and transparent cost models. put the tools into the hands of programmers; don't imagine that we'll isolate them from hardware concerns entirely
 
 TK again, different languages will balance these goals differently. hide more to make the semantics more computational and therefore more understandable to programmers. reveal more hardware details to make performance optimization more tractable without relying on a mythical "sufficiently smart compiler."
 
-TK *critically*, not HLS.
-lots of good stories about how hardware experts bend C-based HLS to their will, but precious few about software developers becoming efficient hardware designers.
-we can do better.
-and we should have the following revolutionary idea: correct translation is the compiler's responsibility, not the developer's! if the tool generates wrong hardware (down to the bit), that's a compiler bug, not something the developer needs to hunt down and fix.
+TK *correctness*.
+we should have the following revolutionary idea: correct translation is the compiler's responsibility, not the developer's! if the tool generates wrong hardware (down to the bit), that's a compiler bug, not something the developer needs to hunt down and fix.
 imagine if you had to constantly check that your C program matched the assembly program and make manual changes to the latter if not! that's life today with mainstream HLS.
