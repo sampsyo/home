@@ -87,42 +87,55 @@ How big is the design space for languages designed from the ground up for implem
 [vcu]: https://dl.acm.org/doi/abs/10.1145/3445814.3446723
 [systemc]: https://accellera.org/community/systemc
 
-### Accelerator Design Languages and the Missing Concepts
+### The Characteristics of Accelerator Design Languages
 
-TK somewhere in here, coin the term.
-not DSL. not *just* HLS. but HLS-C-with-annotations-or-whatever counts.
+We need a name for the emerging class of programming languages meant for designing computational accelerators---to distinguish them from fully general hardware description languages (HDLs).
+I'll call them *accelerator design languages* (ADLs).
 
-TK better title. what's missing from parallel programming models? (they are a great starting point, but what is the additional concerns that ADLs must embrace?)
+Traditional HLS tools have accidentally created their own ADLs by extending C++ with vast suites of [custom annotations][legup-pragma] or [special libraries][hls-stream].
+As a research area, it's heating up:
+Stanford's [Spatial][] is a Scala embedded DSL for accelerator design;
+Cornell's [HeteroCL][] uses an algorithm/schedule decoupling strategy;
+and our own lab's [Dahlia][] features a novel type system for controlling hardware resources.
+Similar efforts are underway in industry:
+Microsoft has previewed an in-house ADL called [Sandpiper][],
+and Google's open-source [XLS][] builds a custom ADL on a new intermediate representation.
 
-use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
+All these ADLs differ from HDLs, from Verilog and VHDL to [Chisel][] and [PyMTL][], in a few critical ways:
 
----
+* TK let's leave HDLs to what they're good at: arbitrary hardware, designing CPUs, etc.
+The goal is *not* to specify arbitrary hardware! The ability to design a RISC-V CPU, for example, is a non-goal.
 
-TK let's leave HDLs to what they're good at: arbitrary hardware, designing CPUs, etc. for an algorithmic accelerator...
+These ADLs are also not really domain-specific languages (DSLs).
+While DSLs have also shown promise as an approach to making it easier to design accelerators in TK domains,
+ADLs are different because they span application domains.
+As important as DSLs will surely be in the era of specialized hardware designs, we will always need more general-purpose alternatives to fill in the gaps between popular computational domains.
 
-TK we need a new category of programming languages for this task
-there is already C-based HLS, Spatial, HeteroCL, our own Dahlia, Sandpiper, TK.
+TK
 But as with software languages, there will never be one language to rule them all---we need a broad diversity of options that embrace different language paradigms,
 strike different trade-offs between performance and productivity,
 or offer special features for specific application domains.
-The goal is *not* to specify arbitrary hardware! The ability to design a RISC-V CPU, for example, is a non-goal.
 
-TK *critically*, not HLS.
-C is a bad language for this.
-lots of good stories about how hardware experts bend C-based HLS to their will, but precious few about software developers becoming efficient hardware designers.
-we can do better.
-and we should have the following revolutionary idea: correct translation is the compiler's responsibility, not the developer's! if the tool generates wrong hardware (down to the bit), that's a compiler bug, not something the developer needs to hunt down and fix.
-imagine if you had to constantly check that your C program matched the assembly program and make manual changes to the latter if not! that's life today with mainstream HLS.
+[xls]: https://google.github.io/xls/
+[sandpiper]: https://twitter.com/pldrnt/status/1300851721829261312
+[dahlia]: https://capra.cs.cornell.edu/dahlia/
+[heterocl]: https://heterocl.csl.cornell.edu/
+[spatial]: https://spatial-lang.org/
+[hls-stream]: https://www.xilinx.com/html_docs/xilinx2020_2/vitis_doc/hls_stream_library.html#mes1539734221433
+[legup-pragma]: https://download-soc.microsemi.com/FPGA/HLS-EAP/docs/legup-9.1-docs/pragmas.html#pragmas
 
-TK do *not* get these confused with hardware description languages.
-Traditional ones like Verilog or VHDL, newer ones like Chisel or PyMTL
+### Challenges for the Next Generation of ADLs
 
-TK also not DSLs. (???)
-
----
+use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
 TK what should the goals be? balancing these competing objectives:
 - computational semantics. (unlike HDLs.) should be able to understand its input-output behavior by reading the code, not doing a discrete event simulation. be up-front that I don't know exactly what "computational semantics" means.
 - predictability and transparent cost models. put the tools into the hands of programmers; don't imagine that we'll isolate them from hardware concerns entirely
 
 TK again, different languages will balance these goals differently. hide more to make the semantics more computational and therefore more understandable to programmers. reveal more hardware details to make performance optimization more tractable without relying on a mythical "sufficiently smart compiler."
+
+TK *critically*, not HLS.
+lots of good stories about how hardware experts bend C-based HLS to their will, but precious few about software developers becoming efficient hardware designers.
+we can do better.
+and we should have the following revolutionary idea: correct translation is the compiler's responsibility, not the developer's! if the tool generates wrong hardware (down to the bit), that's a compiler bug, not something the developer needs to hunt down and fix.
+imagine if you had to constantly check that your C program matched the assembly program and make manual changes to the latter if not! that's life today with mainstream HLS.
