@@ -127,19 +127,20 @@ As important as DSLs will surely be in the era of specialized hardware designs, 
 [verilog]: https://en.wikipedia.org/wiki/Verilog
 [bluespec]: http://wiki.bluespec.com/bluespec-systemverilog-and-compiler
 
-### Challenges for the Next Generation of ADLs
+### The Marginal Complexity of Accelerator Design
 
-As with software languages, there will never be one ADL to rule them all---we need a broad diversity of options that embrace different language paradigms,
+As with software languages, there will never be one ADL to rule them all---we need a diversity of options that embrace different language paradigms,
 strike different trade-offs between performance and productivity,
 or offer special features for specific application domains.
 
-TK
-what are the fundamental concepts that ADLs will need to confront?
-The challenge in designing an ADL is finding a way to express the essential complexity of accelerator design without adding too much accidental complexity.
-Accelerator design inherits all the same challenges as parallel software programming and adds new concerns.
-We need to identify those underlying concepts that form the marginal complexity of the accelerator setting and design languages to embody those.
+In any ADL design, the central challenge is expressing the fundamental concepts in accelerator design that humans need to be aware of---to convey the essential complexity of the task without adding too much accidental complexity.
+In the same way that parallel programming models need to contend with essential concepts like synchronization that do not exist in sequential programming,
+ADLs will need to design abstractions for the new concepts in hardware implementation that go beyond ordinary parallel programming.
 
 <img src="{{site.base}}/media/adl/complexity3.png" class="img-responsive">
+
+What are those concepts that form the *marginal complexity* of accelerator design, relative to writing parallel software?
+Identifying and abstracting these concepts will be the hard work that ADL designers need to do.
 
 use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
 
