@@ -3,7 +3,7 @@ title: From Hardware Description Languages to Accelerator Design Languages
 excerpt:
     TK
 ---
-We need to make it easier for to design custom, application-specific hardware accelerators.
+We need to make it easier to design custom, application-specific hardware accelerators.
 The potential [efficiency gains][darwin] gains are [enormous][catapult], and the cost of deploying accelerators is falling rapidly with the [widespread][azurenp] [availability][f1] of [FPGA][intel-pac] [cards][xilinx-alveo] and the increasing accessibility of [custom silicon][google-tapeout].
 As the cost of hardware itself falls and the urgency for alternatives to general-purpose processors intensifies, the difficulty of designing custom hardware remains a bottleneck.
 
@@ -144,16 +144,18 @@ ADLs will need to design abstractions for the new concepts in hardware implement
 
 What are those concepts that form the *marginal complexity* of accelerator design, relative to writing parallel software?
 Identifying and abstracting these concepts will be the hard work that ADL designers need to do.
+In my experience, this extra complexity boils down to two main categories:
 
-use/multiplexing of physical resources. that's the essential thing about hardware; you are creating computational objects *and then* using them to accomplish something
+* *Physicality.* Perhaps the most fundamental thing about hardware is that computation uses finite, physical resources to do its work. When an accelerator performs a floating-point multiplication, for example, that has to happen *somewhere*---it needs to dedicate an FPU to that computation. And meanwhile, it needs to take care not to simultaneously try to use the same FPU to do something else at the same time. While CPUs of course also need to allocate computational resources to computations, they do it implicitly---whereas accelerator designs have to manage it as a first-class design concern.
+* *Time.* While parallel software has to deal with a notion of *logical time*, such as a happens-before relation for ordering events between threads, hardware accelerators need to contend with *physical time* in the form of clock cycles. Cycle-level timing is an added dimension of complexity, but it also gives accelerators the unique ability to ensure determinism: that a given computation takes 100 cycles, every time, with no exceptions. This determinism is an important advantage over even high-performance processors: for many use cases such as datacenter networking, 100 deterministic cycles might be preferable to a CPU that takes 80 cycles most of the time but 500 cycles in rare exceptions.
 
 TK what should the goals be? balancing these competing objectives:
 
 - computational semantics. (unlike HDLs.) should be able to understand its input-output behavior by reading the code, not doing a discrete event simulation. be up-front that I don't know exactly what "computational semantics" means.
 - predictability and transparent cost models. put the tools into the hands of programmers; don't imagine that we'll isolate them from hardware concerns entirely
+- TK *correctness*.
+we should have the following revolutionary idea: correct translation is the compiler's responsibility, not the developer's! if the tool generates wrong hardware (down to the bit), that's a compiler bug, not something the developer needs to hunt down and fix.
+imagine if you had to constantly check that your C program matched the assembly program and make manual changes to the latter if not! that's life today with mainstream HLS.
 
 TK again, different languages will balance these goals differently. hide more to make the semantics more computational and therefore more understandable to programmers. reveal more hardware details to make performance optimization more tractable without relying on a mythical "sufficiently smart compiler."
 
-TK *correctness*.
-we should have the following revolutionary idea: correct translation is the compiler's responsibility, not the developer's! if the tool generates wrong hardware (down to the bit), that's a compiler bug, not something the developer needs to hunt down and fix.
-imagine if you had to constantly check that your C program matched the assembly program and make manual changes to the latter if not! that's life today with mainstream HLS.
