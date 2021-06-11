@@ -51,10 +51,8 @@ not all accelerator design needs the granular control that HDLs offer.
 
 HDLs have their place: they remain the right tool for the job when designing general-purpose processors, for example.
 But my thesis here is that their unique ability to express arbitrary circuits is unnecessary for most cases when the goal is to design hardware that implements a specific computation.
-HDLs' generality and low-level control, while indispensable for classic hardware design scenarios, is the root cause of the accidental complexity that makes FPGAs so much harder to program than GPUs.
-
-TK
-HDLs are critical and will never go away, in the same way that assembly/machine code is a critical abstraction layer that will be with us forever, even if a minority of software is written using it directly
+HDLs' generality and low-level control renders them indispensable for low-level control and classic hardware design scenarios, in the same way that assembly programming today remains indispensable for edge cases and extreme performance tuning.
+And in the same way that a vanishing minority of software in the 21st century is written directly in assembly, even in performance-sensitive settings, HDLs impose more complexity than mainstream accelerator designers of the future should need to deal with.
 
 If application-specific accelerator design is going to go mainstream, we need alternatives that embrace different levels of abstraction.
 The key challenge is to identify the key factors in the *essential complexity* of hardware design---the fundamental factors that make it harder than other parallel programming---and to embody that complexity in a programming model.
