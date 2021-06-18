@@ -63,6 +63,8 @@ jobs:
         dates: 2007
 
 honors:
+    - text: '<a href="https://ieeetcca.org/awards/young-computer-architect-award/">IEEE TCCA Young Computer Architect Award</a>, 2021'
+      selected: true
     - text: '<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1845952">NSF CAREER award</a>, 2019'
       selected: true
     - text: 'Cornell College of Engineering Ralph S. Watts ’72 Excellence in Teaching Award, 2018'
