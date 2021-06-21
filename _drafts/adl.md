@@ -63,7 +63,7 @@ If hardware acceleration is going to go mainstream, we need alternatives that em
 The key challenge is to identify the key factors in the *essential complexity* of hardware design---the fundamental factors that make it harder than other parallel programming---and to embody that complexity in a programming model.
 What would a programming language look like that was designed from the ground up for implementing efficient algorithmic accelerators?
 
-### C-Based HLS is Not the Only Answer
+### Under the C
 
 Today, the commercially successful answer to this question lies in *high-level synthesis* (HLS) tools.
 HLS compilers from [Xilinx][xilinx-hls], [Mentor][mentor-hls], and [Intel][intel-hls] can already generate high-quality HDL implementations from programs written in C, C++, or OpenCL.
