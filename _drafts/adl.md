@@ -15,7 +15,7 @@ let's call them *accelerator design languages* (ADLs).
 As with software languages, there will never be a one-size-fits all ADL.
 We need a diversity of approaches that strike different balances between generality, optimality, and productivity.
 Industry's current focus is on *high-level synthesis* (HLS) tools, which repurpose C-based programming languages with restrictions and extensions to form ADLs that prioritize familiarity for C programmers.
-This post is a call for more research to explore the broader, C-free design space of ADLs, their compilers, and accompanying tools.
+This post is a call for more research to explore the broader, C-free design space of ADLs, their compilers, and their accompanying tools.
 A healthy ecosystem of ADLs can distribute the power of specialized computing to all domain experts, not just hardware designers.
 
 [darwin]: http://bejerano.stanford.edu/papers/p199-turakhia.pdf
@@ -28,13 +28,13 @@ A healthy ecosystem of ADLs can distribute the power of specialized computing to
 
 ### Essential vs. Accidental Complexity in Accelerator Design
 
-Today's tools for developing accelerators, however, require rarefied expertise in hardware design.
-Two kinds of factors make accelerator design hard:
+Two kinds of factors make accelerator design hard today:
 there is *essential* complexity that is truly fundamental to the problem, and there is *accidental* complexity because the tools are bad.
 Accelerator design shares fundamental challenges with high-performance software programming,
 such as understanding cost models and grappling with parallelism,
 and adds a few more,
 such as contending with clock cycles and the freedom to customize memory hierarchies.
+
 In an ideal world, the languages and tools for accelerator design would reflect those fundamental challenges---they would embrace the best techniques we have for high-performance and parallel software programming, and they would incrementally ratchet up the complexity to address the unique problems of hardware.
 
 <img src="{{site.base}}/media/adl/complexity1.png" class="img-responsive">
@@ -48,19 +48,20 @@ not *incrementally* harder than parallel programming; for me, at least, it is *r
 In an HDL, the essential complexities of hardware design---fine-grained parallelism, orchestrating many distributed memories, and so on---collide with a host of accidental complexities.
 Writing in an HDL reminds me of writing entire programs in assembly:
 I have granular control over performance, but this control comes at the cost of extreme verbosity and brittleness.
-The problem is the abstraction level:
-*too much* detail and control over performance can paradoxically make it harder to productively iterate toward a fast implementation.
+
+The problem is the abstraction level.
+*Too much* detail and control over performance can paradoxically make it harder to productively iterate toward a fast implementation.
 Just as not all high-performance software needs to drop down to the level of assembly,
 not all accelerator design needs the granular control that HDLs offer.
 
 HDLs have their place: they remain the right tool for the job when designing general-purpose processors, for example.
 But my thesis here is that their unique ability to express arbitrary circuits is unnecessary for most cases when the goal is to design hardware that implements a specific computation.
-HDLs' generality and low-level control renders them indispensable for low-level control and classic hardware design scenarios, in the same way that assembly programming today remains indispensable for edge cases and extreme performance tuning.
-And in the same way that a vanishing minority of software in the 21st century is written directly in assembly, even in performance-sensitive settings, HDLs impose more complexity than mainstream accelerator designers of the future should need to deal with.
+HDLs' generality and low-level control renders them indispensable for low-level control and classic hardware design scenarios, in the same way that assembly programming today remains indispensable for extreme performance tuning, embedded systems, and other niches.
+And in the same way that a vanishing minority of software in the 21st century is written directly in assembly, even in performance-sensitive scenarios, HDLs impose more complexity than mainstream accelerator designers of the future should need to deal with.
 
-If application-specific accelerator design is going to go mainstream, we need alternatives that embrace different levels of abstraction.
+If hardware acceleration is going to go mainstream, we need alternatives that embrace different levels of abstraction.
 The key challenge is to identify the key factors in the *essential complexity* of hardware design---the fundamental factors that make it harder than other parallel programming---and to embody that complexity in a programming model.
-What would a programming language look like that was designed from the ground up for implementing algorithmic accelerators?
+What would a programming language look like that was designed from the ground up for implementing efficient algorithmic accelerators?
 
 ### C-Based HLS is Not the Only Answer
 
