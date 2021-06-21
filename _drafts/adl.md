@@ -111,7 +111,7 @@ to understand what an ADL program does, you can read it like an algorithm mappin
 To interpret an HDL design, in contrast, there is not really any general way around running an iterative, time-based hardware simulation.
 
 These ADLs are different from domain-specific languages (DSLs).
-While DSLs have also shown promise as an approach to making it easier to design accelerators in TK domains,
+While DSLs have also shown promise as an approach to making it easier to design accelerators in domains like [image processing][aetherling] or [networking][p4fpga],
 ADLs are different because they span application domains.
 As important as DSLs will surely be in the era of specialized hardware designs, we will always need more general-purpose alternatives to fill in the gaps between popular computational domains.
 
@@ -127,6 +127,8 @@ As important as DSLs will surely be in the era of specialized hardware designs, 
 [vhdl]: https://en.wikipedia.org/wiki/VHDL
 [verilog]: https://en.wikipedia.org/wiki/Verilog
 [bluespec]: http://wiki.bluespec.com/bluespec-systemverilog-and-compiler
+[aetherling]: https://aetherling.org
+[p4fpga]: https://dl.acm.org/doi/10.1145/3050220.3050234
 
 ### The Marginal Complexity of Accelerator Design
 
