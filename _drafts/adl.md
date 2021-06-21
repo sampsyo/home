@@ -5,14 +5,18 @@ excerpt:
 ---
 We need to make it easier to design custom, application-specific hardware accelerators.
 The potential [efficiency gains][darwin] gains are [enormous][catapult], and the cost of deploying accelerators is falling rapidly with the [widespread][azurenp] [availability][f1] of [FPGA][intel-pac] [cards][xilinx-alveo] and the increasing accessibility of [custom silicon][google-tapeout].
-As the cost of hardware itself falls and the urgency for alternatives to general-purpose processors intensifies, the difficulty of designing custom hardware remains a bottleneck.
+As the cost of domain-specific hardware itself falls, the difficulty of designing custom accelerators remains a bottleneck.
 
-The thesis of this post is that hardware description languages (HDLs), while indispensable for implementing arbitrary hardware, are not the key to making application-specific specialization go mainstream.
-An emerging and distinct class of languages, which might be called *accelerator design languages* (ADLs), target new abstraction levels with different trade-offs between generality and productivity.
-As with software languages, there will never be a one-size-fits all ADL:
-and crucially, traditional high-level synthesis (HLS) tools that repurpose C-based programming languages are not the only approach.
-This is a call for more research to explore the design space of ADLs, their compilers, and accompanying tools.
-An ecosystem of ADL approaches can put the power of specialized computing into the hands of domain experts, not just hardware designers.
+The mainstream way to design custom hardware is with a general-purpose hardware description language (HDL) like [Verilog][] or [Chisel][].
+The thesis of this post is that HDLs, while indispensable for implementing arbitrary hardware, are not the key to making computational specialization go mainstream.
+We need a new name for an emerging and distinct class of languages that directly address the problem of accelerating applications:
+let's call them *accelerator design languages* (ADLs).
+
+As with software languages, there will never be a one-size-fits all ADL.
+We need a diversity of approaches that strike different balances between generality, optimality, and productivity.
+Industry's current focus is on *high-level synthesis* (HLS) tools, which repurpose C-based programming languages with restrictions and extensions to form ADLs that prioritize familiarity for C programmers.
+This post is a call for more research to explore the broader, C-free design space of ADLs, their compilers, and accompanying tools.
+A healthy ecosystem of ADLs can distribute the power of specialized computing to all domain experts, not just hardware designers.
 
 [darwin]: http://bejerano.stanford.edu/papers/p199-turakhia.pdf
 [catapult]: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Catapult_ISCA_2014.pdf
