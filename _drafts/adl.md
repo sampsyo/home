@@ -81,10 +81,6 @@ and our lab at Cornell [identified performance predictability problems][dahlia-p
 where small, seemingly benign changes in the input program can yield wild changes in the generated hardware's size and speed.
 While reusing C promises compatibility and familiarity, it also comes at a cost in reliability and transparency.
 
-What would HLS look like if it were freed from the baggage of software programming languages like C?
-Could we build compilers that are faster, more correct, and easier to use?
-How big is the design space for languages designed from the ground up for implementing hardware accelerators?
-
 [hls-fuzz]: https://yannherklotz.com/papers/esrhls_fccm2021.pdf
 [dahlia-paper]: https://rachitnigam.com/files/pubs/dahlia.pdf
 [intel-hls]: https://www.intel.com/content/www/us/en/software/programmable/quartus-prime/hls-compiler.html
@@ -94,30 +90,37 @@ How big is the design space for languages designed from the ground up for implem
 [vcu]: https://dl.acm.org/doi/abs/10.1145/3445814.3446723
 [systemc]: https://accellera.org/community/systemc
 
-### What Makes an Accelerator Design Language?
+### Defining Accelerator Design Languages
 
-We need a name for the emerging class of programming languages meant for designing computational accelerators---to distinguish them from fully general hardware description languages (HDLs).
-I'll call them *accelerator design languages* (ADLs).
+The point of this post is to identify an emerging class of languages that go beyond traditional, C-based HLS.
+New hardware-oriented languages can explore how to convey the benefits of HLS while shedding C's baggage: its sequential-first semantics, pointers, and "flat" memory model.
 
-Traditional HLS tools have accidentally created their own ADLs by extending C++ with vast suites of [custom annotations][legup-pragma] or [special libraries][hls-stream].
-As a research area, it's heating up:
-Stanford's [Spatial][] is a Scala embedded DSL for accelerator design;
-Cornell's [HeteroCL][] uses an algorithm/schedule decoupling strategy;
+I'll call these languages accelerator design languages (ADLs) to distinguish them from fully general HDLs.
+As a research area, ADLs are heating up:
+Stanford's [Spatial][] is a Scala embedded DSL for accelerator design,
+Cornell's [HeteroCL][] uses an algorithm/schedule decoupling strategy,
 and our own lab's [Dahlia][] features a novel type system for controlling hardware resources.
 Similar efforts are underway in industry:
 Microsoft has previewed an in-house ADL called [Sandpiper][],
 and Google's open-source [XLS][] builds a custom ADL on a new intermediate representation.
+Traditional HLS tools themselves even define their own sort of *ad hoc* ADLs by extending C++ with vendor-specific suites of [custom annotations][legup-pragma] or [special libraries][hls-stream].
 
-All these ADLs differ from HDLs, from [Verilog][] and [Bluespec][] to [Chisel][] and [PyMTL][], in one critical way:
-*they do not attempt to enable the design of arbitrary hardware*.
-If you want to design the next great out-of-order RISC-V CPU, you'll want a proper HDL.
-In exchange for full generality,
-ADLs can offer *computational semantics:*
-to understand what an ADL program does, you can read it like an algorithm mapping inputs to outputs.
-To interpret an HDL design, in contrast, there is not really any general way around running an iterative, time-based hardware simulation.
+While these languages have different goals and design trade-offs, they all share a sharp contrast with HDLs.
+I see two main qualities that define ADLs in contrast to all HDLs, from [Verilog][] and [Bluespec][] to [Chisel][] and [PyMTL][]:
 
-These ADLs are different from domain-specific languages (DSLs).
-While DSLs have also shown promise as an approach to making it easier to design accelerators in domains like [image processing][aetherling] or [networking][p4fpga],
+* *ADLs do not attempt to enable the design of arbitrary hardware.*
+  If you want to design the next great out-of-order RISC-V CPU, you'll want a proper HDL.
+  Different ADLs have different limitations, but they all rule out some of the power that an HDL offers.
+  Any language that can express a [ring oscillator][], for example, is probably an HDL, not an ADL.
+* In exchange for full generality, ADLs offer *computational semantics:*
+  to understand what an ADL program does, you can read it like an algorithm mapping inputs to outputs.
+  HDLs, in contrast, have *simulation semantics:* HDL designs do not denote input-to-output functions, and interpreting them requires global tracking of how events fire and signals vary over time.
+  Again, the precise meaning of "computational semantics" differs for different ADLs.
+  [Spatial][], for example, relies on parallel functional primitives like `fold` and `reduce` while [Dahlia][] is a procedural language with sequential semantics.
+  But in every case, the semantics is far closer to a "normal" software language than to a discrete event simulation.
+
+ADLs are also different from domain-specific languages (DSLs).
+While DSLs are also promising approaches to making accelerator design more accessible in domains like [image processing][aetherling] or [networking][p4fpga],
 ADLs are different because they span application domains.
 As important as DSLs will surely be in the era of specialized hardware designs, we will always need more general-purpose alternatives to fill in the gaps between popular computational domains.
 
@@ -135,6 +138,7 @@ As important as DSLs will surely be in the era of specialized hardware designs, 
 [bluespec]: http://wiki.bluespec.com/bluespec-systemverilog-and-compiler
 [aetherling]: https://aetherling.org
 [p4fpga]: https://dl.acm.org/doi/10.1145/3050220.3050234
+[ring oscillator]: https://en.wikipedia.org/wiki/Ring_oscillator
 
 ### The Marginal Complexity of Accelerator Design
 
