@@ -55,8 +55,8 @@ Just as not all high-performance software needs to drop down to the level of ass
 not all accelerator design needs the granular control that HDLs offer.
 
 HDLs have their place: they remain the right tool for the job when designing general-purpose processors, for example.
-But my thesis here is that their unique ability to express arbitrary circuits is unnecessary for most cases when the goal is to design hardware that implements a specific computation.
-HDLs' generality and low-level control renders them indispensable for low-level control and classic hardware design scenarios, in the same way that assembly programming today remains indispensable for extreme performance tuning, embedded systems, and other niches.
+But my thesis here is that their ability to express arbitrary circuits is unnecessary when the goal is to design fixed-function hardware for a specific computation.
+HDLs are indispensable for standard circuit construction, in the same way that assembly programming today remains indispensable for extreme performance tuning, embedded systems, and other niches.
 And in the same way that a vanishing minority of software in the 21st century is written directly in assembly, even in performance-sensitive scenarios, HDLs impose more complexity than mainstream accelerator designers of the future should need to deal with.
 
 If hardware acceleration is going to go mainstream, we need alternatives that embrace different levels of abstraction.
@@ -68,17 +68,18 @@ What would a programming language look like that was designed from the ground up
 Today, the commercially successful answer to this question lies in *high-level synthesis* (HLS) tools.
 HLS compilers from [Xilinx][xilinx-hls], [Mentor][mentor-hls], and [Intel][intel-hls] can already generate high-quality HDL implementations from programs written in C, C++, or OpenCL.
 To work around C's sequential-first, pointer-based semantics,
-HLS tools extend the language with vendor-specific `#pragma` annotations or [SystemC][] constructs to express hardware concepts.
-HLS research and products have made huge strides in recent years---Harvard's [EdgeBERT][] and Google's [VCU][] are two high-profile recent examples of hardware accelerators that have relied on HLS for significant parts of their design.
-C-based HLS tools automate some of the tedious tasks in hardware design by automatically scheduling and pipelining basic logic to match sequential semantics.
+HLS tools extend the language with vendor-specific `#pragma` annotations or [SystemC][] constructs.
+HLS research and products have made huge strides in recent years---Harvard's [EdgeBERT][] and Google's [VCU][] are two high-profile examples of hardware accelerators that have relied on HLS for significant parts of their design.
+Anecdotally, hardware designers appreciate HLS tools' ability to automate
+tedious tasks in hardware design like scheduling the operators on a data path, constructing basic pipelines to match sequential semantics, and inserting registers.
 
-However, traditional C-based HLS tools have succeeded *despite* their grounding in C---not *because* of it.
+However, traditional C-based HLS tools have succeeded *despite* their grounding in C---not because of it.
 By reusing a legacy software language, they create a semantic gap that in turn yields correctness and performance pitfalls.
 Recently,
 researchers at Imperial College London [used fuzz testing to find a torrent of bugs in mature HLS tools][hls-fuzz] when compiling even simple C code,
 and our lab at Cornell [identified performance predictability problems][dahlia-paper]
 where small, seemingly benign changes in the input program can yield wild changes in the generated hardware's size and speed.
-While reusing C offers compatibility and familiarity, it also comes at a cost in reliability and transparency.
+While reusing C promises compatibility and familiarity, it also comes at a cost in reliability and transparency.
 
 What would HLS look like if it were freed from the baggage of software programming languages like C?
 Could we build compilers that are faster, more correct, and easier to use?
