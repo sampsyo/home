@@ -140,13 +140,13 @@ As important as DSLs will surely be in the era of specialized hardware designs, 
 [p4fpga]: https://dl.acm.org/doi/10.1145/3050220.3050234
 [ring oscillator]: https://en.wikipedia.org/wiki/Ring_oscillator
 
-### The Marginal Complexity of Accelerator Design
+### Future Challenges in ADL Design
 
 As with software languages, there will never be one ADL to rule them all---we need a diversity of options that embrace different language paradigms,
 strike different trade-offs between performance and productivity,
 or offer special features for specific application domains.
 
-In any ADL design, the central challenge is expressing the fundamental concepts in accelerator design that humans need to be aware of---to convey the essential complexity of the task without adding too much accidental complexity.
+In any ADL design, the central challenge is expressing the fundamental hardware concepts that humans need to be aware of---to convey hardware's essential complexity without adding too much accidental complexity.
 In the same way that parallel programming models need to contend with essential concepts like synchronization that do not exist in sequential programming,
 ADLs will need to design abstractions for the new concepts in hardware implementation that go beyond ordinary parallel programming.
 
@@ -157,15 +157,16 @@ Identifying and abstracting these concepts will be the hard work that ADL design
 In my experience, this extra complexity boils down to two main categories:
 
 * *Physicality.* Perhaps the most fundamental thing about hardware is that computation uses finite, physical resources to do its work. When an accelerator performs a floating-point multiplication, for example, that has to happen *somewhere*---it needs to dedicate an FPU to that computation. And meanwhile, it needs to take care not to simultaneously try to use the same FPU to do something else at the same time. While CPUs of course also need to allocate computational resources to computations, they do it implicitly---whereas accelerator designs have to manage it as a first-class design concern.
-* *Time.* While parallel software has to deal with a notion of *logical time*, such as a happens-before relation for ordering events between threads, hardware accelerators need to contend with *physical time* in the form of clock cycles. Cycle-level timing is an added dimension of complexity, but it also gives accelerators the unique ability to ensure determinism: that a given computation takes 100 cycles, every time, with no exceptions. This determinism is an important advantage over even high-performance processors: for many use cases such as datacenter networking, 100 deterministic cycles might be preferable to a CPU that takes 80 cycles most of the time but 500 cycles in rare exceptions.
+* *Time.* While parallel software has to deal with a notion of *logical time*, such as a happens-before relation for ordering events between threads, hardware accelerators need to contend with *physical time* in the form of clock cycles. Cycle-level timing adds a dimension to ADLs' complexity, but it also gives accelerators the unique ability to ensure determinism: that a given computation takes 100 cycles, for example, with no exceptions. This level of control is an important advantage over even high-performance CPUs. For many use cases such as datacenter networking, 100 deterministic cycles might be preferable to a CPU that takes 80 cycles most of the time but 500 cycles in rare exceptions.
 
-The focus of the next generation of ADLs should be on establishing abstractions for physicality and time.
+The next generation of ADLs should focus on establishing abstractions for physicality and time.
 The design of these abstractions will inevitably need to balance *transparency* with *simplicity*.
-On one hand, ADLs need to be simple and algorithmic that their semantics is clear to programmers.
-On the other, abstractions need to transparently reflect the cost model of the underlying hardware-level concerns to give programmers enough control so they have a shot at optimizing their code.
+On one hand, ADLs need to be sufficiently simple and algorithmic that their semantics is clear to programmers.
+At the same time, they need to honestly reflect the cost model of underlying hardware-level concerns so programmers have a shot at optimizing their code.
+Without enough transparency, ADLs run the risk of impeding programmers from applying their own expertise and insights to iterate toward an efficient accelerator design.
 
 These goals are clearly in tension.
 Different languages will balance them differently: they can hide more details to make the semantics more algorithmic and software-like,
 or they can expose more details to make performance optimization more tractable without relying on a mythical "sufficiently smart compiler" to someday arrive.
 Just as we already have in the wide world of software languages, ADLs should proliferate the design space with different balances for different audiences and different use cases.
-A single paradigm will not suffice to bring accelerator design into the mainstream, and we need a broad research effort to explore the full space of approaches that will.
+A single paradigm will not suffice to bring accelerator design into the mainstream---we need a broad and sustained research effort to explore the full range of ADLs that will.
