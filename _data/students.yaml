@@ -45,6 +45,10 @@
             name: Kevin Negy
             start: 2020
             extra: 'Co-advised with <a href="https://hackingdistributed.com/egs/">Emin Gün Sirer</a>.'
+        -
+            name: Griffin Berlstein
+            link: https://griffinberlste.in
+            start: 2021
 
 -
     category: Master of Engineering
@@ -109,6 +113,17 @@
             name: Kenneth Li
             start: 2021
             end: 2021
+
+-
+    category: Master of Science
+    students:
+        -
+            name: Ted Bauer
+            start: 2020
+            end: 2020
+        -
+            name: Jonathan Tran
+            start: 2020
 
 -
     category: Undergraduate
@@ -243,6 +258,7 @@
         -
             name: Paul Joo
             start: 2020
+            end: 2021
         -
             name: Akshat Singh
             start: 2020
@@ -253,14 +269,28 @@
         -
             name: Chris Gyurgyik
             start: 2020
+            end: 2021
         -
             name: Karen Zhang
             start: 2020
         -
             name: Iain Pile
             start: 2021
+            end: 2021
         -
             name: Andrei Shpilenok
+            start: 2021
+        -
+            name: Alma Thaler
+            start: 2021
+        -
+            name: Andrii Iermolaiev
+            start: 2021
+        -
+            name: YoungSeok (Alex) Na
+            start: 2021
+        -
+            name: Jasper Liang
             start: 2021
 -
     category: Undergraduate Researchers at UW
