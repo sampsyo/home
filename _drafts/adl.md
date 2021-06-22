@@ -1,7 +1,9 @@
 ---
 title: From Hardware Description Languages to Accelerator Design Languages
 excerpt:
-    TK
+    An emerging class of programming languages aims to make it easier to design application-specific hardware accelerators.
+    Relative to mainstream hardware description languages (HDLs), these new languages sacrifice the ability to express arbitrary circuitry in exchange for a higher level of abstraction specifically for accelerators.
+    This post defines this new category of *accelerator design languages* (ADLs) and calls for more research on their design.
 ---
 We need to make it easier to design custom, application-specific hardware accelerators.
 The potential [efficiency gains][darwin] gains are [enormous][catapult], and the cost of deploying accelerators is falling rapidly with the [widespread][azurenp] [availability][f1] of [FPGA][intel-pac] [cards][xilinx-alveo] and the increasing accessibility of [custom silicon][google-tapeout].
