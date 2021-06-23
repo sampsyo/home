@@ -6,13 +6,15 @@
     venue_url: 'https://conf.researchr.org/home/pldi-2021'
     type: conference
     selected: true
-    url: 'BASE/media/papers/reticle-pldi2021-preprint.pdf'
+    url: 'https://dl.acm.org/doi/10.1145/3453483.3454075'
+    extra:
+     - '[Local PDF.](BASE/media/papers/reticle-pldi2021.pdf)'
+     - '[Source repository.](https://github.com/vegaluisjose/reticle)'
 
 -
     title: 'Vectorization for Digital Signal Processors via Equality Saturation'
     authors: 'Alexa VanHattum, Rachit Nigam, Vincent T. Lee, James Bornholt, and Adrian Sampson'
     venue: 'ASPLOS 2021'
-    pre: true
     venue_url: 'https://asplos-conference.org'
     type: conference
     selected: true
@@ -22,7 +24,6 @@
     title: 'A Compiler Infrastructure for Accelerator Generators'
     authors: 'Samuel Thomas, Rachit Nigam, Zhijing Li, and Adrian Sampson'
     venue: 'ASPLOS 2021'
-    pre: true
     venue_url: 'https://asplos-conference.org'
     type: conference
     selected: true
