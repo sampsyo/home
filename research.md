@@ -7,18 +7,6 @@ blurb: |
     For current projects, see the research happening in [my research group, Capra](https://capra.cs.cornell.edu).
 ---
 
-## Approximate Computing
-
-Trade-offs between efficiency and accuracy are fundamental in many computing domains: graphics, vision, machine learning, compression, scientific computing, physical simulation, etc. *Approximate computing* is the idea that we can design systems that take advantage of these trade-offs and unlock efficiency gains that are impossible under fully precise execution.
-
-Approximate computing spans the entire system stack, from hardware to applications. Approximate architectures expose new accuracy and reliability knobs; approximate compilers add new optimizations that carefully break program semantics; and programming languages constrain the impact of approximation.
-
-My dissertation, [*Hardware and Software for Approximate Computing*][dissertation], surveys the approximate-computing research landscape.
-
-[dissertation]: {{site.base}}/media/dissertation.pdf
-
--------
-
 ## Publications
 
 [Look me up at DBLP][dblp] for another view on my publications.
@@ -60,3 +48,19 @@ The slides linked below are PDF files. Keynote files are available on request.
     {% endif %}
 {% endfor %}
 </ul>
+
+---
+
+## Approximate Computing
+
+Trade-offs between efficiency and accuracy are fundamental in many computing domains: graphics, vision, machine learning, compression, scientific computing, physical simulation, etc. *Approximate computing* is the idea that we can design systems that take advantage of these trade-offs and unlock efficiency gains that are impossible under fully precise execution.
+
+Approximate computing spans the entire system stack, from hardware to applications. Approximate architectures expose new accuracy and reliability knobs; approximate compilers add new optimizations that carefully break program semantics; and programming languages constrain the impact of approximation.
+
+My dissertation, [*Hardware and Software for Approximate Computing*][dissertation], surveys the approximate-computing research landscape.
+
+While I'm still interested in approximate computing, I haven't worked directly on it for a bit.
+I have been focusing on other topics with a similar flavor: rethinking hardware--software abstractions with techniques from programming languages and architecture.
+You can see the latest on [the site for Capra, my research group](https://capra.cs.cornell.edu).
+
+[dissertation]: {{site.base}}/media/dissertation.pdf
