@@ -1,8 +1,16 @@
 -
+    title: 'Software-Defined Vector Processing on Manycore Fabrics'
+    authors: 'Philip Bedoukian, Neil Adit, Edwin Peguero, and Adrian Sampson'
+    venue: 'MICRO 2021'
+    venue_url: 'https://www.microarch.org/micro54/'
+    type: conference
+    selected: true
+    pre: true
+
+-
     title: 'Reticle: A Virtual Machine for Programming Modern FPGAs'
     authors: 'Luis Vega, Joseph McMahan, Adrian Sampson, Dan Grossman, and Luis Ceze'
     venue: 'PLDI 2021'
-    pre: true
     venue_url: 'https://conf.researchr.org/home/pldi-2021'
     type: conference
     selected: true
