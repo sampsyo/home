@@ -456,6 +456,10 @@ phdcommittees:
 
 talks:
     -
+        title: "Calyx: Your DSL-to-Hardware Compiler Construction Kit"
+        where: "Schloss Dagstuhl, [Seminar 21302: Approximate Systems](https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=21302)"
+        date: 2021-07-27
+    -
         title: '“Demystifying Grad School” panel moderator'
         notitle: true
         where: 'Young Architect Workshop (YArch) 2021'
