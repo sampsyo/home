@@ -5,10 +5,6 @@ layout: shorty
 {% assign teaching = site.data.cv.teaching | first %}
 {% assign classes = teaching.classes %}
 
-<aside class="warning">
-If you have any questions about enrolling in CS 3410, please see <a href="https://www.cs.cornell.edu/~bracy/teach/">Prof. Bracy's FAQ</a> before emailing.
-</aside>
-
 I am teaching:
 
 {% for class in classes %}{% if class.current %}

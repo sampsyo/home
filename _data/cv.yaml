@@ -98,16 +98,25 @@ honors:
 teaching:
     - where: Cornell University
       classes:
+          - term: Spring 2022
+            number: CS 6120
+            title: Advanced Compilers
+            desc: This is a new PhD-level hands-on course about programming language implementation.
+            future: true
+          - term: Fall 2021
+            number: CS 4110
+            title: Programming Languages and Logics
+            link: https://www.cs.cornell.edu/Courses/cs4110/2021fa/
+            desc: "This is Cornell's undergraduate programming languages elective. 4110 is full of content you'd expect to find in a graduate PL course."
+            current: true
           - term: Spring 2021
             number: CS 3410
             title: Computer System Organization and Programming
-            current: true
             desc: "This is our department's introduction to architecture and the systems side of the world. I will co-teach with [Anne Bracy](https://www.cs.cornell.edu/~bracy/)."
           - term: Fall 2020
             number: CS 6120
             title: Advanced Compilers
             link: https://www.cs.cornell.edu/courses/cs6120/2020fa/
-            desc: This is a new and experimental PhD-level course about programming language implementation.
           - term: Spring 2020
             number: CS 7491
             title: The Great ISAs
@@ -126,7 +135,6 @@ teaching:
             number: CS 4110
             title: Programming Languages and Logics
             link: https://www.cs.cornell.edu/Courses/cs4110/2018fa/
-            desc: "This is Cornell's undergraduate programming languages elective. 4110 is full of content you'd expect to find in a graduate PL course."
           - term: Spring 2018
             number: CS 6110
             title: Advanced Programming Languages
