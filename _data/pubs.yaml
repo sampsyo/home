@@ -38,6 +38,13 @@
     url: 'BASE/media/papers/calyx-asplos2021.pdf'
 
 -
+    title: 'Exploiting Errors for Efficiency: A Survey from Circuits to Applications'
+    authors: 'Phillip Stanley-Marbell, Armin Alaghi, Michael Carbin, Eva Darulova, Lara Dolecek, Andreas Gerstlauer, Ghayoor Gillani, Djordje Jevdjic, Thierry Moreau, Mattia Cacciotti, Alexandros Daglis, Natalie D. Enright Jerger, Babak Falsafi, Sasa Misailovic, Adrian Sampson, and Damien Zufferey'
+    venue: 'ACM Computing Surveys 53(3), 2020'
+    type: journal
+    url: 'https://dl.acm.org/doi/abs/10.1145/3394898'
+
+-
     title: 'Online Verification of Commutativity'
     authors: 'Aditi Kabra, Dietrch Geisler, and Adrian Sampson'
     venue: 'TAPAS 2020'
@@ -197,6 +204,7 @@
     venue: '<i>GetMobile</i>, July 2016'
     venue_url: https://www.sigmobile.org/pubs/getmobile/
     url: "http://dl.acm.org/citation.cfm?id=3036703"
+    type: magazine
 
 -
     title: "The Case for Compulsory Approximation"
@@ -461,6 +469,7 @@
     venue: '<i>IEEE Pervasive Computing</i>, April/June 2015'
     venue_url: http://www.computer.org/web/computingnow/pervasivecomputing
     url: "http://online.qmags.com/PCM0415/default.aspx?sessionID=1812DBB6BEFA408E867C374BA&cid=3200720&eid=19366&pg=11&mode=2#pg11&mode2?fs=2&pg=11&mode=2"
+    type: magazine
 
 -
     title: "ACCEPT: A Programmer-Guided Compiler Framework for Practical Approximate Computing"
@@ -479,6 +488,7 @@
         Highlights from the MICRO 2012 paper.
     extra:
         - Highlights from the MICRO 2012 paper.
+    type: magazine
 
 -
     title: Approximate Storage in Solid-State Memories
@@ -497,6 +507,7 @@
     url: http://spectrum.ieee.org/computing/software/enerj-the-language-of-goodenough-computing
     authors: Adrian Sampson, Luis Ceze, and Dan Grossman
     venue: '<i>IEEE Spectrum</i>, October 2013'
+    type: magazine
 
 -
     title: Dense Approximate Storage in Phase-Change Memory

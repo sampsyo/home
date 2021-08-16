@@ -506,7 +506,7 @@ talks:
     -
         title: '“Ask Me Anything” with Margaret Martonosi'
         notitle: true
-        where: 'PLDI 200'
+        where: 'PLDI 2020'
         link: 'https://pldi20.sigplan.org/details/pldi-2020-ask-me-anything/6/-Ask-Me-Anything-with-Margaret-Martonosi'
         date: 2020-06-17
         extra:
@@ -545,7 +545,6 @@ talks:
         where: 'Cornell, Maryland, Max Planck Pre-Doctoral Research School 2019'
         date: 2019-08-06
         link: 'https://cmmrs.mpi-sws.org/lectures/'
-
     -
         title: 'Panel: Charting Your Path'
         notitle: true
