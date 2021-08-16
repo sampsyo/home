@@ -396,6 +396,11 @@ committees:
 
 phdcommittees:
     -
+        name: Luis Vega
+        advisor: Luis Ceze and Dan Grossman
+        school: University of Washington
+        link: https://homes.cs.washington.edu/~vegaluis/
+    -
         name: Socrates Wong
         advisor: 'José Martínez'
     -
