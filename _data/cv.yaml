@@ -251,6 +251,9 @@ service:
 
 
 committees:
+    - venue: ICCD
+      year: 2021
+      role: Special session reviewer
     - venue: ASPLOS
       year: 2022
       role: Program committee member
