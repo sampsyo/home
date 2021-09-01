@@ -47,6 +47,14 @@ Before you do, though, I should warn you that if your question is about course r
 [graduation]: https://www.cs.cornell.edu/undergrad/csmajor/graduationreqs
 
 
+### Can I enroll in a class you're teaching, even though it appears to be full?  {#enroll}
+
+Please see the CS department's [guidance and FAQs about course enrollment][csenroll].
+I do not control waitlists, nor do I have the ability to distribute PINs---for that, please contact the email alias on that page.
+
+[csenroll]: https://www.cs.cornell.edu/courseinfo/enrollment
+
+
 ### I'm applying to grad school soon, and I'm interested in doing research with you!  {#grad}
 
 Fantastic! I'm thrilled that you're interested in the same kinds of hardware--software abstraction problems that I am. Cornell is a great place to do a Ph.D. in computer science.
