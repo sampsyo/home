@@ -476,6 +476,11 @@ phdcommittees:
 
 talks:
     -
+        title: "Toward a Predictable System Stack for Accelerator Design"
+        where: "Stanford Agile Hardware Center"
+        link: 'https://github.com/StanfordAHA/CGRAFlow/wiki/Meetings'
+        date: 2021-09-02
+    -
         title: "Calyx: Your DSL-to-Hardware Compiler Construction Kit"
         where: "Schloss Dagstuhl, [Seminar 21302: Approximate Systems](https://www.dagstuhl.de/en/program/calendar/semhp/?semnr=21302)"
         date: 2021-07-27
