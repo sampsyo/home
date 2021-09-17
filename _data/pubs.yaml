@@ -6,6 +6,7 @@
     type: conference
     selected: true
     pre: true
+    url: 'BASE/media/papers/sdv-micro2021.pdf'
 
 -
     title: 'Reticle: A Virtual Machine for Programming Modern FPGAs'
