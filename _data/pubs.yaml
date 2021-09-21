@@ -1,4 +1,13 @@
 -
+    title: 'A Toolkit for Designing Hardware DSLs'
+    authors: 'Griffin Berlstein, Rachit Nigam, Chris Gyurgyik, and Adrian Sampson'
+    venue: 'WOSET 2021'
+    with: ICCAD
+    venue_url: 'https://woset-workshop.github.io'
+    type: workshop
+    pre: true
+
+-
     title: 'Software-Defined Vector Processing on Manycore Fabrics'
     authors: 'Philip Bedoukian, Neil Adit, Edwin Peguero, and Adrian Sampson'
     venue: 'MICRO 2021'
