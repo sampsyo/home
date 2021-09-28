@@ -476,6 +476,11 @@ phdcommittees:
 
 talks:
     -
+        title: "The Next 700 Accelerator Design Languages"
+        where: "Cornell Computer Science Colloquium"
+        link: 'https://www.cs.cornell.edu/content/fall-2021-colloquium'
+        date: 2021-09-27
+    -
         title: "Toward a Predictable System Stack for Accelerator Design"
         where: "Stanford Agile Hardware Center"
         link: 'https://github.com/StanfordAHA/CGRAFlow/wiki/Meetings'
