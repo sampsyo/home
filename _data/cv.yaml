@@ -476,6 +476,11 @@ phdcommittees:
 
 talks:
     -
+        title: "Languages & Compilers for Hardware Acceleration"
+        where: "Sydney System Research Talk Series"
+        link: "https://twitter.com/Leon75421958/status/1442639283475546112"
+        date: 2021-10-21
+    -
         title: "The Next 700 Accelerator Design Languages"
         where: "Cornell Computer Science Colloquium"
         link: 'https://www.cs.cornell.edu/content/fall-2021-colloquium'
