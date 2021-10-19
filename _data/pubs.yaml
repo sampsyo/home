@@ -14,8 +14,10 @@
     venue_url: 'https://www.microarch.org/micro54/'
     type: conference
     selected: true
-    pre: true
-    url: 'BASE/media/papers/sdv-micro2021-preprint.pdf'
+    url: 'https://dl.acm.org/doi/10.1145/3466752.3480099'
+    extra:
+      - '[Local PDF.](BASE/media/papers/sdv-micro2021.pdf)'
+      - '[Artifact evaluated!](https://github.com/cucapra/gem5-mesh)'
 
 -
     title: 'Reticle: A Virtual Machine for Programming Modern FPGAs'
