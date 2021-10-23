@@ -111,6 +111,15 @@
             name: Kenneth Li
             start: 2021
             end: 2021
+        -
+            name: Alaia Solko-Breslin
+            start: 2021
+        -
+            name: Michael Xiong
+            start: 2021
+        -
+            name: Yunhe Shao
+            start: 2021
 
 -
     category: Master of Science
@@ -193,6 +202,7 @@
         -
             name: Samuel Thomas
             start: 2019
+            end: 2021
         -
             name: Ben Gillott
             start: 2019
@@ -223,6 +233,7 @@
         -
             name: Patrick LaFontaine
             start: 2020
+            end: 2021
         -
             name: Maya Ifekauche
             extra: Auburn University
@@ -264,6 +275,7 @@
         -
             name: YooNa Chang
             start: 2020
+            end: 2021
         -
             name: Chris Gyurgyik
             start: 2020
@@ -271,6 +283,7 @@
         -
             name: Karen Zhang
             start: 2020
+            end: 2021
         -
             name: Iain Pile
             start: 2021
@@ -278,17 +291,29 @@
         -
             name: Andrei Shpilenok
             start: 2021
+            end: 2021
         -
             name: Alma Thaler
             start: 2021
+            end: 2021
         -
             name: Andrii Iermolaiev
             start: 2021
+            end: 2021
         -
             name: YoungSeok (Alex) Na
             start: 2021
         -
             name: Jasper Liang
+            start: 2021
+        -
+            name: David Siher
+            start: 2021
+        -
+            name: Richard Wang
+            start: 2021
+        -
+            name: Boao (Mark) Dong
             start: 2021
 -
     category: Undergraduate Researchers at UW
