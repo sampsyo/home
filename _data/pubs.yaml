@@ -1,4 +1,13 @@
 -
+    title: 'Compiler-Driven Simulation of Reconfigurable Hardware Accelerators'
+    authors: 'Zhijing Li, Adrian Sampson, Yuwei Ye, and Stephen Neuendorffer'
+    venue: 'HPCA 2022'
+    pre: true
+    selected: true
+    type: conference
+    venue_url: 'https://hpca-conf.org/2022/'
+
+-
     title: 'A Toolkit for Designing Hardware DSLs'
     authors: 'Griffin Berlstein, Rachit Nigam, Chris Gyurgyik, and Adrian Sampson'
     venue: 'WOSET 2021'
