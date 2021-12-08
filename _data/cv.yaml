@@ -477,6 +477,11 @@ phdcommittees:
 
 talks:
     -
+        title: "The Next 700 Accelerator Design Languages"
+        where: "Berkeley Programming Systems Seminar"
+        link: "http://ps.berkeley.edu"
+        date: 2021-12-09
+    -
         title: "Languages & Compilers for Hardware Acceleration"
         where: "Sydney System Research Talk Series"
         link: "https://twitter.com/Leon75421958/status/1442639283475546112"
