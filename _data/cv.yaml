@@ -252,6 +252,9 @@ service:
 
 
 committees:
+    - venue: YArch
+      year: 2022
+      role: Program committee member
     - venue: ICCD
       year: 2021
       role: Special session reviewer
