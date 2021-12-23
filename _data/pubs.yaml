@@ -6,6 +6,7 @@
     selected: true
     type: conference
     venue_url: 'https://hpca-conf.org/2022/'
+    url: 'BASE/media/papers/equeue-hpca2022-preprint.pdf'
 
 -
     title: 'A Toolkit for Designing Hardware DSLs'
