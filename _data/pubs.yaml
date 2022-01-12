@@ -1,4 +1,13 @@
 -
+    title: 'Verifying Dynamic Trait Objects in Rust'
+    authors: 'Alexa Vanhattum, Daniel Schwartz-Narbonne, Nathan Chong, Adrian Sampson'
+    venue: 'ICSE SEIP 2022'
+    pre: true
+    selected: true
+    type: conference
+    venue_url: 'https://conf.researchr.org/track/icse-2022/icse-2022-seip---software-engineering-in-practice'
+
+-
     title: 'Compiler-Driven Simulation of Reconfigurable Hardware Accelerators'
     authors: 'Zhijing Li, Adrian Sampson, Yuwei Ye, and Stephen Neuendorffer'
     venue: 'HPCA 2022'
