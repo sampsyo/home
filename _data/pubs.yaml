@@ -1,6 +1,6 @@
 -
     title: 'Verifying Dynamic Trait Objects in Rust'
-    authors: 'Alexa Vanhattum, Daniel Schwartz-Narbonne, Nathan Chong, Adrian Sampson'
+    authors: 'Alexa Vanhattum, Daniel Schwartz-Narbonne, Nathan Chong, and Adrian Sampson'
     venue: 'ICSE SEIP 2022'
     pre: true
     selected: true

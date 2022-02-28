@@ -120,6 +120,9 @@
         -
             name: Yunhe Shao
             start: 2021
+        -
+            name: David Chen
+            start: 2022
 
 -
     category: Master of Science
@@ -312,9 +315,26 @@
         -
             name: Richard Wang
             start: 2021
+            end: 2021
         -
             name: Boao (Mark) Dong
             start: 2021
+            end: 2021
+        -
+            name: Liam Daniels
+            start: 2022
+        -
+            name: Jan-Paul Vincent
+            start: 2022
+        -
+            name: Crystal Hu
+            start: 2022
+        -
+            name: Pai Li
+            start: 2022
+        -
+            name: Evan Williams
+            start: 2022
 -
     category: Undergraduate Researchers at UW
     details: |
