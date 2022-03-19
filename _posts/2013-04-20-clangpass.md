@@ -33,7 +33,7 @@ where `MyPass` is the name of your pass class. This way, as soon as your shared 
 
 Now, to load and register your pass, just type:
 
-    $ clang -Xclang -load -Xclang mypass.so ...
+    $ clang -flegacy-pass-manager -Xclang -load -Xclang mypass.so ...
 
 and you'll have a full-fledged compiler driver augmented with your instrumentation.
 
@@ -55,3 +55,9 @@ To explicitly use the legacy components, you may need to include a different fil
     }
 
 Cursory searching on the mailing lists has failed to turn up any indication of whether or when Clang might move to the new PassManager infrastructure. If you know more, I'd be interested to hear from you.
+
+---
+
+**Update, March 19, 2022:** Clang now uses the new pass manager by default.
+To keep using this technique, pass the `-flegacy-pass-manager` flag in addition to all that `-Xclang load` business.
+If you know how to register default passes in the new pass manager infrastructure, please get in touch.
