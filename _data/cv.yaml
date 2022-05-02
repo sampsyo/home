@@ -409,6 +409,14 @@ committees:
 
 phdcommittees:
     -
+        name: Abhishek Vijaya Kumar
+        advisor: Rachit Agarwal
+        link: https://www.cs.cornell.edu/~abhishek/
+    -
+        name: Ayaka Yorihiro
+        advisor: Owolabi Legunsen
+        link: https://ayakayorihiro.github.io
+    -
         name: Qizhe Cai
         advisor: Rachit Agarwal
         link: https://www.cs.cornell.edu/~qizhec/
