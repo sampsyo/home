@@ -63,6 +63,8 @@ jobs:
         dates: 2007
 
 honors:
+    - text: '<a href="Research Scholar Program">Google Research Scholar Program award</a>, 2022'
+      selected: true
     - text: '<a href="https://ieeetcca.org/awards/young-computer-architect-award/">IEEE TCCA Young Computer Architect Award</a>, 2021'
       selected: true
     - text: '<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1845952">NSF CAREER award</a>, 2019'
