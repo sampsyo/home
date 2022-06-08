@@ -63,7 +63,7 @@ jobs:
         dates: 2007
 
 honors:
-    - text: '<a href="Research Scholar Program">Google Research Scholar Program award</a>, 2022'
+    - text: '<a href="https://research.google/outreach/research-scholar-program/recipients/?category=2022">Google Research Scholar Program award</a>, 2022'
       selected: true
     - text: '<a href="https://ieeetcca.org/awards/young-computer-architect-award/">IEEE TCCA Young Computer Architect Award</a>, 2021'
       selected: true
