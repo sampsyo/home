@@ -1,17 +1,23 @@
 -
+    title: 'Performance Left on the Table: An Evaluation of Compiler Auto-Vectorization for RISC-V'
+    authors: 'Neil Adit and Adrian Sampson'
+    venue: 'IEEE Micro'
+    type: journal
+    pre: true
+
+-
     title: 'Verifying Dynamic Trait Objects in Rust'
     authors: 'Alexa Vanhattum, Daniel Schwartz-Narbonne, Nathan Chong, and Adrian Sampson'
     venue: 'ICSE SEIP 2022'
-    pre: true
     selected: true
     type: conference
     venue_url: 'https://conf.researchr.org/track/icse-2022/icse-2022-seip---software-engineering-in-practice'
+    url: 'https://www.cs.cornell.edu/~avh/dyn-trait-icse-seip-2022-preprint.pdf'
 
 -
     title: 'Compiler-Driven Simulation of Reconfigurable Hardware Accelerators'
     authors: 'Zhijing Li, Adrian Sampson, Yuwei Ye, and Stephen Neuendorffer'
     venue: 'HPCA 2022'
-    pre: true
     selected: true
     type: conference
     venue_url: 'https://hpca-conf.org/2022/'
@@ -24,7 +30,6 @@
     with: ICCAD
     venue_url: 'https://woset-workshop.github.io'
     type: workshop
-    pre: true
 
 -
     title: 'Software-Defined Vector Processing on Manycore Fabrics'
