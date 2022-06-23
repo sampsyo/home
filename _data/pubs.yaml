@@ -4,6 +4,7 @@
     venue: 'IEEE Micro'
     type: journal
     pre: true
+    url: 'https://ieeexplore.ieee.org/document/9802745'
 
 -
     title: 'Verifying Dynamic Trait Objects in Rust'
