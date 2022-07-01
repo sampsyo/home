@@ -2,7 +2,7 @@ name: Adrian Sampson
 email: asampson@cs.cornell.edu
 
 affiliation: |
-    Assistant Professor, [Computer Science](https://www.cs.cornell.edu)
+    Associate Professor, [Computer Science](https://www.cs.cornell.edu)
 
     Field Member, [Electrical and Computer Engineering](https://www.ece.cornell.edu)
 
@@ -26,9 +26,15 @@ education:
 
 jobs:
     -
+        title: Associate Professor
+        where: Cornell University &mdash; Department of Computer Science
+        dates: 2022&ndash;
+        selected: true
+
+    -
         title: Assistant Professor
         where: Cornell University &mdash; Department of Computer Science
-        dates: 2016&ndash;
+        dates: 2016&ndash;2022
         selected: true
 
     -
