@@ -116,7 +116,6 @@ teaching:
             title: Programming Languages and Logics
             link: https://www.cs.cornell.edu/Courses/cs4110/2021fa/
             desc: "This is Cornell's undergraduate programming languages elective. 4110 is full of content you'd expect to find in a graduate PL course."
-            current: true
           - term: Spring 2021
             number: CS 3410
             title: Computer System Organization and Programming
@@ -669,3 +668,34 @@ talks:
         date: 2015-12-01
         extra:
             - '[Notes.](http://adriansampson.net/doc/ppl.html)'
+
+patents:
+    -
+        title: "System and methods for processing spatial data"
+        inventors: "Mark Buckler and Adrian Sampson"
+        id: 'US20200410352A1'
+        filed: 2020-09-15
+    -
+        title: "Configurable image processing system and methods for operating a configurable image processing system for multiple applications"
+        inventors: "Mark Buckler, Adrian Sampson, and Suren Jayasuriya"
+        id: 'US10735675B2'
+        filed: 2018-04-13
+    -
+        title: "Priority-assignment interface to enhance approximate computing"
+        inventors: "Karin Strauss, Adrian Sampson, and Luis Ceze"
+        id: 'US9021313B2'
+        filed: 2012-11-28
+    -
+        title: "Probabilistic Assertions and Verifying Them"
+        inventors: "Todd Mytkowicz, Kathryn S. McKinley, and Adrian Sampson"
+        id: 'US20160063390A1'
+        filed: 2014-09-03
+    -
+        title: "Approximate multi-level cell memory operations"
+        inventors: "Karin Strauss, Doug Burger, Luis Ceze, and Adrian Sampson"
+        id: 'US9412466B2'
+        filed: 2014-09-25
+    -
+        title: "Machine learning method to identify independent tasks for parallel layout in web browsers"
+        inventors: "Călin Caşcaval, Adrian Sampson, and Bin Wang"
+        filed: 2011-07-13
