@@ -110,7 +110,7 @@ teaching:
             number: CS 6120
             title: Advanced Compilers
             desc: This is a new PhD-level hands-on course about programming language implementation.
-            future: true
+            link: https://www.cs.cornell.edu/courses/cs6120/2022sp/
           - term: Fall 2021
             number: CS 4110
             title: Programming Languages and Logics
@@ -119,7 +119,7 @@ teaching:
           - term: Spring 2021
             number: CS 3410
             title: Computer System Organization and Programming
-            desc: "This is our department's introduction to architecture and the systems side of the world. I will co-teach with [Anne Bracy](https://www.cs.cornell.edu/~bracy/)."
+            desc: "This is our department's introduction to architecture and the systems side of the world. I co-taught with [Anne Bracy](https://www.cs.cornell.edu/~bracy/)."
           - term: Fall 2020
             number: CS 6120
             title: Advanced Compilers
