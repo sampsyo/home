@@ -56,6 +56,18 @@ title: 'Adrian Sampson: CV'
 </section>
 
 <section>
+    <h2>Patents</h2>
+    {% for patent in cv.patents %}
+    <p>
+        <a href="https://patents.google.com/patent/{{patent.id}}">{{ patent.id }}</a>:
+        &ldquo;{{ patent.title }}.&rdquo;
+        {{ patent.inventors }}.
+        Filed {{ patent.filed | date: "%B %e, %Y" }}.
+    </p>
+    {% endfor %}
+</section>
+
+<section>
     <h2>Invited Talks</h2>
     {% for talk in cv.talks %}
     <p>

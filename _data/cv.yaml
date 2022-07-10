@@ -698,4 +698,5 @@ patents:
     -
         title: "Machine learning method to identify independent tasks for parallel layout in web browsers"
         inventors: "Călin Caşcaval, Adrian Sampson, and Bin Wang"
+        id: 'US8510237B2'
         filed: 2011-07-13
