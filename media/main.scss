@@ -9,6 +9,7 @@ $brand-primary: #51a012;
 
 // Vestiges from Bootstrap variables.
 $text-color: #333;
+$inset-bg: #f5f5f5;
 $font-size-base: 18px;
 $line-height-base: 1.428571429;
 $line-height-computed: floor(($font-size-base * $line-height-base));
@@ -17,10 +18,7 @@ $link-hover-color: darken($link-color, 15%);
 
 $grayish: lighten(desaturate($brand-primary, 60%), 50%);
 
-// Non-pink <code>.
-$code-color: $text-color;
-$code-bg: #f5f5f5;
-// But it retains a color inside a link.
+// Code retains a color inside a link.
 a code {
     color: inherit;
 }
@@ -280,7 +278,7 @@ aside {
     }
 
     color: #666;
-    background-color: $code-bg;
+    background-color: $inset-bg;
     border: 1px solid #ccc;
 
     a {
