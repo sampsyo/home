@@ -66,13 +66,36 @@ Then run Turnt on our little test:
 Success!
 Turnt tells us that it ran a grand total of one (1) test, and it succeeded---in the sense that `wc < hi.t` produced, on its standard output, exactly the same stuff that's saved in `hi.out`.
 
-1. introduce an example tool
-2. an input and a command to run it. show piping the file to the output. imagine a "manual" version.
-3. Turnt and `turnt.toml` with just `command`. `turnt`, `turnt --diff`, `turnt --save`
+Let's add a second test.
+Put this in in `2lines.t`:
+
+    hello,
+    world!
+
+The first time around, we created the `*.out` file for our test ourselves.
+But Turnt will happily do it for us with the `--save` flag:
+
+    1..1
+    not ok 1 - 2lines.t # skip: updated 2lines.out
+    # missing: 2lines.out
+
+It might be a good idea to `cat 2lines.out` to make sure it looks OK.
+Then we can run our entire little test suite:
+
+    $ turnt *.t
+    1..2
+    ok 1 - 2lines.t
+    ok 2 - hi.t
+
+Success again!
+We're two steps down the path of having a proper TK
+
+3. `turnt`, `turnt --diff`, `turnt --save`
 4. inline stuff and `ARGS`, `RETURN`
 5. `turnt -vp` for interactive work
 
 TK other Turnt stuff: multiple outputs, differential testing (multiple commands), etc.
+TK custom extensions, so your files get syntax-highlighted like programs, for example.
 
 [pip]: https://pip.pypa.io/en/stable/
 [wc]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/wc.html
