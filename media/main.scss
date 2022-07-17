@@ -489,3 +489,9 @@ figcaption {
         text-decoration: none;
     }
 }
+
+abbr {
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: $brand-primary;
+}

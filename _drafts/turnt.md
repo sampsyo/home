@@ -28,6 +28,11 @@ You can install it with [pip][]:
 We'll also need something to test.
 For this contrived example, I'll test the venerable [Unix `wc` command][wc].
 
+The first thing we need is an input file.
+This is a critical thing about Turnt: it assumes the thing you want to test is a program that transforms text into text.
+Fortunately, that describes lots of compiler-like things, and it also describes our SUT, `wc`.
+
+
 1. introduce an example tool
 2. an input and a command to run it. show piping the file to the output. imagine a "manual" version.
 3. Turnt and `turnt.toml` with just `command`. `turnt`, `turnt --diff`, `turnt --save`
@@ -38,6 +43,8 @@ TK other Turnt stuff: multiple outputs, differential testing (multiple commands)
 
 [pip]: https://pip.pypa.io/en/stable/
 [wc]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/wc.html
+
+*[SUT]: system under test
 
 ## Snapshot Philosophy
 
