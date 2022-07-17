@@ -18,18 +18,13 @@ TK [Cram][], [lit][], [Runt][], [insta][]. here we'll see [Turnt][] (which is me
 [turnt]: https://github.com/cucapra/turnt
 [insta]: https://insta.rs
 
-## Trying Out Turnt
+## An Example
 
-To feel what snapshot testing is like, let's try using [Turnt][].
-You can install it with [pip][]:
-
-    $ pip install --user turnt
-
-We'll also need something to test.
-For this contrived example, I'll test the venerable [Unix `wc` command][wc].
+To feel what snapshot testing is like, let's test something contrived but convenient.
+We'll test the venerable [Unix `wc` command][wc].
 
 The first thing we need is an input file.
-This is a critical thing about Turnt: it assumes the thing you want to test is a program that transforms text into text.
+This is a critical thing about this style of testing: it assumes the thing you want to test is a program that transforms text into text.
 Fortunately, that describes lots of compiler-like things, and it also describes our SUT, `wc`.
 Let's make a test file, `hi.t`:
 
@@ -47,9 +42,18 @@ It's easy to generate a snapshot file:
 If we were really working on a `wc` implementation, we would check both `hi.t` and `hi.out` into version control.
 
 Now all we need is a convenient way to make sure `wc < hi.t` still matches `hi.out`.
-That's what Turnt does.
+That way, we can write a whole slew of these input files and get into the habit of checking that they *all* still do the same thing.
+
+## Trying Out Turnt
+
+That's what [Turnt][] does.
 (And that's *all* that it does, more or less.)
-We need to tell Turnt what command to run---put this into a file called `turnt.toml`:
+You can install it with [pip][]:
+
+    $ pip install --user turnt
+
+We need to tell Turnt what command to run.
+Put this into a file called `turnt.toml`:
 
     command = "wc < {filename}"
 
