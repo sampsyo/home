@@ -23,7 +23,7 @@ TK [Cram][], [lit][], [Runt][], [insta][]. here we'll see [Turnt][] (which is me
 To feel what snapshot testing is like, let's try using [Turnt][].
 You can install it with [pip][]:
 
-    pip install --user turnt
+    $ pip install --user turnt
 
 We'll also need something to test.
 For this contrived example, I'll test the venerable [Unix `wc` command][wc].
@@ -31,7 +31,36 @@ For this contrived example, I'll test the venerable [Unix `wc` command][wc].
 The first thing we need is an input file.
 This is a critical thing about Turnt: it assumes the thing you want to test is a program that transforms text into text.
 Fortunately, that describes lots of compiler-like things, and it also describes our SUT, `wc`.
+Let's make a test file, `hi.t`:
 
+    hello, world!
+
+You can probably guess what `wc < hi.t` will say:
+
+           1       2      14
+
+The idea in snapshot testing is to "lock in" this output so, as we make changes in the future, we can easily make sure we didn't break `wc`'s correct behavior.
+It's easy to generate a snapshot file:
+
+    $ wc < hi.t > hi.out
+
+If we were really working on a `wc` implementation, we would check both `hi.t` and `hi.out` into version control.
+
+Now all we need is a convenient way to make sure `wc < hi.t` still matches `hi.out`.
+That's what Turnt does.
+(And that's *all* that it does, more or less.)
+We need to tell Turnt what command to run---put this into a file called `turnt.toml`:
+
+    command = "wc < {filename}"
+
+Then run Turnt on our little test:
+
+    $ turnt hi.t
+    1..1
+    ok 1 - hi.t
+
+Success!
+Turnt tells us that it ran a grand total of one (1) test, and it succeeded---in the sense that `wc < hi.t` produced, on its standard output, exactly the same stuff that's saved in `hi.out`.
 
 1. introduce an example tool
 2. an input and a command to run it. show piping the file to the output. imagine a "manual" version.
