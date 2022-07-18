@@ -4,6 +4,7 @@ _site
 media/main.css
 media/font/
 media/highlightjs/
+media/highlight.min.js
 media/katex/
 _source/main.css
 _source/highlightjs/
