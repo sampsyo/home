@@ -20,6 +20,10 @@ $inset-border-dark: #333;
 $link-color: $brand-primary;
 $link-hover-color: darken($link-color, 15%);
 $link-hover-color-dark: lighten($link-color, 15%);
+$code-bg: #1d1f21;
+$code-bg-dark: #202746;
+$code-color: #c5c8c6;
+$code-color-dark: #979db4;
 
 // Sizes.
 $font-size-base: 18px;
@@ -453,15 +457,29 @@ blockquote {
     }
 }
 
-pre code.hljs {
-    // Override highlight.js backgrounds.
-    background: transparent !important;
-
+pre code, pre code.hljs {
     // Make <pre> code scroll horizontally when it's too wide (e.g., on
     // mobile).
     overflow-x: auto;
     word-wrap: normal;
     white-space: pre;
+
+    // Some nonsense to make code background hang "outside" of the column.
+    padding: 1em;
+    margin-left: -1em;
+    margin-right: -1em;
+
+    border-radius: 3px;
+}
+
+pre code:not(.hljs) {
+    display: block;
+    background-color: $code-bg;
+    color: $code-color;
+    @media (prefers-color-scheme: dark) {
+        background-color: $code-bg-dark;
+        color: $code-color-dark;
+    }
 }
 
 // Responsive images.
