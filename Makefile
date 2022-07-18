@@ -1,5 +1,5 @@
-KATEX := node_modules/katex/dist
 HLJS_VERSION := 11.6.0
+KATEX_VERSION := 0.16.0
 
 # Build the site itself using Jekyll.
 .PHONY: site
@@ -33,12 +33,12 @@ deploy: cleanbuild site
 # Install dependencies.
 
 # Dependencies from npm. TODO: This should be replaced with a package.json.
-$(KATEX):
-	npm install katex
-	@touch $@
+_source/katex:
+	curl -L https://github.com/KaTeX/KaTeX/releases/download/v$(KATEX_VERSION)/katex.tar.gz -o _source/katex.tar.gz
+	cd _source ; tar xf katex.tar.gz
 
 # Publish client-side assets.
-media/katex: $(KATEX)
+media/katex: _source/katex
 	cp -r $< $@
 
 # Clone and build Highlight.js to get custom languages.
