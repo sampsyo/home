@@ -22,7 +22,7 @@ $link-hover-color: darken($link-color, 15%);
 $link-hover-color-dark: lighten($link-color, 15%);
 $pre-bg: #1d1f21;
 $pre-bg-dark: #202746;
-$pre-color: #c5c8c6;
+$pre-color: #eaeaea;
 $pre-color-dark: #979db4;
 $code-bg: rgba(175, 184, 193, 0.2);
 
@@ -463,6 +463,8 @@ code {
 }
 
 pre code, pre code.hljs {
+    display: block;
+
     // Make <pre> code scroll horizontally when it's too wide (e.g., on
     // mobile).
     overflow-x: auto;
@@ -479,7 +481,6 @@ pre code, pre code.hljs {
 
 // Manually set colors for non-highlighted code.
 pre code:not(.hljs) {
-    display: block;
     background-color: $pre-bg;
     color: $pre-color;
     @media (prefers-color-scheme: dark) {

@@ -1,4 +1,5 @@
 KATEX := node_modules/katex/dist
+HLJS_VERSION := 11.6.0
 
 # Build the site itself using Jekyll.
 .PHONY: site
@@ -43,12 +44,12 @@ media/katex: $(KATEX)
 # Clone and build Highlight.js to get custom languages.
 _source/highlightjs:
 	git clone https://github.com/isagalaev/highlight.js.git $@
-	cd $@ ; git checkout 8.8.0
+	cd $@ ; git checkout $(HLJS_VERSION)
 _source/highlightjs/build: _source/highlightjs
 	cd $< ; npm install
 	cd $< ; node tools/build.js python c cpp bash typescript
 media/highlight.min.js: _source/highlightjs/build
-	cp $</highlight.pack.js $@
+	cp $</highlight.min.js $@
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
