@@ -38,7 +38,7 @@ $title-font: Verdana, Tahoma, Geneva, sans-serif;
 $font-family-base: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Cambria, Georgia, serif;
 $bigger-size: 1.1em;
 $ui-size: 0.9em;
-$code-font: 'Anonymous Pro', Inconsolata, Consolas, 'Source Code Pro', Menlo, Monaco, monospace;
+$code-font: ui-monospace, SF Mono, 'Anonymous Pro', Inconsolata, Consolas, 'Source Code Pro', Menlo, Monaco, monospace;
 
 // Dark mode.
 :root {
@@ -85,12 +85,6 @@ hr {
   margin-bottom: $line-height-computed;
   border: 0;
   border-top: 1px solid $brand-primary;
-}
-
-// Code.
-pre, code {
-    font-family: $code-font;
-    font-size: ($font-size-base - 4);
 }
 
 // Page header layout.
@@ -457,6 +451,17 @@ blockquote {
     }
 }
 
+// Code.
+pre, code {
+    font-family: $code-font;
+    font-size: ($font-size-base - 4);
+}
+code {
+    background-color: $code-bg;
+    padding: .2em .4em;
+    border-radius: 3px;
+}
+
 pre code, pre code.hljs {
     // Make <pre> code scroll horizontally when it's too wide (e.g., on
     // mobile).
@@ -472,6 +477,7 @@ pre code, pre code.hljs {
     border-radius: 3px;
 }
 
+// Manually set colors for non-highlighted code.
 pre code:not(.hljs) {
     display: block;
     background-color: $pre-bg;
