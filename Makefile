@@ -34,6 +34,7 @@ deploy: cleanbuild site
 
 # Dependencies from npm. TODO: This should be replaced with a package.json.
 _source/katex:
+	mkdir -p _source
 	curl -L https://github.com/KaTeX/KaTeX/releases/download/v$(KATEX_VERSION)/katex.tar.gz -o _source/katex.tar.gz
 	cd _source ; tar xf katex.tar.gz
 
