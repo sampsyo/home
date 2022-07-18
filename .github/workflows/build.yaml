@@ -10,7 +10,7 @@ jobs:
       - name: Setup
         run: make setup
       - name: Jekyll build
-        uses: uses: helaili/jekyll-action@2.4.0
+        uses: helaili/jekyll-action@2.4.0
         with:
           build_only: true
       - name: rsync
