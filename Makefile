@@ -43,8 +43,8 @@ media/katex: $(KATEX)
 
 # Clone and build Highlight.js to get custom languages.
 _source/highlightjs:
-	git clone https://github.com/isagalaev/highlight.js.git $@
-	cd $@ ; git checkout $(HLJS_VERSION)
+	git clone --branch $(HLJS_VERSION) --depth 1 \
+		https://github.com/isagalaev/highlight.js.git $@
 _source/highlightjs/build: _source/highlightjs
 	cd $< ; npm install
 	cd $< ; node tools/build.js python c cpp bash typescript
