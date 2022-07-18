@@ -10,7 +10,7 @@ See what's going on in [my research group][capra], which is called *Capra*.
 [approx]: research.html#approximate-computing
 [uw cse]: http://www.cs.washington.edu/
 
-I am an assistant professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell], where I am part of the [Computer Systems Laboratory][cls] and the [programming languages group][cupl].
+I am an associate professor in the [Department of Computer Science][cornellcs] at [Cornell University][cornell], where I am part of the [Computer Systems Laboratory][cls] and the [programming languages group][cupl].
 I graduated from the [University of Washington][uw cse] in 2015.
 Here's my [CV][].
 
