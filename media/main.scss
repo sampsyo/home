@@ -180,6 +180,9 @@ ul {
 }
 ul, ol {
     padding-left: 0;
+    @media (max-width: $mobile-size) {
+        padding-left: 1.5em;
+    }
     ul, ol {
         padding-left: 1em;
     }
