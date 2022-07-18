@@ -22,6 +22,7 @@ highlighter: none
 
 sass:
     style: compressed
+    sass_dir: _source
 
 exclude:
     - bower_components

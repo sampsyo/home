@@ -2,7 +2,7 @@ KATEX := node_modules/katex/dist
 
 # Build the site itself using Jekyll.
 .PHONY: site
-GENERATED := media/katex media/highlightjs
+GENERATED := media/katex media/highlight.min.js
 site: index.md $(GENERATED)
 	jekyll build
 
@@ -47,10 +47,8 @@ _source/highlightjs:
 _source/highlightjs/build: _source/highlightjs
 	cd $< ; npm install
 	cd $< ; node tools/build.js python c cpp bash typescript
-media/highlightjs: _source/highlightjs/build
-	mkdir -p $@
-	cp $</highlight.pack.js $@/highlight.min.js
-	cp $</../src/styles/github-gist.css $@
+media/highlight.min.js: _source/highlightjs/build
+	cp $</highlight.pack.js $@
 
 # A phony target for installing all the dependencies.
 .PHONY: setup
