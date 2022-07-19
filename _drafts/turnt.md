@@ -109,3 +109,5 @@ TK
 - as above, better to write more tests than great tests. especially regression tests
 - forces (or just encourages) you to make your thing a Unixy input/output command, with well-defined input and output files
 - a primitive form of "documentation" in the form of input/output examples
+
+TK [blog](https://borretti.me/article/lessons-writing-compiler#tests)
