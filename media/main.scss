@@ -5,7 +5,8 @@ $column-width: 720px;
 $mobile-size: $column-width;
 
 // My trademarked green.
-$brand-primary: #51a012;
+$highlight: #51a012;
+$highlight-dark: #7bd12d;
 
 // Some colors.
 $bg-dark: black;
@@ -17,9 +18,8 @@ $inset-text: #666;
 $inset-text-dark: #ccc;
 $inset-border: #ccc;
 $inset-border-dark: #888;
-$link-color: $brand-primary;
-$link-hover-color: darken($link-color, 15%);
-$link-hover-color-dark: lighten($link-color, 15%);
+$link-hover-color: darken($highlight, 15%);
+$link-hover-color-dark: lighten($highlight-dark, 15%);
 $pre-bg: #1d1f21;
 $pre-bg-dark: #2d2b57;
 $pre-color: #eaeaea;
@@ -32,7 +32,7 @@ $line-height-base: 1.428571429;
 $line-height-computed: floor(($font-size-base * $line-height-base));
 $body-margin: 8px;
 
-$grayish: lighten(desaturate($brand-primary, 60%), 50%);
+$grayish: lighten(desaturate($highlight, 60%), 50%);
 
 // Fonts!
 $title-font: Verdana, Tahoma, Geneva, sans-serif;
@@ -60,7 +60,10 @@ body {
 }
 a {
     text-decoration: none;
-    color: $link-color;
+    color: $highlight;
+    @media (prefers-color-scheme: dark) {
+        color: $highlight-dark;
+    }
     code {
         // Code retains a color inside a link.
         color: inherit;
@@ -83,10 +86,13 @@ p {
     margin: 0 0 ($line-height-computed / 2);
 }
 hr {
-  margin-top: $line-height-computed;
-  margin-bottom: $line-height-computed;
-  border: 0;
-  border-top: 1px solid $brand-primary;
+    margin-top: $line-height-computed;
+    margin-bottom: $line-height-computed;
+    border: 0;
+    border-top: 1px solid $highlight;
+    @media (prefers-color-scheme: dark) {
+        border-top-color: $highlight-dark;
+    }
 }
 
 // Page header layout.
@@ -114,22 +120,21 @@ header {
 
 // Page header style.
 header {
-    color: $brand-primary;
+    color: $highlight;
+    @media (prefers-color-scheme: dark) {
+        color: $highlight-dark;
+    }
     font-family: $title-font;
     a:hover {
         text-decoration: none;
     }
     h1 {
         margin: 0;
-        a:hover {
-            color: $brand-primary;
-        }
         font-size: 35px;
     }
     address {
         font-style: normal;
         margin: 0;
-        color: $brand-primary;
         p {
             margin: 0;
         }
@@ -148,7 +153,10 @@ nav {
         border-radius: 3px;
     }
     a.active {
-        border-color: $brand-primary;
+        border-color: $highlight;
+        @media (prefers-color-scheme: dark) {
+            border-color: $highlight-dark;
+        }
     }
     a.active:hover {
         border-color: $link-hover-color;
@@ -329,12 +337,13 @@ aside {
 footer {
     color: #777;
     font-family: $title-font;
-    border-top: 1px solid $brand-primary;
+    border-top: 1px solid $highlight;
     margin: $line-height-computed 0 0.5em;
     padding-top: 0.4em;
+    @media (prefers-color-scheme: dark) {
+        border-top-color: $highlight-dark;
+    }
 }
-
-$hr-border: $brand-primary;
 
 img.illus {
     float: right;
@@ -364,9 +373,13 @@ blockquote {
     font-weight: bold;
 
     &:target {
-        background: $brand-primary;
+        background: $highlight;
         color: white;
-        outline: 0.75rem solid $brand-primary;
+        outline: 0.75rem solid $highlight;
+        @media (prefers-color-scheme: dark) {
+            background-color: $highlight-dark;
+            outline-color: $highlight-dark;
+        }
     }
 }
 
@@ -549,5 +562,9 @@ figcaption {
 abbr {
     text-decoration-line: underline;
     text-decoration-style: dotted;
-    text-decoration-color: $brand-primary;
+    text-decoration-color: $highlight;
+    @media (prefers-color-scheme: dark) {
+        text-decoration-color: $highlight-dark;
+    }
+
 }
