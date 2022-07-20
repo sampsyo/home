@@ -103,9 +103,9 @@ Turnt's spartan output is in [TAP][] format, so you can make it prettier using o
 
 ## Adapting to Changes
 
-The trade-off for snapshot testing's convenience is that its "specifications" are extremely brittle.
-Because tests have to match the saved output exactly, even tiny changes count as test failures.
-TK the solution is manual human review.
+The trade-off for snapshot testing's convenience is that its "specifications" are brittle.
+Because tests have to match the saved output exactly, even tiny changes count as failures.
+The remedy is to rely on human review---and to make these manual checks as convenient as possible.
 
 Let's change one of our tests and watch it fail:
 
@@ -115,10 +115,25 @@ $ turnt *.t | faucet
 <span class="ansi-green">✓ hi.t</span>
 <span class="ansi-red">⨯ fail  1</span></code></pre>
 
-TK
-`turnt`, `turnt --diff`, `turnt --save`
+We want to see what changed in our failing test.
+Running `turnt --diff` shows the change:
 
-TK perhaps use `git diff`. seeing the changes in a PR diff is a feature.
+    $ turnt --diff 2lines.t
+    1..1
+    --- 2lines.out	2022-07-17 16:04:35.000000000 -0400
+    +++ /tmp/tmpnim30l99	2022-07-20 14:55:21.000000000 -0400
+    @@ -1 +1 @@
+    -       2       2      14
+    +       3       3      22
+    not ok 1 - 2lines.t # differing: 2lines.out
+
+That looks good, so we can now `turnt --save` to accept the new output.
+In fact, since we've checked our output files into version control, it's sometimes easier to skip `turnt --diff` altogether:
+you can just `turnt --save` the new output and then run `git diff` to see what's new.
+Rolling back is just a `git stash` away.
+
+If you use pull requests and code reviews, changes to test outputs will appear there too.
+Your reviewers might appreciate these diffs as an easy way to see what behavior has changed.
 
 ## TK
 
