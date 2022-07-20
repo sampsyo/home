@@ -141,8 +141,8 @@ Your reviewers might appreciate these diffs as an easy way to see what behavior 
 
 ## Overrides
 
-With Turnt, a test is just a pair of an input file and an output file.
-If either output is a program of some kind, this setup means that the files also work as standalone examples of the input or output language.
+A snapshot test is just a pair of an input file and an output file.
+If either is a program of some kind, this setup means that the files also work as standalone examples of the input or output language.
 (You might want to [configure the output][turnt-output] so it uses the right filename extension for your language.)
 
 If you need to configure something special about a test, there's a way to do that inside the input file.
