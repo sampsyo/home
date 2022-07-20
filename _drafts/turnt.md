@@ -149,7 +149,7 @@ If you need to configure something special about a test, there's a way to do tha
 It works by assuming your input language has some way of commenting out text, and it extracts options from that text.
 For example, you can configure your `turnt.toml` to use `{args}` as a placeholder for per-test command-line flags:
 
-    command = "wc {args} {filename}"
+    command = "wc {args} < {filename}"
 
 Then, you put a special marker in your input file:
 
@@ -157,10 +157,26 @@ Then, you put a special marker in your input file:
 
 Turnt doesn't care what comments look like in your language; it just looks for the string `ARGS:` anywhere inside it.
 This test will run `wc -l` instead of just plain `wc`.
+You can also mark tests as *expected to fail* with a given exit status using something like `RETURN: 1`.
 
-TK
-4. inline stuff and `ARGS`, `RETURN`
-5. `turnt -vp` for interactive work
+## Interactive Execution
+
+When debugging a test setup, it can be handy to see exactly what a given test is doing.
+The `-p` flag turns off any output checking and just shows you the test command and its result:
+
+    $ turnt -p hi.t
+    $ wc  < hi.t
+           1       2      14
+
+You can combine `-p` with `--args` to interactively try different variants of the test command:
+
+    $ turnt -p hi.t --args=-w
+    $ wc -w < hi.t
+           2
+
+In this mode, Turnt becomes a simple way to avoid typing out complicated commands to run them on different input files.
+
+## More
 
 Turnt also supports gathering [multiple output files from one command][turnt-output], running [several commands on the same input file][turnt-env], and comparing the output from different commands as a form of [differential testing][difftest].
 
