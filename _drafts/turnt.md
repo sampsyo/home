@@ -64,7 +64,7 @@ Then run Turnt on our little test:
     ok 1 - hi.t
 
 Success!
-Turnt tells us that it ran a grand total of one (1) test, and it succeeded---in the sense that `wc < hi.t` produced, on its standard output, exactly the same stuff that's saved in `hi.out`.
+Turnt tells us that it ran a grand total of one (1) test, and it succeeded---in the sense that `wc < hi.t` printed, on its standard output, exactly the same stuff that's saved in `hi.out`.
 
 Let's add a second test.
 Put this in in `2lines.t`:
@@ -88,9 +88,30 @@ Then we can run our entire little test suite:
     ok 2 - hi.t
 
 Success again!
-We're two steps down the path of having a proper TK
+We're already two tests into the business of growing a thorough test suite.
+The cornerstone of the snapshot testing philosophy is that it should be *extremely easy* to add new tests:
+we just need to write an input file and `turnt --save` its output, and our test suite will grow.
 
-3. `turnt`, `turnt --diff`, `turnt --save`
+Turnt's spartan output is in [TAP][] format, so you can make it prettier using one of a million TAP consumers, like [Faucet][]:
+
+<pre><code>$ turnt *.t | faucet
+<span style="font-weight: bold; color: #51a012;">✓ 2lines.t
+✓ hi.t</span></code></pre>
+
+[tap]: https://testanything.org
+[faucet]: https://github.com/substack/faucet
+
+## Adapting to Changes
+
+The trade-off for snapshot testing's convenience is that its "specifications" are extremely brittle.
+Because tests have to match the saved output exactly, even tiny changes count as test failures.
+
+`turnt`, `turnt --diff`, `turnt --save`
+
+TK perhaps use `git diff`. seeing the changes in a PR diff is a feature.
+
+## TK
+
 4. inline stuff and `ARGS`, `RETURN`
 5. `turnt -vp` for interactive work
 
@@ -102,7 +123,7 @@ TK custom extensions, so your files get syntax-highlighted like programs, for ex
 
 *[SUT]: system under test
 
-## Snapshot Philosophy
+## The Snapshot Philosophy
 
 TK
 
