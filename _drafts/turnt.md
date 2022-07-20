@@ -111,10 +111,11 @@ Let's change one of our tests and watch it fail:
 
 <pre><code>$ echo goodbye >> 2lines.t
 $ turnt *.t | faucet
-<span class="ansi-red">⨯ 2lines.t</span>
-<span class="ansi-green">✓ differing: 2lines.out</span>
+<span class="ansi-red">⨯ 2lines.t # differing: 2lines.out</span>
+<span class="ansi-green">✓ hi.t</span>
 <span class="ansi-red">⨯ fail  1</span></code></pre>
 
+TK
 `turnt`, `turnt --diff`, `turnt --save`
 
 TK perhaps use `git diff`. seeing the changes in a PR diff is a feature.
