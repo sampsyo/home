@@ -7,7 +7,10 @@ Over the past few years, folks in [our lab][capra] have become devotees of *snap
 Snapshot tests are preposterously simple: they're just pairs of complete input and output files that you check into version control.
 It's a good fit for programs that turn text into other text, which describes [compilers][borretti] and lots of other compiler-like things we tend to build.
 I like snapshots because they take the drudgery out of writing new tests, so I tend to write a lot more of them.
-The philosophy is very different from other kinds of testing I am used to, however, so this post introduces the idea and the reasons you might want to try the technique.
+
+This approach is so basic and so widespread that I don't think most people bother to give it a name.
+It's like air: it's so obvious and so obviously useful that there's no need to talk about it most of the time.
+But the philosophy is very different from other kinds of testing I am used to, so this post introduces the idea and the reasons you might want to try it.
 
 I'll demonstrate [Turnt][], a kind of ascetically simple snapshot testing tool we built in the lab.
 There are other great options, like [LLVM's lit][lit] (which directly inspired Turnt),
