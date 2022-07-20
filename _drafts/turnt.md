@@ -178,7 +178,7 @@ In this mode, Turnt becomes a simple way to avoid typing out complicated command
 
 ## More
 
-Turnt also supports gathering [multiple output files from one command][turnt-output], running [several commands on the same input file][turnt-env], and comparing the output from different commands as a form of [differential testing][difftest].
+Turnt also supports gathering [multiple output files from one command][turnt-output], running [several commands on the same input file][turnt-env], and comparing different commands as a form of [differential testing][difftest].
 
 [turnt-output]: https://github.com/cucapra/turnt#output
 [turnt-env]: https://github.com/cucapra/turnt#multiple-environments
@@ -186,10 +186,24 @@ Turnt also supports gathering [multiple output files from one command][turnt-out
 
 ## The Snapshot Philosophy
 
-TK
+Snapshot testing is a liberation from the drudgery of "normal" tests.
+If you're like me, you've internalized that a *morally good* test is one with a minimal, flexible assertion on the output---one that checks no more than is absolutely necessary.
+This path is righteous, but it makes testing a bummer.
+Faced with the prospect of carefully crafting good test logic, in practice I'll opt to avoid writing tests at all.
 
-- as above, better to write more tests than great tests. especially regression tests
-- forces (or just encourages) you to make your thing a Unixy input/output command, with well-defined input and output files
-- a primitive form of "documentation" in the form of input/output examples
+Snapshot tests are decadent and depraved.
+They tempt you into giving up on any semblance of precision: fuck it; just commit the entire output!
+That's your output spec!
+The spoils of the dark side are a joyful, carefree feeling of lightness as you add new tests with abandon.
+
+The dark philosophy of snapshot testing is:
+
+* It should be as easy and fast as possible to add new tests.
+  Everyone should be able to "lock in" features and fixes with tests, and they should have a good time doing it.
+* Manual review is a small price to pay for the better test coverage that comes from convenience.
+* It's a feature, not a bug, that the SUT must be a Unixy command-line tool with text input and text output.
+* Tests can be a crude form of "documentation" in the form of input/output examples.
+
+Join us!
 
 TK [blog](https://borretti.me/article/lessons-writing-compiler#tests)
