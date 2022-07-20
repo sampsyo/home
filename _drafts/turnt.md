@@ -44,6 +44,10 @@ If we were really working on a `wc` implementation, we would check both `hi.t` a
 Now all we need is a convenient way to make sure `wc < hi.t` still matches `hi.out`.
 That way, we can write a whole slew of these input files and get into the habit of checking that they *all* still do the same thing.
 
+*[SUT]: system under test
+[pip]: https://pip.pypa.io/en/stable/
+[wc]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/wc.html
+
 ## Trying Out Turnt
 
 That's what [Turnt][] does.
@@ -135,18 +139,34 @@ Rolling back is just a `git stash` away.
 If you use pull requests and code reviews, changes to test outputs will appear there too.
 Your reviewers might appreciate these diffs as an easy way to see what behavior has changed.
 
-## TK
+## Overrides
 
+With Turnt, a test is just a pair of an input file and an output file.
+If either output is a program of some kind, this setup means that the files also work as standalone examples of the input or output language.
+(You might want to [configure the output][turnt-output] so it uses the right filename extension for your language.)
+
+If you need to configure something special about a test, there's a way to do that inside the input file.
+It works by assuming your input language has some way of commenting out text, and it extracts options from that text.
+For example, you can configure your `turnt.toml` to use `{args}` as a placeholder for per-test command-line flags:
+
+    command = "wc {args} {filename}"
+
+Then, you put a special marker in your input file:
+
+    // ARGS: -l
+
+Turnt doesn't care what comments look like in your language; it just looks for the string `ARGS:` anywhere inside it.
+This test will run `wc -l` instead of just plain `wc`.
+
+TK
 4. inline stuff and `ARGS`, `RETURN`
 5. `turnt -vp` for interactive work
 
-TK other Turnt stuff: multiple outputs, differential testing (multiple commands), etc.
-TK custom extensions, so your files get syntax-highlighted like programs, for example.
+Turnt also supports gathering [multiple output files from one command][turnt-output], running [several commands on the same input file][turnt-env], and comparing the output from different commands as a form of [differential testing][difftest].
 
-[pip]: https://pip.pypa.io/en/stable/
-[wc]: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/wc.html
-
-*[SUT]: system under test
+[turnt-output]: https://github.com/cucapra/turnt#output
+[turnt-env]: https://github.com/cucapra/turnt#multiple-environments
+[difftest]: https://en.wikipedia.org/wiki/Differential_testing
 
 ## The Snapshot Philosophy
 
