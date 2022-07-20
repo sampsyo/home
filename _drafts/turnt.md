@@ -3,20 +3,29 @@ title: Try Snapshot Testing for Compilers and Compiler-Like Things
 excerpt: |
     TK
 ---
+Over the past few years, folks in [our lab][capra] have become devotees of *snapshot testing*.
+Snapshot tests are preposterously simple: they're just pairs of complete input and output files that you check into version control.
+It's a good fit for programs that turn text into other text, which describes [compilers][borretti] and lots of other compiler-like things we tend to build.
+I like snapshots because they take the drudgery out of writing new tests, so I tend to write a lot more of them.
+The philosophy is very different from other kinds of testing I am used to, however, so this post introduces the idea and the reasons you might want to try the technique.
 
-TK the liberation of not writing unit tests, or complicated "expectations" at all
-
-TK this insight is incredibly obvious, but it took me a while to come to it (because I had been trained that "testing == unit testing", basically)
-
-TK write more tests, more quickly. just need a way to easily update them when things changes (since your predicates are not flexible.)
-
-TK [Cram][], [lit][], [Runt][], [insta][]. here we'll see [Turnt][] (which is meant to be as simple as humanly possible while still being reusable/useful). Also consider [Runt][], which is better and fancier and rewritten in Rust
+I'll demonstrate [Turnt][], a kind of ascetically simple snapshot testing tool we built in the lab.
+There are other great options, like [LLVM's lit][lit] (which directly inspired Turnt),
+the [Insta crate][insta] for Rust,
+Jane Street's [ppx-based framework][ppx-expect] for OCaml,
+and Mercurial's [Cram][] (the OG, I think).
+A particularly good option is [Runt][], which is [Rachit Nigam][rachit]'s fast and full-featured realization in Rust.
 
 [lit]: https://llvm.org/docs/CommandGuide/lit.html
 [cram]: https://bitheap.org/cram/
 [runt]: https://github.com/rachitnigam/runt
 [turnt]: https://github.com/cucapra/turnt
 [insta]: https://insta.rs
+[capra]: https://capra.cs.cornell.edu
+[turnt]: https://github.com/cucapra/turnt
+[ppx-expect]: https://github.com/janestreet/ppx_expect
+[rachit]: https://rachitnigam.com
+[borretti]: https://borretti.me/article/lessons-writing-compiler#tests
 
 ## An Example
 
@@ -24,7 +33,7 @@ To feel what snapshot testing is like, let's test something contrived but conven
 We'll test the venerable [Unix `wc` command][wc].
 
 The first thing we need is an input file.
-This is a critical thing about this style of testing: it assumes the thing you want to test is a program that transforms text into text.
+This is a critical thing about this style of testing: it assumes the thing you want to test is a program that transforms text into other text.
 Fortunately, that describes lots of compiler-like things, and it also describes our SUT, `wc`.
 Let's make a test file, `hi.t`:
 
@@ -34,7 +43,7 @@ You can probably guess what `wc < hi.t` will say:
 
            1       2      14
 
-The idea in snapshot testing is to "lock in" this output so, as we make changes in the future, we can easily make sure we didn't break `wc`'s correct behavior.
+The idea in snapshot testing is to "lock in" this output so, as we make changes in the future, we can easily make sure we didn't anything.
 It's easy to generate a snapshot file:
 
     $ wc < hi.t > hi.out
@@ -201,9 +210,8 @@ The dark philosophy of snapshot testing is:
 * It should be as easy and fast as possible to add new tests.
   Everyone should be able to "lock in" features and fixes with tests, and they should have a good time doing it.
 * Manual review is a small price to pay for the better test coverage that comes from convenience.
-* It's a feature, not a bug, that the SUT must be a Unixy command-line tool with text input and text output.
+* It's a feature, not a bug, that the SUT must be a Unixy tool with text input and text output.
+  You have to build a simple command-line interface that does a straightforward text-to-text translation, which humans also like.
 * Tests can be a crude form of "documentation" in the form of input/output examples.
 
 Join us!
-
-TK [blog](https://borretti.me/article/lessons-writing-compiler#tests)
