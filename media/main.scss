@@ -568,3 +568,18 @@ abbr {
     }
 
 }
+
+// Faking ANSI terminal colors.
+code {
+    .ansi-green {
+        font-weight: bold;
+        color: $highlight;
+        @media (prefers-color-scheme: dark) {
+            color: $highlight-dark;
+        }
+    }
+    .ansi-red {
+        font-weight: bold;
+        color: #cc1b1b;
+    }
+}

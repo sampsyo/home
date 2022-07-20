@@ -95,7 +95,7 @@ we just need to write an input file and `turnt --save` its output, and our test 
 Turnt's spartan output is in [TAP][] format, so you can make it prettier using one of a million TAP consumers, like [Faucet][]:
 
 <pre><code>$ turnt *.t | faucet
-<span style="font-weight: bold; color: #51a012;">✓ 2lines.t
+<span class="ansi-green">✓ 2lines.t
 ✓ hi.t</span></code></pre>
 
 [tap]: https://testanything.org
@@ -105,6 +105,15 @@ Turnt's spartan output is in [TAP][] format, so you can make it prettier using o
 
 The trade-off for snapshot testing's convenience is that its "specifications" are extremely brittle.
 Because tests have to match the saved output exactly, even tiny changes count as test failures.
+TK the solution is manual human review.
+
+Let's change one of our tests and watch it fail:
+
+<pre><code>$ echo goodbye >> 2lines.t
+$ turnt *.t | faucet
+<span class="ansi-red">⨯ 2lines.t</span>
+<span class="ansi-green">✓ differing: 2lines.out</span>
+<span class="ansi-red">⨯ fail  1</span></code></pre>
 
 `turnt`, `turnt --diff`, `turnt --save`
 
