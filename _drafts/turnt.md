@@ -187,7 +187,11 @@ In this mode, Turnt becomes a simple way to avoid typing out complicated command
 
 ## More
 
-Turnt also supports gathering [multiple output files from one command][turnt-output], running [several commands on the same input file][turnt-env], and comparing different commands as a form of [differential testing][difftest].
+Turnt also supports:
+
+* gathering [multiple output files from one command][turnt-output],
+* running [several commands on the same input file][turnt-env], and
+* comparing the outputs from different commands as a form of [differential testing][difftest].
 
 [turnt-output]: https://github.com/cucapra/turnt#output
 [turnt-env]: https://github.com/cucapra/turnt#multiple-environments
