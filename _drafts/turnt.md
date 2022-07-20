@@ -171,7 +171,7 @@ You can also mark tests as *expected to fail* with a given exit status using som
 ## Interactive Execution
 
 When debugging a test setup, it can be handy to see exactly what a given test is doing.
-The `-p` flag turns off any output checking and just shows you the test command and its result:
+The `-p` flag turns off all output checking and just shows you the test command and its result:
 
     $ turnt -p hi.t
     $ wc  < hi.t
@@ -206,16 +206,16 @@ Faced with the prospect of carefully crafting good test logic, in practice I'll 
 
 Snapshot tests are decadent and depraved.
 They tempt you into giving up on any semblance of precision: fuck it; just commit the entire output!
-That's your output spec!
+Let that be your spec!
 The spoils of the dark side are a joyful, carefree feeling of lightness as you add new tests with abandon.
 
-The dark philosophy of snapshot testing is:
+The vile philosophy of snapshot testing is:
 
 * It should be as easy and fast as possible to add new tests.
   Everyone should be able to "lock in" features and fixes with tests, and they should have a good time doing it.
-* Manual review is a small price to pay for the better test coverage that comes from convenience.
+* Manual change review is a small price to pay for the better test coverage that stems from convenience.
 * It's a feature, not a bug, that the SUT must be a Unixy tool with text input and text output.
-  You have to build a simple command-line interface that does a straightforward text-to-text translation, which humans also like.
-* Tests can be a crude form of "documentation" in the form of input/output examples.
+  It forces you to build a simple command-line interface that does a straightforward text-to-text translation, which humans also like.
+* Tests can be a crude form of documentation in the form of input/output examples.
 
 Join us!
