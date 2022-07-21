@@ -569,6 +569,7 @@ abbr {
     text-decoration-line: underline;
     text-decoration-style: dotted;
     text-decoration-color: $deemph-color;
+    text-decoration-thickness: 1.5px;
     @media (prefers-color-scheme: dark) {
         text-decoration-color: $deemph-color-dark;
     }
