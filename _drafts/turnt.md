@@ -1,7 +1,12 @@
 ---
 title: Try Snapshot Testing for Compilers and Compiler-Like Things
 excerpt: |
-    TK
+    *Snapshot testing* is a preposterously simple method for testing tools that transform text to other text, like compilers.
+    This post is an example-based overview of snapshot testing using a tool we developed in [our lab][capra] called [Turnt][].
+    I also extoll the subversive philosphy that the technique embodies, which prioritizes the velocity of adding new regression tests over traditional goals like precision and specificity.
+
+    [capra]: https://capra.cs.cornell.edu
+    [turnt]: https://github.com/cucapra/turnt
 ---
 Over the past few years, folks in [our lab][capra] have become devotees of *snapshot testing*.
 Snapshot tests are preposterously simple: they're just pairs of complete input and output files that you check into version control.
