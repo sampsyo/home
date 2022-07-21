@@ -25,6 +25,8 @@ $pre-bg-dark: #2d2b57;
 $pre-color: #eaeaea;
 $pre-color-dark: #e3dfff;
 $code-bg: rgba(175, 184, 193, 0.2);
+$deemph-color: #777;
+$deemph-color-dark: #666;
 
 // Sizes.
 $font-size-base: 18px;
@@ -214,9 +216,12 @@ ul li, ol li {
     font-family: $title-font;
     font-size: $ui-size;
     margin: 0;
-    color: #777;
+    color: $deemph-color;
     a {
         color: inherit;
+    }
+    @media (prefers-color-scheme: dark) {
+        color: $deemph-color-dark;
     }
 }
 .with-tagline {
@@ -335,13 +340,14 @@ aside {
 
 
 footer {
-    color: #777;
+    color: $deemph-color;
     font-family: $title-font;
     border-top: 1px solid $highlight;
     margin: $line-height-computed 0 0.5em;
     padding-top: 0.4em;
     @media (prefers-color-scheme: dark) {
         border-top-color: $highlight-dark;
+        color: $deemph-color-dark;
     }
 }
 
@@ -562,9 +568,9 @@ figcaption {
 abbr {
     text-decoration-line: underline;
     text-decoration-style: dotted;
-    text-decoration-color: $highlight;
+    text-decoration-color: $deemph-color;
     @media (prefers-color-scheme: dark) {
-        text-decoration-color: $highlight-dark;
+        text-decoration-color: $deemph-color-dark;
     }
 
 }
