@@ -202,9 +202,15 @@ Turnt also supports:
 * running [several commands on the same input file][turnt-env], and
 * comparing the outputs from different commands as a form of [differential testing][difftest].
 
+Check out [Bril's Turnt setup][bril-turnt]
+or [Calyx's Runt configuration][calyx-runt]
+for full-scale examples of snapshot testing in action.
+
 [turnt-output]: https://github.com/cucapra/turnt#output
 [turnt-env]: https://github.com/cucapra/turnt#multiple-environments
 [difftest]: https://en.wikipedia.org/wiki/Differential_testing
+[bril-turnt]: https://github.com/sampsyo/bril/blob/main/test/interp/turnt.toml
+[calyx-runt]: https://github.com/cucapra/calyx/blob/master/runt.toml
 
 ## The Snapshot Philosophy
 
