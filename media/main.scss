@@ -565,7 +565,7 @@ figcaption {
     }
 }
 
-abbr {
+abbr[title] {
     text-decoration-line: underline;
     text-decoration-style: dotted;
     text-decoration-color: $deemph-color;
@@ -573,7 +573,19 @@ abbr {
     @media (prefers-color-scheme: dark) {
         text-decoration-color: $deemph-color-dark;
     }
-
+    &:active {
+        text-decoration: none;
+        color: $deemph-color;
+        @media (prefers-color-scheme: dark) {
+            color: $deemph-color-dark;
+        }
+        &::before {
+            content: attr(title) ' (';
+        }
+        &::after {
+            content: ')';
+        }
+    }
 }
 
 // Faking ANSI terminal colors.
