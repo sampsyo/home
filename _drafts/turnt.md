@@ -17,7 +17,7 @@ There are other great options, like [LLVM's lit][lit] (which directly inspired T
 the [Insta crate][insta] for Rust,
 Jane Street's [ppx-based framework][ppx-expect] for OCaml,
 and Mercurial's [Cram][] (the OG, I think).
-A particularly good option is [Runt][], which is [Rachit Nigam][rachit]'s fast and full-featured realization in Rust.
+A particularly good option is [Runt][], [Rachit Nigam][rachit]'s fast and full-featured realization in Rust.
 
 [lit]: https://llvm.org/docs/CommandGuide/lit.html
 [cram]: https://bitheap.org/cram/
@@ -46,12 +46,12 @@ You can probably guess what `wc < hi.t` will say:
 
            1       2      14
 
-The idea in snapshot testing is to "lock in" this output so, as we make changes in the future, we can easily make sure we didn't anything.
+The idea in snapshot testing is to "lock in" this output so, as we make changes in the future, we can make sure we didn't break anything.
 It's easy to generate a snapshot file:
 
     $ wc < hi.t > hi.out
 
-If we were really working on a `wc` implementation, we would check both `hi.t` and `hi.out` into version control.
+If we were really working on the `wc` implementation, we would check both `hi.t` and `hi.out` into version control.
 
 Now all we need is a convenient way to make sure `wc < hi.t` still matches `hi.out`.
 That way, we can write a whole slew of these input files and get into the habit of checking that they *all* still do the same thing.
@@ -91,6 +91,7 @@ Put this in in `2lines.t`:
 The first time around, we created the `*.out` file for our test ourselves.
 But Turnt will happily do it for us with the `--save` flag:
 
+    $ turnt --save 2lines.t
     1..1
     not ok 1 - 2lines.t # skip: updated 2lines.out
     # missing: 2lines.out
@@ -205,20 +206,20 @@ Turnt also supports:
 Snapshot testing is a liberation from the drudgery of "normal" tests.
 If you're like me, you've internalized that a *morally good* test is one with a minimal, flexible assertion on the output---one that checks no more than is absolutely necessary.
 This path is righteous, but it makes testing a bummer.
-Faced with the prospect of carefully crafting good test logic, in practice I'll opt to avoid writing tests at all.
+Faced with the prospect of carefully crafting good test logic, in practice I'll avoid writing tests at all.
 
 Snapshot tests are decadent and depraved.
 They tempt you into giving up on any semblance of precision: fuck it; just commit the entire output!
 Let that be your spec!
 The spoils of the dark side are a joyful, carefree feeling of lightness as you add new tests with abandon.
 
-The vile philosophy of snapshot testing is:
+The sinister philosophy of snapshot testing is:
 
-* It should be as easy and fast as possible to add new tests.
+* It should be as easy and as fast as possible to add new tests.
   Everyone should be able to "lock in" features and fixes with tests, and they should have a good time doing it.
 * Manual change review is a small price to pay for the better test coverage that stems from convenience.
 * It's a feature, not a bug, that the SUT must be a Unixy tool with text input and text output.
   It forces you to build a simple command-line interface that does a straightforward text-to-text translation, which humans also like.
-* Tests can be a crude form of documentation in the form of input/output examples.
+* Tests can act as a crude form of documentation in the form of input/output examples.
 
 Join us!
