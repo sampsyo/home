@@ -593,3 +593,11 @@ code {
         color: #cc1b1b;
     }
 }
+
+// Include Rouge/Pygments syntax highlighting themes.
+@media (prefers-color-scheme: light) {
+    @import "tomorrow_night_bright";
+}
+@media (prefers-color-scheme: dark) {
+    @import "tomorrow_night_blue";
+}
