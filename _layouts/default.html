@@ -43,7 +43,7 @@
         {% endif %}
 
         {% if page.highlight %}
-        <!-- highlight.js -->
+        <!-- Rouge syntax highlighting -->
         <link rel="stylesheet" href="{{ site.base }}/media/highlight.css">
         {% endif %}
     </head>
@@ -94,17 +94,6 @@
                     {left: "$", right: "$", display: false}
                 ]
             });
-        </script>
-        {% endif %}
-
-        {% if page.highlight %}
-        <!-- highlight.js -->
-        <script src="{{ site.base }}/media/highlight.min.js"></script>
-        <script>
-            hljs.configure({
-                languages: ['c', 'cpp', 'python', 'sh', 'typescript'],
-            });
-            hljs.initHighlightingOnLoad();
         </script>
         {% endif %}
     </body>

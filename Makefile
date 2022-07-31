@@ -1,9 +1,10 @@
-HLJS_VERSION := 11.6.0
 KATEX_VERSION := 0.16.0
+
+THEME_CSS := _source/tomorrow_night_bright.css _source/tomorrow_night_blue.css
+GENERATED := media/katex $(THEME_CSS)
 
 # Build the site itself using Jekyll.
 .PHONY: site
-GENERATED := media/katex media/highlight.min.js
 site: index.md $(GENERATED)
 	jekyll build
 
@@ -42,15 +43,9 @@ _source/katex:
 media/katex: _source/katex
 	cp -r $< $@
 
-# Clone and build Highlight.js to get custom languages.
-_source/highlightjs:
-	git clone --branch $(HLJS_VERSION) --depth 1 \
-		https://github.com/isagalaev/highlight.js.git $@
-_source/highlightjs/build: _source/highlightjs
-	cd $< ; npm install
-	cd $< ; node tools/build.js python c cpp bash typescript
-media/highlight.min.js: _source/highlightjs/build
-	cp $</highlight.min.js $@
+# Rouge/Pygments themes.
+$(THEME_CSS): _source/%.css:
+	curl -L -o $@ https://raw.githubusercontent.com/mozmorris/tomorrow-pygments/c6ca1a308e7e93cb18a54f93bf964f56e4d07acf/css/$*.css
 
 # A phony target for installing all the dependencies.
 .PHONY: setup

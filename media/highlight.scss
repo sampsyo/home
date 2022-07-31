@@ -1,8 +1,8 @@
 ---
 ---
 @media (prefers-color-scheme: light) {
-    @import "highlightjs/src/styles/tomorrow-night-bright";
+    @import "tomorrow_night_bright";
 }
 @media (prefers-color-scheme: dark) {
-    @import "highlightjs/src/styles/shades-of-purple";
+    @import "tomorrow_night_blue";
 }

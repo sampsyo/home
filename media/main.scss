@@ -475,7 +475,7 @@ blockquote {
     }
 }
 
-// Code.
+// Inline code.
 pre, code {
     font-family: $code-font;
     font-size: ($font-size-base - 4);
@@ -486,8 +486,9 @@ code {
     border-radius: 3px;
 }
 
-pre code, pre code.hljs {
+pre code {
     display: block;
+    background: inherit;
 
     // Make <pre> code scroll horizontally when it's too wide (e.g., on
     // mobile).
@@ -501,16 +502,6 @@ pre code, pre code.hljs {
     padding: 1em;
     margin-left: -$body-margin;
     margin-right: -$body-margin;
-}
-
-// Manually set colors for non-highlighted code.
-pre code:not(.hljs) {
-    background-color: $pre-bg;
-    color: $pre-color;
-    @media (prefers-color-scheme: dark) {
-        background-color: $pre-bg-dark;
-        color: $pre-color-dark;
-    }
 }
 
 // Responsive images.
