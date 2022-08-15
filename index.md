@@ -14,6 +14,9 @@ I am an associate professor in the [Department of Computer Science][cornellcs] a
 I graduated from the [University of Washington][uw cse] in 2015.
 Here's my [CV][].
 
+*I am on sabbatical in Seattle for the 2022--23 academic year.*
+Feel free to [contact me][contact], but I reserve the right to even longer email latencies than usual.
+
 [cls]: http://www.csl.cornell.edu
 [cornell]: http://www.cornell.edu/
 [cornellcs]: http://www.cs.cornell.edu/
@@ -22,3 +25,4 @@ Here's my [CV][].
 [cv]: {{ site.base }}/cv/
 [msr]: http://research.microsoft.com/en-us/
 [cupl]: http://pl.cs.cornell.edu
+[contact]: contact.html
