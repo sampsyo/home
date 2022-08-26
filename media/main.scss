@@ -37,8 +37,8 @@ $body-margin: 8px;
 $grayish: lighten(desaturate($highlight, 60%), 50%);
 
 // Fonts!
-$title-font: Verdana, Tahoma, Geneva, sans-serif;
-$font-family-base: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Cambria, Georgia, serif;
+$display-font: Verdana, Tahoma, Geneva, sans-serif;
+$body-font: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Cambria, Georgia, serif;
 $bigger-size: 1.1em;
 $ui-size: 0.9em;
 $code-font: ui-monospace, SF Mono, 'Anonymous Pro', Inconsolata, Consolas, 'Source Code Pro', Menlo, Monaco, monospace;
@@ -52,7 +52,7 @@ $code-font: ui-monospace, SF Mono, 'Anonymous Pro', Inconsolata, Consolas, 'Sour
 body {
     font-size: $font-size-base;
     line-height: $line-height-base;
-    font-family: $font-family-base;
+    font-family: $body-font;
     color: $text-color;
     margin: $body-margin;
     @media (prefers-color-scheme: dark) {
@@ -75,7 +75,7 @@ a:hover {
     text-decoration: underline;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: $title-font;
+    font-family: $display-font;
     font-weight: 500;
     line-height: 115%;
 }
@@ -126,7 +126,7 @@ header {
     @media (prefers-color-scheme: dark) {
         color: $highlight-dark;
     }
-    font-family: $title-font;
+    font-family: $display-font;
     a:hover {
         text-decoration: none;
     }
@@ -181,7 +181,7 @@ nav {
 
 // Headings.
 h1, h2, h3, h4, h5, h6 {
-    font-family: $title-font;
+    font-family: $display-font;
 }
 
 // Lists.
@@ -213,7 +213,7 @@ ul li, ol li {
 // Adornments on blog posts and such.
 .tagline {
     text-transform: uppercase;
-    font-family: $title-font;
+    font-family: $display-font;
     font-size: $ui-size;
     margin: 0;
     color: $deemph-color;
@@ -233,7 +233,7 @@ article.preview {
     margin-top: 1.5em;
     h3 {
         margin: 0;
-        font-family: $title-font;
+        font-family: $display-font;
         a {
             color: inherit;
             text-decoration: none;
@@ -341,7 +341,7 @@ aside {
 
 footer {
     color: $deemph-color;
-    font-family: $title-font;
+    font-family: $display-font;
     border-top: 1px solid $highlight;
     margin: $line-height-computed 0 0.5em;
     padding-top: 0.4em;
@@ -547,7 +547,7 @@ figcaption {
     background: #999;
     color: white;
     border-radius: 4px;
-    font-family: $title-font;
+    font-family: $display-font;
     padding: 3px 0;
     box-shadow: 2px 2px 2px #ccc;
     text-shadow: 1px 1px 2px #ccc;
