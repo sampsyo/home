@@ -65,9 +65,9 @@ Z3's solver interface is much more powerful than what we're doing here, but this
 
 On my machine, I get:
 
-    [x = 43]
+    [x = 42]
 
-which is admittedly a little disappointing, but at least it's true: using integer division, $43 \div 7 = 6$.
+which is admittedly a little disappointing, but at least it's true: using integer division, $42 \div 7 = 6$.
 
 [ex0]: https://github.com/sampsyo/minisynth/blob/master/ex0.py
 [smt]: https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
