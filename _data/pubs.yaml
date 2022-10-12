@@ -1,4 +1,12 @@
 -
+    title: 'Stepwise Debugging for Hardware Accelerators'
+    authors: 'Griffin Berlstein, Rachit Nigam, Chris Gyurgyik, and Adrian Sampson'
+    venue: 'ASPLOS 2023'
+    type: conference
+    selected: true
+    pre: true
+
+-
     title: 'Performance Left on the Table: An Evaluation of Compiler Auto-Vectorization for RISC-V'
     authors: 'Neil Adit and Adrian Sampson'
     venue: 'IEEE Micro'
