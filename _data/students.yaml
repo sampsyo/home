@@ -39,6 +39,7 @@
             name: Zhijing Li
             link: https://tissue3.github.io/
             start: 2019
+            end: 2021
         -
             name: Sachille Atapattu
             start: 2018
@@ -47,6 +48,13 @@
             name: Griffin Berlstein
             link: https://griffinberlste.in
             start: 2021
+        -
+            name: Oliver Daids
+            start: 2021
+        -
+            name: Anshuman Mohan
+            link: https://www.cs.cornell.edu/~amohan/
+            start: 2022
 
 -
     category: Master of Engineering
