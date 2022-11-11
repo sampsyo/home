@@ -3,13 +3,19 @@ layout: shorty
 title: Contact
 class: contact
 ---
-Send me email at [{{site.email}}][email]. My office in [Gates Hall][gates] is 411A. I share lots of code on [GitHub][gh]. You probably shouldn't [follow me on Twitter][twitter]. Follow [@sigarch][] instead!
+Send me email at [{{site.email}}][email].
+My office in [Gates Hall][gates] is 411A, but I'm on sabbatical this year so you're unlikely to find me there.
+I share lots of code on [GitHub][gh].
 
-[@sigarch]: https://twitter.com/sigarch
+You can find me in the Fediverse at [@adrian@discuss.systems][mastodon].
+Also consider following [@sigplan@types.pl][@sigplan] and [@sigarch@mas.to][@sigarch].
+
 [gh]: https://github.com/sampsyo
-[twitter]: http://twitter.com/samps
 [email]: mailto:{{site.email}}
 [gates]: https://blogs.cornell.edu/gateshall/
+[mastodon]: https://discuss.systems/@adrian
+[@sigarch]: https://mas.to/@sigarch
+[@sigplan]: https://types.pl/@sigplan
 
 Here's my mailing address:
 
