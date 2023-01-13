@@ -16,26 +16,23 @@ jobs:
         run: make setup
       - name: Jekyll build
         uses: jerryjvl/jekyll-build-action@v1
+      - name: Setup Tailscale
+        uses: tailscale/github-action@main
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
       - name: rsync
         env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
-          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_HOST: cslinux.cs.cornell.edu
+          DEPLOY_USER: als485
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
           DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
           DEPLOY_SRC: ./_site/
-          DEPLOY_DEST: sync/sampsyo-home
-          DEPLOY_2_HOST: cslinux
-          DEPLOY_2_DEST: /people/als485/home
+          DEPLOY_DEST: /people/als485/home
         run: |
           echo "$DEPLOY_KEY" > pk
           echo "$DEPLOY_KNOWN_HOSTS" > kh
           chmod 600 pk
           rsync --compress --recursive --checksum --itemize-changes --delete \
+            --perms --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r \
             -e "ssh -p \"$DEPLOY_PORT\" -i pk -o 'UserKnownHostsFile kh'" \
             $DEPLOY_SRC $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DEST
-          ssh -p $DEPLOY_PORT -i pk -o 'UserKnownHostsFile kh' \
-            $DEPLOY_USER@$DEPLOY_HOST \
-            rsync --compress --recursive --checksum --itemize-changes \
-            --delete -e ssh --perms --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r \
-            $DEPLOY_DEST/ $DEPLOY_2_HOST:$DEPLOY_2_DEST
