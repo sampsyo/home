@@ -1,3 +1,9 @@
+---
+title: CPS in JavaScript
+mathjax: true
+excerpt: |
+    I don't know what this draft is about.
+---
 JavaScript is all about events...
 
     var button = document.querySelector('button');
