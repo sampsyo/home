@@ -3,7 +3,7 @@ on:
     branches: [master]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,10 +16,24 @@ jobs:
         run: make setup
       - name: Jekyll build
         uses: jerryjvl/jekyll-build-action@v1
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: _site/
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Setup Tailscale
         uses: tailscale/github-action@main
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: site
+      - run: ls -R
       - name: rsync
         env:
           DEPLOY_HOST: cslinux.cs.cornell.edu
