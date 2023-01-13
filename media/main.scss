@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 p {
-    margin: 0 0 ($line-height-computed / 2);
+    margin: 0 0 calc($line-height-computed / 2);
 }
 hr {
     margin-top: $line-height-computed;
@@ -281,7 +281,7 @@ h6 {
 }
 h1, h2, h3, h4, h5, h6 {
   margin-top: $line-height-computed;
-  margin-bottom: ($line-height-computed / 2);
+  margin-bottom: calc($line-height-computed / 2);
 }
 
 article.full {
