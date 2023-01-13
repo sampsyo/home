@@ -24,8 +24,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    env:
-      DEPLOY_SRC: ./_site/
     steps:
       - name: Setup Tailscale
         uses: tailscale/github-action@main
@@ -35,7 +33,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: site
-          path: ${{ DEPLOY_SRC }}
+          path: _site
       - run: ls -R
       - name: rsync
         env:
@@ -43,6 +41,7 @@ jobs:
           DEPLOY_USER: als485
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
           DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_SRC: ./_site/
           DEPLOY_DEST: /people/als485/home
         run: |
           echo "$DEPLOY_KEY" > pk
