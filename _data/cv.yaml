@@ -415,6 +415,28 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Derin Ozturk
+      advisor: Elizabeth Farrell Helbling
+    - name: Zachary Susag
+      advisor: Justin Hsu
+      link: https://zacharysusag.net
+    - name: Karuna Grewal
+      advisor: Justin Hsu
+      link: https://aakp10.github.io
+    - name: Victor Giannakouris
+      advisor: Immanuel Trummer
+    - name: Shubham Chaudhary
+      advisor: Robbert Van Renesse and Lorenzo Alvisi
+      link: https://www.cs.cornell.edu/~shubham/
+    - name: Jiajie Li
+      advisor: Zhiru Zhang
+      link: https://tonyjie.github.io
+    - name: 'Yueying (Lisa) Li'
+      advisor: Christina Delimitrou and Ed Suh
+      link: https://yueying-lisa-li.org
+    - name: Andrew Butt
+      advisor: Zhiru Zhang
+      link: https://andrewb1999.github.io
     -
         name: Abhishek Vijaya Kumar
         advisor: Rachit Agarwal
@@ -443,6 +465,7 @@ phdcommittees:
     -
         name: Michael Roberts
         advisor: Dexter Kozen
+        defense: 2022
     -
         name: Luis Vega
         advisor: Luis Ceze and Dan Grossman
@@ -488,6 +511,7 @@ phdcommittees:
     -
         name: 'Lin Cheng'
         advisor: Chris Batten
+        defense: 2022
     -
         name: 'Tuan Ta'
         advisor: Chris Batten
