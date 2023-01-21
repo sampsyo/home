@@ -550,6 +550,11 @@ phdcommittees:
 
 talks:
     -
+        title: "I Survived Tenure, and So Can You!"
+        where: JOBS workshop at MICRO 2022
+        link: https://sites.google.com/cornell.edu/jobs-micro-2022/schedule
+        date: 2022-10-01
+    -
         title: "The Next 700 Accelerator Design Languages"
         where: "Berkeley Programming Systems Seminar"
         link: "http://ps.berkeley.edu"
