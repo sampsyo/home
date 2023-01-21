@@ -55,6 +55,10 @@
             name: Anshuman Mohan
             link: https://www.cs.cornell.edu/~amohan/
             start: 2022
+        -
+            name: Priya Srikumar
+            link: https://priyasrikumar.com
+            start: 2023
 
 -
     category: Master of Engineering
@@ -145,6 +149,9 @@
         -
             name: Jonathan Tran
             start: 2020
+        -
+            name: John Rubio
+            start: 2022
 
 -
     category: Undergraduate
