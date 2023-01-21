@@ -262,12 +262,17 @@ service:
 
 
 committees:
+    - venue: YArch
+      year: 2023
+      role: Program committee member
+      link: https://web.mit.edu/yarch2023/
     - venue: ASPLOS
       year: 2023
       role: Program committee member
     - venue: YArch
       year: 2022
       role: Program committee member
+      link: https://web.mit.edu/yarch2022/
     - venue: ICCD
       year: 2021
       role: Special session reviewer
