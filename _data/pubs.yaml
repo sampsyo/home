@@ -5,7 +5,9 @@
     type: conference
     selected: true
     pre: true
-    url: 'BASE/media/papers/cider-asplos2023-preprint.pdf'
+    url: 'https://dl.acm.org/doi/10.1145/3575693.3575717'
+    extra:
+      - '[Local PDF.](BASE/media/papers/cider-asplos2023.pdf)'
 
 -
     title: 'Performance Left on the Table: An Evaluation of Compiler Auto-Vectorization for RISC-V'
