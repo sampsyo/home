@@ -231,6 +231,7 @@
         -
             name: Yuwei (Vivi) Ye
             start: 2019
+            end: 2021
         -
             name: Edan Mobed
             start: 2019
@@ -324,6 +325,7 @@
         -
             name: YoungSeok (Alex) Na
             start: 2021
+            end: 2022
         -
             name: Jasper Liang
             start: 2021
@@ -348,20 +350,20 @@
             name: Mia Daniels
             start: 2022
         -
-            name: Jan-Paul Vincent
-            start: 2022
-        -
             name: Crystal Hu
             start: 2022
+            end: 2022
         -
             name: Pai Li
             start: 2022
         -
             name: Jan-Paul Vincent
             start: 2022
+            end: 2022
         -
             name: Evan Williams
             start: 2022
+            end: 2022
         -
             name: Caleb Kim
             start: 2022
@@ -371,9 +373,11 @@
         -
             name: Meredith Hu
             start: 2022
+            end: 2022
         -
             name: Nathaniel Navarro
             start: 2022
+            end: 2022
         -
             name: Susan Garry
             start: 2022
