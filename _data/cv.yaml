@@ -493,10 +493,6 @@ phdcommittees:
         advisor: David Bindel
         link: 'https://ak-2485.github.io'
     -
-        name: Griffin Berlstein
-        advisor: Nate Foster
-        link: 'https://griffinberlste.in'
-    -
         name: Shaojie Xiang
         advisor: Zhiru Zhang
         link: 'https://www.csl.cornell.edu/~xiangs/'
@@ -518,6 +514,7 @@ phdcommittees:
         name: 'Yi Jiang'
         advisor: José Martínez
         link: 'https://www.cs.cornell.edu/~yijiang/'
+        departed: 2022
     -
         name: 'Yuwei Hu'
         advisor: Zhiru Zhang
