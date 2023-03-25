@@ -3,6 +3,11 @@ title: Very Large Scale Disintegration
 excerpt: |
     TK
 ---
+<figure style="max-width: 400px;">
+<img src="{{ site.base }}/media/vlsd/carbon.png" alt="Facebook's datacenter carbon footprint over time">
+<figcaption>Figure from <a href="https://ugupta.com/files/ChasingCarbon_HPCA2021.pdf"><em>Chasing Carbon</em> by Gupta et al.</a> showing Facebook&rsquo;s datacenter carbon footprint over time. &ldquo;Scope 3&rdquo; is the supply chain, 49% of which is construction & hardware manufacturing. &ldquo;Scope 2&rdquo; is the datacenter power, i.e., the energy it takes to run the machines. The dotted line shows what Scope 2 would look like without buying renewable energy.</figcaption>
+</figure>
+
 Research communities in computer systems should worry about *capex carbon emissions*.
 Capex or *embodied* carbon accounts for the carbon manufacturers produce when building a machine.
 It’s in contrast to *opex* carbon, which counts the emissions we incur to use a machine, i.e., from the electricity we feed into a datacenter or a smartphone’s charging port.
@@ -26,6 +31,10 @@ What if there were a way to *literally* reuse chiplets?
 To recover chiplets from old and obsolete MCMs that could still be useful as a building block for new products?
 
 ## Silicon Recycling
+
+<figure style="max-width: 400px;">
+<img src="{{ site.base }}/media/vlsd/cycle.png" alt="the cycle of silicon recycling: package, deploy, disintegrate, repeat">
+</figure>
 
 We envision *silicon recycling:* an imaginary world where we make new MCMs by harvesting chiplets from old computers and remixing them in new ways.
 Silicon recycling is the general principle of [design for active disassembly][dfad] applied to integrated circuits.
@@ -74,6 +83,10 @@ This kind of disaggregated architecture research needs to start with a prior ass
 Today's designs can then use this prior to maximize the likelihood that their components will be useful in tomorrow's designs.
 
 #### Tools for Design from Spare Parts
+
+<figure style="max-width: 400px;">
+<img src="{{ site.base }}/media/vlsd/spareparts.png" alt="a normal EDA toolchain, vs. an EDA toolchain that uses spare parts">
+</figure>
 
 Today's design tools all produce hardware "from scratch."
 To wildly oversimplify, you feed in your HDL code and the toolchain produces a physical design ready to tape out.
