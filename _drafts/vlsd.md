@@ -1,7 +1,7 @@
 ---
 title: Very Large Scale Disintegration
 excerpt: |
-    TK
+    My WACI talk at <a href="https://asplos-conference.org">ASPLOS 2023</a> is about wishful thinking: what if we could recycle the chiplets from old, obsolete multi-chip modules, remix them, and package them into new silicon products?
 ---
 <aside>
 This is the accompanying writeup for a Wild and Crazy Ideas (WACI) <a href="{{site.base}}/media/vlsd/vlsd-waci23-slides.pdf">talk</a> I’ll give at <a href="https://asplos-conference.org">ASPLOS 2023</a> on Monday.
