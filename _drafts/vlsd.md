@@ -3,6 +3,10 @@ title: Very Large Scale Disintegration
 excerpt: |
     TK
 ---
+<aside>
+This is the accompanying writeup for a Wild and Crazy Ideas (WACI) <a href="{{site.base}}/media/vlsd/vlsd-waci23-slides.pdf">talk</a> I’ll give at <a href="https://asplos-conference.org">ASPLOS 2023</a> on Monday.
+</aside>
+
 <figure style="max-width: 400px;">
 <img src="{{ site.base }}/media/vlsd/carbon.png" alt="Facebook's datacenter carbon footprint over time">
 <figcaption>Figure from <a href="https://ugupta.com/files/ChasingCarbon_HPCA2021.pdf"><em>Chasing Carbon</em> by Gupta et al.</a> showing Facebook&rsquo;s datacenter carbon footprint over time. &ldquo;Scope 3&rdquo; is the supply chain, 49% of which is construction & hardware manufacturing. &ldquo;Scope 2&rdquo; is the datacenter power, i.e., the energy it takes to run the machines. The dotted line shows what Scope 2 would look like without buying renewable energy.</figcaption>
