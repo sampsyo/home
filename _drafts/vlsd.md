@@ -105,7 +105,7 @@ Given the urgency of mitigating computing's capex carbon footprint, we should br
 Systems researchers should rush ahead and do the work to understand how to design for reusability and how to exploit second-hand chiplets.
 By demonstrating the systems-level potential for silicon recycling, we can create the incentive to develop the technology that will make it possible.
 
-[chasing]: 
+[chasing]: https://ugupta.com/files/ChasingCarbon_HPCA2021.pdf
 [intelpv]: https://www.servethehome.com/intel-enters-a-new-era-of-chiplets-that-will-change-everything-34/
 [threadripper]: https://en.wikichip.org/wiki/amd/ryzen_threadripper/pro_5995wx
 [greenchiplets]: https://publica.fraunhofer.de/handle/publica/409195
