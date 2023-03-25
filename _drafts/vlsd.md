@@ -7,19 +7,19 @@ Research communities in computer systems should worry about *capex carbon emissi
 Capex or *embodied* carbon accounts for the carbon manufacturers produce when building a machine.
 It’s in contrast to *opex* carbon, which counts the emissions we incur to use a machine, i.e., from the electricity we feed into a datacenter or a smartphone’s charging port.
 In a way, systems researchers are already all experts on opex carbon: we worship at the temple of computational efficiency, and making machines faster almost always means getting more work done per joule of energy.
-But researchers have recently suggested that, over the lifetime of a computer system, its capex carbon can outstrip---perhaps dramatically---its opex emissions [@chasing].
+But researchers have recently suggested that, over the lifetime of a computer system, [its capex carbon can outstrip---perhaps dramatically---its opex emissions][chasing].
 
 If capex carbon is the real problem in computing’s climate impact, systems researchers should worry because our favorite tools are a poor fit for the job.
 It does not suffice to design new and better computers that work more efficiently than the old computers, as we usually do; we instead need to figure out how to use the same old hardware for longer.
 Reuse and longevity are the key metrics for climate-aware computing.
 
 Meanwhile, a technology trend is promising a different kind of reuse: *multi-chip modules* (MCMs) replace one big chip with a network of separately manufactured *chiplets*.
-Chiplets are suddenly everywhere: AMD’s latest Threadripper parts have 9 dies [@threadripper], and Intel's Ponte Vecchio GPU consists of 47 chiplets [@intelpv].
+Chiplets are suddenly everywhere: [AMD’s latest Threadripper parts have 9 dies][threadripper], and [Intel's Ponte Vecchio GPU consists of 47 chiplets][intelpv].
 One selling point for the chiplet revolution is the cost-saving advantage of *design reuse:* you can tape out one chiplet and use it across several MCM products.
 Four of seven chiplets in AWS’s Graviton3 MCM, for example, are DDR5 memory controllers.
 It’s not hard to imagine that these DDR5 chiplets will still be useful for next year’s AWS server product, so AWS can amortize the cost of building that chiplet across multiple generations.
 
-Reusing chiplets saves money, but it does not save capex carbon [@greenchiplets].
+Reusing chiplets saves money, but it [does not save capex carbon][greenchiplets].
 Every MCM still consists of brand-new silicon, with all the concomitant manufacturing emissions, just like a monolithic chip.
 
 What if there were a way to *literally* reuse chiplets?
@@ -28,11 +28,11 @@ To recover chiplets from old and obsolete MCMs that could still be useful as a b
 ## Silicon Recycling
 
 We envision *silicon recycling:* an imaginary world where we make new MCMs by harvesting chiplets from old computers and remixing them in new ways.
-Silicon recycling is the general principle of *design for active disassembly* [@dfad] applied to integrated circuits.
-In the same way a couch or a toaster could be built with debondable adhesives to make recycling easier at the end of its life [@debond], the idea is to build MCMs with a debondable process.
+Silicon recycling is the general principle of [design for active disassembly][dfad] applied to integrated circuits.
+In the same way a couch or a toaster could be built with debondable adhesives [to make recycling easier at the end of its life][debond], the idea is to build MCMs with a debondable process.
 
 In the real world, MCM packaging uses a *bonding* process to attach chiplets to a silicon interposer.
-I like to imagine the world’s tiniest soldering iron (at, say, a 10&nbsp;$\mu$m pitch) attaching the bumps on each chiplet to the corresponding pad on the interposer.
+I like to imagine the world’s tiniest soldering iron (at, say, a 10&nbsp;µm pitch) attaching the bumps on each chiplet to the corresponding pad on the interposer.
 In our imaginary world of silicon recycling, the idea is to (somehow) make this bonding process reversible.
 We build the MCM in the same way, but we design the bonding process in a way that makes it possible to undo the tiny, metaphorical soldering job.
 By applying heat, lasers, some magical solvent, or a combination of the three, the chiplets break free from the interposer---and both are undamaged, ready to be bonded again in a new product.
@@ -47,8 +47,8 @@ The problem with this vision is that it is science fiction.
 In the real world, bonding is irreversible---there is no way to safely disassemble an MCM and recover working chiplets.
 
 I am *very far* from an expert on bonding and packaging---I base this conclusion only on a reasonably thorough literature search that turned up no indication that anyone is even working on reversible bonding for MCMs.
-The closest thing appears to be *temporary bonding* technologies, which which are useful *during* the manufacturing process [@montmeat].
-For example, some technologies temporarily bond chiplets to silicon or glass *carriers* while processing them; then, IR lasers debond the silicon (avoiding any mechanical force) before packaging [@ibm].
+The closest thing appears to be [*temporary bonding*][montmeat] technologies, which which are useful *during* the manufacturing process.
+For example, [some technologies][ibm] temporarily bond chiplets to silicon or glass *carriers* while processing them; then, IR lasers debond the silicon (avoiding any mechanical force) before packaging.
 The final MCM uses a permanent bond.
 
 On the other hand, I did not find evidence that reversible bonding is *in*feasible in principle.
@@ -63,7 +63,7 @@ Even though it is not yet practical, we can already imagine the systems research
 #### Carbon-Aware Architectural Disaggregation
 
 The silicon recycling vision needs architecture research that explores how to build MCMs that maximize their potential for reuse.
-As in *brick and mortar* architecture [@brickandmortar],
+As in [*brick and mortar* architecture][brickandmortar],
 the idea is to take your favorite monolithic processor design and disaggregate it into little chiplet-sized pieces.
 Disaggregated architectures need to balance two goals:
 bigger chiplets can better mitigate the costs of inter-chiplet communication,
@@ -104,3 +104,13 @@ it doesn't exist, so no one has done the research on how to exploit it for silic
 Given the urgency of mitigating computing's capex carbon footprint, we should break this incentive deadlock.
 Systems researchers should rush ahead and do the work to understand how to design for reusability and how to exploit second-hand chiplets.
 By demonstrating the systems-level potential for silicon recycling, we can create the incentive to develop the technology that will make it possible.
+
+[chasing]: 
+[intelpv]: https://www.servethehome.com/intel-enters-a-new-era-of-chiplets-that-will-change-everything-34/
+[threadripper]: https://en.wikichip.org/wiki/amd/ryzen_threadripper/pro_5995wx
+[greenchiplets]: https://publica.fraunhofer.de/handle/publica/409195
+[debond]: https://pubs.rsc.org/en/content/articlelanding/2022/GC/D1GC03306A
+[dfad]: https://ieeexplore.ieee.org/document/1437007
+[ibm]: https://research.ibm.com/blog/IBM-TEL-chip-debonding
+[montmeat]: https://www.sciencedirect.com/science/article/abs/pii/S0167931717301065
+[brickandmortar]: https://dl.acm.org/doi/10.1145/1250662.1250693
