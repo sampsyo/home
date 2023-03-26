@@ -22,10 +22,10 @@ If capex carbon is the real problem in computing’s climate impact, systems res
 It does not suffice to design new and better computers that work more efficiently than the old computers, as we usually do; we instead need to figure out how to use the same old hardware for longer.
 Reuse and longevity are the key metrics for climate-aware computing.
 
-Meanwhile, a technology trend is promising a different kind of reuse: *multi-chip modules* (MCMs) replace one big chip with a network of separately manufactured *chiplets*.
+Meanwhile, a technology trend is promising a different kind of reuse: [multi-chip modules (MCMs)][mcm] replace one big chip with a network of separately manufactured *chiplets*.
 Chiplets are suddenly everywhere: [AMD’s latest Threadripper parts have 9 dies][threadripper], and [Intel's Ponte Vecchio GPU consists of 47 chiplets][intelpv].
 One selling point for the chiplet revolution is the cost-saving advantage of *design reuse:* you can tape out one chiplet and use it across several MCM products.
-Four of seven chiplets in AWS’s Graviton3 MCM, for example, are DDR5 memory controllers.
+Four of seven chiplets in AWS’s [Graviton3][graviton] MCM, for example, are [DDR5][] memory controllers.
 It’s not hard to imagine that these DDR5 chiplets will still be useful for next year’s AWS server product, so AWS can amortize the cost of building that chiplet across multiple generations.
 
 Reusing chiplets saves money, but it [does not save capex carbon][greenchiplets].
@@ -45,22 +45,22 @@ Silicon recycling is the general principle of [design for active disassembly][df
 In the same way a couch or a toaster could be built with debondable adhesives [to make recycling easier at the end of its life][debond], the idea is to build MCMs with a debondable process.
 
 In the real world, MCM packaging uses a *bonding* process to attach chiplets to a silicon interposer.
-I like to imagine the world’s tiniest soldering iron (at, say, a 10&nbsp;µm pitch) attaching the bumps on each chiplet to the corresponding pad on the interposer.
+I like to imagine the world’s tiniest soldering iron (at, say, a 10&nbsp;&mu;m pitch) attaching the bumps on each chiplet to the corresponding pad on the interposer.
 In our imaginary world of silicon recycling, the idea is to (somehow) make this bonding process reversible.
-We build the MCM in the same way, but we design the bonding process in a way that makes it possible to undo the tiny, metaphorical soldering job.
+We build the MCM in the same way, but we design the bonding process that makes it possible to undo the tiny, metaphorical soldering job.
 By applying heat, lasers, some magical solvent, or a combination of the three, the chiplets break free from the interposer---and both are undamaged, ready to be bonded again in a new product.
 
 In a hypothetical world with silicon recycling, when you upgrade your phone and send your old one off for recycling, the recycler doesn’t just recover the precious metals from the case, PCBs, and screen.
 They also take the MCM at the heart of the machine, debond all its chiplets, and put them up for sale on a marketplace for second-hand silicon.
 Your smartphone’s chiplets may go into a next-generation smartphone, coupled with some brand-new chiplets that differentiate it, or they may go downmarket into a camera or a microwave.
 
-## Reversible Packaging is Only a Fantasy (For Now)
+## Reversible Packaging is a Fantasy (For Now)
 
 The problem with this vision is that it is science fiction.
 In the real world, bonding is irreversible---there is no way to safely disassemble an MCM and recover working chiplets.
 
 I am *very far* from an expert on bonding and packaging---I base this conclusion only on a reasonably thorough literature search that turned up no indication that anyone is even working on reversible bonding for MCMs.
-The closest thing appears to be [*temporary bonding*][montmeat] technologies, which which are useful *during* the manufacturing process.
+The closest thing appears to be [temporary bonding][montmeat] technologies, which which are useful *during* the manufacturing process.
 For example, [some technologies][ibm] temporarily bond chiplets to silicon or glass *carriers* while processing them; then, IR lasers debond the silicon (avoiding any mechanical force) before packaging.
 The final MCM uses a permanent bond.
 
@@ -94,7 +94,7 @@ Today's designs can then use this prior to maximize the likelihood that their co
 
 Today's design tools all produce hardware "from scratch."
 To wildly oversimplify, you feed in your HDL code and the toolchain produces a physical design ready to tape out.
-To enable silicon recycling, we will need tools that can synthesize hardware made from an inventory "spare parts":
+To enable silicon recycling, we will need tools that can synthesize hardware made from an inventory of "spare parts":
 chiplets we have on hand or think we can easily buy.
 In spare-parts synthesis, the designer feeds in (alongside their HDL code) a list of descriptions of all that second-hand hardware;
 the toolchain's job is to produce a design for a complete MCM that maximizes the use of those repurposed chiplets.
@@ -104,7 +104,7 @@ The tools will surely still need to generate *some* new, project-specific hardwa
 
 Today's reconfigurable hardware---FPGAs and CGRAs---give you a toolbox of components that you can hook up however you like.
 But the mixture of components in each toolbox is fixed.
-If you buy an FPGA from AMD, for example, the FPGA comes with a fixed ratio of basic logic elements (LUTs) to memories (BRAMs) to arithmetic units (DSPs).
+If you buy [an FPGA from AMD][u50], for example, the FPGA comes with a fixed ratio of basic logic elements (LUTs) to memories (BRAMs) to arithmetic units (DSPs).
 With silicon recycling, we could make *physically* reconfigurable hardware: where you start with an assortment of LUT chiplets, BRAM chiplets, and DSP chiplets and mix them in the proportion and arrangement that your application domain demands.
 Once you have crafted your custom FPGA MCM, you then configure and reconfigure it as many times as you need to implement your application as it evolves.
 Physically reconfigurable FPGAs need a kind of two-level compiler:
@@ -130,4 +130,8 @@ By demonstrating the systems-level potential for silicon recycling, we can creat
 [dfad]: https://ieeexplore.ieee.org/document/1437007
 [ibm]: https://research.ibm.com/blog/IBM-TEL-chip-debonding
 [montmeat]: https://www.sciencedirect.com/science/article/abs/pii/S0167931717301065
-[brickandmortar]: https://dl.acm.org/doi/10.1145/1250662.1250693
+[brickandmortar]: https://web.eecs.umich.edu/~taustin/papers/bm-isca2007.pdf
+[mcm]: https://en.wikipedia.org/wiki/Multi-chip_module
+[graviton]: https://aws.amazon.com/ec2/graviton/
+[ddr5]: https://en.wikipedia.org/wiki/DDR5_SDRAM
+[u50]: https://www.xilinx.com/products/boards-and-kits/alveo/u50.html
