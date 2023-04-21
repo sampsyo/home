@@ -1,4 +1,14 @@
 -
+    title: 'Modular Hardware Design with Timeline Types'
+    authors: 'Rachit Nigam, Pedro Henrique Azevedo de Amorim, and Adrian Sampson'
+    venue: 'PLDI 2023'
+    type: conference
+    selected: true
+    url: 'BASE/media/papers/filament-pldi2023-preprint.pdf'
+    pre: true
+    venue_url: 'https://pldi23.sigplan.org'
+
+-
     title: 'Stepwise Debugging for Hardware Accelerators'
     authors: 'Griffin Berlstein, Rachit Nigam, Chris Gyurgyik, and Adrian Sampson'
     venue: 'ASPLOS 2023'
