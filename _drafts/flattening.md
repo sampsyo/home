@@ -180,20 +180,32 @@ Flattened ASTs come with a bunch of benefits.
 The classic ones most people cite are all about performance:
 
 1. **Locality.**
-   All your `Expr`s are packed together in a contiguous region of memory, which is good for [spatial locality][sploc].
-   TKTKTK
-   A sufficiently smart memory allocator might achieve the same thing, but using a dense array removes all uncertainty.
+   Allocating normal pointer-based `Expr`s runs the risk of [fragmentation][].
+   Flattened `Expr`s are packed together in a contiguous region of memory, which is good for [spatial locality][sploc].
+   Your data caches will work better because `Expr`s are more likely to share a cache line,
+   and even simple [prefetchers][prefetch] will do a better job of predicting which `Expr`s to load before you need them.
+   A sufficiently smart memory allocator *might* achieve the same thing, especially if you allocate the whole AST up front and never add to it, but using a dense array removes all uncertainty.
 2. **Smaller references.**
    Normal data structures use pointers for references; on modern architectures, those are always 64 bits.
    After flattening, you can use smaller integers---if you're pretty sure you'll never need more than 4,294,967,295 AST nodes,
    you can get by with 32-bit references, like we did in our example.
    That's a 50% space savings for all your references, which could amount to a substantial overall memory reduction in pointer-heavy data structures like ASTs.
-   Smaller memory footprints mean less bandwidth pressure and even better cache locality.
+   Smaller memory footprints mean less bandwidth pressure and even better spatial locality.
    And you might save even more if you can get away with 16- or even 8-bit references for especially small data structures.
 3. **Cheap allocation.**
-   There is no need for a call to `malloc` every time you create a new AST node in flatland.
+   In flatland, there is no need for a call to `malloc` every time you create a new AST node.
    Instead, provided you pre-allocate enough memory to hold everything, allocation can entail just [bumping the tail pointer][bump] to make room for one more `Expr`.
+   Again, a really fast `malloc` might be hard to compete with---but you basically can't beat bump allocation on simplicity.
 4. **Cheap deallocation.**
+   Our flattening setup assumes you never need to free individual `Expr`s.
+   That's probably true for many, although not all, language implementations:
+   you build up new subtrees all the time, but you don't need to reclaim space from many old ones.
+   TK
+
+[sploc]: https://en.wikipedia.org/wiki/Locality_of_reference#Types_of_locality
+[prefetch]: https://en.wikipedia.org/wiki/Prefetching
+[bump]: https://docs.rs/bumpalo/latest/bumpalo/
+[fragmentation]: https://en.wikipedia.org/wiki/Fragmentation_(computing)
 
 TK #4 is the main one on Wikipedia
 
