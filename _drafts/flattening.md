@@ -3,6 +3,12 @@ title: 'Flattening ASTs (and Other Compiler Data Structures)'
 excerpt: |
     TK
 ---
+<figure style="max-width: 180px;">
+<img src="{{ site.base }}/media/flattening/normal.png" alt="a normal AST">
+<img src="{{ site.base }}/media/flattening/flat.png" alt="a flat AST">
+<figcaption>Normal and flattened ASTs for the expression <code>a * b + c</code>.</figcaption>
+</figure>
+
 Arenas, a.k.a. regions, are everywhere in modern language implementations. A special case of the general [arena allocation][arena] idea is both incredibly simple and surprisingly effective for compilers and compiler-like things. Maybe because of its simplicity, I haven't seen the basic technique in many compiler courses---or anywhere else in a CS curriculum for that matter. This post is an introduction to the idea and its many virtues.
 
 *Arenas* and *regions* mean many different things to different people, so I'm going to call the specific flavor I'm interested in here *data structure flattening*. Namely, think of an arena that only holds one type, so it's actually just an array of values of that type, and you can use array indices where you would otherwise need pointers. The type I'll focus on here is abstract syntax tree (AST) nodes, but the idea applies to any pointer-laden data structure.
@@ -50,21 +56,21 @@ All of them are thoroughly unremarkable.
 The whole interpreter is just one method on `Expr`:
 
 ```rust
-    fn interp(&self) -> i64 {
-        match self {
-            Expr::Binary(op, lhs, rhs) => {
-                let lhs = lhs.interp();
-                let rhs = rhs.interp();
-                match op {
-                    BinOp::Add => lhs.wrapping_add(rhs),
-                    BinOp::Sub => lhs.wrapping_sub(rhs),
-                    BinOp::Mul => lhs.wrapping_mul(rhs),
-                    BinOp::Div => lhs.checked_div(rhs).unwrap_or(0),
-                }
+fn interp(&self) -> i64 {
+    match self {
+        Expr::Binary(op, lhs, rhs) => {
+            let lhs = lhs.interp();
+            let rhs = rhs.interp();
+            match op {
+                BinOp::Add => lhs.wrapping_add(rhs),
+                BinOp::Sub => lhs.wrapping_sub(rhs),
+                BinOp::Mul => lhs.wrapping_mul(rhs),
+                BinOp::Div => lhs.checked_div(rhs).unwrap_or(0),
             }
-            Expr::Literal(num) => *num,
         }
+        Expr::Literal(num) => *num,
     }
+}
 ```
 
 My language has keep-on-truckin' semantics; every expression eventually evaluates to an `i64`, even if it's not the number you wanted.[^arith]
