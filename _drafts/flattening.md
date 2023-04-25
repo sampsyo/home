@@ -47,11 +47,7 @@ If you're not a committed Rustacean, `Box<Expr>` may look a little weird, but th
 
 [^inline]: In Rust, using `Expr` there would mean that we want to include other `Expr`s *inline* inside the `Expr` struct, without any pointers, which isn't what we want. The Rust compiler [doesn't even let us do that](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=83ed9bab8faf7b12707a0f73722ac44c)—it would make `Expr`s infinitely large!
 
-TK illustration?
-
-TK point to the repo, say it's runnable
-
-With the AST in hand, we can write all the textbook parts of a language implementation, like a [parser][main-parse], a [pretty-printer][main-pretty], and and [interpreter][main-interp].
+With the AST in hand, we can write all the textbook parts of a language implementation, like a [parser][main-parse], a [pretty-printer][main-pretty], and an [interpreter][main-interp].
 All of them are thoroughly unremarkable.
 The whole interpreter is just one method on `Expr`:
 
@@ -101,7 +97,14 @@ The *flattening* idea has two pieces:
 * Instead of allocating `Expr` objects willy-nilly on the heap, we'll pack them into a single, contiguous array.
 * Instead of referring to children via pointers, `Exprs` will refer to their children using their indices in that array.
 
-TK illustration
+<figure style="max-width: 150px;">
+<img src="{{ site.base }}/media/flattening/flat.png" alt="the same flat AST from earlier">
+</figure>
+
+Let's look back at the doodle from the top of the post.
+We want to use a single `Expr` array to hold all our AST nodes.
+These nodes still need to point to each other; they'll now do that by referring to "earlier" slots in that array.
+Plain old integers will take the place of pointers.
 
 If that plan sounds simple, it is—it's probably even simpler than you're thinking.
 The main thing we need is an array of `Expr`s.
