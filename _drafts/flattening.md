@@ -176,6 +176,27 @@ Neat!
 
 ## But Why?
 
+Flattened ASTs come with a bunch of benefits.
+The classic ones most people cite are all about performance:
+
+1. **Locality.**
+   All your `Expr`s are packed together in a contiguous region of memory, which is good for [spatial locality][sploc].
+   TKTKTK
+   A sufficiently smart memory allocator might achieve the same thing, but using a dense array removes all uncertainty.
+2. **Smaller references.**
+   Normal data structures use pointers for references; on modern architectures, those are always 64 bits.
+   After flattening, you can use smaller integers---if you're pretty sure you'll never need more than 4,294,967,295 AST nodes,
+   you can get by with 32-bit references, like we did in our example.
+   That's a 50% space savings for all your references, which could amount to a substantial overall memory reduction in pointer-heavy data structures like ASTs.
+   Smaller memory footprints mean less bandwidth pressure and even better cache locality.
+   And you might save even more if you can get away with 16- or even 8-bit references for especially small data structures.
+3. **Cheap allocation.**
+   There is no need for a call to `malloc` every time you create a new AST node in flatland.
+   Instead, provided you pre-allocate enough memory to hold everything, allocation can entail just [bumping the tail pointer][bump] to make room for one more `Expr`.
+4. **Cheap deallocation.**
+
+TK #4 is the main one on Wikipedia
+
 TK the benefits are:
 locality (perf)
 cheaper allocation (perf)
