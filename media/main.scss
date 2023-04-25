@@ -342,12 +342,42 @@ aside {
 footer {
     color: $deemph-color;
     font-family: $title-font;
+    @media (prefers-color-scheme: dark) {
+        color: $deemph-color-dark;
+    }
+}
+
+// Both the page footer and the footnotes block get a little horizontal rule
+// separating them from the content.
+footer, .footnotes {
     border-top: 1px solid $highlight;
     margin: $line-height-computed 0 0.5em;
     padding-top: 0.4em;
     @media (prefers-color-scheme: dark) {
         border-top-color: $highlight-dark;
+    }
+}
+
+.footnotes {
+    font-size: 80%;
+}
+a.reversefootnote {
+    color: $deemph-color;
+    @media (prefers-color-scheme: dark) {
         color: $deemph-color-dark;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}
+a.footnote {
+    color: $grayish;
+    &:hover {
+        text-decoration: none;
+        color: $highlight;
+        @media (prefers-color-scheme: dark) {
+            color: $highlight-dark;
+        }
     }
 }
 
