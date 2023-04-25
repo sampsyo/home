@@ -79,6 +79,7 @@ For extra credit, I also wrote a little [random program generator][main-rand]. I
 [checked_div]: https://doc.rust-lang.org/std/primitive.i64.html#method.checked_div
 [wrap]: https://doc.rust-lang.org/std/primitive.i64.html#method.wrapping_add
 [main-bench]: https://github.com/sampsyo/flatcalc/blob/c5bbe7bd79f98a3b857f0432d4739a3f4f6241bd/Makefile#L4
+[main-rand]: https://github.com/sampsyo/flatcalc/blob/c5bbe7bd79f98a3b857f0432d4739a3f4f6241bd/src/main.rs#L118-L136
 
 You can check out [the relevant repo][repo] and try it out:
 
@@ -161,6 +162,8 @@ Neat!
 [newtype]: https://doc.rust-lang.org/rust-by-example/generics/new_types.html
 [flat-pool]: https://github.com/sampsyo/flatcalc/blob/25f10b44252a2191ba6d0b5445f929096ad59361/src/main.rs#L37
 [flat-add-get]: https://github.com/sampsyo/flatcalc/blob/25f10b44252a2191ba6d0b5445f929096ad59361/src/main.rs#L45-L55
+[flat-parse]: https://github.com/sampsyo/flatcalc/blob/25f10b44252a2191ba6d0b5445f929096ad59361/src/main.rs#L57-L81
+[flat-interp]: https://github.com/sampsyo/flatcalc/blob/25f10b44252a2191ba6d0b5445f929096ad59361/src/main.rs#L83-L98
 
 ## But Why?
 
