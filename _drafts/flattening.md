@@ -230,16 +230,16 @@ Beyond performance, there are also ergonomic advantages:
 
 ## Performance Results
 
-<figure style="max-width: 180px;">
-<img src="{{ site.base }}/media/flattening/standard.png" alt="bar chart comparing the execution time of our normal and flat (and extra-flat) interpreters">
-</figure>
-
 Since we have two implementations of the same language, let's see how those performance advantages play out in practice.
 For a microbenchmark, I randomly generated a program with about 100 million AST nodes and fed it directly into the interpreter (the parser and pretty printer are not involved).
 This benchmark is not very realistic: *all it does* is generate and then immediately run one enormous program.
 I even [reserved enough space][flat-capacity] in the `Vec<Expr>` to hold the whole program; in the real world, sizing your arena requires more guesswork.
-I expect it to over-emphasize the performance advantages of cheap allocation and deallocation, because it does very little other work, and under-emphasize the impact of locality, because the program is so big that only a tiny fraction of it will fit the CPU cache at a time.
+I expect this microbenchmark to over-emphasize the performance advantages of cheap allocation and deallocation, because it does very little other work, and under-emphasize the impact of locality, because the program is so big that only a tiny fraction of it will fit the CPU cache at a time.
 Still, maybe we can learn something.
+
+<figure style="max-width: 180px;">
+<img src="{{ site.base }}/media/flattening/standard.png" alt="bar chart comparing the execution time of our normal and flat (and extra-flat) interpreters">
+</figure>
 
 I used [Hyperfine][] to compare the average running time over 10 executions on my laptop.[^setup]
 Here's a graph of the running times (please ignore the "extra-flat" bar; we'll cover that next).
@@ -249,7 +249,7 @@ Not bad for such a straightforward code change!
 
 [^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory running macOS 13.3.1 and Rust 1.69.0.
 
-<figure style="max-width: 180px;">
+<figure style="max-width: 180px;" class="left">
 <img src="{{ site.base }}/media/flattening/nofree.png" alt="bar chart comparing versions of our interpreters with and without deallocation">
 </figure>
 

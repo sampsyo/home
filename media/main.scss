@@ -552,13 +552,23 @@ pre code {
 figure {
     float: right;
     margin: 0 0 0 1em;
-    img {
-        @include img-responsive;
-        margin: 0 auto 0.5em;
-    }
     @media (max-width: 767px) {
         float: none;
         margin: 1em auto;
+    }
+
+    &.left {
+        float: left;
+        margin: 0 1em 0 0;
+        @media (max-width: 767px) {
+            float: none;
+            margin: 1em auto;
+        }
+    }
+
+    img {
+        @include img-responsive;
+        margin: 0 auto 0.5em;
     }
 }
 figcaption {
