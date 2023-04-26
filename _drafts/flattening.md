@@ -243,14 +243,18 @@ Still, maybe we can learn something.
 I used [Hyperfine][] to compare the average running time over 10 executions on my laptop.[^setup]
 Here's a graph of the running times (please ignore the "extra-flat" bar; we'll cover that next).
 The plot's error bars show the standard deviation over the 10 runs.
+In this experiment, the normal version took 3.1 seconds and the flattened version took 1.3 seconds---a 2.4&times; speedup.
+Not bad for such a simple code change!
 TK
-
-TK locality probably doesn't matter *too* much here (very large AST, hopping around somewhat randomly, and allocated all at once so might be same for normal)
-TK can we do something about removing the `drop` advantage?
 
 <figure style="max-width: 180px;">
 <img src="{{ site.base }}/media/flattening/nofree.png" alt="bar chart comparing versions of our interpreters with and without deallocation">
 </figure>
+
+TK something about factoring out `drop`.
+Normal goes from 3.1 to 1.9 seconds,
+and flattened stays the same.
+So without deallocation, the advantage of flattening is only a 1.5&times; speedup.
 
 [hyperfine]: https://github.com/sharkdp/hyperfine
 [^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory running macOS 13.3.1 and Rust 1.69.0.
@@ -261,3 +265,8 @@ So far, flattening has happened entirely "under the hood":
 the arena array serves as a drop-in replacement for allocating objects normally,
 and the integer offsets are drop-in replacements for pointers.
 Another fun thing you can do with
+
+TK
+extra-flat is a little bit faster: 1.2 instead of 1.3 seconds,
+for an 8.2% performance improvement.
+Still not too shabby, but it's more marginal.
