@@ -215,7 +215,7 @@ Beyond performance, there are also ergonomic advantages:
    This simplification is quadruply true in Rust, where lifetimes are not just in the programmer's head but in the code itself.
    Passing around a `u32` is way less fiddly than carefully managing lifetimes for all your `&Expr`s: your code can rely instead on the much simpler lifetime of the `ExprPool`.
    I suspect this is why the technique is so popular in Rust projects.
-   As a Rust partisan, however, I'll argue that the same simplicity advantage applies in C++ or any other language without GC---it's just latent instead of explicit.
+   As a Rust partisan, however, I'll argue that the same simplicity advantage applies in C++ or any other language with manual memory management---it's just latent instead of explicit.
 2. **Convenient deduplication.**
    A flat array of `Expr`s can make it fun and easy to implement [hash consing][] or even simpler techniques to avoid duplicating identical expressions.
    For example, if we notice that we are duplicating the first 128 integer `Literal` expressions a lot, we could reserve the first 128 slots in our `ExprPool` just for those.
