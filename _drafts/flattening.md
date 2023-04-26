@@ -204,7 +204,7 @@ The classic ones most people cite are all about performance:
    While freeing a normal AST entails traversing all the pointers to free each `Expr` individually, you can deallocate a flattened AST in one fell swoop by just freeing the whole `ExprPool`.
 
 I think it's interesting that many introductions to arena allocation tend to focus on cheap deallocation (#4) as the main reason to do it.
-[The Wikipedia page][region], for example, doesn't (yet!) mention locality (#1 or #2) at all.
+[The Wikipedia page][arena], for example, doesn't (yet!) mention locality (#1 or #2) at all.
 You can make an argument that #4 might be the *least* important for a compiler setting---since ASTs tend to persist all the way to the end of compilation, you might not need to free them at all.
 
 Beyond performance, there are also ergonomic advantages:
