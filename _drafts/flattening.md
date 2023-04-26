@@ -195,7 +195,7 @@ The classic ones most people cite are all about performance:
 3. **Cheap allocation.**
    In flatland, there is no need for a call to `malloc` every time you create a new AST node.
    Instead, provided you pre-allocate enough memory to hold everything, allocation can entail just [bumping the tail pointer][bump] to make room for one more `Expr`.
-   Again, a really fast `malloc` might be hard to compete with---but you basically can't beat bump allocation on simplicity.
+   Again, a really fast `malloc` might be hard to compete with---but you basically can't beat bump allocation on sheer simplicity.
 4. **Cheap deallocation.**
    Our flattening setup assumes you never need to free individual `Expr`s.
    That's probably true for many, although not all, language implementations:
@@ -203,18 +203,30 @@ The classic ones most people cite are all about performance:
    ASTs tend to "die together," i.e., it suffices to deallocate the entire AST all at once.
    While freeing a normal AST entails traversing all the pointers to free each `Expr` individually, you can deallocate a flattened AST in one fell swoop by just freeing the whole `ExprPool`.
 
-I think it's interesting that many introductions to arena allocation *in general* tend to focus on cheap deallocation (#4) as the main reason to do it.
+I think it's interesting that many introductions to arena allocation tend to focus on cheap deallocation (#4) as the main reason to do it.
 [The Wikipedia page][region], for example, doesn't (yet!) mention locality (#1 or #2) at all.
-There's an argument that #4 might be the *least* important for a compiler setting---since ASTs tend to persist all the way to the end of a program, you might not need to free them at all.
+You can make an argument that #4 might be the *least* important for a compiler setting---since ASTs tend to persist all the way to the end of compilation, you might not need to free them at all.
 
-TK other advantages, less remarked upon:
-easier lifetimes (ergonomics, kinda Rust-specific, but kinda not)
-convenient for hash-consing/dedup (ergonomics)
+Beyond performance, there are also ergonomic advantages:
+
+1. **Easier lifetimes.**
+   In the same way that it's easier for your computer to free a flattened AST all at once, it's also easier for *humans* to think about memory management at the granularity of an entire AST.
+   An AST with *n* nodes has just one lifetime instead of *n* for the programmer to think about.
+   This simplification is quadruply true in Rust, where lifetimes are not just in the programmer's head but in the code itself.
+   Passing around a `u32` is way less fiddly than carefully managing lifetimes for all your `&Expr`s: your code can rely instead on the much simpler lifetime of the `ExprPool`.
+   I suspect this is why the technique is so popular in Rust projects.
+   As a Rust partisan, however, I'll argue that the same simplicity advantage applies in C++ or any other language without GC---it's just latent instead of explicit.
+2. **Convenient deduplication.**
+   A flat array of `Expr`s can make it fun and easy to implement [hash consing][] or even simpler techniques to avoid duplicating identical expressions.
+   For example, if we notice that we are duplicating the first 128 integer `Literal` expressions a lot, we could reserve the first 128 slots in our `ExprPool` just for those.
+   Then, when someone needs the integer literal expression `42`, our `ExprPool` don't need to construct a new `Expr` at all---we can just produce `ExprRef(42)` instead.
+   This kind of game is possible with a normal pointer-based representation too, but it probably requires some kind of auxiliary data structure.
 
 [sploc]: https://en.wikipedia.org/wiki/Locality_of_reference#Types_of_locality
 [prefetch]: https://en.wikipedia.org/wiki/Prefetching
 [bump]: https://docs.rs/bumpalo/latest/bumpalo/
 [fragmentation]: https://en.wikipedia.org/wiki/Fragmentation_(computing)
+[hash consing]: https://en.wikipedia.org/wiki/Hash_consing
 
 ## Performance Results
 
