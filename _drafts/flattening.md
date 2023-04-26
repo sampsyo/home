@@ -199,23 +199,22 @@ The classic ones most people cite are all about performance:
 4. **Cheap deallocation.**
    Our flattening setup assumes you never need to free individual `Expr`s.
    That's probably true for many, although not all, language implementations:
-   you build up new subtrees all the time, but you don't need to reclaim space from many old ones.
-   TK
+   you might build up new subtrees all the time, but you don't need to reclaim space from many old ones.
+   ASTs tend to "die together," i.e., it suffices to deallocate the entire AST all at once.
+   While freeing a normal AST entails traversing all the pointers to free each `Expr` individually, you can deallocate a flattened AST in one fell swoop by just freeing the whole `ExprPool`.
+
+I think it's interesting that many introductions to arena allocation *in general* tend to focus on cheap deallocation (#4) as the main reason to do it.
+[The Wikipedia page][region], for example, doesn't (yet!) mention locality (#1 or #2) at all.
+There's an argument that #4 might be the *least* important for a compiler setting---since ASTs tend to persist all the way to the end of a program, you might not need to free them at all.
+
+TK other advantages, less remarked upon:
+easier lifetimes (ergonomics, kinda Rust-specific, but kinda not)
+convenient for hash-consing/dedup (ergonomics)
 
 [sploc]: https://en.wikipedia.org/wiki/Locality_of_reference#Types_of_locality
 [prefetch]: https://en.wikipedia.org/wiki/Prefetching
 [bump]: https://docs.rs/bumpalo/latest/bumpalo/
 [fragmentation]: https://en.wikipedia.org/wiki/Fragmentation_(computing)
-
-TK #4 is the main one on Wikipedia
-
-TK the benefits are:
-locality (perf)
-cheaper allocation (perf)
-smaller references (perf)
-free together (perf, but this is lower priority)
-easier lifetimes (ergonomics, kinda Rust-specific, but kinda not)
-convenient for hash-consing/dedup (ergonomics)
 
 ## Performance Results
 
