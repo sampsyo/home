@@ -29,7 +29,7 @@ Follow along with the code [this repository][repo], where you can [compare and c
 
 ## A Normal AST
 
-Let's start with the "textbook" way to represent an AST. Imagine the world's simplest language of arithmetic expressions, where all you can do is apply the four basic binary arithmetic operators to literal integers. Some "programs" you can write in this language include `42`, `0 + 14 * 3`, and `(100 - 16) / 2`.
+Let's start with the textbook way to represent an AST. Imagine the world's simplest language of arithmetic expressions, where all you can do is apply the four basic binary arithmetic operators to literal integers. Some "programs" you can write in this language include `42`, `0 + 14 * 3`, and `(100 - 16) / 2`.
 
 Maybe the clearest way to write the AST for this language would be as an ML type declaration:
 
