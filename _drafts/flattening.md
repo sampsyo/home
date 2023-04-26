@@ -315,7 +315,7 @@ fn flat_interp(self, root: ExprRef) -> i64 {
 }
 ```
 
-We use a `state` vector to hold one result value per `Expr`.
+We use a dense `state` table to hold one result value per `Expr`.
 The `state[i] = res` line fills this vector up whenever we finish an expression.
 Critically, there's no recursion---binary expressions can get the value of their subexpressions by looking them up directly in `state`.
 At the end, when `state` is completely full of results, all we need to do is return the one corresponding to the requested expression, `root`.
@@ -334,5 +334,16 @@ The extra-flat interpreter takes 1.2 seconds, compared to 1.3 seconds for the re
 That's marginal compared to how much better flattening does on its own than the pointer-based version,
 but an 8.2% performance improvement ain't nothing.
 
-[flat_interp]: https://github.com/sampsyo/flatcalc/blob/2703833615dec76cec4e71419e4073e5bc69dcb0/src/main.rs#L100-L124
+My favorite observation about this technique, due to [this Reddit comment][munificent-comment] by [Bob Nystrom][munificent], is that it essentially reinvents the idea of a [bytecode][] interpreter.
+The `Expr` structs are bytecode instructions, and they contain variable references encoded as `u32`s.
+You could make this interpreter a even better by swapping out our simple `state` table for some kind of stack, and then it would *really* be no different from a bytecode interpreter you might design from first principles.
+I just think it's pretty nifty that "merely" changing our AST data structure led us directly from the land of tree walking to the land of bytecode.
 
+[flat_interp]: https://github.com/sampsyo/flatcalc/blob/2703833615dec76cec4e71419e4073e5bc69dcb0/src/main.rs#L100-L124
+[munificent-comment]: https://old.reddit.com/r/ProgrammingLanguages/comments/mrifdr/treewalking_interpreters_and_cachelocality/gumsi2v/
+[munificent]: https://craftinginterpreters.com
+[bytecode]: https://en.wikipedia.org/wiki/Bytecode
+
+## Further Reading
+
+TK
