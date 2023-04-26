@@ -249,17 +249,27 @@ Not bad for such a straightforward code change!
 
 [^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory running macOS 13.3.1 and Rust 1.69.0.
 
+Of that 2.4&times; performance advantage, I was curious to know how much comes from each of the four potential advantages I mentioned above.
+Unfortunately, I don't know how to isolate most of these effects---but #4, cheaper deallocation, is especially enticing to isolate.
+Since our interpreter is so simple, it seems silly that we're spending *any* time on freeing our `Expr`s after execution finishes---the program is about to shut down anyway, so leaking that memory is completely harmless.
+
 <figure style="max-width: 180px;" class="left">
 <img src="{{ site.base }}/media/flattening/nofree.png" alt="bar chart comparing versions of our interpreters with and without deallocation">
 </figure>
 
-TK something about factoring out `drop`.
-Normal goes from 3.1 to 1.9 seconds,
-and flattened stays the same.
-So without deallocation, the advantage of flattening is only a 1.5&times; speedup.
+So let's build versions of both of our interpreters that skip deallocation altogether[^forget] and see how much time they save.
+Unsurprisingly, the "no-free" version of the flattened interpreter is about equally fast as the standard version, suggesting that it doesn't spend much time on deallocation anyway.
+For the normal interpreter, however, skipping deallocation takes the running time from 3.1 to 1.9 seconds---it was spending around 38% of its time just on freeing memory!
+
+Even comparing the "no-free" versions head-to-head, however, the flattened interpreter is still 1.5&times; faster than the normal one.
+So even if you don't care about deallocation, the other performance ingredients, like locality and cheap allocation, still have a measurable effect.
+
+[^forget]: I added a [feature flag][nofree-feat] that enables calls to [Rust's `std::mem::forget`][forget].
 
 [hyperfine]: https://github.com/sharkdp/hyperfine
 [flat-capacity]: https://github.com/sampsyo/flatcalc/blob/2703833615dec76cec4e71419e4073e5bc69dcb0/src/main.rs#L42
+[forget]: https://doc.rust-lang.org/std/mem/fn.forget.html
+[nofree-feat]: https://github.com/sampsyo/flatcalc/blob/e9f7e678a0b9f50a6a0c3ff5b574e23b19d736b7/src/main.rs#L207-L208
 
 ## Bonus: Exploiting the Flat Representation
 
