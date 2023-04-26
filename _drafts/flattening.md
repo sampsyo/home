@@ -9,9 +9,14 @@ excerpt: |
 <figcaption>Normal and flattened ASTs for the expression <code>a * b + c</code>.</figcaption>
 </figure>
 
-Arenas, a.k.a. regions, are everywhere in modern language implementations. A special case of the general [arena allocation][arena] idea is both incredibly simple and surprisingly effective for compilers and compiler-like things. Maybe because of its simplicity, I haven't seen the basic technique in many compiler courses---or anywhere else in a CS curriculum for that matter. This post is an introduction to the idea and its many virtues.
+Arenas, a.k.a. regions, are everywhere in modern language implementations.
+One special case of the general [arena allocation][arena] idea is both incredibly simple and surprisingly effective for compilers and compiler-like things.
+Maybe because of its simplicity, I haven't seen the basic technique in many compiler courses---or anywhere else in a CS curriculum for that matter.
+This post is an introduction to the idea and its many virtues.
 
-*Arenas* and *regions* mean many different things to different people, so I'm going to call the specific flavor I'm interested in here *data structure flattening*. Namely, think of an arena that only holds one type, so it's actually just an array of values of that type, and you can use array indices where you would otherwise need pointers. The type I'll focus on here is abstract syntax tree (AST) nodes, but the idea applies to any pointer-laden data structure.
+*Arenas* and *regions* mean many different things to different people, so I'm going to call the specific flavor I'm interested in here *data structure flattening*.
+Flattening uses an arena that only holds one type, so it's actually just a plain array, and you can use array indices where you would otherwise need pointers.
+We'll focus here on flattening abstract syntax trees (ASTs), but the idea applies to any pointer-laden data structure.
 
 To learn about flattening, we'll build a basic interpreter twice:
 first the normal way and then the flat way.
@@ -334,7 +339,7 @@ The extra-flat interpreter takes 1.2 seconds, compared to 1.3 seconds for the re
 That's marginal compared to how much better flattening does on its own than the pointer-based version,
 but an 8.2% performance improvement ain't nothing.
 
-My favorite observation about this technique, due to [this Reddit comment][munificent-comment] by [Bob Nystrom][munificent], is that it essentially reinvents the idea of a [bytecode][] interpreter.
+My favorite observation about this technique, due to [a Reddit comment][munificent-comment] by [Bob Nystrom][munificent], is that it essentially reinvents the idea of a [bytecode][] interpreter.
 The `Expr` structs are bytecode instructions, and they contain variable references encoded as `u32`s.
 You could make this interpreter a even better by swapping out our simple `state` table for some kind of stack, and then it would *really* be no different from a bytecode interpreter you might design from first principles.
 I just think it's pretty nifty that "merely" changing our AST data structure led us directly from the land of tree walking to the land of bytecode.
