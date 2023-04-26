@@ -351,4 +351,23 @@ I just think it's pretty nifty that "merely" changing our AST data structure led
 
 ## Further Reading
 
+I [asked on Mastodon][toot] a while back for pointers to other writing about data structure flattening,
+and folks really came through (thanks, everybody!).
+Here are some other places it came up in a compilers context:
+
+* Mike Pall [attributes some of LuaJIT's performance][luajit-post] to its "linear, pointer-free IR." It's pointer-free because it's flattened.
+* Concordantly, [a blog post explaining the performance of the Sorbet type-checker for Ruby][sorbet-post] extols the virtues of using packed arrays and replacing 64-bit pointers with 32-bit indices.
+* The Oil shell project has a [big collection of links][oil-page] all about "compact AST representation," much of which boils down to flattening.
+
+Other stuff I understand less...
 TK
+
+* Apparently this shows up in "entity-component systems" (ECS), as described here https://ajmmertens.medium.com/building-an-ecs-2-archetypes-and-vectorization-fe21690805f9 but I don't really understand this
+* More in video games, more generally. The virtues of packing stuff into arrays and using those arrays' indices in place of pointers https://floooh.github.io/2018/06/17/handles-vs-pointers.html
+* Part of "data-oriented design," a concept I don't completely understand. As explained in this Andrew Kelley talk: https://vimeo.com/handmadeseattle/practical-data-oriented-design#t=850s ("Use indexes instead of pointers")
+* Overview of arena libraries in Rust: https://manishearth.github.io/blog/2021/03/15/arenas-in-rust/
+
+[toot]: https://discuss.systems/@adrian/109990979464062464
+[luajit-post]: http://lua-users.org/lists/lua-l/2009-11/msg00089.html
+[sortbet-post]: https://blog.nelhage.com/post/why-sorbet-is-fast/
+[oil-page]: https://github.com/oilshell/oil/wiki/Compact-AST-Representation
