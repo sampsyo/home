@@ -262,9 +262,9 @@ Unsurprisingly, the "no-free" version of the flattened interpreter is about equa
 For the normal interpreter, however, skipping deallocation takes the running time from 3.1 to 1.9 seconds---it was spending around 38% of its time just on freeing memory!
 
 Even comparing the "no-free" versions head-to-head, however, the flattened interpreter is still 1.5&times; faster than the normal one.
-So even if you don't care about deallocation, the other performance ingredients, like locality and cheap allocation, still have a measurable effect.
+So even if you don't care about deallocation, the other performance ingredients, like locality and cheap allocation, still have measurable effects.
 
-[^forget]: I added a [feature flag][nofree-feat] that enables calls to [Rust's `std::mem::forget`][forget].
+[^forget]: I added a [feature flag][nofree-feat] that enables calls to Rust's [`std::mem::forget`][forget].
 
 [hyperfine]: https://github.com/sharkdp/hyperfine
 [flat-capacity]: https://github.com/sampsyo/flatcalc/blob/2703833615dec76cec4e71419e4073e5bc69dcb0/src/main.rs#L42
