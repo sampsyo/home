@@ -361,14 +361,12 @@ Here are some other places it came up in a compilers context:
 * The Oil shell project has a [big collection of links][oil-page] all about "compact AST representation," much of which boils down to flattening.
 
 Beyond just language implementation, similar concepts show up in other performance-oriented domains.
-I understand this stuff less, especially the things about the world of video game development:
+I admit that I understand this stuff less, especially the things from the world of video games:
 
-TK
-
-* Apparently this shows up in [entity-component systems (ECS)][ecs], [as described here][flecs-post] but I don't really understand this
-* More in video games, more generally. [The virtues of packing stuff into arrays and using those arrays' indices in place of pointers][handles-vs-pointers]
-* Part of "data-oriented design," a concept I don't completely understand. As explained in [a talk][andrewrk-talk] by [Andrew Kelley][andrewrk] ("Use indexes instead of pointers")
-* [Overview of arena libraries in Rust][rust-arena]
+* Flattening-like ideas appear a lot in *data-oriented design*, a broadly defined concept that I only partially understand. For example, [Andrew Kelley][andrewrk] argues in [a talk on the topic][andrewrk-talk] for using indices in place of pointers.
+* Check out this [overview of arena libraries in Rust][rust-arena] and its discussion of the ergonomics of arena-related lifetimes.
+* Here's [a post comparing handles vs. pointers in game development][handles-vs-pointers] that advocates for packing homogeneously typed objects into arrays and using indices to refer to them.
+* Similar ideas show up in [*entity-component systems* (ECS)][ecs], a big idea from game development that I also don't completely understand. [This post][flecs-post] covers many of the same locality-related themes as this post.
 
 [toot]: https://discuss.systems/@adrian/109990979464062464
 [luajit-post]: http://lua-users.org/lists/lua-l/2009-11/msg00089.html
