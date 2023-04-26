@@ -230,6 +230,10 @@ Beyond performance, there are also ergonomic advantages:
 
 ## Performance Results
 
+<figure style="max-width: 180px;">
+<img src="{{ site.base }}/media/flattening/standard.png" alt="bar chart comparing the execution time of our normal and flat (and extra-flat) interpreters">
+</figure>
+
 Since we have two implementations of the same language, let's see how those performance advantages play out in practice.
 For a microbenchmark, I randomly generated a program with about 100 million AST nodes and fed it directly into the interpreter (the parser and pretty printer are not involved).
 This benchmark is not very realistic: *all it does* is generate and then immediately run one enormous program.
@@ -243,6 +247,10 @@ TK
 
 TK locality probably doesn't matter *too* much here (very large AST, hopping around somewhat randomly, and allocated all at once so might be same for normal)
 TK can we do something about removing the `drop` advantage?
+
+<figure style="max-width: 180px;">
+<img src="{{ site.base }}/media/flattening/nofree.png" alt="bar chart comparing versions of our interpreters with and without deallocation">
+</figure>
 
 [hyperfine]: https://github.com/sharkdp/hyperfine
 [^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory running macOS 13.3.1 and Rust 1.69.0.
