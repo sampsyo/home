@@ -237,6 +237,7 @@ Beyond performance, there are also ergonomic advantages:
 Since we have two implementations of the same language, let's see how those performance advantages play out in practice.
 For a microbenchmark, I randomly generated a program with about 100 million AST nodes and fed it directly into the interpreter (the parser and pretty printer are not involved).
 This benchmark is not very realistic: *all it does* is generate and then immediately run one enormous program.
+I even [reserved enough space][flat-capacity] in the `Vec<Expr>` to hold the whole program; in the real world, sizing your arena requires more guesswork.
 I expect it to over-emphasize the performance advantages of cheap allocation and deallocation, because it does very little other work, and under-emphasize the impact of locality, because the program is so big that only a tiny fraction of it will fit the CPU cache at a time.
 Still, maybe we can learn something.
 
@@ -244,8 +245,9 @@ I used [Hyperfine][] to compare the average running time over 10 executions on m
 Here's a graph of the running times (please ignore the "extra-flat" bar; we'll cover that next).
 The plot's error bars show the standard deviation over the 10 runs.
 In this experiment, the normal version took 3.1 seconds and the flattened version took 1.3 seconds---a 2.4&times; speedup.
-Not bad for such a simple code change!
-TK
+Not bad for such a straightforward code change!
+
+[^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory running macOS 13.3.1 and Rust 1.69.0.
 
 <figure style="max-width: 180px;">
 <img src="{{ site.base }}/media/flattening/nofree.png" alt="bar chart comparing versions of our interpreters with and without deallocation">
@@ -257,14 +259,23 @@ and flattened stays the same.
 So without deallocation, the advantage of flattening is only a 1.5&times; speedup.
 
 [hyperfine]: https://github.com/sharkdp/hyperfine
-[^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory running macOS 13.3.1 and Rust 1.69.0.
+[flat-capacity]: https://github.com/sampsyo/flatcalc/blob/2703833615dec76cec4e71419e4073e5bc69dcb0/src/main.rs#L42
 
 ## Bonus: Exploiting the Flat Representation
 
 So far, flattening has happened entirely "under the hood":
-the arena array serves as a drop-in replacement for allocating objects normally,
-and the integer offsets are drop-in replacements for pointers.
-Another fun thing you can do with
+arenas and integer offsets serve as drop-in replacements for normal allocation and pointers.
+What could we do if we broke this abstraction layer---if we exploited stuff about the flattened representation that *isn't* true about normal AST style?
+
+<figure style="max-width: 150px;">
+<img src="{{ site.base }}/media/flattening/flat.png" alt="that same flat AST, yet again">
+</figure>
+
+The idea is to build a third kind of interpreter that exploits an extra fact about `ExprPool`s that arises from the way we built it up.
+Because `Expr`s are immutable, we have to construct trees of them "bottom-up":
+we have to create all child `Expr`s before we can construct their parent.
+That means that, in the order they appear in an `ExprPool`, child expressions always come before parent expressions.
+Let's bring that doodle back again: visually, you can imagine that reference arrows always go backward in the array, and data always flows forward.
 
 TK
 extra-flat is a little bit faster: 1.2 instead of 1.3 seconds,
