@@ -189,7 +189,7 @@ The classic ones most people cite are all about performance:
    Flattened `Expr`s are packed together in a contiguous region of memory, which is good for [spatial locality][sploc].
    Your data caches will work better because `Expr`s are more likely to share a cache line,
    and even simple [prefetchers][prefetch] will do a better job of predicting which `Expr`s to load before you need them.
-   A sufficiently smart memory allocator *might* achieve the same thing, especially if you allocate the whole AST up front and never add to it, but using a dense array removes all uncertainty.
+   [A sufficiently smart memory allocator might achieve the same thing][custom-alloc], especially if you allocate the whole AST up front and never add to it, but using a dense array removes all uncertainty.
 2. **Smaller references.**
    Normal data structures use pointers for references; on modern architectures, those are always 64 bits.
    After flattening, you can use smaller integers---if you're pretty sure you'll never need more than 4,294,967,295 AST nodes,
@@ -200,7 +200,7 @@ The classic ones most people cite are all about performance:
 3. **Cheap allocation.**
    In flatland, there is no need for a call to `malloc` every time you create a new AST node.
    Instead, provided you pre-allocate enough memory to hold everything, allocation can entail just [bumping the tail pointer][bump] to make room for one more `Expr`.
-   Again, a really fast `malloc` might be hard to compete with---but you basically can't beat bump allocation on sheer simplicity.
+   Again, [a really fast `malloc` might be hard to compete with][custom-alloc]---but you basically can't beat bump allocation on sheer simplicity.
 4. **Cheap deallocation.**
    Our flattening setup assumes you never need to free individual `Expr`s.
    That's probably true for many, although not all, language implementations:
@@ -232,6 +232,7 @@ Beyond performance, there are also ergonomic advantages:
 [bump]: https://docs.rs/bumpalo/latest/bumpalo/
 [fragmentation]: https://en.wikipedia.org/wiki/Fragmentation_(computing)
 [hash consing]: https://en.wikipedia.org/wiki/Hash_consing
+[custom-alloc]: https://dl.acm.org/doi/10.1145/582419.582421
 
 ## Performance Results
 
@@ -369,5 +370,5 @@ TK
 
 [toot]: https://discuss.systems/@adrian/109990979464062464
 [luajit-post]: http://lua-users.org/lists/lua-l/2009-11/msg00089.html
-[sortbet-post]: https://blog.nelhage.com/post/why-sorbet-is-fast/
+[sorbet-post]: https://blog.nelhage.com/post/why-sorbet-is-fast/
 [oil-page]: https://github.com/oilshell/oil/wiki/Compact-AST-Representation
