@@ -230,7 +230,17 @@ Beyond performance, there are also ergonomic advantages:
 
 ## Performance Results
 
+Since we have two implementations of the same language, let's see how those performance advantages play out in practice.
+For a microbenchmark, I randomly generated a program with about 100 million AST nodes and fed it directly into the interpreter (the parser and pretty printer are not involved).
+I used [Hyperfine][] to compare the average running time over 10 executions.
+
+On my laptop,[^setup]
+TK
+
 TK can we do something about reming the `drop` advantage?
+
+[hyperfine]: https://github.com/sharkdp/hyperfine
+[^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory.
 
 ## Bonus: Exploiting the Flat Representation
 
