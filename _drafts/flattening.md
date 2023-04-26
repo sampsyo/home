@@ -232,15 +232,20 @@ Beyond performance, there are also ergonomic advantages:
 
 Since we have two implementations of the same language, let's see how those performance advantages play out in practice.
 For a microbenchmark, I randomly generated a program with about 100 million AST nodes and fed it directly into the interpreter (the parser and pretty printer are not involved).
-I used [Hyperfine][] to compare the average running time over 10 executions.
+This benchmark is not very realistic: *all it does* is generate and then immediately run one enormous program.
+I expect it to over-emphasize the performance advantages of cheap allocation and deallocation, because it does very little other work, and under-emphasize the impact of locality, because the program is so big that only a tiny fraction of it will fit the CPU cache at a time.
+Still, maybe we can learn something.
 
-On my laptop,[^setup]
+I used [Hyperfine][] to compare the average running time over 10 executions on my laptop.[^setup]
+Here's a graph of the running times (please ignore the "extra-flat" bar; we'll cover that next).
+The plot's error bars show the standard deviation over the 10 runs.
 TK
 
-TK can we do something about reming the `drop` advantage?
+TK locality probably doesn't matter *too* much here (very large AST, hopping around somewhat randomly, and allocated all at once so might be same for normal)
+TK can we do something about removing the `drop` advantage?
 
 [hyperfine]: https://github.com/sharkdp/hyperfine
-[^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory.
+[^setup]: A MacBook Pro with an M1 Max (10 cores, 3.2 GHz) and 32 GB of main memory running macOS 13.3.1 and Rust 1.69.0.
 
 ## Bonus: Exploiting the Flat Representation
 
