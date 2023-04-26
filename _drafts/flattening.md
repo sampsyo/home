@@ -284,10 +284,55 @@ What could we do if we broke this abstraction layer---if we exploited stuff abou
 The idea is to build a third kind of interpreter that exploits an extra fact about `ExprPool`s that arises from the way we built it up.
 Because `Expr`s are immutable, we have to construct trees of them "bottom-up":
 we have to create all child `Expr`s before we can construct their parent.
-That means that, in the order they appear in an `ExprPool`, child expressions always come before parent expressions.
-Let's bring that doodle back again: visually, you can imagine that reference arrows always go backward in the array, and data always flows forward.
+If we build the expression `a * b`, `a` and `b` must appear earlier in their `ExprPool` than the `*` that refers to them.
+Let's bring that doodle back again: visually, you can imagine that reference arrows always go *backward* in the array, and data always flows *forward*.
 
-TK
-extra-flat is a little bit faster: 1.2 instead of 1.3 seconds,
-for an 8.2% performance improvement.
-Still not too shabby, but it's more marginal.
+Let's write [a new interpreter][flat_interp] that exploits this invariant.
+Instead of starting at the root of the tree and recursively evaluating each child, we can start at the beginning of the `ExprPool` and scan from left to right.
+This iteration is guaranteed to visit parents after children, so we can be sure that the results for subexpressions will be ready when we need them.
+Here's [the whole thing][flat_interp]:
+
+```rust
+fn flat_interp(self, root: ExprRef) -> i64 {
+    let mut state: Vec<i64> = vec![0; self.0.len()];
+    for (i, expr) in self.0.into_iter().enumerate() {
+        let res = match expr {
+            Expr::Binary(op, lhs, rhs) => {
+                let lhs = state[lhs.0 as usize];
+                let rhs = state[rhs.0 as usize];
+                match op {
+                    BinOp::Add => lhs.wrapping_add(rhs),
+                    BinOp::Sub => lhs.wrapping_sub(rhs),
+                    BinOp::Mul => lhs.wrapping_mul(rhs),
+                    BinOp::Div => lhs.checked_div(rhs).unwrap_or(0),
+                }
+            }
+            Expr::Literal(num) => num,
+        };
+        state[i] = res;
+    }
+    state[root.0 as usize]
+}
+```
+
+We use a `state` vector to hold one result value per `Expr`.
+The `state[i] = res` line fills this vector up whenever we finish an expression.
+Critically, there's no recursion---binary expressions can get the value of their subexpressions by looking them up directly in `state`.
+At the end, when `state` is completely full of results, all we need to do is return the one corresponding to the requested expression, `root`.
+
+This "extra-flat" interpreter has two potential performance advantages over the recursive interpreter:
+there's no stack bookkeeping for the recursive calls,
+and the linear traversal of the `ExprPool` could be good for locality.
+On the other hand, it has to randomly access a really big `state` vector, which could be bad for locality.
+
+<figure style="max-width: 180px;">
+<img src="{{ site.base }}/media/flattening/standard.png" alt="the same bar chart comparing the execution time for normal, flat, and extra-flat interpreters">
+</figure>
+
+To see if it wins overall, let's return to our bar chart from earlier.
+The extra-flat interpreter takes 1.2 seconds, compared to 1.3 seconds for the recursive interpreter for the flat AST.
+That's marginal compared to how much better flattening does on its own than the pointer-based version,
+but an 8.2% performance improvement ain't nothing.
+
+[flat_interp]: https://github.com/sampsyo/flatcalc/blob/2703833615dec76cec4e71419e4073e5bc69dcb0/src/main.rs#L100-L124
+
