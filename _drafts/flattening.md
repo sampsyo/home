@@ -360,15 +360,23 @@ Here are some other places it came up in a compilers context:
 * Concordantly, [a blog post explaining the performance of the Sorbet type-checker for Ruby][sorbet-post] extols the virtues of using packed arrays and replacing 64-bit pointers with 32-bit indices.
 * The Oil shell project has a [big collection of links][oil-page] all about "compact AST representation," much of which boils down to flattening.
 
-Other stuff I understand less...
+Beyond just language implementation, similar concepts show up in other performance-oriented domains.
+I understand this stuff less, especially the things about the world of video game development:
+
 TK
 
-* Apparently this shows up in "entity-component systems" (ECS), as described here https://ajmmertens.medium.com/building-an-ecs-2-archetypes-and-vectorization-fe21690805f9 but I don't really understand this
-* More in video games, more generally. The virtues of packing stuff into arrays and using those arrays' indices in place of pointers https://floooh.github.io/2018/06/17/handles-vs-pointers.html
-* Part of "data-oriented design," a concept I don't completely understand. As explained in this Andrew Kelley talk: https://vimeo.com/handmadeseattle/practical-data-oriented-design#t=850s ("Use indexes instead of pointers")
-* Overview of arena libraries in Rust: https://manishearth.github.io/blog/2021/03/15/arenas-in-rust/
+* Apparently this shows up in [entity-component systems (ECS)][ecs], [as described here][flecs-post] but I don't really understand this
+* More in video games, more generally. [The virtues of packing stuff into arrays and using those arrays' indices in place of pointers][handles-vs-pointers]
+* Part of "data-oriented design," a concept I don't completely understand. As explained in [a talk][andrewrk-talk] by [Andrew Kelley][andrewrk] ("Use indexes instead of pointers")
+* [Overview of arena libraries in Rust][rust-arena]
 
 [toot]: https://discuss.systems/@adrian/109990979464062464
 [luajit-post]: http://lua-users.org/lists/lua-l/2009-11/msg00089.html
 [sorbet-post]: https://blog.nelhage.com/post/why-sorbet-is-fast/
 [oil-page]: https://github.com/oilshell/oil/wiki/Compact-AST-Representation
+[rust-arena]: https://manishearth.github.io/blog/2021/03/15/arenas-in-rust/
+[andrewrk-talk]: https://vimeo.com/649009599#t=850s
+[andrewrk]: https://andrewkelley.me/
+[handles-vs-pointers]: https://floooh.github.io/2018/06/17/handles-vs-pointers.html
+[flecs-post]: https://ajmmertens.medium.com/building-an-ecs-2-archetypes-and-vectorization-fe21690805f9
+[ecs]: https://en.wikipedia.org/wiki/Entity_component_system
