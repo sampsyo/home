@@ -575,6 +575,16 @@ figure {
         @include img-responsive;
         margin: 0 auto 0.5em;
     }
+
+    @media (max-width: 767px) {
+        &.double {
+            text-align: center;
+            max-width: 80% !important;
+            img {
+                display: inline;
+            }
+        }
+    }
 }
 figcaption {
     font-size: ceil(($font-size-base * 0.85));

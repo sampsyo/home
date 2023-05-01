@@ -4,9 +4,9 @@ excerpt: |
     This is an introduction to *data structure flattening*, a special case of arena allocation that is a good fit for programming language implementations.
     We build a simple interpreter twice, the normal way and the flat way, and show that some fairly mechanical code changes can give you a 2.4&times; speedup.
 ---
-<figure style="max-width: 180px;">
-<img src="{{ site.base }}/media/flattening/normal.png" alt="a normal AST">
-<img src="{{ site.base }}/media/flattening/flat.png" alt="a flat AST">
+<figure class="double" style="max-width: 180px;">
+<img src="{{ site.base }}/media/flattening/normal.png" alt="a normal AST" style="max-width: 180px;">
+<img src="{{ site.base }}/media/flattening/flat.png" alt="a flat AST" style="max-width: 180px;">
 <figcaption>Normal and flattened ASTs for the expression <code>a * b + c</code>.</figcaption>
 </figure>
 
