@@ -22,6 +22,9 @@ We'll focus here on flattening abstract syntax trees (ASTs), but the idea applie
 To learn about flattening, we'll build a basic interpreter twice:
 first the normal way and then the flat way.
 Follow along with the code [this repository][repo], where you can [compare and contrast the two branches][compare].
+The key thing to notice is that the changes are pretty small,
+but we'll see that they make a microbenchmark go 2.4&times; faster.
+Besides performance, flattening also brings some ergonomics advantages that I'll outline.
 
 [repo]: https://github.com/sampsyo/flatcalc
 [compare]: https://github.com/sampsyo/flatcalc/compare/main...flat#diff-42cb6807ad74b3e201c5a7ca98b911c5fa08380e942be6e4ac5807f8377f87fc
