@@ -227,7 +227,7 @@ Beyond performance, there are also ergonomic advantages:
    As a Rust partisan, however, I'll argue that the same simplicity advantage applies in C++ or any other language with manual memory management---it's just latent instead of explicit.
 2. **Convenient deduplication.**
    A flat array of `Expr`s can make it fun and easy to implement [hash consing][] or even simpler techniques to avoid duplicating identical expressions.
-   For example, if we notice that we are duplicating the first 128 integer `Literal` expressions a lot, we could reserve the first 128 slots in our `ExprPool` just for those.
+   For example, if we notice that we are using `Literal` expressions for the first 128 nonnegative integers a lot, we could reserve the first 128 slots in our `ExprPool` just for those.
    Then, when someone needs the integer literal expression `42`, our `ExprPool` don't need to construct a new `Expr` at all---we can just produce `ExprRef(42)` instead.
    This kind of game is possible with a normal pointer-based representation too, but it probably requires some kind of auxiliary data structure.
 
@@ -240,11 +240,15 @@ Beyond performance, there are also ergonomic advantages:
 
 ## Performance Results
 
-Since we have two implementations of the same language, let's see how those performance advantages play out in practice.
+Since we have two implementations of the same language, let's measure those performance advantages.
 For a microbenchmark, I randomly generated a program with about 100 million AST nodes and fed it directly into the interpreter (the parser and pretty printer are not involved).
 This benchmark is not very realistic: *all it does* is generate and then immediately run one enormous program.
-I even [reserved enough space][flat-capacity] in the `Vec<Expr>` to hold the whole program; in the real world, sizing your arena requires more guesswork.
-I expect this microbenchmark to over-emphasize the performance advantages of cheap allocation and deallocation, because it does very little other work, and under-emphasize the impact of locality, because the program is so big that only a tiny fraction of it will fit the CPU cache at a time.
+Some caveats include:
+
+* I [reserved enough space][flat-capacity] in the `Vec<Expr>` to hold the whole program; in the real world, sizing your arena requires more guesswork.
+* I expect this microbenchmark to over-emphasize the performance advantages of cheap allocation and deallocation, because it does very little other work.
+* I expect it to under-emphasize the impact of locality, because the program is so big that only a tiny fraction of it will fit the CPU cache at a time.
+
 Still, maybe we can learn something.
 
 <figure style="max-width: 180px;">
@@ -268,7 +272,7 @@ Since our interpreter is so simple, it seems silly that we're spending *any* tim
 </figure>
 
 So let's build versions of both of our interpreters that skip deallocation altogether[^forget] and see how much time they save.
-Unsurprisingly, the "no-free" version of the flattened interpreter is about equally fast as the standard version, suggesting that it doesn't spend much time on deallocation anyway.
+Unsurprisingly, the "no-free" version of the flattened interpreter takes about the same amount of time as the standard version, suggesting that it doesn't spend much time on deallocation anyway.
 For the normal interpreter, however, skipping deallocation takes the running time from 3.1 to 1.9 seconds---it was spending around 38% of its time just on freeing memory!
 
 Even comparing the "no-free" versions head-to-head, however, the flattened interpreter is still 1.5&times; faster than the normal one.
@@ -346,7 +350,7 @@ but an 8.2% performance improvement ain't nothing.
 
 My favorite observation about this technique, due to [a Reddit comment][munificent-comment] by [Bob Nystrom][munificent], is that it essentially reinvents the idea of a [bytecode][] interpreter.
 The `Expr` structs are bytecode instructions, and they contain variable references encoded as `u32`s.
-You could make this interpreter a even better by swapping out our simple `state` table for some kind of stack, and then it would *really* be no different from a bytecode interpreter you might design from first principles.
+You could make this interpreter even better by swapping out our simple `state` table for some kind of stack, and then it would *really* be no different from a bytecode interpreter you might design from first principles.
 I just think it's pretty nifty that "merely" changing our AST data structure led us directly from the land of tree walking to the land of bytecode.
 
 [flat_interp]: https://github.com/sampsyo/flatcalc/blob/2703833615dec76cec4e71419e4073e5bc69dcb0/src/main.rs#L100-L124
@@ -370,7 +374,7 @@ I admit that I understand this stuff less, especially the things from the world 
 * Flattening-like ideas appear a lot in *data-oriented design*, a broadly defined concept that I only partially understand. For example, [Andrew Kelley][andrewrk] argues in [a talk on the topic][andrewrk-talk] for using indices in place of pointers.
 * Check out this [overview of arena libraries in Rust][rust-arena] and its discussion of the ergonomics of arena-related lifetimes.
 * Here's [a post comparing handles vs. pointers in game development][handles-vs-pointers] that advocates for packing homogeneously typed objects into arrays and using indices to refer to them.
-* Similar ideas show up in [*entity-component systems* (ECS)][ecs], a big idea from game development that I also don't completely understand. [This post][flecs-post] covers many of the same locality-related themes as this post.
+* Similar ideas show up in [*entity-component systems* (ECS)][ecs], a big idea from game development that I also don't completely understand. [This post][flecs-post] covers many of the same locality-related themes as we did above.
 
 [toot]: https://discuss.systems/@adrian/109990979464062464
 [luajit-post]: http://lua-users.org/lists/lua-l/2009-11/msg00089.html
