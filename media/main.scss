@@ -33,6 +33,7 @@ $font-size-base: 18px;
 $line-height-base: 1.428571429;
 $line-height-computed: floor(($font-size-base * $line-height-base));
 $body-margin: 8px;
+$code-bleed: 16px;
 
 $grayish: lighten(desaturate($highlight, 60%), 50%);
 
@@ -517,7 +518,6 @@ pre, code {
 code {
     background-color: $code-bg;
     padding: .2em .4em;
-    border-radius: 3px;
 }
 
 pre code {
@@ -533,9 +533,14 @@ pre code {
     border-radius: 3px;
 
     // Some nonsense to make code background hang "outside" of the column.
-    padding: 1em;
-    margin-left: -$body-margin;
-    margin-right: -$body-margin;
+    padding: 1em $code-bleed;
+    margin-left: -$code-bleed;
+    margin-right: -$code-bleed;
+    @media (max-width: 767px) {
+        padding: 1em;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 // Responsive images.
