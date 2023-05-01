@@ -10,18 +10,18 @@ excerpt: |
 <figcaption>Normal and flattened ASTs for the expression <code>a * b + c</code>.</figcaption>
 </figure>
 
-Arenas, a.k.a. regions, are everywhere in modern language implementations.
-One special case of the general [arena allocation][arena] idea is both incredibly simple and surprisingly effective for compilers and compiler-like things.
+[Arenas, a.k.a. regions,][arena] are everywhere in modern language implementations.
+One form of arenas is both super simple and surprisingly effective for compilers and compiler-like things.
 Maybe because of its simplicity, I haven't seen the basic technique in many compiler courses---or anywhere else in a CS curriculum for that matter.
 This post is an introduction to the idea and its many virtues.
 
-*Arenas* and *regions* mean many different things to different people, so I'm going to call the specific flavor I'm interested in here *data structure flattening*.
+*Arenas* or *regions* mean many different things to different people, so I'm going to call the specific flavor I'm interested in here *data structure flattening*.
 Flattening uses an arena that only holds one type, so it's actually just a plain array, and you can use array indices where you would otherwise need pointers.
 We'll focus here on flattening abstract syntax trees (ASTs), but the idea applies to any pointer-laden data structure.
 
 To learn about flattening, we'll build a basic interpreter twice:
 first the normal way and then the flat way.
-Follow along with the code [this repository][repo], where you can [compare and contrast the two branches][compare].
+Follow along with the code in [this repository][repo], where you can [compare and contrast the two branches][compare].
 The key thing to notice is that the changes are pretty small,
 but we'll see that they make a microbenchmark go 2.4&times; faster.
 Besides performance, flattening also brings some ergonomics advantages that I'll outline.
