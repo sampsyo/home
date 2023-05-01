@@ -371,6 +371,7 @@ Here are some other places it came up in a compilers context:
 Beyond just language implementation, similar concepts show up in other performance-oriented domains.
 I admit that I understand this stuff less, especially the things from the world of video games:
 
+* [A line of work][gibbon-site] from Purdue and Indiana is about compiling programs to operate directly on serialized data. [Gibbon][] in particular is pretty much a translator from "normal"-looking code to flattened implementations.
 * Flattening-like ideas appear a lot in *data-oriented design*, a broadly defined concept that I only partially understand. For example, [Andrew Kelley][andrewrk] argues in [a talk on the topic][andrewrk-talk] for using indices in place of pointers.
 * Check out this [overview of arena libraries in Rust][rust-arena] and its discussion of the ergonomics of arena-related lifetimes.
 * Here's [a post comparing handles vs. pointers in game development][handles-vs-pointers] that advocates for packing homogeneously typed objects into arrays and using indices to refer to them.
@@ -386,3 +387,5 @@ I admit that I understand this stuff less, especially the things from the world 
 [handles-vs-pointers]: https://floooh.github.io/2018/06/17/handles-vs-pointers.html
 [flecs-post]: https://ajmmertens.medium.com/building-an-ecs-2-archetypes-and-vectorization-fe21690805f9
 [ecs]: https://en.wikipedia.org/wiki/Entity_component_system
+[gibbon-site]: http://iu-parfunc.github.io/gibbon/
+[gibbon]: https://drops.dagstuhl.de/opus/volltexte/2017/7273/pdf/LIPIcs-ECOOP-2017-26.pdf
