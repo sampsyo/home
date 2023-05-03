@@ -377,7 +377,7 @@ I admit that I understand this stuff less, especially the things from the world 
 * Here's [a post comparing handles vs. pointers in game development][handles-vs-pointers] that advocates for packing homogeneously typed objects into arrays and using indices to refer to them.
 * Similar ideas show up in [*entity-component systems* (ECS)][ecs], a big idea from game development that I also don't completely understand. [This post][flecs-post] covers many of the same locality-related themes as we did above.
 
-After I published this post, many people pointed me toward [a post from last year by Inanna Malick][ianna] that shows the same technique applied to same kind of toy "calculator" language implemented in Rust.
+After I published this post, many people pointed me toward [a post from last year by Inanna Malick][inanna] that shows the same technique applied to same kind of toy "calculator" language implemented in Rust.
 That post also uses *recursion schemes*, an elegant idea from the Haskell world that helps abstract over different concrete representations.
 I highly recommend checking that post out.
 
@@ -393,4 +393,4 @@ I highly recommend checking that post out.
 [ecs]: https://en.wikipedia.org/wiki/Entity_component_system
 [gibbon-site]: http://iu-parfunc.github.io/gibbon/
 [gibbon]: https://drops.dagstuhl.de/opus/volltexte/2017/7273/pdf/LIPIcs-ECOOP-2017-26.pdf
-[ianna]: https://recursion.wtf/posts/rust_schemes/
+[inanna]: https://recursion.wtf/posts/rust_schemes/
