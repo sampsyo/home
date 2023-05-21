@@ -427,6 +427,19 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Hongzheng Chen
+      advisor: Zhiru Zhang
+      link: https://chhzh123.github.io
+    - name: Noam Zilberstein
+      advisor: Alexandra Silva
+      link: https://www.cs.cornell.edu/~noamz/
+    - name: Jiajie Li
+      advisor: Zhiru Zhang
+      link: https://tonyjie.github.io
+    - name: Drew Zagieboylo
+      advisor: Andrew Myers
+      link: https://www.cs.cornell.edu/~dzag/
+      defense: 2023
     - name: Nicolai Oswald
       advisor: Vijay Nagarajan
       school: University of Edinburgh
