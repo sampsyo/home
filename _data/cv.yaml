@@ -266,6 +266,9 @@ service:
 
 
 committees:
+    - venue: ASPLOS
+      year: 2024
+      role: Program committee member
     - venue: YArch
       year: 2023
       role: Program committee member
