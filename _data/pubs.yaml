@@ -12,9 +12,12 @@
     venue: 'PLDI 2023'
     type: conference
     selected: true
-    url: 'BASE/media/papers/filament-pldi2023-preprint.pdf'
-    pre: true
+    url: 'https://dl.acm.org/doi/10.1145/3591234'
     venue_url: 'https://pldi23.sigplan.org'
+    extra:
+      - '[Local PDF.](BASE/media/papers/filament-pldi2023-preprint.pdf)'
+      - '[Project page.(https://filamenthdl.com)'
+      - '[Artifact evaluated!](https://github.com/cucapra/filament)'
 
 -
     title: 'Stepwise Debugging for Hardware Accelerators'
