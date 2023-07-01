@@ -16,7 +16,7 @@
     venue_url: 'https://pldi23.sigplan.org'
     extra:
       - '[Local PDF.](BASE/media/papers/filament-pldi2023-preprint.pdf)'
-      - '[Project page.(https://filamenthdl.com)'
+      - '[Project page.](https://filamenthdl.com)'
       - '[Artifact evaluated!](https://github.com/cucapra/filament)'
 
 -
