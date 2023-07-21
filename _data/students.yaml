@@ -10,6 +10,8 @@
         -
             name: Philip Bedoukian
             start: 2017
+            end: 2023
+            extra: 'Dissertation: <i>Logical Accelerators on Manycore Processors</i>.'
         -
             name: Dietrich Geisler
             link: https://www.cs.cornell.edu/~dgeisler/
@@ -31,6 +33,8 @@
             name: Alexa VanHattum
             link: https://www.cs.cornell.edu/~avh/
             start: 2018
+            end: 2023
+            extra: 'Dissertation: <i>Lightweight Formal Methods for Correct, Efficient Systems Programming</i>.<br>Now at Wellesley College.'
         -
             name: Neil Adit
             link: http://www.neiladit.com
