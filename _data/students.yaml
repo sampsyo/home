@@ -63,6 +63,12 @@
             name: Priya Srikumar
             link: https://priyasrikumar.com
             start: 2023
+        -
+            name: Benjamin Carleton
+            start: 2023
+        -
+            name: Susan Garry
+            start: 2023
 
 -
     category: Master of Engineering
@@ -142,6 +148,7 @@
         -
             name: David Chen
             start: 2022
+            end: 2023
 
 -
     category: Master of Science
@@ -385,6 +392,16 @@
         -
             name: Susan Garry
             start: 2022
+            end: 2023
+        -
+            name: Edmund Lam
+            start: 2023
+        -
+            name: Ethan Gabizon
+            start: 2023
+        -
+            name: Basant Khalil
+            start: 2023
 -
     category: Undergraduate Researchers at UW
     details: |
