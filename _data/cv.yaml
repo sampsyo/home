@@ -107,16 +107,25 @@ honors:
 teaching:
     - where: Cornell University
       classes:
+          - term: Spring 2024
+            number: CS 4110
+            title: Programming Languages and Logics
+            desc: "This is Cornell's undergraduate programming languages elective. 4110 is full of content you'd expect to find in a graduate PL course."
+            future: true
+          - term: Fall 2023
+            number: CS 6120
+            title: Advanced Compilers
+            link: https://www.cs.cornell.edu/courses/cs6120/2023fa/
+            desc: This is a new PhD-level hands-on course about programming language implementation.
+            future: true
           - term: Spring 2022
             number: CS 6120
             title: Advanced Compilers
-            desc: This is a new PhD-level hands-on course about programming language implementation.
             link: https://www.cs.cornell.edu/courses/cs6120/2022sp/
           - term: Fall 2021
             number: CS 4110
             title: Programming Languages and Logics
             link: https://www.cs.cornell.edu/Courses/cs4110/2021fa/
-            desc: "This is Cornell's undergraduate programming languages elective. 4110 is full of content you'd expect to find in a graduate PL course."
           - term: Spring 2021
             number: CS 3410
             title: Computer System Organization and Programming
