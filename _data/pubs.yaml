@@ -1,4 +1,14 @@
 -
+    title: 'Lightweight, Modular Verification for WebAssembly-to-Native Instruction Selection'
+    authors: 'Alexa VanHattum, Monica Pardeshi, Chris Fallin, Adrian Sampson, and Fraser Brown'
+    venue: 'ASPLOS 2024'
+    type: conference
+    selected: true
+    url: 'https://www.cs.cornell.edu/~avh/veri-isle-preprint.pdf'
+    venue_url: 'https://www.asplos-conference.org/asplos2024/'
+    pre: true
+
+-
     title: "Very Large Scale Disintegration"
     authors: "Adrian Sampson"
     venue: "Wild and Crazy Ideas (WACI) session at ASPLOS 2023"
