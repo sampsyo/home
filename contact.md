@@ -8,14 +8,14 @@ My office in [Gates Hall][gates] is 411A, but I'm on sabbatical this year so you
 I share lots of code on [GitHub][gh].
 
 You can find me in the Fediverse at [@adrian@discuss.systems][mastodon].
-Also consider following [@sigplan@types.pl][@sigplan] and [@sigarch@discuss.systems][@sigarch].
+Also consider following [@sigplan@discuss.systems][@sigplan] and [@sigarch@discuss.systems][@sigarch].
 
 [gh]: https://github.com/sampsyo
 [email]: mailto:{{site.email}}
 [gates]: https://blogs.cornell.edu/gateshall/
 [mastodon]: https://discuss.systems/@adrian
 [@sigarch]: https://discuss.systems/@sigarch
-[@sigplan]: https://types.pl/@sigplan
+[@sigplan]: https://discuss.systems/@sigplan
 
 Here's my mailing address:
 
