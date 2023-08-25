@@ -5,9 +5,7 @@ layout: shorty
 {% assign teaching = site.data.cv.teaching | first %}
 {% assign classes = teaching.classes %}
 
-<!--
 I am teaching:
--->
 
 {% for class in classes %}{% if class.current %}
 * {% if class.link %}[{% endif %}{{class.term}}: {{class.number}}, "{{class.title}}."{% if class.link %}]({{class.link}}){% endif %} {{class.desc}}{% endif %}{% endfor %}

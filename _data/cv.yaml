@@ -117,7 +117,7 @@ teaching:
             title: Advanced Compilers
             link: https://www.cs.cornell.edu/courses/cs6120/2023fa/
             desc: This is a new PhD-level hands-on course about programming language implementation.
-            future: true
+            current: true
           - term: Spring 2022
             number: CS 6120
             title: Advanced Compilers
