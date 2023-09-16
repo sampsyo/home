@@ -279,6 +279,12 @@ service:
 
 committees:
     - venue: ASPLOS
+      year: 2025
+      role: Program committee co-chair
+    - venue: ISCA
+      year: 2024
+      role: Program committee member
+    - venue: ASPLOS
       year: 2024
       role: Program committee member
     - venue: YArch
