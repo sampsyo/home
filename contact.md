@@ -4,7 +4,7 @@ title: Contact
 class: contact
 ---
 Send me email at [{{site.email}}][email].
-My office in [Gates Hall][gates] is 411A, but I'm on sabbatical this year so you're unlikely to find me there.
+My office in [Gates Hall][gates] is 411A.
 I share lots of code on [GitHub][gh].
 
 You can find me in the Fediverse at [@adrian@discuss.systems][mastodon].
