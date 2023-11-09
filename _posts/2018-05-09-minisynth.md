@@ -269,7 +269,7 @@ Running `solve(goal)` gets a valuation for each hole.
 In [my complete example][ex2], I've added some scaffolding to load programs from files and to pretty-print the expression with the holes substituted for their values.
 It expects two programs, the spec and the hole-ridden sketch, on two lines:
 
-```python
+```
 $ cat sketches/s2.txt
 x * 10
 x << h1 + x << h2
@@ -277,7 +277,7 @@ x << h1 + x << h2
 
 It absolutely works:
 
-```python
+```
 $ python3 ex2.py < sketches/s2.txt
 x * 10
 (x << 3) + (x << 1)
@@ -315,7 +315,7 @@ I apologize for the illegible code but not for the convenience of a single imple
 The trick is to use conditional holes to switch between expression forms.
 Here's an implementation of the sketch we want above:
 
-```python
+```
 $ cat sketches/s4.txt
 x * 9
 x << (hb1 ? x : hn1) + (hb2 ? x : hn2)
