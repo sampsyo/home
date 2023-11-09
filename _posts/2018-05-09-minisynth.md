@@ -44,7 +44,9 @@ import z3
 To use Z3, we'll write a logical formula over some variables and then solve them to get a *model*, which is a valuation of the variables that makes the formula true.
 Here's one formula, for example:
 
-    formula = (z3.Int('x') / 7 == 6)
+```python
+formula = (z3.Int('x') / 7 == 6)
+```
 
 The `z3.Int` call introduces a Z3 variable.
 Running this line of Python doesn't actually do any division or equality checking; instead, the Z3 library overloads Python's `/` and `==` operators on its variables to produce a proposition.
@@ -53,15 +55,19 @@ So `formula` here is a logical proposition of one free integer variable, $x$, th
 Let's solve `formula`.
 We'll use a little function called `solve` to invoke Z3:
 
-    def solve(phi):
-        s = z3.Solver()
-        s.add(phi)
-        s.check()
-        return s.model()
+```python
+def solve(phi):
+    s = z3.Solver()
+    s.add(phi)
+    s.check()
+    return s.model()
+```
 
 Z3's solver interface is much more powerful than what we're doing here, but this is all we'll need to get the model for a single problem:
 
-    print(solve(formula))
+```python
+print(solve(formula))
+```
 
 On my machine, I get:
 
@@ -76,14 +82,18 @@ which is admittedly a little disappointing, but at least it's true: using intege
 
 Z3 also has a theory of bit vectors, as opposed to unbounded integers, which supports shifting and whatnot:
 
-    y = z3.BitVec('y', 8)
-    print(solve(y << 3 == 40))
+```python
+y = z3.BitVec('y', 8)
+print(solve(y << 3 == 40))
+```
 
 There are even logical quantifiers:
 
-    z = z3.Int('z')
-    n = z3.Int('n')
-    print(solve(z3.ForAll([z], z * n == z)))
+```python
+z = z3.Int('z')
+n = z3.Int('n')
+print(solve(z3.ForAll([z], z * n == z)))
+```
 
 Truly, Z3 is amazing.
 But we haven't quite synthesized a program yet.
@@ -100,12 +110,14 @@ Take [Aws's little example][primer]:
 you have the "slow" expression `x * 2`, and you know that there's a "faster" version to be had that can be written `x << ??` for some value of `??`.
 [Let's ask Z3][ex1] what to write there:
 
-    x = z3.BitVec('x', 8)
-    slow_expr = x * 2
-    h = z3.BitVec('h', 8)  # The hole, a.k.a. ??
-    fast_expr = x << h
-    goal = z3.ForAll([x], slow_expr == fast_expr)
-    print(solve(goal))
+```python
+x = z3.BitVec('x', 8)
+slow_expr = x * 2
+h = z3.BitVec('h', 8)  # The hole, a.k.a. ??
+fast_expr = x << h
+goal = z3.ForAll([x], slow_expr == fast_expr)
+print(solve(goal))
+```
 
 Nice! We get the model `[h = 1]`, which tells us that the two programs produce the same result for every byte `x` when we left-shift by 1.
 That's (a very simple case of) synthesis: we've generated a (subexpression of a) program that meets our specification.
@@ -152,43 +164,49 @@ GRAMMAR = """
 You can write arithmetic and shift operations on literal numbers and variables. And there are parentheses!
 Lark parsers are easy to use:
 
-    import lark
-    parser = lark.Lark(GRAMMAR)
-    tree = parser.parse("(5 * (3 << x)) + y - 1")
+```python
+import lark
+parser = lark.Lark(GRAMMAR)
+tree = parser.parse("(5 * (3 << x)) + y - 1")
+```
 
 As for any good language, you'll want an interpreter.
 [Here's one][ex2] that processes Lark parse trees and takes a function in as an argument to look up variables by their names:
 
-    def interp(tree, lookup):
-        op = tree.data
-        if op in ('add', 'sub', 'mul', 'div', 'shl', 'shr'):
-            lhs = interp(tree.children[0], lookup)
-            rhs = interp(tree.children[1], lookup)
-            if op == 'add':
-                return lhs + rhs
-            elif op == 'sub':
-                return lhs - rhs
-            elif op == 'mul':
-                return lhs * rhs
-            elif op == 'div':
-                return lhs / rhs
-            elif op == 'shl':
-                return lhs << rhs
-            elif op == 'shr':
-                return lhs >> rhs
-        elif op == 'neg':
-            sub = interp(tree.children[0], lookup)
-            return -sub
-        elif op == 'num':
-            return int(tree.children[0])
-        elif op == 'var':
-            return lookup(tree.children[0])
+```python
+def interp(tree, lookup):
+    op = tree.data
+    if op in ('add', 'sub', 'mul', 'div', 'shl', 'shr'):
+        lhs = interp(tree.children[0], lookup)
+        rhs = interp(tree.children[1], lookup)
+        if op == 'add':
+            return lhs + rhs
+        elif op == 'sub':
+            return lhs - rhs
+        elif op == 'mul':
+            return lhs * rhs
+        elif op == 'div':
+            return lhs / rhs
+        elif op == 'shl':
+            return lhs << rhs
+        elif op == 'shr':
+            return lhs >> rhs
+    elif op == 'neg':
+        sub = interp(tree.children[0], lookup)
+        return -sub
+    elif op == 'num':
+        return int(tree.children[0])
+    elif op == 'var':
+        return lookup(tree.children[0])
+```
 
 As everybody already knows from their time in [CS 6110][], your interpreter is just an embodiment of your language's big-step operational semantics.
 It works:
 
-    env = {'x': 2, 'y': -17}
-    answer = interp(tree, lambda v: env[v])
+```python
+env = {'x': 2, 'y': -17}
+answer = interp(tree, lambda v: env[v])
+```
 
 Nifty, but there's no magic here yet.
 Let's add the magic.
@@ -205,7 +223,9 @@ The key ingredient we'll need is a *translation* from our source programs into Z
 Instead of computing actual numbers, we want to produce equivalent formulas.
 For this, Z3's operator overloading is the raddest thing:
 
-    formula = interp(tree, lambda v: z3.BitVec(v, 8))
+```python
+formula = interp(tree, lambda v: z3.BitVec(v, 8))
+```
 
 Incredibly, we get to reuse our interpreter as a constraint generator by just swapping out the variable-lookup function.
 Every Python `+` becomes a plus-constraint-generator, etc.
@@ -223,35 +243,45 @@ Remember that we want to synthesize values for holes to make two programs equiva
 we'll need two Z3 expressions that share variables.
 I wrapped up an enhanced version of the constraint generator above in a function that also produces the variables involved:
 
-    expr1, vars1 = z3_expr(tree1)
-    expr2, vars2 = z3_expr(tree2, vars1)
+```python
+expr1, vars1 = z3_expr(tree1)
+expr2, vars2 = z3_expr(tree2, vars1)
+```
 
 And here's my hack for allowing holes without changing the grammar: any variable name that starts with an "H" is a hole.
 So we can filter out the plain, non-hole variables:
 
-    plain_vars = {k: v for k, v in vars1.items()
-                  if not k.startswith('h')}
+```python
+plain_vars = {k: v for k, v in vars1.items()
+              if not k.startswith('h')}
+```
 
 All we need now is a quantifier over equality:
 
-    goal = z3.ForAll(
-        list(plain_vars.values()),  # For every valuation of variables...
-        expr1 == expr2,  # ...the two expressions produce equal results.
-    )
+```python
+goal = z3.ForAll(
+    list(plain_vars.values()),  # For every valuation of variables...
+    expr1 == expr2,  # ...the two expressions produce equal results.
+)
+```
 
 Running `solve(goal)` gets a valuation for each hole.
 In [my complete example][ex2], I've added some scaffolding to load programs from files and to pretty-print the expression with the holes substituted for their values.
 It expects two programs, the spec and the hole-ridden sketch, on two lines:
 
-    $ cat sketches/s2.txt
-    x * 10
-    x << h1 + x << h2
+```python
+$ cat sketches/s2.txt
+x * 10
+x << h1 + x << h2
+```
 
 It absolutely works:
 
-    $ python3 ex2.py < sketches/s2.txt
-    x * 10
-    (x << 3) + (x << 1)
+```python
+$ python3 ex2.py < sketches/s2.txt
+x * 10
+(x << 3) + (x << 1)
+```
 
 
 ## Better Holes with Conditions
@@ -270,11 +300,13 @@ We'll need to extend the parser with a ternary operator:
 
 And I'll add a very suspicious-looking case to our interpreter:
 
-    elif op == 'if':
-        cond = interp(tree.children[0], lookup)
-        true = interp(tree.children[1], lookup)
-        false = interp(tree.children[2], lookup)
-        return (cond != 0) * true + (cond == 0) * false
+```python
+elif op == 'if':
+    cond = interp(tree.children[0], lookup)
+    true = interp(tree.children[1], lookup)
+    false = interp(tree.children[2], lookup)
+    return (cond != 0) * true + (cond == 0) * false
+```
 
 These funky multiplications are just a terrible alternative to Python's built-in condition expression.
 I'm using this here instead of a straightforward `true if cond else false` because this works in both interpreter mode *and in Z3 constraint generation mode* and behaves the same way.
@@ -283,9 +315,11 @@ I apologize for the illegible code but not for the convenience of a single imple
 The trick is to use conditional holes to switch between expression forms.
 Here's an implementation of the sketch we want above:
 
-    $ cat sketches/s4.txt
-    x * 9
-    x << (hb1 ? x : hn1) + (hb2 ? x : hn2)
+```python
+$ cat sketches/s4.txt
+x * 9
+x << (hb1 ? x : hn1) + (hb2 ? x : hn2)
+```
 
 Each ternary operator here represents a `??` hole in the sketch we wanted to write, `x << ?? + ??`.
 By choosing the values of `hb1` and `hb2`, the synthesizer can choose whether to use a literal or a variable in that place.
