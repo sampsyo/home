@@ -7,6 +7,9 @@
     url: 'https://www.cs.cornell.edu/~avh/veri-isle-preprint.pdf'
     venue_url: 'https://www.asplos-conference.org/asplos2024/'
     pre: true
+    extra:
+      - '[Artifact evaluated!](https://github.com/avanhatt/wasmtime)'
+      - 'Distinguished Artifact Award winner!'
 
 -
     title: "Very Large Scale Disintegration"
