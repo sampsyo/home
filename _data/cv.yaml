@@ -600,6 +600,11 @@ phdcommittees:
 
 talks:
     -
+        title: "The Next 700 Accelerator Design Languages"
+        where: "UIUC Compiler Seminar"
+        link: "https://compilerseminar.web.illinois.edu"
+        date: 2023-10-16
+    -
         title: "I Survived Tenure, and So Can You!"
         where: JOBS workshop at MICRO 2022
         link: https://sites.google.com/cornell.edu/jobs-micro-2022/schedule
