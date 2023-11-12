@@ -32,6 +32,12 @@ jobs:
         selected: true
 
     -
+        title: Visiting Researcher
+        where: 'Google &mdash; SystemsResearch@Google (SRG)'
+        dates: 2022&ndash;2023
+        selected: true
+
+    -
         title: Assistant Professor
         where: Cornell University &mdash; Department of Computer Science
         dates: 2016&ndash;2022
