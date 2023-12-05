@@ -1,7 +1,7 @@
 ---
 title: Critiquing a PhD Application Statement
 excerpt: |
-    I offer some feedback on a thoroughly mid statement of purpose for PhD applications from 2008.
+    I offer some feedback on a thoroughly mid statement of purpose for PhD applications from fifteen years ago.
 ---
 My [best advice][grad-post] for applying to grad school is to get feedback on your statement. Let's see what that feedback might look like by critiquing [a sample statement][sop]. I'll quote the full text verbatim, as it was submitted in 2008.
 
