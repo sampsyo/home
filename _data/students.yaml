@@ -154,6 +154,10 @@
             name: David Chen
             start: 2022
             end: 2023
+        -
+            name: Justin Ngai
+            start: 2023
+            end: 2023
 
 -
     category: Master of Science
@@ -406,6 +410,16 @@
             start: 2023
         -
             name: Basant Khalil
+            start: 2023
+            end: 2023
+        -
+            name: Stephen Verderame
+            start: 2023
+        -
+            name: Kaden Lei
+            start: 2023
+        -
+            name: Elias Castro
             start: 2023
 -
     category: Undergraduate Researchers at UW
