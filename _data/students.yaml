@@ -63,12 +63,17 @@
             name: Priya Srikumar
             link: https://priyasrikumar.com
             start: 2023
+            end: 2023
         -
             name: Benjamin Carleton
             start: 2023
         -
             name: Susan Garry
             start: 2023
+        -
+            name: Ayaka Yorihiro
+            start: 2023
+            link: https://ayakayorihiro.github.io
 
 -
     category: Master of Engineering

@@ -456,6 +456,11 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Matt Hofmann
+      advisor: Zhiru Zhang
+    - name: Niansong Zhang
+      advisor: Zhiru Zhang
+      link: https://www.zzzdavid.tech
     - name: Suraaj Sureshkannan
       advisor: Andrew Myers
     - name: Hongzheng Chen
@@ -500,7 +505,7 @@ phdcommittees:
       link: https://andrewb1999.github.io
     -
         name: Abhishek Vijaya Kumar
-        advisor: Rachit Agarwal
+        advisor: Rachee Singh
         link: https://www.cs.cornell.edu/~abhishek/
     -
         name: Ayaka Yorihiro
