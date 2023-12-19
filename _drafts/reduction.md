@@ -13,7 +13,10 @@ The plan is to demonstrate techniques that &ldquo;everyone knows&rdquo; because 
 
 *Test-case reduction* is a useful research skill in my line of work.
 We build lots of tools, and those tools are full of bugs: it's a normal part of the work to run into weird problems and to figure out what's going wrong.
-Especially for people who are new to a research project, minimal test cases are an extremely powerful communication tool for asking questions and getting help from people who have been around for longer.
+Especially for people who are new to a research project:
+
+* Reduced test cases are an extremely powerful communication tool for asking questions and getting help from people who have been around longer.
+* When you don't have intuition yet for where bugs usually come from, reducing a test case can help with your guesswork.
 
 The concept behind test-case reduction is really simple, but---maybe because it's so simple---sometimes it's hard to convey what I mean when I say, "can you try reducing that test?"
 I think the idea might be easier to *show* than to *tell*.
@@ -35,7 +38,7 @@ Critically, that flash of inspiration was impossible with your original, big tes
 Because this recipe is so mechanical, there are many good *automated test-case reducer* tools out there that can do it for you.
 Automation is especially important for big programs.
 Manually reducing test cases is still a useful skill: it helps to understand what the automated tools are doing for you, and it might be faster when your test case is already pretty small.
-I'll demonstrate an automated reducer in a follow-on post.
+I'll demonstrate an automated reducer in a follow-up post.
 
 ## A Demo
 
@@ -44,7 +47,7 @@ I'll demonstrate an automated reducer in a follow-on post.
 </div>
 
 This demo reduces a [bug][] in an interpreter for [Bril][], the instruction-based intermediate language we use in [Cornell's PhD-level compilers course][cs6120].
-The [original program][program] that a student found isn't very long---just 25 lines---but it's still pretty hard to see what's wrong with the interpreter.
+The [original program][program] that a student found isn't very long---just 25 lines---but it's still hard to see what's wrong with the interpreter.
 In this demo, I deleted all but 4 lines:
 
     @main() {
@@ -52,7 +55,7 @@ In this demo, I deleted all but 4 lines:
         jmp .lbl;
     }
 
-Even if you've never seen Bril before, I hope you agree that it's now pretty easy to imagine where to start looking in the interpreter for a fix.
+Even if you've never seen Bril before, I hope you agree that it's now easy to imagine where to start looking in the interpreter for a fix.
 
 To follow along at home, check out [revision `c543ae2` of the Bril repo][rev],
 follow the README's instructions to get the basic Bril tools set up,
@@ -69,9 +72,3 @@ You should see a Rust panic message.
 [cs6120]: https://www.cs.cornell.edu/courses/cs6120/2023fa/
 [rev]: https://github.com/sampsyo/bril/tree/c543ae2f253f32c6e59580ce1e843f6a2d86a9da
 [program]: https://gist.github.com/sampsyo/681f9b5d5dfe5b5c0bf1cca51fa55a5a
-
----
-
-TK Particularly useful in research because (a) bugs are EVERYWHERE and (b) when onboarding with a project, sheer intuition probably won't find you the bug, so it's particularly helpful.
-
-TK This one is just about manual reduction, quick n' dirty. Automated reduction coming in future post.
