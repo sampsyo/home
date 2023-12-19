@@ -6,8 +6,10 @@ excerpt: |
     [bril]: https://capra.cs.cornell.edu/bril/
     [bug]: https://github.com/sampsyo/bril/issues/295
 ---
-TK disclaimer
-Want to write down basic techniques that "everyone knows" because, well, not everyone knows them.
+<aside>
+This post is the first in a series on <em>research skills</em>.
+The plan is to demonstrate techniques that &ldquo;everyone knows&rdquo; because everyone, in fact, does not already know them.
+</aside>
 
 *Test-case reduction* is a useful research skill in my line of work.
 We build lots of tools, and those tools are full of bugs: it's a normal part of the work to run into weird problems and to figure out what's going wrong.
