@@ -86,7 +86,7 @@ I'll demonstrate automated test-case reducers in a follow-up post,
 but you can also check out [this Trail of Bits post demonstrating one][tob],
 a wonderful [SIGPLAN blog post about reducers][sigplan],
 or [David R. MacIver's extensive notes on the topic][drmaciver].
-The famous [C-Reduce paper in PLDI 2011][creduce] is also worth your time.
+The famous [C-Reduce paper in PLDI 2012][creduce] is also worth your time.
 
 [wk]: https://webkit.org/test-case-reduction/
 [so]: https://stackoverflow.com/help/minimal-reproducible-example
