@@ -77,3 +77,20 @@ and then try the command above to see the Rust panic message.
 [cs6120]: https://www.cs.cornell.edu/courses/cs6120/2023fa/
 [rev]: https://github.com/sampsyo/bril/tree/c543ae2f253f32c6e59580ce1e843f6a2d86a9da
 [program]: https://gist.github.com/sampsyo/681f9b5d5dfe5b5c0bf1cca51fa55a5a
+
+## See Also
+
+For more practical guides on reducing test cases, see [the WebKit project's instructions][wk]
+or [Stack Overflow's guidelines for "Minimal, Reproducible Examples" (MREs)][so].
+I'll demonstrate automated test-case reducers in a follow-up post,
+but you can also check out [this Trail of Bits post demonstrating one][tob],
+a wonderful [SIGPLAN blog post about reducers][sigplan],
+or [David R. MacIver's extensive notes on the topic][drmaciver].
+The famous [C-Reduce paper in PLDI 2011][creduce] is also worth your time.
+
+[wk]: https://webkit.org/test-case-reduction/
+[so]: https://stackoverflow.com/help/minimal-reproducible-example
+[tob]: https://blog.trailofbits.com/2019/11/11/test-case-reduction/
+[sigplan]: https://blog.sigplan.org/2021/03/30/an-overview-of-test-case-reduction/
+[drmaciver]: https://www.drmaciver.com/2019/01/notes-on-test-case-reduction/
+[creduce]: https://users.cs.utah.edu/~regehr/papers/pldi12-preprint.pdf
