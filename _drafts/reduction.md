@@ -46,8 +46,17 @@ I'll demonstrate an automated reducer in a follow-up post.
   <iframe src="https://cdnapisec.kaltura.com/p/520801/sp/52080100/embedIframeJs/uiconf_id/31230141/partner_id/520801?iframeembed=true&entry_id=1_65qzqqcd" allowfullscreen></iframe>
 </div>
 
-This demo reduces a [bug][] in an interpreter for [Bril][], the instruction-based intermediate language we use in [Cornell's PhD-level compilers course][cs6120].
-The [original program][program] that a student found isn't very long---just 25 lines---but it's still hard to see what's wrong with the interpreter.
+This video tries to convey what it feels like to manually reduce a test case.
+This one revealed a [bug][] in an interpreter for [Bril][], the instruction-based intermediate language we use in [Cornell's PhD-level compilers course][cs6120].
+A student helpfully reported a [program][] that crashes the interpreter:
+
+    $ bril2json < problem.bril | cargo run -- -p false false
+    thread 'main' panicked at src/interp.rs:543:45:
+    index out of bounds: the len is 0 but the index is 1
+
+The [original program][program] from the report isn't very long---just 25 lines---but it still does enough stuff that it's hard to see exactly what went wrong in the interpreter.
+To help find the problem, we want a program that does nothing other than trigger the bug.
+
 In this demo, I deleted all but 4 lines:
 
     @main() {
@@ -61,11 +70,7 @@ To follow along at home, check out [revision `c543ae2` of the Bril repo][rev],
 follow the README's instructions to get the basic Bril tools set up,
 build the buggy interpreter with `cd brilirs ; cargo build`,
 get [the original unreduced `problem.bril`][program],
-and then try this command:
-
-    $ bril2json < problem.bril | cargo run -- -p false false
-
-You should see a Rust panic message.
+and then try the command above to see the Rust panic message.
 
 [bril]: https://capra.cs.cornell.edu/bril/
 [bug]: https://github.com/sampsyo/bril/issues/295
