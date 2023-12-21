@@ -1,10 +1,11 @@
 ---
 title: "Manual Test-Case Reduction"
 excerpt: |
-    I often find myself recommending to new researchers that they try reducing a buggy test case to understand a problem better. To better explain what I mean by that, I recorded a little video of myself reducing a test for a [bug][] in a [Bril][] interpreter.
+    I often find myself recommending to new researchers that they try reducing a buggy test case to understand a problem better. To better explain what I mean by that, I recorded a little [video][] of myself reducing a test for a [bug][] in a [Bril][] interpreter.
 
     [bril]: https://capra.cs.cornell.edu/bril/
     [bug]: https://github.com/sampsyo/bril/issues/295
+    [video]: https://vod.video.cornell.edu/media/1_65qzqqcd
 ---
 <aside>
 This post is the first in a series on <em>research skills</em>.
