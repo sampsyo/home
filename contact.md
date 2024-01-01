@@ -48,7 +48,7 @@ Please send any forms along before you schedule the meeting.
 
 Before you do, though, I should warn you that if your question is about course requirements, graduation logistics, and the like, I'm not the best person to ask---our [undergraduate advisors][ugrad] are the true experts. For example, that office signs part 2 of the [A&S application to graduate][graduation] (this policy supersedes the college's advice that your faculty advisor should sign it). You can reach them in Rhodes 516/518 or at [ugrad@cs.cornell.edu](mailto:ugrad@cs.cornell.edu).
 
-[advmtg]: https://calendly.com/samps/advising
+[advmtg]: https://cal.com/samps/advising
 [ugrad]: https://www.cs.cornell.edu/undergrad/ustaff/contact-academic-advisor
 [graduation]: https://www.cs.cornell.edu/undergrad/csmajor/graduationreqs
 
