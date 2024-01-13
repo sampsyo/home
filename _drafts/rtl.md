@@ -20,6 +20,8 @@ Maybe the ability to write things that are not very "RTL"y in Verilog...
 * combinational cycles
 * obvious metaprogramming that is not separate from the object program
 
+[To do this, we probably want to define what a "netlist" is. Seems pretty straightforward... and then something about `+` having different meanings in RTL (part of an abstract function definition) vs. a netlist (a physical instantiation of an adder circuit, wired up to other stuff.]
+
 Anyway, I would like to know what the core semantic model is that we should have in mind for RTL languages.
 That means identifying the features of these languages that are "essential," which is a weaselword that just means "probably common to any language like it, no matter how simple."
 (Maybe a good example is [LambdaJS][].)
