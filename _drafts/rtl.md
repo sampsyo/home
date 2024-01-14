@@ -14,6 +14,10 @@ What is the core semantic foundation that all of these languages build on?
 
 [Show the stack: RTL above netlist above physical layout.]
 
+I'm convinced that a big reason why the concept of "RTL design" is so unclear is the popularity of Verilog and Verilog-like HDLs.
+The problem is that Verilog supports a *lot* of different programming styles, and it's often hard to tell where one ends and another begins.
+So while everyone can agree that Verilog supports both RTL and non-RTL design, there's a lot less agreement about exactly which subset of Verilog is the RTL language.
+
 [Collect some existing definitions that are floating out there.]
 The one thing that seems to be universal is that RTL is a higher level of abstraction than a netlist, but it's not a *lot* higher:
 it's about one notch up on some abstraction meter.
