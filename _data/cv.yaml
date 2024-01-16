@@ -117,14 +117,14 @@ teaching:
           - term: Spring 2024
             number: CS 4110
             title: Programming Languages and Logics
+            link: https://www.cs.cornell.edu/Courses/cs4110/2024sp/
             desc: "This is Cornell's undergraduate programming languages elective. 4110 is full of content you'd expect to find in a graduate PL course."
-            future: true
+            current: true
           - term: Fall 2023
             number: CS 6120
             title: Advanced Compilers
             link: https://www.cs.cornell.edu/courses/cs6120/2023fa/
             desc: This is a new PhD-level hands-on course about programming language implementation.
-            current: true
           - term: Spring 2022
             number: CS 6120
             title: Advanced Compilers
