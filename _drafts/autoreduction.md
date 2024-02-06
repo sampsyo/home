@@ -56,3 +56,164 @@ Here's the video:
 
 Hang on; I'm being told that this is the wrong video.
 Let's try that again:
+
+TK actual video.
+
+## TK new section for walkthrough?
+
+TK reorganize around the "tricks"?
+
+In essence, an interestingnes test is a script that automates the
+commands we ran repetitively (with the "up arrow" at the shell prompt) during
+[manual reduction][manual-reduce].
+Here's the main command we repeatedly ran then:
+
+    $ bril2json < problem.bril | cargo run -- -p false false
+
+I started by just putting this command into a shell script, `interesting.sh`.
+[Shrink Ray][] our script to work from any directory, so I used an absolute
+path to the executable:
+
+    #!/bin/sh
+    bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p false false
+
+I also used `$1` for the filename; Shrink Ray passes the current version of
+the test file as an argument there.
+Following the [C-Reduce][] tradition, interestingness tests use a
+counter-intuitive (but extremely useful) convention:
+the script must exit with status 0 when the test is *interesting* (exhibits
+the bug) and nonzero when it's not (e.g., it's bug-free or ill-formed).
+So far, our command crashes with a nonzero status---specifically, a Rust
+panic---when it *is* interesting, which is the opposite of what we want.
+
+So here's a trick you can use in interestingness tests in general:
+try the
+[shell's negation operator, `!`,][bash-pipe] to invert the sense of the exit status.
+Like this:
+
+    #!/bin/sh
+    ! ( bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p false false )
+
+Now our tests says the input is interesting (status 0) when the interpreter
+*does* crash.
+Let's try it:
+
+    $ shrinkray interesting.sh problem.bril
+
+With this script, Shrink Ray immediately reduces our file down to nothing.
+And it's not wrong: a zero-byte file does elicit an error from our
+interpreter!
+As usual, it's a sorcerer's apprentice who did exactly what we said, not what
+we wanted, and did it with wondrous alacrity.
+
+This leads us to our second trick for writing interestingness tests:
+before you try to expose the bug, include a "not bogus" check.
+You want to make sure your test is well-formed in some sense:
+it parses successfully,
+or it doesn't throw an exception,
+or whatever else.
+
+In our case, we're debugging a crashy interpreter, but we also have access to
+a [reference interpreter][brili] that doesn't have the same bug.
+So we can add a "not bogus" check that requires any well-formed test to
+succeed in that reference interpreter.
+Here's a new script that includes that check:
+
+    #!/bin/sh
+    set -e
+    bril2json < problem.bril | brili false false
+    ! ( bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p false false )
+
+Check out that `set -e` line, which is super useful for interestingness
+scripts and "not bogus" checks in particular.
+[The `-e` option][bash-set] makes a shell script immediately abort with an
+error (signalling "uninteresting") when any line fails.
+In `-e` mode, you're free to write a bunch of commands that should succeed in
+the normal case but might fail when the test really goes off the rails:
+as soon as any command fails, the script will bail out and indicate that we're
+on the wrong path.
+So in my script here, we're requiring the `brili` (reference interpreter)
+invocation is required to succeed before we even bother trying to expose the
+bug.
+
+Let's restore our test input from the backup Shrink Ray saved for us and try
+again:
+
+    $ cp problem.bril.bak problem.bril
+    $ shrinkray interesting.sh problem.bril
+
+Shrink Ray will again sorcerer's-apprentice its way into a much too small test
+case.
+Not zero bytes this time, but too small to be useful.
+To see what went wrong, we can run our two commands ("not bogus" and bug
+check) manually:
+
+    $ bril2json < problem.bril | brili false false
+    $ bril2json < problem.bril | ./target/debug/brilirs -p false false
+    error: Expected a primitive type like int or bool, found l
+
+Shrink Ray has isolated for us a *different error* with the same shape, i.e.,
+the reference interpreter accepts the program but the buggy interpreter
+rejects it.
+This one is not really a bug: it's just a case where the second interpreter is
+more strict than the first.
+And even if this misalignment is curious, it's not the bug we were looking
+for.
+
+So here's trick number three for writing interestingness tests:
+use `grep` to check for the error message we actually want.
+In our case, the program panics with an "out of bounds" message.
+Let's restore from backup and grep for that in both stdout and stderr like this:
+
+    $ cp problem.bril.bak problem.bril
+    $ bril2json < problem.bril | ./target/debug/brilirs -p false false 2>&1 | grep 'out of bounds'
+
+TKTK continue here.
+Use `echo $?` to show that the status is 0 (interesting) when the string is found, and grepping for some other string yields status 1 (not interesting).
+So here is our new script:
+
+```
+#!/bin/sh
+set -e
+bril2json < problem.bril | brili false false
+bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p false false 2>&1 | grep 'out of bounds'
+```
+
+It's working! It has deleted some stuff. But it looks like it could use some help… e.g., deleting the arguments hard and actually impossible because removing them requires changing the interestingness script. Let's change the interestingness script and replace the args with constants:
+
+```
+b0: bool = const false;
+b1: bool = const false;
+```
+
+```
+#!/bin/sh
+set -e
+bril2json < problem.bril | brili
+bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p 2>&1 | grep 'out of bounds'
+```
+
+And run:
+
+```
+$ ./interesting.sh problem.bril
+```
+
+…to make sure we're still interesting. Then we can keep reducing!
+(Start shrink ray again.)
+
+It did pretty good! Got us to here:
+
+```
+@main{
+    jmp .A;
+    .A:ret;
+    .A:jmp  .A;
+}
+```
+
+Little weird that the label is multiply defined... and it's not quite as small as the manually reduced version, but it's actually better in one way: it doesn't cause an infinite loop in the reference interpreter.
+
+[shrink ray]: https://github.com/DRMacIver/shrinkray
+[bash-pipe]: https://www.gnu.org/software/bash/manual/html_node/Pipelines.html
+[bash-set]: https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
