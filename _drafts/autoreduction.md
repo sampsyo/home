@@ -168,51 +168,61 @@ Let's restore from backup and grep for that in both stdout and stderr like this:
     $ cp problem.bril.bak problem.bril
     $ bril2json < problem.bril | ./target/debug/brilirs -p false false 2>&1 | grep 'out of bounds'
 
-TKTK continue here.
-Use `echo $?` to show that the status is 0 (interesting) when the string is found, and grepping for some other string yields status 1 (not interesting).
-So here is our new script:
+Conveniently, `grep` does exactly what you want for an interestingness test:
+its exit status is 0 when it finds the string (interesting because this is the
+bug we are looking for)
+and 1 when it fails to find the string (some other error).
+So here' our new script:
 
-```
-#!/bin/sh
-set -e
-bril2json < problem.bril | brili false false
-bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p false false 2>&1 | grep 'out of bounds'
-```
+    #!/bin/sh
+    set -e
+    bril2json < problem.bril | brili false false
+    bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p false false 2>&1 | grep 'out of bounds'
 
-It's working! It has deleted some stuff. But it looks like it could use some help… e.g., deleting the arguments hard and actually impossible because removing them requires changing the interestingness script. Let's change the interestingness script and replace the args with constants:
+With this script, Shrink Ray does a great job and reduces quite a bit of code,
+which is awesome.
+One thing it can't reduce, however, is the way the program uses arguments.
+It's actually hopeless for Shrink Ray to remove the arguments because it would
+require changing the interestingness test script to remove those `false false`
+command-line arguments we keep on passing.
 
-```
-b0: bool = const false;
-b1: bool = const false;
-```
+We can help it out a bit by turning those inputs into constants in the code.
+We can replace `main`'s arguments with two new Bril instructions:
 
-```
-#!/bin/sh
-set -e
-bril2json < problem.bril | brili
-bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p 2>&1 | grep 'out of bounds'
-```
+    b0: bool = const false;
+    b1: bool = const false;
 
-And run:
+Accordingly, we need to change our interestingness test to pass zero arguments
+to both interpreter invocations:
 
-```
-$ ./interesting.sh problem.bril
-```
+    #!/bin/sh
+    set -e
+    bril2json < problem.bril | brili
+    bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p 2>&1 | grep 'out of bounds'
 
-…to make sure we're still interesting. Then we can keep reducing!
-(Start shrink ray again.)
+At this point, it's probably a good idea to do `./interesting.sh problem.bril`
+to manually check that everything's in order.
 
-It did pretty good! Got us to here:
+It is in this case, so we can figure up Shrink Ray again.
+It gives us this reduced test case:
 
-```
-@main{
-    jmp .A;
-    .A:ret;
-    .A:jmp  .A;
-}
-```
+    @main{
+        jmp .A;
+        .A:ret;
+        .A:jmp  .A;
+    }
 
-Little weird that the label is multiply defined... and it's not quite as small as the manually reduced version, but it's actually better in one way: it doesn't cause an infinite loop in the reference interpreter.
+This is not quite the same as the reduced version we arrived at with [manual
+reduction][manual-reduce].
+The one we wrote found last time actually an infinite loop---so it wouldn't
+pass our interestingness test!
+So this one is actually a little more useful in that sense: you can run it
+through the reference interpreter to immediately see what it's *supposed* to
+do.
+It's kinda weird that the reduced test has a multiply defined label, but
+apparently neither interpreter cares about that...
+if we wanted to, we could imagine avoiding this by adding another "not bogus"
+check based on some static error checking.
 
 [shrink ray]: https://github.com/DRMacIver/shrinkray
 [bash-pipe]: https://www.gnu.org/software/bash/manual/html_node/Pipelines.html
