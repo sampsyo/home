@@ -61,7 +61,7 @@ TK actual video.
 
 ## TK new section for walkthrough?
 
-TK reorganize around the "tricks"?
+TK reorganize around the sequence of "tricks"?
 
 In essence, an interestingnes test is a script that automates the
 commands we ran repetitively (with the "up arrow" at the shell prompt) during
