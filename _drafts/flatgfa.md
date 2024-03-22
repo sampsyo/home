@@ -38,8 +38,9 @@ Hilariously, vg picked the 🎷 and 🕌 emojis to represent the two paths, `x` 
 You can see the 🎷 path going through segments 1, 2, and 4;
 the 🕌 path also takes a detour through segment 3, which is the nucleotide sequence TTG.
 
-[de novo]: https://en.wikipedia.org/wiki/De_novo_sequence_assemblers
+[denovo]: https://en.wikipedia.org/wiki/De_novo_sequence_assemblers
 [pangenomics]: https://en.wikipedia.org/wiki/Pan-genome
 [human-reference]: https://en.wikipedia.org/wiki/Reference_genome#Human_reference_genome
 [vg]: https://github.com/vgteam/vg
 [graphviz]: https://graphviz.org
+[gfa]: https://github.com/GFA-spec/GFA-spec
