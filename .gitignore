@@ -6,5 +6,7 @@ media/font/
 media/highlightjs/
 media/highlight.min.js
 media/katex/
-_source/main.css
 _source/highlightjs/
+_source/katex
+_source/*.css
+_source/*.tar.gz
