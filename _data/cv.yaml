@@ -462,6 +462,8 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Nitika Saran
+      advisor: Hakim Weatherspoon
     - name: Matt Hofmann
       advisor: Zhiru Zhang
     - name: Niansong Zhang
