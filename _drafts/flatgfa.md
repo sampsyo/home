@@ -9,7 +9,7 @@ The graph's vertices are little snippets of DNA sequences, and each individual i
 if you concatenate all the little DNA sequences along a given walk, you get the full genome sequence for the individual.
 Here's a picture of a [tiny fake graph I made][tiny.gfa], drawn by [the vg tool][vg] made by some of our collaborators:
 
-<img src="{{site.base}}/media/flatgfa/tiny.png" class="img-responsive">
+<img src="{{site.base}}/media/flatgfa/tiny.svg" class="img-responsive">
 
 Hilariously, vg picked the 🎷 and 🕌 emojis to represent the two walks in the graph, i.e., the two individual organisms we've sequenced.
 (And [GraphViz][] has made something of a mess of things, which isn't unusual.)
@@ -42,6 +42,7 @@ The `S` lines are *segments* (vertices);
 `L` is for *link* (an edge: just a pair of segments where paths are allowed to traverse).
 Our graph has 4 segments and 2 paths through those segments, named `x` and `y`.
 (Also known as 🎷 and 🕌 in the picture above.)
+There are also [CIGAR alignment strings][cigar] like `0M` and `*`, but these don't matter much for this post.
 
 The most interesting part is probably those comma-separated lists of steps in the path lines, like `1+,2+,4-` for the `x` path.
 Each step has the name of a segment (declared in an `S` line) and a direction (`+` or `-`).
@@ -55,3 +56,26 @@ All our segments' names here happen to be numbers, but the GFA text format doesn
 [gfa]: https://github.com/GFA-spec/GFA-spec
 [tiny.gfa]: {{site.base}}/media/flatgfa/tiny.gfa
 [revcomp]: http://genewarrior.com/docs/exp_revcomp.jsp
+[cigar]: https://jef.works/blog/2017/03/28/CIGAR-strings-for-dummies/
+
+## A Slow, Obvious Representation
+
+How would you represent the fundamental data model that GFA files encode?
+You can find [dozens][gfapy] [of][gfagraphs] [libraries][pygfa] [for][gfatools] [parsing][gfago] [and][gfakluge] [manipulating][rs-gfa] [GFAs][gfa_rust] on GitHub or wherever, but those are all trying to be useful:
+they're optimized to be fast, or specialized for actually accomplishing something useful.
+To understand what's actually going on in GFA files, a generically naive hacker like me needs something much dumber: the most straightforward possible in-memory data model that can parse and pretty-print GFA text.
+
+[Anshuman Mohan][anshuman] and I made a tiny Python library, [mygfa][], that tries to play this explanatory role.
+
+<img src="{{site.base}}/media/flatgfa/mygfa.svg" class="img-responsive">
+
+[gfapy]: https://github.com/ggonnella/gfapy
+[gfagraphs]: https://github.com/Tharos-ux/gfagraphs
+[pygfa]: https://github.com/AlgoLab/pygfa
+[gfatools]: https://github.com/lh3/gfatools
+[gfago]: https://github.com/will-rowe/gfa
+[gfakluge]: https://github.com/edawson/gfakluge
+[rs-gfa]: https://github.com/chfi/rs-gfa
+[gfa_rust]: https://github.com/ban-m/gfa_rust
+[mygfa]: https://github.com/cucapra/pollen/tree/main/mygfa
+[anshuman]: https://www.cs.cornell.edu/~amohan/
