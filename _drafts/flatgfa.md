@@ -58,7 +58,7 @@ All our segments' names here happen to be numbers, but the GFA text format doesn
 [revcomp]: http://genewarrior.com/docs/exp_revcomp.jsp
 [cigar]: https://jef.works/blog/2017/03/28/CIGAR-strings-for-dummies/
 
-## A Slow, Obvious Representation
+## A Slow, Obvious Data Model
 
 How would you represent the fundamental data model that GFA files encode?
 You can find [dozens][gfapy] [of][gfagraphs] [libraries][pygfa] [for][gfatools] [parsing][gfago] [and][gfakluge] [manipulating][rs-gfa] [GFAs][gfa_rust] on GitHub or wherever, but those are all trying to be useful:
@@ -66,8 +66,24 @@ they're optimized to be fast, or specialized for actually accomplishing somethin
 To understand what's actually going on in GFA files, a generically naive hacker like me needs something much dumber: the most straightforward possible in-memory data model that can parse and pretty-print GFA text.
 
 [Anshuman Mohan][anshuman] and I made a tiny Python library, [mygfa][], that tries to play this explanatory role.
+Here are pretty much all the important data structures:
 
 <img src="{{site.base}}/media/flatgfa/mygfa.svg" class="img-responsive">
+
+A `Graph` object holds Python lists and dictionaries to contain all the segments, paths, and links in a GFA file.
+Maybe the only semi-interesting class here is `Handle`, which is nothing more than a pair of a segment---referenced by name---and an orientation (`+` or `-` in the GFA syntax).
+
+The mygfa data model is ridiculously inefficient.
+That's intentional!
+We want to reflect exactly what's going on in the GFA file in the most obvious, straightforward way possible.
+That means there are strings and hash tables all over the place, including where it seems kind of silly to use them.
+For example, because handles refer to segments by name, you have to look up the actual segment in `graph.segments`.
+Like, if you want to print out the DNA sequence for a link's vertices, you'd do this:
+
+```py
+print(graph.segments[graph.links[i].from_.name].seq)
+print(graph.segments[graph.links[i].to_.name].seq)
+```
 
 [gfapy]: https://github.com/ggonnella/gfapy
 [gfagraphs]: https://github.com/Tharos-ux/gfagraphs
