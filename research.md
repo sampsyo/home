@@ -11,7 +11,7 @@ blurb: |
 
 [Look me up at DBLP][dblp] for another view on my publications.
 
-Some of the links below are to the ACM database (so they can affect the ACM's popularity statistics). Use the "local PDF" links if you prefer bypass this
+Some of the links below are to the ACM database (so they can affect the ACM's popularity statistics). Use the "local PDF" links if you prefer to bypass this
 rigmarole.
 
 The slides linked below are PDF files. Keynote files are available on request.
