@@ -1,7 +1,7 @@
 ---
 title: "A Post About FlatGFA"
 ---
-Lately, we've been collaborating with some hip biologists who do something called [pangenomics][], which is like regular genomics but cooler. In regular genomics, you sequence each organism's genome by aligning it to a *reference genome* that somebody previously assembled [at great cost][denovo]. In a sense, the traditional view models all of us as variations of [an ideal *Homo sapiens*][human-reference]. Pangenomicists instead try to directly model the variation among an entire population of different organisms. This all-to-all comparison, they tell us, is the key to understanding a population's diversity and revealing subtleties that are undetectable with the traditional approach.
+Lately, we've been collaborating with some hip biologists who do something called [pangenomics][], which is like regular genomics but cooler. In regular genomics, you sequence each organism's genome by aligning it to a *reference genome* that somebody previously assembled [at great cost][denovo]. In a sense, the traditional view models all of us as variations of [a Platonic ideal of *Homo sapiens*][human-reference]. Pangenomicists instead try to directly model the variation among an entire population of different organisms. This all-to-all comparison, they tell us, is the key to understanding a population's diversity and revealing subtleties that are undetectable with the traditional approach.
 
 A [pangenome variation graph][vg] is the data structure these folks work with.
 It models the genetic sequences that multiple individuals have in common and how they differ.
@@ -11,15 +11,15 @@ Here's a picture of a [tiny fake graph I made][tiny.gfa], drawn by [the vg tool]
 
 <img src="{{site.base}}/media/flatgfa/tiny.svg" class="img-responsive">
 
-Hilariously, vg picked the 🎷 and 🕌 emojis to represent the two walks in the graph, i.e., the two individual organisms we've sequenced.
+Hilariously, vg picked the 🎷 and 🕌 emojis to represent the two walks in the graph, i.e., the two individual organisms in our little population.
 (And [GraphViz][] has made something of a mess of things, which isn't unusual.)
 You can see the 🎷 genome going through segments 1, 2, and 4;
 🕌 also takes a detour through segment 3, which is the nucleotide sequence TTG.
 Just to make things a little more fun, these walks pass through each segment *directionally:*
-either forward or backward, yielding the [reverse complement][revcomp] of the DNA sequence.
+either forward, yielding the DNA sequence you see written in the node, or backward, yielding the sequence's [reverse complement][revcomp].
 That's what's going on with segment 4 here: both paths traverse it backward.
 
-Anyway, the pangenome folks have a file format:
+The pangenome folks have a standard file format for these variation graphs:
 [Graphical Fragment Assembly (GFA)][gfa].
 GFA is a text format, and it looks like this:
 
@@ -39,7 +39,7 @@ L	3	+	4	-	0M
 Each line in the GFA file above declares some part of this variation graph.
 The `S` lines are *segments* (vertices);
 `P` is for *path* (which are those per-individual walks);
-`L` is for *link* (an edge: just a pair of segments where paths are allowed to traverse).
+`L` is for *link* (a directed edge where a path is allowed to traverse).
 Our graph has 4 segments and 2 paths through those segments, named `x` and `y`.
 (Also known as 🎷 and 🕌 in the picture above.)
 There are also [CIGAR alignment strings][cigar] like `0M` and `*`, but these don't matter much for this post.
@@ -61,12 +61,12 @@ All our segments' names here happen to be numbers, but the GFA text format doesn
 ## A Slow, Obvious Data Model
 
 How would you represent the fundamental data model that GFA files encode?
-You can find [dozens][gfapy] [of][gfagraphs] [libraries][pygfa] [for][gfatools] [parsing][gfago] [and][gfakluge] [manipulating][rs-gfa] [GFAs][gfa_rust] on GitHub or wherever, but those are all trying to be useful:
-they're optimized to be fast, or specialized for actually accomplishing something useful.
-To understand what's actually going on in GFA files, a generically naive hacker like me needs something much dumber: the most straightforward possible in-memory data model that can parse and pretty-print GFA text.
+You can find [dozens][gfapy] [of][gfagraphs] [libraries][pygfa] [for][gfatools] [parsing][gfago] [and][gfakluge] [manipulating][rs-gfa] [GFAs][gfa_rust] on GitHub or wherever, but those are all trying to be *useful:*
+they're optimized to be fast, or specialized for a specific kind of analysis.
+To understand what's actually going on in GFA files, a genomically naive hacker like me needs something much dumber: the most straightforward possible in-memory data model that can parse and pretty-print GFA text.
 
 [Anshuman Mohan][anshuman] and I made a tiny Python library, [mygfa][], that tries to play this explanatory role.
-Here are pretty much all the important data structures:
+Here are pretty much all the [important data structures][mygfa-docs]:
 
 <img src="{{site.base}}/media/flatgfa/mygfa.svg" class="img-responsive">
 
@@ -85,6 +85,12 @@ print(graph.segments[graph.links[i].from_.name].seq)
 print(graph.segments[graph.links[i].to_.name].seq)
 ```
 
+While mygfa is the wrong tool for the job for practical pangenomics computations,
+we hope it's useful for situations where clarity matters a lot and scale matters less:
+learning about the domain,
+exploratory design phases that come before high-performance implementations,
+and writing [reference implementations][slow-odgi] for "real" pangenomics software.
+
 [gfapy]: https://github.com/ggonnella/gfapy
 [gfagraphs]: https://github.com/Tharos-ux/gfagraphs
 [pygfa]: https://github.com/AlgoLab/pygfa
@@ -94,4 +100,6 @@ print(graph.segments[graph.links[i].to_.name].seq)
 [rs-gfa]: https://github.com/chfi/rs-gfa
 [gfa_rust]: https://github.com/ban-m/gfa_rust
 [mygfa]: https://github.com/cucapra/pollen/tree/main/mygfa
+[mygfa-docs]: https://cucapra.github.io/pollen/mygfa/
 [anshuman]: https://www.cs.cornell.edu/~amohan/
+[slow-odgi]: https://github.com/cucapra/pollen/tree/main/slow_odgi
