@@ -110,16 +110,22 @@ and writing [reference implementations][slow-odgi] for "real" pangenomics softwa
 We call it [slow-odgi][], because it's a worse version of [odgi][], an actually good pangenomic toolkit that our collaborators wrote in C++.
 Our slow-odgi tool currently implements 12 of odgi's 44 commands.
 We have an elaborate [differential testing setup][test] that checks, for a bunch of real input GFA files, that odgi and slow-odgi output byte-for-byte identical results.
-Slow-odgi is just way, way slower:
 
-TK plot
+<figure style="max-width: 250px;">
+<img src="{{ site.base }}/media/flatgfa/paths-mini-slow.svg" alt="TK">
+</figure>
+
+Slow-odgi is just way, way slower.
+This plot compares the running time for `odgi paths` and `slow_odgi paths` on 3 very small GFA files (295&nbsp;kB, 1.0&nbsp;MB, and 1.6&nbsp;MB).
+Odgi is sort of cheating here because it works on an optimized binary representation of the GFA file, and we're not counting the time to do the conversion here, whereas slow-odgi has to parse that text format you saw at the top of this post.
+For that and many other reasons, slow-odgi is more than 10&times; slower, even for these little GFAs.
 
 In exchange, it's also way shorter.
 Here's the code for the `paths` command that just extracts a list of the paths in a graph, [in odgi][odgi paths] and then [in slow-odgi][slow-odgi paths]:
 
 TK paths code
 
-This is a completely unfair comparison because `odgi paths` has many more features and is actually optimized while `slow-odgi paths` does only one obvious thing.
+This is a completely unfair comparison because `odgi paths` has many more features and is actually optimized while `slow_odgi paths` does only one obvious thing.
 But a painfully obvious reference implementation is exactly what we needed to understand what a better implementation might look like.
 I'll write about that better implementation in a follow-up post.
 
