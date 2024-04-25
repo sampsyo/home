@@ -103,3 +103,13 @@ and writing [reference implementations][slow-odgi] for "real" pangenomics softwa
 [mygfa-docs]: https://cucapra.github.io/pollen/mygfa/
 [anshuman]: https://www.cs.cornell.edu/~amohan/
 [slow-odgi]: https://github.com/cucapra/pollen/tree/main/slow_odgi
+
+## [As Slow as Possible][aslsp]
+
+[Anshuman][] took this "slow and steady" approach a step farther and used mygfa to implement a slew of pangenomic analyses.
+We call it [slow-odgi][], because it's a worse version of [odgi][], an actually good pangenomic toolkit that our collaborators wrote in C++.
+Our slow-odgi tool currently implements 12 of odgi's 44 commands.
+We have an elaborate differential testing setup that checks, for a bunch of real input GFA files, that odgi and slow-odgi output byte-for-byte identical results.
+
+[aslsp]: https://en.wikipedia.org/wiki/As_Slow_as_Possible
+[odgi]: https://odgi.readthedocs.io/en/latest/
