@@ -109,7 +109,22 @@ and writing [reference implementations][slow-odgi] for "real" pangenomics softwa
 [Anshuman][] took this "slow and steady" approach a step farther and used mygfa to implement a slew of pangenomic analyses.
 We call it [slow-odgi][], because it's a worse version of [odgi][], an actually good pangenomic toolkit that our collaborators wrote in C++.
 Our slow-odgi tool currently implements 12 of odgi's 44 commands.
-We have an elaborate differential testing setup that checks, for a bunch of real input GFA files, that odgi and slow-odgi output byte-for-byte identical results.
+We have an elaborate [differential testing setup][test] that checks, for a bunch of real input GFA files, that odgi and slow-odgi output byte-for-byte identical results.
+Slow-odgi is just way, way slower:
+
+TK plot
+
+In exchange, it's also way shorter.
+Here's the code for the `paths` command that just extracts a list of the paths in a graph, [in odgi][odgi paths] and then [in slow-odgi][slow-odgi paths]:
+
+TK paths code
+
+This is a completely unfair comparison because `odgi paths` has many more features and is actually optimized while `slow-odgi paths` does only one obvious thing.
+But a painfully obvious reference implementation is exactly what we needed to understand what a better implementation might look like.
+I'll write about that better implementation in a follow-up post.
 
 [aslsp]: https://en.wikipedia.org/wiki/As_Slow_as_Possible
 [odgi]: https://odgi.readthedocs.io/en/latest/
+[test]: https://github.com/cucapra/pollen/blob/main/tests/turnt.toml
+[slow-odgi paths]: https://github.com/cucapra/pollen/blob/main/slow_odgi/slow_odgi/paths.py
+[odgi paths]: https://github.com/pangenome/odgi/blob/master/src/subcommand/paths_main.cpp
