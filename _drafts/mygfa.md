@@ -123,7 +123,14 @@ For that and many other reasons, slow-odgi is more than 10&times; slower, even f
 In exchange, it's also way shorter.
 Here's the code for the `paths` command that just extracts a list of the paths in a graph, [in odgi][odgi paths] and then [in slow-odgi][slow-odgi paths]:
 
-TK paths code
+<figure style="max-width: 50%">
+<img src="{{ site.base }}/media/flatgfa/code-slow-odgi.png" alt="A big, chunky code listing of slow-odgi's Python implementation of path extraction.">
+<caption>The entirety of <a href="https://github.com/cucapra/pollen/blob/main/slow_odgi/slow_odgi/paths.py"><code>paths.py</code> from slow-odgi</a>.</caption>
+</figure>
+<figure style="max-width: 50%">
+<img src="{{ site.base }}/media/flatgfa/code-odgi.png" alt="A ridiculously tiny grid of 9 pieces of odgi's C++ implementation of path extraction.">
+<caption>A bit less than half of <a href="https://github.com/pangenome/odgi/blob/master/src/subcommand/paths_main.cpp"><code>paths_main.cpp</code> from odgi</a>.</caption>
+</figure>
 
 This is a completely unfair comparison because `odgi paths` has many more features and is actually optimized while `slow_odgi paths` does only one obvious thing.
 But a painfully obvious reference implementation is exactly what we needed to understand what a better implementation might look like.
