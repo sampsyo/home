@@ -135,9 +135,10 @@ Here's the code for the `paths` command that just extracts a list of the paths i
 </figure>
 </div>
 
-This is a completely unfair comparison because `odgi paths` has many more features and is actually optimized while `slow_odgi paths` does only one obvious thing.
-But a painfully obvious reference implementation is exactly what we needed to understand what a better implementation might look like.
-I'll write about that better implementation in a follow-up post.
+This is a completely unfair comparison because `odgi paths` has many more features and is actually optimized; `slow_odgi paths` does only one obvious thing, and it does it slowly.
+But painfully obvious reference implementations were exactly what we needed to understand what better implementations could look like.
+
+I'll write about a new, fast data representation for GFAs in a follow-up post.
 
 [aslsp]: https://en.wikipedia.org/wiki/As_Slow_as_Possible
 [odgi]: https://odgi.readthedocs.io/en/latest/
