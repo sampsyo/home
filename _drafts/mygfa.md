@@ -112,7 +112,7 @@ Our slow-odgi tool currently implements 12 of odgi's 44 commands.
 We have an elaborate [differential testing setup][test] that checks, for a bunch of real input GFA files, that odgi and slow-odgi output byte-for-byte identical results.
 
 <figure style="max-width: 250px;">
-<img src="{{ site.base }}/media/flatgfa/paths-mini-slow.svg" alt="TK">
+<img src="{{ site.base }}/media/flatgfa/paths-mini-slow.svg" alt="A bar chart comparing the speed of odgi and slow-odgi extracting the path names from 3 GFA files.">
 </figure>
 
 Slow-odgi is just way, way slower.
@@ -121,7 +121,7 @@ Odgi is sort of cheating here because it works on an optimized binary representa
 For that and many other reasons, slow-odgi is more than 10&times; slower, even for these little GFAs.
 
 In exchange, it's also way shorter.
-Here's the code for the `paths` command that just extracts a list of the paths in a graph, [in odgi][odgi paths] and then [in slow-odgi][slow-odgi paths]:
+Here's the code for the `paths` command that just extracts a list of the paths in a graph, [in slow-odgi][slow-odgi paths] and then [in odgi][odgi paths]:
 
 <div class="figrow">
 <figure style="width: 55%">
