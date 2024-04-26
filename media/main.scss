@@ -596,6 +596,7 @@ figcaption {
 // Side-by-side inline figures.
 .figrow {
     display: flex;
+    justify-content: space-between;
     figure {
         float: none;
         margin: 0;
