@@ -593,6 +593,15 @@ figcaption {
     margin-bottom: 1em;
 }
 
+// Side-by-side inline figures.
+.figrow {
+    display: flex;
+    figure {
+        float: none;
+        margin: 0;
+    }
+}
+
 // KaTeX fonts. By default, it's too large.
 .katex {
     font-size: 1.05em !important;

@@ -89,7 +89,7 @@ While mygfa is the wrong tool for the job for practical pangenomics computations
 we hope it's useful for situations where clarity matters a lot and scale matters less:
 learning about the domain,
 exploratory design phases that come before high-performance implementations,
-and writing [reference implementations][slow-odgi] for "real" pangenomics software.
+and [reference implementations][slow-odgi] for "real" pangenomics software.
 
 [gfapy]: https://github.com/ggonnella/gfapy
 [gfagraphs]: https://github.com/Tharos-ux/gfagraphs
@@ -107,7 +107,7 @@ and writing [reference implementations][slow-odgi] for "real" pangenomics softwa
 ## [As Slow as Possible][aslsp]
 
 [Anshuman][] took this "slow and steady" approach a step farther and used mygfa to implement a slew of pangenomic analyses.
-We call it [slow-odgi][], because it's a worse version of [odgi][], an actually good pangenomic toolkit that our collaborators wrote in C++.
+We call the result [slow-odgi][], because it's a worse version of [odgi][], an actually good pangenomic toolkit that our collaborators wrote in C++.
 Our slow-odgi tool currently implements 12 of odgi's 44 commands.
 We have an elaborate [differential testing setup][test] that checks, for a bunch of real input GFA files, that odgi and slow-odgi output byte-for-byte identical results.
 
@@ -123,14 +123,17 @@ For that and many other reasons, slow-odgi is more than 10&times; slower, even f
 In exchange, it's also way shorter.
 Here's the code for the `paths` command that just extracts a list of the paths in a graph, [in odgi][odgi paths] and then [in slow-odgi][slow-odgi paths]:
 
-<figure style="max-width: 50%">
+<div class="figrow">
+<figure style="width: 55%">
 <img src="{{ site.base }}/media/flatgfa/code-slow-odgi.png" alt="A big, chunky code listing of slow-odgi's Python implementation of path extraction.">
-<caption>The entirety of <a href="https://github.com/cucapra/pollen/blob/main/slow_odgi/slow_odgi/paths.py"><code>paths.py</code> from slow-odgi</a>.</caption>
+<figcaption>The entirety of <a href="https://github.com/cucapra/pollen/blob/main/slow_odgi/slow_odgi/paths.py"><code>paths.py</code> from slow-odgi</a>.</figcaption>
 </figure>
-<figure style="max-width: 50%">
+
+<figure style="max-width: 43%">
 <img src="{{ site.base }}/media/flatgfa/code-odgi.png" alt="A ridiculously tiny grid of 9 pieces of odgi's C++ implementation of path extraction.">
-<caption>A bit less than half of <a href="https://github.com/pangenome/odgi/blob/master/src/subcommand/paths_main.cpp"><code>paths_main.cpp</code> from odgi</a>.</caption>
+<figcaption>Less than half of <a href="https://github.com/pangenome/odgi/blob/master/src/subcommand/paths_main.cpp">odgi&rsquo;s <code>paths_main.cpp</code></a>.</figcaption>
 </figure>
+</div>
 
 This is a completely unfair comparison because `odgi paths` has many more features and is actually optimized while `slow_odgi paths` does only one obvious thing.
 But a painfully obvious reference implementation is exactly what we needed to understand what a better implementation might look like.
