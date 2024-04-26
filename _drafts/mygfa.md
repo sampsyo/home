@@ -1,7 +1,7 @@
 ---
-title: "A Post About MyGFA"
+title: "Pangenomic Variation Graphs, and a Reference Data Model"
 ---
-Lately, we've been collaborating with some hip biologists who do something called [pangenomics][], which is like regular genomics but cooler. In regular genomics, you sequence each organism's genome by aligning it to a *reference genome* that somebody previously assembled [at great cost][denovo]. In a sense, the traditional view models all of us as variations of [a Platonic ideal of *Homo sapiens*][human-reference]. Pangenomicists instead try to directly model the variation among an entire population of different organisms. This all-to-all comparison, they tell us, is the key to understanding a population's diversity and revealing subtleties that are undetectable with the traditional approach.
+Lately, we've been collaborating with some hip biologists who do something called [pangenomics][], which is like regular genomics but cooler. In regular genomics, you sequence each organism's genome by aligning it to a *reference genome* that somebody previously assembled [at great cost][denovo]. In a sense, the traditional view models all of us as variations on [a Platonic ideal of *Homo sapiens*][human-reference]. Pangenomicists instead try to directly model the variation among an entire population of different organisms. This all-to-all comparison, they tell us, is the key to understanding a population's diversity and revealing subtleties that are undetectable with the traditional approach.
 
 A [pangenome variation graph][vg] is the data structure these folks work with.
 It models the genetic sequences that multiple individuals have in common and how they differ.
