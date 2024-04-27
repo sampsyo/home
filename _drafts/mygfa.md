@@ -1,7 +1,7 @@
 ---
 title: "Pangenomic Variation Graphs, and a Reference Data Model"
 ---
-Lately, we've been collaborating with some hip biologists who do something called [pangenomics][], which is like regular genomics but cooler. In regular genomics, you sequence each organism's genome by aligning it to a *reference genome* that somebody previously assembled [at great cost][denovo]. In a sense, the traditional view models all of us as variations on [a Platonic ideal of *Homo sapiens*][human-reference]. Pangenomicists instead try to directly model the variation among an entire population of different organisms. This all-to-all comparison, they tell us, is the key to understanding a population's diversity and revealing subtleties that are undetectable with the traditional approach.
+Lately, we've been collaborating with some hip biologists who do something called [pangenomics][], which is like regular genomics but cooler. In regular genomics, you sequence each organism's genome by aligning it to a *reference genome* that somebody previously assembled [at great cost][denovo]. In a sense, the traditional view models all of us as variations on [a Platonic ideal of *Homo sapiens*][human-reference]. Pangenomicists instead try to directly model the variation among an entire population. Instead of aligning reads from *N* individuals against one common reference, the goal is to mutually align each of the *N* against each other. This all-to-all comparison, they tell us, is the key to understanding a population's diversity and revealing subtleties that are undetectable with the traditional approach. But it also scales up the computational cost for every computational step in a genomic analysis pipeline---which aren't exactly cheap even in the traditional, reference-based mode.
 
 A [pangenome variation graph][vg] is the data structure these folks work with.
 It models the genetic sequences that multiple individuals have in common and how they differ.
@@ -36,7 +36,8 @@ L	2	+	3	+	0M
 L	3	+	4	-	0M
 ```
 
-Each line in the GFA file above declares some part of this variation graph.
+This GFA file is the variation graph I drew above.
+Each line declares some part of the graph.
 The `S` lines are *segments* (vertices);
 `P` is for *path* (which are those per-individual walks);
 `L` is for *link* (a directed edge where a path is allowed to traverse).
