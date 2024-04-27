@@ -64,7 +64,7 @@ All our segments' names here happen to be numbers, but the GFA text format doesn
 How would you represent the fundamental data model that GFA files encode?
 You can find [dozens][gfapy] [of][gfagraphs] [libraries][pygfa] [for][gfatools] [parsing][gfago] [and][gfakluge] [manipulating][rs-gfa] [GFAs][gfa_rust] on GitHub or wherever, but those are all trying to be *useful:*
 they're optimized to be fast, or specialized for a specific kind of analysis.
-To understand what's actually going on in GFA files, a genomically naive hacker like me needs something much dumber: the most straightforward possible in-memory data model that can parse and pretty-print GFA text.
+To understand what's actually going on in GFA files, a genomically naive hacker like me needs something much less sophisticated: the most straightforward possible in-memory data model that can parse and pretty-print GFA text.
 
 [Anshuman Mohan][anshuman] and I made a tiny Python library, [mygfa][], that tries to play this explanatory role.
 Here are pretty much all the [important data structures][mygfa-docs]:
