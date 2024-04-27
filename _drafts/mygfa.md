@@ -68,7 +68,7 @@ To understand what's actually going on in GFA files, a genomically naive hacker 
 [Anshuman Mohan][anshuman] and I made a tiny Python library, [mygfa][], that tries to play this explanatory role.
 Here are pretty much all the [important data structures][mygfa-docs]:
 
-<img src="{{site.base}}/media/flatgfa/mygfa.svg" class="img-responsive">
+<img src="{{site.base}}/media/flatgfa/mygfa.svg" class="img-responsive lightbg">
 
 A `Graph` object holds Python lists and dictionaries to contain all the segments, paths, and links in a GFA file.
 Maybe the only semi-interesting class here is `Handle`, which is nothing more than a pair of a segment---referenced by name---and an orientation (`+` or `-` in the GFA syntax).
