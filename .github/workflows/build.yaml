@@ -6,9 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: _source/highlightjs node_modules/katex
           key: deps-${{ hashFiles('Makefile') }}
@@ -17,7 +17,7 @@ jobs:
       - name: Jekyll build
         uses: jerryjvl/jekyll-build-action@v1
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: site
           path: _site
@@ -32,7 +32,7 @@ jobs:
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: site
           path: _site
