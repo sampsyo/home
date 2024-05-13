@@ -617,6 +617,13 @@ phdcommittees:
 
 talks:
     -
+        title: "Approximating Computer Architecture"
+        where: 'Keynote, Young Architect Workshop (YArch) 2024'
+        link: "https://www.cs.cmu.edu/~yarch2024/"
+        date: 2024-04-28
+        extra:
+          - '[Slides.](https://www.cs.cornell.edu/~asampson/media/yarch2024.pdf)'
+    -
         title: "The Next 700 Accelerator Design Languages"
         where: "UIUC Compiler Seminar"
         link: "https://compilerseminar.web.illinois.edu"
