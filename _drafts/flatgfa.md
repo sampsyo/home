@@ -56,8 +56,47 @@ It looks like this:
 This data structure seems pretty pointery.
 [Last time][], I showed off a straightforward [Python library][mygfa] we made that embraces that pointeriness.
 It's slow but clear.
+
 This post is about implementing an efficient representation.
+Other efficient data representations exist---prominently, [odgi][], which is by some collaborators.
+But they get performance by combining many different representation tricks.
+I want to understand the basics here by using a single principle and see how far it gets us.
 
 ## Flattening the Data Structures
 
-Other efficient representations for GFA-like data exist.
+The central principle we'll use is [flattening][], a.k.a. arena allocation, a.k.a. just cramming everything into arrays and using indices instead of pointers.
+In the fake Rust declarations above, I used `Ref` and `List` to suggest ordinary pointer-based references to one and many elements.
+In the flattened version, we'll replace all of those those with plain `u32`s:
+
+<img src="{{site.base}}/media/flatgfa/indexy.svg" class="img-responsive">
+
+Now the central `Graph` class has three `Vec` arenas that own all the segments, paths, and the steps within the paths.
+Instead of a direct reference to a `Segment`, the `Handle` struct has a `u32` index into the segment arena.
+And each `Path` refers to a contiguous range in the step arena with start/end indices.
+In [the real thing][flatgfa-rs], even `Path::name` and `Segment::sequence` get the same treatment:
+there are two *giant* strings in the `Graph` struct that act as arenas;
+every `Path` and `Segment` just has a `(u32, u32)` pair to refer to its name or sequence as a chunk within a given string.
+
+The result is that, outside of the arenas, all the types involved are fixed-size, smallish, and "plain old data" without pointers to anyone else.
+It might be helpful to visualize the memory layout:
+
+<img src="{{site.base}}/media/flatgfa/memory.svg" class="img-responsive">
+
+TK anything to explain in that figure? I guess a takeaway is that there are no pointers anywhere.
+
+TK invert SVGs for dark mode?
+
+## It's Pretty Fast
+
+TK explain why this makes things fast.
+fast allocation, better locality, smaller indices (so lower memory traffic).
+
+TK not really a fair comparison, but compare parsing time for slow-odgi and flatgfa?
+
+## A File Format for Free
+
+TK show off zerocopy.
+
+## Something About Mmap Cutting Out Serialization
+
+TK flamegraph for odgi. perf comparison for simple ops.
