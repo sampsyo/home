@@ -562,6 +562,7 @@ pre code {
     height: auto;
 }
 .img-responsive {
+    margin: 0 auto;
     @include img-responsive;
 }
 
