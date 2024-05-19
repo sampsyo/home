@@ -51,30 +51,39 @@ In the flattened version, we'll replace all of those those with plain `u32`s:
 <img src="{{site.base}}/media/flatgfa/indexy.svg"
     class="img-responsive bonw">
 
-Now the central `Graph` class has three `Vec` arenas that own all the segments, paths, and the steps within the paths.
+Now the central `Graph` struct has three `Vec` arenas that own all the segments, paths, and the steps within the paths.
 Instead of a direct reference to a `Segment`, the `Handle` struct has a `u32` index into the segment arena.
 And each `Path` refers to a contiguous range in the step arena with start/end indices.
 In [the real thing][flatgfa-rs], even `Path::name` and `Segment::sequence` get the same treatment:
 there are two *giant* strings in the `Graph` struct that act as arenas;
 every `Path` and `Segment` just has a `(u32, u32)` pair to refer to its name or sequence as a chunk within a given string.
 
-The result is that, outside of the arenas, all the types involved are fixed-size, smallish, and "plain old data" without pointers to anyone else.
+The result is that, outside of the arenas, all the types involved are fixed-size, smallish, pointer-free structs.
 It might be helpful to visualize the memory layout:
 
 <img src="{{site.base}}/media/flatgfa/memory.svg"
     class="img-responsive bonw">
 
-TK anything to explain in that figure? I guess a takeaway is that there are no pointers anywhere.
+The `Path::steps` field refers to a slice of the `path_steps` array, and the `Handle::segment` field in there refers to a position in the `segments` array.
+There are no real, word-sized pointers anywhere.
+Again, while I put the path names and the nucleotide sequences inline to make this picture simpler, [the actual implementation][flatgfa-rs] stores those in yet more arenas.
+My current implementation uses 12 arenas to implement the complete GFA data model.
 
 [flattening]: {{site.base}}/blog/flattening.html
 [flatgfa-rs]: https://github.com/cucapra/pollen/blob/main/flatgfa/src/flatgfa.rs
 
 ## It's Pretty Fast
 
-TK explain why this makes things fast.
-fast allocation, better locality, smaller indices (so lower memory traffic).
+What have we really gained by replacing all our pointers with integers?
+Even though we haven't fundamentally changed the data structure, there are a few reasons why a flat representation for GFAs should be more efficient:
 
-TK not really a fair comparison, but compare parsing time for slow-odgi and flatgfa?
+* Faster allocation. By sacrificing the ability to deallocate elements at a fine granularity, we can use simple bump allocation instead of a proper `malloc` when building the data structure.
+* Locality. We're forcing logically contiguous elements, such as each path's steps, to be contiguous in memory. That's probably good for spatial locality.
+* Smaller pointers. Replacing `&Segment` with `u32` comes with a 2&times; space savings on 64-bit machines. In a data structure with so many internal references, that probably counts for something.
+
+TK it's a brutally unfair comparison, but compare parsing time for slow-odgi and flatgfa?
+
+TK it would be nice to try teasing apart those 3 elements by disabling the optimizations to understand them... for another time!
 
 ## A File Format for Free
 
