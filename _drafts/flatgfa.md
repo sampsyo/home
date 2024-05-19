@@ -7,7 +7,8 @@ TK preview early on that we will simultaneously be doing an in-memory representa
 
 Let's return to that pangenome data structure [from last time][mygfa-post]. Here's a simplified part of the data model, in fake Rust:
 
-<img src="{{site.base}}/media/flatgfa/pointery.svg" class="img-responsive">
+<img src="{{site.base}}/media/flatgfa/pointery.svg"
+    class="img-responsive bonw">
 
 A `Graph` owns sequences of `Segment`s and `Path`s, and the latter contains a sequence of *steps*.
 Each step is a `Handle` that encapsulates a traversal of a `Segment` in either the forward to the backward direction.
@@ -23,7 +24,8 @@ That `P` line is a path with three steps:
 it traverses segment 1 and 2 in the forward (`+`) direction and then segment 4 in the backward (`-`) direction.
 It looks like this:
 
-<img src="{{site.base}}/media/flatgfa/xpath.svg" class="img-responsive">
+<img src="{{site.base}}/media/flatgfa/xpath.svg"
+    class="img-responsive bonw">
 
 This data structure seems pretty pointery.
 [Last time][mygfa-post], I showed off a straightforward [Python library][mygfa] we made that embraces that pointeriness.
@@ -46,7 +48,8 @@ The central principle we'll use is [flattening][], a.k.a. arena allocation, a.k.
 In the fake Rust declarations above, I used `Ref` and `List` to suggest ordinary pointer-based references to one and many elements.
 In the flattened version, we'll replace all of those those with plain `u32`s:
 
-<img src="{{site.base}}/media/flatgfa/indexy.svg" class="img-responsive">
+<img src="{{site.base}}/media/flatgfa/indexy.svg"
+    class="img-responsive bonw">
 
 Now the central `Graph` class has three `Vec` arenas that own all the segments, paths, and the steps within the paths.
 Instead of a direct reference to a `Segment`, the `Handle` struct has a `u32` index into the segment arena.
@@ -58,11 +61,10 @@ every `Path` and `Segment` just has a `(u32, u32)` pair to refer to its name or 
 The result is that, outside of the arenas, all the types involved are fixed-size, smallish, and "plain old data" without pointers to anyone else.
 It might be helpful to visualize the memory layout:
 
-<img src="{{site.base}}/media/flatgfa/memory.svg" class="img-responsive">
+<img src="{{site.base}}/media/flatgfa/memory.svg"
+    class="img-responsive bonw">
 
 TK anything to explain in that figure? I guess a takeaway is that there are no pointers anywhere.
-
-TK invert SVGs for dark mode?
 
 [flattening]: {{site.base}}/blog/flattening.html
 [flatgfa-rs]: https://github.com/cucapra/pollen/blob/main/flatgfa/src/flatgfa.rs

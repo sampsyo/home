@@ -392,8 +392,13 @@ img.illus {
 }
 
 @media (prefers-color-scheme: dark) {
+    // Force light background on transparent images.
     img.lightbg {
         background-color: white;
+    }
+    // For black-on-white images, invert in dark mode.
+    img.bonw {
+      filter: invert(1);
     }
 }
 
