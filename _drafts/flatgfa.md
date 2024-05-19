@@ -26,13 +26,19 @@ It looks like this:
 <img src="{{site.base}}/media/flatgfa/xpath.svg" class="img-responsive">
 
 This data structure seems pretty pointery.
-[Last time][], I showed off a straightforward [Python library][mygfa] we made that embraces that pointeriness.
+[Last time][mygfa-post], I showed off a straightforward [Python library][mygfa] we made that embraces that pointeriness.
 It's slow but clear.
 
 This post is about implementing an efficient representation.
 Other efficient data representations exist---prominently, [odgi][], which is by some collaborators.
 But they get performance by combining many different representation tricks.
 I want to understand the basics here by using a single principle and see how far it gets us.
+
+[gfa]: https://github.com/GFA-spec/GFA-spec
+[mygfa-post]: {{site.base}}/blog/mygfa.html
+[mygfa]: https://cucapra.github.io/pollen/mygfa/
+[slow-odgi]: https://github.com/cucapra/pollen/tree/main/slow_odgi
+[odgi]: https://odgi.readthedocs.io/en/latest/
 
 ## Flattening the Data Structures
 
@@ -58,6 +64,9 @@ TK anything to explain in that figure? I guess a takeaway is that there are no p
 
 TK invert SVGs for dark mode?
 
+[flattening]: {{site.base}}/blog/flattening.html
+[flatgfa-rs]: https://github.com/cucapra/pollen/blob/main/flatgfa/src/flatgfa.rs
+
 ## It's Pretty Fast
 
 TK explain why this makes things fast.
@@ -76,6 +85,9 @@ TK flamegraph for odgi. perf comparison for simple ops.
 ## TK Someday, Acceleration
 
 In the long term, we want to build hardware to accelerate the analysis of [pangenomes][].
-In the shorter term, I wanted to understand the fundamental performance bottlenecks in processing [GFA files][], independent of hardware or software implementation.
+In the shorter term, I wanted to understand the fundamental performance bottlenecks in processing [GFA files][gfa], independent of hardware or software implementation.
 For either, it seems clear that an efficient data representation is the table stakes for any kind of fast processing.
 The exact requirements for fast software and fast hardware might be different, so it seems critical to understand the space of different techniques for efficiently representing GFAs.
+
+[pangenomes]: https://en.wikipedia.org/wiki/Pan-genome
+[gfa]: https://github.com/GFA-spec/GFA-spec
