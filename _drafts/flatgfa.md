@@ -72,7 +72,7 @@ My current implementation uses 12 arenas to implement the complete GFA data mode
 [flattening]: {{site.base}}/blog/flattening.html
 [flatgfa-rs]: https://github.com/cucapra/pollen/blob/main/flatgfa/src/flatgfa.rs
 
-## It's Pretty Fast
+## It's Pretty Fast, I Guess
 
 What have we really gained by replacing all our pointers with integers?
 Even though we haven't fundamentally changed the data structure, there are a few reasons why a flat representation for GFAs should be more efficient:
@@ -81,9 +81,36 @@ Even though we haven't fundamentally changed the data structure, there are a few
 * Locality. We're forcing logically contiguous elements, such as each path's steps, to be contiguous in memory. That's probably good for spatial locality.
 * Smaller pointers. Replacing `&Segment` with `u32` comes with a 2&times; space savings on 64-bit machines. In a data structure with so many internal references, that probably counts for something.
 
-TK it's a brutally unfair comparison, but compare parsing time for slow-odgi and flatgfa?
+Here's a brutally unfair way to measure the bottom-line performance impact of these effects.
+We can compare our new, flattened implementation---called [FlatGFA][] and implemented in Rust---against our simple-as-possible [Python library][mygfa] [from last time][mygfa-post].
+For more context, we can also compare against [odgi][], a C++ toolkit for GFA processing that *also* uses an efficient, index-based representation internally.
+
+For this experiment, we'll just compare the time to *round-trip* a GFA file through the internal representation:
+we'll make each tool parse and then immediately pretty-print the GFA to `/dev/null`.[^norm]
+I measured the round-trip performance on three tiny graphs and three medium-sized ones from the [Human Pangenome Reference TK][hprc] and [TK][].[^sys]
+
+[^norm]: FlatGFA is the only one of the three tools that actually preserves GFA files, byte for byte, when round-tripping them. Both odgi and mygfa (quite sensibly) normalize the ordering of elements in the graph. I made FlatGFA preserve the contents exactly to make it easier to test.
+[^sys]: All wall-clock times collected on our lab server, which has 2× Xeon Gold 6230 processors (20 cores per socket @ 2.1 GHz) and 512 GB RAM. It runs Ubuntu 22.04. Error bars show standard deviations over at least 3 (and usually more like 10) runs, measured with [Hyperfine][].
+
+<div class="figrow">
+<figure style="width: 55%">
+<img src="{{site.base}}/media/flatgfa/roundtrip-mini.svg" class="bonw"
+    alt="TK">
+<figcaption>Time to round-trip (parse and pretty-print) some tiny GFA files (288&nbsp;kB, 1.0&nbsp;MB, and 1.5&nbsp;MB).</figcaption>
+</figure>
+<figure style="max-width: 40%">
+<img src="{{site.base}}/media/flatgfa/roundtrip-med.svg" class="bonw"
+    alt="TK">
+<figcaption>The same for some bigger GFAs (7.2&nbsp;GB, 2.3&nbsp;GB, and 2.7&nbsp;GB).</figcaption>
+</figure>
+</div>
+
+TK the point here is not really being faster than odgi (although it is, by a harmonic mean of 11.3&times;)... it is just useful to know that a *single organizing principle* can yield something *competitive*.
+It is a nice bonus to know that we have built what may be the world's fastest GFA parser; that's just a cool bonus.
 
 TK it would be nice to try teasing apart those 3 elements by disabling the optimizations to understand them... for another time!
+
+[hyperfine]: https://github.com/sharkdp/hyperfine
 
 ## A File Format for Free
 
