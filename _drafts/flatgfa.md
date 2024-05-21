@@ -87,30 +87,45 @@ For more context, we can also compare against [odgi][], a C++ toolkit for GFA pr
 
 For this experiment, we'll just compare the time to *round-trip* a GFA file through the internal representation:
 we'll make each tool parse and then immediately pretty-print the GFA to `/dev/null`.[^norm]
-I measured the round-trip performance on three tiny graphs and three medium-sized ones from the [Human Pangenome Reference TK][hprc] and [TK][].[^sys]
+I measured the round-trip performance on three tiny graphs and three medium-sized ones from the [Human Pangenome Reference TK][hprc] and [TK][1000gont].[^sys]
 
 [^norm]: FlatGFA is the only one of the three tools that actually preserves GFA files, byte for byte, when round-tripping them. Both odgi and mygfa (quite sensibly) normalize the ordering of elements in the graph. I made FlatGFA preserve the contents exactly to make it easier to test.
-[^sys]: All wall-clock times collected on our lab server, which has 2× Xeon Gold 6230 processors (20 cores per socket @ 2.1 GHz) and 512 GB RAM. It runs Ubuntu 22.04. Error bars show standard deviations over at least 3 (and usually more like 10) runs, measured with [Hyperfine][].
+[^sys]: All wall-clock times collected on our lab server, which has two Xeon Gold 6230 processors (20 cores per socket @ 2.1 GHz) and 512 GB RAM. It runs Ubuntu 22.04. Error bars show standard deviations over at least 3 (and usually more like 10) runs, measured with [Hyperfine][].
 
 <div class="figrow">
 <figure style="width: 55%">
 <img src="{{site.base}}/media/flatgfa/roundtrip-mini.svg" class="bonw"
     alt="TK">
-<figcaption>Time to round-trip (parse and pretty-print) some tiny GFA files (288&nbsp;kB, 1.0&nbsp;MB, and 1.5&nbsp;MB).</figcaption>
+<figcaption>Time to round-trip (parse and pretty-print) some tiny GFA files (288&nbsp;kB, 1.0&nbsp;MB, and 1.5&nbsp;MB, from left to right). Our pure-Python <a href="TK">slow_odgi</a> library is about 2&times; slower than odgi.</figcaption>
 </figure>
 <figure style="max-width: 40%">
 <img src="{{site.base}}/media/flatgfa/roundtrip-med.svg" class="bonw"
     alt="TK">
-<figcaption>The same for some bigger GFAs (7.2&nbsp;GB, 2.3&nbsp;GB, and 2.7&nbsp;GB).</figcaption>
+<figcaption>Round-tripping some bigger GFAs (7.2&nbsp;GB, 2.3&nbsp;GB, and 2.7&nbsp;GB). The pure-Python library is not a contender. FlatGFA is 11.3&times; faster than odgi on average (harmonic mean).</figcaption>
 </figure>
 </div>
 
-TK the point here is not really being faster than odgi (although it is, by a harmonic mean of 11.3&times;)... it is just useful to know that a *single organizing principle* can yield something *competitive*.
-It is a nice bonus to know that we have built what may be the world's fastest GFA parser; that's just a cool bonus.
+FlatGFA can round-trip small GFA files about 14&times; faster than [slow-odgi][].
+That speedup conflates the three fundamental advantages above with mundane implementation differences (FlatGFA is in Rust; slow-odgi is in Python).
+I would love to do more measurement work here to disentangle these effects:
+for example, we could check how much the pointer size matters by seeing how much slower FlatGFA gets if we use `u64`s everywhere instead of `u32`s.
 
-TK it would be nice to try teasing apart those 3 elements by disabling the optimizations to understand them... for another time!
+FlatGFA is also 11.3&times; faster than [odgi][] on average.[^fastest]
+It can process the largest graph (7.2&nbsp;GB of uncompressed GFA text) in 67 seconds, versus 14 minutes for odgi.
+I don't really know why, because odgi also (sensibly) uses a mostly flattened representation.
+My best guess is that odgi's implementers focused their efforts on actually novel, actually smart data structure ideas with asymptotic benefits (e.g., they use a special index to quickly locate steps within a path) and not on boring data-representation engineering that only brings constant factors.
+FlatGFA only does boring, but it goes all the way: it exterminates *all* the pointers.
+And the constant-factor payoff from this basic flattening transformation can be surprisingly large.
+
+[^fastest]: I think this means FlatGFA currently has the fastest GFA parser in the universe. This is not all that impressive; it's an extremely easy-to-parse grammar. Even so, I would love to be proven wrong.
+
+Possible lessons here include:
+
+* "Merely" flattening an otherwise naïve data structure can turn it into a competitive one.
+* So it can be helpful to get that in place even before seeking asymptotic gains through indexing and the like.
 
 [hyperfine]: https://github.com/sharkdp/hyperfine
+[flatgfa]: https://github.com/cucapra/pollen/tree/main/flatgfa
 
 ## A File Format for Free
 
