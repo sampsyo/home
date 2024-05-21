@@ -129,6 +129,21 @@ Possible lessons here include:
 
 ## A File Format for Free
 
+Because it has no pointers in it, a ruthlessly flattened in-memory representation has one bonus feature:
+it does double duty as a file format.
+If we take all those densely packed arrays-of-structs that make up a FlatGFA, concatenate them together, and add a little header to record the sizes, we have a blob of bytes that we might as well write to disk.
+
+Turning FlatGFA into a file format took two steps:
+applying the amazing [zerocopy][] crate,
+and separating the data store from the interface to the data.
+
+First, zerocopy is an immensely valuable crate that can certify that it's safe to cast between Rust types and raw bytes.
+It contains a bunch of macros, but these macros don't actually generate code for you: they just check that your types obey a bunch of rules.
+The zerocopy authors have done the hard work (i.e., thinking carefully and using Miri) to be pretty confident that all types that obey their rules can be safely transmuted to and from `[u8]` chunks.
+These rules include alignment restrictions and the necessity that every bit-pattern is a valid value.
+The latter makes `enum`s tricky because it requires every enum to have TK 2^n variants where *n* is the number of bits in its representation.
+But once you've cleared all those hurdles, your types gain TK `from_bytes` and `to_bytes` methods.
+
 TK show off zerocopy.
 
 ## TK Something About Mmap Cutting Out Serialization
