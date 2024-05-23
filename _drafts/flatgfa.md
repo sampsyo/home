@@ -142,9 +142,32 @@ It contains a bunch of macros, but these macros don't actually generate code for
 The zerocopy authors have done the hard work (i.e., thinking carefully and using Miri) to be pretty confident that all types that obey their rules can be safely transmuted to and from `[u8]` chunks.
 These rules include alignment restrictions and the necessity that every bit-pattern is a valid value.
 The latter makes `enum`s tricky because it requires every enum to have TK 2^n variants where *n* is the number of bits in its representation.
-But once you've cleared all those hurdles, your types gain TK `from_bytes` and `to_bytes` methods.
+But once you've cleared all those hurdles, your types gain TK-links `from_bytes` and `to_bytes` methods.
 
-TK show off zerocopy.
+Now that all our structs are equipped with the zerocopy superpower, we need a way to make *the entire data structure* map to bytes.
+One nice way to do it is to separate our actual data storage location from a lightweight view of all the same data.
+The idea is to start with that top-level struct that contains nothing but the `Vec`s of littler structs:
+
+<img src="{{site.base}}/media/flatgfa/store1.svg"
+    class="img-responsive bonw">
+
+And to separate it into two structs, one *store* object that keeps all those `Vec`s and one *view* object that has all the same fields but with slices instead of vectors:
+
+<img src="{{site.base}}/media/flatgfa/store2.svg"
+    class="img-responsive bonw">
+
+Our `ThingStore` struct will never get the zerocopy superpower---`Vec`s are inherently pointerful---but `ThingView` is perfectly suited.
+We can construct one by calling `from_bytes` on different chunks within a big byte buffer:
+
+<img src="{{site.base}}/media/flatgfa/store3.svg"
+    class="img-responsive bonw">
+
+We'll also need a small [table of contents][toc] at the top of the file to tell us where those chunks are.
+But once we've managed that, `ThingView` serves as an abstraction layer over the two storage styles.
+The `Vec`-based store provides heap-allocated, arbitrarily resizable allocation pools;
+the `&[u8]` option constrains the sizes of the arenas but maps easily to the filesystem.[^slicevec]
+
+[^slicevec]: In [the real implementation][flatgfa], I also added a second storage style based on `tinyvec::SliceVec` instead of plain old `Vec`. This approach splits the difference between slices and vectors: each arena has a fixed maximum capacity, but its length can be less than that. So the `SliceVec`s, even when they map to a fixed-size `&[u8]` of file contents, can still shrink and grow within limits.
 
 ## TK Something About Mmap Cutting Out Serialization
 
