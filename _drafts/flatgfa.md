@@ -169,7 +169,35 @@ the `&[u8]` option constrains the sizes of the arenas but maps easily to the fil
 
 [^slicevec]: In [the real implementation][flatgfa], I also added a second storage style based on `tinyvec::SliceVec` instead of plain old `Vec`. This approach splits the difference between slices and vectors: each arena has a fixed maximum capacity, but its length can be less than that. So the `SliceVec`s, even when they map to a fixed-size `&[u8]` of file contents, can still shrink and grow within limits.
 
-## TK Something About Mmap Cutting Out Serialization
+## 0 Copy = ∞ Speedup
+
+Using the same type for the in-memory and on-disk representations is not just convenient;
+it also makes deserialization *infinity times faster*.[^capnproto]
+To "open" a file, all we need to do is to [mmap(2)][mmap] it.
+There is no deserialization step; we don't even have to read the whole file if we don't need it.
+
+This latter aspect can lead to some pretty funny speedups for FlatGFA compared to odgi, which has its own efficient binary GFA-equivalent file format but which uses traditional serialization.
+Here's a performance comparison between [the `odgi paths -L` command][odgi paths], which just prints out all the names of the paths in the graph, and the FlatGFA and slow-odgi equivalents:
+
+<div class="figrow">
+<figure style="width: 55%">
+<img src="{{site.base}}/media/flatgfa/paths-mini.svg" class="bonw"
+    alt="TK">
+<figcaption>Time to print the path names from the same graphs as above. The <a href="TK">slow-odgi</a> reference implementation is a hilarious 19&times; slower than odgi on average.</figcaption>
+</figure>
+<figure style="max-width: 40%">
+<img src="{{site.base}}/media/flatgfa/paths-med.svg" class="bonw"
+    alt="TK">
+<figcaption>Printing paths names from the same larger graphs. FlatGFA is 1,331&times; faster than odgi, which is not infinity, but it's pretty good.</figcaption>
+</figure>
+</div>
+
+On the largest (7.2&nbsp;GB) graph, FlatGFA takes 5.8&nbsp;ms to odgi's 12&nbsp;seconds.
+
+[^capnproto]: This hyperbolic framing is stolen from [Cap'n Proto][capnproto], which honestly blew my mind the first time I understood what it was doing.
+
+[capnproto]: https://capnproto.org
+[mmap]: https://linux.die.net/man/2/mmap
 
 TK flamegraph for odgi. perf comparison for simple ops.
 
