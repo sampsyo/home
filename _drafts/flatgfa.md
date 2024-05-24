@@ -96,7 +96,7 @@ I measured the round-trip performance on three tiny graphs and three medium-size
 <figure style="width: 55%">
 <img src="{{site.base}}/media/flatgfa/roundtrip-mini.svg" class="bonw"
     alt="TK">
-<figcaption>Time to round-trip (parse and pretty-print) some tiny GFA files (288&nbsp;kB, 1.0&nbsp;MB, and 1.5&nbsp;MB, from left to right). Our pure-Python <a href="TK">slow_odgi</a> library is about 2&times; slower than odgi.</figcaption>
+<figcaption>Time to round-trip (parse and pretty-print) some tiny GFA files (288&nbsp;kB, 1.0&nbsp;MB, and 1.5&nbsp;MB, from left to right). Our pure-Python <a href="https://github.com/cucapra/pollen/tree/main/slow_odgi">slow-odgi</a> library is about 2&times; slower than odgi.</figcaption>
 </figure>
 <figure style="max-width: 40%">
 <img src="{{site.base}}/media/flatgfa/roundtrip-med.svg" class="bonw"
