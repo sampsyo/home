@@ -204,14 +204,13 @@ So this is an extreme edge case where FlatGFA's deserialization- and allocation-
 [capnproto]: https://capnproto.org
 [mmap]: https://linux.die.net/man/2/mmap
 
-TK flamegraph for odgi. perf comparison for simple ops.
+## Someday, Acceleration
 
-## TK Someday, Acceleration
-
-In the long term, we want to build hardware to accelerate the analysis of [pangenomes][].
-In the shorter term, I wanted to understand the fundamental performance bottlenecks in processing [GFA files][gfa], independent of hardware or software implementation.
-For either, it seems clear that an efficient data representation is the table stakes for any kind of fast processing.
-The exact requirements for fast software and fast hardware might be different, so it seems critical to understand the space of different techniques for efficiently representing GFAs.
+We originally fell into this rabbit hole because we want to build hardware accelerators for this stuff.
+Surprising absolutely no one, data representation turns out to be the key to an efficient implementation, regardless of whether it's in hardware or software.
+Outside of flattening and memory-mapping, FlatGFA is totally unoptimized---so we're now fully distracted by understanding the space of possible efficient representations and their implications for hardware design.
+We'll get back to implementing that hardware someday.
+I promise.
 
 [pangenomes]: https://en.wikipedia.org/wiki/Pan-genome
 [gfa]: https://github.com/GFA-spec/GFA-spec
