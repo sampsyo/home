@@ -1,7 +1,9 @@
 ---
 title: "A Blog Post Actually About FlatGFA"
 ---
-TK preview early on that we will simultaneously be doing an in-memory representation and an on-disk file format? that's sort of the big takeaway.
+We built an efficient binary representation for [pangenomic variation graphs][mygfa-post] that is 1-1 equivalent to the standard [GFA text format][gfa].
+Our approach isn't at all novel, but it illustrates a fun way that you can start with a naïve representation and transform it into a fast in-memory representation while also getting an on-disk file format for free.
+In a shamelessly cherry-picked scenario, our tool is 1,331&times; faster than [an existing, optimized toolkit][odgi] that already uses an efficient binary representation.
 
 ## Pangenome Recap
 
