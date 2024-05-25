@@ -2,6 +2,11 @@
 title: "One Weird Trick for Efficient Pangenomic Variation Graphs (and File Formats for Free)"
 excerpt: |
     [Last time][mygfa-post], I introduced [pangenomic variation graphs][pangenomes], the standard [text file format][gfa] that biologists use for them, and a [hopelessly naïve reference data model][mygfa] we implemented for them. This time, we use a single principle---flattening--to build an efficient representation that is not only way faster than the naïve library but also competitive with an [exisitng, optimized toolkit][odgi]. Flattening also yields a memory-mapped file format "for free" that, in a shamelessly cherry-picked scenario, is more than a thousand times faster than the serialization-based alternative.
+
+    [gfa]: https://github.com/GFA-spec/GFA-spec
+    [mygfa-post]: {{site.base}}/blog/mygfa.html
+    [mygfa]: https://cucapra.github.io/pollen/mygfa/
+    [odgi]: https://odgi.readthedocs.io/en/latest/
 ---
 We built an efficient binary representation for [pangenomic variation graphs][mygfa-post] that is equivalent to the standard [GFA text format][gfa].
 Our approach isn't at all novel, but it illustrates a fun way that you can start with a naïve representation and transform it into a fast in-memory representation while also getting an on-disk file format for free.
