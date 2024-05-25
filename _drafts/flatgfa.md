@@ -10,7 +10,7 @@ excerpt: |
 ---
 We built an efficient binary representation for [pangenomic variation graphs][mygfa-post] that is equivalent to the standard [GFA text format][gfa].
 Our approach isn't at all novel, but it illustrates a fun way that you can start with a naïve representation and transform it into a fast in-memory representation while also getting an on-disk file format for free.
-In a shamelessly cherry-picked scenario, our tool is 1,331&times; faster than [an existing, optimized toolkit][odgi] that already uses an efficient binary representation.
+In a shamelessly cherry-picked scenario, our tool is 1,331&times; faster than [an existing, optimized pangenomics toolkit][odgi] that already uses an efficient binary representation.
 
 ## Pangenome Recap
 
@@ -64,7 +64,7 @@ Now the central `Graph` struct has three `Vec` arenas that own all the segments,
 Instead of a direct reference to a `Segment`, the `Handle` struct has a `u32` index into the segment arena.
 And each `Path` refers to a contiguous range in the step arena with start/end indices.
 In [the real thing][flatgfa-rs], even `Path::name` and `Segment::sequence` get the same treatment:
-there are two *giant* strings in the `Graph` struct that act as arenas;
+there are two *giant* byte strings in the `Graph` struct that act as arenas;
 every `Path` and `Segment` just has a `(u32, u32)` pair to refer to its name or sequence as a chunk within a given string.
 
 The result is that, outside of the arenas, all the types involved are fixed-size, smallish, pointer-free structs.
@@ -74,7 +74,7 @@ It might be helpful to visualize the memory layout:
     class="img-responsive bonw">
 
 The `Path::steps` field refers to a slice of the `path_steps` array, and the `Handle::segment` field in there refers to a position in the `segments` array.
-There are no real, word-sized pointers anywhere.
+There are no actual, word-sized pointers to the virtual address space anywhere.
 Again, while I put the path names and the nucleotide sequences inline to make this picture simpler, [the actual implementation][flatgfa-rs] stores those in yet more arenas.
 My current implementation uses 12 arenas to implement the complete GFA data model.
 
@@ -96,7 +96,7 @@ For more context, we can also compare against [odgi][], a C++ toolkit for GFA pr
 
 For this experiment, we'll just compare the time to *round-trip* a GFA file through the internal representation:
 we'll make each tool parse and then immediately pretty-print the GFA to `/dev/null`.[^norm]
-I measured the round-trip performance on three tiny graphs and three medium-sized ones from the [Human Pangenome Reference TK][hprc] and [TK][1000gont].[^sys]
+I measured the round-trip performance on three tiny graphs and three medium-sized ones from the [Human Pangenome Reference Consortium][hprc] and the [1000 Genomes Project][1000gont].[^sys]
 
 [^norm]: FlatGFA is the only one of the three tools that actually preserves GFA files, byte for byte, when round-tripping them. Both odgi and mygfa (quite sensibly) normalize the ordering of elements in the graph. I made FlatGFA preserve the contents exactly to make it easier to test.
 [^sys]: All wall-clock times collected on our lab server, which has two Xeon Gold 6230 processors (20 cores per socket @ 2.1 GHz) and 512 GB RAM. It runs Ubuntu 22.04. Error bars show standard deviations over at least 3 (and usually more like 10) runs, measured with [Hyperfine][].
@@ -117,7 +117,7 @@ I measured the round-trip performance on three tiny graphs and three medium-size
 FlatGFA can round-trip small GFA files about 14&times; faster than [slow-odgi][].
 That speedup conflates the three fundamental advantages above with mundane implementation differences (FlatGFA is in Rust; slow-odgi is in Python).
 I would love to do more measurement work here to disentangle these effects:
-for example, we could check how much the pointer size matters by seeing how much slower FlatGFA gets if we use `u64`s everywhere instead of `u32`s.
+for example, we could check how much the pointer size matters by using `u64`s everywhere instead of `u32`s.
 
 FlatGFA is also 11.3&times; faster than [odgi][] on average.[^fastest]
 It can process the largest graph (7.2&nbsp;GB of uncompressed GFA text) in 67 seconds, versus 14 minutes for odgi.
@@ -135,37 +135,47 @@ Possible lessons here include:
 
 [hyperfine]: https://github.com/sharkdp/hyperfine
 [flatgfa]: https://github.com/cucapra/pollen/tree/main/flatgfa
+[hprc]: https://humanpangenome.org
+[1000gont]: https://github.com/AndreaGuarracino/1000G-ONT-F100-PGGB
 
 ## A File Format for Free
 
 Because it has no pointers in it, a ruthlessly flattened in-memory representation has one bonus feature:
 it does double duty as a file format.
-If we take all those densely packed arrays-of-structs that make up a FlatGFA, concatenate them together, and add a little header to record the sizes, we have a blob of bytes that we might as well write to disk.
+If we take all those densely packed arrays-of-structs that make up a FlatGFA, concatenate them together, and add a little header to contain the sizes, we have a blob of bytes that we might as well write to disk.
 
 Turning FlatGFA into a file format took two steps:
 applying the amazing [zerocopy][] crate,
 and separating the data store from the interface to the data.
 
-First, zerocopy is an immensely valuable crate that can certify that it's safe to cast between Rust types and raw bytes.
-It contains a bunch of macros, but these macros don't actually generate code for you: they just check that your types obey a bunch of rules.
-The zerocopy authors have done the hard work (i.e., thinking carefully and using Miri) to be pretty confident that all types that obey their rules can be safely transmuted to and from `[u8]` chunks.
-These rules include alignment restrictions and the necessity that every bit-pattern is a valid value.
-The latter makes `enum`s tricky because it requires every enum to have TK 2^n variants where *n* is the number of bits in its representation.
-But once you've cleared all those hurdles, your types gain TK-links `from_bytes` and `to_bytes` methods.
+### Use zerocopy to get `AsBytes` and `FromBytes`
 
-Now that all our structs are equipped with the zerocopy superpower, we need a way to make *the entire data structure* map to bytes.
+First, [zerocopy][] is an immensely rad crate that can certify that it's safe to cast between Rust types and raw bytes.
+It contains a bunch of macros, but these macros don't actually generate code for you: they just check that your types obey a bunch of rules.
+The zerocopy authors have done the hard work (i.e., thinking carefully and using [Miri][]) to be pretty confident that all types that obey their rules can be safely transmuted to and from `[u8]` chunks.
+These rules include alignment restrictions and the necessity that every bit-pattern is a valid value.
+The latter rule makes `enum`s tricky: every `enum` must have 2*ⁿ* variants where *n* is the number of bits in its representation.
+But once you've cleared all those hurdles, your types gain the [`AsBytes`][asbytes] and [`FromBytes`][frombytes] traits.
+
+[asbytes]: https://docs.rs/zerocopy/latest/zerocopy/trait.AsBytes.html
+[frombytes]: https://docs.rs/zerocopy/latest/zerocopy/trait.FromBytes.html
+
+### Separate the Storage from the Interface
+
+Now that all our structs are equipped with the zerocopy superpowers, we need a way to make *the entire data structure* map to bytes.
 One nice way to do it is to separate our actual data storage location from a lightweight view of all the same data.
 The idea is to start with that top-level struct that contains nothing but the `Vec`s of littler structs:
 
 <img src="{{site.base}}/media/flatgfa/store1.svg"
     class="img-responsive bonw">
 
-And to separate it into two structs, one *store* object that keeps all those `Vec`s and one *view* object that has all the same fields but with slices instead of vectors:
+And to separate it into two structs.
+We want one *store* object that keeps all those `Vec`s and one *view* object that has all the same fields but with slices instead of vectors:
 
 <img src="{{site.base}}/media/flatgfa/store2.svg"
     class="img-responsive bonw">
 
-Our `ThingStore` struct will never get the zerocopy superpower---`Vec`s are inherently pointerful---but `ThingView` is perfectly suited.
+Our `ThingStore` struct will never get the zerocopy superpower---`Vec`s are inherently pointerful and must live on the heap---but `ThingView` is perfectly suited.
 We can construct one by calling `from_bytes` on different chunks within a big byte buffer:
 
 <img src="{{site.base}}/media/flatgfa/store3.svg"
@@ -174,9 +184,14 @@ We can construct one by calling `from_bytes` on different chunks within a big by
 We'll also need a small [table of contents][toc] at the top of the file to tell us where those chunks are.
 But once we've managed that, `ThingView` serves as an abstraction layer over the two storage styles.
 The `Vec`-based store provides heap-allocated, arbitrarily resizable allocation pools;
-the `&[u8]` option constrains the sizes of the arenas but maps easily to the filesystem.[^slicevec]
+the `&[u8]` option constrains the sizes of the arenas but maps easily to a flat file.[^slicevec]
 
-[^slicevec]: In [the real implementation][flatgfa], I also added a second storage style based on `tinyvec::SliceVec` instead of plain old `Vec`. This approach splits the difference between slices and vectors: each arena has a fixed maximum capacity, but its length can be less than that. So the `SliceVec`s, even when they map to a fixed-size `&[u8]` of file contents, can still shrink and grow within limits.
+[^slicevec]: In [the real implementation][flatgfa], I also added a second storage style based on [`tinyvec::SliceVec`][slicevec] instead of plain old `Vec`. This approach splits the difference between slices and vectors: each arena has a fixed maximum capacity, but its length can be less than that. So the `SliceVec`s, even when they map to a fixed-size `&[u8]` of file contents, can still shrink and grow within limits.
+
+[zerocopy]: https://docs.rs/zerocopy/
+[slicevec]: https://docs.rs/tinyvec/latest/tinyvec/struct.SliceVec.html
+[miri]: https://github.com/rust-lang/miri
+[toc]: https://github.com/cucapra/pollen/blob/788aa3e48aff6a8c7b46f10c1c5fcaeee909518b/flatgfa/src/file.rs#L10-L26
 
 ## 0 Copy = ∞ Speedup
 
@@ -212,6 +227,7 @@ So this is an extreme edge case where FlatGFA's deserialization- and allocation-
 
 [capnproto]: https://capnproto.org
 [mmap]: https://linux.die.net/man/2/mmap
+[odgi paths]: https://odgi.readthedocs.io/en/latest/rst/commands/odgi_paths.html
 
 ## Someday, Acceleration
 
