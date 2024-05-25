@@ -104,12 +104,12 @@ I measured the round-trip performance on three tiny graphs and three medium-size
 <div class="figrow">
 <figure style="width: 55%">
 <img src="{{site.base}}/media/flatgfa/roundtrip-mini.svg" class="bonw"
-    alt="TK">
+    alt="A bar chart comparing three tools' time to round-trip GFA files through their in-memory representations. This comparison uses small graphs.">
 <figcaption>Time to round-trip (parse and pretty-print) some tiny GFA files (288&nbsp;kB, 1.0&nbsp;MB, and 1.5&nbsp;MB, from left to right). Our pure-Python <a href="https://github.com/cucapra/pollen/tree/main/slow_odgi">slow-odgi</a> library is about 2&times; slower than odgi.</figcaption>
 </figure>
 <figure style="max-width: 40%">
 <img src="{{site.base}}/media/flatgfa/roundtrip-med.svg" class="bonw"
-    alt="TK">
+    alt="A bar chart comparing two fast tools doing the same GFA round-trip task on much larger files.">
 <figcaption>Round-tripping some bigger GFAs (7.2&nbsp;GB, 2.3&nbsp;GB, and 2.7&nbsp;GB). The pure-Python library is not a contender. FlatGFA is 11.3&times; faster than odgi on average (harmonic mean).</figcaption>
 </figure>
 </div>
@@ -206,12 +206,12 @@ Here's a performance comparison between [the `odgi paths -L` command][odgi paths
 <div class="figrow">
 <figure style="width: 55%">
 <img src="{{site.base}}/media/flatgfa/paths-mini.svg" class="bonw"
-    alt="TK">
-<figcaption>Time to print the path names from the same graphs as above. The <a href="TK">slow-odgi</a> reference implementation is a hilarious 19&times; slower than odgi on average.</figcaption>
+    alt="A bar chart comparing three tools' times to print out a list of path names from GFA files.">
+<figcaption>Time to print the path names from the same graphs as above. The <a href="https://github.com/cucapra/pollen/tree/main/slow_odgi">slow-odgi</a> reference implementation is a hilarious 19&times; slower than odgi on average.</figcaption>
 </figure>
 <figure style="max-width: 40%">
 <img src="{{site.base}}/media/flatgfa/paths-med.svg" class="bonw"
-    alt="TK">
+    alt="Another bar chart comparing the same path-name-printing task on three larger GFAs, and only comparing the two faster tools.">
 <figcaption>Printing paths names from the same larger graphs. FlatGFA is 1,331&times; faster than odgi, which is not infinity, but it's pretty good.</figcaption>
 </figure>
 </div>
