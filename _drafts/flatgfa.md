@@ -219,8 +219,8 @@ Here's a performance comparison between [the `odgi paths -L` command][odgi paths
 This comparison starts with the native binary formats for odgi and FlatGFA, so only slow-odgi actually has to parse any text.
 Across the three big GFAs, FlatGFA is 1,331&times; faster than odgi on average.
 On the largest (7.2&nbsp;GB) graph, FlatGFA takes 5.8&nbsp;ms to odgi's 12&nbsp;seconds.
-If you look at a profile of where odgi spends its time, about 87% of it goes to deserialization and 13% goes to deallocating that data structure.
-Much less than 1% of the time is spent on the "real work," i.e., extracting and printing those path names.
+If you look at [a profile of where odgi spends its time][profile], about 90% of it goes to deserialization and 9.9% goes to deallocating that data structure.
+Less than 1% of the time is spent on the "real work," i.e., extracting and printing those path names.
 So this is an extreme edge case where FlatGFA's deserialization- and allocation-free strategy makes for especially silly-looking bar charts.
 
 [^capnproto]: This hyperbolic framing is stolen from [Cap'n Proto][capnproto], which honestly blew my mind the first time I understood what it was doing.
@@ -228,6 +228,7 @@ So this is an extreme edge case where FlatGFA's deserialization- and allocation-
 [capnproto]: https://capnproto.org
 [mmap]: https://linux.die.net/man/2/mmap
 [odgi paths]: https://odgi.readthedocs.io/en/latest/rst/commands/odgi_paths.html
+[profile]: https://share.firefox.dev/3KiOKLW
 
 ## Someday, Acceleration
 
