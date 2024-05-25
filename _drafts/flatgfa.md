@@ -107,7 +107,7 @@ I measured the round-trip performance on three tiny graphs and three medium-size
     alt="A bar chart comparing three tools' time to round-trip GFA files through their in-memory representations. This comparison uses small graphs.">
 <figcaption>Time to round-trip (parse and pretty-print) some tiny GFA files (288&nbsp;kB, 1.0&nbsp;MB, and 1.5&nbsp;MB, from left to right). Our pure-Python <a href="https://github.com/cucapra/pollen/tree/main/slow_odgi">slow-odgi</a> library is about 2&times; slower than odgi.</figcaption>
 </figure>
-<figure style="max-width: 40%">
+<figure style="max-width: 42%">
 <img src="{{site.base}}/media/flatgfa/roundtrip-med.svg" class="bonw"
     alt="A bar chart comparing two fast tools doing the same GFA round-trip task on much larger files.">
 <figcaption>Round-tripping some bigger GFAs (7.2&nbsp;GB, 2.3&nbsp;GB, and 2.7&nbsp;GB). The pure-Python library is not a contender. FlatGFA is 11.3&times; faster than odgi on average (harmonic mean).</figcaption>
