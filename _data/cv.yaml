@@ -462,6 +462,11 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Zhengyang Liu
+      advisor: John Regehr
+      school: University of Utah
+      defense: 2024
+      link: https://users.cs.utah.edu/~liuz/
     - name: Yulun Yao
       advisor: Andrew Myers
     - name: Nitika Saran
