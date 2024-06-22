@@ -19,6 +19,7 @@
     extra:
       - '[Artifact evaluated!](https://github.com/avanhatt/wasmtime)'
       - 'Distinguished Artifact Award winner!'
+    note: Distinguished Artifact Award.
 
 -
     title: "Very Large Scale Disintegration"
@@ -54,6 +55,7 @@
       - '[Local PDF.](BASE/media/papers/cider-asplos2023.pdf)'
       - '[Artifact evaluated!](https://docs.calyxir.org/debug/cider.html)'
       - 'Distinguished Artifact Award winner!'
+    note: Distinguished Artifact Award.
 
 -
     title: 'Performance Left on the Table: An Evaluation of Compiler Auto-Vectorization for RISC-V'
