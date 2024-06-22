@@ -8,7 +8,7 @@
         {% if paper.type == "tr" %}
         {{ paper.venue }}
         {% else %}
-        {% if paper.pre %}To appear in{% else %}In{% endif %}
+        {% if paper.venue_status %}{{paper.venue_status}}{% else %}In{% endif %}
         {% if paper.venue_url %}<a href="{{ paper.venue_url }}">{% endif %}{{ paper.venue }}{% if paper.venue_url %}</a>{% endif %}{% if paper.with %} (co-located with {{ paper.with }}){% endif %}.
         {% endif %}
     </span>

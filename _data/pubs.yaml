@@ -1,4 +1,14 @@
 -
+    title: 'Unifying Static and Dynamic Intermediate Languages for Accelerator Generators'
+    authors: 'Caleb Kim, Pai Li, Anshuman Mohan, Andrew Butt, Adrian Sampson, and Rachit Nigam'
+    venue: 'OOPSLA 2024'
+    type: conference
+    selected: true
+    url: 'https://arxiv.org/abs/2312.16300'
+    venue_url: 'https://2024.splashcon.org/track/splash-2024-oopsla'
+    venue_status: 'Conditionally accepted to appear in'
+
+-
     title: 'Lightweight, Modular Verification for WebAssembly-to-Native Instruction Selection'
     authors: 'Alexa VanHattum, Monica Pardeshi, Chris Fallin, Adrian Sampson, and Fraser Brown'
     venue: 'ASPLOS 2024'
@@ -6,7 +16,6 @@
     selected: true
     url: 'https://www.cs.cornell.edu/~avh/veri-isle-preprint.pdf'
     venue_url: 'https://www.asplos-conference.org/asplos2024/'
-    pre: true
     extra:
       - '[Artifact evaluated!](https://github.com/avanhatt/wasmtime)'
       - 'Distinguished Artifact Award winner!'
