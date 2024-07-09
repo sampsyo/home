@@ -15,12 +15,13 @@ delete stuff, run the special command, check the output to decide whether to bac
 It's rote, mechanical, and annoyingly error prone.
 
 Let's make the computer do it instead.
-*Automated test-case reducers* follow essentially the same "algorithm" we saw last time.
+*Automated test-case reducers* in the [C-Reduce][] mold follow essentially the same "algorithm" we saw last time.
 They obviously don't know your bug like you do, so they can't apply the intuition you might bring to deciding which things to delete when.
 In return, automation can blindly try stuff much faster than a human can, potentially even in parallel.
 So the trade-off is often worthwhile.
 
-TK link to some examples above? C-reduce...
+[manual-reduce]: {{site.base}}/blog/reduction.html
+[c-reduce]: https://github.com/csmith-project/creduce
 
 ## Automating the Reduction Process
 
@@ -43,11 +44,20 @@ the original test case you want to reduce and the interestingness test script.
 
 ## Writing an Interestingness Test
 
-TK the interesting part of using a reducer is the interestingness test
-TK sourcer's apprentice
+This post will demonstrate how to use the excellent [Shrinkray][] reducer to debug [the same interpreter bug as last time][manual-reduce].
+Shrinkray is language-neutral (and in any case, no reducer knows about [Bril][]).
+I think it's pretty cool that reducers can work well even if they don't know anything about the grammar of the language they're working with.
 
-TK there are also language-specific reducers, but I think it's remarkable how well a language-neutral reducer can do. No reducer knows about Bril specifically, for example, and yet...
+Like any automated reducer, Shrinkray needs an interestingness test:
+a little program that checks whether the bug we care about currently exists.
+To make one, "all we need to do" is take the commands we were running manually to check for the bug and put them in a shell script.
 
+The problem, as we'll discover, is that Shrinkray is a little like [the sorcerer's apprentice][tsa].
+It will do exactly what we tell it to do, and it will do it with great enthusiasm.
+Even tiny gaps in our instructions can lead to surprising results.
+So, in my experience, writing a good interestingness test requires (a) a small bag of tricks that may not be intuitive your first time around, and (b) inevitably some trial and error.
+
+I recorded a video of my own trial-end-error process, and I've also written it out in prose below.
 Here's the video:
 
 <div class="embed">
@@ -57,11 +67,15 @@ Here's the video:
 Hang on; I'm being told that this is the wrong video.
 Let's try that again:
 
-TK actual video.
+<div class="embed">
+  <iframe src="https://cdnapisec.kaltura.com/p/520801/sp/52080100/embedIframeJs/uiconf_id/31230141/partner_id/520801?iframeembed=true&entry_id=1_w0bwzism" allowfullscreen></iframe>
+</div>
 
-## TK new section for walkthrough?
+[shrinkray]: https://github.com/DRMacIver/shrinkray
+[bril]: https://capra.cs.cornell.edu/bril/
+[tsa]: https://en.wikipedia.org/wiki/The_Sorcerer's_Apprentice
 
-TK reorganize around the sequence of "tricks"?
+## Walkthrough
 
 In essence, an interestingnes test is a script that automates the
 commands we ran repetitively (with the "up arrow" at the shell prompt) during
@@ -71,13 +85,13 @@ Here's the main command we repeatedly ran then:
     $ bril2json < problem.bril | cargo run -- -p false false
 
 I started by just putting this command into a shell script, `interesting.sh`.
-[Shrink Ray][] our script to work from any directory, so I used an absolute
+[Shrinkray][] our script to work from any directory, so I used an absolute
 path to the executable:
 
     #!/bin/sh
     bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p false false
 
-I also used `$1` for the filename; Shrink Ray passes the current version of
+I also used `$1` for the filename; Shrinkray passes the current version of
 the test file as an argument there.
 Following the [C-Reduce][] tradition, interestingness tests use a
 counter-intuitive (but extremely useful) convention:
@@ -100,7 +114,7 @@ Let's try it:
 
     $ shrinkray interesting.sh problem.bril
 
-With this script, Shrink Ray immediately reduces our file down to nothing.
+With this script, Shrinkray immediately reduces our file down to nothing.
 And it's not wrong: a zero-byte file does elicit an error from our
 interpreter!
 As usual, it's a sorcerer's apprentice who did exactly what we said, not what
@@ -136,13 +150,13 @@ So in my script here, we're requiring the `brili` (reference interpreter)
 invocation is required to succeed before we even bother trying to expose the
 bug.
 
-Let's restore our test input from the backup Shrink Ray saved for us and try
+Let's restore our test input from the backup Shrinkray saved for us and try
 again:
 
     $ cp problem.bril.bak problem.bril
     $ shrinkray interesting.sh problem.bril
 
-Shrink Ray will again sorcerer's-apprentice its way into a much too small test
+Shrinkray will again sorcerer's-apprentice its way into a much too small test
 case.
 Not zero bytes this time, but too small to be useful.
 To see what went wrong, we can run our two commands ("not bogus" and bug
@@ -152,7 +166,7 @@ check) manually:
     $ bril2json < problem.bril | ./target/debug/brilirs -p false false
     error: Expected a primitive type like int or bool, found l
 
-Shrink Ray has isolated for us a *different error* with the same shape, i.e.,
+Shrinkray has isolated for us a *different error* with the same shape, i.e.,
 the reference interpreter accepts the program but the buggy interpreter
 rejects it.
 This one is not really a bug: it's just a case where the second interpreter is
@@ -179,10 +193,10 @@ So here' our new script:
     bril2json < problem.bril | brili false false
     bril2json < $1 | /Users/fabian/Documents/cu/bril/brilirs/target/debug/brilirs -p false false 2>&1 | grep 'out of bounds'
 
-With this script, Shrink Ray does a great job and reduces quite a bit of code,
+With this script, Shrinkray does a great job and reduces quite a bit of code,
 which is awesome.
 One thing it can't reduce, however, is the way the program uses arguments.
-It's actually hopeless for Shrink Ray to remove the arguments because it would
+It's actually hopeless for Shrinkray to remove the arguments because it would
 require changing the interestingness test script to remove those `false false`
 command-line arguments we keep on passing.
 
@@ -203,7 +217,7 @@ to both interpreter invocations:
 At this point, it's probably a good idea to do `./interesting.sh problem.bril`
 to manually check that everything's in order.
 
-It is in this case, so we can figure up Shrink Ray again.
+It is in this case, so we can fire up Shrinkray again.
 It gives us this reduced test case:
 
     @main{
@@ -224,6 +238,6 @@ apparently neither interpreter cares about that...
 if we wanted to, we could imagine avoiding this by adding another "not bogus"
 check based on some static error checking.
 
-[shrink ray]: https://github.com/DRMacIver/shrinkray
 [bash-pipe]: https://www.gnu.org/software/bash/manual/html_node/Pipelines.html
 [bash-set]: https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+[brili]: https://capra.cs.cornell.edu/bril/tools/interp.html
