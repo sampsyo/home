@@ -77,7 +77,7 @@ Let's try that again:
 
 ## Walkthrough
 
-In essence, an interestingnes test is a script that automates the
+In essence, an interestingness test is a script that automates the
 commands we ran repetitively (with the "up arrow" at the shell prompt) during
 [manual reduction][manual-reduce].
 Here's the main command we repeatedly ran then:
@@ -85,7 +85,7 @@ Here's the main command we repeatedly ran then:
     $ bril2json < problem.bril | cargo run -- -p false false
 
 I started by just putting this command into a shell script, `interesting.sh`.
-[Shrinkray][] our script to work from any directory, so I used an absolute
+[Shrinkray][] wants our script to work from any directory, so I used an absolute
 path to the executable:
 
     #!/bin/sh
@@ -147,7 +147,7 @@ the normal case but might fail when the test really goes off the rails:
 as soon as any command fails, the script will bail out and indicate that we're
 on the wrong path.
 So in my script here, we're requiring the `brili` (reference interpreter)
-invocation is required to succeed before we even bother trying to expose the
+invocation to succeed before we even bother trying to expose the
 bug.
 
 Let's restore our test input from the backup Shrinkray saved for us and try
@@ -186,7 +186,7 @@ Conveniently, `grep` does exactly what you want for an interestingness test:
 its exit status is 0 when it finds the string (interesting because this is the
 bug we are looking for)
 and 1 when it fails to find the string (some other error).
-So here' our new script:
+So here's our new script:
 
     #!/bin/sh
     set -e
