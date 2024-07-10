@@ -101,6 +101,8 @@ the bug) and nonzero when it's not (e.g., it's bug-free or ill-formed).
 So far, our command crashes with a nonzero status---specifically, a Rust
 panic---when it *is* interesting, which is the opposite of what we want.
 
+### Trick 1: Shell Negation
+
 So here's a trick you can use in interestingness tests in general:
 try the
 [shell's negation operator, `!`,][bash-pipe] to invert the sense of the exit status.
@@ -118,8 +120,10 @@ Let's try it:
 With this script, Shrinkray immediately reduces our file down to nothing.
 And it's not wrong: a zero-byte file does elicit an error from our
 interpreter!
-As usual, it's a sorcerer's apprentice who did exactly what we said, not what
+As usual, the sorcerer's apprentice did exactly what we said, not what
 we wanted, and did it with wondrous alacrity.
+
+### Trick 2: The "Not Bogus" Check and `set -e`
 
 This leads us to our second trick for writing interestingness tests:
 before you try to expose the bug, include a "not bogus" check.
@@ -175,6 +179,8 @@ more strict than the first.
 And even if this misalignment is curious, it's not the bug we were looking
 for.
 
+### Trick 3: `grep` for Your Error Message
+
 So here's trick number three for writing interestingness tests:
 use `grep` to check for the error message we actually want.
 In our case, the program panics with an "out of bounds" message.
@@ -201,7 +207,9 @@ It's actually hopeless for Shrinkray to remove the arguments because it would
 require changing the interestingness test script to remove those `false false`
 command-line arguments we keep on passing.
 
-We can help it out a bit by turning those inputs into constants in the code.
+### Trick 4: Occasional Manual Help
+
+We can help Shrinkray out a bit by turning those inputs into constants in the code.
 We can replace `main`'s arguments with two new Bril instructions:
 
     b0: bool = const false;
@@ -218,7 +226,9 @@ to both interpreter invocations:
 At this point, it's probably a good idea to do `./interesting.sh problem.bril`
 to manually check that everything's in order.
 
-It is in this case, so we can fire up Shrinkray again.
+### Success!
+
+Everything looks good in this case, so we can fire up Shrinkray again.
 It gives us this reduced test case:
 
     @main{
@@ -234,9 +244,9 @@ pass our interestingness test!
 So this one is actually a little more useful in that sense: you can run it
 through the reference interpreter to immediately see what it's *supposed* to
 do.
-It's kinda weird that the reduced test has a multiply defined label, but
+It's sort of weird that the reduced test has a multiply defined label, but
 apparently neither interpreter cares about that...
-if we wanted to, we could imagine avoiding this by adding another "not bogus"
+if we wanted to, we could imagine avoiding this by adding a second "not bogus"
 check based on some static error checking.
 
 [bash-pipe]: https://www.gnu.org/software/bash/manual/html_node/Pipelines.html
