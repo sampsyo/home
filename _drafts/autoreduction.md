@@ -10,7 +10,7 @@ The plan is to demonstrate techniques that &ldquo;everyone knows&rdquo; because 
 
 [Last time][manual-reduce], we saw how deleting stuff from a test case can be an easy and fun route to the root cause of a bug.
 It's less easy and less fun when the test cases get big.
-The cycle can get old quickly:
+The inner loop of test-case reduction can get old quickly:
 delete stuff, run the special command, check the output to decide whether to backtrack or proceed.
 It's rote, mechanical, and annoyingly error prone.
 
@@ -25,17 +25,18 @@ So the trade-off is often worthwhile.
 
 ## Automating the Reduction Process
 
-In the [manual test-case reduction "algorithm"][manual-reduce], there are really only three parts that entailed any human judgment:
+In the [manual test-case reduction "algorithm,"][manual-reduce] there are really only three parts that entailed any human judgment:
 
 1. Picking a part of the test case to delete.
-2. Looking at the command's output to decide whether we need to backtrack.
+2. Looking at the command's output to decide whether we need to backtrack:
+   that is, detecting when a given deletion either removed the bug-triggering code or broke the program entirely.
 3. Deciding when to give up: when we probably can't reduce any farther without ruining the test case.
 
 Everything else---running the command after every edit, hitting "undo" after we decide to backtrack---was pretty clearly mechanical.
 Automated reducers take control of #1 and #3.
-Picking the code to delete is guesswork anyway---we'll catch cases where deletion went awry in step #2 anyway---so it suffices to use a bunch of heuristics that only work out occasionally.
-To decide when to stop, reducers detect a fixed point:
-they give up when the heuristics fail to find any more code to delete.
+Picking the code to delete (#1) is just guesswork anyway; because we rely on step #2 to detect cases where a deletion went awry, it suffices to guess wildly using a pile of heuristics that have *some* probability of finding a useful deletion.
+To decide when to stop (#3), reducers detect a fixed point:
+they give up when the heuristics fail to find any more code they can safely delete.
 
 That leaves us with #2: deciding whether a given version of the test case still works to reproduce the bug you're interested in.
 Test-case reducers call this the *interestingness test* (in the [C-Reduce][] tradition), and they typically want you to write it down as a shell script.
@@ -45,8 +46,8 @@ the original test case you want to reduce and the interestingness test script.
 ## Writing an Interestingness Test
 
 This post will demonstrate how to use the excellent [Shrinkray][] reducer to debug [the same interpreter bug as last time][manual-reduce].
-Shrinkray is language-neutral (and in any case, no reducer knows about [Bril][]).
-I think it's pretty cool that reducers can work well even if they don't know anything about the grammar of the language they're working with.
+Shrinkray is language-neutral--and, in any case, no reducer knows about [Bril][].
+I think it's pretty cool that reducers can work well even if they don't know anything about the syntax or semantics of the language they're working with.
 
 Like any automated reducer, Shrinkray needs an interestingness test:
 a little program that checks whether the bug we care about currently exists.
@@ -55,7 +56,7 @@ To make one, "all we need to do" is take the commands we were running manually t
 The problem, as we'll discover, is that Shrinkray is a little like [the sorcerer's apprentice][tsa].
 It will do exactly what we tell it to do, and it will do it with great enthusiasm.
 Even tiny gaps in our instructions can lead to surprising results.
-So, in my experience, writing a good interestingness test requires (a) a small bag of tricks that may not be intuitive your first time around, and (b) inevitably some trial and error.
+So, in my experience, writing a good interestingness test requires (a) a small bag of tricks that may not be intuitive your first time around, and (b) some trial and error.
 
 I recorded a video of my own trial-end-error process, and I've also written it out in prose below.
 Here's the video:
