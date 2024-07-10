@@ -535,6 +535,7 @@ code {
 pre code {
     display: block;
     background: inherit;
+    font-size: inherit;
 
     // Make <pre> code scroll horizontally when it's too wide (e.g., on
     // mobile).
