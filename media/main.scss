@@ -525,7 +525,7 @@ blockquote {
 // Inline code.
 pre, code {
     font-family: $code-font;
-    font-size: ($font-size-base - 4);
+    font-size: 80%;
 }
 code {
     background-color: $code-bg;
