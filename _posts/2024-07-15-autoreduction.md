@@ -1,7 +1,13 @@
 ---
 title: "Automated Test-Case Reduction"
 excerpt: |
-    TK
+    In a [previous post][manual-reduce], I used a simple interpreter bug to demonstrate the research skill of manually reducing test cases.
+    This time, I show off the excellent [Shrinkray][] reducer to see how it can automate the same process.
+    The tricky part when using automated test-case reducers is writing an *interestingness test* that actually does what you want.
+    I list a few tricks that help me write good interestingness tests.
+
+    [manual-reduce]: {{site.base}}/blog/reduction.html
+    [shrinkray]: https://github.com/DRMacIver/shrinkray
 ---
 <aside>
 This post is the first in a series on <em>research skills</em>.
