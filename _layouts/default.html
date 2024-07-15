@@ -31,6 +31,8 @@
         <meta property="og:title" content="{{ page.title }}">
         <meta property="og:description"
             content="{{ page.excerpt | markdownify | strip_html | strip_newlines }}">
+
+        <meta name="fediverse:creator" content="@adrian@discuss.systems" />
         {% endif %}
 
         {% if page.collection == "drafts" or page.title == "Blog Drafts" %}
