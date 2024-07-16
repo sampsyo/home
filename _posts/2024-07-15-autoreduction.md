@@ -10,7 +10,7 @@ excerpt: |
     [shrinkray]: https://github.com/DRMacIver/shrinkray
 ---
 <aside>
-This post is the first in a series on <em>research skills</em>.
+This post is the second in a series on <em>research skills</em>.
 The plan is to demonstrate techniques that &ldquo;everyone knows&rdquo; because everyone, in fact, does not already know them.
 </aside>
 
