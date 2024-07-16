@@ -291,7 +291,6 @@
     url: http://drops.dagstuhl.de/opus/volltexte/2017/7130/
     extra:
      - '[Slides.](BASE/media/opengl-snapl2017-slides.pdf)'
-    selected: true
 
 -
     title: "Approximate Computing: Unlocking Efficiency with Hardware&ndash;Software Co-Design"
@@ -332,7 +331,6 @@
     authors: "Brett Boston, Adrian Sampson, Dan Grossman, and Luis Ceze"
     venue: OOPSLA 2015
     type: conference
-    selected: true
     venue_url: http://2015.splashcon.org/track/oopsla2015
     url: BASE/media/papers/decaf-oopsla2015.pdf
 
@@ -360,18 +358,18 @@
     authors: Thierry Moreau, Mark Wyse, Jacob Nelson, Adrian Sampson, Hadi Esmaeilzadeh, Luis Ceze, and Mark Oskin
     venue: HPCA 2015
     type: conference
-    selected: true
     venue_url: http://darksilicon.org/hpca/
     url: BASE/media/papers/snnap-hpca2015.pdf
+    selected: true
 
 -
     title: Monitoring and Debugging the Quality of Results in Approximate Programs
     authors: Michael Ringenburg, Adrian Sampson, Isaac Ackerman, Luis Ceze, and Dan Grossman
     venue: ASPLOS 2015
     type: conference
-    selected: true
     venue_url: http://asplos15.bilkent.edu.tr
     url: BASE/media/papers/approxdebug-asplos2015.pdf
+    selected: true
 
 -
     title: Expressing and Verifying Probabilistic Assertions
