@@ -37,6 +37,13 @@ text format is available if you want, but it is only for human foibles
 
 show the actual syntax off
 
+## TK the available tools
+
+draw a graph of all the stuff?
+definitely link to the cool web playground
+
+highlight things that people have built. distinguish the extremely tiny set of tools we started with, and where we are at now (in the monorepo and beyond).
+
 ## downsides/future work?
 
 * not SSA, but with an SSA variant. this is important so (1) students can feel the pain of working with non-SSA programs, and (2) so that they an implement the to-SSA/from-SSA passes as an assignment, and (3) makes it easy to emit from frontends that have mutation *without needing memory in the IL*
