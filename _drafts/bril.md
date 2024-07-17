@@ -24,12 +24,21 @@ If Bril is a single blood cell, LLVM is an entire circulatory system.
 
 [camping]: https://camping.github.io/camping.io/
 
----
+## Bril is JSON
 
-TK next level of principles:
+TK next level of principles, all interrelated
 
-* JSON is the canonical form. no library required
-    * text format is available if you want
+* students can use any programming language they want
+* no library/framework required
 * tools are unix commands. so composition works with files & pipes
-* not SSA, but with an SSA variant
+
+so, JSON is the canonical form. no library required.
+text format is available if you want, but it is only for human foibles
+
+show the actual syntax off
+
+## downsides/future work?
+
+* not SSA, but with an SSA variant. this is important so (1) students can feel the pain of working with non-SSA programs, and (2) so that they an implement the to-SSA/from-SSA passes as an assignment, and (3) makes it easy to emit from frontends that have mutation *without needing memory in the IL*
     * there is an SSA form, but... it is not great (we should do something about that). this goal turns out to have been the hardest to meet
+    * maybe switch to BB arguments, for a more radical departure in the SSA form? I think a lot of the complexity/bugs come from trying to treat SSA as just a small tweak on the non-SSA base language
