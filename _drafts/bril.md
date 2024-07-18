@@ -13,10 +13,11 @@ Focusing on teaching means that Bril prioritizes these goals:
 
 * It is fast to get started working with the IL.
 * It is easy to mix and match components that work with the IL, including things that fellow students write.
-* It has simple semantics without too many distractions.
+* The language has simple semantics without too many distractions.
+* The design is ruthlessly regular, i.e., everything in the language falls into a pretty small number of *kinds of things*.
 
 Bril is different from other ILs because it ranks those goals above other, more typical goals for an IL:
-notably, performance (both of the compiler itself and the code that the compiler generates).
+code size, compiler speed, and performance of the generated code.
 
 TK other than that, it takes a lot of inspiration from other ILs out there, notably, LLVM IR.
 There's a quote from why the lucky stiff where he introduces [Camping][], the original web microframework, as "a little white blood cell in the vein of Rails."
@@ -36,6 +37,10 @@ so, JSON is the canonical form. no library required.
 text format is available if you want, but it is only for human foibles
 
 show the actual syntax off
+
+## TK language design
+
+TK example of prioritizing regularity: constants are separate instructions. pretty annoying to write as a consequence, but it's one less case to deal with...
 
 ## TK the available tools
 
