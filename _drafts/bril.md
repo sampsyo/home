@@ -1,13 +1,14 @@
 ---
 title: "Bril: An Intermediate Language for Teaching Compilers"
 ---
-I created a new "advanced compilers" course for PhD students, called CS 6120, a few years ago.
+I created a new "advanced compilers" course for PhD students, called [CS 6120][cs6120], a few years ago.
 The organizing principle is a focus on the "middle end," defined broadly:
 analysis and optimization, but also runtime services, verification, synthesis, JITs, and so on;
 but not lexing, parsing, semantic analysis, register allocation, or instruction selection.
 That latter stuff is all cool, but you have to sacrifice something for a coherent focus.
 
-This post is about Bril (the Big Red Intermediate Language), a new compiler intermediate representation I made to embody this focus.
+This post is about [Bril][], the Big Red Intermediate Language.
+Bril is a new compiler intermediate representation I made to support this kind of compilers course.
 Bril is the only compiler IL I know of that is specifically designed for education.
 Focusing on teaching means that Bril prioritizes these goals:
 
@@ -19,24 +20,83 @@ Focusing on teaching means that Bril prioritizes these goals:
 Bril is different from other ILs because it ranks those goals above other, more typical goals for an IL:
 code size, compiler speed, and performance of the generated code.
 
-TK other than that, it takes a lot of inspiration from other ILs out there, notably, LLVM IR.
-There's a quote from why the lucky stiff where he introduces [Camping][], the original web microframework, as "a little white blood cell in the vein of Rails."
-If Bril is a single blood cell, LLVM is an entire circulatory system.
+Aside from that invasion of priorities, Bril looks sorta like any other modern compiler IL.
+It's a self-contained, assembly-like, typed, instruction-based language.
+There's a quote from [why the lucky stiff][why] where he introduces [Camping][], the original web microframework, as "a little white blood cell in the vein of Rails."
+If LLVM is an entire circulatory system, Bril is a single blood cell.
 
 [camping]: https://camping.github.io/camping.io/
+[why]: https://en.wikipedia.org/wiki/Why_the_lucky_stiff
+[bril]: https://capra.cs.cornell.edu/bril/
+[cs6120]: https://www.cs.cornell.edu/courses/cs6120/2023fa/
 
 ## Bril is JSON
 
-TK next level of principles, all interrelated
+Bril programs are JSON documents.
+Here's how students can work with Bril code using Python:
 
-* students can use any programming language they want
-* no library/framework required
-* tools are unix commands. so composition works with files & pipes
+```py
+import json
+import sys
+prog = json.load(sys.stdin)
+```
 
-so, JSON is the canonical form. no library required.
-text format is available if you want, but it is only for human foibles
+I'm obviously being a little silly here.
+But seriously, the JSON-as-syntax idea is in service of the *fast to get started* and *easy to mix and match components* goals above.
+At the next level of detail, I wanted Bril to do these things:
 
-show the actual syntax off
+* **Let students use any programming language they want.**
+  I wanted my compilers course to be accessible to lots of PhD students, including people with only tangential interest in compilers.
+  Letting them use the languages they're comfortable with is a great way to avoid any ramp-up phase with some "realistic" compiler implementation language, whatever you think that is.
+* **No framework is required to get started.**
+  This is partially a practical matter; for the first offering of CS 6120, no libraries existed, and I needed to run the course somehow.
+  But I also think this constraint is pedagogically valuable as a complexity limiter:
+  students can get started with simple stuff without learning any APIs.
+  These days, Bril does come with libraries that are great for avoiding the JSON boilerplate when you scale up:
+  for [Rust][bril-rs], [OCaml][bril-ocaml], [Swift][bril-swift], and [TypeScript][bril-ts].
+  But the fact that they're not really *required* keeps the onramps gentle.
+* **Compose small pieces with Unix pipelines.**
+  You can wire up Bril workflows with shell pipelines, like `cat code.json | my_opt | my_friends_opt | brilck`.
+  I want students in CS 6120 to freely share code with each other and to borrow bits of functionality I wrote.
+  For a PhD-level class, this trust-based "open-source" course setup makes way more sense to me than a typical undergrad-style approach to academic integrity.
+  Piping JSON from one tool to the next is a great vehicle for sharing.
+
+So, JSON is the canonical form for Bril code.
+Here's a complete Bril program:
+
+```json
+{
+  "functions": [{
+    "name": "main",
+    "args": [],
+    "instrs": [
+      { "op": "const", "type": "int", "dest": "v0", "value": 1 },
+      { "op": "const", "type": "int", "dest": "v1", "value": 2 },
+      { "op": "add", "type": "int", "dest": "v2", "args": ["v0", "v1"] },
+      { "op": "print", "args": ["v2"] }
+    ]
+  }]
+}
+```
+
+This program has one function, `main`, with no arguments and 4 instructions:
+two `const` instructions, an `add`, and a `print`.
+
+Even though Bril is JSON, it also has a text form.
+I will, however, die on the following hill:
+**the text form is a second-class convenience**, with no warranty of any kind, express or implied, and Bril itself is the JSON format you see above.
+The text syntax exists solely to cater to our foibles as humans for whom reading JSON directly is just kinda annoying.
+
+TK example of the above program
+
+TK show a pipeline with the parser and pretty-printer
+
+TK real performance cost, because you have to serialize/deserialize between every step.
+
+[bril-ocaml]: https://github.com/sampsyo/bril/tree/main/bril-ocaml
+[bril-ts]: https://github.com/sampsyo/bril/tree/main/bril-ts
+[bril-swift]: https://github.com/sampsyo/bril/tree/main/bril-swift
+[bril-rs]: https://github.com/sampsyo/bril/tree/main/bril-rs
 
 ## TK language design
 
