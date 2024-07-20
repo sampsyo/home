@@ -84,10 +84,19 @@ two `const` instructions, an `add`, and a `print`.
 
 Even though Bril is JSON, it also has a text form.
 I will, however, die on the following hill:
-**the text form is a second-class convenience**, with no warranty of any kind, express or implied, and Bril itself is the JSON format you see above.
+**the text form is a second-class convenience**, with no warranty of any kind, express or implied.
 The text syntax exists solely to cater to our foibles as humans for whom reading JSON directly is just kinda annoying.
+Bril itself is the JSON format you see above.
+But amid Bril's multifaceted toolset are a parser and pretty-printer that will show you the text equivalent:
 
-TK example of the above program
+```bril
+@main {
+  v0: int = const 1;
+  v1: int = const 2;
+  v2: int = add v0 v1;
+  print v2;
+}
+```
 
 TK show a pipeline with the parser and pretty-printer
 
