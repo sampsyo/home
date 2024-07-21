@@ -40,6 +40,14 @@ Jekyll::Hooks.register :site, :pre_render do |site|
         token Keyword::Type, m[5]
       end
       rule /,/, Punctuation
+      rule /(\))(\s*)(:)(\s*)(\w+)/ do |m|
+        token Punctuation, m[1]
+        token Text::Whitespace, m[2]
+        token Punctuation, m[3]
+        token Text::Whitespace, m[4]
+        token Keyword::Type, m[5]
+        pop!
+      end
       rule /\)/, Punctuation, :pop!
     end
 
