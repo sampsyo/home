@@ -143,10 +143,16 @@ TK example of prioritizing regularity: constants are separate instructions. pret
 
 ## TK the available tools
 
+<img src="{{site.base}}/media/bril/ecosystem.svg"
+    class="img-responsive bonw" style="max-width: 450px;">
+
 draw a graph of all the stuff?
 definitely link to the cool web playground
 
 highlight things that people have built. distinguish the extremely tiny set of tools we started with, and where we are at now (in the monorepo and beyond).
+
+TK in the first semester, Bril didn't even have memory or function calls.
+the language for these was invented by students.
 
 ## downsides/future work?
 
