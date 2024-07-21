@@ -9,10 +9,25 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     end
 
     state :root do
+      # The actual top level.
       rule /\s+/m, Text::Whitespace
       rule /@\w+/, Name::Function
       rule /\(/, Punctuation, :funcargs
-      rule /\{/, Punctuation, :function
+      rule /\{/, Punctuation
+      rule /\}/, Punctuation
+
+      # I guess we just allow instructions anywhere.
+      rule /(\w+)(\s*)(:)/ do |m|
+        token Name::Variable, m[1]
+        token Text::Whitespace, m[2]
+        token Punctuation, m[3]
+        push :valins
+      end
+      rule /(\.\w+)(:)/ do |m|
+        token Name::Label, m[1]
+        token Punctuation, m[2]
+      end
+      rule /\w+/, Keyword, :insargs
     end
 
     state :funcargs do
@@ -26,22 +41,6 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       end
       rule /,/, Punctuation
       rule /\)/, Punctuation, :pop!
-    end
-
-    state :function do
-      rule /\s+/m, Text::Whitespace
-      rule /(\w+)(\s*)(:)/ do |m|
-        token Name::Variable, m[1]
-        token Text::Whitespace, m[2]
-        token Punctuation, m[3]
-        push :valins
-      end
-      rule /(\.\w+)(:)/ do |m|
-        token Name::Label, m[1]
-        token Punctuation, m[2]
-      end
-      rule /\w+/, Keyword, :insargs
-      rule /\}/, Punctuation, :pop!
     end
 
     state :valins do
