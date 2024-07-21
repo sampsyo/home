@@ -137,7 +137,7 @@ But the trade-off is that the Bril ecosystem comprises a large number of small p
 [bril-rs]: https://github.com/sampsyo/bril/tree/main/bril-rs
 [bril-txt]: https://github.com/sampsyo/bril/blob/main/bril-txt/briltxt.py
 
-## TK language design
+## Language Design: Good, Bad, and Ugly
 
 There are a few design decisions in the language itself that reflect Bril's education-over-practicality priorities.
 For instance, `print` is a [core opcode][core] in Bril; I don't think this would be a good idea in most compilers, but it makes it really easy to write small examples.
@@ -160,7 +160,13 @@ But it simplifies the way you write some basic IL traversals because you don't h
 For many use cases, you get to handle constants the same way you do any other instruction.
 For teaching, I think the regularity is worth the silliness.
 
-TK anything else? maybe not-SSA goes here?
+TK: extensible. link to the extensions.
+this is currently super ad hoc and ramshackle. I would like a way to be explicit about which language extensions are in scope... and maybe a "machine-readable" way to specify extensions, at least syntactically (not semantically).
+
+TK: not SSA.
+not SSA, but with an SSA variant. this is important so (1) students can feel the pain of working with non-SSA programs, and (2) so that they an implement the to-SSA/from-SSA passes as an assignment, and (3) makes it easy to emit from frontends that have mutation *without needing memory in the IL*
+* there is an SSA form, but... it is not great (we should do something about that). this goal turns out to have been the hardest to meet
+* maybe switch to BB arguments, for a more radical departure in the SSA form? I think a lot of the complexity/bugs come from trying to treat SSA as just a small tweak on the non-SSA base language
 
 [core]: https://capra.cs.cornell.edu/bril/lang/core.html
 
@@ -176,9 +182,3 @@ highlight things that people have built. distinguish the extremely tiny set of t
 
 TK in the first semester, Bril didn't even have memory or function calls.
 the language for these was invented by students.
-
-## downsides/future work?
-
-* not SSA, but with an SSA variant. this is important so (1) students can feel the pain of working with non-SSA programs, and (2) so that they an implement the to-SSA/from-SSA passes as an assignment, and (3) makes it easy to emit from frontends that have mutation *without needing memory in the IL*
-    * there is an SSA form, but... it is not great (we should do something about that). this goal turns out to have been the hardest to meet
-    * maybe switch to BB arguments, for a more radical departure in the SSA form? I think a lot of the complexity/bugs come from trying to treat SSA as just a small tweak on the non-SSA base language
