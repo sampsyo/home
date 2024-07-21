@@ -11,8 +11,27 @@ TK make that first graf shorter
 
 This post is about [Bril][], the Big Red Intermediate Language.
 Bril is a new compiler intermediate representation I made to support this kind of compilers course.
+Here's a factorial program:
 
-TK insert early example
+```bril
+@main(input: int) {
+  res: int = call @fact input;
+  print res;
+}
+
+@fact(n: int): int {
+  one: int = const 1;
+  cond: bool = le n one;
+  br cond .then .else;
+.then:
+  ret one;
+.else:
+  decr: int = sub n one;
+  rec: int = call @fact decr;
+  prod: int = mul n rec;
+  ret prod;
+}
+```
 
 Bril is the only compiler IL I know of that is specifically designed for education.
 Focusing on teaching means that Bril prioritizes these goals:

@@ -11,15 +11,34 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     state :root do
       rule /\s+/m, Text::Whitespace
       rule /@\w+/, Name::Function
+      rule /\(/, Punctuation, :funcargs
       rule /\{/, Punctuation, :function
+    end
+
+    state :funcargs do
+      rule /\s+/m, Text::Whitespace
+      rule /(\w+)(\s*)(:)(\s*)(\w+)/ do |m|
+        token Name::Variable, m[1]
+        token Text::Whitespace, m[2]
+        token Punctuation, m[3]
+        token Text::Whitespace, m[4]
+        token Keyword::Type, m[5]
+      end
+      rule /,/, Punctuation
+      rule /\)/, Punctuation, :pop!
     end
 
     state :function do
       rule /\s+/m, Text::Whitespace
-      rule /(\w+)(:)/ do |m|
+      rule /(\w+)(\s*)(:)/ do |m|
         token Name::Variable, m[1]
-        token Punctuation, m[2]
+        token Text::Whitespace, m[2]
+        token Punctuation, m[3]
         push :valins
+      end
+      rule /(\.\w+)(:)/ do |m|
+        token Name::Label, m[1]
+        token Punctuation, m[2]
       end
       rule /\w+/, Keyword, :insargs
       rule /\}/, Punctuation, :pop!
@@ -28,30 +47,29 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     state :valins do
       rule /\s+/m, Text::Whitespace
       rule /\w+/, Keyword::Type
-      rule /\=/, Punctuation, :insbody
-      rule /;/ do |m|
+      rule /\=/ do |m|
         token Punctuation
-        goto :function
+        goto :insbody
       end
+      rule /;/, Punctuation, :pop!
     end
 
     state :insbody do
       rule /\s+/m, Text::Whitespace
-      rule /\w+/, Keyword, :insargs
-      rule /;/ do |m|
-        token Punctuation
-        goto :function
+      rule /\w+/ do |m|
+        token Keyword
+        goto :insargs
       end
+      rule /;/, Punctuation, :pop!
     end
 
     state :insargs do
       rule /\s+/m, Text::Whitespace
       rule /\d+/, Literal::Number::Integer
+      rule /@\w+/, Name::Function
+      rule /(\.\w+)/, Name::Label
       rule /\w+/, Name::Variable
-      rule /;/ do |m|
-        token Punctuation
-        goto :function
-      end
+      rule /;/, Punctuation, :pop!
     end
   end
 end
