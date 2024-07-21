@@ -87,7 +87,8 @@ I will, however, die on the following hill:
 **the text form is a second-class convenience**, with no warranty of any kind, express or implied.
 The text syntax exists solely to cater to our foibles as humans for whom reading JSON directly is just kinda annoying.
 Bril itself is the JSON format you see above.
-But amid Bril's multifaceted toolset are a parser and pretty-printer that will show you the text equivalent:
+But two of Bril's many tools are a [parser and pretty-printer][bril-txt].
+Here's the text form of the program above:
 
 ```bril
 @main {
@@ -98,9 +99,15 @@ But amid Bril's multifaceted toolset are a parser and pretty-printer that will s
 }
 ```
 
-TK show a pipeline with the parser and pretty-printer
+As a consequence, working with Bril means typing commands like this a lot:
 
-TK real performance cost, because you have to serialize/deserialize between every step.
+```
+$ bril2json < program.bril | do_something | bril2txt
+```
+
+It can get annoying to constantly need to convert to and from JSON,
+and it's wasteful to constantly serialize and deserialize programs at each stage in a long pipeline.
+But the trade-off is that the Bril ecosystem comprises a large number of small pieces, loosely joined, and infinitely remixable on the command line.
 
 [bril-ocaml]: https://github.com/sampsyo/bril/tree/main/bril-ocaml
 [bril-ts]: https://github.com/sampsyo/bril/tree/main/bril-ts
