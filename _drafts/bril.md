@@ -7,8 +7,13 @@ analysis and optimization, but also runtime services, verification, synthesis, J
 but not lexing, parsing, semantic analysis, register allocation, or instruction selection.
 That latter stuff is all cool, but you have to sacrifice something for a coherent focus.
 
+TK make that first graf shorter
+
 This post is about [Bril][], the Big Red Intermediate Language.
 Bril is a new compiler intermediate representation I made to support this kind of compilers course.
+
+TK insert early example
+
 Bril is the only compiler IL I know of that is specifically designed for education.
 Focusing on teaching means that Bril prioritizes these goals:
 
@@ -107,12 +112,13 @@ $ bril2json < program.bril | do_something | bril2txt
 
 It can get annoying to constantly need to convert to and from JSON,
 and it's wasteful to constantly serialize and deserialize programs at each stage in a long pipeline.
-But the trade-off is that the Bril ecosystem comprises a large number of small pieces, loosely joined, and infinitely remixable on the command line.
+But the trade-off is that the Bril ecosystem comprises a large number of small pieces, loosely joined and infinitely remixable on the command line.
 
 [bril-ocaml]: https://github.com/sampsyo/bril/tree/main/bril-ocaml
 [bril-ts]: https://github.com/sampsyo/bril/tree/main/bril-ts
 [bril-swift]: https://github.com/sampsyo/bril/tree/main/bril-swift
 [bril-rs]: https://github.com/sampsyo/bril/tree/main/bril-rs
+[bril-txt]: https://github.com/sampsyo/bril/blob/main/bril-txt/briltxt.py
 
 ## TK language design
 
