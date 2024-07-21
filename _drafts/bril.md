@@ -139,7 +139,30 @@ But the trade-off is that the Bril ecosystem comprises a large number of small p
 
 ## TK language design
 
-TK example of prioritizing regularity: constants are separate instructions. pretty annoying to write as a consequence, but it's one less case to deal with...
+There are a few design decisions in the language itself that reflect Bril's education-over-practicality priorities.
+For instance, `print` is a [core opcode][core] in Bril; I don't think this would be a good idea in most compilers, but it makes it really easy to write small examples.
+Another exotic quirk is that Bril is *extremely* [A-normal form][anf], to the point that constants always have to go in their own instructions and get their own names.
+To increment an integer, for example, you can't do this:
+
+```bril
+incr: int = add n 1;
+```
+
+Instead, Bril code is full of these one-off constant variables, like this:
+
+```bril
+one: int = const 1;
+incr: int = add n one;
+```
+
+This more-ANF-than-ANF approach to constants is verbose to the point of silliness.
+But it simplifies the way you write some basic IL traversals because you don't have to worry about whether operands come from variables or constants.
+For many use cases, you get to handle constants the same way you do any other instruction.
+For teaching, I think the regularity is worth the silliness.
+
+TK anything else? maybe not-SSA goes here?
+
+[core]: https://capra.cs.cornell.edu/bril/lang/core.html
 
 ## TK the available tools
 
