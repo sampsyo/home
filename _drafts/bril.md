@@ -1,16 +1,13 @@
 ---
 title: "Bril: An Intermediate Language for Teaching Compilers"
 ---
-I created a new "advanced compilers" course for PhD students, called [CS 6120][cs6120], a few years ago.
-The organizing principle is a focus on the "middle end," defined broadly:
-analysis and optimization, but also runtime services, verification, synthesis, JITs, and so on;
-but not lexing, parsing, semantic analysis, register allocation, or instruction selection.
-That latter stuff is all cool, but you have to sacrifice something for a coherent focus.
+When I started a new [PhD-level compilers course][cs6120] a few years ago,
+I thought it was important to use a "hands-on" structure.
+There is a big difference between understanding an algorithm on a whiteboard and implementing it, running into bugs in real programs, and fixing them.
 
-TK make that first graf shorter
-
-This post is about [Bril][], the Big Red Intermediate Language.
-Bril is a new compiler intermediate representation I made to support this kind of compilers course.
+I created [Bril][], the Big Red Intermediate Language, to support the class's implementation projects.
+Bril isn't very interesting from a compiler engineering perspective, but
+I think it's pretty good for the specific use case of teaching compilers classes.
 Here's a factorial program:
 
 ```bril
@@ -39,13 +36,13 @@ Focusing on teaching means that Bril prioritizes these goals:
 * It is fast to get started working with the IL.
 * It is easy to mix and match components that work with the IL, including things that fellow students write.
 * The language has simple semantics without too many distractions.
-* The design is ruthlessly regular, i.e., everything in the language falls into a pretty small number of *kinds of things*.
+* The syntax is ruthlessly regular.
 
 Bril is different from other ILs because it ranks those goals above other, more typical goals for an IL:
 code size, compiler speed, and performance of the generated code.
 
-Aside from that invasion of priorities, Bril looks sorta like any other modern compiler IL.
-It's a self-contained, assembly-like, typed, instruction-based language.
+Aside from that invasion of priorities, Bril looks a lot like any other modern compiler IL.
+It's a assembly-like, typed, instruction-based [ANF][] language.
 There's a quote from [why the lucky stiff][why] where he introduces [Camping][], the original web microframework, as "a little white blood cell in the vein of Rails."
 If LLVM is an entire circulatory system, Bril is a single blood cell.
 
@@ -53,6 +50,7 @@ If LLVM is an entire circulatory system, Bril is a single blood cell.
 [why]: https://en.wikipedia.org/wiki/Why_the_lucky_stiff
 [bril]: https://capra.cs.cornell.edu/bril/
 [cs6120]: https://www.cs.cornell.edu/courses/cs6120/2023fa/
+[anf]: https://en.wikipedia.org/wiki/A-normal_form
 
 ## Bril is JSON
 
@@ -67,7 +65,7 @@ prog = json.load(sys.stdin)
 
 I'm obviously being a little silly here.
 But seriously, the JSON-as-syntax idea is in service of the *fast to get started* and *easy to mix and match components* goals above.
-At the next level of detail, I wanted Bril to do these things:
+I wanted Bril to do these things:
 
 * **Let students use any programming language they want.**
   I wanted my compilers course to be accessible to lots of PhD students, including people with only tangential interest in compilers.
