@@ -35,7 +35,7 @@ Focusing on teaching means that Bril prioritizes these goals:
 
 * It is fast to get started working with the IL.
 * It is easy to mix and match components that work with the IL, including things that fellow students write.
-* The language has simple semantics without too many distractions.
+* The semantics are simple, without too many distractions.
 * The syntax is ruthlessly regular.
 
 Bril is different from other ILs because it ranks those goals above other, more typical goals for an IL:
@@ -160,20 +160,55 @@ But it simplifies the way you write some basic IL traversals because you don't h
 For many use cases, you get to handle constants the same way you do any other instruction.
 For teaching, I think the regularity is worth the silliness.
 
-TK: extensible. link to the extensions.
-this is currently super ad hoc and ramshackle. I would like a way to be explicit about which language extensions are in scope... and maybe a "machine-readable" way to specify extensions, at least syntactically (not semantically).
+Bril is extensible, in a loosey-goosey way.
+The string-heavy JSON syntax means it's trivial to add new opcodes and data types.
+Beyond the [core language][core], there are "official" extensions for [manually managed memory][memory], [floating-point numbers][float], a funky form of [speculation][spec] I use for teaching JIT principles, [module imports][import], and [characters][char].
+While a *laissez faire* approach to extensions has worked so far, it's also a mess:
+there's no systematic way to tell which extensions a given program uses or which language features a given tool supports.
+[A more explicit approach to extensibility][38] would make the growing ecosystem easier to manage.
 
-TK: not SSA.
-not SSA, but with an SSA variant. this is important so (1) students can feel the pain of working with non-SSA programs, and (2) so that they an implement the to-SSA/from-SSA passes as an assignment, and (3) makes it easy to emit from frontends that have mutation *without needing memory in the IL*
-* there is an SSA form, but... it is not great (we should do something about that). this goal turns out to have been the hardest to meet
-* maybe switch to BB arguments, for a more radical departure in the SSA form? I think a lot of the complexity/bugs come from trying to treat SSA as just a small tweak on the non-SSA base language
+(Most of these extensions were contributed by CS 6120 students.
+In the first semester, for instance, I was low on time and left both memory and function calls as an exercise to the reader.
+You can read blog posts [by Drew Zagieboylo & Ryan Doenges about the memory extension][memory-blog]
+and [by Alexa VanHattum & Gregory Yauney about designing function calls][func-blog].
+Laziness can pay off.)
+
+Finally, Bril does not require not SSA.
+There is [an SSA form][ssa] that includes a `phi` extension, but the language itself has mutable variables.
+I wouldn't recommend this strategy for any other IL, but it's helpful for teaching for three big reasons:
+
+1. I want students to feel the pain of working with non-SSA programs before the course introduces SSA. This frustration can help motivate why SSA is the modern consensus.
+2. The course includes a task where students [implement into-SSA and out-of-SSA transformations][ssa-task].
+3. It's really easy to generate Bril code from frontend languages that have mutable variables. The alternative would be LLVM's [mem2reg][]/"just put all the frontend variables in memory" trick, but Bril avoids building memory into the core language for simplicity.
+
+Unfortunately, this aftermarket SSA retrofit has been a huge headache.
+TK persistent problems with undefinedness.
+TK weird/bad phi semantics.
+I think Bril's SSA form needs a significant rework, probably based on a more radical change to the core language such as adding [basic block arguments][block-args].
+It has been an interesting lesson for me that SSA comes with subtle design implications that are difficult to retrofit onto an existing mutation-oriented IL.
 
 [core]: https://capra.cs.cornell.edu/bril/lang/core.html
+[ssa-task]: https://www.cs.cornell.edu/courses/cs6120/2023fa/lesson/6/#tasks
+[memory]: https://capra.cs.cornell.edu/bril/lang/memory.html
+[float]: https://capra.cs.cornell.edu/bril/lang/float.html
+[spec]: https://capra.cs.cornell.edu/bril/lang/spec.html
+[import]: https://capra.cs.cornell.edu/bril/lang/import.html
+[char]: https://capra.cs.cornell.edu/bril/lang/char.html
+[ssa]: https://capra.cs.cornell.edu/bril/lang/ssa.html
+[memory-blog]: https://www.cs.cornell.edu/courses/cs6120/2019fa/blog/manually-managed-memory/
+[func-blog]: https://www.cs.cornell.edu/courses/cs6120/2019fa/blog/function-calls/
+[38]: https://github.com/sampsyo/bril/issues/38
+[mem2reg]: https://llvm.org/doxygen/Mem2Reg_8cpp_source.html
+[block-args]: https://mlir.llvm.org/docs/LangRef/#blocks
 
-## TK the available tools
+## The Bril Ecosystem
 
 <img src="{{site.base}}/media/bril/ecosystem.svg"
     class="img-responsive bonw" style="max-width: 450px;">
+
+TK shaded blocks are things that students built.
+
+TK link to [playground][]
 
 draw a graph of all the stuff?
 definitely link to the cool web playground
@@ -182,3 +217,5 @@ highlight things that people have built. distinguish the extremely tiny set of t
 
 TK in the first semester, Bril didn't even have memory or function calls.
 the language for these was invented by students.
+
+[playground]: https://agentcooper.github.io/bril-playground/
