@@ -206,16 +206,15 @@ It has been an interesting lesson for me that SSA comes with subtle design impli
 <img src="{{site.base}}/media/bril/ecosystem.svg"
     class="img-responsive bonw" style="max-width: 450px;">
 
-TK shaded blocks are things that students built.
+I cobbled together the first version of Bril in a hurry in the weeks before the fall 2019 semester began.
+Since then, via the "open-source class" nature of [CS 6120][cs6120], students have contributed a host of tools for working with the language.
+The diagram above shows a sampling of what is in [the monorepo][bril-gh];
+empty boxes are things I made and shaded boxes are things students contributed.
+Someone also built a snazzy [web playground][playground] that I find super impressive.
+You can find many more random tools by [searching on GitHub][gh-search].
 
-TK link to [playground][]
-
-draw a graph of all the stuff?
-definitely link to the cool web playground
-
-highlight things that people have built. distinguish the extremely tiny set of tools we started with, and where we are at now (in the monorepo and beyond).
-
-TK in the first semester, Bril didn't even have memory or function calls.
-the language for these was invented by students.
+TK how to close?
 
 [playground]: https://agentcooper.github.io/bril-playground/
+[bril-gh]: https://github.com/sampsyo/bril
+[gh-search]: https://github.com/search?q=bril+compiler&type=repositories
