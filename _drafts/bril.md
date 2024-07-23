@@ -42,7 +42,7 @@ Focusing on teaching means that Bril prioritizes these goals:
 Bril is different from other ILs because it ranks those goals above other, more typical goals:
 code size, compiler speed, and performance of the generated code.
 
-Aside from that invasion of priorities, Bril looks a lot like any other modern compiler IL.
+Aside from that inversion of priorities, Bril looks a lot like any other modern compiler IL.
 It's an assembly-like, typed, instruction-based, [ANF][] language.
 There's a quote from [why the lucky stiff][why] where he introduces [Camping][], the original web microframework, as "a little white blood cell in the vein of Rails."
 If LLVM is an entire circulatory system, Bril is a single blood cell.
