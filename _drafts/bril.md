@@ -56,7 +56,7 @@ If LLVM is an entire circulatory system, Bril is a single blood cell.
 ## Bril is JSON
 
 Bril programs are JSON documents.
-Here's how students can work with Bril code using Python:
+Here's how students get started working with Bril code using Python:
 
 ```py
 import json
@@ -72,10 +72,10 @@ I wanted Bril to do these things:
   I wanted my compilers course to be accessible to lots of PhD students, including people with only tangential interest in compilers.
   Letting them use the languages they're comfortable with is a great way to avoid any ramp-up phase with some "realistic" compiler implementation language, whatever you think that is.
 * **No framework is required to get started.**
-  This is partially a practical matter; for the first offering of CS 6120, no libraries existed, and I needed to run the course somehow.
-  But I also think this constraint is pedagogically valuable as a complexity limiter:
+  For the first offering of CS 6120, no libraries existed, and I needed to run the course somehow.
+  Beyond that practical matter, this constraint is valuable as a complexity limiter:
   students can get started with simple stuff without learning any APIs.
-  These days, Bril does come with libraries that are great for avoiding the JSON boilerplate when you scale up:
+  These days, Bril does come with libraries that are great for avoiding JSON-handling frustrations when you scale up:
   for [Rust][bril-rs], [OCaml][bril-ocaml], [Swift][bril-swift], and [TypeScript][bril-ts].
   But the fact that they're not really *required* keeps the onramps gentle.
 * **Compose small pieces with Unix pipelines.**
@@ -110,7 +110,7 @@ I will, however, die on the following hill:
 **the text form is a second-class convenience**, with no warranty of any kind, express or implied.
 The text syntax exists solely to cater to our foibles as humans for whom reading JSON directly is just kinda annoying.
 Bril itself is the JSON format you see above.
-But two of Bril's many tools are a [parser and pretty-printer][bril-txt].
+But as a concession to our foibles, among Bril's many tools are a [parser and pretty-printer][bril-txt].
 Here's the text form of the program above:
 
 ```bril
@@ -129,7 +129,7 @@ $ bril2json < program.bril | do_something | bril2txt
 ```
 
 It can get annoying to constantly need to convert to and from JSON,
-and it's wasteful to constantly serialize and deserialize programs at each stage in a long pipeline.
+and it's wasteful to serialize and deserialize programs at each stage in a long pipeline.
 But the trade-off is that the Bril ecosystem comprises a large number of small pieces, loosely joined and infinitely remixable on the command line.
 
 [bril-ocaml]: https://github.com/sampsyo/bril/tree/main/bril-ocaml
@@ -142,14 +142,15 @@ But the trade-off is that the Bril ecosystem comprises a large number of small p
 
 There are a few design decisions in the language itself that reflect Bril's education-over-practicality priorities.
 For instance, `print` is a [core opcode][core] in Bril; I don't think this would be a good idea in most compilers, but it makes it really easy to write small examples.
-Another exotic quirk is that Bril is *extremely* [A-normal form][anf], to the point that constants always have to go in their own instructions and get their own names.
+
+Another quirk is that Bril is *extremely* [A-normal form][anf], to the point that constants always have to go in their own instructions and get their own names.
 To increment an integer, for example, you can't do this:
 
 ```bril
 incr: int = add n 1;
 ```
 
-Instead, Bril code is full of these one-off constant variables, like this:
+Instead, Bril code is full of one-off constant variables, like this:
 
 ```bril
 one: int = const 1;
@@ -168,12 +169,6 @@ While a *laissez faire* approach to extensions has worked so far, it's also a me
 there's no systematic way to tell which extensions a given program uses or which language features a given tool supports.
 [A more explicit approach to extensibility][38] would make the growing ecosystem easier to manage.
 
-(Most of these extensions were contributed by CS 6120 students.
-In the first semester, for instance, I was low on time and left both memory and function calls as an exercise to the reader.
-You can read blog posts [by Drew Zagieboylo & Ryan Doenges about the memory extension][memory-blog]
-and [by Alexa VanHattum & Gregory Yauney about designing function calls][func-blog].
-Laziness can pay off.)
-
 Finally, Bril does not require not SSA.
 There is [an SSA form][ssa] that includes a `phi` instruction, but the language itself has mutable variables.
 I wouldn't recommend this strategy for any other IL, but it's helpful for teaching for three big reasons:
@@ -183,9 +178,9 @@ I wouldn't recommend this strategy for any other IL, but it's helpful for teachi
 3. It's really easy to generate Bril code from frontend languages that have mutable variables. The alternative would be LLVM's [mem2reg][]/"just put all the frontend variables in memory" trick, but Bril avoids building memory into the core language for simplicity.
 
 Unfortunately, this aftermarket SSA retrofit has been a huge headache.
-It has caused [persistent problems with undefinedness][108] and [classic correctness problems what translating out of SSA][330].
+It has caused [persistent problems with undefinedness][108] and [classic correctness problems when translating out of SSA][330].
 I think my original design is fundamentally flawed;
-it was a mistake to try to treat `phi` semantically as "just another instruction" instead of a more invasive change to the language.
+it was a mistake to treat `phi` semantically as "just another instruction" instead of a more invasive change to the language.
 Bril's SSA form needs a full rework, probably including an actual language extension along the lines of [MLIR's basic block arguments][block-args].
 It has been an interesting lesson for me that SSA comes with subtle design implications that are difficult to retrofit onto an existing mutation-oriented IL.
 
@@ -197,8 +192,6 @@ It has been an interesting lesson for me that SSA comes with subtle design impli
 [import]: https://capra.cs.cornell.edu/bril/lang/import.html
 [char]: https://capra.cs.cornell.edu/bril/lang/char.html
 [ssa]: https://capra.cs.cornell.edu/bril/lang/ssa.html
-[memory-blog]: https://www.cs.cornell.edu/courses/cs6120/2019fa/blog/manually-managed-memory/
-[func-blog]: https://www.cs.cornell.edu/courses/cs6120/2019fa/blog/function-calls/
 [38]: https://github.com/sampsyo/bril/issues/38
 [mem2reg]: https://llvm.org/doxygen/Mem2Reg_8cpp_source.html
 [block-args]: https://mlir.llvm.org/docs/Rationale/Rationale/#block-arguments-vs-phi-nodes
@@ -217,8 +210,20 @@ empty boxes are things I made and shaded boxes are things students contributed.
 Someone also built a snazzy [web playground][playground] that I find super impressive.
 You can find many more random tools by [searching on GitHub][gh-search].
 
-TK how to close?
+Most of the language extensions I mentioned were contributed by CS 6120 students.
+In the run-up to the first semester, for instance, I was low on time and left memory, function calls, and floating-point numbers as "exercises for the reader."
+You can read 2019 blog posts [by Drew Zagieboylo & Ryan Doenges about the memory extension][memory-blog],
+[by Alexa VanHattum & Gregory Yauney about designing function calls][func-blog],
+and [by Dietrich Geisler about floats][float-blog].
+Laziness can pay off.
+
+Please [get in touch][toot] if you're using Bril for something unconventional!
+I love learning about the weird places it has gone.
 
 [playground]: https://agentcooper.github.io/bril-playground/
 [bril-gh]: https://github.com/sampsyo/bril
 [gh-search]: https://github.com/search?q=bril+compiler&type=repositories
+[toot]: https://discuss.systems/@adrian
+[float-blog]: https://www.cs.cornell.edu/courses/cs6120/2019fa/blog/floats-static-arrays/
+[func-blog]: https://www.cs.cornell.edu/courses/cs6120/2019fa/blog/function-calls/
+[memory-blog]: https://www.cs.cornell.edu/courses/cs6120/2019fa/blog/manually-managed-memory/
