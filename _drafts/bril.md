@@ -1,5 +1,11 @@
 ---
 title: "Bril: An Intermediate Language for Teaching Compilers"
+excerpt: |
+    I created a new intermediate language, called [Bril][], for teaching my funky open-source, hands-on compilers course.
+    Because it's for education, Bril prioritizes simplicity and regularity over more typical compiler priorities like performance and concision.
+    This is an overview of Bril's design, its quirks, and the ecosystem that has grown up around it since 2019.
+
+    [bril]: https://capra.cs.cornell.edu/bril/
 ---
 When I started a new [PhD-level compilers course][cs6120] a few years ago,
 I thought it was important to use a "hands-on" structure.
