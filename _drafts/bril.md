@@ -3,7 +3,8 @@ title: "Bril: An Intermediate Language for Teaching Compilers"
 ---
 When I started a new [PhD-level compilers course][cs6120] a few years ago,
 I thought it was important to use a "hands-on" structure.
-There is a big difference between understanding an algorithm on a whiteboard and implementing it, running into bugs in real programs, and fixing them.
+There is a big difference between understanding an algorithm on a whiteboard and implementing it, inevitably running into bugs when your implementation encounters real programs.
+At the same time, I wanted students to get started quickly, without learning the overwhelming APIs that come with industrial-strength compilers.
 
 I created [Bril][], the Big Red Intermediate Language, to support the class's implementation projects.
 Bril isn't very interesting from a compiler engineering perspective, but
@@ -38,11 +39,11 @@ Focusing on teaching means that Bril prioritizes these goals:
 * The semantics are simple, without too many distractions.
 * The syntax is ruthlessly regular.
 
-Bril is different from other ILs because it ranks those goals above other, more typical goals for an IL:
+Bril is different from other ILs because it ranks those goals above other, more typical goals:
 code size, compiler speed, and performance of the generated code.
 
 Aside from that invasion of priorities, Bril looks a lot like any other modern compiler IL.
-It's a assembly-like, typed, instruction-based [ANF][] language.
+It's an assembly-like, typed, instruction-based, [ANF][] language.
 There's a quote from [why the lucky stiff][why] where he introduces [Camping][], the original web microframework, as "a little white blood cell in the vein of Rails."
 If LLVM is an entire circulatory system, Bril is a single blood cell.
 
