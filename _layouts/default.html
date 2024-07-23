@@ -19,19 +19,21 @@
         <link rel="apple-touch-icon-precomposed" href="{{site.base}}/media/icon/favicon152.png">
 
         {% if page.date %}
+        {% capture newline %}
+{% endcapture %}
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="{{ site.twitter }}">
         <meta name="twitter:creator" content="{{ site.twitter }}">
         <meta name="twitter:title" content="{{ page.title }}">
         <meta name="twitter:image" content="{{ site.logo }}">
         <meta name="twitter:description"
-            content="{{ page.excerpt | markdownify | strip_html | strip_newlines }}">
+            content="{{ page.excerpt | markdownify | strip_html | replace: newline, " " }}">
 
         <meta property="og:type" content="article">
         <meta property="og:title" content="{{ page.title }}">
         <meta property="og:image" content="{{ site.logo }}">
         <meta property="og:description"
-            content="{{ page.excerpt | markdownify | strip_html | strip_newlines }}">
+            content="{{ page.excerpt | markdownify | strip_html | replace: newline, " " }}">
 
         <meta name="fediverse:creator" content="@adrian@discuss.systems" />
         {% endif %}
