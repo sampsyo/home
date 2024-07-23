@@ -174,7 +174,7 @@ and [by Alexa VanHattum & Gregory Yauney about designing function calls][func-bl
 Laziness can pay off.)
 
 Finally, Bril does not require not SSA.
-There is [an SSA form][ssa] that includes a `phi` extension, but the language itself has mutable variables.
+There is [an SSA form][ssa] that includes a `phi` instruction, but the language itself has mutable variables.
 I wouldn't recommend this strategy for any other IL, but it's helpful for teaching for three big reasons:
 
 1. I want students to feel the pain of working with non-SSA programs before the course introduces SSA. This frustration can help motivate why SSA is the modern consensus.
@@ -182,9 +182,10 @@ I wouldn't recommend this strategy for any other IL, but it's helpful for teachi
 3. It's really easy to generate Bril code from frontend languages that have mutable variables. The alternative would be LLVM's [mem2reg][]/"just put all the frontend variables in memory" trick, but Bril avoids building memory into the core language for simplicity.
 
 Unfortunately, this aftermarket SSA retrofit has been a huge headache.
-TK persistent problems with undefinedness.
-TK weird/bad phi semantics.
-I think Bril's SSA form needs a significant rework, probably based on a more radical change to the core language such as adding [basic block arguments][block-args].
+It has caused [persistent problems with undefinedness][108] and [classic correctness problems what translating out of SSA][330].
+I think my original design is fundamentally flawed;
+it was a mistake to try to treat `phi` semantically as "just another instruction" instead of a more invasive change to the language.
+Bril's SSA form needs a full rework, probably including an actual language extension along the lines of [MLIR's basic block arguments][block-args].
 It has been an interesting lesson for me that SSA comes with subtle design implications that are difficult to retrofit onto an existing mutation-oriented IL.
 
 [core]: https://capra.cs.cornell.edu/bril/lang/core.html
@@ -199,7 +200,9 @@ It has been an interesting lesson for me that SSA comes with subtle design impli
 [func-blog]: https://www.cs.cornell.edu/courses/cs6120/2019fa/blog/function-calls/
 [38]: https://github.com/sampsyo/bril/issues/38
 [mem2reg]: https://llvm.org/doxygen/Mem2Reg_8cpp_source.html
-[block-args]: https://mlir.llvm.org/docs/LangRef/#blocks
+[block-args]: https://mlir.llvm.org/docs/Rationale/Rationale/#block-arguments-vs-phi-nodes
+[108]: https://github.com/sampsyo/bril/issues/108
+[330]: https://github.com/sampsyo/bril/issues/330
 
 ## The Bril Ecosystem
 
