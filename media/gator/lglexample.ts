@@ -3,14 +3,10 @@
  * examples.
  */
 import { mat4, vec3 } from 'gl-matrix';
-import * as teapot from 'teapot';
 import * as bunny from 'bunny';
-import cube from 'primitive-cube';
-import icosphere from 'icosphere';
 import * as normals from 'normals';
 import pack from 'array-pack-2d';
 import canvasOrbitCamera from 'canvas-orbit-camera';
-import * as obj_loader from 'webgl-obj-loader';
 
 export type Vec3Array = [number, number, number][];
 
@@ -232,82 +228,6 @@ export function getMesh(gl: WebGLRenderingContext, obj: { cells: [number, number
 }
 
 /**
- * Load a mesh from an OBJ file.
- *
- * [Reference] : https://github.com/cucapra/braid/
- * @param gl      rendering context
- * @param obj_src string literal content of OBJ source file
- */
-export function load_obj(gl: WebGLRenderingContext, obj_src: string): Mesh {
-
-  if (typeof obj_src !== "string") {
-    throw "obj source must be a string";
-  }
-
-  // // Create a WebGL buffer.
-  let mesh = new obj_loader.Mesh(obj_src);
-  // Match the interface we're using for Mesh objects that come from
-  // StackGL.
-  let cell = group_array(mesh.indices, 3) as Vec3Array;
-  let position = group_array(mesh.vertices, 3) as Vec3Array;
-  // let normal = normals.vertexNormals(cell, position);
-  let normal = group_array(mesh.vertexNormals, 3) as Vec3Array;
-  let out: Mesh = {
-    positions: make_buffer(gl, position, 'float32', gl.ARRAY_BUFFER),
-    cells: make_buffer(gl, cell, 'uint16', gl.ELEMENT_ARRAY_BUFFER),
-    normals: make_buffer(gl, normal, 'float32', gl.ARRAY_BUFFER),
-    cell_count: cell.length * cell[0].length,
-    // This name I invented -- it's not in the StackGL models.
-    texcoords: gl_buffer(gl, gl.ARRAY_BUFFER, new Float32Array(mesh.textures))
-  };
-
-  // .obj files can have normals, but if they don't, this parser library
-  // (confusingly) fills the array with NaN.
-  // if (!isNaN(mesh.vertexNormals[0])) {
-  //   out.normals = group_array(mesh.vertexNormals, 3) as Vec3Array;
-  // }
-
-  return out;
-}
-
-export function load_texture(gl: WebGLRenderingContext, img_src: string) {
-  return load_texture_number(gl, img_src, gl.TEXTURE0);
-}
-
-export function load_texture_number(gl: WebGLRenderingContext, 
-  img_src: string, tex_num: number) {
-  return load_texture_clamp(gl, img_src, tex_num, gl.CLAMP_TO_EDGE);
-}
-
-/**
- * Load image texture.
- * @param gl rendering context
- */
-export function load_texture_clamp(gl: WebGLRenderingContext, 
-  img_src: string, tex_num: number, clamp: number) {
-  // Create a texture.
-  // Asynchronously load an image
-  var image = new Image();
-  image.src = img_src;
-  var texture = gl.createTexture();
-
-  image.addEventListener('load', function () {
-    gl.activeTexture(tex_num);
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
-
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    // clamp to edge gives us non-power-of-2 support
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, clamp);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, clamp);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
-  });
-
-  return texture;
-}
-
-/**
  * Given a flat array, return an array with the elements grouped into
  * sub-arrays of a given size.
  *
@@ -322,31 +242,10 @@ function group_array<T>(a: T[], size: number) {
 }
 
 /**
- * Get a Mesh object for a sphere
- */
-export function getCube(gl: WebGLRenderingContext, sx: number, sy: number, sz: number, ny: number, nz: number) {
-  return getMesh(gl, cube(sx, sy, sz, ny, nz));
-}
-
-/**
- * Get a Mesh object for a sphere
- */
-export function getSphere(gl: WebGLRenderingContext, subdivisions: number) {
-  return getMesh(gl, icosphere(subdivisions));
-}
-
-/**
  * Get a Mesh object for the Stanford bunny.
  */
 export function getBunny(gl: WebGLRenderingContext) {
   return getMesh(gl, bunny);
-}
-
-/**
- * Get a Mesh object for the Utah teapot.
- */
-export function getTeapot(gl: WebGLRenderingContext) {
-  return getMesh(gl, teapot);
 }
 
 /**
