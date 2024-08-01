@@ -9,9 +9,15 @@ uniform vec3 uLightPos;
 uniform vec3 uDiffColor;
 
 void main() {
-    vec4 vPosWorldHom = uModel * vec4(vPosition, 1.0);
-    vec3 vPosWorldCart = vec3(vPosWorldHom / vPosWorldHom.w);
-    vec3 lightDir = normalize(uLightPos - vPosWorldCart);
-    float diffuse = max(dot(lightDir, normalize(vec3(uModel * vec4(vNormal, 0.0)))), 0.0);
+    // Get the world-space direction from the fragment position to the light.
+    vec4 posWorldHom = uModel * vec4(vPosition, 1.0);
+    vec3 posWorldCart = vec3(posWorldHom / posWorldHom.w);
+    vec3 lightDir = normalize(uLightPos - posWorldCart);
+
+    // Compute the dot product between the surface normal and light direction.
+    vec3 normWorld = normalize(vec3(uModel * vec4(vNormal, 0.0)));
+    float diffuse = max(dot(lightDir, normWorld), 0.0);
+
+    // Produce a color with a 100% alpha channel.
     gl_FragColor = vec4(diffuse * uDiffColor, 1.0);
 }
