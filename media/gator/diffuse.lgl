@@ -28,8 +28,6 @@ class positions {
 };
 
 void main() {
-    hom<model>.transformation<camera> uModelView = uView * uModel;
-    color ambient = [0.1, 0., 0.];
     positions p = new_positions(hom_reduce(uModel*homify(vPosition)));
     auto camPos = hom_reduce(uView*uModel*homify(vPosition));
     auto worldNorm = normalize(hom_reduce(uModel*homify(vNormal)));
@@ -40,5 +38,5 @@ void main() {
 
     auto reflectDir = normalize(hom_reduce(uView * homify(reflect(-lightDir, worldNorm))));
 
-    gl_FragColor = vec4(ambient + diffuse * uLight.diffColor, 1.0);
+    gl_FragColor = vec4(diffuse * uLight.diffColor, 1.0);
 }

@@ -14,7 +14,6 @@ function main(cid: string) {
   let loc_uProjection = lgl.uniformLoc(gl, program, 'uProjection');
   let loc_uView = lgl.uniformLoc(gl, program, 'uView');
   let loc_uModel = lgl.uniformLoc(gl, program, 'uModel');
-  //let loc_uLight = lgl.uniformLoc(gl, program, 'uLight');
   let loc_aPosition = lgl.attribLoc(gl, program, 'aPosition');
   let loc_aNormal = lgl.attribLoc(gl, program, 'aNormal');
   let loc_uLight1Pos = lgl.uniformLoc(gl, program, 'uLight.pos');
@@ -27,7 +26,7 @@ function main(cid: string) {
 
   // Position the light source for the lighting effect.
   let light = vec3.fromValues(20., 0., 20.);
-  let diffColor = vec3.fromValues(1., 1., 0.);
+  let diffColor = vec3.fromValues(0.32, 0.63, 0.07);
 
   function render(view: mat4, projection: mat4) {
     // Rotate the model a little bit on each frame.
