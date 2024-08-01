@@ -19,9 +19,10 @@ At every point on the surface of the object, it's the dot product between the su
 
 $$\mathit{lambertian} = \mathsf{max}(\mathit{lightDir}\cdot\mathit{fragNorm}, 0)$$
 
+That $\mathsf{max}$ helps us ignore light coming from behind the rabbit's surface.
 We're implementing this in a [fragment shader][frag], so that
-$fragNorm$ is the normal vector for a given point in space that we're rendering.
-We can get $lightDir$ by normalizing the difference between the current fragment position and some absolute position of the light source:
+$\mathit{fragNorm}$ is the normal vector for a given point in space that we're rendering.
+We can get $\mathit{lightDir}$ by normalizing the difference between the current fragment position and some absolute position of the light source:
 
 $$\mathit{lightDir} = \mathsf{normalize}(\mathit{lightPos} - \mathit{fragPos})$$
 
@@ -41,15 +42,67 @@ To finish it off, we multiply the Lambertian reflectance magnitude by an RGB col
   <figcaption>What happens if you try to implement that diffuse lighting by translating the math 1-1 into GLSL.</figcaption>
 </figure>
 
-This shader looks right, but it is incorrect.
+This shader is incorrect.
 The bunny looks like this: the shading seems mostly right, but the invisible light seems to be rotating along with the model instead of staying put.
-The math is right, but it has a *geometry bug*.
-The problem is that TK
+
+The math is right, but the code has a *geometry bug*.
+The problem is that, when you translate geometric math into rendering code, you have to represent the abstract vectors as concrete arrays of floating-point values.
+When the math's $\mathit{fragPos}$ becomes the shader's `vPosition`, we need to decide on its *reference frame:*
+will it be local coordinates relative to the bunny itself,
+relative to the camera,
+or using some "absolute" coordinates for the whole scene?
+We also need to pick a coordinate system, like
+ordinary Cartesian coordinates, polar coordinates, or the more graphics-specific system of [homogeneous coordinates][hom].
+
+The real problem here is that none of these choices show up in the type system.
+In GLSL, all our vectors are `vec3`s.
+There are several different reference frames at work here, but none of them show up in the programming language.
+GLSL is perfectly happy to add and subtract vectors that use completely different representations, yielding meaningless results.
+
+TK overview of trajectory. we'll fix it step by step
+
+## Managing Reference Frames
+
+TK multiply `uModel` matrix
+
+## Converting Coordinate Systems
+
+TK introduce homogeneous coordinates
+
+TK convert to vec4
+
+TK still incorrect!! need to do it different for normals. (show another bunny?)
+
+## The Correct Shader
+
+Here's a complete version of the correct shader:
+
+```glsl
+// lightDir = normalize(lightPos - fragPos)
+vec4 posWorldHom = uModel * vec4(vPosition, 1.0);
+vec3 posWorldCart = vec3(posWorldHom / posWorldHom.w);
+vec3 lightDir = normalize(uLightPos - posWorldCart);
+
+// lambertian = max(dot(lightDir, fragNorm), 0)
+vec3 normWorld = normalize(vec3(uModel * vec4(vNormal, 0.0)));
+float lambertian = max(dot(lightDir, normWorld), 0.0);
+
+gl_FragColor = vec4(lambertian * uDiffColor, 1.0);
+```
+
+This shader produces the bunny at the top of this post.
+
+## Geometry Types
+
+TK point to Gator; call to action
+
+TK gator listing? automatic conversion?
 
 [phong]: https://en.wikipedia.org/wiki/Phong_reflection_model
 [lambertian]: https://en.wikipedia.org/wiki/Lambertian_reflectance
 [frag]: https://www.khronos.org/opengl/wiki/Fragment_Shader
 [alpha]: https://en.wikipedia.org/wiki/Alpha_compositing
 [glsl]: https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders
+[hom]: https://en.wikipedia.org/wiki/Homogeneous_coordinates
 
 <script src="{{site.base}}/media/gator/main.js"></script>
