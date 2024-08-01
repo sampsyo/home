@@ -3,7 +3,6 @@
 using "glsl_defs.lgl";
 
 type color is vec3;
-type alphaColor is vec4;
 
 frame model has dimension 3;
 frame world has dimension 3;
@@ -20,19 +19,10 @@ class light {
 };
 uniform light uLight;
 
-class positions {
-  public cart3<world>.point worldPos;
-  public positions init(cart3<world>.point p) {
-    self(p);
-  }
-};
-
 void main() {
-    positions p = new_positions(hom_reduce(uModel*homify(vPosition)));
-    auto camPos = hom_reduce(uView*uModel*homify(vPosition));
     auto worldNorm = normalize(hom_reduce(uModel*homify(vNormal)));
 
-    auto lightDir = normalize(uLight.pos - p.worldPos);
+    auto lightDir = normalize(uLight.pos - hom_reduce(uModel*homify(vPosition)));
     auto lightWorldDot = dot(lightDir, worldNorm);
     scalar diffuse = max(lightWorldDot, 0.);
 
