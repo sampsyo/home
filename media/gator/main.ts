@@ -2,7 +2,11 @@ import * as lgl from './lglexample';
 import { mat4, vec3 } from 'gl-matrix';
 
 function setup(canvasId: string, fragShader: string) {
-  let gl = lgl.setup(document.getElementById(canvasId), render);
+  let element = document.getElementById(canvasId);
+  if (!element) {
+    return;
+  }
+  let gl = lgl.setup(element, render);
 
   // Compile our shaders.
   let program = lgl.compileProgram(gl,
