@@ -10,8 +10,6 @@ import canvasOrbitCamera from 'canvas-orbit-camera';
 
 export type Vec3Array = [number, number, number][];
 
-let app = {thing: mat4.create()}
-
 /**
  * Compile a single GLSL shader source file.
  */
@@ -75,8 +73,6 @@ export function createProgram(gl: WebGLRenderingContext, shaders: WebGLShader[])
  * Compile and link a vertex/fragment shader pair.
  */
 export function compileProgram(gl: WebGLRenderingContext, vtx: string, frag: string): WebGLProgram {
-  console.log(vtx)
-  console.log(frag)
   let vertexShader = compileShader(gl, gl.VERTEX_SHADER, vtx);
   let fragmentShader = compileShader(gl, gl.FRAGMENT_SHADER, frag);
   return createProgram(gl, [vertexShader, fragmentShader]);
@@ -356,13 +352,6 @@ export function setup(canvas: HTMLCanvasElement, render: (view: mat4, projection
 
     render(view, projection);
   });
-
-  // A **total hack** to cancel previously-registered animation loops.
-  let w = window as any;
-  if (w._linguineCancel) {
-    w._linguineCancel();
-  }
-  w._linguineCancel = cancel;
 
   return gl;
 }

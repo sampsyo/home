@@ -1,13 +1,13 @@
 import * as lgl from './lglexample';
 import { mat4, vec3 } from 'gl-matrix';
 
-function main(cid: string) {
-  let gl = lgl.setup(document.getElementById(cid), render);
+function setup(canvasId: string, fragShader: string) {
+  let gl = lgl.setup(document.getElementById(canvasId), render);
 
   // Compile our shaders.
   let program = lgl.compileProgram(gl,
     require('./vertex.glsl'),
-    require('./diffuse.glsl')
+    fragShader,
   );
 
   // Uniform and attribute locations.
@@ -23,6 +23,7 @@ function main(cid: string) {
 
   // Initialize the model position.
   let model = mat4.create();
+  console.log(model);
 
   // Position the light source for the lighting effect.
   let light = vec3.fromValues(20., 0., 20.);
@@ -53,4 +54,5 @@ function main(cid: string) {
   }
 }
 
-main("c");
+setup("diffuse", require("./diffuse.glsl"));
+setup("diffuse-bug", require("./diffuse-bug.glsl"));
