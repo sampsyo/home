@@ -26,16 +26,17 @@ function setup(canvasId: string, fragShader: string) {
   let mesh = lgl.getBunny(gl);
 
   // Initialize the model position.
+  let modelInit = mat4.create();
+  mat4.translate(modelInit, modelInit, vec3.fromValues(0.0, -5.0, 0.0));
   let model = mat4.create();
-  console.log(model);
 
   // Position the light source for the lighting effect.
   let light = vec3.fromValues(20., 0., 20.);
   let diffColor = vec3.fromValues(0.32, 0.63, 0.07);
 
   function render(view: mat4, projection: mat4) {
-    // Rotate the model a little bit on each frame.
-    mat4.rotateY(model, model, .01);
+    // Time-varying model rotation.
+    mat4.rotateY(model, modelInit, Date.now() * 0.0005);
 
     // Use our shader pair.
     gl.useProgram(program);

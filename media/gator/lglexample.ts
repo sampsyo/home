@@ -94,33 +94,14 @@ export function compileMultipassProgram(gl: WebGLRenderingContext, shaders: { sh
  * the width and height of a viewport.
  */
 export function projection_matrix(out: mat4, width: number, height: number) {
-  // arbitrary constants designed to give a wide field of view
   var aspectRatio = width / height;
-  var fieldOfView = Math.PI / 4;
+
+  // Arbitrary constants designed to give a wide field of view.
+  var fieldOfView = Math.PI / 8;
   var near = .1;
   var far = 1000;
 
-  // mat4.perspective(out, fieldOfView, aspectRatio, near, far)
-  // Do the above manually for my sanity for now
-  var f = 1.0 / Math.tan(fieldOfView / 2),
-    rangeInv = 1.0 / (near - far);
-
-  out[0] = f / aspectRatio;
-  out[1] = 0;
-  out[2] = 0;
-  out[3] = 0;
-  out[4] = 0;
-  out[5] = f;
-  out[6] = 0;
-  out[7] = 0;
-  out[8] = 0;
-  out[9] = 0;
-  out[10] = (far + near) * rangeInv;
-  out[11] = -1;
-  out[12] = 0;
-  out[13] = 0;
-  out[14] = (2 * far * near) * rangeInv;
-  out[15] = 0;
+  mat4.perspective(out, fieldOfView, aspectRatio, near, far);
 }
 
 /**
@@ -319,6 +300,7 @@ export function check_null<T>(v: T | null, s: string): T {
 export function setup(canvas: HTMLCanvasElement, render: (view: mat4, projection: mat4) => void): WebGLRenderingContext {
   // Set up the interactive pan/rotate/zoom camera.
   let camera = canvasOrbitCamera(canvas);
+
   // Initialize the transformation matrices that are dictated by the camera
   // and the canvas dimensions.
   let projection = mat4.create();
