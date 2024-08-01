@@ -16,8 +16,8 @@ function setup(canvasId: string, fragShader: string) {
   let loc_uModel = lgl.uniformLoc(gl, program, 'uModel');
   let loc_aPosition = lgl.attribLoc(gl, program, 'aPosition');
   let loc_aNormal = lgl.attribLoc(gl, program, 'aNormal');
-  let loc_uLight1Pos = lgl.uniformLoc(gl, program, 'uLight.pos');
-  let loc_uLight1DiffColor = lgl.uniformLoc(gl, program, 'uLight.diffColor');
+  let loc_uLightPos = lgl.uniformLoc(gl, program, 'uLightPos');
+  let loc_uDiffColor = lgl.uniformLoc(gl, program, 'uDiffColor');
 
   let mesh = lgl.getBunny(gl);
 
@@ -40,8 +40,8 @@ function setup(canvasId: string, fragShader: string) {
     gl.uniformMatrix4fv(loc_uProjection, false, projection);
     gl.uniformMatrix4fv(loc_uView, false, view);
     gl.uniformMatrix4fv(loc_uModel, false, model);
-    gl.uniform3fv(loc_uLight1Pos, light);
-    gl.uniform3fv(loc_uLight1DiffColor, diffColor);
+    gl.uniform3fv(loc_uLightPos, light);
+    gl.uniform3fv(loc_uDiffColor, diffColor);
 
     // Set the attribute arrays.
     lgl.bind_attrib_buffer(gl, loc_aNormal, mesh.normals, 3);

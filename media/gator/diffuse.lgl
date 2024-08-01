@@ -13,15 +13,12 @@ uniform hom<model>.transformation<world> uModel;
 uniform hom<world>.transformation<camera> uView;
 varying cart3<model>.vector vNormal;
 
-class light {
-  public cart3<world>.point pos;
-  public color diffColor;
-};
-uniform light uLight;
+uniform cart3<world>.point uLightPos;
+uniform color uDiffColor;
 
 void main() {
-    auto lightDir = normalize(uLight.pos - hom_reduce(uModel*homify(vPosition)));
+    auto lightDir = normalize(uLightPos - hom_reduce(uModel*homify(vPosition)));
     scalar diffuse = max(dot(lightDir, normalize(hom_reduce(uModel*homify(vNormal)))), 0.);
 
-    gl_FragColor = vec4(diffuse * uLight.diffColor, 1.0);
+    gl_FragColor = vec4(diffuse * uDiffColor, 1.0);
 }
