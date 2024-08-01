@@ -1,6 +1,8 @@
 ---
 title: Geometry Bugs and Geometry Types
 mathjax: true
+tail: |
+    <script src="BASE/media/gator/main.js"></script>
 ---
 <figure style="width: 350px">
   <canvas width="350" height="350" id="diffuse-correct"></canvas>
@@ -46,7 +48,7 @@ This shader is incorrect.
 The bunny looks like this: the shading seems mostly right, but the invisible light seems to be rotating along with the model instead of staying put.
 
 The math is right, but the code has a *geometry bug*.
-The problem is that, when you translate geometric math into rendering code, you have to represent the abstract vectors as concrete arrays of floating-point values.
+The problem is that, when you translate geometric math into rendering code, you have to represent the abstract vectors as concrete arrays of floating-point numbers.
 When the math's $\mathit{fragPos}$ becomes the shader's `vPosition`, we need to decide on its *reference frame:*
 will it be local coordinates relative to the bunny itself,
 relative to the camera,
@@ -110,5 +112,3 @@ TK gator listing? automatic conversion?
 [alpha]: https://en.wikipedia.org/wiki/Alpha_compositing
 [glsl]: https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders
 [hom]: https://en.wikipedia.org/wiki/Homogeneous_coordinates
-
-<script src="{{site.base}}/media/gator/main.js"></script>
