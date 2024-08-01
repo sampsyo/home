@@ -57,3 +57,4 @@ function setup(canvasId: string, fragShader: string) {
 setup("diffuse", require("./diffuse.glsl"));
 setup("diffuse-correct", require("./diffuse-correct.glsl"));
 setup("diffuse-bug", require("./diffuse-bug.glsl"));
+setup("diffuse-naive", require("./diffuse-naive.glsl"));

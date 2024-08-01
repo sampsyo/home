@@ -1,4 +1,5 @@
-SHADERS := vertex.glsl diffuse.glsl diffuse-bug.glsl diffuse-correct.glsl
+SHADERS := vertex.glsl diffuse.glsl diffuse-bug.glsl diffuse-correct.glsl \
+		   diffuse-naive.glsl
 TS := main.ts lglexample.ts
 
 main.js: $(TS) $(SHADERS)

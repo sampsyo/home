@@ -16,8 +16,8 @@ void main() {
 
     // Compute the dot product between the surface normal and light direction.
     vec3 normWorld = normalize(vec3(uModel * vec4(vNormal, 0.0)));
-    float diffuse = max(dot(lightDir, normWorld), 0.0);
+    float lambertian = max(dot(lightDir, normWorld), 0.0);
 
     // Produce a color with a 100% alpha channel.
-    gl_FragColor = vec4(diffuse * uDiffColor, 1.0);
+    gl_FragColor = vec4(lambertian * uDiffColor, 1.0);
 }
