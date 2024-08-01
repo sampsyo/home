@@ -20,12 +20,8 @@ class light {
 uniform light uLight;
 
 void main() {
-    auto worldNorm = normalize(hom_reduce(uModel*homify(vNormal)));
-
     auto lightDir = normalize(uLight.pos - hom_reduce(uModel*homify(vPosition)));
-    scalar diffuse = max(dot(lightDir, worldNorm), 0.);
-
-    auto reflectDir = normalize(hom_reduce(uView * homify(reflect(-lightDir, worldNorm))));
+    scalar diffuse = max(dot(lightDir, normalize(hom_reduce(uModel*homify(vNormal)))), 0.);
 
     gl_FragColor = vec4(diffuse * uLight.diffColor, 1.0);
 }
