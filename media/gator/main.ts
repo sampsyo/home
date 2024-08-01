@@ -7,7 +7,7 @@ function main(cid: string) {
   // Compile our shaders.
   let program = lgl.compileProgram(gl,
     require('./vertex.glsl'),
-    require('./fragment.glsl')
+    require('./diffuse.glsl')
   );
 
   // Uniform and attribute locations.
@@ -19,7 +19,6 @@ function main(cid: string) {
   let loc_aNormal = lgl.attribLoc(gl, program, 'aNormal');
   let loc_uLight1Pos = lgl.uniformLoc(gl, program, 'uLight.pos');
   let loc_uLight1DiffColor = lgl.uniformLoc(gl, program, 'uLight.diffColor');
-  let loc_uLight1SpecColor = lgl.uniformLoc(gl, program, 'uLight.specColor');
 
   let mesh = lgl.getBunny(gl);
 
@@ -29,7 +28,6 @@ function main(cid: string) {
   // Position the light source for the lighting effect.
   let light = vec3.fromValues(20., 0., 20.);
   let diffColor = vec3.fromValues(1., 1., 0.);
-  let specColor = vec3.fromValues(1., 1., 1.);
 
   function render(view: mat4, projection: mat4) {
     // Rotate the model a little bit on each frame.
@@ -44,7 +42,6 @@ function main(cid: string) {
     gl.uniformMatrix4fv(loc_uModel, false, model);
     gl.uniform3fv(loc_uLight1Pos, light);
     gl.uniform3fv(loc_uLight1DiffColor, diffColor);
-    gl.uniform3fv(loc_uLight1SpecColor, specColor);
 
     // Set the attribute arrays.
     lgl.bind_attrib_buffer(gl, loc_aNormal, mesh.normals, 3);

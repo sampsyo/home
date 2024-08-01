@@ -5,13 +5,10 @@ using "glsl_defs.lgl";
 type color is vec3;
 type alphaColor is vec4;
 
-// Reference Frame Declarations
-
 frame model has dimension 3;
 frame world has dimension 3;
 frame camera has dimension 3;
 
-// Global Variables
 varying cart3<model>.point vPosition;
 uniform hom<model>.transformation<world> uModel;
 uniform hom<world>.transformation<camera> uView;
@@ -20,7 +17,6 @@ varying cart3<model>.vector vNormal;
 class light {
   public cart3<world>.point pos;
   public color diffColor;
-  public color specColor;
 };
 uniform light uLight;
 
@@ -32,7 +28,6 @@ class positions {
 };
 
 void main() {
-    // vec4 gl_FragColor = vec4(uLight, .9);
     hom<model>.transformation<camera> uModelView = uView * uModel;
     color ambient = [0.1, 0., 0.];
     positions p = new_positions(hom_reduce(uModel*homify(vPosition)));
@@ -45,7 +40,5 @@ void main() {
 
     auto reflectDir = normalize(hom_reduce(uView * homify(reflect(-lightDir, worldNorm))));
 
-    scalar specular = pow(max(dot(normalize(-camPos), reflectDir), 0.), 32.);
-
-    gl_FragColor = vec4(ambient + diffuse * uLight.diffColor + specular * uLight.specColor, 1.0);
+    gl_FragColor = vec4(ambient + diffuse * uLight.diffColor, 1.0);
 }
