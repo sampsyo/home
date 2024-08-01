@@ -63,6 +63,12 @@ TK overview of trajectory. we'll fix it step by step
 
 ## Managing Reference Frames
 
+<figure style="max-width: 300px">
+  <img src="{{site.base}}/media/gator/spaces.svg"
+    alt="A 2D artist's interpretation of the model, world, and view reference frames in graphics rendering.">
+  <figcaption>Rendering a whole scene usually involves several <em>model</em> reference frames, a fixed <em>world</em> frame, and a <em>view</em> frame for the camera's perspective.</figcaption>
+</figure>
+
 TK multiply `uModel` matrix
 
 ## Converting Coordinate Systems
