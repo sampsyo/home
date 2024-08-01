@@ -1,0 +1,25 @@
+{
+  "name": "gle",
+  "private": true,
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/gl-matrix": "^2.4.0",
+    "array-pack-2d": "^1.0.0",
+    "bunny": "^1.0.1",
+    "canvas-orbit-camera": "^1.0.2",
+    "esbuild-plugin-polyfill-node": "^0.3.0",
+    "gl-matrix": "^2.8.1",
+    "icosphere": "^1.0.0",
+    "normals": "^0.1.0",
+    "primitive-cube": "^2.0.1",
+    "teapot": "^1.0.0",
+    "typescript": "^3.3.3",
+    "webgl-obj-loader": "^1.1.3",
+    "yarn": "^1.17.3"
+  },
+  "devDependencies": {
+    "esbuild": "0.23.0"
+  }
+}
