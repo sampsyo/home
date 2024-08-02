@@ -214,3 +214,6 @@ TK call to action: more people should be using this stuff
 [alpha]: https://en.wikipedia.org/wiki/Alpha_compositing
 [glsl]: https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders
 [hom]: https://en.wikipedia.org/wiki/Homogeneous_coordinates
+[gator-paper]: https://dl.acm.org/doi/10.1145/3428241
+[gator]: https://github.com/cucapra/gator
+[oopsla 2020]: https://2020.splashcon.org/track/splash-2020-oopsla
