@@ -107,9 +107,27 @@ But renderers typically also want to do translation, which requires generalizing
 You can't represent those in a 3&times;3 matrix, so what can we do?
 
 The usual way is to use [homogeneous coordinates][hom].
-TK
+Where ordinary Cartesian coordinates represent a point in 3-space with a GLSL `vec3`, homogeneous coordinates use a `vec4`.
+The extra coordinate is a scaling factor, so the 4-tuple $[x, y, z, w]$ represents the point at $[x/w, y/w, z/w]$.
+Transformation matrices also become `mat4`s that can represent the full range of affine transformations in 3-dimensional space.
 
-TK convert to vec4
+In our example (and in any typical renderer setup),
+`vPosition` and `vNormal` come to us in Cartesian coordinates (i.e., GLSL `vec3`s)
+and the `uModel` transformation matrix comes in homogeneous coordinates (i.e., a `mat4`).
+To fix our transformation expression `uModel * vPosition`, we'll need something like this:
+
+```glsl
+vec4 posWorldHom = uModel * vec4(vPosition, 1.0);
+vec3 posWorldCart = vec3(posWorldHom / posWorldHom.w);
+```
+
+We convert `vPosition` to homogeneous coordinates by tacking on a scaling factor $w=1$,
+transform with `uModel`,
+and then convert back to Cartesian coordinates by dividing by $w$ again.
+
+So, to make our GLSL above work, we'll need to convert a few times between Cartesian and homogeneous coordinates.
+
+This works great, and we finally have our vertex position in world reference frame.
 
 TK still incorrect!! need to do it different for normals. (show another bunny?)
 
