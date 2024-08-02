@@ -71,7 +71,30 @@ TK overview of trajectory. we'll fix it step by step
   <figcaption>Rendering a whole scene usually involves several <em>model</em> reference frames, a fixed <em>world</em> frame, and a <em>view</em> frame for the camera's perspective.</figcaption>
 </figure>
 
-TK multiply `uModel` matrix
+The first thing that's wrong is that our vectors are in different reference frames.
+It's useful to imagine a single, fixed *world* frame that contains the entire scene:
+here, both our bunny and our light source.
+The geometric information for individual objects comes in their own individual *model* reference frames.
+When you download the [`.obj` file][obj] for the [Stanford bunny][bunny], it doesn't know about your renderer's world frame:
+the vertex positions and surface normals have to come represented in an intrinsic bunny-specific space.
+
+In our little shader, `vPosition` and `vNormal` are vectors in the bunny's model frame while `uLightPos` is a point in world space.
+So the subtraction `uLightPos - vPosition` doesn't yield a geometrically meaningful vector,
+and we should probably be careful about that `dot(lightDir, vNormal)` as well.
+
+Renderers use transformation matrices to convert between reference frames.
+Let's suppose that we have a `uModel` matrix that transforms bunny space to world space.
+Then the GLSL we need should look something like this:
+
+```glsl
+vec3 lightDir = normalize(uLightPos - uModel * vPosition);
+float lambertian = max(dot(lightDir, uModel * vNormal), 0.0);
+```
+
+With all our vectors converted to the common (world) reference frame, these operations should mean something!
+
+[obj]: https://en.wikipedia.org/wiki/Wavefront_.obj_file
+[bunny]: https://faculty.cc.gatech.edu/~turk/bunny/bunny.html
 
 ## Converting Coordinate Systems
 
