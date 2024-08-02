@@ -177,9 +177,36 @@ This shader produces the bunny at the top of this post.
 
 ## Geometry Types
 
-TK point to Gator; call to action
+At [OOPSLA 2020][], we published [a paper][gator-paper] about geometry bugs
+and a type system that can catch them.
+The idea hasn't exactly taken over the world, and I wish it would.
+The core insight is pretty straightforward: to do a good job with this kind of type system, you need your types to encode three pieces of information:
 
-TK gator listing? automatic conversion?
+* the reference frame (like model, world, or view space)
+* the coordinate scheme (like Cartesian, homogeneous, or polar coordinates)
+* the geometric object (like positions and directions)
+
+In our language, called [Gator][], these types are spelled `scheme<frame>.object`.
+With these types and a few helper functions, you can get the language to help you catch all the geometric pitfalls we saw in this post.
+Here's a version of our shader in Gator:
+
+```glsl
+cart3<world>.point posWorld = hom_reduce(uModel * homify(vPosition));
+cart3<world>.vector lightDir = normalize(uLightPos - posWorld);
+
+cart3<world>.vector normalWorld = normalize(hom_reduce(uModel * homify(vNormal)));
+scalar diffuse = max(dot(lightDir, normalWorld), 0.);
+```
+
+TK do I need to normalize in the "correct" shader???? I think I do
+TK try compiling/running this. I think it works.
+
+The standard library comes with overloaded `homify` and `hom_reduce` functions that do the right thing when converting a given geometric object between coordinate systems.
+And if you forget a transformation or conversion, Gator will report a type error.
+
+TK can I show the `in` version?
+
+TK call to action: more people should be using this stuff
 
 [phong]: https://en.wikipedia.org/wiki/Phong_reflection_model
 [lambertian]: https://en.wikipedia.org/wiki/Lambertian_reflectance
