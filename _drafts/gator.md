@@ -93,12 +93,21 @@ float lambertian = max(dot(lightDir, uModel * vNormal), 0.0);
 
 With all our vectors converted to the common (world) reference frame, these operations should mean something!
 
+However, in realistic renderers, the `uModel` transformation will actually be a `mat4`, not a `mat3`.
+The reason has to do with affine transformations and coordinate systems---we'll address that next.
+
 [obj]: https://en.wikipedia.org/wiki/Wavefront_.obj_file
 [bunny]: https://faculty.cc.gatech.edu/~turk/bunny/bunny.html
 
 ## Converting Coordinate Systems
 
-TK introduce homogeneous coordinates
+In 3-dimensional space, a square 3&times;3 matrix is a nice way to represent *linear* transformations:
+rotations, scaling, shearing, all that.
+But renderers typically also want to do translation, which requires generalizing to *affine* transformations.
+You can't represent those in a 3&times;3 matrix, so what can we do?
+
+The usual way is to use [homogeneous coordinates][hom].
+TK
 
 TK convert to vec4
 
