@@ -129,7 +129,32 @@ So, to make our GLSL above work, we'll need to convert a few times between Carte
 
 This works great, and we finally have our vertex position in world reference frame.
 
-TK still incorrect!! need to do it different for normals. (show another bunny?)
+TK Let's do the same thing to `vNormal` for the dot product computation. still incorrect!! need to do it different for normals. (show another bunny?)
+
+## Kinds of Geometric Objects
+
+Yet again, we've been bitten by a geometric concept that remains invisible in the GLSL code.
+There's an important difference between `vPosition` and `vNormal`: both are 3-dimensional Cartesian vectors,
+but one represents a *position* while the other is just a *direction*.
+These might seem like the same thing: what is a direction other than a unit-magnitude position?
+
+The distinction matters when we convert between reference frames.
+Remember that our homogeneous-coordinates transformation matrix `uModel` can encode a translation (in addition to rotation and scaling and all that).
+We absolutely want to translate positions when going from the model frame to the world frame,
+but *we do not want to translate directions*.
+When you shift a reference frame over some distance, all the points should move, but directions stay pointing in the same direction---they should not get shifted over by the same amount.
+
+Homogeneous coordinates have a trick to deal with positions.
+If you set their scaling factor, $w$, to zero, then transformation matrices will treat them correctly: they'll apply all the linear transformations and none of the (affine) translation.
+Then, to convert back to Cartesian coordinates, we have to ignore $w$ to avoid dividing by zero.
+Here's how it looks in GLSL:
+
+```glsl
+vec3 normWorld = normalize(vec3(uModel * vec4(vNormal, 0.0)));
+```
+
+The key thing to notice is that Cartesian/homogeneous conversion needs to work differently for positions and directions.
+So programmers have to keep track of the different kinds of geometric objects they're dealing with in their heads.
 
 ## The Correct Shader
 
