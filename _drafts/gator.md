@@ -133,16 +133,16 @@ TK Let's do the same thing to `vNormal` for the dot product computation. still i
 
 ## Kinds of Geometric Objects
 
+Yet again, we've been bitten by a geometric concept that remains invisible in the GLSL code.
+There's an important difference between `vPosition` and `vNormal`: both are 3-dimensional Cartesian vectors,
+but one represents a *position* while the other is just a *direction*.
+These might seem like the same thing: what is a direction other than a unit-magnitude position?
+
 <figure style="max-width: 350px">
   <img src="{{site.base}}/media/gator/translation.svg" class="bonw"
     alt="Two reference frames, one a translation of the other. There is a point and a direction in each. The point gets translated; the direction stays the same.">
   <figcaption>We want reference-frame translations to affect positions but not directions.</figcaption>
 </figure>
-
-Yet again, we've been bitten by a geometric concept that remains invisible in the GLSL code.
-There's an important difference between `vPosition` and `vNormal`: both are 3-dimensional Cartesian vectors,
-but one represents a *position* while the other is just a *direction*.
-These might seem like the same thing: what is a direction other than a unit-magnitude position?
 
 The distinction matters when we convert between reference frames.
 Remember that our homogeneous-coordinates transformation matrix `uModel` can encode a translation (in addition to rotation and scaling and all that).
