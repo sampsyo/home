@@ -66,7 +66,7 @@ TK overview of trajectory. we'll fix it step by step
 ## Managing Reference Frames
 
 <figure style="max-width: 300px">
-  <img src="{{site.base}}/media/gator/spaces.svg"
+  <img src="{{site.base}}/media/gator/spaces.svg" class="bonw"
     alt="A 2D artist's interpretation of the model, world, and view reference frames in graphics rendering.">
   <figcaption>Rendering a whole scene usually involves several <em>model</em> reference frames, a fixed <em>world</em> frame, and a <em>view</em> frame for the camera's perspective.</figcaption>
 </figure>
@@ -133,8 +133,8 @@ TK Let's do the same thing to `vNormal` for the dot product computation. still i
 
 ## Kinds of Geometric Objects
 
-<figure style="max-width: 300px">
-  <img src="{{site.base}}/media/gator/translation.svg"
+<figure style="max-width: 350px">
+  <img src="{{site.base}}/media/gator/translation.svg" class="bonw"
     alt="Two reference frames, one a translation of the other. There is a point and a direction in each. The point gets translated; the direction stays the same.">
   <figcaption>We want reference-frame translations to affect positions but not directions.</figcaption>
 </figure>
