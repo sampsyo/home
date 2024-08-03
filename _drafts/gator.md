@@ -212,7 +212,7 @@ cart3<world>.point posWorld = hom_reduce(uModel * homify(vPosition));
 cart3<world>.vector lightDir = normalize(uLightPos - posWorld);
 
 cart3<world>.direction normalWorld = normalize(hom_reduce(uModel * homify(vNormal)));
-scalar diffuse = max(dot(lightDir, normalWorld), 0.0);
+scalar lambertian = max(dot(lightDir, normalWorld), 0.0);
 ```
 
 The standard library comes with overloaded `homify` and `hom_reduce` functions that do the right thing when converting a given geometric object between coordinate systems.
@@ -225,7 +225,7 @@ For example, if we mark `uModel` as the *canonical* transformation from model sp
 
 ```glsl
 auto lightDir = normalize(uLightPos - (vPosition in world));
-scalar diffuse = max(dot(lightDir, normalize(vNormal in world)), 0.0);
+scalar lambertian = max(dot(lightDir, normalize(vNormal in world)), 0.0);
 ```
 
 We at last have a version of the shader that looks kind of like the math.
