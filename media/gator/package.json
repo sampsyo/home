@@ -8,7 +8,6 @@
     "array-pack-2d": "^1.0.0",
     "bunny": "^1.0.1",
     "esbuild": "0.23.0",
-    "esbuild-plugin-polyfill-node": "^0.3.0",
     "gl-matrix": "^2.8.1",
     "mouse-position": "^2.1.0",
     "mouse-pressed": "^1.0.0",
