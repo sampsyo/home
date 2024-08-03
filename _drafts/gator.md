@@ -229,7 +229,8 @@ scalar diffuse = max(dot(lightDir, normalize(vNormal in world)), 0.0);
 
 We at last have a version of the shader that looks kind of like the math.
 
-TK call to action: more people should be using this stuff
+I know the world of [shading languages][sl] is not exactly a hotbed of rapid innovation these days.
+Even so, I think geometry types are a pretty good idea and I hope that some future generation of rendering systems borrows an idea or two from Gator.
 
 [phong]: https://en.wikipedia.org/wiki/Phong_reflection_model
 [lambertian]: https://en.wikipedia.org/wiki/Lambertian_reflectance
@@ -240,3 +241,4 @@ TK call to action: more people should be using this stuff
 [gator-paper]: https://dl.acm.org/doi/10.1145/3428241
 [gator]: https://github.com/cucapra/gator
 [oopsla 2020]: https://2020.splashcon.org/track/splash-2020-oopsla
+[sl]: https://en.wikipedia.org/wiki/Shading_language
