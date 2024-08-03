@@ -23,7 +23,7 @@ $$\mathit{lambertian} = \mathsf{max}(\mathit{lightDir}\cdot\mathit{fragNorm}, 0)
 
 That $\mathsf{max}$ helps us ignore light coming from behind the rabbit's surface.
 We're implementing this in a [fragment shader][frag], so that
-$\mathit{fragNorm}$ is the normal vector for a given point in space that we're rendering.
+$\mathit{fragNorm}$ is the normal vector for a given point on the triangle that we're rendering.
 We can get $\mathit{lightDir}$ by normalizing the difference between the current fragment position and some absolute position of the light source:
 
 $$\mathit{lightDir} = \mathsf{normalize}(\mathit{lightPos} - \mathit{fragPos})$$
