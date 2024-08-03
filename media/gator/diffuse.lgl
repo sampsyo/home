@@ -17,8 +17,11 @@ uniform cart3<world>.point uLightPos;
 uniform color uDiffColor;
 
 void main() {
-    auto lightDir = normalize(uLightPos - hom_reduce(uModel*homify(vPosition)));
-    scalar diffuse = max(dot(lightDir, normalize(hom_reduce(uModel*homify(vNormal)))), 0.);
+    cart3<world>.point posWorld = hom_reduce(uModel * homify(vPosition));
+    cart3<world>.vector lightDir = normalize(uLightPos - posWorld);
+
+    cart3<world>.direction normalWorld = normalize(hom_reduce(uModel * homify(vNormal)));
+    scalar diffuse = max(dot(lightDir, normalWorld), 0.0);
 
     gl_FragColor = vec4(diffuse * uDiffColor, 1.0);
 }

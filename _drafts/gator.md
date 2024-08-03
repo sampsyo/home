@@ -210,15 +210,13 @@ Here's a version of our shader in Gator:
 cart3<world>.point posWorld = hom_reduce(uModel * homify(vPosition));
 cart3<world>.vector lightDir = normalize(uLightPos - posWorld);
 
-cart3<world>.vector normalWorld = normalize(hom_reduce(uModel * homify(vNormal)));
+cart3<world>.direction normalWorld = normalize(hom_reduce(uModel * homify(vNormal)));
 scalar diffuse = max(dot(lightDir, normalWorld), 0.0);
 ```
 
-TK do I need to normalize in the "correct" shader???? I think I do
-TK try compiling/running this. I think it works.
-
 The standard library comes with overloaded `homify` and `hom_reduce` functions that do the right thing when converting a given geometric object between coordinate systems.
-And if you forget a transformation or conversion, Gator will report a type error.
+Gator also distinguishes `vector` from `direction`, which is a subtype that is guaranteed to have unit magnitude.
+If you forget a transformation or conversion, Gator will report a type error.
 
 With geometry baked into the type system, we can also go one step farther and automatically generate the transformation code.
 Gator supports an `in` expression that searches for a transformation from one reference frame or coordinate system to another.
