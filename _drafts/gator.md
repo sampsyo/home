@@ -193,17 +193,18 @@ This shader produces the bunny at the top of this post.
 
 ## Geometry Types
 
-At [OOPSLA 2020][], we published [a paper][gator-paper] about geometry bugs
+At [OOPSLA 2020][], [Prof. Dietrich Geisler][dietrich] published [a paper][gator-paper] about geometry bugs
 and a type system that can catch them.
 The idea hasn't exactly taken over the world, and I wish it would.
-The core insight is pretty straightforward: to do a good job with this kind of type system, you need your types to encode three pieces of information:
+The paper's core insight is that, to do a good job with this kind of type system, you need your types to encode three pieces of information:
 
 * the reference frame (like model, world, or view space)
 * the coordinate scheme (like Cartesian, homogeneous, or polar coordinates)
 * the geometric object (like positions and directions)
 
-In our language, called [Gator][], these types are spelled `scheme<frame>.object`.
-With these types and a few helper functions, you can get the language to help you catch all the geometric pitfalls we saw in this post.
+In Dietrich's language, these types are spelled `scheme<frame>.object`.
+Dietrich implemented these types in a language called [Gator][] with help from [Irene Yoon][irene], [Aditi Kabra][aditi], [Horace He][horace], and Yinnon Sanders.
+With a few helper functions, you can get Gator to help you catch all the geometric pitfalls we saw in this post.
 Here's a version of our shader in Gator:
 
 ```glsl
@@ -242,3 +243,7 @@ Even so, I think geometry types are a pretty good idea and I hope that some futu
 [gator]: https://github.com/cucapra/gator
 [oopsla 2020]: https://2020.splashcon.org/track/splash-2020-oopsla
 [sl]: https://en.wikipedia.org/wiki/Shading_language
+[dietrich]: https://www.cs.cornell.edu/~dgeisler/
+[irene]: https://www.cis.upenn.edu/~euisuny/
+[aditi]: https://aditink.github.io
+[horace]: https://horace.io
