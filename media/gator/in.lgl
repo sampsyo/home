@@ -1,0 +1,24 @@
+#"precision mediump float;";
+
+using "glsl_defs.lgl";
+
+type color is vec3;
+
+frame model has dimension 3;
+frame world has dimension 3;
+frame camera has dimension 3;
+
+varying cart3<model>.point vPosition;
+canon uniform hom<model>.transformation<world> uModel;
+uniform hom<world>.transformation<camera> uView;
+varying cart3<model>.vector vNormal;
+
+uniform cart3<world>.point uLightPos;
+uniform color uDiffColor;
+
+void main() {
+    auto lightDir = normalize(uLightPos - (vPosition in world));
+    scalar diffuse = max(dot(lightDir, normalize(vNormal in world)), 0.0);
+
+    gl_FragColor = vec4(diffuse * uDiffColor, 1.0);
+}

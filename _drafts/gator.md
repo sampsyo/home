@@ -210,7 +210,16 @@ TK try compiling/running this. I think it works.
 The standard library comes with overloaded `homify` and `hom_reduce` functions that do the right thing when converting a given geometric object between coordinate systems.
 And if you forget a transformation or conversion, Gator will report a type error.
 
-TK can I show the `in` version?
+With geometry baked into the type system, we can also go one step farther and automatically generate the transformation code.
+Gator supports an `in` expression that searches for a transformation from one reference frame or coordinate system to another.
+For example, if we mark `uModel` as the *canonical* transformation from model space to world space, then `in world` suffices to manage homogeneous coordinates and the reference-frame change:
+
+```glsl
+auto lightDir = normalize(uLightPos - (vPosition in world));
+scalar diffuse = max(dot(lightDir, normalize(vNormal in world)), 0.0);
+```
+
+We at last have a version of the shader that looks kind of like the math.
 
 TK call to action: more people should be using this stuff
 
