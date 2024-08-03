@@ -6,7 +6,37 @@ import { mat4, vec3 } from "gl-matrix";
 import * as bunny from "bunny";
 import * as normals from "normals";
 import pack from "array-pack-2d";
-import canvasOrbitCamera from "canvas-orbit-camera";
+import orbitCamera from "orbit-camera";
+import mousePosition from "mouse-position";
+import mousePressed from "mouse-pressed";
+
+/**
+ * Attach an interactive "orbit camera" to a canvas. Based on
+ * canvas-orbit-camera, with simplications.
+ */
+export function canvasOrbitCamera(canvas: HTMLCanvasElement) {
+  let mbut = mousePressed(canvas, true);
+  let mpos = mousePosition(canvas);
+  let camera = orbitCamera([0, 10, 30], [0, 0, 0], [0, 1, 0]);
+
+  camera.tick = tick;
+
+  return camera;
+
+  function tick() {
+    let height = canvas.height;
+    let width = canvas.width;
+
+    if (mbut.left) {
+      camera.rotate(
+        [mpos[0] / width - 0.5, mpos[1] / height - 0.5],
+        [mpos.prev[0] / width - 0.5, mpos.prev[1] / height - 0.5],
+      );
+    }
+
+    mpos.flush();
+  }
+}
 
 /**
  * Compile a single GLSL shader source file.
