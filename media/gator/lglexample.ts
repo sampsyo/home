@@ -2,18 +2,20 @@
  * This module contains common functionality shared across Linguine's WebGL
  * examples.
  */
-import { mat4, vec3 } from 'gl-matrix';
-import * as bunny from 'bunny';
-import * as normals from 'normals';
-import pack from 'array-pack-2d';
-import canvasOrbitCamera from 'canvas-orbit-camera';
-
-export type Vec3Array = [number, number, number][];
+import { mat4, vec3 } from "gl-matrix";
+import * as bunny from "bunny";
+import * as normals from "normals";
+import pack from "array-pack-2d";
+import canvasOrbitCamera from "canvas-orbit-camera";
 
 /**
  * Compile a single GLSL shader source file.
  */
-export function compileShader(gl: WebGLRenderingContext, shaderType: number, shaderSource: string): WebGLShader {
+export function compileShader(
+  gl: WebGLRenderingContext,
+  shaderType: number,
+  shaderSource: string,
+): WebGLShader {
   // Create the shader object
   let shader = gl.createShader(shaderType);
   if (!shader) {
@@ -39,7 +41,10 @@ export function compileShader(gl: WebGLRenderingContext, shaderType: number, sha
  * Link two compiled shaders (a vertex shader and a fragment shader) together
  * to create a *shader program*, which can be used to issue a draw call.
  */
-export function createProgram(gl: WebGLRenderingContext, shaders: WebGLShader[]): WebGLProgram {
+export function createProgram(
+  gl: WebGLRenderingContext,
+  shaders: WebGLShader[],
+): WebGLProgram {
   // create a program.
   let program = gl.createProgram();
   if (!program) {
@@ -58,7 +63,7 @@ export function createProgram(gl: WebGLRenderingContext, shaders: WebGLShader[])
   let success = gl.getProgramParameter(program, gl.LINK_STATUS);
   if (!success) {
     // something went wrong with the link
-    throw ("program failed to link:" + gl.getProgramInfoLog(program));
+    throw "program failed to link:" + gl.getProgramInfoLog(program);
   }
 
   // Delete shader objects after linked to program.
@@ -72,21 +77,14 @@ export function createProgram(gl: WebGLRenderingContext, shaders: WebGLShader[])
 /**
  * Compile and link a vertex/fragment shader pair.
  */
-export function compileProgram(gl: WebGLRenderingContext, vtx: string, frag: string): WebGLProgram {
+export function compileProgram(
+  gl: WebGLRenderingContext,
+  vtx: string,
+  frag: string,
+): WebGLProgram {
   let vertexShader = compileShader(gl, gl.VERTEX_SHADER, vtx);
   let fragmentShader = compileShader(gl, gl.FRAGMENT_SHADER, frag);
   return createProgram(gl, [vertexShader, fragmentShader]);
-}
-
-/**
- * Compile and link a list of shaders
- */
-export function compileMultipassProgram(gl: WebGLRenderingContext, shaders: { shader: string, context: number }[]): WebGLProgram {
-  let toReturn: WebGLShader[] = [];
-  shaders.forEach(function (shader) {
-    toReturn.push(compileShader(gl, shader.context, shader.shader));
-  });
-  return createProgram(gl, toReturn);
 }
 
 /**
@@ -98,7 +96,7 @@ export function projection_matrix(out: mat4, width: number, height: number) {
 
   // Arbitrary constants designed to give a wide field of view.
   var fieldOfView = Math.PI / 8;
-  var near = .1;
+  var near = 0.1;
   var far = 1000;
 
   mat4.perspective(out, fieldOfView, aspectRatio, near, far);
@@ -111,7 +109,11 @@ export function projection_matrix(out: mat4, width: number, height: number) {
  *
  * [Source]: https://github.com/cucapra/braid/
  */
-function gl_buffer(gl: WebGLRenderingContext, mode: number, data: Float32Array | Uint16Array) {
+function gl_buffer(
+  gl: WebGLRenderingContext,
+  mode: number,
+  data: Float32Array | Uint16Array,
+) {
   let buf = gl.createBuffer();
   if (!buf) {
     throw "could not create WebGL buffer";
@@ -125,7 +127,12 @@ function gl_buffer(gl: WebGLRenderingContext, mode: number, data: Float32Array |
  * Make a WebGL buffer from a nested "array of arrays" representing a series
  * of short vectors.
  */
-function make_buffer(gl: WebGLRenderingContext, data: number[][], type: 'uint8' | 'uint16' | 'float32', mode: number): WebGLBuffer {
+function make_buffer(
+  gl: WebGLRenderingContext,
+  data: number[][],
+  type: "uint8" | "uint16" | "float32",
+  mode: number,
+): WebGLBuffer {
   // Initialize a buffer.
   let buf = gl.createBuffer();
   if (!buf) {
@@ -145,7 +152,12 @@ function make_buffer(gl: WebGLRenderingContext, data: number[][], type: 'uint8' 
 /**
  * Bind a buffer as an attribute array.
  */
-export function bind_attrib_buffer(gl: WebGLRenderingContext, location: number, buffer: WebGLBuffer, size: number) {
+export function bind_attrib_buffer(
+  gl: WebGLRenderingContext,
+  location: number,
+  buffer: WebGLBuffer,
+  size: number,
+) {
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   gl.vertexAttribPointer(location, size, gl.FLOAT, false, 0, 0);
   gl.enableVertexAttribArray(location);
@@ -154,7 +166,10 @@ export function bind_attrib_buffer(gl: WebGLRenderingContext, location: number, 
 /**
  * Bind a buffer as an elment array.
  */
-export function bind_element_buffer(gl: WebGLRenderingContext, buffer: WebGLBuffer) {
+export function bind_element_buffer(
+  gl: WebGLRenderingContext,
+  buffer: WebGLBuffer,
+) {
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffer);
 }
 
@@ -192,15 +207,26 @@ export interface Mesh {
  * Given a mesh, with the fields `positions` and `cells`, create a Mesh object
  * housing the buffers necessary for drawing the thing.
  */
-export function getMesh(gl: WebGLRenderingContext, obj: { cells: [number, number, number][], positions: [number, number, number][] }): Mesh {
+export function getMesh(
+  gl: WebGLRenderingContext,
+  obj: {
+    cells: [number, number, number][];
+    positions: [number, number, number][];
+  },
+): Mesh {
   let norm = normals.vertexNormals(obj.cells, obj.positions);
 
   return {
-    cells: make_buffer(gl, obj.cells, 'uint16', gl.ELEMENT_ARRAY_BUFFER),
+    cells: make_buffer(gl, obj.cells, "uint16", gl.ELEMENT_ARRAY_BUFFER),
     cell_count: obj.cells.length * obj.cells[0].length,
-    positions: make_buffer(gl, obj.positions, 'float32', gl.ARRAY_BUFFER),
-    normals: make_buffer(gl, norm, 'float32', gl.ARRAY_BUFFER),
-    texcoords: make_buffer(gl, norm, 'float32', gl.ARRAY_BUFFER) /* dummy value */
+    positions: make_buffer(gl, obj.positions, "float32", gl.ARRAY_BUFFER),
+    normals: make_buffer(gl, norm, "float32", gl.ARRAY_BUFFER),
+    texcoords: make_buffer(
+      gl,
+      norm,
+      "float32",
+      gl.ARRAY_BUFFER,
+    ) /* dummy value */,
   };
 }
 
@@ -245,8 +271,11 @@ export function drawMesh(gl: WebGLRenderingContext, mesh: Mesh) {
  * also attach a rendering function that will be called to paint each
  * frame.
  */
-export function glContext(canvas: HTMLCanvasElement, render?: () => void): WebGLRenderingContext {
-  let gl = canvas.getContext('webgl');
+export function glContext(
+  canvas: HTMLCanvasElement,
+  render?: () => void,
+): WebGLRenderingContext {
+  let gl = canvas.getContext("webgl");
   if (!gl) {
     throw "WebGL not available";
   }
@@ -268,9 +297,9 @@ export function registerAnimator(func: () => void): () => void {
   let rafID: number;
   let tick = () => {
     func();
-    rafID = requestAnimationFrame(tick);  // Call us back on the next frame.
-  }
-  rafID = requestAnimationFrame(tick);  // Kick off the first frame.
+    rafID = requestAnimationFrame(tick); // Call us back on the next frame.
+  };
+  rafID = requestAnimationFrame(tick); // Kick off the first frame.
 
   return () => {
     cancelAnimationFrame(rafID);
@@ -297,7 +326,10 @@ export function check_null<T>(v: T | null, s: string): T {
  * The canvas gets an interactive "orbit camera" that lets the user
  * interactively manipulate the view.
  */
-export function setup(canvas: HTMLCanvasElement, render: (view: mat4, projection: mat4) => void): WebGLRenderingContext {
+export function setup(
+  canvas: HTMLCanvasElement,
+  render: (view: mat4, projection: mat4) => void,
+): WebGLRenderingContext {
   // Set up the interactive pan/rotate/zoom camera.
   let camera = canvasOrbitCamera(canvas);
 
@@ -328,8 +360,8 @@ export function setup(canvas: HTMLCanvasElement, render: (view: mat4, projection
     gl.viewport(0, 0, width, height);
 
     // Rendering flags.
-    gl.enable(gl.DEPTH_TEST);  // Prevent triangle overlap.
-    gl.enable(gl.CULL_FACE);  // Triangles not visible from behind.
+    gl.enable(gl.DEPTH_TEST); // Prevent triangle overlap.
+    gl.enable(gl.CULL_FACE); // Triangles not visible from behind.
 
     render(view, projection);
   });
@@ -340,13 +372,21 @@ export function setup(canvas: HTMLCanvasElement, render: (view: mat4, projection
 /**
  * Look up a uniform location (and assert that it is non-null).
  */
-export function uniformLoc(gl: WebGLRenderingContext, program: WebGLProgram, name: string) {
+export function uniformLoc(
+  gl: WebGLRenderingContext,
+  program: WebGLProgram,
+  name: string,
+) {
   return check_null(gl.getUniformLocation(program, name), name);
 }
 
 /**
  * Look up an attribute location (and assert that it is non-null).
  */
-export function attribLoc(gl: WebGLRenderingContext, program: WebGLProgram, name: string) {
+export function attribLoc(
+  gl: WebGLRenderingContext,
+  program: WebGLProgram,
+  name: string,
+) {
   return check_null(gl.getAttribLocation(program, name), name);
 }
