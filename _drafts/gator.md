@@ -61,7 +61,9 @@ In GLSL, all our vectors are `vec3`s.
 There are several different reference frames at work here, but none of them show up in the programming language.
 GLSL is perfectly happy to add and subtract vectors that use completely different representations, yielding meaningless results.
 
-TK overview of trajectory. we'll fix it step by step
+This post will walk through fixing the implementation of this math.
+It's written for people who don't know much about graphics or geometry, i.e., people like me.
+The goal here is to convince you that this kind of programming needs a type system.
 
 ## Managing Reference Frames
 
@@ -125,11 +127,19 @@ We convert `vPosition` to homogeneous coordinates by tacking on a scaling factor
 transform with `uModel`,
 and then convert back to Cartesian coordinates by dividing by $w$ again.
 
-So, to make our GLSL above work, we'll need to convert a few times between Cartesian and homogeneous coordinates.
+<figure style="width: 350px">
+  <canvas width="350" height="350" id="diffuse-alltrans"></canvas>
+  <figcaption>The same shader after applying the same coordinate-system juggling to both input vectors.</figcaption>
+</figure>
 
-This works great, and we finally have our vertex position in world reference frame.
+With this, we finally have our vertex position in world reference frame.
+Let's try repeating exactly the same process with `vNormal`, the other model-space vector involved in our computation.
+Sadly, something's still very wrong---in fact, the bunny somehow looks every worse than it did before.
+If you're viewing this page in dark mode, it may not be visible at all.
 
-TK Let's do the same thing to `vNormal` for the dot product computation. still incorrect!! need to do it different for normals. (show another bunny?)
+The problem now is that, while the code we wrote to juggle homogeneous coordinates for `vPosition` is correct,
+the same treatment doesn't work for `vNormal`.
+The reason has to do with the different kinds of geometric objects that these variables represent.
 
 ## Kinds of Geometric Objects
 
@@ -201,7 +211,7 @@ cart3<world>.point posWorld = hom_reduce(uModel * homify(vPosition));
 cart3<world>.vector lightDir = normalize(uLightPos - posWorld);
 
 cart3<world>.vector normalWorld = normalize(hom_reduce(uModel * homify(vNormal)));
-scalar diffuse = max(dot(lightDir, normalWorld), 0.);
+scalar diffuse = max(dot(lightDir, normalWorld), 0.0);
 ```
 
 TK do I need to normalize in the "correct" shader???? I think I do
