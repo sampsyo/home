@@ -16,6 +16,8 @@
             name: Dietrich Geisler
             link: https://www.cs.cornell.edu/~dgeisler/
             start: 2018
+            end: 2024
+            extra: 'Dissertation: <i>Language Designs for Geometry and Heterogeneous Reasoning in Graphics Programming</i>.<br>Now at Northwestern University.'
         -
             name: Edwin Peguero
             start: 2018
@@ -39,6 +41,8 @@
             name: Neil Adit
             link: http://www.neiladit.com
             start: 2018
+            end: 2024
+            extra: 'Dissertation: <i>Compiler-Driven Autovectorization and Hardware Prefetching</i>.<br>Now at Meta.'
         -
             name: Zhijing Li
             link: https://tissue3.github.io/
@@ -74,6 +78,9 @@
             name: Ayaka Yorihiro
             start: 2023
             link: https://ayakayorihiro.github.io
+        -
+            name: Kevin Negy
+            start: 2023
 
 -
     category: Master of Engineering
@@ -161,6 +168,11 @@
         -
             name: Stephen Verderame
             start: 2023
+            end: 2024
+        -
+            name: Elise Song
+            start: 2024
+            end: 2024
 
 -
     category: Master of Science
@@ -175,6 +187,10 @@
         -
             name: John Rubio
             start: 2022
+            end: 2024
+        -
+            name: Jiahan Xie
+            start: 2023
 
 -
     category: Undergraduate
@@ -379,6 +395,7 @@
         -
             name: Pai Li
             start: 2022
+            end: 2024
         -
             name: Jan-Paul Vincent
             start: 2022
@@ -395,12 +412,15 @@
         -
             name: Mateo Guynn
             start: 2022
+            end: 2023
         -
             name: Meredith Hu
             start: 2022
+            end: 2024
         -
             name: Nathaniel Navarro
             start: 2022
+            end: 2024
         -
             name: Susan Garry
             start: 2022
@@ -418,9 +438,25 @@
         -
             name: Kaden Lei
             start: 2023
+            end: 2024
         -
             name: Elias Castro
             start: 2023
+            end: 2024
+        - name: Kabir Samsi
+          start: 2024
+        - name: Akash Dhiraj
+          start: 2024
+        - name: Ethan Uppal
+          start: 2024
+        - name: Cassandra Sziklai
+          start: 2024
+        - name: Parth Sarkar
+          start: 2024
+        - name: Serena Duncan
+          start: 2024
+        - name: Jeremy Ku-Benjet
+          start: 2024
 -
     category: Undergraduate Researchers at UW
     details: |
