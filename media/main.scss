@@ -677,6 +677,13 @@ code {
     }
 }
 
+// A dark-mode trick.
+@media (prefers-color-scheme: light) {
+    .dark-only {
+        display: none;
+    }
+}
+
 // Include Rouge/Pygments syntax highlighting themes.
 @media (prefers-color-scheme: light) {
     @import "tomorrow_night_bright";

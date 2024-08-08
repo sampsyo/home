@@ -61,16 +61,16 @@ This shader is incorrect.
 The bunny looks like this: the shading seems mostly right, but the invisible light seems to be rotating along with the model instead of staying put.
 
 The math is right, but the code has a *geometry bug*.
-The problem is that, when you translate geometric math into rendering code, you have to represent the abstract vectors as concrete arrays of floating-point numbers.
+The problem is that, when you translate geometric math into rendering code, you have to represent the abstract vectors as concrete tuples of floating-point numbers.
 When the math's $\mathit{fragPos}$ becomes the shader's `vPosition`, we need to decide on its *reference frame:*
 will it be local coordinates relative to the bunny itself,
 relative to the camera,
-or using some "absolute" coordinates for the whole scene?
+or using some absolute coordinates for the whole scene?
 We also need to pick a coordinate system, like
 ordinary Cartesian coordinates, polar coordinates, or the more graphics-specific system of [homogeneous coordinates][hom].
 
 The real problem here is that none of these choices show up in the type system.
-In GLSL, all our vectors are `vec3`s.
+In GLSL, all our vectors are [`vec3`s][glsl-type].
 There are several different reference frames at work here, but none of them show up in the programming language.
 GLSL is perfectly happy to add and subtract vectors that use completely different representations, yielding meaningless results.
 
@@ -89,13 +89,13 @@ The goal here is to convince you that this kind of programming needs a type syst
 The first thing that's wrong is that our vectors are in different reference frames.
 It's useful to imagine a single, fixed *world* frame that contains the entire scene:
 here, both our bunny and our light source.
-The geometric information for individual objects comes in their own individual *model* reference frames.
+The geometric data describing individual objects arrives each object's own individual *model* reference frame.
 When you download the [`.obj` file][obj] for the [Stanford bunny][bunny], it doesn't know about your renderer's world frame:
 the vertex positions and surface normals have to come represented in an intrinsic bunny-specific space.
 
 In our little shader, `vPosition` and `vNormal` are vectors in the bunny's model frame while `uLightPos` is a point in world space.
 So the subtraction `uLightPos - vPosition` doesn't yield a geometrically meaningful vector,
-and we should probably be careful about that `dot(lightDir, vNormal)` as well.
+and we should probably be careful about that `dot(lightDir, vNormal)` too.
 
 Renderers use transformation matrices to convert between reference frames.
 Let's suppose that we have a `uModel` matrix that transforms bunny space to world space.
@@ -122,9 +122,9 @@ But renderers typically also want to do translation, which requires generalizing
 You can't represent those in a 3&times;3 matrix, so what can we do?
 
 The usual way is to use [homogeneous coordinates][hom].
-Where ordinary Cartesian coordinates represent a point in 3-space with a GLSL `vec3`, homogeneous coordinates use a `vec4`.
+Where ordinary Cartesian coordinates represent a point in 3-space using a GLSL `vec3`, homogeneous coordinates use a `vec4`.
 The extra coordinate is a scaling factor, so the 4-tuple $[x, y, z, w]$ represents the point at $[x/w, y/w, z/w]$.
-Transformation matrices also become `mat4`s that can represent the full range of affine transformations in 3-dimensional space.
+Transformation matrices are `mat4`s that can represent the full range of affine transformations in 3-dimensional space.
 
 In our example (and in any typical renderer setup),
 `vPosition` and `vNormal` come to us in Cartesian coordinates (i.e., GLSL `vec3`s)
@@ -136,19 +136,21 @@ vec4 posWorldHom = uModel * vec4(vPosition, 1.0);
 vec3 posWorldCart = vec3(posWorldHom / posWorldHom.w);
 ```
 
-We convert `vPosition` to homogeneous coordinates by tacking on a scaling factor $w=1$,
-transform with `uModel`,
-and then convert back to Cartesian coordinates by dividing by $w$ again.
-
 <figure style="width: 350px">
   <canvas width="350" height="350" id="diffuse-alltrans"></canvas>
   <figcaption>The same shader after applying the same coordinate-system juggling to both input vectors. (Particularly mysterious in dark mode.)</figcaption>
 </figure>
 
+We convert `vPosition` to homogeneous coordinates by tacking on a scaling factor $w=1$,
+transform with `uModel`,
+and then convert back to Cartesian coordinates by dividing by $w$ again.
+
 With this, we finally have our vertex position in world reference frame.
 Let's try repeating exactly the same process with `vNormal`, the other model-space vector involved in our computation.
 Sadly, something's still very wrong---in fact, the bunny somehow looks every worse than it did before.
+<span class="dark-only">
 If you're viewing this page in dark mode, it may not be visible at all.
+</span>
 
 The problem now is that, while the code we wrote to juggle homogeneous coordinates for `vPosition` is correct,
 the same treatment doesn't work for `vNormal`.
@@ -234,7 +236,7 @@ If you forget a transformation or conversion, Gator will report a type error.
 
 With geometry baked into the type system, we can also go one step farther and automatically generate the transformation code.
 Gator supports an `in` expression that searches for a transformation from one reference frame or coordinate system to another.
-For example, if we mark `uModel` as the *canonical* transformation from model space to world space, then `in world` suffices to manage homogeneous coordinates and the reference-frame change:
+For example, if we mark `uModel` as the *canonical* transformation from model space to world space, then `in world` suffices to manage both the reference-frame change and the detour through homogeneous coordinates:
 
 ```glsl
 auto lightDir = normalize(uLightPos - (vPosition in world));
@@ -260,3 +262,4 @@ Even so, I think geometry types are a pretty good idea and I hope that some futu
 [irene]: https://www.cis.upenn.edu/~euisuny/
 [aditi]: https://aditink.github.io
 [horace]: https://horace.io
+[glsl-type]: https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)
