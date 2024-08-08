@@ -3,6 +3,14 @@ title: Geometry Bugs and Geometry Types
 mathjax: true
 tail: |
     <script src="BASE/media/gator/main.js"></script>
+excerpt: |
+    A special kind of bug exists in code that has to deal with geometric concepts like positions, directions, coordinate systems, and all that.
+    Long ago, in [an OOPSLA 2020 paper][gator-paper], we defined *geometry bugs* and designed a [type system][gator] to catch them.
+    This post demonstrates the idea through some buggy [GLSL][] shaders.
+
+    [gator-paper]: https://dl.acm.org/doi/10.1145/3428241
+    [gator]: https://github.com/cucapra/gator
+    [glsl]: https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/GLSL_Shaders
 ---
 <figure style="width: 350px">
   <canvas width="350" height="350" id="diffuse-correct"></canvas>
