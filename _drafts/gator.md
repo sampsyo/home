@@ -17,13 +17,18 @@ excerpt: |
   <figcaption>The diffuse component of the classic <a href="https://en.wikipedia.org/wiki/Phong_reflection_model">Phong lighting model</a>, implemented (probably) correctly.</figcaption>
 </figure>
 
-The ubiquitous [Phong lighting model][phong] has three parts:
-some uniform ambient lighting,
+The [Phong lighting model][phong] is the "hello world" of 3D rasterization effects.
+Implementing it seems like an appropriate level of challenge for me, a total graphics neophyte.
+Even a textbook rendering effect, however, entails some geometric thinking that in turn creates the possibility for its own special category of bug.
+Let's follow our nose and run into some geometry bugs.
+
+Phong lighting has three parts:
+some uniform *ambient* lighting,
 a *diffuse* component that looks the same from any angle,
 and a *specular* component that adds shiny highlights for direct reflections.
-
-Let's try to implement just the diffuse component.
+To make things even easier, let's try to implement just the diffuse component.
 It's supposed to look like this bunny here.
+
 The idea is to compute the [Lambertian reflectance][lambertian].
 At every point on the surface of the object, it's the dot product between the surface's normal vector and the direction from that point to the light source:
 
@@ -137,7 +142,7 @@ and then convert back to Cartesian coordinates by dividing by $w$ again.
 
 <figure style="width: 350px">
   <canvas width="350" height="350" id="diffuse-alltrans"></canvas>
-  <figcaption>The same shader after applying the same coordinate-system juggling to both input vectors.</figcaption>
+  <figcaption>The same shader after applying the same coordinate-system juggling to both input vectors. (Particularly mysterious in dark mode.)</figcaption>
 </figure>
 
 With this, we finally have our vertex position in world reference frame.
