@@ -63,12 +63,18 @@ I do not control waitlists, nor do I have the ability to distribute PINs---for t
 
 ### I'm applying to grad school soon, and I'm interested in doing research with you!  {#grad}
 
+This year (the 2025 application cycle), I am not looking for new PhD students.
+However, we have extremely strong PL and architecture groups at Cornell; I strongly encourage you to apply to work with other advisors we have here.
+Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply].
+
+<!--
 Fantastic! I'm thrilled that you're interested in the same kinds of hardware--software abstraction problems that I am. Cornell is a great place to do a Ph.D. in computer science.
 
 Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply]. I'll look forward to reading your application to either department.
 
 We have a department-wide collective admissions process, which means that I can't say anything useful about your chances for acceptance.
 Our programs are very competitive, however, so be sure to apply to multiple schools.
+-->
 
 
 ### I'm looking for a summer research internship.  {#intern}
