@@ -93,7 +93,7 @@ I'm glad you're interested in the article! But copies of blog posts on sites I d
 
 [CS 6120][] is a PhD-level course, but it is common for undergrads to take it.
 *Please only do so if you are really excited about compilers.*
-In my experience, students who are specifically interested compilers in particular have a great time; for students who are just looking for some elective to take, it is a waste of time.
+In my experience, students who are specifically interested in compilers in particular have a great time; for students who are just looking for some elective to take, it is a waste of time.
 If you are more interested in getting lots of programming experience, there are 4xxx courses that would be a better fit.
 
 You should also be aware that, like most PhD-level courses, CS 6120 is less structured than your typical undergrad course.
