@@ -89,14 +89,9 @@ However, I am interested in working undergraduates from underrepresented groups 
 I'm glad you're interested in the article! But copies of blog posts on sites I don't control make it impossible for me to correct mistakes or add updates in the future. Please don't "repost" anything.
 
 
-### Can you send me your bio, photo, and CV?  {#bio}
+### I'm an undergrad at Cornell. Can (or should) I take CS 6120?  {#ug6120}
 
-Here's a [short bio and photo][bio], and here's my [CV][].
-
-
-### I'm an undergrad at Cornell. Can (or should) I take [CS 6120][]?  {#ug6120}
-
-CS 6120 is a PhD-level course, but it is common for undergrads to take it.
+[CS 6120][] is a PhD-level course, but it is common for undergrads to take it.
 *Please only do so if you are really excited about compilers.*
 In my experience, students who are specifically interested compilers in particular have a great time; for students who are just looking for some elective to take, it is a waste of time.
 If you are more interested in getting lots of programming experience, there are 4xxx courses that would be a better fit.
@@ -109,6 +104,11 @@ It is not required to take our undergrad compilers course, [CS 4120][], as a pre
 I *recommend* taking it first because it can help you decide whether you like compilers.
 But the course is designed for PhD students who come to Cornell without having taken a compilers course in undergrad, so it does not directly depend on the 4120 content.
 (In fact, prior students have reported that the first part of 6120 can feel like a review of 4120 material.)
+
+
+### Can you send me your bio, photo, and CV?  {#bio}
+
+Here's a [short bio and photo][bio], and here's my [CV][].
 
 
 [csapply]: https://www.cs.cornell.edu/phd/admissions#application
