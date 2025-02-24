@@ -120,11 +120,13 @@ teaching:
             number: CS 6120
             title: Advanced Compilers
             desc: This is a PhD-level hands-on course I created about programming language implementation.
+            link: https://www.cs.cornell.edu/courses/cs6120/2025sp/
             current: true
           - term: Fall 2024
             number: CS 3410
             title: Computer System Organization and Programming
-            desc: "We are currently revamping the curriculum for the CS major’s core computer systems course. I will co-teach with [Giulia Guidi](https://giuliaguidi.github.io)."
+            link: https://www.cs.cornell.edu/courses/cs3410/2024fa/
+            desc: "This fall, we revamped the curriculum for the CS major’s core computer systems course. I co-taught with [Giulia Guidi](https://giuliaguidi.github.io)."
           - term: Spring 2024
             number: CS 4110
             title: Programming Languages and Logics
