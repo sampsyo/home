@@ -10,6 +10,15 @@
       - 'Artifact evaluated!'
 
 -
+    title: 'A FIRRTL Backend for the Calyx High-Level Accelerator Compilation Infrastructure'
+    authors: 'Ayaka Yorihiro, Griffin Berlstein, Kevin Laeufer, and Adrian Sampson'
+    venue: 'OSDA 2024'
+    with: DATE
+    venue_url: https://osda.ws/events/2024/date/accepted-papers
+    type: workshop
+    url: 'https://ayakayorihiro.github.io/files/publications/calyx-firrtl.pdf'
+
+-
     title: 'Lightweight, Modular Verification for WebAssembly-to-Native Instruction Selection'
     authors: 'Alexa VanHattum, Monica Pardeshi, Chris Fallin, Adrian Sampson, and Fraser Brown'
     venue: 'ASPLOS 2024'
