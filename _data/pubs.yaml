@@ -6,7 +6,6 @@
     selected: true
     url: 'BASE/media/papers/piezo-oopsla2024-preprint.pdf'
     venue_url: 'https://2024.splashcon.org/track/splash-2024-oopsla'
-    venue_status: 'To appear in'
     extra:
       - 'Artifact evaluated!'
 
