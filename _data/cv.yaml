@@ -308,6 +308,9 @@ service:
 
 
 committees:
+    - venue: "Onward! Essays"
+      role: Program committee member
+      year: 2025
     - venue: ASPLOS
       year: 2025
       role: Program committee co-chair
