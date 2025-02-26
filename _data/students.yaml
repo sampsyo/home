@@ -72,7 +72,7 @@
             name: Benjamin Carleton
             start: 2023
         -
-            name: Susan Garry
+            name: Soos Garry
             start: 2023
         -
             name: Ayaka Yorihiro
@@ -173,6 +173,18 @@
             name: Elise Song
             start: 2024
             end: 2024
+        -
+            name: Omkar Bhalerao
+            start: 2024
+            end: 2024
+        -
+            name: Evan Williams
+            start: 2024
+            end: 2024
+        - name: Edmund Lam
+          start: 2024
+        - name: Jerry Ji
+          start: 2025
 
 -
     category: Master of Science
@@ -191,6 +203,9 @@
         -
             name: Jiahan Xie
             start: 2023
+        -
+            name: Michael Xing
+            start: 2025
 
 -
     category: Undergraduate
@@ -444,7 +459,6 @@
         -
             name: Elias Castro
             start: 2023
-            end: 2024
         - name: Kabir Samsi
           start: 2024
         - name: Akash Dhiraj
@@ -458,6 +472,22 @@
         - name: Serena Duncan
           start: 2024
         - name: Jeremy Ku-Benjet
+          start: 2024
+        - name: Ananya Goenka
+          start: 2024
+        - name: Pedro Pontes García
+          start: 2025
+        - name: Ryan Fu
+          start: 2025
+        - name: John Palsberg
+          start: 2025
+        - name: Francis Pham
+          start: 2024
+        - name: Joseph Junior Mensha
+          start: 2024
+        - name: Nikil Shyamsunder
+          start: 2024
+        - name: Aleks Dzudzevic
           start: 2024
 -
     category: Undergraduate Researchers at UW
