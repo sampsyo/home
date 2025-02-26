@@ -75,6 +75,7 @@ jobs:
         dates: 2007
 
 honors:
+    - text: 'Cornell Bowers CIS <a href="https://cis.cornell.edu/about-college/excellence-awards/ann-s-bowers-’59-research-excellence-awards">Ann S. Bowers Research Excellence Award</a>, 2024'
     - text: 'Cornell Bowers CIS <a href="https://diversity.cis.cornell.edu">Office of Diversity, Equity, and Inclusion</a>: Computer Science Faculty of the Year, 2024'
       selected: true
     - text: 'Distinguished Artifact Award, <a href="https://asplos-conference.org">ASPLOS 2024</a>'
