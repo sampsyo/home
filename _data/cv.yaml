@@ -635,6 +635,18 @@ phdcommittees:
 
 talks:
     -
+        title: "Toward Hardware-Accelerated Pangenome Analyses"
+        where: "Computational Pangenomics in Memphis (MemPanG) Conference"
+        link: "https://pangenome.github.io/MemPanG24/#_conference_2"
+        date: 2024-05-20
+
+    -
+        title: "The Next 700 Accelerator Design Languages"
+        where: "Computer Science Department Colloquium, University of Rochester"
+        link: "https://events.rochester.edu/event/cs-seminar-series-adrian-sampson"
+        date: 2024-11-24
+
+    -
         title: "Approximating Computer Architecture"
         where: 'Keynote, Young Architect Workshop (YArch) 2024'
         link: "https://www.cs.cmu.edu/~yarch2024/"
