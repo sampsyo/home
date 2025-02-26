@@ -473,6 +473,15 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Emine Ezgi Yucel
+      advisor: 'José Martínez'
+    - name: Aditya Senthilnathan
+      advisor: Nate Foster
+    - name: Mariia Soroka
+      advisor: Steve Marschner
+    - name: Kei Imada
+      advisor: Justin Hsu
+      link: https://keikun555.github.io
     - name: Zhengyang Liu
       advisor: John Regehr
       school: University of Utah
@@ -495,9 +504,6 @@ phdcommittees:
     - name: Noam Zilberstein
       advisor: Alexandra Silva
       link: https://www.cs.cornell.edu/~noamz/
-    - name: Jiajie Li
-      advisor: Zhiru Zhang
-      link: https://tonyjie.github.io
     - name: Drew Zagieboylo
       advisor: Andrew Myers
       link: https://www.cs.cornell.edu/~dzag/
@@ -567,24 +573,25 @@ phdcommittees:
         name: Ariel Kellison
         advisor: David Bindel
         link: 'https://ak-2485.github.io'
+        defense: 2024
     -
         name: Shaojie Xiang
         advisor: Zhiru Zhang
         link: 'https://www.csl.cornell.edu/~xiangs/'
+        defense: 2025
     -
         name: 'Yanghui Ou'
         advisor: Chris Batten
+        defense: 2024
     -
         name: 'A.F. Cooper'
         advisor: 'Chris De Sa'
         link: 'https://cacioepe.pe'
-    -
-        name: 'Kevin Negy'
-        advisor: 'Emin Gün Sirer'
-        link: 'https://www.cs.cornell.edu/~kevinnegy/'
+        defense: 2024
     -
         name: 'Peitian Pan'
         advisor: Chris Batten
+        defense: 2024
     -
         name: 'Yi Jiang'
         advisor: José Martínez
