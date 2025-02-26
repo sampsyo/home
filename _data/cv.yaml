@@ -312,7 +312,7 @@ committees:
       role: Program committee co-chair
     - venue: ISCA
       year: 2024
-      role: Program committee member
+      role: "Area chair: Compilers, Programming Models, and Languages"
     - venue: ASPLOS
       year: 2024
       role: Program committee vice chair
