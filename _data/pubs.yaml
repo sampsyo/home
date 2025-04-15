@@ -4,9 +4,10 @@
     venue: 'OOPSLA 2024'
     type: conference
     selected: true
-    url: 'BASE/media/papers/piezo-oopsla2024-preprint.pdf'
+    url: 'https://dl.acm.org/doi/10.1145/3689790'
     venue_url: 'https://2024.splashcon.org/track/splash-2024-oopsla'
     extra:
+      - '[Local PDF.](BASE/media/papers/piezo-oopsla2024-preprint.pdf)'
       - 'Artifact evaluated!'
 
 -
@@ -24,9 +25,10 @@
     venue: 'ASPLOS 2024'
     type: conference
     selected: true
-    url: 'https://www.cs.cornell.edu/~avh/veri-isle-preprint.pdf'
+    url: 'https://dl.acm.org/doi/10.1145/3617232.3624862'
     venue_url: 'https://www.asplos-conference.org/asplos2024/'
     extra:
+      - '[Local PDF.](https://www.cs.cornell.edu/~avh/veri-isle-preprint.pdf)'
       - '[Artifact evaluated!](https://github.com/avanhatt/wasmtime)'
       - 'Distinguished Artifact Award winner!'
     note: Distinguished Artifact Award.
