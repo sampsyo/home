@@ -605,6 +605,7 @@ phdcommittees:
     -
         name: 'Yuwei Hu'
         advisor: Zhiru Zhang
+        departed: 2021
     -
         name: 'Lin Cheng'
         advisor: Chris Batten
@@ -613,6 +614,7 @@ phdcommittees:
         name: 'Tuan Ta'
         advisor: Chris Batten
         link: 'http://tuanqta.net'
+        defense: 2023
     -
         name: 'Yuan Zhou'
         advisor: Zhiru Zhang
@@ -646,6 +648,11 @@ phdcommittees:
         link: http://www.cs.columbia.edu/~melanie/
 
 talks:
+    -
+        title: "The Next 700 Accelerator Design Languages"
+        where: "University of Utah, invited talk"
+        date: 2025-04-14
+
     -
         title: "Toward Hardware-Accelerated Pangenome Analyses"
         where: "Computational Pangenomics in Memphis (MemPanG) Conference"
