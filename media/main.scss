@@ -3,6 +3,7 @@
 
 @use 'sass:color';
 @use 'sass:math';
+@use 'sass:meta';
 
 $column-width: 720px;
 $mobile-size: $column-width;
@@ -691,8 +692,8 @@ code {
 
 // Include Rouge/Pygments syntax highlighting themes.
 @media (prefers-color-scheme: light) {
-    @import "tomorrow_night_bright";
+    @include meta.load-css("tomorrow_night_bright");
 }
 @media (prefers-color-scheme: dark) {
-    @import "tomorrow_night_blue";
+    @include meta.load-css("tomorrow_night_blue");
 }
