@@ -1,6 +1,9 @@
 ---
 ---
 
+@use 'sass:color';
+@use 'sass:math';
+
 $column-width: 720px;
 $mobile-size: $column-width;
 
@@ -18,8 +21,8 @@ $inset-text: #666;
 $inset-text-dark: #ccc;
 $inset-border: #ccc;
 $inset-border-dark: #888;
-$link-hover-color: darken($highlight, 15%);
-$link-hover-color-dark: lighten($highlight-dark, 15%);
+$link-hover-color: color.adjust($highlight, $lightness: -15%);
+$link-hover-color-dark: color.adjust($highlight-dark, $lightness: 15%);
 $pre-bg: #1d1f21;
 $pre-bg-dark: #2d2b57;
 $pre-color: #eaeaea;
@@ -31,11 +34,12 @@ $deemph-color-dark: #666;
 // Sizes.
 $font-size-base: 18px;
 $line-height-base: 1.428571429;
-$line-height-computed: floor(($font-size-base * $line-height-base));
+$line-height-computed: math.floor(($font-size-base * $line-height-base));
 $body-margin: 8px;
 $code-bleed: 16px;
 
-$grayish: lighten(desaturate($highlight, 60%), 50%);
+$grayish: color.adjust(color.adjust($highlight, $saturation: -60%),
+                       $lightness: 50%);
 
 // Fonts!
 $title-font: Verdana, Tahoma, Geneva, sans-serif;
@@ -256,12 +260,12 @@ article.preview.alone {
 }
 
 // Headings.
-$font-size-h1:            floor(($font-size-base * 2.6));
-$font-size-h2:            floor(($font-size-base * 2.15));
-$font-size-h3:            ceil(($font-size-base * 1.7));
-$font-size-h4:            ceil(($font-size-base * 1.25));
-$font-size-h5:            $font-size-base;
-$font-size-h6:            ceil(($font-size-base * 0.85));
+$font-size-h1: math.floor(($font-size-base * 2.6));
+$font-size-h2: math.floor(($font-size-base * 2.15));
+$font-size-h3: math.ceil(($font-size-base * 1.7));
+$font-size-h4: math.ceil(($font-size-base * 1.25));
+$font-size-h5: $font-size-base;
+$font-size-h6: math.ceil(($font-size-base * 0.85));
 h1 {
     font-size: $font-size-h1;
 }
@@ -601,7 +605,7 @@ figure {
     }
 }
 figcaption {
-    font-size: ceil(($font-size-base * 0.85));
+    font-size: math.ceil(($font-size-base * 0.85));
     margin-top: 0.5em;
     margin-bottom: 1em;
 }
