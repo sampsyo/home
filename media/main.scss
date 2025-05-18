@@ -128,10 +128,10 @@ header {
 // Page header style.
 header {
     color: $highlight;
+    font-family: $title-font;
     @media (prefers-color-scheme: dark) {
         color: $highlight-dark;
     }
-    font-family: $title-font;
     a:hover {
         text-decoration: none;
     }
@@ -152,6 +152,10 @@ header {
 }
 nav {
     font-size: $ui-size;
+
+    // Negate first/last link padding.
+    margin: 0 -3px;
+
     a {
         display: inline-block;
         margin: 0;
@@ -171,9 +175,6 @@ nav {
             border-color: $link-hover-color-dark;
         }
     }
-
-    // Negate first/last link padding.
-    margin: 0 -3px;
 
     // Looser layout on desktop.
     @media (min-width: $mobile-size) {
