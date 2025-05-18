@@ -206,6 +206,9 @@ teaching:
 
 service:
     - |
+        Reviewer board member, *Communications of the ACM*, 2025--
+
+    - |
         NSF panel member, [CCF](https://www.nsf.gov/div/index.jsp?org=CCF) division (2023)
 
     - |
@@ -478,6 +481,8 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Vesal Bakhtazad
+      advisor: Zhiru Zhang
     - name: Emine Ezgi Yucel
       advisor: 'José Martínez'
     - name: Aditya Senthilnathan
