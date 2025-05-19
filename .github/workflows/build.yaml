@@ -7,6 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+          cache-version: 0
       - name: Cache
         uses: actions/cache@v4
         with:
@@ -15,7 +21,9 @@ jobs:
       - name: Setup
         run: make setup
       - name: Jekyll build
-        uses: jerryjvl/jekyll-build-action@v1
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
