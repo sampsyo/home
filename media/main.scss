@@ -697,3 +697,48 @@ code {
 @media (prefers-color-scheme: dark) {
     @include meta.load-css("tomorrow_night_blue");
 }
+
+// "Legit mode" gag.
+#legit {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+body:has(input#legit[type="checkbox"]:checked) {
+  margin: 0;
+  font-family: serif;
+  color: inherit;
+  line-height: normal;
+  .container {
+    margin: 0;
+    max-width: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: serif;
+    line-height: normal;
+  }
+  a {
+    color: blue;
+    text-decoration: underline;
+  }
+  nav {
+    text-align: left;
+    a {
+      display: block;
+      border: none;
+    }
+  }
+  header {
+    font-family: serif;
+    display: block;
+  }
+  .tagline {
+    font-family: serif;
+    text-transform: none;
+    color: inherit;
+  }
+  .img-responsive {
+    max-width: 400px;
+    margin: 0;
+  }
+}
