@@ -117,12 +117,20 @@ honors:
 teaching:
     - where: Cornell University
       classes:
-          - term: Spring 2025
+          - term: Spring 2026
+            number: CS 3410
+            title: Computer System Organization and Programming
+            future: true
+          - term: Fall 2025
             number: CS 6120
             title: Advanced Compilers
             desc: This is a PhD-level hands-on course I created about programming language implementation.
+            link: https://www.cs.cornell.edu/courses/cs6120/2025fa/
+            future: true
+          - term: Spring 2025
+            number: CS 6120
+            title: Advanced Compilers
             link: https://www.cs.cornell.edu/courses/cs6120/2025sp/
-            current: true
           - term: Fall 2024
             number: CS 3410
             title: Computer System Organization and Programming
