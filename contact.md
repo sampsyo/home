@@ -4,7 +4,7 @@ title: Contact
 class: contact
 ---
 Send me email at [{{site.email}}][email].
-My office in [Gates Hall][gates] is 411A.
+My office in [the unnamed Bowers building][ubb] is 482.
 I share lots of code on [GitHub][gh].
 
 You can find me in the Fediverse at [@adrian@discuss.systems][mastodon].
@@ -12,7 +12,7 @@ Also consider following [@sigplan@discuss.systems][@sigplan] and [@sigarch@discu
 
 [gh]: https://github.com/sampsyo
 [email]: mailto:{{site.email}}
-[gates]: https://blogs.cornell.edu/gateshall/
+[ubb]: https://bowers.cornell.edu/spaces
 [mastodon]: https://discuss.systems/@adrian
 [@sigarch]: https://discuss.systems/@sigarch
 [@sigplan]: https://discuss.systems/@sigplan
@@ -21,7 +21,7 @@ Here's my mailing address:
 
 Adrian Sampson  
 Cornell University  
-411A Gates Hall  
+482 Computing and Information Science Building  
 Ithaca, NY 14853-7501
 
 ---
