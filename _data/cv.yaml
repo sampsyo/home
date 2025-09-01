@@ -319,6 +319,9 @@ service:
 
 
 committees:
+    - venue: PLDI
+      year: 2026
+      role: Review committee member
     - venue: "Onward! Essays"
       role: Program committee member
       year: 2025
