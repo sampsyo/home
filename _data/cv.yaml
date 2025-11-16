@@ -321,9 +321,12 @@ service:
 
 
 committees:
+    - venue: WACI
+      year: 2026
+      role: Program committee member
     - venue: PLDI
       year: 2026
-      role: Review committee member
+      role: Associate chair
     - venue: "Onward! Essays"
       role: Program committee member
       year: 2025
@@ -494,6 +497,12 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Max Fan
+      advisor: Justin Hsu
+      link: https://max.fan
+    - name: Nazerke Turtayeva
+      advisor: Jonathan Balkind
+      school: UC Santa Barbara
     - name: Vesal Bakhtazad
       advisor: Zhiru Zhang
     - name: Emine Ezgi Yucel
