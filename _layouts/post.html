@@ -14,7 +14,7 @@ layout: default
 <footer>
 Have comments or questions?
 Please
-<a href="mailto:{{ site.email }}?subject={{ page.title | prepend: 'Re: ' | url_escape }}">drop me an email</a>
+<a href="mailto:{{ site.email }}?subject={{ page.title | prepend: 'Re: ' | url_encode }}">drop me an email</a>
 or toot to
 <a href="https://discuss.systems/@adrian">@adrian@discuss.systems</a>.
 If you find a typo, please consider <a href="{{site.ghrepo}}/edit/master/{{page.path}}">sending a pull request</a>.
