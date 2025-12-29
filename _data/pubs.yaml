@@ -1,4 +1,18 @@
 -
+    title: 'From PyTorch to Calyx: An Open-Source Compiler Toolchain for ML Accelerators'
+    authors: 'Jiahan Xie, Evan Williams, and Adrian Sampson'
+    type: workshop
+    venue: 'Compilers for Machine Learning (C4ML) 2026'
+    venue_url: https://www.c4ml.org
+
+-
+    title: 'From PyTorch to Calyx: An Open-Source Compiler Toolchain for ML Accelerators'
+    authors: 'Jiahan Xie, Evan Williams, and Adrian Sampson'
+    type: workshop
+    venue: 'Workshop on Accelerated Machine Learning (AccML) 2026'
+    venue_url: https://accml.dcs.gla.ac.uk
+
+-
     title: 'Parameterized Hardware Design with Latency-Abstract Interfaces'
     authors: 'Rachit Nigam, Edmund Lam, Ethan Gabizon, Carolyn Zech, Jonathan Balkind, and Adrian Sampson'
     venue: 'ASPLOS 2026'
