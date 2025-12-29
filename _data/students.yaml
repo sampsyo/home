@@ -31,6 +31,8 @@
             name: Rachit Nigam
             link: https://rachitnigam.com
             start: 2018
+            end: 2024
+            extra: 'Dissertation: <i>Modular Abstractions for Efficient Hardware Design</i>.<br>Now at MIT.'
         -
             name: Alexa VanHattum
             link: https://www.cs.cornell.edu/~avh/
@@ -74,6 +76,7 @@
         -
             name: Soos Garry
             start: 2023
+            end: 2025
         -
             name: Ayaka Yorihiro
             start: 2023
@@ -81,6 +84,9 @@
         -
             name: Kevin Negy
             start: 2023
+            end: 2025
+            link: https://kevinnegy.github.io
+            extra: 'Dissertation: <i>A Tale of Two Contexts: Cryptocurrencies and Cloud Computing</i>.<br>Now at Princeton.'
 
 -
     category: Master of Engineering
