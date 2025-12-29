@@ -183,7 +183,21 @@
             end: 2024
         - name: Edmund Lam
           start: 2024
+          end: 2025
         - name: Jerry Ji
+          start: 2025
+          end: 2025
+        - name: Kevin Chen
+          start: 2025
+        - name: Sana Chawla
+          start: 2025
+        - name: Zihan Li
+          start: 2025
+          end: 2025
+        - name: Sherri Qazi
+          start: 2025
+          end: 2025
+        - name: Ashwin Sawant
           start: 2025
 
 -
@@ -207,6 +221,8 @@
         -
             name: Michael Xing
             start: 2025
+        - name: Jeremy Ku-Benjet
+          start: 2025
 
 -
     category: Undergraduate
@@ -487,10 +503,20 @@
           start: 2024
         - name: Joseph Junior Mensha
           start: 2024
+          end: 2025
         - name: Nikil Shyamsunder
           start: 2024
         - name: Aleks Dzudzevic
           start: 2024
+          end: 2025
+        - name: Aaditya Bahl
+          start: 2025
+        - name: Nagaa Dhaba
+          start: 2025
+        - name: Charles Liggins
+          start: 2025
+        - name: Cynthia Shao
+          start: 2025
 -
     category: Undergraduate Researchers at UW
     details: |

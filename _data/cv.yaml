@@ -497,6 +497,23 @@ committees:
         OOPSLA 2014: <a href="http://2014.splashcon.org/track/splash2014-artifacts">Artifact evaluation committee</a> member
 
 phdcommittees:
+    - name: Elton Shih
+      advisor: Chris Batten
+      link: https://beeb.page
+    - name: Eric Ding
+      advisor: Rachee Singh
+      link: https://ericdinging.github.io
+    - name: Emmanuel Suárez Acevedo
+      advisor: Greg Morrisett and Alexandra Silva
+      link: https://emmanuelsuarez.com
+    - name: Katherine Wu
+      advisor: Alexandra Silva
+      link: https://katherinewu312.github.io
+    - name: Neel Patel
+      advisor: Mohammad Alian
+      link: https://neel-patel-1.github.io
+    - name: Sam Breckenridge
+      advisor: Ari Juels
     - name: Max Fan
       advisor: Justin Hsu
       link: https://max.fan
