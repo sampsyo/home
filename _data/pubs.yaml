@@ -1,4 +1,13 @@
 -
+    title: 'Parameterized Hardware Design with Latency-Abstract Interfaces'
+    authors: 'Rachit Nigam, Edmund Lam, Ethan Gabizon, Carolyn Zech, Jonathan Balkind, and Adrian Sampson'
+    venue: 'ASPLOS 2026'
+    type: conference
+    selected: true
+    venue_status: To appear in
+    venue_url: https://www.asplos-conference.org/asplos2026/
+
+-
     title: 'Unifying Static and Dynamic Intermediate Languages for Accelerator Generators'
     authors: 'Caleb Kim, Pai Li, Anshuman Mohan, Andrew Butt, Adrian Sampson, and Rachit Nigam'
     venue: 'OOPSLA 2024'
