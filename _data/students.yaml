@@ -87,6 +87,10 @@
             end: 2025
             link: https://kevinnegy.github.io
             extra: 'Dissertation: <i>A Tale of Two Contexts: Cryptocurrencies and Cloud Computing</i>.<br>Now at Princeton.'
+        -
+            name: Ernest Ng
+            link: https://ngernest.github.io
+            start: 2025
 
 -
     category: Master of Engineering
