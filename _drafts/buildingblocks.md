@@ -184,14 +184,16 @@ else if (in_bits == 2'b10)
 The module is now stateful, and the hardware implementation requires a latch circuit.
 Spooky.
 
-### X Optimism
+### Nonsense Semantics for X
 
-* `optimism1.v`: start with `32'd5` to show math working, then introduce X/don't care; it is very necessary for allowing optimizations when you need to be insensitive to certain signals
-* `optimism2.v`: show it working fine with ternary
-* `optimism3.v`: show it breaking with if
-* this is "objectively" wrong. in my PL classes, I tell students…
-* paper reference. explain how this leads to a simulation/real disagreement. this X is _actually_ going to be either a 0 or a 1
+HDLs typically need a way to represent *don't-care* values, usually written as `X`.
+A little like undefined behavior ([in a good way][ralfj]), `X` lets you convey to the optimizer that your specification only covers certain cases, and that it's free to do what it wants in others.
 
+[ralfj]: https://www.ralfj.de/blog/2021/11/18/ub-good-idea.html
+
+While `X` is a good and useful idea, Verilog's semantics for it don't make sense.
+Here's how it *should* work: `X` represents a bit that *might* be 0 or 1, and we don't know which.[^top]
+By that definition, it would make sense that `X` would propagate through Verilog's math operators, like this:
 
 ```verilog
 module optimism1;
@@ -208,26 +210,22 @@ module optimism1;
 endmodule
 ```
 
+And indeed, simulating this module shows that `out` is also a *don't care* value, just like `in`:
+
 ```
 $ iverilog optimism1.v && ./a.out
 in  =          x
 out =          x
 ```
 
+All is right with the world.
+Verilog also has a ternary operator, and we can try using `X` in its condition:
+
 ```verilog
-module optimism2;
-  reg [31:0] in;
-  reg [31:0] out;
-
-  initial begin
-    in = 32'bx;
-    $display("in  = %d", in);
-
-    out = (in * 2 + 4) > 42 ? 32'b1 : 32'b0;
-    $display("out = %d", out);
-  end
-endmodule
+out = (in * 2 + 4) > 42 ? 32'b1 : 32'b0;
 ```
+
+Gratefully, the result of an undefined condition is itself `X`:
 
 ```
 $ iverilog optimism2.v && ./a.out
@@ -235,23 +233,17 @@ in  =          x
 out =          X
 ```
 
+Because `out` might be 1 and it might be 0, it's sensible that our simulator reports is value is `X`.
+Let's go one step farther and rewrite that ternary operator using the long-form `if` equivalent:
+
 ```verilog
-module optimism3;
-  reg [31:0] in;
-  reg [31:0] out;
-
-  initial begin
-    in = 32'bx;
-    $display("in  = %d", in);
-
-    if ((in * 2 + 4) > 42)
-      out = 32'b1;
-    else
-      out = 32'b0;
-    $display("out = %d", out);
-  end
-endmodule
+if ((in * 2 + 4) > 42)
+  out = 32'b1;
+else
+  out = 32'b0;
 ```
+
+And try simulating again:
 
 ```
 $ iverilog optimism3.v && ./a.out
@@ -259,11 +251,22 @@ in  =          x
 out =          0
 ```
 
-TK unsurprisingly, this can lead to [sneaky security problems][krieg]
+[Wat.][wat]
+
+This footgun has a name: *X-optimism*.
+That's the standard behavior for Verilog: `if` treats `X` as false, which *incorrectly* makes conditional assignments appear defined when they are actually unknown.
+Tragically, this behavior was [apparently intentional][hopl]:
+
+> This optimistic behavior of if-else was a deliberate decision by Moorby. He realized that in such a procedural context, evaluating both sides of the if-else expression could be enormously complicated. Reducing optimism requires execution time in the simulator.
+
+Feel free to call me a PL nerd for saying this, but I don't think simulation performance is a good justification for broken semantics.
+
+Unsurprisingly, researchers have explore how X optimism can lead to [sneaky security problems][krieg] because your simulator lies to you about what how final circuit will behave.
 
 [krieg]: https://dl.acm.org/doi/10.1145/3061639.3062328
+[wat]: https://www.destroyallsoftware.com/talks/wat
 
-TK also in VHDL
+[^top]: In lattice terms, `X` should work like a *top* element.
 
 ### Timing Trouble
 
