@@ -118,6 +118,16 @@ inferred latches, the semantics of the "don't care" value, and the absence of cy
 
 ### Inferred Latches
 
+Verilog, people say, uses the register-transfer level (RTL) abstraction.
+If this was the first thing I knew about Verilog, I would assume it works like this:
+the language has special, built-in constructs for *state elements* like latches, registers, and memories.
+You write a Verilog program by describing how to compute the values of all state elements on cycle *n+1* based on their values on cycle *n*.
+In an RTL language, it seems obvious that all the registers should be explicit and clearly separated from stateless combinational logic.
+
+Because of Verilog's roots in event-based simulation, that's not how it works.
+Instead, variables *might* be stateful and *might* be stateless depending on how they are used.
+For example, here's one way to write a 32-bit latch in Verilog:
+
 ```verilog
 module latch (
   input  wire        en,
@@ -130,6 +140,16 @@ module latch (
   end
 endmodule
 ```
+
+There's an input data port, an output data port, and a 1-bit *enable* signal that decides whether the latch should take on a new value.
+The Verilog semantics say that `data_out` must be stateful *because it is assigned conditionally*.
+That is, because `data_out` doesn't get assigned on cycles when `en == 0`, it keeps its old value---implying that it requires a stateful circuit for its implementation.
+Verilog engineers call this an "inferred latch."[^reg]
+
+[^reg]: It would be reasonable to guess that the `reg` keyword means that `data_out` is stored in a register. That's not the case. `reg` declares mutable variables that can be either combinational or stateful, depending on how they're used.
+
+The footgun here is that it's disturbingly easy to accidentally create a latch.
+Consider this contrived implementation of an XOR gate:
 
 ```verilog
 module funny_xor (
@@ -149,9 +169,20 @@ module funny_xor (
 endmodule
 ```
 
-that's combinational, but removing a case makes it stateful
+This module takes its two inputs on a single 2-bit port, `in_bits`.
+This circuit is stateless because our `else if` cascade covers all the cases:
+`out` is assigned in every situation.
 
-TK also in VHDL
+But what happens if you forget one of these cases?
+For example, let's delete these two lines:
+
+```verilog
+else if (in_bits == 2'b10)
+  out = 1'b1;
+```
+
+The module is now stateful, and the hardware implementation requires a latch circuit.
+Spooky.
 
 ### X Optimism
 
