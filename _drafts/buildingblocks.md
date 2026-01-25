@@ -270,7 +270,11 @@ Unsurprisingly, researchers have explore how X optimism can lead to [sneaky secu
 
 ### Timing Trouble
 
-TK stole this example from the Filament paper...
+This last footgun is a little different because it's the problem we have tried to address in [some of our recent research on safer HDLs][filament-paper] (and it's borrowed from that paper).
+It's not just a Verilog thing; it's a danger in every major HDL I know of.
+It's also my best guess at this point for a bug category that's analogous to memory safety problems in software.
+
+Let's say you already have a multiplier and an adder:
 
 ```verilog
 module Mul32 (
@@ -288,7 +292,12 @@ module Add32 (
 );
   // ...
 endmodule
+```
 
+Suppose you want to combine these two functional units into an ALU that can both add and multiply.
+We'll add a one-bit signal, `op`, that picks which FU to use:
+
+```verilog
 module alu (
   input  wire [31:0] in_a,
   input  wire [31:0] in_b,
@@ -307,4 +316,17 @@ module alu (
 endmodule
 ```
 
-TK mention Filament; details in future post...
+This module instantiates an adder `add` and a multiplier `mul`, and it uses Verilog's ternary operator to multiplex the output based on `op`.
+
+This implementation works fine if `add` and `mul` are both combinational.
+More realistically, though, a 32-bit multiplier will probably be sequential and pipelined.
+To make our ALU work with a pipelined multiplier, our ALU would need some pipeline registers of its own.
+
+Here's the problem: *there is nothing in the module signatures for the functional units that tells us that's the case*.
+The interfaces for `Add32` and `Mul32` are identical because they only describe the physical shape of the ports.
+Perhaps `Add32` is combinational and `Mul32` takes 3 cycles---their Verilog signatures would still be identical.
+
+Verilog has no way to check that you're getting this timing right.
+Using a module correctly requires reading the comments or looking directly at the source code.
+
+[filament-paper]: https://dl.acm.org/doi/10.1145/3591234
