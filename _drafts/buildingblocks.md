@@ -98,16 +98,23 @@ The emerging long tail of cheaper, lighter-weight hardware design projects will 
 
 ## Some Cheap Shots at Verilog
 
-TK the bigger point is that we need work that understands what problems among the giant heap of trouble in Verilog causes bugs most often.
-but I couldn't resist dunking a bit...
-these are not necessarily the most important problems; they're just the funniest (or most self-serving)
+The main point of this post is to call for systematic study of Verilog's implications for hardware correctness, not to pick on specific flaws I personally love to hate.
+But I can't resist shooting a few fish in this particular barrel.
 
-* Verilog is an event-based simulation language that accidentally became an HDL. (This is the original sin.)
-* There is an ill-defined "synthesizable" subset. Tools can't agree on what this subset is, but we can all agree that there _is_ some subset of Verilog that is safe to use when designing hardware (as opposed to simulations or testbenches).
-* Load-bearing linters. Practical Verilog design shops have to license... TK
-* Inferred latches. (See below.)
-* The semantics of `X` are broken. (See below.)
-* Cycle-level timing information goes in the comments. (See below.)
+The root of Verilog's problems is that it was not designed for implementing hardware.
+It was [originally developed][hopl] as a DSL for writing event-based *simulators* of digital logic.
+Later, logic synthesis tools repurposed Verilog for generating real netlists.
+Many problems with Verilog stem from the confusing boundaries between simulation and implementation:
+
+* **There is an ill-defined "synthesizable" subset.** Tools can't agree on what this subset is, but we can all agree that not all of Verilog can be sensibly translated into hardware.
+* **Verilog requires load-bearing linters.** Serious hardware design shops pay for extremely expensive commercial tools that keep their engineers within the Verilog subset that their toolchain can handle.
+
+To get concrete, let's look at three specific footguns in Verilog:
+inferred latches, the semantics of the "don't care" value, and the absence of cycle-level timing information.
+(As a warning, the latter is a self-serving complaint that motivates [some research from my lab][filament].)
+
+[hopl]: https://dl.acm.org/doi/10.1145/3386337
+[filament]: https://filamenthdl.com
 
 ### Inferred Latches
 
