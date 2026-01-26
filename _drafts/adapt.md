@@ -5,19 +5,35 @@ We're about to start the spring 2026 semester, and it is no longer possible to i
 I have been trying for about 18 months to come up with a way to adapt my teaching.
 I have no good ideas.
 
+The suggestion I hear most often is that CS classes should simply "level up."
+We should create assignments that are much larger in scope and to ensure that they are still challenging even with unlimited LLM assistance.
+
+For the classes I teach, I have tried and failed to conceive of a way to follow that advice.
+I think it may be impossible.
+For now at least, I am keeping the style of assignments in my undergrad class the same as in the pre-LLM era.
+
+## Where I'm At
+
 The main undergraduate class I teach these days is Cornell's required systems course, [CS 3410][].
 Students learn about bits and bytes, numbers, pointers, interrupts, threads, processes, synchronization, and a tiny bit of digital design.
 This kind of class usually has a lot of programming, and ours is no exception.
-The issue is that coding agents can easily solve any reasonable C or assembly programming assignment I can think of for this course.
 
-The suggestion I hear most often is that CS programs should simply "level up."
-We should create assignments that are much larger in scope, allow students to use LLMs freely, and ensure that they are still challenging.
+Coding agents can easily solve any reasonable C or assembly programming assignment I can think of for this course.
+For example, one thing we've asked students to do in the past is to implement spinlock in RISC-V assembly using its [LR/SC instructions][riscv-a].
+Try this in your favorite chatbot---it will likely produce a correct implementation in one shot.
+I don't find this surprising at all: this kind of code must exist many times over in any LLM's training set.
 
-That sounds reasonable idea at first glance, but I don't believe it works.
-So far, I am failing to adapt.
-This post is an attempt to think through why I'm keeping programming assignments for my undergraduate courses in about the same format as in the pre-LLM era.
-At least for now.
+Does the fact that LLMs can easily solve these problems mean that we shouldn't assign them?
+I can think of two arguments for why this style of assignment should change:
 
+1. Cheating: It's easy to do these assignments with LLM assistance, so students will do it. And they'll therefore learn nothing.
+2. Practicality: In the real world, short-but-tricky code like this will always be LLM-generated. So teaching students to write code like that isn't useful anymore.
+
+This post is an attempt to refute both arguments.
+
+TK reorganize around these two arguments
+
+[riscv-a]: https://www.five-embeddev.com/riscv-user-isa-manual/latest-adoc/a-st-ext
 [cs 3410]: https://www.cs.cornell.edu/courses/cs3410/2024fa/
 
 ## Certificates for Principles
