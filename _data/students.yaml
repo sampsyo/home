@@ -228,6 +228,7 @@
         -
             name: Jiahan Xie
             start: 2023
+            end: 2025
         -
             name: Michael Xing
             start: 2025
@@ -450,6 +451,7 @@
         -
             name: Caleb Kim
             start: 2022
+            end: 2024
             extra: |
                 Winner, 2024 Cornell Computer Science Prize for Academic Excellence
         -
@@ -471,9 +473,11 @@
         -
             name: Edmund Lam
             start: 2023
+            end: 2025
         -
             name: Ethan Gabizon
             start: 2023
+            end: 2025
             extra: |
                 Honorable mention, <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">2025 CRA Outstanding Undergraduate Researcher Awards</a>
         -
@@ -487,22 +491,29 @@
         -
             name: Elias Castro
             start: 2023
+            end: 2025
         - name: Kabir Samsi
           start: 2024
+          end: 2025
         - name: Akash Dhiraj
           start: 2024
+          end: 2025
         - name: Ethan Uppal
           start: 2024
         - name: Cassandra Sziklai
           start: 2024
+          end: 2025
         - name: Parth Sarkar
           start: 2024
+          end: 2025
         - name: Serena Duncan
           start: 2024
         - name: Jeremy Ku-Benjet
           start: 2024
+          end: 2025
         - name: Ananya Goenka
           start: 2024
+          end: 2025
         - name: Pedro Pontes García
           start: 2025
         - name: Ryan Fu

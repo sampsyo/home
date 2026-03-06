@@ -215,13 +215,16 @@ teaching:
 
 service:
     - |
+        Member, [ASPLOS](https://www.asplos-conference.org) Steering Committee, 2025--
+
+    - |
         [Reviewer board member](https://cacm.acm.org/the-cacm-reviewer-board-project/), *Communications of the ACM*, 2025--
 
     - |
         NSF panel member, [CCF](https://www.nsf.gov/div/index.jsp?org=CCF) division (2023)
 
     - |
-        ACM [SIGARCH](https://www.sigarch.org) Board of Directors (July 1, 2023--June 30, 2025)
+        ACM [SIGARCH](https://www.sigarch.org) Board of Directors (July 1, 2023--June 30, 2027)
 
     - |
         ASPLOS 2023: Poster Session Chair
@@ -524,8 +527,6 @@ phdcommittees:
       advisor: Zhiru Zhang
     - name: Emine Ezgi Yucel
       advisor: 'José Martínez'
-    - name: Aditya Senthilnathan
-      advisor: Nate Foster
     - name: Mariia Soroka
       advisor: Steve Marschner
     - name: Kei Imada
@@ -575,6 +576,7 @@ phdcommittees:
     - name: Shubham Chaudhary
       advisor: Robbert Van Renesse and Lorenzo Alvisi
       link: https://www.cs.cornell.edu/~shubham/
+      defense: 2025
     - name: Jiajie Li
       advisor: Zhiru Zhang
       link: https://tonyjie.github.io
@@ -602,6 +604,7 @@ phdcommittees:
         name: Wen-Ding Li
         advisor: Dexter Kozen
         link: https://xu3kev.github.io
+        defense: 2025
     -
         name: Mark Moeller
         advisor: Nate Foster and Alexandra Silva
@@ -618,6 +621,7 @@ phdcommittees:
     -
         name: Socrates Wong
         advisor: 'José Martínez'
+        defense: 2025
     -
         name: Ariel Kellison
         advisor: David Bindel
@@ -692,6 +696,12 @@ phdcommittees:
         link: http://www.cs.columbia.edu/~melanie/
 
 talks:
+    -
+        title: "Back to the Building Blocks' Building Blocks"
+        where: "Keynote, Schloss Dagstuhl, Seminar #26042"
+        link: https://www.dagstuhl.de/26042/
+        date: 2026-01-20
+
     -
         title: "The Next 700 Accelerator Design Languages"
         where: "University of Utah, invited talk"
