@@ -4,6 +4,7 @@
     type: workshop
     venue: 'Compilers for Machine Learning (C4ML) 2026'
     venue_url: https://www.c4ml.org
+    url: https://arxiv.org/abs/2512.06177
 
 -
     title: 'From PyTorch to Calyx: An Open-Source Compiler Toolchain for ML Accelerators'
@@ -11,6 +12,7 @@
     type: workshop
     venue: 'Workshop on Accelerated Machine Learning (AccML) 2026'
     venue_url: https://accml.dcs.gla.ac.uk
+    url: https://arxiv.org/abs/2512.06177
 
 -
     title: 'Parameterized Hardware Design with Latency-Abstract Interfaces'
@@ -20,6 +22,7 @@
     selected: true
     venue_status: To appear in
     venue_url: https://www.asplos-conference.org/asplos2026/
+    url: https://people.csail.mit.edu/rachit/files/pubs/lilac.pdf
 
 -
     title: 'Unifying Static and Dynamic Intermediate Languages for Accelerator Generators'
