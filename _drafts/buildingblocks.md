@@ -33,24 +33,23 @@ This post makes the case that we should invest in better understanding the probl
 <a href="https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf"><img src="{{site.base}}/media/buildingblocks.png"></a>
 </figure>
 
-For American programming languages nerds,
-["Back to the Building Blocks"][bbb] was one of the most exciting things to happen in recent memory.
-It's a 2024 report from the White House Office of the National Cyber Director that argued the importance of memory safety.
-It called for critical infrastructure to move on from memory-unsafe languages like C and C++ and even mentioned [Rust][] by name as a promising alternative.
+As an American programming languages nerd, I believe that
+["Back to the Building Blocks"][bbb] was one of the most exciting developments of the last decade.
+It's a 2024 report from the White House Office of the National Cyber Director that makes the case for memory safety.
+It calls for critical infrastructure to move on from memory-unsafe languages like C and C++, and it even mentions [Rust][] by name as a promising alternative.
 
 "Back to the Building Blocks" didn't break new ground:
-by 2024, it was obvious to most right-thinking people that memory safety was a huge problem.
+by 2024, it was obvious to all reasonable people that memory safety was a huge problem.
 It was exciting because *Joe Biden* was saying the same things that we had all been saying for years.[^biden]
-I'm not a very patriotic person, but my heart soars like an eagle when I read stuff like this in a government report:
+I'm not a very patriotic person, but my heart soars like a majestic bald eagle when I read stuff like this in a government report:
 
 > Despite rigorous code reviews as well as other preventive and detective controls, up to 70 percent of security vulnerabilities in memory unsafe languages patched and assigned a CVE designation are due to memory safety issues.
 
-And I start hearing the national anthem when Joe Biden says:
+And I can hear the national anthem playing when the report says:
 
 > For new products, choosing to build in a memory safe programming language is an early architecture decision that can deliver significant security benefits. Even for existing codebases, where a complete rewrite of code is more challenging, there are still paths toward adopting memory safe programming languages by taking a hybrid approach.
 
 God bless America.
-
 "Back to the Building Blocks" distills a hard-to-refute syllogism along these lines:
 
 1. Correctness matters.
@@ -78,21 +77,18 @@ And the strong form is:
 
 > The next "Building Blocks" crisis will happen in hardware, and it will be Verilog's fault.
 
-In other words: as we begin to get a handle on memory safety,
-the next scourge of avoidable-seeming bugs will occur in hardware designs.
+In other words: at the same moment that we're beginning to get a handle on memory safety,
+we're producing a lot more Verilog code.
+So the next scourge of avoidable bugs could occur in hardware.
 Better HDLs could dramatically reduce the frequency of these bugs.
 
-It is worthwhile to ask:
-if the situation is so dire, why isn't this already a crisis?
-Or: what's changing *now* that will make Verilog's flaws matter more than they have in the past?
-
-The answer is that hardware design is currently undergoing a kind of Cambrian explosion.
-The traditional way to develop hardware---the kind of process that big CPU vendors use---mitigates HDLs' flaws by spending a ridiculous amount of resources on verification.
-This observation is hard to justify with concrete evidence, but consider [this dubious report from an industry consortium][wilson] that claims that, in CPU design projects,
+Verilog's problems are not new, but until now, hardware design methodologies have attenuated the harm they can cause.
+The traditional way to develop hardware---the kind of process that big CPU vendors use---mitigates Verilog's problems in part by expending a ridiculous amount of resources on verification.
+This observation is hard to justify with concrete evidence, but consider [this somewhat dubious report from an industry consortium][wilson] that claims that, in CPU design projects,
 the ratio of verification engineers to design engineers is 5:1.
 A terrible HDL matters less when you have a safety net like that.
 
-But today, more and more people want to design custom, application-specific hardware.
+But today, more people want to design custom, application-specific hardware.
 Specialized, lower-volume hardware projects will not (and should not) use the same engineering process as Apple's next iPhone SoC.
 The emerging long tail of cheaper, lighter-weight hardware design projects will be more vulnerable to Verilog's problems.
 
@@ -101,7 +97,7 @@ The emerging long tail of cheaper, lighter-weight hardware design projects will 
 ## Some Cheap Shots at Verilog
 
 The main point of this post is to call for systematic study of Verilog's implications for hardware correctness, not to pick on specific flaws I personally love to hate.
-But I can't resist shooting a few fish in this particular barrel.
+But I can't resist shooting a few fish in this barrel.
 
 The root of Verilog's problems is that it was not designed for implementing hardware.
 It was [originally developed][hopl] as a DSL for writing event-based *simulators* of digital logic.
@@ -113,7 +109,7 @@ Many problems with Verilog stem from the confusing boundaries between simulation
 
 To get concrete, let's look at three specific footguns in Verilog:
 inferred latches, the semantics of the "don't care" value, and the absence of cycle-level timing information.
-(As a warning, the latter is a self-serving complaint that motivates [some research from my lab][filament].)
+(As a warning, the latter is a self-serving complaint that motivates [some research I co-authored][filament].)
 
 [hopl]: https://dl.acm.org/doi/10.1145/3386337
 [filament]: https://filamenthdl.com
@@ -263,7 +259,7 @@ Tragically, this behavior was [apparently intentional][hopl]:
 
 Feel free to call me a PL nerd for saying this, but I don't think simulation performance is a good justification for broken semantics.
 
-Unsurprisingly, researchers have explore how X optimism can lead to [sneaky security problems][krieg] because your simulator lies to you about what how final circuit will behave.
+Unsurprisingly, researchers have explored how X optimism can lead to [sneaky security problems][krieg] because your simulator lies to you about what how final circuit will behave.
 
 [krieg]: https://dl.acm.org/doi/10.1145/3061639.3062328
 [wat]: https://www.destroyallsoftware.com/talks/wat
