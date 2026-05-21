@@ -332,3 +332,13 @@ If you're curious about this particular problem, please take a look at [our pape
 
 [rachit]: https://people.csail.mit.edu/rachit/
 [filament-paper]: https://dl.acm.org/doi/10.1145/3591234
+
+## The Building Blocks' Building Blocks
+
+If low-level systems like compilers are the building blocks for the software industry, then
+hardware design tools are the building blocks for the building blocks.
+The tower of system abstractions needs a strong foundation,
+and Verilog is a cracked and crumbling concrete slab.
+
+We must work toward a post-Verilog future.
+We need to invest more in modern HDLs, and we need toolchains that can support these superior languages without going through Verilog as the least common denominator.
