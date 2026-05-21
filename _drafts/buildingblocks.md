@@ -318,13 +318,17 @@ This module instantiates an adder `add` and a multiplier `mul`, and it uses Veri
 
 This implementation works fine if `add` and `mul` are both combinational.
 More realistically, though, a 32-bit multiplier will probably be sequential and pipelined.
-To make our ALU work with a pipelined multiplier, our ALU would need some pipeline registers of its own.
+If that's the case, this code is probably incorrect:
+it has implicitly assumed that `Add32` and `Mul32` have the same timing behavior.
 
 Here's the problem: *there is nothing in the module signatures for the functional units that tells us that's the case*.
-The interfaces for `Add32` and `Mul32` are identical because they only describe the physical shape of the ports.
-Perhaps `Add32` is combinational and `Mul32` takes 3 cycles---their Verilog signatures would still be identical.
+The interfaces for `Add32` and `Mul32` are identical because they can only describe the physical shape of the ports, not the timing.
+Even if `Add32` is combinational and `Mul32` takes 3 cycles, their Verilog signatures would remain identical.
+The only way to know how to use a Verilog module correctly is to read the comments (or to look directly at the source code).
 
-Verilog has no way to check that you're getting this timing right.
-Using a module correctly requires reading the comments or looking directly at the source code.
+If you're curious about this particular problem, please take a look at [our paper about Filament][filament-paper], an HDL with a type system that enforces timing safety.[^rachit]
 
+[^rachit]: Please direct all Filament fan mail to [Rachit][], who led that work.
+
+[rachit]: https://people.csail.mit.edu/rachit/
 [filament-paper]: https://dl.acm.org/doi/10.1145/3591234
