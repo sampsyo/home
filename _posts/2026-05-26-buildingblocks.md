@@ -1,5 +1,5 @@
 ---
-title: Back to the Building Blocks' Building Blocks
+title: Back to the Building Blocks’ Building Blocks
 excerpt:
     Verilog is the foundation of all hardware design, and it is fatally flawed. We should all be worried about a glut of hardware bugs caused by Verilog's unpredictable semantics and simplistic type system.
 ---
