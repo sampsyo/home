@@ -71,4 +71,4 @@ redirect:
 collections:
     drafts:
         output: true
-        permalink: /blog/drafts/:slug.html
+        permalink: /blog/drafts/:title.html
