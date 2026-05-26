@@ -56,7 +56,7 @@ God bless America.
 2. There exist large classes of bugs with similar root causes.
 3. Some languages lead to a higher frequency of these bug classes than other languages.
 4. We should therefore see these bugs as the "fault" of the language, not the programmer.
-5. Languages that are "harder to use" but dramatically reduce the frequency of these bugs may be worth it.
+5. Languages that are harder to use but dramatically reduce the frequency of these bugs may be worth it.
 
 In the original report, this "Building Blocks" argument was about C.
 But I believe the same reasoning applies to Verilog.
@@ -82,7 +82,7 @@ we're producing a lot more Verilog code.
 So the next scourge of avoidable bugs could occur in hardware.
 Better HDLs could dramatically reduce the frequency of these bugs.
 
-Verilog's problems are not new, but until now, hardware design methodologies have attenuated the harm they can cause.
+Verilog's problems are not new, but until now, hardware design methodologies have attenuated their harm.
 The traditional way to develop hardware---the kind of process that big CPU vendors use---mitigates Verilog's problems in part by expending a ridiculous amount of resources on verification.
 This observation is hard to justify with concrete evidence, but consider [this somewhat dubious report from an industry consortium][wilson] that claims that, in CPU design projects,
 the ratio of verification engineers to design engineers is 5:1.
