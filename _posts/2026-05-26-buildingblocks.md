@@ -12,7 +12,9 @@ Almost universally, the attitude toward Verilog seems to be that it's frustratin
 
 Verilog is inescapable because it is the input format to essentially every EDA tool.
 Its centrality means that it is a <i>de facto</i> intermediate representation implementing for every other HDL:
-even if you prefer [Bluespec][], [Chisel][], [Amaranth][], or [Spade][], they all have to compile to Verilog to interact with the rest of the hardware world.
+even if you prefer [Bluespec][], [Chisel][], [Amaranth][], or [Spade][], they usually compile to Verilog to interact with the rest of the hardware world.[^amaranth]
+
+[^amaranth]: Thanks to [@whitequark][], Amaranth's maintainer, for pointing out that Amaranth can skip Verilog when targeting [Yosys][] by generating [RTLIL][] directly. Awesome!
 
 I am worried that Verilog's flaws will be the cause of a new wave of hardware bugs.
 There is an analogy to the problems with C and C++:
@@ -26,6 +28,9 @@ This post makes the case that we should invest in better understanding the probl
 [bluespec]: https://github.com/B-Lang-org/bsc
 [amaranth]: https://amaranth-lang.org/
 [spade]: https://spade-lang.org
+[yosys]: https://yosyshq.net/yosys/
+[rtlil]: https://yosyshq.readthedocs.io/projects/yosys/en/stable/yosys_internals/formats/rtlil_rep.html
+[@whitequark]: https://social.treehouse.systems/@whitequark
 
 ## On Building Blocks
 
