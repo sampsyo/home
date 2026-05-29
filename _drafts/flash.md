@@ -67,8 +67,8 @@ the point is to get to do optimizations on the IR. things that would be real wei
 
 [flatgfa-post]: {{site.base}}/blog/flatgfa.html
 [odgi]: https://odgi.readthedocs.io/en/latest/
-[mmap]: https://en.wikipedia.org/wiki/Mmap
-[od]: https://en.wikipedia.org/wiki/Ousterhout%27s_dichotomy
+[mmap]: https://linux.die.net/man/2/mmap
+[od]: https://web.stanford.edu/~ouster/cgi-bin/papers/scripting.pdf
 [vecint]: https://venge.net/graydon/talks/VectorizedInterpretersTalk-2023-05-12.pdf
 [brush]: https://crates.io/crates/brush
 [brush-parser]: https://crates.io/crates/brush-parser
