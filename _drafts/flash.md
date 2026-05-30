@@ -32,12 +32,36 @@ Ousterhout Dichotomies and Vectorized Interpreters
 --------------------------------------------------
 
 For a long time, I thought that the right way to "package" a performance-oriented library like FlatGFA might be with an [Ousterhout dichotomy][od].
-The performance-sensitive, bulk routines stay in Rust, but we build bindings to a higher-level language for composing whole workflows.
+The performance-sensitive, bulk routines stay in Rust, but we build bindings to a higher-level language for composing those routines into whole workflows.
 The result would look a lot like [PyTorch][]: it doesn't matter to ML engineers that Python isn't very fast because more than 99% of the time is spent in optimized kernel routines written in C++ and CUDA.
 
 Python is the natural choice for the "glue language" part of an Ousterhout dichotomy in the modern era.
-(Sorry, Tcl.)
-So we actually started building Python bindings for FlatGFA using the excellent [PyO3][] project, which eliminates a lot of the boilerplate you'd otherwise have to write when making a Python extension.
+(Sorry, [Tcl][].)
+So we started building Python bindings for FlatGFA using the excellent [PyO3][] project, which eliminates a lot of binding boilerplate.
+We got [the basics][flatgfa-py-docs] working reasonably well---for example, try this to see it in action:
+
+```sh
+$ curl -LO https://raw.githubusercontent.com/pangenome/odgi/refs/heads/master/test/LPA.gfa
+$ uv venv
+$ uv pip install flatgfa
+$ uv run python
+>>> import flatgfa
+>>> graph = flatgfa.parse("LPA.gfa")
+>>> [path.name for path in graph.paths]
+```
+
+To my surprise, however, Python bindings had a few serious downsides:
+
+1. Even with PyO3, the bindings are hard to write. The problem is the fundamental complexity of the mismatch between Rust lifetimes and the dynamically managed Python heap. FlatGFA's performance advantages come from eliminating copies, allocations, and pointer-chasing---all things that want to creep back in at the Rust/Python boundary.
+2. We don't get a whole-program view of the workload. Straightforward Python bindings mean that our only opportunity to go fast is _within a single call to the library_, and we can't do much across multiple calls. For example, the moment that the user writes a Python `for` loop, we almost certainly lose the performance game. This is the same underlying reason that PyTorch has [a separate, optional "compile" mode][torch.compile], for example.
+3. It turns out that our biologist collaborators aren't exactly enamored with Python anyway! The traditional, familiar way to compose pangenomic pipelines is via the Unix shell. It sometimes seems like the word "Python" is a synonym for "a programming language that the people actually want to use absent other constraints," but of course it's more contextual than that.
+
+It might seem odd to prefer shell scripting over a full-featured dynamic scripting language, but
+shell scripts have some material advantages over Python: streaming via pipes can be great for large datasets; simple pipeline parallelism is easy to express; it's straightforward to persist intermediate results in files.
+And of course, the shell is kinda the ultimate glue language:
+you can compose components developed separately, written in different languages, with no special effort on bindings.
+(The only "bindings" are the Unix userland APIs.)
+
 
 TK ["vectorized interpreters" talk from Graydon][vecint].
 TK I originally thought this would be Python (and we did build those bindings), but this is (a) a lot of work, even with PyO3, (b) reuses Python's interpreter, meaning we get less of a whole-program view, and (c) as it turns out, not even what the genomicists want to do.
@@ -48,6 +72,10 @@ TK the moment in the meeting when we disagreed about whether literally reusing t
 TK so the idea: a fake shell!
 
 [pyo3]: https://pyo3.rs/
+[flatgfa-py-docs]: https://cucapra.github.io/pollen/flatgfa/
+[torch.compile]: https://docs.pytorch.org/docs/2.12/user_guide/torch_compiler/torch.compiler.html#torch-compiler-overview
+[pytorch]: https://pytorch.org
+[tcl]: https://www.tcl-lang.org
 
 Design
 ------
