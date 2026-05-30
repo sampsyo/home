@@ -82,18 +82,54 @@ shell scripts really do have some material advantages over Python:
   you can compose components developed separately, written in different languages, with no special effort on bindings.
   (The only "bindings" are the Unix userland APIs.)
 
-And there is one gigantic downside:
-the need to serialize and deserialize all intermediate data, and possibly to write it to the filesystem.
+You can see evidence of this kind of composition in [the odgi documentation][odgi].
+For example, [one tutorial][odgi-tut] suggests that we find repetitive sequences in human chromosome 8 by composing operators from odgi itself and [bedtools][]:
 
-TK the moment in the meeting when we disagreed about whether literally reusing the shell could ever be a good idea. the arguments: (1) fundamental disk orientedness, (2) but caching is pretty good, and (3) "everything in memory" doesn't scale anyway.
+```sh
+odgi depth -i chr8.pan.og -r chm13#chr8 | \
+    bedtools makewindows -b /dev/stdin -w 5000 > chm13.chr8.w5kbps.bed
+
+odgi depth -i chr8.pan.og -b chm13.chr8.w5kbps.bed --threads 2 | \
+    bedtools sort > chr8.pan.depth.w5kbps.bed
+```
+
+This workflow uses four operators from the two packages, two Unix pipes, and one intermediate file.
+I don't think it matters much in this example, but it's nice that the shell pipelines let the two pairs of commands run in parallel.
+
+There is, however, one gigantic downside:
+the only ways to exchange data between operations are files and pipes.
+Using files to communicate might mean writing stuff to the disk unnecessarily, even when all the bytes fit comfortably in memory.
+Pipes can avoid disk I/O and can be a great fit for streaming operators,
+but they generally entail serializing everything to text,
+and not every producer--consumer relationship naturally supports streaming.
+For example, if one command generates a new variation graph, the next command probably needs to read the whole thing before it can start its work.
+
+In our weekly meeting for a [grant about pangenomics][panorama], the group got into a slightly heated discussion about these fundamental limits of shell-based composition.
+Maybe the OS's disk cache can mostly mitigate the file I/O cost?
+Could you force it by putting the files in a RAM disk?
+(What even happens when you `mmap` a file that's on a RAM disk?)
+Maybe none of that is practical anyway when datasets grow large enough to overflow main memory?
+
+In that discussion, I realized that there was a ridiculous, impractical, but very fun alternative that could sidestep all those potential downsides.
+
+[odgi-tut]: https://odgi.readthedocs.io/en/latest/rst/tutorials/detect_complex_regions.html#obtain-the-depth-over-the-pangenome
+[bedtools]: https://bedtools.readthedocs.io/en/latest/
+[panorama]: https://news.cornell.edu/stories/2021/11/5m-grant-will-tackle-pangenomics-computing-challenge
 
 
 On Vectorized Interpreters
 --------------------------
 
-TK ["vectorized interpreters" talk from Graydon][vecint].
+In 2023, Graydon Hoare gave [a talk at UCSC about "vectorized interpreters"][vecint] that made a big impression on me.[^graydon]
+He makes the point native-code compilers (especially JITs) are an extremely complicated way to extract performance from code.
+The idea that stuck with me was that, with suitable cooperation from the programming model, interpreters that operate *in bulk* can be a simple and fast alternative.
+If every instruction in your bytecode represents a big computation on a lot of data (instead of, say, a single scalar integer addition),
+then straightforwardly interpreting that bytecode is plenty efficient.
+There's no need to worry about the cost of bytecode instruction dispatch, for example, when 99.99% of the time goes to running the implementation of those chunky instructions.
 
 TK so the idea: a fake shell!
+
+[^graydon]: If you're reading this, Graydon, sorry that I'm probably about to oversimplify your point here.
 
 [vecint]: https://venge.net/graydon/talks/VectorizedInterpretersTalk-2023-05-12.pdf
 
