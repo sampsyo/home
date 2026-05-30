@@ -28,6 +28,11 @@ Neither option is all that compelling:
 This post is about the very silly alternative that we recently built:
 a "fake shell" that _pretends_ to be like option 1 but approximates the performance of option 2.
 
+[flatgfa-post]: {{site.base}}/blog/flatgfa.html
+[odgi]: https://odgi.readthedocs.io/en/latest/
+[mmap]: https://linux.die.net/man/2/mmap
+
+
 On Ousterhout Dichotomies
 -------------------------
 
@@ -50,24 +55,38 @@ $ uv run --with flatgfa python
 
 To my surprise, however, Python bindings had a few serious downsides:
 
-1. Even with PyO3, the bindings are hard to write efficiently. The problem is the fundamental complexity of the mismatch between Rust's static lifetimes and Python's dynamically managed heap. FlatGFA's performance advantages come from eliminating copies, allocations, and pointer-chasing---all things that want to creep back in at the Rust/Python boundary.
-2. We don't get a whole-program view of the workload. Straightforward Python bindings mean that our only opportunity to go fast is _within each call to the library_, and we can't do much across multiple calls. For example, the moment that the user writes a Python `for` loop, we almost certainly lose the performance game. This is the same underlying reason that PyTorch has [a separate, optional "compile" mode][torch.compile], for example.
-3. It turns out that our biologist collaborators aren't exactly enamored with Python anyway! The traditional, familiar way to compose pangenomic pipelines is via the Unix shell. It sometimes seems like the word "Python" is a synonym for "a programming language that the people actually want to use absent other constraints," but of course it's more contextual than that.
+* Even with PyO3, the bindings are hard to write efficiently. The problem is the fundamental complexity of the mismatch between Rust's static lifetimes and Python's dynamically managed heap. FlatGFA's performance advantages come from eliminating copies, allocations, and pointer-chasing---all things that want to creep back in at the Rust/Python boundary.
+* We don't get a whole-program view of the workload. Straightforward Python bindings mean that our only opportunity to go fast is _within each call to the library_, and we can't do much across multiple calls. For example, the moment that the user writes a Python `for` loop, we almost certainly lose the performance game. This is the same underlying reason that PyTorch has [a separate, optional "compile" mode][torch.compile], for example.
+* It turns out that our biologist collaborators aren't exactly enamored with Python anyway! The traditional, familiar way to compose pangenomic pipelines is via the Unix shell. It sometimes seems like the word "Python" is a synonym for "a programming language that the people actually want to use absent other constraints," but of course it's more contextual than that.
 
-TK wrap up
+It eventually made sense to reconsider the CLI-oriented approach that [odgi][] and friends all use.
+
+[od]: https://web.stanford.edu/~ouster/cgi-bin/papers/scripting.pdf
+[pyo3]: https://pyo3.rs/
+[flatgfa-py-docs]: https://cucapra.github.io/pollen/flatgfa/
+[torch.compile]: https://docs.pytorch.org/docs/2.12/user_guide/torch_compiler/torch.compiler.html#torch-compiler-overview
+[pytorch]: https://pytorch.org
+[tcl]: https://www.tcl-lang.org
+
 
 Reconsidering the Shell
 -----------------------
 
-TK so it was time to reconsider shell scripts as the interface.
-
 It might seem odd to prefer shell scripting over a full-featured dynamic scripting language, but
-shell scripts have some material advantages over Python: streaming via pipes can be great for large datasets; simple pipeline parallelism is easy to express; it's straightforward to persist intermediate results in files.
-And of course, the shell is kinda the ultimate glue language:
-you can compose components developed separately, written in different languages, with no special effort on bindings.
-(The only "bindings" are the Unix userland APIs.)
+shell scripts really do have some material advantages over Python:
+
+* Streaming I/O via pipes can be great for large datasets, in the right situation.
+* Simple pipeline parallelism is easy to express.
+* It's straightforward to persist intermediate results in files.
+* The shell is kinda the _ultimate_ glue language:
+  you can compose components developed separately, written in different languages, with no special effort on bindings.
+  (The only "bindings" are the Unix userland APIs.)
+
+And there is one gigantic downside:
+the need to serialize and deserialize all intermediate data, and possibly to write it to the filesystem.
 
 TK the moment in the meeting when we disagreed about whether literally reusing the shell could ever be a good idea. the arguments: (1) fundamental disk orientedness, (2) but caching is pretty good, and (3) "everything in memory" doesn't scale anyway.
+
 
 On Vectorized Interpreters
 --------------------------
@@ -76,11 +95,8 @@ TK ["vectorized interpreters" talk from Graydon][vecint].
 
 TK so the idea: a fake shell!
 
-[pyo3]: https://pyo3.rs/
-[flatgfa-py-docs]: https://cucapra.github.io/pollen/flatgfa/
-[torch.compile]: https://docs.pytorch.org/docs/2.12/user_guide/torch_compiler/torch.compiler.html#torch-compiler-overview
-[pytorch]: https://pytorch.org
-[tcl]: https://www.tcl-lang.org
+[vecint]: https://venge.net/graydon/talks/VectorizedInterpretersTalk-2023-05-12.pdf
+
 
 Design
 ------
@@ -91,6 +107,9 @@ reuse a [shell syntax parser][brush-parser] from [a "rewrite it in rust" shell p
 
 IR, interpreter. sets up pipes, opens files.
 
+[brush]: https://crates.io/crates/brush
+[brush-parser]: https://crates.io/crates/brush-parser
+
 
 Optimizations
 -------------
@@ -98,10 +117,3 @@ Optimizations
 the point is to get to do optimizations on the IR. things that would be real weird otherwise.
 
 
-[flatgfa-post]: {{site.base}}/blog/flatgfa.html
-[odgi]: https://odgi.readthedocs.io/en/latest/
-[mmap]: https://linux.die.net/man/2/mmap
-[od]: https://web.stanford.edu/~ouster/cgi-bin/papers/scripting.pdf
-[vecint]: https://venge.net/graydon/talks/VectorizedInterpretersTalk-2023-05-12.pdf
-[brush]: https://crates.io/crates/brush
-[brush-parser]: https://crates.io/crates/brush-parser
