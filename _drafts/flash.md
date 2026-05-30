@@ -127,6 +127,12 @@ If every instruction in your bytecode represents a big computation on a lot of d
 then straightforwardly interpreting that bytecode is plenty efficient.
 There's no need to worry about the cost of bytecode instruction dispatch, for example, when 99.99% of the time goes to running the implementation of those chunky instructions.
 
+In Graydon's presentation, PyTorch and NumPy are both examples of vectorized interpreters.
+But as I touched on above, they're sort of limited by reusing Python's program representation and interpreter---so their "instruction window" is limited.
+
+I've been thinking for an embarrassingly long time that there is probably some way to do better with a bespoke vectorized interpreter for pangenomics operations.
+And the shell-script efficiency debate provided the excuse to do something about it.
+
 TK so the idea: a fake shell!
 
 [^graydon]: If you're reading this, Graydon, sorry that I'm probably about to oversimplify your point here.
