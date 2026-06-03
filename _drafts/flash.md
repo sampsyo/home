@@ -241,6 +241,36 @@ TK and in fact, this can run unmodified in a real shell. measure performance aga
 [flash]: https://github.com/cucapra/pollen/tree/main/flatgfa-sh
 [eval]: https://github.com/cucapra/pollen/blob/main/flatgfa-sh/src/eval/mod.rs
 
+### Optimizations
+
+This all makes for a fun [language-implementation pastime][toot], but the real reason for all this setup is to do optimizations.
+Flash's instruction-based IR makes optimizations feasible (I can't imagine how I'd implement them directly on the shell AST).
+Here are the optimizations I've implemented so far:
+
+* When the program produces a BED file and then loads it again with a `parse-bed` instruction, avoid the round trip through bytes. Just produce an in-memory BED resource and use that directly.
+* Recognize uses of `path-depth` that actually only need the number of base pairs, and replace them with the cheaper `path-length` instruction. (This one's cheesy: it just so happens that `odgi depth -r` is a convenient way to get path length, even though it also needlessly computes depth.)
+* Find identical `map-file` instructions that load the same file twice and deduplicate them. (If I were a better man, this would be a general [CSE][].)
+* The cheesiest one of all: when the program uses `parse-gfa("foo.gfa")` and a file named `foo.flatgfa` happens to exist, replace it with `map-file("foo.flatgfa")`. In other words, assuming that we've already converted the text GFA format to our efficient binary format, use that. (This ridiculous optimization mainly just helps with writing shell scripts that remain 100% compatible with a real POSIX shell.)
+
+Here's the result of optimizing our little script above:
+
+```
+$ flash -O -p windows.sh
+map-file("../tests/note5.flatgfa") -> mmap-0
+path-length(mmap-0, path="5") -> bed-store-0
+make-windows(bed-store-0, size=4) -> bed-store-1
+interval-depth(mmap-0, bed-store-1) -> stdout
+shell("rm", ["-f", "note5.w4.bed"], input=stdin) -> stdout
+```
+
+We've cleaned up the code substantially: we use an efficient FlatGFA file directly (and we only open it once), and we skip all the pipes and intermediate files.
+
+TK perf measurement again
+
+[toot]: https://discuss.systems/@adrian/116518791774005898
+[opt.rs]: https://github.com/cucapra/pollen/blob/2421a7f34955ccf71ad0743785b125b4e1e6219b/flatgfa-sh/src/opt.rs
+[cse]: https://en.wikipedia.org/wiki/Common_subexpression_elimination
+
 
 Optimizations
 -------------
