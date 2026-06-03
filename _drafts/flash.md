@@ -42,8 +42,7 @@ For a long time, I thought that the right way to "package" a performance-oriente
 The performance-sensitive, bulk routines stay in Rust, but we build bindings to a higher-level language for composing those routines into whole workflows.
 The result would look a lot like [PyTorch][]: it doesn't matter to ML engineers that Python isn't very fast because more than 99% of the time is spent in optimized kernel routines written in C++ and CUDA.
 
-Python is the natural choice for the "glue language" part of an Ousterhout dichotomy in the modern era.
-(Sorry, [Tcl][].)
+Python is the natural choice for the "glue language" part of an Ousterhout dichotomy in the modern era.[^tcl]
 So we started building Python bindings for FlatGFA using the excellent [PyO3][] project.
 We got [the basics][flatgfa-py-docs] working reasonably well---for example, try this to see it in action:
 
@@ -62,6 +61,8 @@ To my surprise, however, Python bindings had a few serious downsides:
 * It turns out that our biologist collaborators aren't exactly enamored with Python anyway! The traditional, familiar way to compose pangenomic pipelines is via the Unix shell. Personally, I have become too accustomed to Python being the default choice for approachability. Naturally, preferences among domain experts are contextual and varied.
 
 It made sense to reconsider the CLI-oriented approach that [odgi][] and friends all use.
+
+[^tcl]: Sorry, [Tcl][].
 
 [od]: https://web.stanford.edu/~ouster/cgi-bin/papers/scripting.pdf
 [pyo3]: https://pyo3.rs/
@@ -270,11 +271,3 @@ TK perf measurement again
 [toot]: https://discuss.systems/@adrian/116518791774005898
 [opt.rs]: https://github.com/cucapra/pollen/blob/2421a7f34955ccf71ad0743785b125b4e1e6219b/flatgfa-sh/src/opt.rs
 [cse]: https://en.wikipedia.org/wiki/Common_subexpression_elimination
-
-
-Optimizations
--------------
-
-the point is to get to do optimizations on the IR. things that would be real weird otherwise.
-
-
