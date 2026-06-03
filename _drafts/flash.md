@@ -1,34 +1,36 @@
+---
 title: A Fake Shell for Pangenomics
 excerpt: |
     TK
 ---
-For a while now, I have been working on [a fast toolkit for pangenomics, called FlatGFA][flatgfa-post].
-Relative to other pangenomics tools like [odgi][], FlatGFA has one trick:
+I have been working on [an efficient toolkit for pangenomics, called FlatGFA][flatgfa-post].
+Relative to other pangenomics tools like [odgi][], FlatGFA has essentially one trick:
 a zero-copy data format.
 The in-memory data format is identical to the on-disk format, so FlatGFA can skip all serialization and deserialization costs;
 opening a file consists of an [mmap(2)][mmap].
-For unfairly cherry-picked workloads, FlatGFA can be thousands of times faster than odgi.
+For [unfairly cherry-picked workloads][flatgfa-eval], FlatGFA can be thousands of times faster than odgi.
 
 Now comes the hard part:
 I want my genomicist colleagues to actually use FlatGFA.
 I want to write an inventory of high-performance operations and let the _real_ scientists compose them into complete workflows.
 
-To let them do that kind of composition, there were two clear options:
+To let them do that kind of composition, there were two simple options:
 we could either
 (1) make a command-line interface that exposes all the operators and let the scientists write shell scripts to compose them, or
 (2) design a Rust API and have the scientists write Rust code.
-Neither option is all that compelling:
+Neither option is very compelling:
 
 1. The CLI approach really limits the kind of composition you can do.
    All intermediates need to be either files or pipes,
    which can get awkward and surely comes with some overhead.
 2. Our internal Rust API is, because of all the data-structure tricks we play, written an endearingly idiosyncratic style.
-   Even though our biologist collaborators are already Rust hackers, I can't in good conscience say that we have a _good_ API that they'd be happy to use.
+   Even though our biologist collaborators are great Rust hackers, I can't in good conscience say that we have a _good_ API that they'd be happy to use.
 
 This post is about the very silly alternative that we recently built:
-a "fake shell" that _pretends_ to be like option 1 but approximates the performance of option 2.
+a _fake shell_ that pretends to offer option 1 but approximates the performance of option 2.
 
 [flatgfa-post]: {{site.base}}/blog/flatgfa.html
+[flatgfa-eval]: {{site.base}}/blog/flatgfa.html#speedup
 [odgi]: https://odgi.readthedocs.io/en/latest/
 [mmap]: https://linux.die.net/man/2/mmap
 
@@ -42,7 +44,7 @@ The result would look a lot like [PyTorch][]: it doesn't matter to ML engineers 
 
 Python is the natural choice for the "glue language" part of an Ousterhout dichotomy in the modern era.
 (Sorry, [Tcl][].)
-So we started building Python bindings for FlatGFA using the excellent [PyO3][] project, which eliminates a lot of binding boilerplate.
+So we started building Python bindings for FlatGFA using the excellent [PyO3][] project.
 We got [the basics][flatgfa-py-docs] working reasonably well---for example, try this to see it in action:
 
 ```sh
@@ -55,11 +57,11 @@ $ uv run --with flatgfa python
 
 To my surprise, however, Python bindings had a few serious downsides:
 
-* Even with PyO3, the bindings are hard to write efficiently. The problem is the fundamental complexity of the mismatch between Rust's static lifetimes and Python's dynamically managed heap. FlatGFA's performance advantages come from eliminating copies, allocations, and pointer-chasing---all things that want to creep back in at the Rust/Python boundary.
-* We don't get a whole-program view of the workload. Straightforward Python bindings mean that our only opportunity to go fast is _within each call to the library_, and we can't do much across multiple calls. For example, the moment that the user writes a Python `for` loop, we almost certainly lose the performance game. This is the same underlying reason that PyTorch has [a separate, optional "compile" mode][torch.compile], for example.
-* It turns out that our biologist collaborators aren't exactly enamored with Python anyway! The traditional, familiar way to compose pangenomic pipelines is via the Unix shell. It sometimes seems like the word "Python" is a synonym for "a programming language that the people actually want to use absent other constraints," but of course it's more contextual than that.
+* Even with PyO3, the bindings are hard to write efficiently. The problem is the fundamental complexity in the mismatch between Rust's static lifetimes and Python's dynamically managed heap. FlatGFA's performance advantages come from eliminating copies, allocations, and pointer-chasing---all things that want to creep back in at the Rust/Python boundary.
+* We don't get a whole-program view of the workload. Straightforward Python bindings mean that our only opportunity to go fast is _within each call to the library_, and we can't do much across multiple calls. For example, the moment that the user writes a Python `for` loop that iterates over a FlatGFA data structure, we almost certainly lose the performance game. This is the same underlying reason that PyTorch has [a separate, optional compiled mode][torch.compile], for example.
+* It turns out that our biologist collaborators aren't exactly enamored with Python anyway! The traditional, familiar way to compose pangenomic pipelines is via the Unix shell. Personally, I have become too accustomed to Python being the default choice for approachability. Naturally, preferences among domain experts are contextual and varied.
 
-It eventually made sense to reconsider the CLI-oriented approach that [odgi][] and friends all use.
+It made sense to reconsider the CLI-oriented approach that [odgi][] and friends all use.
 
 [od]: https://web.stanford.edu/~ouster/cgi-bin/papers/scripting.pdf
 [pyo3]: https://pyo3.rs/
@@ -93,16 +95,16 @@ odgi depth -i chr8.pan.og -b chm13.chr8.w5kbps.bed --threads 2 | \
     bedtools sort > chr8.pan.depth.w5kbps.bed
 ```
 
-This workflow uses four operators from the two packages, two Unix pipes, and one intermediate file.
-I don't think it matters much in this example, but it's nice that the shell pipelines let the two pairs of commands run in parallel.
+This workflow uses four operators from two different packages, two Unix pipes, and one intermediate file.
+I don't think it matters much in this example, but it's nice that the shell pipelines let the two pairs of commands run concurrently.
 
 There is, however, one gigantic downside:
 the only ways to exchange data between operations are files and pipes.
-Using files to communicate might mean writing stuff to the disk unnecessarily, even when all the bytes fit comfortably in memory.
+Files can entail writing stuff to the disk unnecessarily, even when all the bytes fit comfortably in memory.
 Pipes can avoid disk I/O and can be a great fit for streaming operators,
 but they generally entail serializing everything to text,
 and not every producer--consumer relationship naturally supports streaming.
-For example, if one command generates a new variation graph, the next command probably needs to read the whole thing before it can start its work.
+For example, if one command generates a new variation graph (a new GFA file), the next command probably needs to read the whole thing before it can start its work.
 
 In our weekly meeting for a [grant about pangenomics][panorama], the group got into a slightly heated discussion about these fundamental limits of shell-based composition.
 Maybe the OS's disk cache can mostly mitigate the file I/O cost?
@@ -117,20 +119,20 @@ In that discussion, I realized that there was a ridiculous, impractical, but ver
 [panorama]: https://news.cornell.edu/stories/2021/11/5m-grant-will-tackle-pangenomics-computing-challenge
 
 
-On Vectorized Interpreters
---------------------------
+Digression: Vectorized Interpreters
+-----------------------------------
 
 In 2023, Graydon Hoare gave [a talk at UCSC about "vectorized interpreters"][vecint] that made a big impression on me.[^graydon]
-He makes the point native-code compilers (especially JITs) are an extremely complicated way to extract performance from code.
+He makes the point that native-code compilers (especially JITs) are an extremely complicated way to extract performance from code.
 The idea that stuck with me was that, with suitable cooperation from the programming model, interpreters that operate *in bulk* can be a simple and fast alternative.
 If every instruction in your bytecode represents a big computation on a lot of data (instead of, say, a single scalar integer addition),
 then straightforwardly interpreting that bytecode is plenty efficient.
 There's no need to worry about the cost of bytecode instruction dispatch, for example, when 99.99% of the time goes to running the implementation of those chunky instructions.
 
 In Graydon's presentation, PyTorch and NumPy are both examples of vectorized interpreters.
-But as I touched on above, they're sort of limited by reusing Python's program representation and interpreter---so their "instruction window" is limited.
+But as I touched on above, they reuse Python's program representation and interpreter---so their addressable "instruction window" is limited.
 
-I've been thinking for an embarrassingly long time that there must be a way to do better with a bespoke vectorized interpreter for pangenomics operations.
+I had been thinking that there must be a way to do better with a bespoke vectorized interpreter for pangenomics operations.
 And the problems with shell-script workflows provided an excuse to try doing something about it.
 
 [^graydon]: If you're reading this, Graydon, sorry that I'm probably about to oversimplify your point here.
@@ -150,17 +152,19 @@ We'll make the same shell scripts go faster by opportunistically switching to fa
 The shell is called Flash (the FlatGFA shell), and if you want to play along, you can find it [in our pangenomics monorepo][flash].
 Use `cargo run` to get an interactive prompt.
 
+### Shell Basics
+
 The first thing Flash can do is run ordinary commands, just like a real shell would.
 This works, for example:
 
-```
-flash -c 'echo llenroc | rev > message.txt ; cat message.txt'
+```sh
+echo llenroc | rev > message.txt ; cat message.txt
 ```
 
 To make this work, I borrowed an existing [shell syntax parser][brush-parser] from [a "rewrite it in Rust" shell project][brush].
 But instead of interpreting the shell AST directly, Flash first translates it into an instruction-based intermediate representation.
 That little script above translates into three instructions, one for each command it runs.
-Flash can pretty-print the IR if you give it a `--pretend` flag:
+Flash can pretty-print the IR if you give it a `--pretend` (`-p`) flag:
 
 ```
 $ flash -p -c 'echo llenroc | rev > message.txt ; cat message.txt'
@@ -174,6 +178,8 @@ Flash's IR is built around *resources:* the things that can be inputs and output
 This program uses the `stdin` and `stdout` resources, a Unix pipe, and a file.
 Flash's [IR evaluator][eval] takes care of setting up pipes and opening files on behalf of each instruction.
 
+### Faking It
+
 The thing that makes Flash a *fake* shell is that it special-cases a baked-in set of known pangenomic CLI tools.
 Let's borrow one part of the script we saw above, for example:
 
@@ -184,19 +190,34 @@ path-depth(gfa-store-0, path="chm13#chr8") -> stdout
 ```
 
 Flash has recognized our `odgi depth` invocation and, in place of a `shell` instruction, has generated some specialized instructions it can run _internally_.
-The `path-depth` instruction directly runs a depth computation implemented in the FlatGFA, without forking a sub process.
-The `parse-gfa` instruction produces a new kind of resource (not a file or a pipe):
-a *GFA store*, which is an efficient representation of the data from a GFA file.
+The `path-depth` instruction works by directly calling a Rust function in the FlatGFA library, and it never forks a subprocess.
 
-Let's see the IR representation of a more complete workflow:
+The `shell` instructions saw above used input and output _resources_.
+These get names like `pipe-0` and `"message.txt"` in the IR listings above.
+For `shell`, the only kinds of resources allowed are byte streams (i.e., pipes and files).
+The `parse-gfa` instruction, however, produces a new type of resource:
+a *GFA store*, which is an efficient representation of a pangenomic variation graph.
+This is a plain Rust value stored in the Flash interpreter's environment.
+When it eventually evaluates the `path-depth` instruction, the Flash interpreter retrieves the value and feeds it into the relevant library function.
 
-```
-$ cat windows.sh
+TK summarize the approach
+
+### A Complete Example
+
+Let's see the IR representation of a more complete workflow.
+I'll put this script in a file called `windows.sh`:
+
+```sh
 #!/bin/sh
 odgi depth -i ../tests/note5.gfa -r 5 | \
     bedtools makewindows -b /dev/stdin -w 4 > note5.w4.bed
 odgi depth -i ../tests/note5.gfa -b note5.w4.bed
 rm -f note5.w4.bed
+```
+
+Here's the IR listing:
+
+```
 $ flash -p windows.sh
 parse-gfa("../tests/note5.gfa") -> gfa-store-0
 path-depth(gfa-store-0, path="5") -> pipe-0
@@ -208,7 +229,12 @@ interval-depth(gfa-store-1, bed-store-1) -> stdout
 shell("rm", ["-f", "note5.w4.bed"], input=stdin) -> stdout
 ```
 
-TK something about the performance being good already?
+The thing I like about Flash's design is that it naturally supports mixing and matching different resource types.
+Some instructions interact with the external world through the filesystem or Unix pipes;
+others interact with Flash's internal data structures.
+Both kinds of instructions can coexist and exchange data.
+
+TK and in fact, this can run unmodified in a real shell. measure performance against odgi
 
 [brush]: https://crates.io/crates/brush
 [brush-parser]: https://crates.io/crates/brush-parser
