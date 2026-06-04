@@ -235,6 +235,14 @@ Some instructions interact with the external world through the filesystem or Uni
 others interact with Flash's internal data structures.
 Both kinds of instructions can coexist and exchange data.
 
+This example script can run both under plain ol' `sh` and with Flash.
+Let's compare the performance.
+To make the comparison meaningful, we'll try two settings:
+one where both routes read a plain 3.9 GB text GFA file[^chr8]
+and one where both odgi and Flash get to start from their respective efficient binary file formats.
+
+Here are some results:[^setup]
+
 TK and in fact, this can run unmodified in a real shell. measure performance against odgi. compare:
 - odgi from og
 - odgi from gfa
@@ -245,6 +253,11 @@ TK and in fact, this can run unmodified in a real shell. measure performance aga
 [brush-parser]: https://crates.io/crates/brush-parser
 [flash]: https://github.com/cucapra/pollen/tree/main/flatgfa-sh
 [eval]: https://github.com/cucapra/pollen/blob/main/flatgfa-sh/src/eval/mod.rs
+[pggb]: https://github.com/pangenome/pggb
+[hyperfine]: https://github.com/sharkdp/hyperfine
+
+[^chr8]: We're using the chromosome 8 [PGGB][] graph from [this repository of pangenomes](https://human-pangenomics.s3.amazonaws.com/index.html?prefix=pangenomes/scratch/2021_05_06_pggb/gfas/).
+[^setup]: I ran these experiments on a server with dual Xeon Gold 6230 processors (2.10 GHz), 512 GB of RAM, and Ubuntu 22.04. I used [Hyperfine][] to compare end-to-end execution time, configured with 3 runs and 1 warmup per configuration (`hyperfine -w1 -r3 -N`). The warmup means that the input files are cached, so I don't think we're measuring much actual disk I/O. Odgi reports its version as `v0.6.3-9-ge1940cd`, and I used Flash from [commit 2421a7f](https://github.com/cucapra/pollen/commit/2421a7f34955ccf71ad0743785b125b4e1e6219b).
 
 ### Optimizations
 
