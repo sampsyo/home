@@ -206,28 +206,28 @@ TK summarize the approach
 ### A Complete Example
 
 Let's see the IR representation of a more complete workflow.
-I'll put this script in a file called `windows.sh`:
+I'll put this script in a file called `wdepth.sh`:
 
 ```sh
 #!/bin/sh
-odgi depth -i ../tests/note5.gfa -r 5 | \
-    bedtools makewindows -b /dev/stdin -w 4 > note5.w4.bed
-odgi depth -i ../tests/note5.gfa -b note5.w4.bed
-rm -f note5.w4.bed
+odgi depth -i chr8.pan.gfa -r chm13#chr8 \
+    | bedtools makewindows -b /dev/stdin -w 5000 > chm13.chr8.w5kbps.bed
+odgi depth -i chr8.pan.gfa -b chm13.chr8.w5kbps.bed
+rm -f chm13.chr8.w5kbps.bed
 ```
 
 Here's the IR listing:
 
 ```
-$ flash -p windows.sh
-parse-gfa("../tests/note5.gfa") -> gfa-store-0
-path-depth(gfa-store-0, path="5") -> pipe-0
+$ flash -p wdepth.sh
+parse-gfa("chr8.pan.gfa") -> gfa-store-0
+path-depth(gfa-store-0, path="chm13#chr8") -> pipe-0
 parse-bed(pipe-0) -> bed-store-0
-make-windows(bed-store-0, size=4) -> "note5.w4.bed"
-parse-gfa("../tests/note5.gfa") -> gfa-store-1
-parse-bed("note5.w4.bed") -> bed-store-1
+make-windows(bed-store-0, size=5000) -> "chm13.chr8.w5kbps.bed"
+parse-gfa("chr8.pan.gfa") -> gfa-store-1
+parse-bed("chm13.chr8.w5kbps.bed") -> bed-store-1
 interval-depth(gfa-store-1, bed-store-1) -> stdout
-shell("rm", ["-f", "note5.w4.bed"], input=stdin) -> stdout
+shell("rm", ["-f", "chm13.chr8.w5kbps.bed"], input=stdin) -> stdout
 ```
 
 The thing I like about Flash's design is that it naturally supports mixing and matching different resource types.
@@ -235,7 +235,11 @@ Some instructions interact with the external world through the filesystem or Uni
 others interact with Flash's internal data structures.
 Both kinds of instructions can coexist and exchange data.
 
-TK and in fact, this can run unmodified in a real shell. measure performance against odgi
+TK and in fact, this can run unmodified in a real shell. measure performance against odgi. compare:
+- odgi from og
+- odgi from gfa
+- flash from flatgfa
+- flash from gfa
 
 [brush]: https://crates.io/crates/brush
 [brush-parser]: https://crates.io/crates/brush-parser
@@ -256,12 +260,12 @@ Here are the optimizations I've implemented so far:
 Here's the result of optimizing our little script above:
 
 ```
-$ flash -O -p windows.sh
-map-file("../tests/note5.flatgfa") -> mmap-0
-path-length(mmap-0, path="5") -> bed-store-0
-make-windows(bed-store-0, size=4) -> bed-store-1
+$ flash -O -p wdepth.sh
+map-file("chr8.pan.flatgfa") -> mmap-0
+path-length(mmap-0, path="chm13#chr8") -> bed-store-0
+make-windows(bed-store-0, size=5000) -> bed-store-1
 interval-depth(mmap-0, bed-store-1) -> stdout
-shell("rm", ["-f", "note5.w4.bed"], input=stdin) -> stdout
+shell("rm", ["-f", "chm13.chr8.w5kbps.bed"], input=stdin) -> stdout
 ```
 
 We've cleaned up the code substantially: we use an efficient FlatGFA file directly (and we only open it once), and we skip all the pipes and intermediate files.
