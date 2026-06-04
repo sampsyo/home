@@ -299,3 +299,15 @@ which has been my "hello world" demo while working on Flash.
 [toot]: https://discuss.systems/@adrian/116518791774005898
 [opt.rs]: https://github.com/cucapra/pollen/blob/2421a7f34955ccf71ad0743785b125b4e1e6219b/flatgfa-sh/src/opt.rs
 [cse]: https://en.wikipedia.org/wiki/Common_subexpression_elimination
+
+
+Is This an Elaborate Prank?
+---------------------------
+
+Flash is a little domain-specific language that's wearing a ridiculous shell-syntax Halloween costume.
+I'm pretty excited about the underlying DSL, the vectorized interpreter, and the coarse-grained optimizations that it enables---I think all this machinery could be the way to make FlatGFA practical to use.
+The fact that the surface syntax happens to look like a shell is, in the end, not *that* important, even if it is kinda funny.
+
+For now, Flash's syntax is shell syntax.
+It's a good starting point, it's familiar, and it lets us do head-to-head comparisons against existing combinations of command-line tools.
+We'll stick with the "fake shell" input language until we outgrow it.
