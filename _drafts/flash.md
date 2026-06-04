@@ -271,6 +271,9 @@ shell("rm", ["-f", "chm13.chr8.w5kbps.bed"], input=stdin) -> stdout
 We've cleaned up the code substantially: we use an efficient FlatGFA file directly (and we only open it once), and we skip all the pipes and intermediate files.
 
 TK perf measurement again
+- odgi from og
+- flash from flatgfa
+- flash-O from flatgfa
 
 [toot]: https://discuss.systems/@adrian/116518791774005898
 [opt.rs]: https://github.com/cucapra/pollen/blob/2421a7f34955ccf71ad0743785b125b4e1e6219b/flatgfa-sh/src/opt.rs
