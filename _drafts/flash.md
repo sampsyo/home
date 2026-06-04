@@ -1,7 +1,12 @@
 ---
 title: A Fake Shell for Pangenomics
 excerpt: |
-    TK
+    To make [our library for efficient pangenomics][flatgfa-post] more palatable, I made a little Unix shell.
+    It "cheats" when it sees commands that invoke other pangenomic CLI tools and runs built-in functionality instead.
+    The shell is built around an instruction-based IR that can fluidly intermix shell-like I/O (files and pipes) with efficient in-memory data structures.
+    In a debatably fair comparison, the fake shell runs one shell script 48&times; faster than running it with `sh`.
+
+    [flatgfa-post]: {{site.base}}/blog/flatgfa.html
 ---
 I have been working on [an efficient toolkit for pangenomics, called FlatGFA][flatgfa-post].
 Relative to other pangenomics tools like [odgi][], FlatGFA has essentially one trick:
