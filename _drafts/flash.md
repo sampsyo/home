@@ -236,18 +236,21 @@ others interact with Flash's internal data structures.
 Both kinds of instructions can coexist and exchange data.
 
 This example script can run both under plain ol' `sh` and with Flash.
-Let's compare the performance.
-To make the comparison meaningful, we'll try two settings:
-one where both routes read a plain 3.9 GB text GFA file[^chr8]
-and one where both odgi and Flash get to start from their respective efficient binary file formats.
+Let's compare the performance:[^setup]
 
-Here are some results:[^setup]
+<img src="{{site.base}}/media/flash/unopt.svg" class="img-responsive bonw"
+    alt="A bar chart comparing the example script running under sh (with a native odgi input file), flash (with a native FlatGFA input file), and flash (with a text GFA input file).">
 
-TK and in fact, this can run unmodified in a real shell. measure performance against odgi. compare:
-- odgi from og
-- odgi from gfa
-- flash from flatgfa
-- flash from gfa
+The first two bars are the important comparison:
+both odgi (via plain `sh`) and FlatGFA (via Flash)
+read the input graph in their respective efficient binary file format.
+The last bar shows how Flash performs when it also has to parse the standard text GFA format for its input.
+
+This particular little shell script runs 28&times; faster on Flash than when using a "real" shell and odgi underneath.
+I find this to be a satisfying speedup already!
+It's also fun to see that Flash can outperform odgi even with the disadvantage of starting from the text GFA format.
+(I've omitted the bar for odgi reading a text GFA because it takes more than 7 minutes.
+I believe, without evidence, that FlatGFA has the world's fastest GFA parser.)
 
 [brush]: https://crates.io/crates/brush
 [brush-parser]: https://crates.io/crates/brush-parser
@@ -282,11 +285,16 @@ shell("rm", ["-f", "chm13.chr8.w5kbps.bed"], input=stdin) -> stdout
 ```
 
 We've cleaned up the code substantially: we use an efficient FlatGFA file directly (and we only open it once), and we skip all the pipes and intermediate files.
+Let's see how it performs:[^stdev]
 
-TK perf measurement again
-- odgi from og
-- flash from flatgfa
-- flash-O from flatgfa
+<img src="{{site.base}}/media/flash/opt.svg" class="img-responsive bonw"
+    alt="A bar chart comparing the example script running under Flash without and with optimizations.">
+
+An additional 1.7&times; speedup seems respectable.
+Please keep in mind that the optimizations I've implemented so far are tragically overfit to this specific workload,
+which has been my "hello world" demo while working on Flash.
+
+[^stdev]: Error bars show the standard deviation. I didn't include error bars in the other plot because they are so tiny.
 
 [toot]: https://discuss.systems/@adrian/116518791774005898
 [opt.rs]: https://github.com/cucapra/pollen/blob/2421a7f34955ccf71ad0743785b125b4e1e6219b/flatgfa-sh/src/opt.rs
