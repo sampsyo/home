@@ -206,7 +206,9 @@ a *GFA store*, which is an efficient representation of a pangenomic variation gr
 This is a plain Rust value stored in the Flash interpreter's environment.
 When it eventually evaluates the `path-depth` instruction, the Flash interpreter retrieves the value and feeds it into the relevant library function.
 
-TK summarize the approach
+This is the whole reason for inventing a fake shell:
+so it can cheat.
+Flash opportunistically avoids running real commands in favor of an elaborate library of builtins.
 
 ### A Complete Example
 
