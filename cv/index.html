@@ -6,6 +6,7 @@ title: 'Adrian Sampson: CV'
 ---
 {% assign cv = site.data.cv %}
 {% assign students = site.data.students %}
+{% assign phdcommittees = site.data.committees %}
 
 <header>
     <h1>
@@ -161,7 +162,7 @@ title: 'Adrian Sampson: CV'
         {% endif %}
     {% endfor %}
     <h3>Ph.D. Committees</h3>
-    {% for student in cv.phdcommittees %}
+    {% for student in phdcommittees %}
     <p>
         {% if student.link %}<a href="{{ student.link }}">{% endif %}{{ student.name }}{% if student.link %}</a>{% endif %}{% if student.school %},
         {{ student.school }}{% endif %}.

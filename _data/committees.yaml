@@ -1,0 +1,194 @@
+- name: Elton Shih
+  advisor: Chris Batten
+  link: https://beeb.page
+- name: Eric Ding
+  advisor: Rachee Singh
+  link: https://ericdinging.github.io
+- name: Emmanuel Suárez Acevedo
+  advisor: Greg Morrisett and Alexandra Silva
+  link: https://emmanuelsuarez.com
+- name: Katherine Wu
+  advisor: Alexandra Silva
+  link: https://katherinewu312.github.io
+- name: Neel Patel
+  advisor: Mohammad Alian
+  link: https://neel-patel-1.github.io
+- name: Sam Breckenridge
+  advisor: Ari Juels
+- name: Max Fan
+  advisor: Justin Hsu
+  link: https://max.fan
+- name: Nazerke Turtayeva
+  advisor: Jonathan Balkind
+  school: UC Santa Barbara
+- name: Vesal Bakhtazad
+  advisor: Zhiru Zhang
+- name: Emine Ezgi Yucel
+  advisor: 'José Martínez'
+- name: Mariia Soroka
+  advisor: Steve Marschner
+- name: Kei Imada
+  advisor: Justin Hsu
+  link: https://keikun555.github.io
+- name: Zhengyang Liu
+  advisor: John Regehr
+  school: University of Utah
+  defense: 2024
+  link: https://users.cs.utah.edu/~liuz/
+- name: Yulun Yao
+  advisor: Andrew Myers
+- name: Nitika Saran
+  advisor: Hakim Weatherspoon
+- name: Matt Hofmann
+  advisor: Zhiru Zhang
+- name: Niansong Zhang
+  advisor: Zhiru Zhang
+  link: https://www.zzzdavid.tech
+- name: Suraaj Sureshkannan
+  advisor: Andrew Myers
+- name: Hongzheng Chen
+  advisor: Zhiru Zhang
+  link: https://chhzh123.github.io
+- name: Noam Zilberstein
+  advisor: Alexandra Silva
+  link: https://www.cs.cornell.edu/~noamz/
+- name: Drew Zagieboylo
+  advisor: Andrew Myers
+  link: https://www.cs.cornell.edu/~dzag/
+  defense: 2023
+- name: Nicolai Oswald
+  advisor: Vijay Nagarajan
+  school: University of Edinburgh
+  defense: 2023
+  link: https://nicolai-oswald.de
+- name: Derin Ozturk
+  advisor: Elizabeth Farrell Helbling
+- name: Zachary Susag
+  advisor: Justin Hsu
+  link: https://zacharysusag.net
+- name: Karuna Grewal
+  advisor: Justin Hsu
+  link: https://aakp10.github.io
+- name: Victor Giannakouris
+  advisor: Immanuel Trummer
+- name: Shubham Chaudhary
+  advisor: Robbert Van Renesse and Lorenzo Alvisi
+  link: https://www.cs.cornell.edu/~shubham/
+  defense: 2025
+- name: Jiajie Li
+  advisor: Zhiru Zhang
+  link: https://tonyjie.github.io
+- name: 'Yueying (Lisa) Li'
+  advisor: Christina Delimitrou and Ed Suh
+  link: https://yueying-lisa-li.org
+- name: Andrew Butt
+  advisor: Zhiru Zhang
+  link: https://andrewb1999.github.io
+-
+    name: Abhishek Vijaya Kumar
+    advisor: Rachee Singh
+    link: https://www.cs.cornell.edu/~abhishek/
+-
+    name: Qizhe Cai
+    advisor: Rachit Agarwal
+    link: https://www.cs.cornell.edu/~qizhec/
+-
+    name: Nicholas Cebry
+    advisor: Chris Batten
+-
+    name: Preslav Ivanov
+    advisor: Chris Batten
+-
+    name: Wen-Ding Li
+    advisor: Dexter Kozen
+    link: https://xu3kev.github.io
+    defense: 2025
+-
+    name: Mark Moeller
+    advisor: Nate Foster and Alexandra Silva
+-
+    name: Michael Roberts
+    advisor: Dexter Kozen
+    defense: 2022
+-
+    name: Luis Vega
+    advisor: Luis Ceze and Dan Grossman
+    school: University of Washington
+    link: https://homes.cs.washington.edu/~vegaluis/
+    defense: 2022
+-
+    name: Socrates Wong
+    advisor: 'José Martínez'
+    defense: 2025
+-
+    name: Ariel Kellison
+    advisor: David Bindel
+    link: 'https://ak-2485.github.io'
+    defense: 2024
+-
+    name: Shaojie Xiang
+    advisor: Zhiru Zhang
+    link: 'https://www.csl.cornell.edu/~xiangs/'
+    defense: 2025
+-
+    name: 'Yanghui Ou'
+    advisor: Chris Batten
+    defense: 2024
+-
+    name: 'A.F. Cooper'
+    advisor: 'Chris De Sa'
+    link: 'https://cacioepe.pe'
+    defense: 2024
+-
+    name: 'Peitian Pan'
+    advisor: Chris Batten
+    defense: 2024
+-
+    name: 'Yi Jiang'
+    advisor: José Martínez
+    link: 'https://www.cs.cornell.edu/~yijiang/'
+    departed: 2022
+-
+    name: 'Yuwei Hu'
+    advisor: Zhiru Zhang
+    departed: 2021
+-
+    name: 'Lin Cheng'
+    advisor: Chris Batten
+    defense: 2022
+-
+    name: 'Tuan Ta'
+    advisor: Chris Batten
+    link: 'http://tuanqta.net'
+    defense: 2023
+-
+    name: 'Yuan Zhou'
+    advisor: Zhiru Zhang
+    link: 'https://zhang.ece.cornell.edu/people/yuan-zhou/'
+    defense: 2021
+-
+    name: 'Maofan (Ted) Yin'
+    advisor: 'Emin Gün Sirer'
+    link: 'https://www.cs.cornell.edu/~tedyin/'
+    defense: 2021
+-
+    name: Wil Thomason
+    advisor: Hadas Kress-Gazit
+    link: https://wbthomason.github.io
+    defense: 2021
+-
+    name: 'Yi-Hsiang (Sean) Lai'
+    advisor: Zhiru Zhang
+    link: http://people.ece.cornell.edu/yl2666/
+    defense: 2021
+-
+    name: Gai Liu
+    advisor: Zhiru Zhang
+    defense: 2018
+    link: https://sites.google.com/a/cornell.edu/gai/
+-
+    name: Melanie Kambadur
+    advisor: Martha Kim
+    school: Columbia University
+    defense: 2016
+    link: http://www.cs.columbia.edu/~melanie/
