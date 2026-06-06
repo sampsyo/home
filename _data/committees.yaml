@@ -1,3 +1,11 @@
+- name: Shinhae Kim
+  advisor: Saikat Dutta and Owolabi Legunsen
+  link: https://shinhae-kim.github.io
+- name: Spencer Van Koevering
+  advisor: Alexandra Silva
+  link: https://spencerkoevering.github.io
+- name: Simon Bertron
+  advisor: Alex Conway
 - name: Elton Shih
   advisor: Chris Batten
   link: https://beeb.page
@@ -49,9 +57,11 @@
 - name: Hongzheng Chen
   advisor: Zhiru Zhang
   link: https://chhzh123.github.io
+  defense: 2026
 - name: Noam Zilberstein
   advisor: Alexandra Silva
   link: https://www.cs.cornell.edu/~noamz/
+  defense: 2026
 - name: Drew Zagieboylo
   advisor: Andrew Myers
   link: https://www.cs.cornell.edu/~dzag/
@@ -71,6 +81,7 @@
   link: https://aakp10.github.io
 - name: Victor Giannakouris
   advisor: Immanuel Trummer
+  defense: 2026
 - name: Shubham Chaudhary
   advisor: Robbert Van Renesse and Lorenzo Alvisi
   link: https://www.cs.cornell.edu/~shubham/
@@ -78,9 +89,6 @@
 - name: Jiajie Li
   advisor: Zhiru Zhang
   link: https://tonyjie.github.io
-- name: 'Yueying (Lisa) Li'
-  advisor: Christina Delimitrou and Ed Suh
-  link: https://yueying-lisa-li.org
 - name: Andrew Butt
   advisor: Zhiru Zhang
   link: https://andrewb1999.github.io
@@ -89,9 +97,11 @@
   link: https://www.cs.cornell.edu/~abhishek/
 - name: Qizhe Cai
   advisor: Rachit Agarwal
+  defense: 2024
   link: https://www.cs.cornell.edu/~qizhec/
 - name: Nicholas Cebry
   advisor: Chris Batten
+  departed: 2026
 - name: Preslav Ivanov
   advisor: Chris Batten
 - name: Wen-Ding Li
