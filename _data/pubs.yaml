@@ -1,4 +1,12 @@
 -
+    title: 'fud2: A Framework for Making Build Tool Orchestrators'
+    authors: 'Jeremy Ku-Benjet and Adrian Sampson'
+    type: workshop
+    venue: 'Workshop on Languages, Tools, and Techniques for Accelerator Design (LATTE) 2026'
+    venue_url: https://capra.cs.cornell.edu/latte26/
+    url: https://capra.cs.cornell.edu/latte26/paper/latte26-final30.pdf
+
+-
     title: 'From PyTorch to Calyx: An Open-Source Compiler Toolchain for ML Accelerators'
     authors: 'Jiahan Xie, Evan Williams, and Adrian Sampson'
     type: workshop
@@ -20,7 +28,6 @@
     venue: 'ASPLOS 2026'
     type: conference
     selected: true
-    venue_status: To appear in
     venue_url: https://www.asplos-conference.org/asplos2026/
     url: https://people.csail.mit.edu/rachit/files/pubs/lilac.pdf
 
