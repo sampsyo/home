@@ -201,8 +201,10 @@
           end: 2025
         - name: Kevin Chen
           start: 2025
+          end: 2026
         - name: Sana Chawla
           start: 2025
+          end: 2025
         - name: Zihan Li
           start: 2025
           end: 2025
@@ -211,6 +213,10 @@
           end: 2025
         - name: Ashwin Sawant
           start: 2025
+          end: 2026
+        - name: Nipat Chenthanakij
+          start: 2026
+          end: 2026
 
 -
     category: Master of Science
@@ -234,8 +240,13 @@
         -
             name: Michael Xing
             start: 2025
+            end: 2026
         - name: Jeremy Ku-Benjet
           start: 2025
+        - name: Helen He
+          start: 2026
+        - name: Pedro Pontes García
+          start: 2026
 
 -
     category: Undergraduate
@@ -518,12 +529,18 @@
           end: 2025
         - name: Pedro Pontes García
           start: 2025
+          end: 2026
+        - name: Helen He
+          start: 2025
+          end: 2026
         - name: Ryan Fu
           start: 2025
+          end: 2025
         - name: John Palsberg
           start: 2025
         - name: Francis Pham
           start: 2024
+          end: 2025
         - name: Joseph Junior Mensha
           start: 2024
           end: 2025
@@ -536,10 +553,22 @@
           start: 2025
         - name: Nagaa Dhaba
           start: 2025
+          end: 2025
         - name: Charles Liggins
           start: 2025
+          end: 2025
         - name: Cynthia Shao
           start: 2025
+        - name: Ethan Berkowitz
+          start: 2026
+        - name: Ryan Breen
+          start: 2026
+        - name: Modi Goldstein-Rosenfeld
+          start: 2026
+        - name: Nikolas Simpfendorfer
+          start: 2026
+        - name: Preston Williams
+          start: 2026
 -
     category: Undergraduate Researchers at UW
     details: |
