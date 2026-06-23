@@ -119,16 +119,19 @@ honors:
 teaching:
     - where: Cornell University
       classes:
-          - term: Spring 2026
+          - term: Fall 2026
             number: CS 3410
             title: Computer System Organization and Programming
             future: true
+          - term: Spring 2026
+            number: CS 3410
+            title: Computer System Organization and Programming
+            link: https://www.cs.cornell.edu/courses/cs3410/2026sp/
           - term: Fall 2025
             number: CS 6120
             title: Advanced Compilers
             desc: This is a PhD-level hands-on course I created about programming language implementation.
             link: https://www.cs.cornell.edu/courses/cs6120/2025fa/
-            future: true
           - term: Spring 2025
             number: CS 6120
             title: Advanced Compilers
@@ -137,7 +140,7 @@ teaching:
             number: CS 3410
             title: Computer System Organization and Programming
             link: https://www.cs.cornell.edu/courses/cs3410/2024fa/
-            desc: "This fall, we revamped the curriculum for the CS major’s core computer systems course. I co-taught with [Giulia Guidi](https://giuliaguidi.github.io)."
+            desc: "That fall, we revamped the curriculum for the CS major’s core computer systems course. I co-taught with [Giulia Guidi](https://giuliaguidi.github.io)."
           - term: Spring 2024
             number: CS 4110
             title: Programming Languages and Logics
