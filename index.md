@@ -2,7 +2,7 @@
 layout: home
 ---
 I do programming languages and computer architecture.
-I like research that breaks down abstraction barriers and rethinks the hardware--software interface.
+I like research that breaks down abstraction barriers and rethinks the hardware--software interface.<span class="x">Recently, I have focused on psychology: I want to understand the mysterious interior life of people who choose careers in compiler engineering.</span>
 See what's going on in [my research group, Capra][capra].
 
 [capra]: https://capra.cs.cornell.edu

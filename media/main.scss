@@ -752,3 +752,8 @@ body:has(input#legit[type="checkbox"]:checked) {
     margin: 0;
   }
 }
+
+span.x {
+    font-size: 0pt;
+    margin: 0;
+}
