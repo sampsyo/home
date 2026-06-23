@@ -250,14 +250,24 @@ article.preview {
         margin: 0;
     }
 }
-article.preview.alone {
-    // Concatenate the "keep reading" link inline.
-    .excerpt p {
+article.preview.compact {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    h3 {
+        font-size: inherit;
         display: inline;
-        margin-right: 0.5em;
+        a:link, a:visited {
+            color: $highlight;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     }
-    .excerpt .tagline {
+    .tagline {
         display: inline-block;
+        text-transform: none;
+        font-size: inherit;
+        margin-left: 0.5em;
     }
 }
 

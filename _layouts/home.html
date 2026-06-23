@@ -5,28 +5,22 @@ layout: default
     {{ content }}
 </div>
 
-<article class="preview alone">
-    {% assign post = site.posts[0] %}
-    <p class="tagline">
-        latest <a href="{{ site.base }}/blog/">blogging</a>:
-        {{ post.date | date: '%B %-d, %Y' }}
-        &mdash;
-        <a href="{{ site.base }}/blog/">more bloggings</a>
-        &mdash;
-        <a href="{{ site.base }}/blog.xml">subscribe</a>
-    </p>
+{% for post in site.posts limit:4 %}
+<article class="preview compact">
     <h3>
         <a href="{{ site.base }}{{ post.url }}">{{ post.title }}</a>
     </h3>
+    <p class="tagline">
+        {{ post.date | date: '%B %-d, %Y' }}
+    </p>
     <div class="excerpt">
         {{ post.excerpt | replace: 'SITE_BASE', site.url | markdownify }}
-        <div class="tagline">
-        <a href="{{ site.base }}{{ post.url }}">keep reading&hellip;</a>
-        </div>
     </div>
 </article>
+{% endfor %}
 
-<div class="portrait">
-    <img src="{{ site.base }}/media/westminster.jpg" alt="me"
-        class="img-responsive">
-</div>
+<p class="tagline">
+    <a href="{{ site.base }}/blog/">see all blog posts</a>
+    &mdash;
+    <a href="{{ site.base }}/blog.xml">subscribe</a>
+</p>
