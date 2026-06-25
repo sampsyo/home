@@ -9,7 +9,7 @@ excerpt: |
     [flatgfa-post]: {{site.base}}/blog/flatgfa.html
 ---
 I have been working on [an efficient toolkit for pangenomics, called FlatGFA][flatgfa-post].
-Relative to other pangenomics tools like [odgi][], FlatGFA has essentially one trick:
+Relative to other pangenomics tools like [odgi][], FlatGFA has only one trick:
 a zero-copy data format.
 The in-memory data format is identical to the on-disk format, so FlatGFA can skip all serialization and deserialization costs;
 opening a file consists of an [mmap(2)][mmap].
@@ -17,7 +17,7 @@ For [unfairly cherry-picked workloads][flatgfa-eval], FlatGFA can be thousands o
 
 Now comes the hard part:
 I want my genomicist colleagues to actually use FlatGFA.
-I want to write an inventory of high-performance operations and let the _real_ scientists compose them into complete workflows.
+I want to write an inventory of high-performance operations and let the real scientists compose them into complete workflows.
 
 To let them do that kind of composition, there were two simple options:
 we could either
@@ -25,10 +25,10 @@ we could either
 (2) design a Rust API and have the scientists write Rust code.
 Neither option is very compelling:
 
-1. The CLI approach really limits the kind of composition you can do.
+1. The CLI approach limits the kind of composition you can do.
    All intermediates need to be either files or pipes,
    which can get awkward and surely comes with some overhead.
-2. Our internal Rust API is, because of all the data-structure tricks we play, written an endearingly idiosyncratic style.
+2. Our internal Rust API uses, because of all the data-structure tricks we play, an endearingly idiosyncratic style.
    Even though our biologist collaborators are great Rust hackers, I can't in good conscience say that we have a _good_ API that they'd be happy to use.
 
 This post is about the very silly alternative that we recently built:
@@ -43,8 +43,8 @@ a _fake shell_ that pretends to offer option 1 but approximates the performance 
 On Ousterhout Dichotomies
 -------------------------
 
-For a long time, I thought that the right way to "package" a performance-oriented library like FlatGFA might be with an [Ousterhout dichotomy][od].
-The performance-sensitive, bulk routines stay in Rust, but we build bindings to a higher-level language for composing those routines into whole workflows.
+For a long time, I thought that the right way to "package" a performance-oriented library like FlatGFA might be with a standard [Ousterhout dichotomy][od].
+The performance-sensitive routines stay in Rust, but we build bindings to a higher-level language for composing those routines into whole workflows.
 The result would look a lot like [PyTorch][]: it doesn't matter to ML engineers that Python isn't very fast because more than 99% of the time is spent in optimized kernel routines written in C++ and CUDA.
 
 Python is the natural choice for the "glue language" part of an Ousterhout dichotomy in the modern era.[^tcl]
@@ -59,7 +59,7 @@ $ uv run --with flatgfa python
 >>> [path.name for path in graph.paths]
 ```
 
-To my surprise, however, Python bindings had a few serious downsides:
+However, Python bindings had a few serious downsides:
 
 * Even with PyO3, the bindings are hard to write efficiently. The problem is the fundamental complexity in the mismatch between Rust's static lifetimes and Python's dynamically managed heap. FlatGFA's performance advantages come from eliminating copies, allocations, and pointer-chasing---all things that want to creep back in at the Rust/Python boundary.
 * We don't get a whole-program view of the workload. Straightforward Python bindings mean that our only opportunity to go fast is _within each call to the library_, and we can't do much across multiple calls. For example, the moment that the user writes a Python `for` loop that iterates over a FlatGFA data structure, we almost certainly lose the performance game. This is the same underlying reason that PyTorch has [a separate, optional compiled mode][torch.compile], for example.
