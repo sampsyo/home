@@ -118,8 +118,10 @@ Maybe the OS's disk cache can mostly mitigate the file I/O cost?
 Could you force it by putting the files in a RAM disk?
 (What even happens when you `mmap` a file that's on a RAM disk?)
 Maybe none of that is practical anyway when datasets grow large enough to overflow main memory?
+What happens to all these trade-offs if we change all the underlying commands to use zero-copy binary file formats instead of text-based streaming?
+Would that approach make scripts messier and sacrifice all the benefits of pipelining?
 
-In that discussion, I realized that there was a ridiculous, impractical, but very fun alternative that could sidestep all those potential downsides.
+In that discussion, I realized that there was a ridiculous, impractical, but very fun alternative that could sidestep all these downsides.
 
 [odgi-tut]: https://odgi.readthedocs.io/en/latest/rst/tutorials/detect_complex_regions.html#obtain-the-depth-over-the-pangenome
 [bedtools]: https://bedtools.readthedocs.io/en/latest/
