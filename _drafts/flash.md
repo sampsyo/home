@@ -324,3 +324,12 @@ The fact that the surface syntax happens to look like a shell is, in the end, no
 For now, Flash's syntax is shell syntax.
 It's a good starting point, it's familiar, and it lets us do head-to-head comparisons against existing combinations of command-line tools.
 We'll stick with the "fake shell" input language until we outgrow it.
+
+---
+
+*Many thanks to [Kevin Laeufer][], [Ernest Ng][], [Michael Xing][], and [Ayaka Yorihiro][] for their feedback on a draft of this post.*
+
+[Michael Xing]: https://michaelxing.com
+[Ayaka Yorihiro]: https://ayakayorihiro.github.io
+[Ernest Ng]: https://ngernest.github.io
+[Kevin Laeufer]: https://kevinlaeufer.com
