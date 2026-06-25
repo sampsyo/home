@@ -80,18 +80,8 @@ It made sense to reconsider the CLI-oriented approach that [odgi][] and friends 
 Reconsidering the Shell
 -----------------------
 
-It might seem odd to prefer shell scripting over a full-featured dynamic scripting language, but
-shell scripts really do have some material advantages over Python:
-
-* Streaming I/O via pipes can be great for large datasets, in the right situation.
-* Simple pipeline parallelism is easy to express.
-* It's straightforward to persist intermediate results in files.
-* The shell is kinda the _ultimate_ glue language:
-  you can compose components developed separately, written in different languages, with no special effort on bindings.
-  (The only "bindings" are the Unix userland APIs.)
-
-You can see evidence of this kind of composition in [the odgi documentation][odgi].
-For example, [one tutorial][odgi-tut] suggests that we find repetitive sequences in human chromosome 8 by composing operators from odgi itself and [bedtools][]:
+Let's look at an example of shell-based composition in this domain.
+One [tutorial][odgi-tut] from [the odgi documentation][odgi] shows how to find repetitive sequences in human chromosome 8 by composing operators from odgi itself and [bedtools][]:
 
 ```sh
 odgi depth -i chr8.pan.og -r chm13#chr8 | \
@@ -101,7 +91,17 @@ odgi depth -i chr8.pan.og -b chm13.chr8.w5kbps.bed --threads 2 | \
     bedtools sort > chr8.pan.depth.w5kbps.bed
 ```
 
-This workflow uses four operators from two different packages, two Unix pipes, and one intermediate file.
+It might seem odd to prefer shell scripting over a full-featured dynamic scripting language, but
+shell scripts like this have some material advantages over Python:
+
+* Streaming I/O via pipes can be great for large datasets, in the right situation.
+* Simple pipeline parallelism is easy to express.
+* It's straightforward to persist intermediate results in files.
+* The shell is kinda the _ultimate_ glue language:
+  you can compose components developed separately, written in different languages, with no special effort on bindings.
+  (The only "bindings" are the Unix userland APIs.)
+
+This example workflow uses four operators from two different packages, two Unix pipes, and one intermediate file.
 I don't think it matters much in this example, but it's nice that the shell pipelines let the two pairs of commands run concurrently.
 
 There is, however, one gigantic downside:
