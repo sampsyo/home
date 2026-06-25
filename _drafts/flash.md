@@ -208,7 +208,7 @@ The `shell` instructions saw above used input and output _resources_.
 These get names like `pipe-0` and `"message.txt"` in the IR listings above.
 For `shell`, the only kinds of resources allowed are byte streams (i.e., pipes and files).
 The `parse-gfa` instruction, however, produces a new type of resource:
-a *GFA store*, which is an efficient representation of a pangenomic variation graph.
+a *GFA store*, which is an efficient in-memory representation of a pangenomic variation graph.
 This is a plain Rust value stored in the Flash interpreter's environment.
 When it eventually evaluates the `path-depth` instruction, the Flash interpreter retrieves the value and feeds it into the relevant library function.
 
@@ -282,7 +282,7 @@ Flash's instruction-based IR makes optimizations feasible (I can't imagine how I
 Here are the optimizations I've implemented so far:
 
 * When the program produces a BED file and then loads it again with a `parse-bed` instruction, avoid the round trip through bytes. Just produce an in-memory BED resource and use that directly.
-* Recognize uses of `path-depth` that actually only need the number of base pairs, and replace them with the cheaper `path-length` instruction. (This one's cheesy: it just so happens that `odgi depth -r` is a convenient way to get path length, even though it also needlessly computes depth.)
+* Recognize uses of `path-depth` that actually only need the number of base pairs, and replace them with the cheaper `path-length` instruction. (This one's cheesy: it just so happens that `odgi depth -r` is a convenient CLI way to get path length, even though it also needlessly computes depth.)
 * Find identical `map-file` instructions that load the same file twice and deduplicate them. (If I were a better man, this would be a general [CSE][].)
 * The cheesiest one of all: when the program uses `parse-gfa("foo.gfa")` and a file named `foo.flatgfa` happens to exist, replace it with `map-file("foo.flatgfa")`. In other words, assuming that we've already converted the text GFA format to our efficient binary format, use that. (This ridiculous optimization mainly just helps with writing shell scripts that remain 100% compatible with a real POSIX shell.)
 
