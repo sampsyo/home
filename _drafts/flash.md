@@ -159,7 +159,7 @@ The idea is to build a _fake shell:_
 something that supports a tiny fraction of POSIX shell syntax
 and "cheats" when running pangenomic operators.
 The goal is to run unmodified shell scripts that use traditional CLI tools, like [odgi][] and [bedtools][], and communicate through pipes and files.
-We'll make the same shell scripts go faster by opportunistically switching to faster implementations and avoiding I/O.
+We'll make the same biologist-authored shell scripts go faster by opportunistically switching to faster implementations and avoiding I/O.
 
 The shell is called Flash (the FlatGFA shell), and if you want to play along, you can find it [in our pangenomics monorepo][flash].
 Use `cargo run` to get an interactive prompt.
@@ -320,6 +320,7 @@ Is This an Elaborate Prank?
 Flash is a little domain-specific language that's wearing a ridiculous shell-syntax Halloween costume.
 I'm pretty excited about the underlying DSL, the vectorized interpreter, and the coarse-grained optimizations that it enables---I think all this machinery could be the way to make FlatGFA practical to use.
 The fact that the surface syntax happens to look like a shell is, in the end, not *that* important, even if it is kinda funny.
+But it does mean that we can run existing shell scripts that the biologists have already written and transparently make them go faster.
 
 For now, Flash's syntax is shell syntax.
 It's a good starting point, it's familiar, and it lets us do head-to-head comparisons against existing combinations of command-line tools.
