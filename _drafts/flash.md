@@ -128,6 +128,12 @@ In that discussion, I realized that there was a ridiculous, impractical, but ver
 Digression: Vectorized Interpreters
 -----------------------------------
 
+<figure style="max-width: 256px;">
+<a href="https://venge.net/graydon/talks/VectorizedInterpretersTalk-2023-05-12.pdf">
+<img src="{{site.base}}/media/flash/mrt.jpeg" alt="a slide from Graydon's talk titled '19th Century Tech Calls', with a picture of a train" style="max-width: 256px;">
+</a>
+</figure>
+
 In 2023, Graydon Hoare gave [a talk at UCSC about "vectorized interpreters"][vecint] that made a big impression on me.[^graydon]
 He makes the point that native-code compilers (especially JITs) are an extremely complicated way to extract performance from code.
 The idea that stuck with me was that, with suitable cooperation from the programming model, interpreters that operate *in bulk* can be a simple and fast alternative.
