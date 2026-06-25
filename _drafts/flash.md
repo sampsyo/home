@@ -103,6 +103,7 @@ shell scripts like this have some material advantages over Python:
 
 This example workflow uses four operators from two different packages, two Unix pipes, and one intermediate file.
 I don't think it matters much in this example, but it's nice that the shell pipelines let the two pairs of commands run concurrently.
+To borrow a phrase from [Greenberg et al.][hotos21], _the shell is actually good._[^hotos]
 
 There is, however, one gigantic downside:
 the only ways to exchange data between operations are files and pipes.
@@ -123,6 +124,10 @@ In that discussion, I realized that there was a ridiculous, impractical, but ver
 [odgi-tut]: https://odgi.readthedocs.io/en/latest/rst/tutorials/detect_complex_regions.html#obtain-the-depth-over-the-pangenome
 [bedtools]: https://bedtools.readthedocs.io/en/latest/
 [panorama]: https://news.cornell.edu/stories/2021/11/5m-grant-will-tackle-pangenomics-computing-challenge
+[hotos21]: https://nikos.vasilak.is/p/pash:hotos:2021.pdf
+[pash]: https://al.radbox.org/doi/10.1145/3447786.3456228
+
+[^hotos]: For broader thoughts on the essential goodness of shell scripts as a programming model, I strongly recommend ["Unix Shell Programming: The Next 50 Years" in HotOS 2021][hotos21]. It's a very fun read. In particular, [PaSh][] also accelerates shell scripts by first compiling them into a dataflow IR; I would love to adopt its approach to parallelization in Flash.
 
 
 Digression: Vectorized Interpreters
