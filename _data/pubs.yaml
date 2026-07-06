@@ -1,4 +1,13 @@
 -
+    title: 'Understanding Accelerator Compilers via Performance Profiling'
+    authors: 'Ayaka Yorihiro, Griffin Berlstein, Pedro Pontes García, Kevin Laeufer, and Adrian Sampson'
+    type: conference
+    venue: 'OOPSLA 2026'
+    venue_url: https://conf.researchr.org/track/splash-2026/oopsla-2026
+    venue_status: To appear in
+    selected: true
+
+-
     title: 'fud2: A Framework for Making Build Tool Orchestrators'
     authors: 'Jeremy Ku-Benjet and Adrian Sampson'
     type: workshop
