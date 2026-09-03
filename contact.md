@@ -4,7 +4,7 @@ title: Contact
 class: contact
 ---
 Send me email at [{{site.email}}][email].
-My office in [the unnamed Bowers building][ubb] is 482.
+My office in [the unnamed Bowers building][ubb] is 465.
 I share lots of code on [GitHub][gh].
 
 You can find me in the Fediverse at [@adrian@discuss.systems][mastodon].
