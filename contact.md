@@ -65,7 +65,7 @@ I do not control waitlists, nor do I have the ability to distribute PINs---for t
 
 ### I'm applying to grad school soon, and I'm interested in doing research with you!  {#grad}
 
-This year (the 2025 application cycle), I am not looking for new PhD students.
+I am not currently looking for new PhD students.
 However, we have extremely strong PL and architecture groups at Cornell; I strongly encourage you to apply to work with other advisors we have here.
 Please [apply to the Ph.D. program at Cornell CS][csapply] or [in ECE][eceapply].
 
